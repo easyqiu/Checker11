@@ -6,12 +6,12 @@ int data;
 std::atomic<int> x=0;
 
 void f1() {
-    x.store(1, memory_order_relaxed);
+    x.store(1, std::memory_order_relaxed);
 }
 
 void f2() {
-    x.store(2,memory_order_relaxed);
-    data = x.load(memory_order_relaxed);
+    x.store(2, std::memory_order_relaxed);
+    data = x.load(std::memory_order_relaxed);
 }
 
 int main() {

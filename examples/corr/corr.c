@@ -6,13 +6,13 @@ int data1, data2;
 std::atomic<int> x=0, y=0;
 
 void f1() {
-    x.store(1, memory_order_relaxed);
-    x.store(2, memory_order_relaxed);
+    x.store(1, std::memory_order_relaxed);
+    x.store(2, std::memory_order_relaxed);
 }
 
 void f2() {
-    data1 = x.load(memory_order_relaxed);
-    data2 = x.load(memory_order_relaxed);
+    data1 = x.load(std::memory_order_relaxed);
+    data2 = x.load(std::memory_order_relaxed);
 }
 
 int main() {
