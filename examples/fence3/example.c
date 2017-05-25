@@ -32,13 +32,13 @@ int main() {
 //  atomic_int x=0;
 //  int y;
 //  {{{  { 
-//       atomic_thread_fence(memory_order_release); // a
-//       x.store(1, memory_order_relaxed);
+//       //atomic_thread_fence(memory_order_release); 
+//       x.store(1, memory_order_release); // a
 //       x.store(2, memory_order_relaxed); 
 //      }
 //  |||  {
-//        r1=x.load(memory_order_acquire);
-//        //atomic_thread_fence(memory_order_acquire); // b
+//        r1=x.load(memory_order_relaxed);
+//        atomic_thread_fence(memory_order_acquire); // b
 //      }  
 //  }}};
 //  return 0; }

@@ -37,8 +37,8 @@ int main() {
 //       x.store(2, memory_order_relaxed); 
 //      }
 //  |||  {
-//        r1=x.load(memory_order_acquire);
-//        //atomic_thread_fence(memory_order_acquire); // b
+//        r1=x.load(memory_order_acquire);  // b
+//        //atomic_thread_fence(memory_order_acquire); 
 //      }  
 //  }}};
 //  return 0; }
