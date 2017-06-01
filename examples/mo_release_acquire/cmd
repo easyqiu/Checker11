@@ -1,0 +1,3 @@
+nohup opt -load LLVMHello.dylib -codeInstr example.bc > x
+lc -filetype=obj example.bc
+g++ example.o

@@ -1,3 +1,5 @@
+#include "checker.h"
+
 #include <thread>
 #include <atomic>
 #include <cassert>
@@ -5,7 +7,12 @@
  
 std::atomic<std::string*> ptr;
 int data;
- 
+
+struct structA {
+    int x;
+    int y;
+};
+
 void producer()
 {
     std::string* p  = new std::string("Hello");
@@ -21,10 +28,21 @@ void consumer()
     assert(*p2 == "Hello"); // never fires
     assert(data == 42); // never fires
 }
+
+void test() {
+    std::atomic<int> x, y;
+    x = x+y;
+    x.store(2, std::memory_order_release);
+}
+
+void test(int x) {
+    std::atomic<structA> A, B, *C;
+}
  
-int main()
-{
+int main() {
+    checker_shared((void*)&data);
     std::thread t1(producer);
     std::thread t2(consumer);
+    test();
     t1.join(); t2.join();
 }

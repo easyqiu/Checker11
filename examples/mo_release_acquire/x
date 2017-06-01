@@ -1,0 +1,200 @@
+Instrument code: begin!
+add a function: preStore
+
+declare void @preNonAtomicStore(i8*)
+
+add a function: preLoad
+
+declare void @preNonAtomicLoad(i8*)
+
+11111
+  %call = tail call i8* @_Znwm(i64 24) #11
+Func: _Znwm
+11111
+  tail call void @llvm.memset.p0i8.i64(i8* nonnull %call, i8 0, i64 24, i32 8, i1 false) #12
+Func: llvm.memset.p0i8.i64
+Is Intrinsic!
+33333
+Identify a non-atomic store! 
+11111
+  tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* %0, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i64 0, i64 0), i64 5, i32 1, i1 false) #12
+Func: llvm.memcpy.p0i8.p0i8.i64
+Is Intrinsic!
+33333
+Identify a non-atomic store! 
+33333
+Identify a non-atomic store! 
+33333
+Identify an atomic store!: release
+22222
+Identify an atomic load!: acquire
+22222
+Identify a non-atomic load!
+22222
+Identify a non-atomic load!
+44444
+  %call2.i = invoke i32 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKcm(%"class.std::__1::basic_string"* nonnull %1, i64 0, i64 -1, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i64 0, i64 0), i64 5)
+          to label %_ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit unwind label %lpad.i
+Func: _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKcm
+11111
+  tail call void @__clang_call_terminate(i8* %6) #11
+Func: __clang_call_terminate
+11111
+  tail call void @__assert_rtn(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @__func__._Z8consumerv, i64 0, i64 0), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str.1, i64 0, i64 0), i32 28, i8* getelementptr inbounds ([15 x i8], [15 x i8]* @.str.2, i64 0, i64 0)) #12
+Func: __assert_rtn
+22222
+Identify a non-atomic load!
+11111
+  tail call void @__assert_rtn(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @__func__._Z8consumerv, i64 0, i64 0), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str.1, i64 0, i64 0), i32 29, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.3, i64 0, i64 0)) #12
+Func: __assert_rtn
+11111
+  tail call void @_Z14checker_sharedPv(i8* bitcast (i32* @data to i8*))
+Func: _Z14checker_sharedPv
+11111
+  call void @llvm.lifetime.start(i64 8, i8* nonnull %0) #11
+Func: llvm.lifetime.start
+Is Intrinsic!
+11111
+  call void @_ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_(%"class.std::__1::thread"* nonnull %t1, void ()* nonnull @_Z8producerv)
+Func: _ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_
+11111
+  call void @llvm.lifetime.start(i64 8, i8* nonnull %1) #11
+Func: llvm.lifetime.start
+Is Intrinsic!
+44444
+  invoke void @_ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_(%"class.std::__1::thread"* nonnull %t2, void ()* nonnull @_Z8consumerv)
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_
+44444
+  invoke void @_ZNSt3__16thread4joinEv(%"class.std::__1::thread"* nonnull %t1)
+          to label %invoke.cont3 unwind label %lpad1
+Func: _ZNSt3__16thread4joinEv
+44444
+  invoke void @_ZNSt3__16thread4joinEv(%"class.std::__1::thread"* nonnull %t2)
+          to label %invoke.cont4 unwind label %lpad1
+Func: _ZNSt3__16thread4joinEv
+11111
+  call void @_ZNSt3__16threadD1Ev(%"class.std::__1::thread"* nonnull %t2) #11
+Func: _ZNSt3__16threadD1Ev
+11111
+  call void @llvm.lifetime.end(i64 8, i8* nonnull %1) #11
+Func: llvm.lifetime.end
+Is Intrinsic!
+11111
+  call void @_ZNSt3__16threadD1Ev(%"class.std::__1::thread"* nonnull %t1) #11
+Func: _ZNSt3__16threadD1Ev
+11111
+  call void @llvm.lifetime.end(i64 8, i8* nonnull %0) #11
+Func: llvm.lifetime.end
+Is Intrinsic!
+11111
+  call void @_ZNSt3__16threadD1Ev(%"class.std::__1::thread"* nonnull %t2) #11
+Func: _ZNSt3__16threadD1Ev
+11111
+  call void @llvm.lifetime.end(i64 8, i8* nonnull %1) #11
+Func: llvm.lifetime.end
+Is Intrinsic!
+11111
+  call void @_ZNSt3__16threadD1Ev(%"class.std::__1::thread"* nonnull %t1) #11
+Func: _ZNSt3__16threadD1Ev
+11111
+  call void @llvm.lifetime.end(i64 8, i8* nonnull %0) #11
+Func: llvm.lifetime.end
+Is Intrinsic!
+11111
+  %2 = tail call i8* @__cxa_begin_catch(i8* %0) #11
+Func: __cxa_begin_catch
+11111
+  tail call void @_ZSt9terminatev() #12
+Func: _ZSt9terminatev
+11111
+  %call = tail call i8* @_Znwm(i64 8) #11
+Func: _Znwm
+44444
+  invoke void @_ZNSt3__115__thread_structC1Ev(%"class.std::__1::__thread_struct"* nonnull %0)
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__115__thread_structC1Ev
+44444
+  %call4 = invoke i8* @_Znwm(i64 16) #11
+          to label %invoke.cont3 unwind label %_ZNKSt3__114default_deleteINS_15__thread_structEEclEPS1_.exit.i.i.i
+Func: _Znwm
+33333
+Identify a non-atomic store! 
+33333
+Identify a non-atomic store! 
+44444
+  %call.i31 = invoke i32 @pthread_create(%struct._opaque_pthread_t** %__t_, %struct._opaque_pthread_attr_t* null, i8* (i8*)* nonnull @_ZNSt3__114__thread_proxyINS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEPFvvEEEEEEPvSA_, i8* nonnull %call4)
+          to label %invoke.cont12 unwind label %lpad11
+Func: pthread_create
+11111
+  tail call void @_ZdlPv(i8* nonnull %call) #12
+Func: _ZdlPv
+44444
+  invoke void @_ZNSt3__120__throw_system_errorEiPKc(i32 %call.i31, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.5, i64 0, i64 0)) #13
+          to label %invoke.cont16 unwind label %lpad15
+Func: _ZNSt3__120__throw_system_errorEiPKc
+22222
+Identify a non-atomic load!
+33333
+Identify a non-atomic store! 
+11111
+  tail call void @_ZNSt3__115__thread_structD1Ev(%"class.std::__1::__thread_struct"* nonnull %13) #14
+Func: _ZNSt3__115__thread_structD1Ev
+11111
+  tail call void @_ZdlPv(i8* %14) #12
+Func: _ZdlPv
+11111
+  tail call void @_ZdlPv(i8* nonnull %call4) #12
+Func: _ZdlPv
+11111
+  tail call void @_ZNSt3__115__thread_structD1Ev(%"class.std::__1::__thread_struct"* nonnull %0) #14
+Func: _ZNSt3__115__thread_structD1Ev
+11111
+  tail call void @_ZdlPv(i8* nonnull %call) #12
+Func: _ZdlPv
+44444
+  %call = invoke dereferenceable(8) %"class.std::__1::__thread_specific_ptr"* @_ZNSt3__119__thread_local_dataEv()
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__119__thread_local_dataEv
+22222
+Identify a non-atomic load!
+33333
+Identify a non-atomic store! 
+22222
+Identify a non-atomic load!
+44444
+  %call.i.i19 = invoke i32 @pthread_setspecific(i64 %2, i8* %1)
+          to label %invoke.cont5 unwind label %lpad.thread
+Func: pthread_setspecific
+22222
+Identify a non-atomic load!
+44444
+  invoke void %4()
+          to label %delete.notnull.i.i.i.i15 unwind label %lpad.thread
+22222
+Identify a non-atomic load!
+33333
+Identify a non-atomic store! 
+11111
+  tail call void @_ZNSt3__115__thread_structD1Ev(%"class.std::__1::__thread_struct"* nonnull %5) #11
+Func: _ZNSt3__115__thread_structD1Ev
+11111
+  tail call void @_ZdlPv(i8* %6) #12
+Func: _ZdlPv
+11111
+  tail call void @_ZdlPv(i8* nonnull %__vp) #12
+Func: _ZdlPv
+22222
+Identify a non-atomic load!
+33333
+Identify a non-atomic store! 
+11111
+  tail call void @_ZNSt3__115__thread_structD1Ev(%"class.std::__1::__thread_struct"* nonnull %7) #11
+Func: _ZNSt3__115__thread_structD1Ev
+11111
+  tail call void @_ZdlPv(i8* %8) #12
+Func: _ZdlPv
+11111
+  tail call void @_ZdlPv(i8* nonnull %__vp) #12
+Func: _ZdlPv
+Instrument code: end!

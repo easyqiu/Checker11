@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: C++11.aux
+The style file: abbrvnat.bst
+Database file #1: references.bib
+Warning--to sort, need author or key in ISO1
+Warning--to sort, need author or key in ISO2
+Warning--empty author in ISO1
+Warning--empty year in ISO1
+Warning--empty author in ISO2
+Warning--empty year in ISO2
+Warning--empty institution in Batty10
+You've used 8 entries,
+            2773 wiz_defined-function locations,
+            691 strings with 7235 characters,
+and the built_in function-call counts, 3906 in all, are:
+= -- 359
+> -- 158
+< -- 9
++ -- 57
+- -- 48
+* -- 274
+:= -- 519
+add.period$ -- 22
+call.type$ -- 8
+change.case$ -- 41
+chr.to.int$ -- 7
+cite$ -- 25
+duplicate$ -- 218
+empty$ -- 366
+format.name$ -- 58
+if$ -- 876
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 7
+newline$ -- 46
+num.names$ -- 24
+pop$ -- 114
+preamble$ -- 1
+purify$ -- 32
+quote$ -- 0
+skip$ -- 169
+stack$ -- 0
+substring$ -- 170
+swap$ -- 58
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 88
+warning$ -- 7
+while$ -- 33
+width$ -- 0
+write$ -- 104
+(There were 7 warnings)

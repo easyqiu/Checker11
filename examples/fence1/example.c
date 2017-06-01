@@ -4,7 +4,7 @@
 #include <iostream>
 
 int data1 = 0, data2 = 0;
-std::atomic<int> x=0;
+std::atomic<int> x={0};
 
 void f1() {
     data1 = 2;
@@ -22,6 +22,8 @@ int main() {
     std::thread a(f1);
     std::thread b(f2);
 
+    std::atomic_compare_exchange_weak(&x, &data1, 2);
+    std::atomic_compare_exchange_strong_explicit(&x, &data1, 2, std::memory_order_release, std::memory_order_relaxed);
     std::cout << "data: " << data1 << " " << data2 << "\n";
     assert(data1 == 2); // will never be violated
     a.join(), b.join();

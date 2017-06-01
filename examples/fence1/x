@@ -1,0 +1,149 @@
+Instrument code: begin!
+add a function: preStore
+
+declare void @preNonAtomicStore(i8*)
+
+add a function: preLoad
+
+declare void @preNonAtomicLoad(i8*)
+
+Identify a non-atomic store! 
+Identify a fence!: release
+Identify an atomic store!: monotonic
+Identify an atomic store!: monotonic
+Identify an atomic load!: monotonic
+Identify a non-atomic store! 
+Identify a fence!: acquire
+  invoke void @_ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_(%"class.std::__1::thread"* nonnull %b, void ()* nonnull @_Z2f2v)
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_
+Identify a non-atomic load!
+Identify a cmpXchg!: seq_cst seq_cst
+i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0)
+  %2 = load i32, i32* @data1, align 4
+i32 2
+Identify a non-atomic load!
+Identify a non-atomic store! 
+Identify a cmpXchg!: release monotonic
+i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0)
+  %6 = phi i32 [ %.pre, %invoke.cont._ZNSt3__128atomic_compare_exchange_weakIiEEbPNS_6atomicIT_EEPS2_S2_.exit_crit_edge ], [ %5, %cmpxchg.store_expected34.i.i ]
+i32 2
+Identify a non-atomic store! 
+  %call1.i21 = invoke dereferenceable(160) %"class.std::__1::basic_ostream"* @_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(%"class.std::__1::basic_ostream"* nonnull dereferenceable(160) @_ZNSt3__14coutE, i8* getelementptr inbounds ([7 x i8], [7 x i8]* @.str, i64 0, i64 0), i64 6)
+          to label %invoke.cont3 unwind label %lpad2
+Func: _ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m
+Identify a non-atomic load!
+  %call6 = invoke dereferenceable(160) %"class.std::__1::basic_ostream"* @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi(%"class.std::__1::basic_ostream"* nonnull %call1.i21, i32 %10)
+          to label %invoke.cont5 unwind label %lpad2
+Func: _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi
+  %call1.i24 = invoke dereferenceable(160) %"class.std::__1::basic_ostream"* @_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(%"class.std::__1::basic_ostream"* nonnull dereferenceable(160) %call6, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.1, i64 0, i64 0), i64 1)
+          to label %invoke.cont7 unwind label %lpad2
+Func: _ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m
+Identify a non-atomic load!
+  %call10 = invoke dereferenceable(160) %"class.std::__1::basic_ostream"* @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi(%"class.std::__1::basic_ostream"* nonnull %call1.i24, i32 %11)
+          to label %invoke.cont9 unwind label %lpad2
+Func: _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEElsEi
+  %call1.i18 = invoke dereferenceable(160) %"class.std::__1::basic_ostream"* @_ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m(%"class.std::__1::basic_ostream"* nonnull dereferenceable(160) %call10, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.2, i64 0, i64 0), i64 1)
+          to label %invoke.cont11 unwind label %lpad2
+Func: _ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m
+Identify a non-atomic load!
+  invoke void @__assert_rtn(i8* getelementptr inbounds ([5 x i8], [5 x i8]* @__func__.main, i64 0, i64 0), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str.3, i64 0, i64 0), i32 28, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.4, i64 0, i64 0)) #11
+          to label %invoke.cont13 unwind label %lpad2
+Func: __assert_rtn
+  invoke void @_ZNSt3__16thread4joinEv(%"class.std::__1::thread"* nonnull %a)
+          to label %invoke.cont14 unwind label %lpad2
+Func: _ZNSt3__16thread4joinEv
+  invoke void @_ZNSt3__16thread4joinEv(%"class.std::__1::thread"* nonnull %b)
+          to label %invoke.cont15 unwind label %lpad2
+Func: _ZNSt3__16thread4joinEv
+  invoke void @_ZNSt3__115__thread_structC1Ev(%"class.std::__1::__thread_struct"* nonnull %0)
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__115__thread_structC1Ev
+  %call4 = invoke i8* @_Znwm(i64 16) #10
+          to label %invoke.cont3 unwind label %_ZNKSt3__114default_deleteINS_15__thread_structEEclEPS1_.exit.i.i.i
+Func: _Znwm
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+  %call.i31 = invoke i32 @pthread_create(%struct._opaque_pthread_t** %__t_, %struct._opaque_pthread_attr_t* null, i8* (i8*)* nonnull @_ZNSt3__114__thread_proxyINS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEPFvvEEEEEEPvSA_, i8* nonnull %call4)
+          to label %invoke.cont12 unwind label %lpad11
+Func: pthread_create
+  invoke void @_ZNSt3__120__throw_system_errorEiPKc(i32 %call.i31, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.5, i64 0, i64 0)) #12
+          to label %invoke.cont16 unwind label %lpad15
+Func: _ZNSt3__120__throw_system_errorEiPKc
+Identify a non-atomic load!
+Identify a non-atomic store! 
+  %call = invoke dereferenceable(8) %"class.std::__1::__thread_specific_ptr"* @_ZNSt3__119__thread_local_dataEv()
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__119__thread_local_dataEv
+Identify a non-atomic load!
+Identify a non-atomic store! 
+Identify a non-atomic load!
+  %call.i.i19 = invoke i32 @pthread_setspecific(i64 %2, i8* %1)
+          to label %invoke.cont5 unwind label %lpad.thread
+Func: pthread_setspecific
+Identify a non-atomic load!
+  invoke void %4()
+          to label %delete.notnull.i.i.i.i15 unwind label %lpad.thread
+Identify a non-atomic load!
+Identify a non-atomic store! 
+Identify a non-atomic load!
+Identify a non-atomic store! 
+  invoke void @_ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_(%"class.std::__1::basic_ostream<char, std::__1::char_traits<char> >::sentry"* nonnull %__s, %"class.std::__1::basic_ostream"* nonnull dereferenceable(160) %__os)
+          to label %invoke.cont unwind label %lpad
+Func: _ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+  invoke void @_ZNKSt3__18ios_base6getlocEv(%"class.std::__1::locale"* nonnull sret %ref.tmp.i.i, %"class.std::__1::ios_base"* %7)
+          to label %.noexc unwind label %lpad3
+Func: _ZNKSt3__18ios_base6getlocEv
+  %call.i5.i.i = invoke %"class.std::__1::locale::facet"* @_ZNKSt3__16locale9use_facetERNS0_2idE(%"class.std::__1::locale"* nonnull %ref.tmp.i.i, %"class.std::__1::locale::id"* nonnull dereferenceable(16) @_ZNSt3__15ctypeIcE2idE)
+          to label %invoke.cont.i.i unwind label %lpad.i.i
+Func: _ZNKSt3__16locale9use_facetERNS0_2idE
+Identify a non-atomic load!
+Identify a non-atomic load!
+  %call.i6.i.i = invoke signext i8 %15(%"class.std::__1::ctype"* %13, i8 signext 32)
+          to label %_ZNKSt3__19basic_iosIcNS_11char_traitsIcEEE5widenEc.exit.i unwind label %lpad.i.i
+Identify a non-atomic store! 
+  %call19 = invoke %"class.std::__1::basic_streambuf"* @_ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_(%"class.std::__1::basic_streambuf"* %6, i8* %__str, i8* %cond, i8* %add.ptr6, %"class.std::__1::ios_base"* dereferenceable(136) %7, i8 signext %conv6.i)
+          to label %invoke.cont18 unwind label %lpad3
+Func: _ZNSt3__116__pad_and_outputIcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+  invoke void @_ZNSt3__18ios_base5clearEj(%"class.std::__1::ios_base"* %19, i32 %or.i.i)
+          to label %if.end28 unwind label %lpad1
+Func: _ZNSt3__18ios_base5clearEj
+Identify a non-atomic load!
+Identify a non-atomic load!
+  invoke void @_ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv(%"class.std::__1::ios_base"* %29)
+          to label %invoke.cont35 unwind label %lpad34
+Func: _ZNSt3__18ios_base33__set_badbit_and_consider_rethrowEv
+  invoke void @__cxa_end_catch()
+          to label %eh.resume unwind label %terminate.lpad
+Func: __cxa_end_catch
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+  %call.i8687 = invoke i64 %8(%"class.std::__1::basic_streambuf"* nonnull %__s.coerce, i8* %cond.i.i, i64 %__ns.0)
+          to label %invoke.cont unwind label %lpad
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic load!
+Identify a non-atomic store! 
+Instrument code: end!
