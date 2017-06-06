@@ -1,5 +1,5 @@
 ; ModuleID = 'x.bc'
-source_filename = "example.c"
+source_filename = "example.cpp"
 target datalayout = "e-m:o-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-apple-macosx10.10.0"
 
@@ -23,7 +23,7 @@ target triple = "x86_64-apple-macosx10.10.0"
 @data = global i32 0, align 4
 @.str = private unnamed_addr constant [6 x i8] c"Hello\00", align 1
 @__func__._Z8consumerv = private unnamed_addr constant [9 x i8] c"consumer\00", align 1
-@.str.1 = private unnamed_addr constant [10 x i8] c"example.c\00", align 1
+@.str.1 = private unnamed_addr constant [12 x i8] c"example.cpp\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"*p2 == \22Hello\22\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"data == 42\00", align 1
 @.str.5 = private unnamed_addr constant [26 x i8] c"thread constructor failed\00", align 1
@@ -45,15 +45,19 @@ define void @_Z8producerv() #1 personality i8* bitcast (i32 (...)* @__gxx_person
 entry:
   %call = tail call i8* @_Znwm(i64 24) #11
   tail call void @llvm.memset.p0i8.i64(i8* nonnull %call, i8 0, i64 24, i32 8, i1 false) #12
+  call void @preNonAtomicStore_char(i8* %call, i8 10)
   store i8 10, i8* %call, align 8, !tbaa !2
   %0 = getelementptr inbounds i8, i8* %call, i64 1
   tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* %0, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i64 0, i64 0), i64 5, i32 1, i1 false) #12
   %arrayidx.i.i.i = getelementptr inbounds i8, i8* %call, i64 6
+  call void @preNonAtomicStore_char(i8* %arrayidx.i.i.i, i8 0)
   store i8 0, i8* %arrayidx.i.i.i, align 1, !tbaa !2
+  %myCast = bitcast i32* @data to i8*
+  call void @preNonAtomicStore_int(i8* %myCast, i32 42)
   store i32 42, i32* @data, align 4, !tbaa !5
   %1 = ptrtoint i8* %call to i64
-  %myCast = bitcast i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) to i8*
-  call void @preStore(i8* %myCast, i32 5)
+  %myCast1 = bitcast i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) to i8*
+  call void @preAtomicStore_double(i8* %myCast1, i64 %1, i32 5)
   store atomic i64 %1, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) release, align 8
   ret void
 }
@@ -79,7 +83,8 @@ entry:
 
 while.cond:                                       ; preds = %while.cond, %entry
   %myCast = bitcast i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) to i8*
-  call void @preLoad(i8* %myCast, i32 4)
+  %myLoad = load i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*)
+  call void @preAtomicLoad_double(i8* %myCast, i64 %myLoad, i32 4)
   %0 = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8
   %lnot = icmp eq i64 %0, 0
   br i1 %lnot, label %while.cond, label %while.end
@@ -114,7 +119,7 @@ _ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1
   br i1 %cmp3.i, label %cond.end, label %cond.true, !prof !7
 
 cond.true:                                        ; preds = %while.end, %_ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
-  tail call void @__assert_rtn(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @__func__._Z8consumerv, i64 0, i64 0), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str.1, i64 0, i64 0), i32 28, i8* getelementptr inbounds ([15 x i8], [15 x i8]* @.str.2, i64 0, i64 0)) #14
+  tail call void @__assert_rtn(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @__func__._Z8consumerv, i64 0, i64 0), i8* getelementptr inbounds ([12 x i8], [12 x i8]* @.str.1, i64 0, i64 0), i32 28, i8* getelementptr inbounds ([15 x i8], [15 x i8]* @.str.2, i64 0, i64 0)) #14
   unreachable
 
 cond.end:                                         ; preds = %_ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
@@ -123,7 +128,7 @@ cond.end:                                         ; preds = %_ZNSt3__1eqIcNS_11c
   br i1 %lnot4, label %cond.end10, label %cond.true8, !prof !7
 
 cond.true8:                                       ; preds = %cond.end
-  tail call void @__assert_rtn(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @__func__._Z8consumerv, i64 0, i64 0), i8* getelementptr inbounds ([10 x i8], [10 x i8]* @.str.1, i64 0, i64 0), i32 29, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.3, i64 0, i64 0)) #14
+  tail call void @__assert_rtn(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @__func__._Z8consumerv, i64 0, i64 0), i8* getelementptr inbounds ([12 x i8], [12 x i8]* @.str.1, i64 0, i64 0), i32 29, i8* getelementptr inbounds ([11 x i8], [11 x i8]* @.str.3, i64 0, i64 0)) #14
   unreachable
 
 cond.end10:                                       ; preds = %cond.end
@@ -150,7 +155,7 @@ define i32 @main() local_unnamed_addr #7 personality i8* bitcast (i32 (...)* @__
 entry:
   %t1 = alloca %"class.std::__1::thread", align 8
   %t2 = alloca %"class.std::__1::thread", align 8
-  tail call void @checker_shared_int(i32* nonnull @data)
+  tail call void @_Z14checker_sharedPv(i8* bitcast (i32* @data to i8*))
   %0 = bitcast %"class.std::__1::thread"* %t1 to i8*
   call void @llvm.lifetime.start(i64 8, i8* nonnull %0) #12
   call void @_ZNSt3__16threadC2IRFvvEJEvEEOT_DpOT0_(%"class.std::__1::thread"* nonnull %t1, void ()* nonnull @_Z8producerv)
@@ -200,7 +205,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
   resume { i8*, i32 } %lpad.val6
 }
 
-declare void @checker_shared_int(i32*) local_unnamed_addr #8
+declare void @_Z14checker_sharedPv(i8*) local_unnamed_addr #8
 
 declare void @_ZNSt3__16thread4joinEv(%"class.std::__1::thread"*) local_unnamed_addr #8
 
@@ -242,9 +247,13 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = ptrtoint i8* %call to i64
   %2 = ptrtoint void ()* %__f to i64
   %3 = bitcast i8* %call4 to i64*
+  %myCast = bitcast i64* %3 to i8*
+  call void @preNonAtomicStore_double(i8* %myCast, i64 %1)
   store i64 %1, i64* %3, align 8, !tbaa !8
   %4 = getelementptr inbounds i8, i8* %call4, i64 8
   %5 = bitcast i8* %4 to i64*
+  %myCast1 = bitcast i64* %5 to i8*
+  call void @preNonAtomicStore_double(i8* %myCast1, i64 %2)
   store i64 %2, i64* %5, align 8, !tbaa !11
   %__t_ = getelementptr inbounds %"class.std::__1::thread", %"class.std::__1::thread"* %this, i64 0, i32 0
   %call.i31 = invoke i32 @pthread_create(%struct._opaque_pthread_t** %__t_, %struct._opaque_pthread_attr_t* null, i8* (i8*)* nonnull @_ZNSt3__114__thread_proxyINS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEPFvvEEEEEEPvSA_, i8* nonnull %call4)
@@ -410,9 +419,55 @@ declare i32 @pthread_setspecific(i64, i8*) local_unnamed_addr #8
 ; Function Attrs: nounwind
 declare void @_ZNSt3__115__thread_structD1Ev(%"class.std::__1::__thread_struct"*) unnamed_addr #9
 
-declare void @preStore(i8*, i32)
+declare void @preNonAtomicStore_char(i8*, i8)
 
-declare void @preLoad(i8*, i32)
+declare void @preNonAtomicStore_int(i8*, i32)
+
+declare void @preNonAtomicStore_double(i8*, i64)
+
+declare void @preAtomicStore_char(i8*, i8, i32)
+
+declare void @preAtomicStore_int(i8*, i32, i32)
+
+declare void @preAtomicStore_double(i8*, i64, i32)
+
+declare void @preNonAtomicLoad_char(i8*, i8)
+
+declare void @preNonAtomicLoad_int(i8*, i32)
+
+declare void @preNonAtomicLoad_double(i8*, i64)
+
+declare void @preAtomicLoad_char(i8*, i8, i32)
+
+declare void @preAtomicLoad_int(i8*, i32, i32)
+
+declare void @preAtomicLoad_double(i8*, i64, i32)
+
+declare void @preFence(i32)
+
+declare void @preCmpXchg_int(i8*, i32, i32, i32, i32)
+
+declare void @preRMW_Xchg(i8*, i32, i32)
+
+declare void @preRMW_Add(i8*, i32, i32)
+
+declare void @preRMW_Sub(i8*, i32, i32)
+
+declare void @preRMW_And(i8*, i32, i32)
+
+declare void @preRMW_Nand(i8*, i32, i32)
+
+declare void @preRMW_Or(i8*, i32, i32)
+
+declare void @preRMW_Xor(i8*, i32, i32)
+
+declare void @preRMW_Max(i8*, i32, i32)
+
+declare void @preRMW_Min(i8*, i32, i32)
+
+declare void @preRMW_UMax(i8*, i32, i32)
+
+declare void @preRMW_UMin(i8*, i32, i32)
 
 attributes #0 = { norecurse nounwind readnone ssp uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="core2" "target-features"="+cx16,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 attributes #1 = { ssp uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="core2" "target-features"="+cx16,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }

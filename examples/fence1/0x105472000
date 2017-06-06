@@ -1,0 +1,7 @@
+thread begin: 0x105472000
+atomic_load_int: 0x1050fa700 0 2
+atomic_load_int: 0x1050fa700 0 2
+atomic_load_int: 0x1050fa700 1 2
+atomic_load_int: 0x1050fa700 2 2
+fence: 4
+non_atomic_load_int: 0x1050fa6f8 2

@@ -1,0 +1,4 @@
+thread begin: 0x103768000
+atomic_load_int: 0x103465148 2 0
+non_atomic_store_int: 0x103465140 0
+atomic_store_int: 0x10346514c 1 2

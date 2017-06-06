@@ -1,0 +1,5 @@
+thread begin: 0x1053ef000
+non_atomic_store_int: 0x1050fa6f8 2
+fence: 5
+atomic_store_int: 0x1050fa700 1 2
+atomic_store_int: 0x1050fa700 2 2

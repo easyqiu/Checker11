@@ -1,0 +1,4 @@
+thread begin: 0x7fff7379a300
+thread create: 0x7fff7379a300 0x1053ef000
+thread create: 0x7fff7379a300 0x105472000
+non_atomic_load_int: 0x1050fa6f8 2
