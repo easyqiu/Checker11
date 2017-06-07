@@ -206,7 +206,6 @@ namespace {
     }
 
     void instrCall(Instruction* inst) {
-      /*inst->dump();
       CallInst* cInst;
       if ((cInst = dyn_cast<CallInst>(inst)) == NULL)
           return ;
@@ -216,8 +215,7 @@ namespace {
       if (func->isIntrinsic()) {
         errs() << "Is Intrinsic!\n";
         return ;
-      }*/
-
+      }
     }
     void instrNonAtomicLoad(LoadInst* loadI) {
       errs() << "Identify a non-atomic load!\n";
@@ -490,7 +488,7 @@ namespace {
     void instrInst(Instruction* inst) {
       switch (inst->getOpcode()) {
         case Instruction::Call:
-            instrCall(inst);
+            //instrCall(inst);
             break ;
         case Instruction::Invoke:
             instrInvoke(inst);

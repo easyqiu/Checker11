@@ -1,4 +1,0 @@
-thread begin: 0x1037eb000
-atomic_load_int: 0x10346514c 2 1
-non_atomic_store_int: 0x103465144 1
-atomic_store_int: 0x103465148 1 2

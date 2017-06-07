@@ -123,6 +123,33 @@ Instrument/fast:
 	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/build
 .PHONY : Instrument/fast
 
+Action.o: Action.cpp.o
+
+.PHONY : Action.o
+
+# target to build an object file
+Action.cpp.o:
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Action.cpp.o
+.PHONY : Action.cpp.o
+
+Action.i: Action.cpp.i
+
+.PHONY : Action.i
+
+# target to preprocess a source file
+Action.cpp.i:
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Action.cpp.i
+.PHONY : Action.cpp.i
+
+Action.s: Action.cpp.s
+
+.PHONY : Action.s
+
+# target to generate assembly for a file
+Action.cpp.s:
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Action.cpp.s
+.PHONY : Action.cpp.s
+
 Executor.o: Executor.cpp.o
 
 .PHONY : Executor.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Instrument"
+	@echo "... Action.o"
+	@echo "... Action.i"
+	@echo "... Action.s"
 	@echo "... Executor.o"
 	@echo "... Executor.i"
 	@echo "... Executor.s"

@@ -1,0 +1,6 @@
+TStart main
+TCreate main f1
+TCreate main f2
+TJoin main f1
+TJoin main f2
+TFinish main

@@ -819,10 +819,14 @@ $\Phi_{sc}$ can be encoded as follow:
 
 \begin{equation}
 \begin{aligned}
-\Phi_{sc} = (\bigvee_{\forall a,b\in SC} ((O_{ab}==1\rightarrow S_a<S_b)) \vee \\
-                  (\bigvee_{\forall x\in L}\bigvee_{\forall a,b\in W^x} (M_a<M_b\rightarrow S_a<S_b))
+\Phi_{sc} = (\bigwedge_{\forall a,b\in SC}(B_{ab}\neq \bot)\wedge ((B_{ab}==1\rightarrow S_a<S_b)) \\
+                   \bigvee(\bigwedge_{\forall x\in L}\bigwedge_{\forall a,b\in W^x} (M_a<M_b\rightarrow S_a<S_b))
 \end{aligned}
 \end{equation} 
+
+Note that $B_{ab}\neq \bot$ is used to enforce a total order among the actions
+in $SC$. 
+
 
 \paragraph{Consistent modification order $\Phi_{mo}$}
 
@@ -832,7 +836,7 @@ at the same location. $\Phi_{mo}$ can be defined as follow:
 
 \begin{equation}
 \begin{aligned}
-\Phi_{mo} = \bigvee_{\forall x\in L }\bigvee_{\forall a,b\in W^x} ((O_{ab}==1\rightarrow M_a<M_b) 
+\Phi_{mo} = \bigvee_{\forall x\in L }\bigvee_{\forall a,b\in W^x} ((B_{ab}==1\rightarrow M_a<M_b) 
 \end{aligned}
 \end{equation} 
 
@@ -864,7 +868,7 @@ is consistent and is described as follow:
 
 \begin{equation}
 \begin{aligned}
-\Phi_{corf} = \bigvee_{\forall x\in L }\bigvee_{\forall a\in W^x, b\in R^x} ((F_{ab}\rightarrow O_{ba}\neq 1) 
+\Phi_{corf} = \bigvee_{\forall x\in L }\bigvee_{\forall a\in W^x, b\in R^x} ((F_{ab}\rightarrow B_{ba}\neq 1) 
 \end{aligned}
 \end{equation} 
 
@@ -880,7 +884,7 @@ we encode $\Phi_{corr}$ as follow:
 \begin{equation}
 \begin{aligned}
 \Phi_{corr} = \bigwedge_{\forall x\in L}(\bigwedge_{\substack{\forall a,b\in W^x\\c,d\in R^x}} 
-(F_{ac}\wedge F_{bd}\wedge O_{cd}==1) \\
+(F_{ac}\wedge F_{bd}\wedge B_{cd}==1) \\
 \rightarrow M_{a}<M_{b})
 \end{aligned}
 \end{equation} 
@@ -895,7 +899,7 @@ encode $\Phi_{corw}$ as follow:
 \begin{equation}
 \begin{aligned}
 \Phi_{corw} = \bigwedge_{\forall x\in L}(\bigwedge_{\substack{\forall a,c\in W^x\\b\in R^x}}
-(F_{ab}\wedge O_{bc}==1)\\ \rightarrow M_{a}<M_{c})
+(F_{ab}\wedge B_{bc}==1)\\ \rightarrow M_{a}<M_{c})
 \end{aligned}
 \end{equation} 
 
@@ -908,7 +912,7 @@ encode $\Phi_{cowr}$ as follow:
 \begin{equation}
 \begin{aligned}
 \Phi_{cowr} = \bigwedge_{\forall x\in L}(\bigwedge_{\substack{\forall a,b\in W^x\\c\in R^x}}
-(F_{ac}\wedge O_{bc}==1)\\ \rightarrow M_{b}<M_{a})
+(F_{ac}\wedge B_{bc}==1)\\ \rightarrow M_{b}<M_{a})
 \end{aligned}
 \end{equation} 
 
@@ -923,7 +927,7 @@ as follow:
 \begin{equation}
 \begin{aligned}
 \Phi_{cowr} = \bigwedge_{\forall x\in L}(\bigwedge_{\substack{\forall a,b\in W^x}}
-(O_{ab}==1)\rightarrow M_{a}<M_{b})
+(B_{ab}==1)\rightarrow M_{a}<M_{b})
 \end{aligned}
 \end{equation} 
 
@@ -939,9 +943,9 @@ from mapping and the order of sequential consistent actions.
 
 Taking the consistent execution described in Figure~\ref{fig:noStrictOrder}(a)
 as example, the solution corresponding to the execution is: 
-$O_{ab}$=1, $O_{bc}$=1, $O_{cd}$=1, $O_{be}$=1, $O_{ef}$=1, $O_{ac}$=1, 
-$O_{ad}$=1, $O_{ae}$=1, $O_{af}$=1, $O_{bd}$=1, $O_{bf}$=1, $O_{ce}$=$\bot$, 
-$O_{cf}$=$\bot$, $O_{de}$=$\bot$, $O_{df}$=$\bot$, 
+$B_{ab}$=1, $B_{bc}$=1, $B_{cd}$=1, $B_{be}$=1, $B_{ef}$=1, $B_{ac}$=1, 
+$B_{ad}$=1, $B_{ae}$=1, $B_{af}$=1, $B_{bd}$=1, $B_{bf}$=1, $B_{ce}$=$\bot$, 
+$B_{cf}$=$\bot$, $B_{de}$=$\bot$, $B_{df}$=$\bot$, 
 $F_{fc}$=true, $F_{de}$=true, $F_{ac}$=false, $F_{be}$=false,
 $M_a$=1, $M_f$=2, $M_b$=1, $M_d$=2. 
 However, no solution exists for the

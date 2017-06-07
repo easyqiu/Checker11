@@ -1,4 +1,4 @@
-SOURCE=Instrument.cpp Executor.cpp Thread.cpp
+SOURCE=Instrument.cpp Executor.cpp Thread.cpp Action.cpp
 MYPROGRAM=libinstrument.dylib
 # MYINCLUDES=/home/scale/g++Projects/gLib/
 # MYLIBRARIES=fltk

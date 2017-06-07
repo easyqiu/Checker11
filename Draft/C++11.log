@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 MAY 2017 09:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 JUN 2017 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -901,22 +901,22 @@ Overfull \hbox (2.45213pt too wide) detected at line 771
 <CO.pdf, id=4992, 594.86873pt x 89.09064pt>
 File: CO.pdf Graphic file (type pdf)
  <use CO.pdf>
-Package pdftex.def Info: CO.pdf used on input line 843.
+Package pdftex.def Info: CO.pdf used on input line 847.
 (pdftex.def)             Requested size: 386.6601pt x 57.90822pt.
 
-Overfull \hbox (4.31218pt too wide) in paragraph at lines 848--854
+Overfull \hbox (4.31218pt too wide) in paragraph at lines 852--858
  \OT1/ptm/b/it/10 Con-sis-tent reads from map-ping $\OT1/cmr/m/n/10 ^^H[]$[] \O
 T1/ptm/m/n/10 Mem-ory model makes
  []
 
 [6]
-Overfull \hbox (4.69753pt too wide) in paragraph at lines 915--922
+Overfull \hbox (4.69753pt too wide) in paragraph at lines 919--926
 []\OT1/ptm/b/n/10 CoWW \OT1/ptm/m/n/10 re-quires mod-i-fi-ca-tion or-der to agr
 ee with happens-
  []
 
 
-Overfull \hbox (12.0pt too wide) detected at line 1009
+Overfull \hbox (12.0pt too wide) detected at line 1013
 [][] 
  []
 
@@ -953,7 +953,7 @@ mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist
 e1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on C++11.pdf (8 pages, 4539559 bytes).
+Output written on C++11.pdf (8 pages, 4539819 bytes).
 PDF statistics:
  6282 PDF objects out of 7423 (max. 8388607)
  3478 compressed objects within 35 object streams

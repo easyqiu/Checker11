@@ -1,0 +1,4 @@
+TStart f1
+ARead 0x10d312150 0 0
+AWrite 0x10d312154 0 1
+TFinish f1

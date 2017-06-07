@@ -8,6 +8,8 @@
 
 #include "Executor.h"
 
+using namespace checker;
+
 # define DEBUG
 
 std::set<void*> sharedAddresses; 
@@ -15,15 +17,14 @@ Executor* exe;
 
 extern "C" {
 
-std::string getThreadName() {
-    std::thread::id id = std::this_thread::get_id();
+std::string getThreadName(std::thread::id id) {
     std::stringstream ss;
     ss << id;
     return ss.str();
 }
 
 void updateTrace(std::string content) {
-    std::string name = getThreadName();
+    std::string name = getThreadName(std::this_thread::get_id());
     std::ofstream outfile(name, std::ios::app);
     outfile << content;
     outfile.flush();
@@ -94,7 +95,7 @@ int preAtomicLoad_int(void* addr, int order) {
     std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
 # endif
 
-    int retV = exe->execute_pre_read_action(getThreadName(), addr, order);
+    int retV = exe->execute_pre_read_action(getThreadName(std::this_thread::get_id()), addr, order);
     std::cout << "retV: " << retV;
     return retV;
 }
@@ -114,11 +115,7 @@ void postAtomicLoad_int(void* addr, int val, int order) {
     std::cout << "In atomic postLoad: " << addr << " " << val << " " << order << "!\n";
 # endif
 
-    std::stringstream ss;
-    ss << "atomic_load_int: " << addr << " " << order << " " << val << "\n";
-    updateTrace(ss.str());
-
-    exe->execute_post_read_action(getThreadName(), addr, order, val);
+    exe->execute_post_read_action(getThreadName(std::this_thread::get_id()), addr, order, val);
     return ;
 
 }
@@ -150,10 +147,6 @@ void preNonAtomicStore_int(void* addr, int val) {
     std::cout << "In non-atomic preStore: " << addr << " " << val << "!\n";
 # endif
     
-    std::stringstream ss;
-    ss << "non_atomic_store_int: " << addr << " " << val << "\n";
-    updateTrace(ss.str());
-
 }
 
 void preNonAtomicStore_double(void* addr, double val) {
@@ -186,12 +179,8 @@ void preAtomicStore_int(void* addr, int val, int order) {
 # ifdef DEBUG
     std::cout << "In atomic preStore: " << addr << " " << val << " " << order << "!\n";
 # endif
-    
-    std::stringstream ss;
-    ss << "atomic_store_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
 
-    exe->execute_write_action(getThreadName(), addr, order, val);
+    exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
 void preAtomicStore_double(void* addr, double val, int order) {
@@ -375,41 +364,28 @@ void checker_shared(void* addr) {
     sharedAddresses.insert(addr);
 }
 
-void thread_begin() {
-    exe->addThread(getThreadName());
-}
-
 void checker_generateExecutor() {
     exe = new Executor();
     std::cerr << "initialize executor!\n";
 }
 
-void checker_thread_create(std::thread::id id1, std::thread::id id2) {
-    std::stringstream ss;
-
-    //std::cout << "in thread create!\n";
-    ss << id1;
-    std::ofstream outfile(ss.str(), std::ios::app);
-    ss.str("");
-    ss << "thread create: " << id1 << " " << id2 << "\n";
-    outfile << ss.str();
-    //std::cout << "FFFFFFFF: T" << ss.str() << "T\n";
-    outfile.flush();
-    outfile.close();
+void checker_thread_create(std::thread::id id2) {
+    std::thread::id id1 = std::this_thread::get_id();
+    exe->execute_thread_create_action(getThreadName(id1), getThreadName(id2));
 }
 
-void checker_thread_begin(std::thread::id id) {
-    std::stringstream ss;
-    ss.str("");
-    ss << id;
-    std::ofstream outfile(ss.str(), std::ios::app);
-    ss.str("");
-    ss << "thread begin: " << id << "\n";
-    outfile << ss.str();
-    //std::cout << "RRRRRRRRRRR: Q" << ss.str() << "Q\n";
-    outfile.flush();
-    outfile.close();
-    thread_begin();
+void checker_thread_begin(char *name) {
+    std::thread::id id = std::this_thread::get_id();
+    exe->execute_thread_begin_action(getThreadName(id), name);
+}
+
+void checker_thread_end() {
+
+    exe->execute_thread_end_action(getThreadName(std::this_thread::get_id()));
+}
+
+void checker_thread_join(std::thread::id id) {
+    exe->execute_thread_join_action(getThreadName(std::this_thread::get_id()), getThreadName(id));
 }
 
 }

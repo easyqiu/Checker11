@@ -2,28 +2,44 @@
 #include <vector>
 #include <iostream>
 
-#include "Action.h"
+//#include "Action.h"
+//#include "Executor.h"
 
-class Thread {
-public:
-    Thread(std::string tid) {id = tid;}
+namespace checker {
 
-    bool pause(Action* h) {
-        return false;
-    }
+    class Action;
+    class Executor;
 
-    int getValue(Action* action) {
-        return -1;//preFix
-    }
+    class Thread {
+    public:
+        Thread(std::string tid, std::string n) {
+            id = tid, name = n;
+            //std::cout << "new thread: " << this << " " << tid << " " << n << "\n";
+        }
 
-    void addAction(Action* action);
+        bool pause(Action *h) {
+            return false;
+        }
 
-    std::vector<Action*> getActionList();
-    
-private:
-    std::string id;
-    std::vector<Action*> actionList;
-    std::vector<Action*> preFix;
+        int getValue(Action *action) {
+            return -1;//preFix
+        }
 
-};
+        void addAction(Action *action);
+
+        std::vector<Action *> getActionList();
+
+        std::string getName();
+
+        void printTrace();
+
+    private:
+        std::string id;
+        std::string name;
+        Executor *exe;
+        std::vector<Action *> actionList;
+        std::vector<Action *> preFix;
+
+    };
+}
 

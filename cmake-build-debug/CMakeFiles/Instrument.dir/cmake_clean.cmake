@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Instrument.dir/Instrument.cpp.o"
   "CMakeFiles/Instrument.dir/Executor.cpp.o"
   "CMakeFiles/Instrument.dir/Thread.cpp.o"
+  "CMakeFiles/Instrument.dir/Action.cpp.o"
   "Instrument.pdb"
   "Instrument"
 )

@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Action.cpp">
+			<Option target="Instrument"/>
+		</Unit>
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Action.h">
 			<Option target="Instrument"/>
 		</Unit>

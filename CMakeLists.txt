@@ -8,6 +8,6 @@ set(SOURCE_FILES
         Executor.h
         Instrument.cpp
         Instrument.h
-        Thread.h Executor.cpp Thread.cpp)
+        Thread.h Executor.cpp Thread.cpp Action.cpp)
 
 add_executable(Instrument ${SOURCE_FILES})
