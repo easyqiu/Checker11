@@ -153,12 +153,162 @@ CMakeFiles/Instrument.dir/Action.cpp.o.provides: CMakeFiles/Instrument.dir/Actio
 CMakeFiles/Instrument.dir/Action.cpp.o.provides.build: CMakeFiles/Instrument.dir/Action.cpp.o
 
 
+CMakeFiles/Instrument.dir/Solver.cpp.o: CMakeFiles/Instrument.dir/flags.make
+CMakeFiles/Instrument.dir/Solver.cpp.o: ../Solver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Instrument.dir/Solver.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Instrument.dir/Solver.cpp.o -c /Users/aser/Dropbox/papers/C++11/Checker11/Solver.cpp
+
+CMakeFiles/Instrument.dir/Solver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Instrument.dir/Solver.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aser/Dropbox/papers/C++11/Checker11/Solver.cpp > CMakeFiles/Instrument.dir/Solver.cpp.i
+
+CMakeFiles/Instrument.dir/Solver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Instrument.dir/Solver.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aser/Dropbox/papers/C++11/Checker11/Solver.cpp -o CMakeFiles/Instrument.dir/Solver.cpp.s
+
+CMakeFiles/Instrument.dir/Solver.cpp.o.requires:
+
+.PHONY : CMakeFiles/Instrument.dir/Solver.cpp.o.requires
+
+CMakeFiles/Instrument.dir/Solver.cpp.o.provides: CMakeFiles/Instrument.dir/Solver.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Solver.cpp.o.provides.build
+.PHONY : CMakeFiles/Instrument.dir/Solver.cpp.o.provides
+
+CMakeFiles/Instrument.dir/Solver.cpp.o.provides.build: CMakeFiles/Instrument.dir/Solver.cpp.o
+
+
+CMakeFiles/Instrument.dir/Z3Solver.cpp.o: CMakeFiles/Instrument.dir/flags.make
+CMakeFiles/Instrument.dir/Z3Solver.cpp.o: ../Z3Solver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Instrument.dir/Z3Solver.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Instrument.dir/Z3Solver.cpp.o -c /Users/aser/Dropbox/papers/C++11/Checker11/Z3Solver.cpp
+
+CMakeFiles/Instrument.dir/Z3Solver.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Instrument.dir/Z3Solver.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aser/Dropbox/papers/C++11/Checker11/Z3Solver.cpp > CMakeFiles/Instrument.dir/Z3Solver.cpp.i
+
+CMakeFiles/Instrument.dir/Z3Solver.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Instrument.dir/Z3Solver.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aser/Dropbox/papers/C++11/Checker11/Z3Solver.cpp -o CMakeFiles/Instrument.dir/Z3Solver.cpp.s
+
+CMakeFiles/Instrument.dir/Z3Solver.cpp.o.requires:
+
+.PHONY : CMakeFiles/Instrument.dir/Z3Solver.cpp.o.requires
+
+CMakeFiles/Instrument.dir/Z3Solver.cpp.o.provides: CMakeFiles/Instrument.dir/Z3Solver.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Z3Solver.cpp.o.provides.build
+.PHONY : CMakeFiles/Instrument.dir/Z3Solver.cpp.o.provides
+
+CMakeFiles/Instrument.dir/Z3Solver.cpp.o.provides.build: CMakeFiles/Instrument.dir/Z3Solver.cpp.o
+
+
+CMakeFiles/Instrument.dir/Util.cpp.o: CMakeFiles/Instrument.dir/flags.make
+CMakeFiles/Instrument.dir/Util.cpp.o: ../Util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Instrument.dir/Util.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Instrument.dir/Util.cpp.o -c /Users/aser/Dropbox/papers/C++11/Checker11/Util.cpp
+
+CMakeFiles/Instrument.dir/Util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Instrument.dir/Util.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aser/Dropbox/papers/C++11/Checker11/Util.cpp > CMakeFiles/Instrument.dir/Util.cpp.i
+
+CMakeFiles/Instrument.dir/Util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Instrument.dir/Util.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aser/Dropbox/papers/C++11/Checker11/Util.cpp -o CMakeFiles/Instrument.dir/Util.cpp.s
+
+CMakeFiles/Instrument.dir/Util.cpp.o.requires:
+
+.PHONY : CMakeFiles/Instrument.dir/Util.cpp.o.requires
+
+CMakeFiles/Instrument.dir/Util.cpp.o.provides: CMakeFiles/Instrument.dir/Util.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Util.cpp.o.provides.build
+.PHONY : CMakeFiles/Instrument.dir/Util.cpp.o.provides
+
+CMakeFiles/Instrument.dir/Util.cpp.o.provides.build: CMakeFiles/Instrument.dir/Util.cpp.o
+
+
+CMakeFiles/Instrument.dir/Parameters.cpp.o: CMakeFiles/Instrument.dir/flags.make
+CMakeFiles/Instrument.dir/Parameters.cpp.o: ../Parameters.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Instrument.dir/Parameters.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Instrument.dir/Parameters.cpp.o -c /Users/aser/Dropbox/papers/C++11/Checker11/Parameters.cpp
+
+CMakeFiles/Instrument.dir/Parameters.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Instrument.dir/Parameters.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aser/Dropbox/papers/C++11/Checker11/Parameters.cpp > CMakeFiles/Instrument.dir/Parameters.cpp.i
+
+CMakeFiles/Instrument.dir/Parameters.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Instrument.dir/Parameters.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aser/Dropbox/papers/C++11/Checker11/Parameters.cpp -o CMakeFiles/Instrument.dir/Parameters.cpp.s
+
+CMakeFiles/Instrument.dir/Parameters.cpp.o.requires:
+
+.PHONY : CMakeFiles/Instrument.dir/Parameters.cpp.o.requires
+
+CMakeFiles/Instrument.dir/Parameters.cpp.o.provides: CMakeFiles/Instrument.dir/Parameters.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Parameters.cpp.o.provides.build
+.PHONY : CMakeFiles/Instrument.dir/Parameters.cpp.o.provides
+
+CMakeFiles/Instrument.dir/Parameters.cpp.o.provides.build: CMakeFiles/Instrument.dir/Parameters.cpp.o
+
+
+CMakeFiles/Instrument.dir/Schedule.cpp.o: CMakeFiles/Instrument.dir/flags.make
+CMakeFiles/Instrument.dir/Schedule.cpp.o: ../Schedule.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Instrument.dir/Schedule.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Instrument.dir/Schedule.cpp.o -c /Users/aser/Dropbox/papers/C++11/Checker11/Schedule.cpp
+
+CMakeFiles/Instrument.dir/Schedule.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Instrument.dir/Schedule.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aser/Dropbox/papers/C++11/Checker11/Schedule.cpp > CMakeFiles/Instrument.dir/Schedule.cpp.i
+
+CMakeFiles/Instrument.dir/Schedule.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Instrument.dir/Schedule.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aser/Dropbox/papers/C++11/Checker11/Schedule.cpp -o CMakeFiles/Instrument.dir/Schedule.cpp.s
+
+CMakeFiles/Instrument.dir/Schedule.cpp.o.requires:
+
+.PHONY : CMakeFiles/Instrument.dir/Schedule.cpp.o.requires
+
+CMakeFiles/Instrument.dir/Schedule.cpp.o.provides: CMakeFiles/Instrument.dir/Schedule.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/Schedule.cpp.o.provides.build
+.PHONY : CMakeFiles/Instrument.dir/Schedule.cpp.o.provides
+
+CMakeFiles/Instrument.dir/Schedule.cpp.o.provides.build: CMakeFiles/Instrument.dir/Schedule.cpp.o
+
+
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o: CMakeFiles/Instrument.dir/flags.make
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o: ../ConstraintModelGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o -c /Users/aser/Dropbox/papers/C++11/Checker11/ConstraintModelGenerator.cpp
+
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/aser/Dropbox/papers/C++11/Checker11/ConstraintModelGenerator.cpp > CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.i
+
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/aser/Dropbox/papers/C++11/Checker11/ConstraintModelGenerator.cpp -o CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.s
+
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.requires:
+
+.PHONY : CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.requires
+
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.provides: CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Instrument.dir/build.make CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.provides.build
+.PHONY : CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.provides
+
+CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.provides.build: CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o
+
+
 # Object files for target Instrument
 Instrument_OBJECTS = \
 "CMakeFiles/Instrument.dir/Instrument.cpp.o" \
 "CMakeFiles/Instrument.dir/Executor.cpp.o" \
 "CMakeFiles/Instrument.dir/Thread.cpp.o" \
-"CMakeFiles/Instrument.dir/Action.cpp.o"
+"CMakeFiles/Instrument.dir/Action.cpp.o" \
+"CMakeFiles/Instrument.dir/Solver.cpp.o" \
+"CMakeFiles/Instrument.dir/Z3Solver.cpp.o" \
+"CMakeFiles/Instrument.dir/Util.cpp.o" \
+"CMakeFiles/Instrument.dir/Parameters.cpp.o" \
+"CMakeFiles/Instrument.dir/Schedule.cpp.o" \
+"CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o"
 
 # External object files for target Instrument
 Instrument_EXTERNAL_OBJECTS =
@@ -167,9 +317,15 @@ Instrument: CMakeFiles/Instrument.dir/Instrument.cpp.o
 Instrument: CMakeFiles/Instrument.dir/Executor.cpp.o
 Instrument: CMakeFiles/Instrument.dir/Thread.cpp.o
 Instrument: CMakeFiles/Instrument.dir/Action.cpp.o
+Instrument: CMakeFiles/Instrument.dir/Solver.cpp.o
+Instrument: CMakeFiles/Instrument.dir/Z3Solver.cpp.o
+Instrument: CMakeFiles/Instrument.dir/Util.cpp.o
+Instrument: CMakeFiles/Instrument.dir/Parameters.cpp.o
+Instrument: CMakeFiles/Instrument.dir/Schedule.cpp.o
+Instrument: CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o
 Instrument: CMakeFiles/Instrument.dir/build.make
 Instrument: CMakeFiles/Instrument.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Instrument"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/aser/Dropbox/papers/C++11/Checker11/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Instrument"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Instrument.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -181,6 +337,12 @@ CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Instrument.cpp.o.r
 CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Executor.cpp.o.requires
 CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Thread.cpp.o.requires
 CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Action.cpp.o.requires
+CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Solver.cpp.o.requires
+CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Z3Solver.cpp.o.requires
+CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Util.cpp.o.requires
+CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Parameters.cpp.o.requires
+CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/Schedule.cpp.o.requires
+CMakeFiles/Instrument.dir/requires: CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o.requires
 
 .PHONY : CMakeFiles/Instrument.dir/requires
 

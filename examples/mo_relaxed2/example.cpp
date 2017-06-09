@@ -44,9 +44,11 @@ int main()
 
     checker_thread_join(a.get_id());
     checker_thread_join(b.get_id());
-    a.join(), b.join();
+    a.join(); b.join();
     std::cout << "data: " << data1 << " " << data2 << "\n";
-    assert(!(data1 == 1 && data2 == 1)); // may be violated
+    if (!(data1 == 1 && data2 == 1)) // may be violated
+        std::cout << "ERROR!\n";
     checker_thread_end();
+    checker_solver();
     return 0;
 }

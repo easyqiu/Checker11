@@ -1,4 +1,4 @@
-SOURCE=Instrument.cpp Executor.cpp Thread.cpp Action.cpp
+SOURCE=Instrument.cpp Executor.cpp Thread.cpp Action.cpp Solver.cpp Parameters.cpp Schedule.cpp Util.cpp Z3Solver.cpp # ConstraintModelGenerator.cpp
 MYPROGRAM=libinstrument.dylib
 # MYINCLUDES=/home/scale/g++Projects/gLib/
 # MYLIBRARIES=fltk

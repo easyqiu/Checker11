@@ -5,6 +5,7 @@
 namespace checker {
 
 	class Executor;
+	class Thread;
 
 	typedef enum memory_order {
 		memory_order_relaxed,
@@ -43,23 +44,31 @@ namespace checker {
 	class Action {
 	public:
 		Action() {}
+		virtual ~Action() {}
 
-		Action(Executor* exe, action_type_t type, int ord, void *loc, uint64_t val = 0xffff) {
+		Action(Executor* exe, Thread* thread, action_type_t type) {
 			this->exe = exe;
+			this->thread = thread;
+			this->type = type;
+		}
+
+		/*Action(Executor* exe, Thread* thread, action_type_t type, int ord, void *loc, uint64_t val = 0xffff) {
+			this->exe = exe;
+			this->thread = thread;
 			this->type = type;
 			order = to_mo(ord);
 			location = loc;
 			value = val;
-		}
+		}*/
 
-		Action(Executor* exe, action_type_t type, std::string id1, std::string id2 = "") {
+		Action(Executor* exe, Thread* thread, action_type_t type, std::string id1, std::string id2 = "") {
 			this->exe = exe;
+			this->thread = thread;
 			this->type = type;
 			this->id1 = id1;
 			this->id2 = id2;
 		}
 
-		~Action();
 
 		memory_order to_mo(int i) {
 			switch (i) {
@@ -80,16 +89,20 @@ namespace checker {
 
 		void print() const;
 
-		int get_tid() const { return tid; }
+		std::string get_tid() const;
 
 		action_type get_type() const { return type; }
 
-		memory_order get_mo() const { return order; }
+		//memory_order get_mo() const { return order; }
 
-		void *get_location() const { return location; }
+		void* get_location() const { return location; }
+		std::string get_location_str() const;
 
-		//modelclock_t get_seq_number() const { return seq_number; }
-		uint64_t get_value() const { return value; }
+		int get_seq_number() const { return seq_number; }
+
+		void set_seq_number(int seq_num) { seq_number = seq_num;}
+
+		//uint64_t get_value() const { return value; }
 
 		uint64_t get_reads_from_value() const;
 
@@ -101,17 +114,19 @@ namespace checker {
 
 		//Promise * get_reads_from_promise() const { return reads_from_promise; }
 		//std::mutex * get_mutex() const;
-		void set_value(uint64_t val) { value = val; }
+		//void set_value(uint64_t val) { value = val; }
 
 		std::string get_type_str(bool simple) const;
 
-		std::string get_action_str();
+		virtual std::string get_action_str();
 
 		void print();
 
-	private:
+	protected:
 
 		Executor* exe;
+
+		Thread* thread;
 
 		std::string get_mo_str() const;
 
@@ -119,7 +134,7 @@ namespace checker {
 		action_type type;
 
 		/** @brief The memory order for this operation. */
-		memory_order order;
+		//memory_order order;
 
 		/** @brief A pointer to the memory location for this action. */
 		void *location;
@@ -127,8 +142,8 @@ namespace checker {
 		/** @brief The thread id that performed this action. */
 		int tid;
 
-		/** @brief The value written (for write or RMW; undefined for read) */
-		uint64_t value;
+		/** @brief The value written or read (for write / read / RMW) */
+		//uint64_t value;
 
 		/** for thread create and start*/
 		std::string id1;
@@ -152,31 +167,46 @@ namespace checker {
 		const Action *last_fence_release;
 
 		/**
-         * @brief A back reference to a Node in NodeStack
-         *
-         * Only set if this Action is saved on the NodeStack. (A
-         * Action can be thrown away before it ever enters the NodeStack.)
-         */
-		//Node *node;
-
-		/**
          * @brief The sequence number of this action
          *
          * Except for ATOMIC_UNINIT actions, this number should be unique and
          * should represent the action's position in the execution order.
          */
-		//modelclock_t seq_number;
+		int seq_number;
+	};
 
-		/**
-         * @brief The clock vector for this operation
-         *
-         * Technically, this is only needed for potentially synchronizing
-         * (e.g., non-relaxed) operations, but it is very handy to have these
-         * vectors for all operations.
-         */
-		//ClockVector *cv;
+	class RWAction :  public Action  {
+	public:
+		RWAction(Executor* exe, Thread* thread, action_type_t type,
+				 int ord, void *loc, bool write, uint64_t val = 0xffff) : Action(exe, thread, type) {
 
-		bool sleep_flag;
+			order = to_mo(ord);
+			location = loc;
+			isWrite = write;
+			value = val;
+		}
+
+		uint64_t get_value() const { return value; }
+
+		memory_order get_mo() const { return order; }
+
+		void set_value(uint64_t val) { value = val; }
+
+		std::string get_action_str();
+
+		std::string get_consraint_name();
+
+	protected:
+		/** @brief The value written or read (for write / read / RMW) */
+		uint64_t value;
+
+		/** @brief The memory order for this operation. */
+		memory_order order;
+
+		/** @brief A pointer to the memory location for this action. */
+		void *location;
+
+		bool isWrite;
 	};
 }
 

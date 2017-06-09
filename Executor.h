@@ -6,19 +6,20 @@
 //#include "Action.h"
 //#include "Action.h"
 
+#include <vector>
+#include <set>
+
 
 namespace  checker {
     class Thread;
+    class Solver;
     //checker::memory_order;
     //enum action_type;
 
     class Executor {
     public:
 
-        Executor() {
-            std::cout << "Generate a new Execuctor\n";
-
-        }
+        Executor();
 
         void readPrefix(std::string name);
 
@@ -40,9 +41,19 @@ namespace  checker {
 
         std::map<std::string, Thread *> getThreadMap();
 
+        void begin_solver();
+
     private:
         std::map<std::string, Thread *> threadMap;
 
+        Solver* solver;
+
+        /** map pair (tid, seq_num)(of action A) -> vector<(tid, seq_num)>, representing all seq_numbers of the actions
+         * which happens-before action A */
+        std::map<std::pair<std::string, int>, std::set<std::pair<std::string, int> > > preActions;
+
+        /** record the read values each read in the prefix should read: (fName, seq_num)->value*/
+        std::map<std::pair<std::string, int>, uint64_t> readValueMap;
 
     };
 }

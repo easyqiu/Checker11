@@ -44,9 +44,12 @@ std::string Action::get_action_str() {
     std::string typeStr = get_type_str(true);
     ss << typeStr;
 
+    //std::cout << "In parent: " << typeStr << "\n";
+
     switch (this->type) {
         case MODEL_FIXUP_RELSEQ:
-            assert(false && "not handle"); return "";
+            //assert(false && "not handle model_fixup_relseq");
+            return "relseq";
 
         case THREAD_CREATE:
             ss << " " << exe->getThreadMap()[id1]->getName() << " " << exe->getThreadMap()[id2]->getName() << "\n";
@@ -72,7 +75,9 @@ std::string Action::get_action_str() {
 
         case ATOMIC_READ:
         case ATOMIC_WRITE:
-            ss << " " << location << " " << order << " " << value << "\n";
+            //ss << " " << location << " " << order << " " << value << "\n";
+            //RWAction* a = dynamic_cast<RWAction*>(this);
+            //ss << " " << location << " " << a->get_mo() << " " << a->get_value() << "\n";
             return ss.str();
 
         case ATOMIC_RMW:
@@ -103,3 +108,29 @@ void Action::print() {
     //std::cout << get_mo_str() << "\n";
 }
 
+std::string Action::get_location_str() const {
+    std::stringstream ss;
+    ss << location;
+    return ss.str();
+}
+
+std::string Action::get_tid() const {
+    return thread->getName();
+}
+
+std::string RWAction::get_action_str() {
+    std::stringstream ss;
+    ss << get_type_str(true) << " " << location << " " << order << " " << value << "\n";
+    return ss.str();
+}
+
+std::string RWAction::get_consraint_name() {
+    std::stringstream ss;
+    if (isWrite) {
+        ss << "W_" << location << " " << thread->getName() << " " << get_seq_number();
+        return ss.str();
+    } else {
+        ss << "R_" << location << " " << thread->getName() << " " << get_seq_number();
+        return ss.str();
+    }
+}

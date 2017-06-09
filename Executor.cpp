@@ -9,8 +9,15 @@
 #include "Executor.h"
 #include "Action.h"
 #include "Thread.h"
+#include "Solver.h"
 
 using namespace checker;
+
+Executor::Executor() {
+    std::cout << "Generate a new Execuctor\n";
+    readPrefix("Input2");
+    solver = new Solver(this);
+}
 
 void Executor::addThread(std::string tid, std::string name) {
     Thread* thread = new Thread(tid, name);
@@ -21,19 +28,20 @@ void Executor::execute_thread_create_action(std::string tid1, std::string tid2) 
     Thread* thread1 = threadMap[tid1];
     //Thread* thread2 = threadMap[tid2];
     //std::cout << "create: " << tid1 << " " << tid2 << " " << thread1 << " " << thread2 << "\n";
-    Action* action = new Action(this, THREAD_CREATE, tid1, tid2);
+    Action* action = new Action(this, thread1, THREAD_CREATE, tid1, tid2);
     thread1->addAction(action);
 }
 
 void Executor::execute_thread_begin_action(std::string tid, std::string name) {
     addThread(tid, name);
-    Action* action = new Action(this, THREAD_START, name);
-    threadMap[tid]->addAction(action);
+    Thread* thread = threadMap[tid];
+    Action* action = new Action(this, thread, THREAD_START, name);
+    thread->addAction(action);
 }
 
 void Executor::execute_thread_end_action(std::string tid) {
     Thread* thread = threadMap[tid];
-    Action* action = new Action(this, THREAD_FINISH, tid);
+    Action* action = new Action(this, thread, THREAD_FINISH, tid);
     thread->addAction(action);
     thread->printTrace();
 }
@@ -41,39 +49,43 @@ void Executor::execute_thread_end_action(std::string tid) {
 void Executor::execute_thread_join_action(std::string tid1, std::string tid2) {
     //Thread* thread1 = threadMap[tid1];
     //Thread* thread2 = threadMap[tid2];
-    Action* action = new Action(this, THREAD_JOIN, tid1, tid2);
-    threadMap[tid1]->addAction(action);
+    Thread* thread = threadMap[tid1];
+    Action* action = new Action(this, thread, THREAD_JOIN, tid1, tid2);
+    thread->addAction(action);
 }
 
 int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
-    Action* action = new Action(this, ATOMIC_READ, mo, addr);
-
-    if (threadMap.find(tid) == threadMap.end()) 
-        return 0xff;
-   
-    assert(threadMap.find(tid) != threadMap.end() && "Should create the thread!");
     Thread* thread = threadMap[tid];
-    while (thread->pause(action) == true) {}
+    Action* action = new RWAction(this, thread, ATOMIC_READ, mo, addr, false);
 
+    assert(threadMap.find(tid) != threadMap.end() && "Should create the thread!");
     thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    //std::cout << "current action: " << readValueMap.size() << " " << currentPair.first << " " << currentPair.second << "\n";
+    while (preActions[currentPair].size() != 0) {}
 
-    return 0xff;
+    if (readValueMap.find(currentPair) == readValueMap.end())
+        return 0xff;
+    else {
+        return readValueMap[currentPair];
+    }
 }
 
 void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uint64_t val) {
     //Action* action = new Action(ATOMIC_READ, mo, addr);
     Thread* thread = threadMap[tid];
-    thread->getActionList().back()->set_value(val);
+    RWAction* action = dynamic_cast<RWAction*>(thread->getActionList().back());
+    assert(action != 0);
+    action->set_value(val);
 }
 
 
 void Executor::execute_write_action(std::string tid, void* addr, int mo, int val) {
     Thread *thread = threadMap[tid];
-    Action *action = new Action(this, ATOMIC_WRITE, mo, addr, val);
+    Action *action = new RWAction(this, thread, ATOMIC_WRITE, mo, addr, true, val);
     while (thread->pause(action) == true) {}
 
     thread->addAction(action);
-    std::cout << "list write: " << tid << " " << threadMap[tid]->getActionList().size() << "\n";
 }
 
 std::map<std::string, Thread *> Executor::getThreadMap() {
@@ -83,19 +95,42 @@ std::map<std::string, Thread *> Executor::getThreadMap() {
 void Executor::readPrefix(std::string filename) {
     std::ifstream infile(filename);
     std::string line;
+    std::cout << "Reading Prefix: \n";
     while (getline(infile, line)) {
-        if (line.find(":") != line.end()) {
-            std::string num = line.substr(0, line.find(":"));
+        char action[100];
+        if (line.find("RF: ") != std::string::npos) {
             line = line.substr(line.find(":")+2);
-            char action[100];
 
-            strcpy(action, line);
-            char* token = strtok (action," ");
+            std::strcpy(action, line.c_str());
+            char* token = strtok (action, " ");
 
-            std::string tName = token;
+            std::string fname = token;
             token = strtok(NULL, " ");
-            
+            std::string seq_num = token;
+            token = strtok(NULL, " ");
+            uint64_t value = atoi(token);
+            readValueMap[std::make_pair(fname, atoi(seq_num.c_str()))] = value;
+            //std::cout << "read value: " << fname << " " << seq_num << " " << value << "\n";
+        } else if (line.find("B: ") != std::string::npos) {
+            line = line.substr(line.find(":")+2);
+
+            std::strcpy(action, line.c_str());
+            char* token = strtok (action, " ");
+
+            std::string fname1 = token;
+            token = strtok(NULL, " ");
+            std::string seq_num1 = token;
+            token = strtok(NULL, " ");
+            std::string fname2 = token;
+            token = strtok(NULL, " ");
+            std::string seq_num2 = token;
+            preActions[std::make_pair(fname2, atoi(seq_num2.c_str()))].insert(std::make_pair(fname1, atoi(seq_num1.c_str())));
+            //std::cout << "Pre action: " << fname2 << " " << seq_num2 << " " << fname1 << " " << seq_num1 << "\n";
         }
     }
 
+}
+
+void Executor::begin_solver() {
+    solver->start();
 }

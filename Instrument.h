@@ -44,3 +44,4 @@ extern "C" void checker_thread_create(std::thread::id id1);
 extern "C" void checker_thread_begin(char *name);
 extern "C" void checker_thread_end();
 extern "C" void checker_thread_join(std::thread::id id);
+extern "C" void checker_solver();

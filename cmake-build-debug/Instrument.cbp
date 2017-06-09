@@ -88,6 +88,12 @@
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Action.h">
 			<Option target="Instrument"/>
 		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/ConstraintModelGenerator.cpp">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/ConstraintModelGenerator.h">
+			<Option target="Instrument"/>
+		</Unit>
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Executor.cpp">
 			<Option target="Instrument"/>
 		</Unit>
@@ -100,10 +106,40 @@
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Instrument.h">
 			<Option target="Instrument"/>
 		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Parameters.cpp">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Parameters.h">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Schedule.cpp">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Schedule.h">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Solver.cpp">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Solver.h">
+			<Option target="Instrument"/>
+		</Unit>
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Thread.cpp">
 			<Option target="Instrument"/>
 		</Unit>
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Thread.h">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Util.cpp">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Util.h">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Z3Solver.cpp">
+			<Option target="Instrument"/>
+		</Unit>
+		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/Z3Solver.h">
 			<Option target="Instrument"/>
 		</Unit>
 		<Unit filename="/Users/aser/Dropbox/papers/C++11/Checker11/CMakeLists.txt">

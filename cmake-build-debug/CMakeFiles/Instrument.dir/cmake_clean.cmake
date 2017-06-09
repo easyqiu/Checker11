@@ -3,6 +3,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/Instrument.dir/Executor.cpp.o"
   "CMakeFiles/Instrument.dir/Thread.cpp.o"
   "CMakeFiles/Instrument.dir/Action.cpp.o"
+  "CMakeFiles/Instrument.dir/Solver.cpp.o"
+  "CMakeFiles/Instrument.dir/Z3Solver.cpp.o"
+  "CMakeFiles/Instrument.dir/Util.cpp.o"
+  "CMakeFiles/Instrument.dir/Parameters.cpp.o"
+  "CMakeFiles/Instrument.dir/Schedule.cpp.o"
+  "CMakeFiles/Instrument.dir/ConstraintModelGenerator.cpp.o"
   "Instrument.pdb"
   "Instrument"
 )

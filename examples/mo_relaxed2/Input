@@ -1,17 +1,17 @@
-1: TStart 0x7fff7379a300
-2: TCreate 0x7fff7379a300 0x1029ab000
-3: TCreate 0x7fff7379a300 0x102a2e000
-4: TJoin 0x7fff7379a300 0x1029ab000
-5: TJoin 0x7fff7379a300 0x102a2e000
-6: TFinish 0x7fff7379a300
-7: TStart 0x1029ab000
-8: ARead 0x1026ac150 0 0
-9: AWrite 0x1026ac154 0 1
-10: TFinish 0x1029ab000
-11: TStart 0x102a2e000
-12: ARead 0x1026ac154 0 0
-13: AWrite 0x1026ac150 0 1
-14: TFinish 0x102a2e000
+1: main TStart 0x7fff7379a300
+2: main TCreate 0x7fff7379a300 0x1029ab000
+3: main TCreate 0x7fff7379a300 0x102a2e000
+4: main TJoin 0x7fff7379a300 0x1029ab000
+5: main TJoin 0x7fff7379a300 0x102a2e000
+6: main TFinish 0x7fff7379a300
+7: f1 TStart 0x1029ab000
+8: f1 ARead 0x1026ac150 0 0
+9: f1 AWrite 0x1026ac154 0 1
+10: f1 TFinish 0x1029ab000
+11: f2 TStart 0x102a2e000
+12: f2 ARead 0x1026ac154 0 0
+13: f2 AWrite 0x1026ac150 0 1
+14: f2 TFinish 0x102a2e000
 B_1_2: 1
 B_1_3: 1
 B_1_4: 1
@@ -35,7 +35,7 @@ B_2_9: 1
 B_2_10: 1
 B_2_11: 1
 B_2_12: 1
-B_2_13: 1
+B_2_13: 1 
 B_2_14: 1
 B_3_11: 1
 B_3_12: 1

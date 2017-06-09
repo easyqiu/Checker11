@@ -96,7 +96,7 @@ int preAtomicLoad_int(void* addr, int order) {
 # endif
 
     int retV = exe->execute_pre_read_action(getThreadName(std::this_thread::get_id()), addr, order);
-    std::cout << "retV: " << retV;
+    //std::cout << "retV: " << retV;
     return retV;
 }
 
@@ -388,4 +388,8 @@ void checker_thread_join(std::thread::id id) {
     exe->execute_thread_join_action(getThreadName(std::this_thread::get_id()), getThreadName(id));
 }
 
+}
+
+void checker_solver() {
+    exe->begin_solver();
 }

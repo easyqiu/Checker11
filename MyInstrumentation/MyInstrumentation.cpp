@@ -346,8 +346,8 @@ namespace {
       }
       params.push_back(param);
       params.push_back(storeI->getOperand(0));
-      CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "");
-      ReplaceInstWithInst(storeI->getParent()->getInstList(), BBIt, callI);
+      CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", storeI);
+      //ReplaceInstWithInst(storeI->getParent()->getInstList(), BBIt, callI);
     }
 
     void instrAtomicStore(StoreInst* storeI) {

@@ -14,7 +14,8 @@ using namespace checker;
 void Thread::addAction(Action* action) {
     //std::cout << "Pre Add action: " << this << " " << action->get_action_str() << " " << id << " " << actionList.size() << "\n";
     actionList.push_back(action);
-    //std::cout << "Add action: " << this << " " << action->get_action_str() << " " << id << " " << actionList.size() << "\n";
+    action->set_seq_number(actionList.size());
+    //std::cout << "Add action: " << this << " " << id << " " << actionList.size() << "\n";
 }
 
 std::vector<Action*> Thread::getActionList() {
@@ -28,7 +29,10 @@ void Thread::printTrace() {
         Action* action = *it;
 
         std::ofstream outfile(name, std::ios::app);
-        outfile << action->get_action_str();
+        if (action->get_type() == ATOMIC_WRITE || action->get_type() == ATOMIC_READ)
+            outfile << dynamic_cast<RWAction*>(action)->get_action_str();
+        else
+            outfile << action->get_action_str();
         outfile.flush();
         outfile.close();
     }
