@@ -6,18 +6,20 @@
 #include "Parameters.h"
 #include "ConstraintModelGenerator.h"
 #include "Util.h"
+#include "Thread.h"
+#include "Action.h"
 
 using namespace std;
 using namespace checker;
 
 //print Schedule
-void scheduleLIB::printSch(const Schedule& sch)
+void checker::printSch(const Schedule& sch)
 {
     map<string,int> tabs;
     int t = 0 ; //counter for the number of tabs
     int i = 0; //global order iterator
     cout << "Schedule size: " << sch.size()<< endl;
-    cout << "Schedule contextSwitches: " << getContextSwitchNum(sch) << endl;
+    cout << "Schedule contextSwitches: " << checker::getContextSwitchNum(sch) << endl;
 
     for(Schedule ::const_iterator it = sch.begin(); it != sch.end(); ++it) {
 
@@ -42,7 +44,7 @@ void scheduleLIB::printSch(const Schedule& sch)
 
 
 //remove empty operations from vector<string (operations)>
-vector<string> cleanEmpty(const vector<string>& globalOrderTmp)
+vector<string> checker::cleanEmpty(const vector<string>& globalOrderTmp)
 {
     vector<string> globalOrder;
     for(int i = 0; i < globalOrderTmp.size(); i++)
@@ -56,11 +58,11 @@ vector<string> cleanEmpty(const vector<string>& globalOrderTmp)
 
 
 //load fail Schedule or if in fixmode load alternative
-void scheduleLIB::loadSchedule(const vector<string>& globalOrderTmp)
+void checker::loadSchedule(const vector<string>& globalOrderTmp)
 {
     map<string,vector<Action*> > t2op = operationsByThread;
     //clean empty positions in globalOrder
-    vector<string> globalOrder = cleanEmpty(globalOrderTmp);
+    vector<string> globalOrder = checker::cleanEmpty(globalOrderTmp);
     Schedule scheduleTmp;
     scheduleTmp.clear();
     scheduleTmp.reserve(globalOrder.size());
@@ -73,7 +75,7 @@ void scheduleLIB::loadSchedule(const vector<string>& globalOrderTmp)
             string tid = "Not Implement";//operationLIB::parseThreadId(op);
 
             //fill failScheduleOrd
-            scheduleLIB::fillScheduleOrd(tid, &t2op, &scheduleTmp);
+            fillScheduleOrd(tid, &t2op, &scheduleTmp);
         }
         failScheduleOrd.clear();
         failScheduleOrd.reserve(globalOrder.size());
@@ -85,7 +87,7 @@ void scheduleLIB::loadSchedule(const vector<string>& globalOrderTmp)
 
 
 // transform a given schedule in a strings' vector
-std::vector<std::string> scheduleLIB::schedule2string(const Schedule& schedule)
+std::vector<std::string> checker::schedule2string(const Schedule& schedule)
 {
     vector<string> listOp;
     for(Schedule::const_iterator it = schedule.begin() ; it != schedule.end(); it ++)
@@ -95,7 +97,7 @@ std::vector<std::string> scheduleLIB::schedule2string(const Schedule& schedule)
 
 
 //save a schedule to a file
-void scheduleLIB::saveScheduleFile(string filename, const vector<string>& listOp){
+void checker::saveScheduleFile(string filename, const vector<string>& listOp){
 
     string solConst;
     std::ofstream solFile;
@@ -122,7 +124,7 @@ void scheduleLIB::saveScheduleFile(string filename, const vector<string>& listOp
 
 
 //return the number of context switches in a schedule
-int scheduleLIB::getContextSwitchNum(const Schedule& sch){
+int checker::getContextSwitchNum(const Schedule& sch){
     int count = 0;
     string oldTid = sch[0]->get_tid();
     for(Schedule::const_iterator it = sch.begin(); it != sch.end()-1; it++)
@@ -137,21 +139,21 @@ int scheduleLIB::getContextSwitchNum(const Schedule& sch){
 
 
 //return the operation thread ID
-string scheduleLIB::getTidOperation(Action op)
+string checker::getTidOperation(Action op)
 {
     return op.get_tid();
 }
 
 
 // return TID size with the TID start position
-int scheduleLIB::getTEIsize(Schedule schedule, int initPosition)
+int checker::getTEIsize(Schedule schedule, int initPosition)
 {
-    string tid = getTidOperation(*schedule[initPosition]); //(schedule,initPosition);
+    string tid = checker::getTidOperation(*schedule[initPosition]); //(schedule,initPosition);
     int size = 1;
 
     //size incrementation until the thread ID of the next action is different
     for(Schedule::iterator it = schedule.begin()+initPosition+1; it != schedule.end(); it++){
-        if (tid == getTidOperation(**it))
+        if (tid == checker::getTidOperation(**it))
             size++;
         else break;
     }
@@ -160,7 +162,7 @@ int scheduleLIB::getTEIsize(Schedule schedule, int initPosition)
 
 
 //insert TEI in a schedule in a given position
-Schedule scheduleLIB::insertTEI(Schedule schedule, int newPosition, Schedule tei)
+Schedule checker::insertTEI(Schedule schedule, int newPosition, Schedule tei)
 {
     Schedule::iterator newPositionIt = schedule.begin()+newPosition;
     schedule.insert(newPositionIt,tei.begin(),tei.end());
@@ -169,17 +171,17 @@ Schedule scheduleLIB::insertTEI(Schedule schedule, int newPosition, Schedule tei
 
 
 //remove TEI from a schedule with a given position
-Schedule scheduleLIB::removeTEI(Schedule schedule, int initPosition)
+Schedule checker::removeTEI(Schedule schedule, int initPosition)
 {
-    int size = getTEIsize(schedule,initPosition);
+    int size = checker::getTEIsize(schedule,initPosition);
     Schedule::iterator it = schedule.begin()+initPosition;
     schedule.erase(it,it+size);
     return schedule;
 }
 
 
-Schedule scheduleLIB::getTEI(Schedule schedule, int startPostion){
-    int size = getTEIsize(schedule, startPostion);
+Schedule checker::getTEI(Schedule schedule, int startPostion){
+    int size = checker::getTEIsize(schedule, startPostion);
 
     //Schedule tei = schedule; if erase deletes the main struct
     Schedule::iterator it = schedule.begin();
@@ -191,21 +193,21 @@ Schedule scheduleLIB::getTEI(Schedule schedule, int startPostion){
 
 
 //change TEI block to another location (TEI - thread execution interval)
-Schedule scheduleLIB::moveTEISch(Schedule list,int newPositon, int oldPosition)
+Schedule checker::moveTEISch(Schedule list,int newPositon, int oldPosition)
 {
-    Schedule tei = getTEI(list,oldPosition);
-    return insertTEI(removeTEI(list,oldPosition),newPositon+1, tei);
+    Schedule tei = checker::getTEI(list,oldPosition);
+    return checker::insertTEI(checker::removeTEI(list,oldPosition),newPositon+1, tei);
 }
 
 
 //check if action in a given position is the last one in its TEI
-bool scheduleLIB::isLastActionTEI(Schedule sch, int pos)
+bool checker::isLastActionTEI(Schedule sch, int pos)
 {
-    string Tid = getTidOperation(*sch[pos]);
+    string Tid = checker::getTidOperation(*sch[pos]);
     //cout << (*sch[pos]).getConstraintName() << endl;
     if(pos < sch.size()-1)
     {
-        string nextTid = getTidOperation(*sch[pos+1]);
+        string nextTid = checker::getTidOperation(*sch[pos+1]);
         return (Tid != nextTid);
     }
     else
@@ -214,14 +216,14 @@ bool scheduleLIB::isLastActionTEI(Schedule sch, int pos)
 
 
 //return next action positon within the same thread: < 0 false | >= 0 next action position
-int scheduleLIB::hasNextTEI(Schedule sch, int pos)
+int checker::hasNextTEI(Schedule sch, int pos)
 {
     int nextTEIPosition = -1;
-    string Tid = getTidOperation(*sch[pos]);
+    string Tid = checker::getTidOperation(*sch[pos]);
     string nextTid = "";
     for (Schedule::iterator it= sch.begin()+pos+1; it != sch.end(); it ++)
     {
-        nextTid = getTidOperation(**it);
+        nextTid = checker::getTidOperation(**it);
         if(Tid == nextTid)
             return (int) distance(sch.begin(),it);
     }
@@ -230,7 +232,7 @@ int scheduleLIB::hasNextTEI(Schedule sch, int pos)
 }
 
 //create a string vector of actions, e.i. used in solver.
-vector<string> scheduleLIB::getSolutionStr(Schedule schedule){
+vector<string> checker::getSolutionStr(Schedule schedule){
     vector<string> actionsList;
     int i=0 ;
 
@@ -244,7 +246,7 @@ vector<string> scheduleLIB::getSolutionStr(Schedule schedule){
 
 
 // return a new valid Schedule with a shorter or equal solution using a moveUpTei algorithm
-Schedule scheduleLIB::moveUpTEI(Schedule schedule,ConstModelGen *cmgen, bool isReverse)
+Schedule checker::moveUpTEI(Schedule schedule,ConstModelGen *cmgen, bool isReverse)
 {
     /*int i=0;
     int prox = -1; // < 0 false ; >= 0 represents the action posion
@@ -286,11 +288,11 @@ Schedule scheduleLIB::moveUpTEI(Schedule schedule,ConstModelGen *cmgen, bool isR
 
 
 // return a new valid schedule with a shorter or equal using a reverse moveUpTei algorithm
-Schedule scheduleLIB::moveDownTEI(Schedule schedule, ConstModelGen *cmgen)
+Schedule checker::moveDownTEI(Schedule schedule, ConstModelGen *cmgen)
 {
     reverse(schedule.begin(),schedule.end());
 
-    Schedule sch = moveUpTEI(schedule, cmgen, true);
+    Schedule sch = checker::moveUpTEI(schedule, cmgen, true);
 
     reverse(sch.begin(),sch.end());
 
@@ -300,7 +302,7 @@ Schedule scheduleLIB::moveDownTEI(Schedule schedule, ConstModelGen *cmgen)
 
 
 // return a new valid schedule with a shorter or equal using moveUpTei and moveDownTei algorithms
-Schedule scheduleLIB::scheduleSimplify(Schedule schedule, ConstModelGen *cmgen)
+Schedule checker::scheduleSimplify(Schedule schedule, ConstModelGen *cmgen)
 {
     Schedule currentSch = schedule;
     Schedule oldSch = schedule;
@@ -317,12 +319,12 @@ Schedule scheduleLIB::scheduleSimplify(Schedule schedule, ConstModelGen *cmgen)
         //### NOT IMPLEMENTED ###
 
         //move-Up-TEI
-        currentSch = scheduleLIB::moveUpTEI(currentSch, cmgen, notReverse);
+        currentSch = checker::moveUpTEI(currentSch, cmgen, notReverse);
 
         //move-Down-TEI
-        currentSch = scheduleLIB::moveDownTEI(currentSch, cmgen); //calls moveUpTEI but with NotReverse = true!
+        currentSch = checker::moveDownTEI(currentSch, cmgen); //calls moveUpTEI but with NotReverse = true!
 
-        if(getContextSwitchNum(currentSch) < getContextSwitchNum(oldSch))
+        if(checker::getContextSwitchNum(currentSch) < checker::getContextSwitchNum(oldSch))
         {
             oldSch = currentSch;    //simplification continues
             count++;
@@ -335,7 +337,7 @@ Schedule scheduleLIB::scheduleSimplify(Schedule schedule, ConstModelGen *cmgen)
 }
 
 //fill ScheduleOrd
-void scheduleLIB::fillScheduleOrd(string tid, map<string,vector<Action*> >* op_list, Schedule* sch)
+void checker::fillScheduleOrd(string tid, map<string,vector<Action*> >* op_list, Schedule* sch)
 {
     //get the head
     sch->push_back((*op_list)[tid][0]);

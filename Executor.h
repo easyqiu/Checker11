@@ -43,8 +43,24 @@ namespace  checker {
 
         void begin_solver();
 
-    private:
-        std::map<std::string, Thread *> threadMap;
+        void set_parameters();
+
+        bool get_bugFixMode() { return bugFixMode; }
+        void set_startTime(time_t t) { startTime = t; }
+        time_t get_startTime() { return startTime; }
+        void set_endTime(time_t t) { endTime = t; }
+        time_t get_endTime() { return endTime; }
+        std::string get_solverPath() { return solverPath; }
+        std::string get_formulaFile() { return formulaFile; }
+        void addSolutionValue(std::pair<std::string, std::string> p) { solutionValues.insert(p); }
+        void printSolutionValue();
+        std::map<std::string,std::string> getSolutionValues() { return solutionValues; }
+        void add_unsat_core(int i) { unsatCore.push_back(i); }
+        std::vector<int> get_unsat_core() { return unsatCore; }
+
+
+    protected:
+        std::map<std::string, Thread*> threadMap;
 
         Solver* solver;
 
@@ -54,6 +70,15 @@ namespace  checker {
 
         /** record the read values each read in the prefix should read: (fName, seq_num)->value*/
         std::map<std::pair<std::string, int>, uint64_t> readValueMap;
+
+
+        /** Parameters */
+        std::string solverPath;
+        std::string formulaFile;
+        time_t startTime, endTime;
+        std::map<std::string,std::string> solutionValues;
+        std::vector<int> unsatCore;
+        bool bugFixMode;
 
     };
 }

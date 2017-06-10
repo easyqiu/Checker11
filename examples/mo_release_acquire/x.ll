@@ -45,12 +45,10 @@ define void @_Z8producerv() #1 personality i8* bitcast (i32 (...)* @__gxx_person
 entry:
   %call = tail call i8* @_Znwm(i64 24) #11
   tail call void @llvm.memset.p0i8.i64(i8* nonnull %call, i8 0, i64 24, i32 8, i1 false) #12
-  call void @preNonAtomicStore_char(i8* %call, i8 10)
   store i8 10, i8* %call, align 8, !tbaa !2
   %0 = getelementptr inbounds i8, i8* %call, i64 1
   tail call void @llvm.memcpy.p0i8.p0i8.i64(i8* %0, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i64 0, i64 0), i64 5, i32 1, i1 false) #12
   %arrayidx.i.i.i = getelementptr inbounds i8, i8* %call, i64 6
-  call void @preNonAtomicStore_char(i8* %arrayidx.i.i.i, i8 0)
   store i8 0, i8* %arrayidx.i.i.i, align 1, !tbaa !2
   %myCast = bitcast i32* @data to i8*
   call void @preNonAtomicStore_int(i8* %myCast, i32 42)
@@ -83,35 +81,38 @@ entry:
 
 while.cond:                                       ; preds = %while.cond, %entry
   %myCast = bitcast i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) to i8*
-  %myLoad = load i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*)
-  call void @preAtomicLoad_double(i8* %myCast, i64 %myLoad, i32 4)
-  %0 = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8
-  %lnot = icmp eq i64 %0, 0
+  %0 = call i64 @preAtomicLoad(i8* %myCast, i32 4)
+  %newLoad = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8
+  %1 = icmp eq i64 %0, 255
+  %mySelect = select i1 %1, i64 %newLoad, i64 %0
+  %myBitCast = bitcast i64 %mySelect to i64
+  call void @postAtomicLoad(i8* %myCast, i64 %myBitCast, i32 4)
+  %lnot = icmp eq i64 %myBitCast, 0
   br i1 %lnot, label %while.cond, label %while.end
 
 while.end:                                        ; preds = %while.cond
-  %1 = inttoptr i64 %0 to %"class.std::__1::basic_string"*
-  %__size_.i.i.i = inttoptr i64 %0 to i8*
-  %2 = load i8, i8* %__size_.i.i.i, align 8, !tbaa !2
-  %3 = and i8 %2, 1
-  %tobool.i.i.i = icmp eq i8 %3, 0
-  %__size_.i5.i.i = getelementptr inbounds %"class.std::__1::basic_string", %"class.std::__1::basic_string"* %1, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %4 = load i64, i64* %__size_.i5.i.i, align 8
-  %conv.i.i.i = zext i8 %2 to i64
+  %2 = inttoptr i64 %myBitCast to %"class.std::__1::basic_string"*
+  %__size_.i.i.i = inttoptr i64 %myBitCast to i8*
+  %3 = load i8, i8* %__size_.i.i.i, align 8, !tbaa !2
+  %4 = and i8 %3, 1
+  %tobool.i.i.i = icmp eq i8 %4, 0
+  %__size_.i5.i.i = getelementptr inbounds %"class.std::__1::basic_string", %"class.std::__1::basic_string"* %2, i64 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %5 = load i64, i64* %__size_.i5.i.i, align 8
+  %conv.i.i.i = zext i8 %3 to i64
   %shr3.i.i.i = lshr i64 %conv.i.i.i, 1
-  %cond.i.i = select i1 %tobool.i.i.i, i64 %shr3.i.i.i, i64 %4
+  %cond.i.i = select i1 %tobool.i.i.i, i64 %shr3.i.i.i, i64 %5
   %cmp.i = icmp eq i64 %cond.i.i, 5
   br i1 %cmp.i, label %if.end.i, label %cond.true
 
 if.end.i:                                         ; preds = %while.end
-  %call2.i = invoke i32 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKcm(%"class.std::__1::basic_string"* nonnull %1, i64 0, i64 -1, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i64 0, i64 0), i64 5)
+  %call2.i = invoke i32 @_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEmmPKcm(%"class.std::__1::basic_string"* nonnull %2, i64 0, i64 -1, i8* getelementptr inbounds ([6 x i8], [6 x i8]* @.str, i64 0, i64 0), i64 5)
           to label %_ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end.i
-  %5 = landingpad { i8*, i32 }
+  %6 = landingpad { i8*, i32 }
           catch i8* null
-  %6 = extractvalue { i8*, i32 } %5, 0
-  tail call void @__clang_call_terminate(i8* %6) #13
+  %7 = extractvalue { i8*, i32 } %6, 0
+  tail call void @__clang_call_terminate(i8* %7) #13
   unreachable
 
 _ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit: ; preds = %if.end.i
@@ -123,8 +124,8 @@ cond.true:                                        ; preds = %while.end, %_ZNSt3_
   unreachable
 
 cond.end:                                         ; preds = %_ZNSt3__1eqIcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit
-  %7 = load i32, i32* @data, align 4, !tbaa !5
-  %lnot4 = icmp eq i32 %7, 42
+  %8 = load i32, i32* @data, align 4, !tbaa !5
+  %lnot4 = icmp eq i32 %8, 42
   br i1 %lnot4, label %cond.end10, label %cond.true8, !prof !7
 
 cond.true8:                                       ; preds = %cond.end
@@ -247,13 +248,9 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = ptrtoint i8* %call to i64
   %2 = ptrtoint void ()* %__f to i64
   %3 = bitcast i8* %call4 to i64*
-  %myCast = bitcast i64* %3 to i8*
-  call void @preNonAtomicStore_double(i8* %myCast, i64 %1)
   store i64 %1, i64* %3, align 8, !tbaa !8
   %4 = getelementptr inbounds i8, i8* %call4, i64 8
   %5 = bitcast i8* %4 to i64*
-  %myCast1 = bitcast i64* %5 to i8*
-  call void @preNonAtomicStore_double(i8* %myCast1, i64 %2)
   store i64 %2, i64* %5, align 8, !tbaa !11
   %__t_ = getelementptr inbounds %"class.std::__1::thread", %"class.std::__1::thread"* %this, i64 0, i32 0
   %call.i31 = invoke i32 @pthread_create(%struct._opaque_pthread_t** %__t_, %struct._opaque_pthread_attr_t* null, i8* (i8*)* nonnull @_ZNSt3__114__thread_proxyINS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEPFvvEEEEEEPvSA_, i8* nonnull %call4)
@@ -431,17 +428,15 @@ declare void @preAtomicStore_int(i8*, i32, i32)
 
 declare void @preAtomicStore_double(i8*, i64, i32)
 
-declare void @preNonAtomicLoad_char(i8*, i8)
+declare i8 @preNonAtomicLoad_char(i8*)
 
-declare void @preNonAtomicLoad_int(i8*, i32)
+declare i32 @preNonAtomicLoad_int(i8*)
 
-declare void @preNonAtomicLoad_double(i8*, i64)
+declare i64 @preNonAtomicLoad_double(i8*)
 
-declare void @preAtomicLoad_char(i8*, i8, i32)
+declare i64 @preAtomicLoad(i8*, i32)
 
-declare void @preAtomicLoad_int(i8*, i32, i32)
-
-declare void @preAtomicLoad_double(i8*, i64, i32)
+declare void @postAtomicLoad(i8*, i64, i32)
 
 declare void @preFence(i32)
 

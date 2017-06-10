@@ -12,15 +12,23 @@
 #include <stack>
 #include <dirent.h>
 
+#include "ConstraintModelGenerator.h"
 #include "Executor.h"
 #include "Thread.h"
 #include "Action.h"
 #include "Solver.h"
+//#include "Parameters.h"
 
 #define MAX_LINE_SIZE 100
 
 using namespace checker;
 using namespace std;
+
+Solver::Solver(Executor* exe) {
+    this->exe = exe;
+    z3solver = new Z3Solver(exe);
+    //formulaFile = "formulaFile";
+}
 
 void Solver::parse_constraints(string filename) {
     ifstream fin;
@@ -77,10 +85,13 @@ void Solver::parseTrace() {
 }
 
 void Solver::collectData() {
-    for (std::map<std::string, Thread *>::iterator it = exe->getThreadMap().begin();
-            it != exe->getThreadMap().end(); ++it) {
+    std::map<std::string, Thread*> tMap = exe->getThreadMap();
+    std::cout << "In collect data: " << tMap.size() << "\n";
+    for (std::map<std::string, Thread*>::iterator it = tMap.begin();
+            it != tMap.end(); ++it) {
         std::string name = it->first;
-        Thread *thread = it->second;
+        Thread* thread = it->second;
+
         for (std::vector<Action *>::iterator it2 = thread->getActionList().begin();
              it2 != thread->getActionList().end(); ++it2) {
             Action *action = *it2;
@@ -125,6 +136,19 @@ void Solver::collectData() {
     }
 }
 
+void Solver::generateSWRelations() {
+
+}
+
 void Solver::start() {
     collectData();
+    generateSWRelations();
+
+    z3solver->openOutputFile();
+    cmg = new ConstModelGen(exe, z3solver);
+    cmg->addBinaryConstraints();
+    cmg->addSWConstraints(swRelations);
+    z3solver->solve();
 }
+
+

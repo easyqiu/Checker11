@@ -16,7 +16,10 @@ using namespace checker;
 Executor::Executor() {
     std::cout << "Generate a new Execuctor\n";
     readPrefix("Input2");
+
+    set_parameters();
     solver = new Solver(this);
+    bugFixMode = true;
 }
 
 void Executor::addThread(std::string tid, std::string name) {
@@ -131,6 +134,24 @@ void Executor::readPrefix(std::string filename) {
 
 }
 
+void Executor::set_parameters() {
+    solverPath = getenv("solver");
+    formulaFile = getenv("formulaFile");
+    startTime = endTime = 0;
+    std::cout << "Solver path: " << solverPath << "\n";
+    std::cout << "Formula file: " << formulaFile << "\n";
+}
+
 void Executor::begin_solver() {
     solver->start();
+    printSolutionValue();
+}
+
+
+void Executor::printSolutionValue() {
+    std::cout << "Solution Value: \n";
+    for (std::map<std::string, std::string>::iterator it = solutionValues.begin();
+            it != solutionValues.end(); ++it) {
+        std::cout << it->first << " " << it->second << "\n";
+    }
 }

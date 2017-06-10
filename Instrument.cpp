@@ -90,7 +90,7 @@ void preAtomicLoad_char(void* addr, char val, int order) {
     updateTrace(ss.str());
 }
 
-int preAtomicLoad_int(void* addr, int order) {
+double preAtomicLoad(void* addr, int order) {
 # ifdef DEBUG
     std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
 # endif
@@ -100,17 +100,16 @@ int preAtomicLoad_int(void* addr, int order) {
     return retV;
 }
 
-void preAtomicLoad_double(void* addr, double val, int order) {
+double preAtomicLoad_double(void* addr, int order) {
 # ifdef DEBUG
-    std::cout << "In atomic preLoad: " << addr << " " << val << " " << order << "!\n";
+    std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
 # endif
-    
-    std::stringstream ss;
-    ss << "atomic_load_double: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+
+    int retV = exe->execute_pre_read_action(getThreadName(std::this_thread::get_id()), addr, order);
+    return retV;
 }
 
-void postAtomicLoad_int(void* addr, int val, int order) {
+void postAtomicLoad(void* addr, double val, int order) {
 # ifdef DEBUG
     std::cout << "In atomic postLoad: " << addr << " " << val << " " << order << "!\n";
 # endif
@@ -388,8 +387,7 @@ void checker_thread_join(std::thread::id id) {
     exe->execute_thread_join_action(getThreadName(std::this_thread::get_id()), getThreadName(id));
 }
 
-}
-
 void checker_solver() {
     exe->begin_solver();
+}
 }

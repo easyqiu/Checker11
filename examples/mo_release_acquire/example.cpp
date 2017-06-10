@@ -1,4 +1,4 @@
-#include "checker.h"
+#include "checker.hpp"
 
 #include <thread>
 #include <atomic>
@@ -15,18 +15,22 @@ struct structA {
 
 void producer()
 {
+    checker_thread_begin("producer");
     std::string* p  = new std::string("Hello");
     data = 42;
     ptr.store(p, std::memory_order_release);
+    checker_thread_end();
 }
  
 void consumer()
 {
     std::string* p2;
+    checker_thread_begin("consumer");
     while (!(p2 = ptr.load(std::memory_order_acquire)))
         ;
     assert(*p2 == "Hello"); // never fires
     assert(data == 42); // never fires
+    checker_thread_end();
 }
 
 void test() {
@@ -40,9 +44,17 @@ void test(int x) {
 }
  
 int main() {
+    checker_generateExecutor();
+    checker_thread_begin("main");
     checker_shared((void*)&data);
     std::thread t1(producer);
     std::thread t2(consumer);
-    test();
+    checker_thread_create(a.get_id());
+    checker_thread_create(b.get_id());
+
+    checker_thread_join(a.get_id());
+    checker_thread_join(b.get_id());
     t1.join(); t2.join();
+    checker_solver();
+    checker_thread_end();
 }

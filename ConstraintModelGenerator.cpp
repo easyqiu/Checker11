@@ -5,67 +5,62 @@
 #include "ConstraintModelGenerator.h"
 #include "Executor.h"
 #include "Thread.h"
+#include "Action.h"
+#include "Util.h"
 
 using namespace std;
 using namespace checker;
 
-void ConstModelGen::createZ3Solver() {
+void ConstModelGen::initialize() {
     numLO = 0;
     numRW = 0;
-    numMO = 0;
+    numB = 0;
     numPO = 0;
     numPC = 0;
     numUnkownVars = 0;
 }
 
-void ConstModelGen::addMemoryOrderConstraints(map<string, vector<Action*> > operationsByThread)
-{
+void ConstModelGen::addBinaryConstraints() {
 
-    z3solver.writeLineZ3("(echo \"MEMORY-ORDER CONSTRAINTS -----\")\n");
-
-    int intMax = 0; //indicates the max value that an order constraint can have (which corresponds to the number of operations logged during the symb exec)
-    int labelCounter = 0; //counter to label each constraint
+    std::cout << "Adding Binary HB constraints: " << exe->get_formulaFile() << "\n";
+    z3solver->writeLineZ3("(echo \"MEMORY-ORDER CONSTRAINTS -----\")\n");
 
     //count the total number of operations
     map<string, Thread*> tMap = exe->getThreadMap();
     for (map<string, Thread*>::iterator it = tMap.begin(); it != tMap.end(); it++) {
-        intMax += it->second->getActionList().size();
-    }
-
-    string distinct = "(distinct "; //constraint to indicate that we want that each operation to have a unique global order
-    for (map<string, Thread*>::iterator it = tMap.begin(); it != tMap.end(); it++) {
         vector<Action*> actionVec = it->second->getActionList();
 
         //if the list of operations has size > 1 then we must generate order constraints
-        //for all the operations, otherwise we only need to declare the operation
+        //for all the operations
         if (actionVec.size() > 1) {
-            string conststr = "(<";
 
-            for(vector<Action*>::iterator opit = actionVec.begin(); opit != actionVec.end(); ++opit)
-            {
-                string declareVar = z3solver.declareIntOrderVarAndStore((*opit)->getOrderConstraintName(), 0, intMax);
-                z3solver.writeLineZ3(declareVar);
-
-                conststr.append(" "+(*opit)->getOrderConstraintName());
-                distinct.append(" "+(*opit)->getOrderConstraintName());
+            for(vector<Action*>::iterator opit = actionVec.begin(); opit != actionVec.end(); ++opit) {
+                for(vector<Action*>::iterator opit2 = opit+1; opit2 != actionVec.end(); ++opit2) {
+                    Action* a1 = *opit;
+                    Action* a2 = *opit2;
+                    string bRelName = a1->get_binary_rel_name(a2);
+                    string declareVar = z3solver->declareIntOrderVarAndStore(bRelName, 1);
+                    z3solver->writeLineZ3(declareVar);
+                    numB++;
+                }
             }
-            conststr.append(")");
-
-            string label = "MO" + util::stringValueOf(labelCounter); //** label to uniquely identify this constraint
-            labelCounter++;
-            z3solver.writeLineZ3(z3solver.postNamedAssert(conststr,label));  //create assert with the corresponding order constraint
-            numMO += opvec.size();  //update constraint counter
         }
-        else if(opvec.size() == 1)
-        {
-            string declareVar = z3solver.declareIntOrderVarAndStore(opvec[0]->getOrderConstraintName(), 0, intMax);
-            z3solver.writeLineZ3(declareVar);
-            numMO++;
-        }
-        z3solver.threadIds.push_back(thit->first);  //add thread name to the set of threadIds
+        z3solver->threadIds.push_back(it->second->getName());  //add thread name to the set of threadIds
     }
-    distinct.append(")");
-    z3solver.writeLineZ3(z3solver.postAssert(distinct)); //indicate that we want that each operation has its own global order
-    z3solver.setNumOps(intMax);
-    numUnkownVars += numMO; //there is an unknown order variable per event
+    z3solver->setNumOps(numB);
+    numUnkownVars += numB; //there is an unknown order variable per even
+}
+
+void ConstModelGen::addSWConstraints(std::map<Action*, Action*> swRelations) {
+    for (std::map<Action*, Action*>::iterator it = swRelations.begin();
+            it != swRelations.end(); ++it) {
+        Action* a1 = it->first;
+        Action* a2 = it->second;
+        string bRelName = a1->get_binary_rel_name(a2);
+        string declareVar = z3solver->declareIntOrderVarAndStore(bRelName, 1);
+        z3solver->writeLineZ3(declareVar);
+        numB++;
+        numUnkownVars++;
+    }
+    z3solver->setNumOps(numB);
 }

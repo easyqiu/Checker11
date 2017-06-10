@@ -11,14 +11,15 @@ extern "C" void preNonAtomicLoad_char(void* addr, char val);
 extern "C" int preNonAtomicLoad_int(void* addr);
 extern "C" void preNonAtomicLoad_double(void* addr, int val);
 extern "C" void preAtomicLoad_char(void* addr, char val, int order);
-extern "C" int preAtomicLoad_int(void* addr, int order);
-extern "C" void preAtomicLoad_double(void* addr, double val, int order);
+extern "C" double preAtomicLoad(void* addr, int order);
+extern "C" double preAtomicLoad_double(void* addr, double val, int order);
 extern "C" void preNonAtomicStore_char(void* addr, char val);
 extern "C" void preNonAtomicStore_int(void* addr, int val);
 extern "C" void preNonAtomicStore_double(void* addr, double val);
 extern "C" void preAtomicStore_char(void* addr, char val, int order);
 extern "C" void preAtomicStore_int(void* addr, int val, int order);
 extern "C" void preAtomicStore_double(void* addr, double val, int order);
+extern "C" void postAtomicLoad(void* addr, double val, int order);
 extern "C" void preCmpXchg_int(void* addr, int expect, 
         int newVal, int successOrdering, int failureOrdering);
 extern "C" void preCmpXchg_char(void* addr, char expect, 

@@ -113,37 +113,37 @@ namespace {
       Function *loadF_double = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicLoad_double", &M);
       myFunctions["preNonAtomicLoad_double"] = loadF_double;
       
-      paramTypes.clear();
+      /*paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
       Function *atomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_char", &M);
-      myFunctions["preAtomicLoad_char"] = atomicLoadF_char; 
+      myFunctions["preAtomicLoad_char"] = atomicLoadF_char;*/ 
       
       paramTypes.clear();
       paramTypes.push_back(pType);
       //paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
-      Function *atomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_int", &M);
-      myFunctions["preAtomicLoad_int"] = atomicLoadF_int;
+      FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
+      Function *atomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad", &M);
+      myFunctions["preAtomicLoad"] = atomicLoadF_int;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(pType);
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::get32Ty(M.getContext()), paramTypes, false);
+      Function *atomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_double", &M);
+      myFunctions["preAtomicLoad_double"] = atomicLoadF_double;*/
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *atomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_double", &M);
-      myFunctions["preAtomicLoad_double"] = atomicLoadF_double;
-
-      paramTypes.clear();
-      paramTypes.push_back(pType);
-      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
-      Function *postAtomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_int", &M);
-      myFunctions["postAtomicLoad_int"] = postAtomicLoadF_int;
+      Function *postAtomicLoadF = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad", &M);
+      myFunctions["postAtomicLoad"] = postAtomicLoadF;
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
@@ -262,9 +262,10 @@ namespace {
       errs() << "Identify an atomic load!: " << order << "\n";
       Value* o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), orderToInt[order]);
       
-      Function* func, *postFunc;
-      Type* ty;
-      if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
+      Function* func, *postFunc = myFunctions["postAtomicLoad"];
+      Type* ty = Type::getInt64Ty(loadI->getContext());
+      func = myFunctions["preAtomicLoad"];
+      /*if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
           func = myFunctions["preAtomicLoad_char"];
           ty = Type::getInt8Ty(loadI->getContext());
       } else if (loadI->getType() == Type::getInt32Ty(loadI->getContext())) {
@@ -278,7 +279,7 @@ namespace {
           loadI->getType()->dump();
           errs() << "Not handle this type for atomic load!\n";
           return ;
-      }
+      }*/
 
       std::vector<Value*> params;
       Value* param = loadI->getOperand(0);
@@ -300,11 +301,12 @@ namespace {
               loadI->getSynchScope(), loadI);
       ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, callI, defaultV);
       SelectInst* selectI = SelectInst::Create(icmpI, newLoadI, callI, "mySelect", nextI);
-      ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, selectI);
+      BitCastInst* castI = new BitCastInst(selectI, Type::getInt64Ty(loadI->getContext()), "myBitCast", nextI);
+      ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, castI);
       
       params.clear();
       params.push_back(param);
-      params.push_back(selectI);
+      params.push_back(castI);
       params.push_back(o);
       CallInst::Create(postFunc->getFunctionType(), postFunc, params, "", nextI); // add the post call
     }

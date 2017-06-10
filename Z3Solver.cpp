@@ -4,8 +4,10 @@
 
 #include "Z3Solver.h"
 #include "Util.h"
-#include "Parameters.h"
-#include "Schedule.h"
+#include "Executor.h"
+//#include "Parameters.h"
+//#include "Schedule.h"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -20,14 +22,17 @@
 #define LINEMAX 256
 
 using namespace std;
+using namespace checker;
 
-Z3Solver::Z3Solver()
-{
+Z3Solver::Z3Solver(Executor* exe) {
+    this->exe = exe;
     numOps = 0;
 
     //create a process running Z3 and the corresponding pipes for inter-proces communication
-    string z3ExePath = solverPath+" -smt2 -in ";
+    string z3ExePath = exe->get_solverPath() +" -smt2 -in ";
     char *command = (char *)z3ExePath.c_str();
+
+    std::cout << "command: " << command << "\n";
 
     z3pid = util::popen2(command, &procW, &procR);
 
@@ -44,11 +49,11 @@ Z3Solver::Z3Solver()
 void Z3Solver::openOutputFile()
 {
     //open file in output mode and deleting previous content
-    z3File.open(formulaFile, ios::trunc);
-    cout << "Opening file: " << formulaFile << endl;
+    z3File.open(exe->get_formulaFile(), ios::trunc);
+    cout << "Opening file: " << exe->get_formulaFile() << endl;
     if(!z3File.is_open())
     {
-        cerr << " -> Error opening file "<< formulaFile <<".\n";
+        cerr << " -> Error opening file "<< exe->get_formulaFile() <<".\n";
         z3File.close();
         exit(1);
     }
@@ -61,11 +66,11 @@ void Z3Solver::openOutputFile()
 void Z3Solver::openInputFile()
 {
     //open file in input mode and deleting previous content
-    z3File.open(formulaFile, ios::trunc);
-    cout << "Opening file: " << formulaFile << endl;
+    z3File.open(exe->get_formulaFile(), ios::trunc);
+    cout << "Opening file: " << exe->get_formulaFile() << endl;
     if(!z3File.is_open())
     {
-        cerr << " -> Error opening file "<< formulaFile <<".\n";
+        cerr << " -> Error opening file "<< exe->get_formulaFile() <<".\n";
         z3File.close();
         exit(1);
     }
@@ -122,12 +127,12 @@ bool Z3Solver::checkSat()
         if(!line.compare("sat")) {
             cout << "[Solver] Model Satisfiability: "<< line << endl;
             isSat = true;
-            endTime = time(NULL);
+            exe->set_endTime(time(NULL));
         }
         else if(line.find("(define-fun") != std::string::npos)  //its an operation definition
         {
             opName = getOpDefinition(line);
-            if(opName.front()=='O')
+            if(opName.front()=='B')
                 isOrderOp = true;
             else if((opName.front()=='R' && opName.find("R-") != std::string::npos) || opName.find("InitR-") != std::string::npos){
                 isReadOp = true;
@@ -137,7 +142,7 @@ bool Z3Solver::checkSat()
                 string value = line.substr(posBegin, posEnd-posBegin);
                 //cout <<"OpName:"<< opName << endl;
                 //cout <<"Value:"<< value << endl;
-                solutionValues.insert(std::pair<string,string>(opName,value));
+                exe->addSolutionValue(std::pair<string,string>(opName,value));
             }
         }
         else if(isOrderOp) //its an index for a previous read variable definition
@@ -150,6 +155,7 @@ bool Z3Solver::checkSat()
             s_str >> ind;
             globalOrderTmp[ind] = opName;
             isOrderOp = false;
+            exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
         }
         else if(isReadOp)
         {
@@ -172,30 +178,30 @@ bool Z3Solver::checkSat()
             cout << "[Solver] Unsat Core: " << line << endl;
 
             //save the unsat core if in bug-fixing mode
-            if(bugFixMode)
+            if(exe->get_bugFixMode())
             {
-                unsatCore.clear();
+                exe->get_unsat_core().clear();
                 size_t found = line.find("solution");
                 while(found!=std::string::npos)
                 {
                     size_t end = line.find_first_of(" ",found+1);
                     string sub = line.substr(found,end-found);
                     string id = sub.substr(sub.find("n")+1);
-                    unsatCore.push_back(util::intValueOf(id)); //store the label id of each solution constraint in the unsat core
+                    exe->add_unsat_core(util::intValueOf(id)); //store the label id of each solution constraint in the unsat core
                     found = line.find("solution", found+8);
                 }
                 //** insert the second operation of the last constraint as well (it might be needed)
-                int lastConst = unsatCore.front();
-                unsatCore.push_back(lastConst+1);
+                int lastConst = exe->get_unsat_core().front();
+                exe->add_unsat_core(lastConst+1);
             }
         }
         line = readLinePipe();
     }
     if(isSat)
     {
-        double solvingTime = difftime(endTime, startTime);//(double)(endTime-startTime)/(double) CLOCKS_PER_SEC;
+        double solvingTime = difftime(exe->get_endTime(), exe->get_startTime());//(double)(endTime-startTime)/(double) CLOCKS_PER_SEC;
         cout << "[Solver] Solution found in "<< solvingTime<<"s:\n\n";
-        scheduleLIB::loadSchedule(globalOrderTmp); // can be failScheduleOrd or altScheduleOrd depending on the boolean flag bugFixMode
+        //checker::loadSchedule(globalOrderTmp); // can be failScheduleOrd or altScheduleOrd depending on the boolean flag bugFixMode
     }
 
 
@@ -213,13 +219,13 @@ bool Z3Solver::solve()
     z3File.close();
 
     //** open input file again to read every line (this is needed because, for some reason.., writing the constraints directly into the pipe stops before reaching the end, for large constraint models)
-    ifstream infile(formulaFile);
+    ifstream infile(exe->get_formulaFile());
     string line;
     while (getline(infile, line))
     {
         write(procW, line.c_str(), line.length());
     }
-    startTime = time(NULL);
+    exe->set_startTime(time(NULL));
     infile.close();
 
     bool success = checkSat();
@@ -235,7 +241,7 @@ bool Z3Solver::solve()
 bool Z3Solver::solveWithSolution(vector<string> solution, bool invertBugCond)
 {
     //** open input file again to read every line (this is needed because, for some reason.., writing the constraints directly in the pipe stops before reaching the end, for large constraint models)
-    ifstream infile(formulaFile);
+    ifstream infile(exe->get_formulaFile());
     string line;
     while (getline(infile, line))
     {
@@ -256,7 +262,7 @@ bool Z3Solver::solveWithSolution(vector<string> solution, bool invertBugCond)
             while(init!=std::string::npos)
             {
                 string op = cond.substr(init,end-init);
-                bugCondOps.push_back(op);
+                //bugCondOps.push_back(op);
                 init = cond.find_first_of("RW",init+op.length());
                 end = cond.find_first_of(" )",init);
             }
@@ -282,7 +288,7 @@ bool Z3Solver::solveWithSolution(vector<string> solution, bool invertBugCond)
             //if(debug) cout << line.c_str();
         }
     }
-    startTime = time(NULL);
+    exe->set_startTime(time(NULL));
     infile.close();
 
     numOps = (int)solution.size();
@@ -407,12 +413,25 @@ string Z3Solver::declareIntVar(string varname){
     return ret;
 }
 
+std::string Z3Solver::declareIntVar(std::string varname, int val) {
+    string ret;
+    ret.append("(declare-const "+varname+" Int)\n");
+    ret.append("(assert (= "+varname+" "+util::stringValueOf(val)+"))");
+    return ret;
+}
+
 string Z3Solver::declareIntVar(string varname, int min, int max){
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");
     ret.append("(assert (>= "+varname+" "+util::stringValueOf(min)+"))\n(assert (<= "+varname+" "+util::stringValueOf(max)+"))");
 
     return ret;
+}
+
+std::string Z3Solver::declareIntVarAndStore(std::string varname, int val) {
+    string ret = declareIntVar(varname, val);
+    operationsVars.push_back(varname);
+    return  ret;
 }
 
 string Z3Solver::declareIntVarAndStore(string varname, int min, int max){
@@ -426,6 +445,12 @@ string Z3Solver::declareIntOrderVar(string varname, int min, int max){
     ret.append("(declare-const "+varname+" Int)\n");
     ret.append("(assert (>= "+varname+" "+util::stringValueOf(min)+"))\n(assert (<= "+varname+" "+util::stringValueOf(max)+"))");
 
+    return ret;
+}
+
+string Z3Solver::declareIntOrderVarAndStore(string varname, int val){
+    string ret = declareIntVar(varname, val);
+    orderVars.push_back(varname);
     return ret;
 }
 
@@ -451,6 +476,7 @@ string Z3Solver::postNamedAssert(string constraint,string label){
     return ("(assert (! "+constraint+":named "+label+"))\n");
 }
 
-string Z3Solver::invertBugCondition(string expr){
+string Z3Solver::invertBugCondition(string expr) {
     return (" (= false "+expr+")");
 }
+

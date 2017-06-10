@@ -6,11 +6,16 @@
 #define INSTRUMENT_SCHEDULE_H
 
 #include <stdio.h>
-#include "Parameters.h"
-#include "ConstraintModelGenerator.h"
+#include <stdlib.h>
+//#include "Parameters.h"
+//#include "ConstraintModelGenerator.h"
 
+//namespace scheduleLIB{
+namespace  checker {
+    class ConstModelGen;
+    class Action;
 
-namespace scheduleLIB{
+    typedef std::vector<Action *> Schedule;
 
     int getContextSwitchNum(const Schedule& sch);     //return the number of context switches
     void printSch (const Schedule& sch);     //Print Schedule using OrderConstraintName
@@ -28,6 +33,7 @@ namespace scheduleLIB{
     Schedule insertTEI(Schedule schedule, int newPosition, Schedule tei); //insert TEI in a schedule
     Schedule removeTEI(Schedule schedule, int initPosition); //removeTEI from a schedule
     Schedule getTEI(Schedule schedule, int startPostion);
+    std::vector<std::string> cleanEmpty(const std::vector<std::string>& globalOrderTmp);
 
     //functions for the Simplification Algorithm
     Schedule moveTEISch(Schedule list,int newPositon, int oldPosition);    //change TEI block to another location (TEI - thread execution interval)

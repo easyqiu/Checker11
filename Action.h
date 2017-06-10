@@ -122,6 +122,10 @@ namespace checker {
 
 		void print();
 
+		std::string get_uniq_name();
+
+		std::string get_binary_rel_name(Action* action);
+
 	protected:
 
 		Executor* exe;

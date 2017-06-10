@@ -8,6 +8,20 @@ Identify a non-atomic store!
 Identify an atomic store!: monotonic
 Identify a non-atomic store! 
 Identify a non-atomic store! 
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+Identify a non-atomic store! 
 i8*
 Not handle this type for non-atomic store!
 Identify a non-atomic store! 
@@ -15,18 +29,4 @@ Identify a non-atomic store!
 Identify a non-atomic store! 
 Identify a non-atomic store! 
 Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
 Instrument code: end!

@@ -8,14 +8,14 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-//#include "Parameters.h"
-
 
 namespace  checker {
 
+    class Executor;
     class Z3Solver {
 
     protected:
+        Executor* exe;
         std::ofstream z3File;                       //z3 output file (containing the symbolic constraint model)
         pid_t z3pid;                                //id of the process running z3
         int procR, procW;                           //pipes to read from and write to the process running z3
@@ -28,7 +28,7 @@ namespace  checker {
         std::vector<std::string> threadIds;          //vector containing the thread ids
 
         //constructor
-        Z3Solver();
+        Z3Solver(Executor* exe);
 
         //general functions
         bool solve();
@@ -92,13 +92,19 @@ namespace  checker {
 
         std::string declareIntVar(std::string varname);
 
+        std::string declareIntVar(std::string varname, int val);
+
         std::string declareIntVar(std::string varname, int min, int max);
+
+        std::string declareIntVarAndStore(std::string varname, int val);
 
         std::string declareIntVarAndStore(std::string varname, int min, int max);
 
         std::string declareRealVar(std::string varname, int min, int max);
 
         std::string declareIntOrderVar(std::string varname, int min, int max);
+
+        std::string declareIntOrderVarAndStore(std::string varname, int val);
 
         std::string declareIntOrderVarAndStore(std::string varname, int min, int max);
 

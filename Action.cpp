@@ -9,8 +9,10 @@
 #include "Action.h"
 #include "Executor.h"
 #include "Thread.h"
+#include "Util.h"
 
 using namespace checker;
+using namespace util;
 
 std::string Action::get_type_str(bool simple) const {
 
@@ -116,6 +118,14 @@ std::string Action::get_location_str() const {
 
 std::string Action::get_tid() const {
     return thread->getName();
+}
+
+std::string Action::get_binary_rel_name(Action *action) {
+    return "B_" + this->get_uniq_name() + "_" + action->get_uniq_name();
+}
+
+std::string Action::get_uniq_name() {
+    return thread->getName() + "-" + util::stringValueOf(get_seq_number());
 }
 
 std::string RWAction::get_action_str() {

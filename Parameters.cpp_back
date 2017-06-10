@@ -4,6 +4,8 @@
 
 #include "Parameters.h"
 
+using namespace checker;
+
 const int MAX_LINE_SIZE = 512;
 bool debug = false;
 bool bugFixMode = false;
