@@ -49,12 +49,12 @@ int main() {
     checker_shared((void*)&data);
     std::thread t1(producer);
     std::thread t2(consumer);
-    checker_thread_create(a.get_id());
-    checker_thread_create(b.get_id());
+    checker_thread_create(t1.get_id());
+    checker_thread_create(t2.get_id());
 
-    checker_thread_join(a.get_id());
-    checker_thread_join(b.get_id());
+    checker_thread_join(t1.get_id());
+    checker_thread_join(t2.get_id());
     t1.join(); t2.join();
-    checker_solver();
     checker_thread_end();
+    checker_solver();
 }

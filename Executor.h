@@ -37,9 +37,11 @@ namespace  checker {
 
         void execute_post_read_action(std::string tid, void *addr, int mo, uint64_t val);
 
-        void execute_write_action(std::string tid, void *addr, int mo, int val);
+        void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
 
         std::map<std::string, Thread *> getThreadMap();
+
+        std::map<Thread*, Thread*> getThreadCreateMap() { return threadCreateMap; };
 
         void begin_solver();
 
@@ -55,14 +57,18 @@ namespace  checker {
         void addSolutionValue(std::pair<std::string, std::string> p) { solutionValues.insert(p); }
         void printSolutionValue();
         std::map<std::string,std::string> getSolutionValues() { return solutionValues; }
+        void generateSolutionFile();
         void add_unsat_core(int i) { unsatCore.push_back(i); }
         std::vector<int> get_unsat_core() { return unsatCore; }
 
 
     protected:
         std::map<std::string, Thread*> threadMap;
+        std::map<Thread*, Thread*> threadCreateMap;
 
         Solver* solver;
+
+        int inputIndex;
 
         /** map pair (tid, seq_num)(of action A) -> vector<(tid, seq_num)>, representing all seq_numbers of the actions
          * which happens-before action A */

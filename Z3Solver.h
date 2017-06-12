@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <set>
 
 namespace  checker {
 
@@ -21,8 +22,9 @@ namespace  checker {
         int procR, procW;                           //pipes to read from and write to the process running z3
         std::vector<std::string> operationsVars;    //vector containing the operation variables
         std::vector<std::string> orderVars;         //vector containing the operation order variables
+        std::vector<std::string> rfVars;            //vector containing the operation rf variables
         int numOps;                             //number of operations to ordered
-
+        std::set<std::string> declaredVars;
 
     public:
         std::vector<std::string> threadIds;          //vector containing the thread ids
@@ -92,6 +94,8 @@ namespace  checker {
 
         std::string declareIntVar(std::string varname);
 
+        std::string declareIntVarNE(std::string varname, int val);
+
         std::string declareIntVar(std::string varname, int val);
 
         std::string declareIntVar(std::string varname, int min, int max);
@@ -103,6 +107,10 @@ namespace  checker {
         std::string declareRealVar(std::string varname, int min, int max);
 
         std::string declareIntOrderVar(std::string varname, int min, int max);
+
+        std::string declareIntRFVarAndStore(std::string varname, int val);
+
+        std::string declareIntOrderVarAndStoreNE(std::string varname, int val);
 
         std::string declareIntOrderVarAndStore(std::string varname, int val);
 

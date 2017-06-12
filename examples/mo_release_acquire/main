@@ -1,0 +1,12 @@
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main

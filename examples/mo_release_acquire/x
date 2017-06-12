@@ -5,6 +5,12 @@ Identify a non-atomic store!
 Identify a non-atomic store! 
 Identify an atomic store!: release
 Identify an atomic load!: acquire
+  %2 = icmp eq i64 %0, 255
+  %newLoad = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8
+  %0 = call i64 @preAtomicLoad_double(i8* %myCast, i32 4)
+  %1 = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8, !dbg !2783
+i64
+i64
 Identify a non-atomic store! 
 Identify a non-atomic store! 
 Identify a non-atomic store! 
@@ -19,4 +25,5 @@ Not handle this type for non-atomic store!
 Identify a non-atomic store! 
 %"class.std::__1::__thread_struct"*
 Not handle this type for non-atomic store!
+num: 0x7fc7b8e0aba8
 Instrument code: end!

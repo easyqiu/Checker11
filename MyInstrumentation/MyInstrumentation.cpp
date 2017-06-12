@@ -113,37 +113,54 @@ namespace {
       Function *loadF_double = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicLoad_double", &M);
       myFunctions["preNonAtomicLoad_double"] = loadF_double;
       
-      /*paramTypes.clear();
+      paramTypes.clear();
       paramTypes.push_back(pType);
-      paramTypes.push_back(Type::getInt8Ty(M.getContext()));
+      //paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
       Function *atomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_char", &M);
-      myFunctions["preAtomicLoad_char"] = atomicLoadF_char;*/ 
+      myFunctions["preAtomicLoad_char"] = atomicLoadF_char;
       
       paramTypes.clear();
       paramTypes.push_back(pType);
       //paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
-      Function *atomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad", &M);
-      myFunctions["preAtomicLoad"] = atomicLoadF_int;
+      FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
+      Function *atomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_int", &M);
+      myFunctions["preAtomicLoad_int"] = atomicLoadF_int;
 
-      /*paramTypes.clear();
+      paramTypes.clear();
       paramTypes.push_back(pType);
       //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::get32Ty(M.getContext()), paramTypes, false);
+      FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
       Function *atomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_double", &M);
-      myFunctions["preAtomicLoad_double"] = atomicLoadF_double;*/
+      myFunctions["preAtomicLoad_double"] = atomicLoadF_double;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt8Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *postAtomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_char", &M);
+      myFunctions["postAtomicLoad_char"] = postAtomicLoadF_char;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *postAtomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_int", &M);
+      myFunctions["postAtomicLoad_int"] = postAtomicLoadF_int;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *postAtomicLoadF = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad", &M);
-      myFunctions["postAtomicLoad"] = postAtomicLoadF;
+      Function *postAtomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_double", &M);
+      myFunctions["postAtomicLoad_double"] = postAtomicLoadF_double;
+
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
@@ -262,12 +279,13 @@ namespace {
       errs() << "Identify an atomic load!: " << order << "\n";
       Value* o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), orderToInt[order]);
       
-      Function* func, *postFunc = myFunctions["postAtomicLoad"];
-      Type* ty = Type::getInt64Ty(loadI->getContext());
-      func = myFunctions["preAtomicLoad"];
-      /*if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
+      Function* func, *postFunc;// = myFunctions["postAtomicLoad"];
+      Type* ty;// = Type::getInt64Ty(loadI->getContext());
+      //func = myFunctions["preAtomicLoad"];
+      if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
           func = myFunctions["preAtomicLoad_char"];
           ty = Type::getInt8Ty(loadI->getContext());
+          postFunc = myFunctions["postAtomicLoad_char"];
       } else if (loadI->getType() == Type::getInt32Ty(loadI->getContext())) {
           func = myFunctions["preAtomicLoad_int"];
           ty = Type::getInt32Ty(loadI->getContext());
@@ -275,11 +293,12 @@ namespace {
       } else if (loadI->getType() == Type::getInt64Ty(loadI->getContext())) {
           func = myFunctions["preAtomicLoad_double"];
           ty = Type::getInt64Ty(loadI->getContext());
+          postFunc = myFunctions["postAtomicLoad_double"];
       } else {
           loadI->getType()->dump();
           errs() << "Not handle this type for atomic load!\n";
           return ;
-      }*/
+      }
 
       std::vector<Value*> params;
       Value* param = loadI->getOperand(0);
@@ -296,18 +315,28 @@ namespace {
       //callI->insertAfter(loadI);
 
       Instruction* nextI = &*(++BBIt); BBIt--;
+      Instruction* newI = callI;
+      /*if (callI->getType() != loadI->getType()) {
+         newI = new BitCastInst(callI, loadI->getType(), "myBit", nextI);
+      }*/
+
       Value* defaultV = ConstantInt::get(ty, 0xff);
       LoadInst* newLoadI = new LoadInst(loadI->getPointerOperand(), "newLoad", loadI->isVolatile(), loadI->getAlignment(), loadI->getOrdering(), 
               loadI->getSynchScope(), loadI);
-      ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, callI, defaultV);
-      SelectInst* selectI = SelectInst::Create(icmpI, newLoadI, callI, "mySelect", nextI);
-      BitCastInst* castI = new BitCastInst(selectI, Type::getInt64Ty(loadI->getContext()), "myBitCast", nextI);
-      ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, castI);
+      ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, newI, defaultV);
+
+      icmpI->dump(), newLoadI->dump(), callI->dump(), loadI->dump();
+      newLoadI->getType()->dump(), newI->getType()->dump();
+      SelectInst* selectI = SelectInst::Create(icmpI, newLoadI, newI, "mySelect", nextI);
+      //BitCastInst* castI = new BitCastInst(selectI, Type::getInt64Ty(loadI->getContext()), "myBitCast", nextI);
+      //ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, castI);
+      ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, selectI);
       
       params.clear();
       params.push_back(param);
-      params.push_back(castI);
+      params.push_back(selectI);
       params.push_back(o);
+      std::cout << "num: " << postFunc << "\n";// postFunc->getFunctionType()->getNumParams() << "\n";
       CallInst::Create(postFunc->getFunctionType(), postFunc, params, "", nextI); // add the post call
     }
 

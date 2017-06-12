@@ -1,32 +1,92 @@
-Instrument code: begin!
-add a function: preStore
-Identify an atomic load!: monotonic
-Identify a non-atomic store! 
-Identify an atomic store!: monotonic
-Identify an atomic load!: monotonic
-Identify a non-atomic store! 
-Identify an atomic store!: monotonic
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-i8*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Instrument code: end!
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_f1-2_f2-2 () Int
+    1)
+  (define-fun B_main-2_f1-2 () Int
+    2)
+  (define-fun B_f2-2_main-2 () Int
+    2)
+  (define-fun RF_f2-2_main-2 () Int
+    1)
+  (define-fun B_main-6_main-7 () Int
+    1)
+  (define-fun B_main-5_main-7 () Int
+    1)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun B_main-4_main-7 () Int
+    1)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_main-3_main-7 () Int
+    1)
+  (define-fun B_main-3_main-6 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun B_main-2_main-7 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_main-1_main-7 () Int
+    1)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_f3-3_f3-4 () Int
+    1)
+  (define-fun B_f3-2_f3-4 () Int
+    1)
+  (define-fun B_f3-2_f3-3 () Int
+    1)
+  (define-fun B_f3-1_f3-4 () Int
+    1)
+  (define-fun B_f3-1_f3-3 () Int
+    1)
+  (define-fun B_f3-1_f3-2 () Int
+    1)
+  (define-fun B_f2-3_f2-4 () Int
+    1)
+  (define-fun B_f2-2_f2-4 () Int
+    1)
+  (define-fun B_f2-2_f2-3 () Int
+    1)
+  (define-fun B_f2-1_f2-4 () Int
+    1)
+  (define-fun B_f2-1_f2-3 () Int
+    1)
+  (define-fun B_f2-1_f2-2 () Int
+    1)
+  (define-fun B_f1-3_f1-4 () Int
+    1)
+  (define-fun B_f1-2_f1-4 () Int
+    1)
+  (define-fun B_f1-2_f1-3 () Int
+    1)
+  (define-fun B_f1-1_f1-4 () Int
+    1)
+  (define-fun B_f1-1_f1-3 () Int
+    1)
+  (define-fun B_f1-1_f1-2 () Int
+    1)
+)
+(error "line 96 column 15: unsat core is not available")
+end

@@ -120,6 +120,10 @@ std::string Action::get_tid() const {
     return thread->getName();
 }
 
+std::string Action::get_rf_rel_name(Action *action) {
+    return "RF_" + this->get_uniq_name() + "_" + action->get_uniq_name();
+}
+
 std::string Action::get_binary_rel_name(Action *action) {
     return "B_" + this->get_uniq_name() + "_" + action->get_uniq_name();
 }

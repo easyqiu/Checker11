@@ -52,6 +52,13 @@ namespace checker {
 			this->type = type;
 		}
 
+		Action(Executor* exe, Thread* thread, void *loc, action_type_t type) {
+			this->exe = exe;
+			this->thread = thread;
+			this->location = loc;
+			this->type = type;
+		}
+
 		/*Action(Executor* exe, Thread* thread, action_type_t type, int ord, void *loc, uint64_t val = 0xffff) {
 			this->exe = exe;
 			this->thread = thread;
@@ -73,17 +80,17 @@ namespace checker {
 		memory_order to_mo(int i) {
 			switch (i) {
 				case 1:
-					return memory_order_relaxed;
+					return memory_order_relaxed; // 0
 				case 4:
-					return memory_order_acquire;
+					return memory_order_acquire; // 1
 				case 5:
-					return memory_order_release;
+					return memory_order_release; // 2
 				case 6:
-					return memory_order_acq_rel;
+					return memory_order_acq_rel; // 3
 				case 7:
-					return memory_order_seq_cst;
+					return memory_order_seq_cst; // 4
 				default:
-					return memory_order_relaxed;
+					return memory_order_relaxed; // 5
 			}
 		}
 
@@ -91,11 +98,14 @@ namespace checker {
 
 		std::string get_tid() const;
 
+		Thread* get_thread() const { return thread; }
+
 		action_type get_type() const { return type; }
 
 		//memory_order get_mo() const { return order; }
 
 		void* get_location() const { return location; }
+
 		std::string get_location_str() const;
 
 		int get_seq_number() const { return seq_number; }
@@ -123,6 +133,8 @@ namespace checker {
 		void print();
 
 		std::string get_uniq_name();
+
+		std::string get_rf_rel_name(Action* action);
 
 		std::string get_binary_rel_name(Action* action);
 
@@ -182,15 +194,18 @@ namespace checker {
 	class RWAction :  public Action  {
 	public:
 		RWAction(Executor* exe, Thread* thread, action_type_t type,
-				 int ord, void *loc, bool write, uint64_t val = 0xffff) : Action(exe, thread, type) {
+				 int ord, void *loc, bool write, uint64_t val = 0xffff) : Action(exe, thread, loc, type) {
 
 			order = to_mo(ord);
 			location = loc;
 			isWrite = write;
 			value = val;
+			std::cout << "test in RWAction: " << val << " " << ord << " " << order << "\n";
 		}
 
 		uint64_t get_value() const { return value; }
+
+		bool is_write() const { return isWrite; }
 
 		memory_order get_mo() const { return order; }
 

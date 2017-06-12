@@ -222,3 +222,7 @@ TStart f2
 ARead 0x10a42f154 0 1
 AWrite 0x10a42f150 0 1
 TFinish f2
+TStart f2
+ARead 0x10aa2a154 0 2
+AWrite 0x10aa2a150 0 1
+TFinish f2

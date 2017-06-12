@@ -1,0 +1,32 @@
+TStart producer
+AWrite 0x1074560d8 2 7
+AWrite 0x1074560d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x107b940d8 2 7
+AWrite 0x107b940d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x1020ba0d8 2 7
+AWrite 0x1020ba0d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x10d8c70d8 2 7
+AWrite 0x10d8c70d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x10204b0d8 2 7
+AWrite 0x10204b0d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x1017930d8 2 7
+AWrite 0x1017930d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x105cb30d8 2 7
+AWrite 0x105cb30d8 2 8
+TFinish producer
+TStart producer
+AWrite 0x10d5f30d8 2 7
+AWrite 0x10d5f30d8 2 8
+TFinish producer

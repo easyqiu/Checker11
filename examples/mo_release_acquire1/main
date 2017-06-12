@@ -1,0 +1,43 @@
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main
+TStart main
+AWrite 0x10d5f30d8 4 0
+TCreate main producer
+TCreate main consumer
+TJoin main producer
+TJoin main consumer
+TFinish main

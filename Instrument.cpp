@@ -80,27 +80,7 @@ void preNonAtomicLoad_double(void* addr, int val) {
     updateTrace(ss.str());
 }
 
-void preAtomicLoad_char(void* addr, char val, int order) {
-# ifdef DEBUG
-    std::cout << "In atomic preLoad: " << addr << " " << val << " " << order << "!\n";
-# endif
-
-    std::stringstream ss;
-    ss << "atomic_load_char: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
-}
-
-double preAtomicLoad(void* addr, int order) {
-# ifdef DEBUG
-    std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
-# endif
-
-    int retV = exe->execute_pre_read_action(getThreadName(std::this_thread::get_id()), addr, order);
-    //std::cout << "retV: " << retV;
-    return retV;
-}
-
-double preAtomicLoad_double(void* addr, int order) {
+char preAtomicLoad_char(void* addr, int order) {
 # ifdef DEBUG
     std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
 # endif
@@ -109,9 +89,48 @@ double preAtomicLoad_double(void* addr, int order) {
     return retV;
 }
 
-void postAtomicLoad(void* addr, double val, int order) {
+int preAtomicLoad_int(void* addr, int order) {
 # ifdef DEBUG
-    std::cout << "In atomic postLoad: " << addr << " " << val << " " << order << "!\n";
+    std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
+# endif
+
+    int retV = exe->execute_pre_read_action(getThreadName(std::this_thread::get_id()), addr, order);
+    return retV;
+}
+
+uint64_t preAtomicLoad_double(void* addr, int order) {
+# ifdef DEBUG
+    std::cout << "In atomic preLoad: " << addr << " " << order << "!\n";
+# endif
+
+    int retV = exe->execute_pre_read_action(getThreadName(std::this_thread::get_id()), addr, order);
+    return retV;
+}
+
+void postAtomicLoad_char(void* addr, char val, int order) {
+# ifdef DEBUG
+    std::cout << "In atomic postLoad char: " << addr << " " << val << " " << order << "!\n";
+# endif
+
+    exe->execute_post_read_action(getThreadName(std::this_thread::get_id()), addr, order, val);
+    return ;
+
+}
+
+
+void postAtomicLoad_int(void* addr, int val, int order) {
+# ifdef DEBUG
+    std::cout << "In atomic postLoad int: " << addr << " " << val << " " << order << "!\n";
+# endif
+
+    exe->execute_post_read_action(getThreadName(std::this_thread::get_id()), addr, order, val);
+    return ;
+
+}
+
+void postAtomicLoad_double(void* addr, uint64_t val, int order) {
+# ifdef DEBUG
+    std::cout << "In atomic postLoad double: " << addr << " " << val << " " << order << "!\n";
 # endif
 
     exe->execute_post_read_action(getThreadName(std::this_thread::get_id()), addr, order, val);
@@ -182,14 +201,16 @@ void preAtomicStore_int(void* addr, int val, int order) {
     exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preAtomicStore_double(void* addr, double val, int order) {
+void preAtomicStore_double(void* addr, uint64_t val, int order) {
 # ifdef DEBUG
-    std::cout << "In atomic preStore: " << addr << " " << val << " " << order << "!\n";
+    std::cout << "In atomic preStore double: " << addr << " " << val << " " << order << "!\n";
 # endif
     
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "atomic_store_double: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    updateTrace(ss.str());*/
+
+    exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
 void preFence(int order) {

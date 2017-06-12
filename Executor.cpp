@@ -10,8 +10,10 @@
 #include "Action.h"
 #include "Thread.h"
 #include "Solver.h"
+#include "Util.h"
 
 using namespace checker;
+using namespace util;
 
 Executor::Executor() {
     std::cout << "Generate a new Execuctor\n";
@@ -20,6 +22,7 @@ Executor::Executor() {
     set_parameters();
     solver = new Solver(this);
     bugFixMode = true;
+    inputIndex = 0;
 }
 
 void Executor::addThread(std::string tid, std::string name) {
@@ -83,7 +86,7 @@ void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uin
 }
 
 
-void Executor::execute_write_action(std::string tid, void* addr, int mo, int val) {
+void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_t val) {
     Thread *thread = threadMap[tid];
     Action *action = new RWAction(this, thread, ATOMIC_WRITE, mo, addr, true, val);
     while (thread->pause(action) == true) {}
@@ -105,7 +108,7 @@ void Executor::readPrefix(std::string filename) {
             line = line.substr(line.find(":")+2);
 
             std::strcpy(action, line.c_str());
-            char* token = strtok (action, " ");
+            char* token = strtok(action, " ");
 
             std::string fname = token;
             token = strtok(NULL, " ");
@@ -118,7 +121,7 @@ void Executor::readPrefix(std::string filename) {
             line = line.substr(line.find(":")+2);
 
             std::strcpy(action, line.c_str());
-            char* token = strtok (action, " ");
+            char* token = strtok(action, " ");
 
             std::string fname1 = token;
             token = strtok(NULL, " ");
@@ -144,7 +147,6 @@ void Executor::set_parameters() {
 
 void Executor::begin_solver() {
     solver->start();
-    printSolutionValue();
 }
 
 
@@ -154,4 +156,55 @@ void Executor::printSolutionValue() {
             it != solutionValues.end(); ++it) {
         std::cout << it->first << " " << it->second << "\n";
     }
+}
+
+void Executor::generateSolutionFile() {
+    std::string inputName = "Input" + util::stringValueOf(inputIndex++);
+    std::ofstream outfile(inputName, std::ios::app);
+    for (std::map<std::string, std::string>::iterator it = solutionValues.begin();
+            it != solutionValues.end(); ++it) {
+        std::string name = it->first;
+        std::string val = it->second;
+        if (name.at(0) == 'B' && name.find("B_") != std::string::npos) {
+            name = name.substr(2);
+            char action[100];
+            std::strcpy(action, name.c_str());
+            char* token = strtok(action, "_-");
+            std::string fname1 = token;
+            token = strtok(NULL, "_-");
+            std::string seq_num1 = token;
+            token = strtok(NULL, "_-");
+            std::string fname2 = token;
+            token = strtok(NULL, "_-");
+            std::string seq_num2 = token;
+            outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
+        } else if (name.at(0) == 'R' && name.find("RF_") != std::string::npos) {
+            name = name.substr(3);
+            char action[100];
+            std::strcpy(action, name.c_str());
+            char* token = strtok(action, "_-");
+            std::string fname1 = token;
+            token = strtok(NULL, "_-");
+            std::string seq_num1 = token;
+            token = strtok(NULL, "_-");
+            std::string fname2 = token;
+            token = strtok(NULL, "_-");
+            std::string seq_num2 = token;
+            uint64_t  val;
+            for (std::map<std::string, Thread*>::iterator tit = threadMap.begin();
+                    tit != threadMap.end(); ++tit) {
+                if (tit->second->getName() == fname2) {
+                    std::vector<Action*> list = tit->second->getActionList();
+                    RWAction* write = dynamic_cast<RWAction*>(list[util::intValueOf(seq_num2)]);
+                    val = write->get_value();
+                    break ;
+                }
+            }
+
+            outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
+        }
+    }
+
+    outfile.flush();
+    outfile.close();
 }

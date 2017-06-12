@@ -1,0 +1,29 @@
+Instrument code: begin!
+add a function: preStore
+Identify a non-atomic store! 
+Identify an atomic store!: release
+Identify an atomic store!: release
+Identify an atomic load!: acquire
+  %2 = icmp eq i32 %0, 255
+  %newLoad = load atomic i32, i32* getelementptr inbounds (%"struct.std::__1::atomic", %"struct.std::__1::atomic"* @x, i64 0, i32 0, i32 0, i32 0) acquire, align 4
+  %0 = call i32 @preAtomicLoad_int(i8* %myCast, i32 4)
+  %1 = load atomic i32, i32* getelementptr inbounds (%"struct.std::__1::atomic", %"struct.std::__1::atomic"* @x, i64 0, i32 0, i32 0, i32 0) acquire, align 4, !dbg !1833
+i32
+i32
+Identify an atomic store!: seq_cst
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+num: 0x7ffefac098b8
+Instrument code: end!

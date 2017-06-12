@@ -115,6 +115,7 @@ bool Z3Solver::checkSat()
     string opName;                   //indicates the name of the operation
     bool isOrderOp = false;          //indicates that we have parsed an order constraint, thus we need to read its value
     bool isReadOp = false;           //indicates that we have parsed an read operation, thus we need to read its value
+    bool isRFOp = false;             //indicates the read-from relation
     map<string, string> readValues;  //map read operation -> read value
     bool isSat = false;
 
@@ -134,6 +135,8 @@ bool Z3Solver::checkSat()
             opName = getOpDefinition(line);
             if(opName.front()=='B')
                 isOrderOp = true;
+            else if (opName.front() == 'R' && opName.find("RF") != std::string::npos)
+                isRFOp = true;
             else if((opName.front()=='R' && opName.find("R-") != std::string::npos) || opName.find("InitR-") != std::string::npos){
                 isReadOp = true;
                 line = readLinePipe();
@@ -155,6 +158,15 @@ bool Z3Solver::checkSat()
             s_str >> ind;
             globalOrderTmp[ind] = opName;
             isOrderOp = false;
+            exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
+        }
+        else if (isRFOp) {
+            int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
+            int posEnd = (int)line.find_last_of(")");        //place posEnd in the last char of the value
+            string index = line.substr(posBegin, posEnd-posBegin);
+            std::stringstream s_str(index);
+            int ind;
+            s_str >> ind;
             exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
         }
         else if(isReadOp)
@@ -408,12 +420,25 @@ string Z3Solver::cSummation(std::vector<string> sum){
 }
 
 string Z3Solver::declareIntVar(string varname){
+    if (declaredVars.find(varname) != declaredVars.end())
+        return "";
+
+    declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");
     return ret;
 }
 
+std::string Z3Solver::declareIntVarNE(std::string varname, int val) {
+    declaredVars.insert(varname);
+    string ret;
+    ret.append("(declare-const "+varname+" Int)\n");
+    ret.append("(assert (!= "+varname+" "+util::stringValueOf(val)+"))");
+    return ret;
+}
+
 std::string Z3Solver::declareIntVar(std::string varname, int val) {
+    declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");
     ret.append("(assert (= "+varname+" "+util::stringValueOf(val)+"))");
@@ -421,6 +446,7 @@ std::string Z3Solver::declareIntVar(std::string varname, int val) {
 }
 
 string Z3Solver::declareIntVar(string varname, int min, int max){
+    declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");
     ret.append("(assert (>= "+varname+" "+util::stringValueOf(min)+"))\n(assert (<= "+varname+" "+util::stringValueOf(max)+"))");
@@ -441,10 +467,23 @@ string Z3Solver::declareIntVarAndStore(string varname, int min, int max){
 }
 
 string Z3Solver::declareIntOrderVar(string varname, int min, int max){
+    declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");
     ret.append("(assert (>= "+varname+" "+util::stringValueOf(min)+"))\n(assert (<= "+varname+" "+util::stringValueOf(max)+"))");
 
+    return ret;
+}
+
+string Z3Solver::declareIntRFVarAndStore(string varname, int val){
+    string ret = declareIntVar(varname, val);
+    rfVars.push_back(varname);
+    return ret;
+}
+
+string Z3Solver::declareIntOrderVarAndStoreNE(string varname, int val){
+    string ret = declareIntVar(varname, val);
+    orderVars.push_back(varname);
     return ret;
 }
 
@@ -461,6 +500,7 @@ string Z3Solver::declareIntOrderVarAndStore(string varname, int min, int max){
 }
 
 string Z3Solver::declareRealVar(string varname, int min, int max){
+    declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Real)\n");
     ret.append("(assert (>= "+varname+" "+util::stringValueOf(min)+"))\n(assert (<= "+varname+" "+util::stringValueOf(max)+"))");

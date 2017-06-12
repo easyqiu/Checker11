@@ -2,7 +2,10 @@
 // Created by aser on 6/8/17.
 //
 
+#include <cassert>
+
 #include "ConstraintModelGenerator.h"
+#include "Solver.h"
 #include "Executor.h"
 #include "Thread.h"
 #include "Action.h"
@@ -64,3 +67,80 @@ void ConstModelGen::addSWConstraints(std::map<Action*, Action*> swRelations) {
     }
     z3solver->setNumOps(numB);
 }
+
+std::string ConstModelGen::addRWRelation(RWAction *read, uint64_t val) {
+    std::string retStr = "";
+    std::map<std::string, std::vector<RWAction*> > writeMap = solver->getWriteSet();
+    std::vector<RWAction*> writeSet = writeMap[read->get_location_str()];
+
+    string orStr = "";
+    for (std::vector<RWAction*>::iterator it = writeSet.begin();
+            it != writeSet.end(); ++it) {
+        RWAction* write = *it;
+        string andStr = "";
+        if (write->get_value() == val) {
+            string rfRelName = read->get_rf_rel_name(write);
+            declareIntVar(rfRelName);
+            andStr += " " + z3solver->cEq(rfRelName, "1");
+
+            string bRelName = read->get_binary_rel_name(write);
+            declareIntVar(bRelName);
+            andStr += " " + z3solver->cNeq(bRelName, "1");
+
+            for (std::vector<RWAction*>::iterator it2 = writeSet.begin();
+                    it2 != writeSet.end(); ++it2) {
+                RWAction* write2 = *it2;
+                assert(read->get_location_str() == write->get_location_str() &&
+                read->get_location_str() == write2->get_location_str());
+                if (write == write2)
+                    continue ;
+
+                std::cout << "location: " << read->get_location_str() << " " << write->get_location_str() << " " << write2->get_location_str() << "\n";
+                std::cout << "read: " << read->get_action_str() << "\n";
+                std::cout << "write: " << write->get_action_str() << "\n";
+                std::cout << "write2: " << write2->get_action_str() << "\n";
+                string tmpStr = "";
+                string bName1 = write->get_binary_rel_name(write2);
+                declareIntVar(bName1);
+                tmpStr = z3solver->cEq(bName1, "1");
+
+                string bName2 = write2->get_binary_rel_name(read);
+                declareIntVar(bName2);
+                tmpStr += " " + z3solver->cEq(bName2, "1");
+                tmpStr = z3solver->invertBugCondition(z3solver->cAnd(tmpStr));
+                andStr += tmpStr;
+            }
+            orStr += " " + z3solver->cAnd(andStr);
+        }
+    }
+
+    return z3solver->cOr(orStr);
+}
+
+void ConstModelGen::addRWRelations(std::map<RWAction *, uint64_t> pairs) {
+    string andStr = "";
+    for (std::map<RWAction*, uint64_t >::iterator it = pairs.begin();
+            it != pairs.end(); ++it) {
+        RWAction* read = it->first;
+        uint64_t val = it->second;
+        std::string tmpAndStr = addRWRelation(read, val);
+        andStr += " " + tmpAndStr;
+    }
+
+    andStr = z3solver->cAnd(andStr);
+    z3solver->writeLineZ3(z3solver->postAssert(andStr));
+}
+
+std::string ConstModelGen::addRFRelation(RWAction *read, RWAction *write, int val) {
+    string rfRelName = read->get_rf_rel_name(write);
+    declareIntVar(rfRelName);
+    return z3solver->cEq(rfRelName, "1");
+}
+
+void ConstModelGen::declareIntVar(std::string name) {
+    string retStr = z3solver->declareIntVar(name);
+    if (retStr != "")
+        z3solver->writeLineZ3(retStr);
+}
+
+
