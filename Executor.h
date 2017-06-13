@@ -1,18 +1,17 @@
 #include <iostream>
 #include <string>
 #include <map>
-
+#include <vector>
+#include <set>
 //#include "Thread.h"
 //#include "Action.h"
 //#include "Action.h"
 
-#include <vector>
-#include <set>
-
-
 namespace  checker {
     class Thread;
     class Solver;
+    class Schedule;
+    class ModelChecker;
     //checker::memory_order;
     //enum action_type;
 
@@ -20,6 +19,10 @@ namespace  checker {
     public:
 
         Executor();
+
+        void setModelChecker(ModelChecker* checker);
+
+        ModelChecker* getChecker() { return checker; }
 
         void readPrefix(std::string name);
 
@@ -47,6 +50,12 @@ namespace  checker {
 
         void set_parameters();
 
+        void set_formulaFile(std::string name) { formulaFile = name; }
+
+        int get_inputIndex() { return inputIndex; }
+
+        void set_inputIndex(int num) { inputIndex = num; }
+
         bool get_bugFixMode() { return bugFixMode; }
         void set_startTime(time_t t) { startTime = t; }
         time_t get_startTime() { return startTime; }
@@ -60,6 +69,9 @@ namespace  checker {
         void generateSolutionFile();
         void add_unsat_core(int i) { unsatCore.push_back(i); }
         std::vector<int> get_unsat_core() { return unsatCore; }
+        void resetSolver();
+        void scheduleNewExe();
+        Schedule* getCurSch() { std::cout << "get sch: " << curSch << "\n"; return curSch; }
 
 
     protected:
@@ -68,7 +80,11 @@ namespace  checker {
 
         Solver* solver;
 
+        ModelChecker* checker;
+
         int inputIndex;
+
+        Schedule* curSch;
 
         /** map pair (tid, seq_num)(of action A) -> vector<(tid, seq_num)>, representing all seq_numbers of the actions
          * which happens-before action A */
@@ -85,7 +101,7 @@ namespace  checker {
         std::map<std::string,std::string> solutionValues;
         std::vector<int> unsatCore;
         bool bugFixMode;
-
+        std::vector<Schedule*> schedules;
     };
 }
 

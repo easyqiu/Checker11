@@ -17,6 +17,8 @@
 #include "Thread.h"
 #include "Action.h"
 #include "Solver.h"
+#include "Util.h"
+#include "Schedule.h"
 //#include "Parameters.h"
 
 #define MAX_LINE_SIZE 100
@@ -154,6 +156,15 @@ void Solver::enforceRW(RWAction *read, uint64_t val) {
 
 // generate a schedule which enforces 'read' reads value 'val'.
 void Solver::generateSchedule(RWAction *read, uint64_t val) {
+    exe->getSolutionValues().clear();
+    exe->set_formulaFile(getenv("formulaFile") + util::stringValueOf(exe->get_inputIndex()));
+    exe->set_inputIndex(exe->get_inputIndex()+1);
+
+    exe->resetSolver();
+    //z3solver->openOutputFile();
+    //z3solver->resetDeclaredVars();
+    cmg = new ConstModelGen(exe, this, z3solver);
+
     cmg->addBinaryConstraints();
     cmg->addSWConstraints(swRelations);
 
@@ -178,11 +189,12 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     z3solver->solve();
     exe->printSolutionValue();
     exe->generateSolutionFile();
-
+    delete  cmg;
 }
 
 void Solver::generateModel() {
 
+    Schedule* curSch = exe->getCurSch();
     for (std::map<string, vector<RWAction*> >::iterator it = readset.begin();
             it != readset.end(); ++it) {
         string addr = it->first;
@@ -195,12 +207,16 @@ void Solver::generateModel() {
         for (vector<RWAction*>::iterator rIt = readList.begin();
              rIt != readList.end(); ++rIt) {
             RWAction* read = *rIt;
+            Thread* thread = read->get_thread();
             for (vector<RWAction*>::iterator wIt = writeList.begin();
                     wIt != writeList.end(); ++wIt) {
                 RWAction* write = *wIt;
+                if (curSch->inPrefix(std::make_pair(thread->getName(), read->get_seq_number())))
+                    continue ;
                 if (read->get_value() == write->get_value())
                     continue ;
-                std::cout << "Generating: " << read->get_action_str() << " " << write->get_value() << "\n";
+
+                std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
                 generateSchedule(read, write->get_value());
             }
         }
@@ -214,11 +230,12 @@ void Solver::generateSWRelations() {
 void Solver::start() {
     collectData();
 
-    z3solver->openOutputFile();
-    cmg = new ConstModelGen(exe, this, z3solver);
+    //z3solver->openOutputFile();
+    //cmg = new ConstModelGen(exe, this, z3solver);
 
     generateSWRelations();
     generateModel();
+    std::cout << "End solver!\n";
 }
 
 set<Action*> Solver::identifyMHBRelation(Action *action) {

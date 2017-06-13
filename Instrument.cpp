@@ -7,6 +7,7 @@
 #include <unistd.h>
 
 #include "Executor.h"
+#include "checker.hpp"
 
 using namespace checker;
 
@@ -14,6 +15,7 @@ using namespace checker;
 
 std::set<void*> sharedAddresses; 
 Executor* exe;
+ModelChecker* modelChecker;
 
 extern "C" {
 
@@ -387,6 +389,8 @@ void checker_shared(void* addr) {
 void checker_generateExecutor() {
     exe = new Executor();
     std::cerr << "initialize executor!\n";
+    modelChecker->setExecutor(exe);
+    exe->setModelChecker(modelChecker);
 }
 
 void checker_thread_create(std::thread::id id2) {
@@ -410,5 +414,7 @@ void checker_thread_join(std::thread::id id) {
 
 void checker_solver() {
     exe->begin_solver();
+    delete exe;
+    std::cout << "end checker_solver!\n";
 }
 }

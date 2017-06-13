@@ -3,8 +3,11 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "Executor.h"
+//#include "Executor.h"
 
+using namespace checker;
+
+extern ModelChecker* modelChecker;
 //Executor* exe;
 
 extern "C" void preNonAtomicLoad_char(void* addr, char val);
@@ -18,7 +21,7 @@ extern "C" void preNonAtomicStore_int(void* addr, int val);
 extern "C" void preNonAtomicStore_double(void* addr, double val);
 extern "C" void preAtomicStore_char(void* addr, char val, int order);
 extern "C" void preAtomicStore_int(void* addr, int val, int order);
-extern "C" void preAtomicStore_double(void* addr, double val, int order);
+extern "C" void preAtomicStore_double(void* addr, uint64_t val, int order);
 extern "C" void postAtomicLoad_char(void* addr, char val, int order);
 extern "C" void postAtomicLoad_int(void* addr, int val, int order);
 extern "C" void postAtomicLoad_double(void* addr, uint64_t val, int order);

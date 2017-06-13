@@ -8,9 +8,19 @@
 #include <unistd.h>
 
 #include "Instrument.h"
+#include "ModelChecker.h"
+
+using namespace checker;
+
+//ModelChecker* modelChecker;
 
 extern "C" void checker_shared(void*);
 extern "C" void thread_begin();
+extern "C" int user_main();
+/*extern "C" int main() {
+    user_main();
+    return 0;
+}*/
 //extern "C" void generateExecutor();
 
 //extern "C" void checker_thread_create(std::thread::id id1, std::thread::id id2) {

@@ -39,6 +39,7 @@ namespace  checker {
         std::map<std::string, std::vector<RWAction*> > getReadSet() { return readset; }
         std::map<std::string, std::vector<RWAction*> > getWriteSet() { return writeset; }
         void start();
+        Z3Solver* getSolver() { return z3solver; }
 
     private:
         Executor* exe;

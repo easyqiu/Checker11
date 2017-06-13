@@ -8,14 +8,18 @@
 #include "Executor.h"
 #include "Thread.h"
 #include "Action.h"
+#include "Schedule.h"
 
 using namespace checker;
 
 void Thread::addAction(Action* action) {
     //std::cout << "Pre Add action: " << this << " " << action->get_action_str() << " " << id << " " << actionList.size() << "\n";
     actionList.push_back(action);
-    action->set_seq_number(actionList.size());
+    action->set_seq_number(actionList.size()-1);
     //std::cout << "Add action: " << this << " " << id << " " << actionList.size() << "\n";
+    /*Schedule* curSch = exe->getCurSch();
+    std::cout << "ccc: " << curSch << "\n";
+    curSch->eraseAction(std::make_pair(name, action->get_seq_number()));*/
 }
 
 std::vector<Action*> Thread::getActionList() {

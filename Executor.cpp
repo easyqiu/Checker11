@@ -5,24 +5,38 @@
 #include <assert.h>
 #include <fstream>
 #include <sstream>
+#include <thread>
 
 #include "Executor.h"
 #include "Action.h"
 #include "Thread.h"
 #include "Solver.h"
+#include "Z3Solver.h"
 #include "Util.h"
+#include "Schedule.h"
+#include "checker.hpp"
+#include "ModelChecker.h"
 
 using namespace checker;
 using namespace util;
 
 Executor::Executor() {
-    std::cout << "Generate a new Execuctor\n";
+    std::cout << "Generate a new Execuctor: " << this << "\n";
     readPrefix("Input2");
 
     set_parameters();
     solver = new Solver(this);
     bugFixMode = true;
     inputIndex = 0;
+    curSch = new Schedule();
+}
+
+void Executor::setModelChecker(ModelChecker* checker) {
+    this->checker = checker;
+    if (checker->getSchList().size() != 0) {
+        curSch = checker->getSchList()[0];
+        checker->eraseSch();
+    }
 }
 
 void Executor::addThread(std::string tid, std::string name) {
@@ -43,6 +57,7 @@ void Executor::execute_thread_begin_action(std::string tid, std::string name) {
     Thread* thread = threadMap[tid];
     Action* action = new Action(this, thread, THREAD_START, name);
     thread->addAction(action);
+    curSch->eraseAction(std::make_pair(name, action->get_seq_number()));
 }
 
 void Executor::execute_thread_end_action(std::string tid) {
@@ -68,13 +83,16 @@ int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
     thread->addAction(action);
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
     //std::cout << "current action: " << readValueMap.size() << " " << currentPair.first << " " << currentPair.second << "\n";
-    while (preActions[currentPair].size() != 0) {}
+    //while (preActions[currentPair].size() != 0) {}
+    while (curSch->checkPreRead(currentPair) == false) { std::cout << "11111\n"; }
 
-    if (readValueMap.find(currentPair) == readValueMap.end())
+    /*if (readValueMap.find(currentPair) == readValueMap.end()
         return 0xff;
     else {
         return readValueMap[currentPair];
-    }
+    }*/
+
+    return curSch->getRFValue(currentPair);
 }
 
 void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uint64_t val) {
@@ -89,7 +107,7 @@ void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uin
 void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_t val) {
     Thread *thread = threadMap[tid];
     Action *action = new RWAction(this, thread, ATOMIC_WRITE, mo, addr, true, val);
-    while (thread->pause(action) == true) {}
+    while (thread->pause(action) == true) { std::cout << "2222\n"; }
 
     thread->addAction(action);
 }
@@ -147,8 +165,9 @@ void Executor::set_parameters() {
 
 void Executor::begin_solver() {
     solver->start();
+    scheduleNewExe();
+    std::cout << "eeeendddd!\n";
 }
-
 
 void Executor::printSolutionValue() {
     std::cout << "Solution Value: \n";
@@ -159,15 +178,20 @@ void Executor::printSolutionValue() {
 }
 
 void Executor::generateSolutionFile() {
-    std::string inputName = "Input" + util::stringValueOf(inputIndex++);
-    std::ofstream outfile(inputName, std::ios::app);
+    Schedule* sch = new Schedule();
+    //curSch->clearData();
+
+    bool flag = false;
+    std::string inputName = "Input" + util::stringValueOf(inputIndex-1);
+    //std::ofstream outfile(inputName, std::ios::app);
     for (std::map<std::string, std::string>::iterator it = solutionValues.begin();
             it != solutionValues.end(); ++it) {
         std::string name = it->first;
         std::string val = it->second;
+        std::cout << "handle: " << name << " " << val << "\n";
         if (name.at(0) == 'B' && name.find("B_") != std::string::npos) {
             name = name.substr(2);
-            char action[100];
+            char action[10000];
             std::strcpy(action, name.c_str());
             char* token = strtok(action, "_-");
             std::string fname1 = token;
@@ -177,10 +201,13 @@ void Executor::generateSolutionFile() {
             std::string fname2 = token;
             token = strtok(NULL, "_-");
             std::string seq_num2 = token;
-            outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
+            if (fname1 != fname2) {
+                //outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
+                sch->updatePreAction(std::make_pair(fname1, util::intValueOf(seq_num1)), std::make_pair(fname2, util::intValueOf(seq_num2)));
+            }
         } else if (name.at(0) == 'R' && name.find("RF_") != std::string::npos) {
             name = name.substr(3);
-            char action[100];
+            char action[10000];
             std::strcpy(action, name.c_str());
             char* token = strtok(action, "_-");
             std::string fname1 = token;
@@ -195,16 +222,43 @@ void Executor::generateSolutionFile() {
                     tit != threadMap.end(); ++tit) {
                 if (tit->second->getName() == fname2) {
                     std::vector<Action*> list = tit->second->getActionList();
+                    Action* action = list[util::intValueOf(seq_num2)];
+                    std::cout << "action: " << fname2 << " " << seq_num2 << " " << action->get_action_str() << "\n";
                     RWAction* write = dynamic_cast<RWAction*>(list[util::intValueOf(seq_num2)]);
+                    std::cout << "write: " << write << "\n";
                     val = write->get_value();
                     break ;
                 }
             }
 
-            outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
+            //outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
+            sch->updateReadValueMap(std::make_pair(fname1, util::intValueOf(seq_num1)), val);
         }
     }
 
-    outfile.flush();
-    outfile.close();
+    //outfile.flush();
+    //outfile.close();
+    schedules.push_back(sch);
+    getChecker()->addSch(sch);
+}
+
+void Executor::resetSolver() {
+    solver->getSolver()->openOutputFile();
+    solver->getSolver()->resetDeclaredVars();
+    solutionValues.clear();
+}
+
+void Executor::scheduleNewExe() {
+    if (schedules.size() == 0)
+        return ;
+
+    for (std::vector<Schedule*>::iterator it = schedules.begin();
+            it != schedules.end(); ++it) {
+        std::cout << "New Schedule: \n";
+        Schedule* sch = *it;
+        curSch = sch;
+        //system("./example");
+        //std::thread a(user_main);
+        //a.join();
+    }
 }

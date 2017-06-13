@@ -139,6 +139,7 @@ std::string ConstModelGen::addRFRelation(RWAction *read, RWAction *write, int va
 
 void ConstModelGen::declareIntVar(std::string name) {
     string retStr = z3solver->declareIntVar(name);
+    std::cout << "declare: " << name << " " << retStr << "\n";
     if (retStr != "")
         z3solver->writeLineZ3(retStr);
 }

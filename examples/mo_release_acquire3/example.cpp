@@ -1,7 +1,13 @@
+#include "ModelChecker.h"
 #include "checker.hpp"
+
+//#include "main.cpp"
 #include <thread>
 #include <atomic>
 #include <cassert>
+
+using namespace checker;
+//ModelChecker* modelChecker;
 
 int data1, data2, data3, data4;
 std::atomic<int> x={0}, y={0};
@@ -28,7 +34,9 @@ void f3() {
 }
 
 
-int main() {
+//extern "C" int user_main() {
+//int user_main() {
+int user_main() {
     checker_generateExecutor();
     checker_thread_begin("main");
     std::thread a(f1);
@@ -45,4 +53,17 @@ int main() {
     a.join(), b.join(), c.join();
     checker_thread_end();
     checker_solver();
+    return 0;
+}
+
+int main() {
+    modelChecker = new ModelChecker();
+    user_main();
+    
+    int test = modelChecker->getSchList().size();
+    while (test--) {
+        user_main();
+    }
+
+    return 0;
 }

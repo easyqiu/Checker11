@@ -57,6 +57,8 @@ namespace  checker {
 
         void reset();   //** resets the data structures
 
+        void resetDeclaredVars() { declaredVars.clear(); }
+
         //Operations over constraints
         std::string cAnd(std::string exp1, std::string exp2);
 

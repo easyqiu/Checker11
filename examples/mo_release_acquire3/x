@@ -1,274 +1,84 @@
-Generate a new Execuctor
-Reading Prefix: 
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 67134
-In atomic preStore: 0x100c0e0d8 0 7!
-test in RWAction: 0 7 4
-In atomic preStore: 0x100c0e0dc 0 7!
-test in RWAction: 0 7 4
-In atomic preStore: 0x100c0e0d8 10 5!
-test in RWAction: 10 5 2
-In atomic preStore: 0x100c0e0dc 10 5!
-test in RWAction: 10 5 2
-print trace: 0x7fe051500000 f1 0x100f95000 4
-In atomic preLoad: 0x100c0e0d8 4!
-test in RWAction: 65535 4 1
-In atomic preLoad: 0x100c0e0d8 4!
-In atomic postLoad int: test in RWAction: 0x100c0e0d865535  104  41!
-
-In atomic postLoad int: 0x100c0e0d8In atomic preLoad:  0x100c0e0dc10  44!
-!
-test in RWAction: 65535 4 In atomic preLoad: 10x100c0e0dc
- In atomic postLoad int: 0x100c0e0dc 4!
-10 4!
-test in RWAction: 65535 print trace: 40x7fe051405850  1f3
- In atomic postLoad int: 0x10109b0000x100c0e0dc  10 4!
-4
-print trace: 0x7fe051600000 f2 0x101018000 4
-print trace: 0x7fe051405320 main 0x7fff7379a300 7
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-Generating: ARead 0x100c0e0d8 1 10
- 0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-location: 0x100c0e0d8 0x100c0e0d8 0x100c0e0d8
-read: ARead 0x100c0e0d8 1 10
-
-write: AWrite 0x100c0e0d8 4 0
-
-write2: AWrite 0x100c0e0d8 2 10
-
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Solution Value: 
-B_f1-1_f1-2 1
-B_f1-1_f1-3 1
-B_f1-1_f1-4 1
-B_f1-2_f1-3 1
-B_f1-2_f1-4 1
-B_f1-2_f2-2 1
-B_f1-3_f1-4 1
-B_f2-1_f2-2 1
-B_f2-1_f2-3 1
-B_f2-1_f2-4 1
-B_f2-2_f2-3 1
-B_f2-2_f2-4 1
-B_f2-2_main-2 2
-B_f2-3_f2-4 1
-B_f3-1_f3-2 1
-B_f3-1_f3-3 1
-B_f3-1_f3-4 1
-B_f3-2_f3-3 1
-B_f3-2_f3-4 1
-B_f3-3_f3-4 1
-B_main-1_main-2 1
-B_main-1_main-3 1
-B_main-1_main-4 1
-B_main-1_main-5 1
-B_main-1_main-6 1
-B_main-1_main-7 1
-B_main-2_f1-2 2
-B_main-2_main-3 1
-B_main-2_main-4 1
-B_main-2_main-5 1
-B_main-2_main-6 1
-B_main-2_main-7 1
-B_main-3_main-4 1
-B_main-3_main-5 1
-B_main-3_main-6 1
-B_main-3_main-7 1
-B_main-4_main-5 1
-B_main-4_main-6 1
-B_main-4_main-7 1
-B_main-5_main-6 1
-B_main-5_main-7 1
-B_main-6_main-7 1
-RF_f2-2_main-2 1
-Generating: ARead 0x100c0e0d8 1 10
- 0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-location: 0x100c0e0d8 0x100c0e0d8 0x100c0e0d8
-read: ARead 0x100c0e0d8 1 10
-
-write: AWrite 0x100c0e0d8 4 0
-
-write2: AWrite 0x100c0e0d8 2 10
-
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Solution Value: 
-B_f1-1_f1-2 1
-B_f1-1_f1-3 1
-B_f1-1_f1-4 1
-B_f1-2_f1-3 1
-B_f1-2_f1-4 1
-B_f1-2_f2-2 1
-B_f1-3_f1-4 1
-B_f2-1_f2-2 1
-B_f2-1_f2-3 1
-B_f2-1_f2-4 1
-B_f2-2_f2-3 1
-B_f2-2_f2-4 1
-B_f2-2_main-2 2
-B_f2-3_f2-4 1
-B_f3-1_f3-2 1
-B_f3-1_f3-3 1
-B_f3-1_f3-4 1
-B_f3-2_f3-3 1
-B_f3-2_f3-4 1
-B_f3-3_f3-4 1
-B_main-1_main-2 1
-B_main-1_main-3 1
-B_main-1_main-4 1
-B_main-1_main-5 1
-B_main-1_main-6 1
-B_main-1_main-7 1
-B_main-2_f1-2 2
-B_main-2_main-3 1
-B_main-2_main-4 1
-B_main-2_main-5 1
-B_main-2_main-6 1
-B_main-2_main-7 1
-B_main-3_main-4 1
-B_main-3_main-5 1
-B_main-3_main-6 1
-B_main-3_main-7 1
-B_main-4_main-5 1
-B_main-4_main-6 1
-B_main-4_main-7 1
-B_main-5_main-6 1
-B_main-5_main-7 1
-B_main-6_main-7 1
-RF_f2-2_main-2 1
-Generating: ARead 0x100c0e0dc 1 10
- 0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-location: 0x100c0e0d8 0x100c0e0d8 0x100c0e0d8
-read: ARead 0x100c0e0d8 1 10
-
-write: AWrite 0x100c0e0d8 2 10
-
-write2: AWrite 0x100c0e0d8 4 0
-
-location: 0x100c0e0dc 0x100c0e0dc 0x100c0e0dc
-read: ARead 0x100c0e0dc 1 10
-
-write: AWrite 0x100c0e0dc 4 0
-
-write2: AWrite 0x100c0e0dc 2 10
-
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Solution Value: 
-B_f1-1_f1-2 1
-B_f1-1_f1-3 1
-B_f1-1_f1-4 1
-B_f1-2_f1-3 1
-B_f1-2_f1-4 1
-B_f1-2_f2-2 1
-B_f1-3_f1-4 1
-B_f2-1_f2-2 1
-B_f2-1_f2-3 1
-B_f2-1_f2-4 1
-B_f2-2_f2-3 1
-B_f2-2_f2-4 1
-B_f2-2_main-2 2
-B_f2-3_f2-4 1
-B_f3-1_f3-2 1
-B_f3-1_f3-3 1
-B_f3-1_f3-4 1
-B_f3-2_f3-3 1
-B_f3-2_f3-4 1
-B_f3-3_f3-4 1
-B_main-1_main-2 1
-B_main-1_main-3 1
-B_main-1_main-4 1
-B_main-1_main-5 1
-B_main-1_main-6 1
-B_main-1_main-7 1
-B_main-2_f1-2 2
-B_main-2_main-3 1
-B_main-2_main-4 1
-B_main-2_main-5 1
-B_main-2_main-6 1
-B_main-2_main-7 1
-B_main-3_main-4 1
-B_main-3_main-5 1
-B_main-3_main-6 1
-B_main-3_main-7 1
-B_main-4_main-5 1
-B_main-4_main-6 1
-B_main-4_main-7 1
-B_main-5_main-6 1
-B_main-5_main-7 1
-B_main-6_main-7 1
-RF_f2-2_main-2 1
-Generating: ARead 0x100c0e0dc 1 10
- 0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-location: 0x100c0e0d8 0x100c0e0d8 0x100c0e0d8
-read: ARead 0x100c0e0d8 1 10
-
-write: AWrite 0x100c0e0d8 2 10
-
-write2: AWrite 0x100c0e0d8 4 0
-
-location: 0x100c0e0dc 0x100c0e0dc 0x100c0e0dc
-read: ARead 0x100c0e0dc 1 10
-
-write: AWrite 0x100c0e0dc 4 0
-
-write2: AWrite 0x100c0e0dc 2 10
-
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Solution Value: 
-B_f1-1_f1-2 1
-B_f1-1_f1-3 1
-B_f1-1_f1-4 1
-B_f1-2_f1-3 1
-B_f1-2_f1-4 1
-B_f1-2_f2-2 1
-B_f1-3_f1-4 1
-B_f2-1_f2-2 1
-B_f2-1_f2-3 1
-B_f2-1_f2-4 1
-B_f2-2_f2-3 1
-B_f2-2_f2-4 1
-B_f2-2_main-2 2
-B_f2-3_f2-4 1
-B_f3-1_f3-2 1
-B_f3-1_f3-3 1
-B_f3-1_f3-4 1
-B_f3-2_f3-3 1
-B_f3-2_f3-4 1
-B_f3-3_f3-4 1
-B_main-1_main-2 1
-B_main-1_main-3 1
-B_main-1_main-4 1
-B_main-1_main-5 1
-B_main-1_main-6 1
-B_main-1_main-7 1
-B_main-2_f1-2 2
-B_main-2_main-3 1
-B_main-2_main-4 1
-B_main-2_main-5 1
-B_main-2_main-6 1
-B_main-2_main-7 1
-B_main-3_main-4 1
-B_main-3_main-5 1
-B_main-3_main-6 1
-B_main-3_main-7 1
-B_main-4_main-5 1
-B_main-4_main-6 1
-B_main-4_main-7 1
-B_main-5_main-6 1
-B_main-5_main-7 1
-B_main-6_main-7 1
-RF_f2-2_main-2 1
+Instrument code: begin!
+add a function: preStore
+Identify an atomic store!: release
+Identify an atomic store!: release
+Identify an atomic load!: acquire
+  %2 = icmp eq i32 %0, 255
+  %newLoad = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4
+  %0 = call i32 @preAtomicLoad_int(i8* %myCast, i32 4)
+  %1 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4, !dbg !4376
+i32
+i32
+Identify a non-atomic store! 
+Identify an atomic load!: acquire
+  %4 = icmp eq i32 %2, 255
+  %newLoad3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4
+  %2 = call i32 @preAtomicLoad_int(i8* %myCast2, i32 4)
+  %3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4, !dbg !4383
+i32
+i32
+Identify a non-atomic store! 
+Identify an atomic load!: acquire
+  %2 = icmp eq i32 %0, 255
+  %newLoad = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4
+  %0 = call i32 @preAtomicLoad_int(i8* %myCast, i32 4)
+  %1 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4, !dbg !4376
+i32
+i32
+Identify a non-atomic store! 
+Identify an atomic load!: acquire
+  %4 = icmp eq i32 %2, 255
+  %newLoad3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4
+  %2 = call i32 @preAtomicLoad_int(i8* %myCast2, i32 4)
+  %3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4, !dbg !4383
+i32
+i32
+Identify a non-atomic store! 
+Identify an atomic store!: seq_cst
+Identify an atomic store!: seq_cst
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+i8*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+i8*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+i8*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.checker::Schedule"**
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.checker::Schedule"**
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+i8*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+Identify a non-atomic store! 
+%"class.std::__1::__thread_struct"*
+Not handle this type for non-atomic store!
+num: 0x7fd75263fca8
+num: 0x7fd75263fca8
+num: 0x7fd75263fca8
+num: 0x7fd75263fca8
+Instrument code: end!
