@@ -50,7 +50,9 @@ int user_main() {
     checker_thread_create(c.get_id());
     
     assert(!(data1==1 && data2 == 0 && data3 == 0 && data4 == 1)); //may be violated
-    a.join(), b.join(), c.join();
+    a.join(), b.join();
+    c.join();
+    std::cout << "data: " << data1 << " " << data2 << " " << data3 << " " << data4 << "\n";
     checker_thread_end();
     checker_solver();
     return 0;
@@ -60,10 +62,16 @@ int main() {
     modelChecker = new ModelChecker();
     user_main();
     
-    int test = modelChecker->getSchList().size();
-    while (test--) {
+    while (modelChecker->getSchList().size()) 
         user_main();
-    }
+    /*do {
+        int num = modelChecker->getSchList().size();
+        if (num == 0)
+            break ;
+        while (test--) {
+            user_main();
+        }
+    }*/
 
     return 0;
 }

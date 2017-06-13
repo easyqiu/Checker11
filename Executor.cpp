@@ -15,76 +15,127 @@
 #include "Util.h"
 #include "Schedule.h"
 #include "checker.hpp"
-#include "ModelChecker.h"
 
 using namespace checker;
 using namespace util;
 
 Executor::Executor() {
-    std::cout << "Generate a new Execuctor: " << this << "\n";
-    readPrefix("Input2");
+    //readPrefix("Input2");
 
     set_parameters();
     solver = new Solver(this);
     bugFixMode = true;
     inputIndex = 0;
-    curSch = new Schedule();
+    Schedule* newSch = new Schedule();
+    setCurSch(newSch);
+    //std::cout << "Generate a new Executor: " << this << " " << curSch << "\n";
+    pthread_mutex_init(&lockForThreadMap, NULL);
 }
 
 void Executor::setModelChecker(ModelChecker* checker) {
     this->checker = checker;
     if (checker->getSchList().size() != 0) {
-        curSch = checker->getSchList()[0];
+        setCurSch(checker->getSchList()[0]);
         checker->eraseSch();
+        curSch->print();
     }
 }
 
-void Executor::addThread(std::string tid, std::string name) {
-    Thread* thread = new Thread(tid, name);
+Thread* Executor::addThread(std::string tid, std::string name) {
+    pthread_mutex_lock(&lockForThreadMap);
+    Thread* thread = new Thread(this, tid, name);
+
     threadMap[tid] = thread;
+
+    /*std::stringstream ss;
+    ss << "\n Add Current Thread: " << this << " " << threadMap.size() << "\n";
+
+    ss << threadMap.size() << "\n";
+    int i = 0;
+    for (std::map<std::string, Thread*>::iterator it = threadMap.begin();
+         it != threadMap.end(); ++it) {
+        i++;
+        ss << i << " " << it->first << " * ";
+    }
+    ss << "\n";
+
+    ss << "in addthread: *" << this << " " << thread->getExe() << " " << tid << "* " << name << " " << thread << "!!!\n";
+    std::cout << ss.str();*/
+
+    assert(threadMap.find(tid) != threadMap.end());
+
+    pthread_mutex_unlock(&lockForThreadMap);
+    return thread;
+}
+
+Thread* Executor::getThread(std::string tid) {
+    //pthread_mutex_lock(&lockForThreadMap);
+    std::stringstream ss;
+    /*ss << "\nGet Current Thread: " << threadMap.size() << "\n";
+    int i = 0;
+    for (std::map<std::string, Thread*>::iterator it = threadMap.begin();
+            it != threadMap.end(); ++it) {
+        i++;
+        ss << i << " " << it->first << " * ";
+    }
+    ss << "\n";
+    ss << "get thread: " << this << " " << tid << " " << threadMap.size() << "\n";
+    std::cout << ss.str();*/
+
+    assert(threadMap.find(tid) != threadMap.end());
+    Thread* thread = threadMap[tid];
+    //pthread_mutex_unlock(&lockForThreadMap);
+    return thread;
 }
 
 void Executor::execute_thread_create_action(std::string tid1, std::string tid2) {
-    Thread* thread1 = threadMap[tid1];
-    //Thread* thread2 = threadMap[tid2];
-    //std::cout << "create: " << tid1 << " " << tid2 << " " << thread1 << " " << thread2 << "\n";
+    //Thread* thread1 = threadMap[tid1];
+    Thread* thread1 = getThread(tid1);
     Action* action = new Action(this, thread1, THREAD_CREATE, tid1, tid2);
     thread1->addAction(action);
 }
 
 void Executor::execute_thread_begin_action(std::string tid, std::string name) {
-    addThread(tid, name);
-    Thread* thread = threadMap[tid];
-    Action* action = new Action(this, thread, THREAD_START, name);
+    //std::cout << "in thread_begin_action: " << this << " " << tid << " " << name << " ~" << threadMap.size() << "~~\n";
+    Thread* thread = addThread(tid, name);
+
+    Action* action;
+    action = new Action(this, thread, THREAD_START, name);
     thread->addAction(action);
-    curSch->eraseAction(std::make_pair(name, action->get_seq_number()));
+    //curSch->eraseAction(std::make_pair(name, action->get_seq_number()));
 }
 
 void Executor::execute_thread_end_action(std::string tid) {
-    Thread* thread = threadMap[tid];
+    //Thread* thread = threadMap[tid];
+    Thread* thread = getThread(tid);
     Action* action = new Action(this, thread, THREAD_FINISH, tid);
     thread->addAction(action);
-    thread->printTrace();
+    //thread->printTrace();
 }
 
 void Executor::execute_thread_join_action(std::string tid1, std::string tid2) {
-    //Thread* thread1 = threadMap[tid1];
-    //Thread* thread2 = threadMap[tid2];
-    Thread* thread = threadMap[tid1];
+    Thread* thread = getThread(tid1);
     Action* action = new Action(this, thread, THREAD_JOIN, tid1, tid2);
     thread->addAction(action);
 }
 
 int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
-    Thread* thread = threadMap[tid];
+    /*std::cout << "tid: *" << tid << "*\n";
+    assert(threadMap.find(tid) != threadMap.end() && "Should create the thread! Executor.cpp:90");
+    Thread* thread = threadMap[tid];*/
+    Thread* thread = getThread(tid);
     Action* action = new RWAction(this, thread, ATOMIC_READ, mo, addr, false);
 
-    assert(threadMap.find(tid) != threadMap.end() && "Should create the thread!");
+    //assert(threadMap.find(tid) != threadMap.end() && "Should create the thread!");
     thread->addAction(action);
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
     //std::cout << "current action: " << readValueMap.size() << " " << currentPair.first << " " << currentPair.second << "\n";
     //while (preActions[currentPair].size() != 0) {}
-    while (curSch->checkPreRead(currentPair) == false) { std::cout << "11111\n"; }
+    //int i = 100;
+    while (curSch->checkPreRead(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting read!\n";
+    }
 
     /*if (readValueMap.find(currentPair) == readValueMap.end()
         return 0xff;
@@ -96,8 +147,11 @@ int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
 }
 
 void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uint64_t val) {
+    /*std::cout << "tid: *" << tid << "*\n";
+    assert(threadMap.find(tid) != threadMap.end() && "Should create the thread! Executor.cpp:114");
     //Action* action = new Action(ATOMIC_READ, mo, addr);
-    Thread* thread = threadMap[tid];
+    Thread* thread = threadMap[tid];*/
+    Thread* thread = getThread(tid);
     RWAction* action = dynamic_cast<RWAction*>(thread->getActionList().back());
     assert(action != 0);
     action->set_value(val);
@@ -105,11 +159,20 @@ void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uin
 
 
 void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_t val) {
-    Thread *thread = threadMap[tid];
+    /*std::cout << "tid: *" << tid << "*\n";
+    assert(threadMap.find(tid) != threadMap.end() && "Should create the thread! Executor.cpp:123");
+    Thread *thread = threadMap[tid];*/
+    Thread* thread = getThread(tid);
     Action *action = new RWAction(this, thread, ATOMIC_WRITE, mo, addr, true, val);
-    while (thread->pause(action) == true) { std::cout << "2222\n"; }
 
     thread->addAction(action);
+    //while (thread->pause(action) == true) { std::cout << "2222\n"; }
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreRead(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting write!\n";
+    }
+
 }
 
 std::map<std::string, Thread *> Executor::getThreadMap() {
@@ -165,8 +228,7 @@ void Executor::set_parameters() {
 
 void Executor::begin_solver() {
     solver->start();
-    scheduleNewExe();
-    std::cout << "eeeendddd!\n";
+    //scheduleNewExe();
 }
 
 void Executor::printSolutionValue() {
@@ -179,16 +241,17 @@ void Executor::printSolutionValue() {
 
 void Executor::generateSolutionFile() {
     Schedule* sch = new Schedule();
+    //std::cout << "Generate new schedule: " << sch << "\n";
     //curSch->clearData();
 
     bool flag = false;
     std::string inputName = "Input" + util::stringValueOf(inputIndex-1);
-    //std::ofstream outfile(inputName, std::ios::app);
+    std::ofstream outfile(inputName, std::ios::app);
     for (std::map<std::string, std::string>::iterator it = solutionValues.begin();
             it != solutionValues.end(); ++it) {
         std::string name = it->first;
         std::string val = it->second;
-        std::cout << "handle: " << name << " " << val << "\n";
+        //std::cout << "handle: " << name << " " << val << "\n";
         if (name.at(0) == 'B' && name.find("B_") != std::string::npos) {
             name = name.substr(2);
             char action[10000];
@@ -202,7 +265,7 @@ void Executor::generateSolutionFile() {
             token = strtok(NULL, "_-");
             std::string seq_num2 = token;
             if (fname1 != fname2) {
-                //outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
+                outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
                 sch->updatePreAction(std::make_pair(fname1, util::intValueOf(seq_num1)), std::make_pair(fname2, util::intValueOf(seq_num2)));
             }
         } else if (name.at(0) == 'R' && name.find("RF_") != std::string::npos) {
@@ -223,21 +286,28 @@ void Executor::generateSolutionFile() {
                 if (tit->second->getName() == fname2) {
                     std::vector<Action*> list = tit->second->getActionList();
                     Action* action = list[util::intValueOf(seq_num2)];
-                    std::cout << "action: " << fname2 << " " << seq_num2 << " " << action->get_action_str() << "\n";
+                    //std::cout << "action: " << fname2 << " " << seq_num2 << " " << action->get_action_str() << "\n";
                     RWAction* write = dynamic_cast<RWAction*>(list[util::intValueOf(seq_num2)]);
-                    std::cout << "write: " << write << "\n";
+                    //std::cout << "write: " << write << "\n";
                     val = write->get_value();
                     break ;
                 }
             }
 
-            //outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
+            outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
             sch->updateReadValueMap(std::make_pair(fname1, util::intValueOf(seq_num1)), val);
         }
     }
 
-    //outfile.flush();
-    //outfile.close();
+    // add the prefix of the current schedule!
+    std::map <std::pair<std::string, int>, uint64_t> rfMap = curSch->getReadValueMap();
+    sch->getReadValueMap().insert(rfMap.begin(), rfMap.end());
+    for (std::map<std::pair<std::string, int>, uint64_t >::iterator it = rfMap.begin();
+            it != rfMap.end(); ++it)
+        sch->updateReadValueMap(it->first, it->second);
+
+    outfile.flush();
+    outfile.close();
     schedules.push_back(sch);
     getChecker()->addSch(sch);
 }
@@ -254,9 +324,9 @@ void Executor::scheduleNewExe() {
 
     for (std::vector<Schedule*>::iterator it = schedules.begin();
             it != schedules.end(); ++it) {
-        std::cout << "New Schedule: \n";
+        //std::cout << "New Schedule: \n";
         Schedule* sch = *it;
-        curSch = sch;
+        setCurSch(sch);
         //system("./example");
         //std::thread a(user_main);
         //a.join();

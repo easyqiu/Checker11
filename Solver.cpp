@@ -187,7 +187,7 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
 
     cmg->addRWRelations(enforcePairs);
     z3solver->solve();
-    exe->printSolutionValue();
+    //exe->printSolutionValue();
     exe->generateSolutionFile();
     delete  cmg;
 }
@@ -216,7 +216,7 @@ void Solver::generateModel() {
                 if (read->get_value() == write->get_value())
                     continue ;
 
-                std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
+                //std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
                 generateSchedule(read, write->get_value());
             }
         }
@@ -235,7 +235,7 @@ void Solver::start() {
 
     generateSWRelations();
     generateModel();
-    std::cout << "End solver!\n";
+    //std::cout << "End solver!\n";
 }
 
 set<Action*> Solver::identifyMHBRelation(Action *action) {

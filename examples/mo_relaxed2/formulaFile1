@@ -79,15 +79,23 @@
 (assert (= B_main-4_main-6 1))
 (declare-const B_main-5_main-6 Int)
 (assert (= B_main-5_main-6 1))
-(declare-const RF_f3-1_main-1 Int)
+(declare-const RF_f2-1_main-1 Int)
 
-(declare-const B_f3-1_main-1 Int)
+(declare-const B_f2-1_main-1 Int)
 
 (declare-const B_main-1_f1-1 Int)
 
-(declare-const B_f1-1_f3-1 Int)
+(declare-const B_f1-1_f2-1 Int)
 
-(assert (and  (or  (and  (= RF_f3-1_main-1 1) (not (= B_f3-1_main-1 1)) (= false (and (= B_main-1_f1-1 1) (= B_f1-1_f3-1 1)))))))
+(declare-const RF_f2-2_main-2 Int)
+
+(declare-const B_f2-2_main-2 Int)
+
+(declare-const B_main-2_f1-2 Int)
+
+(declare-const B_f1-2_f2-2 Int)
+
+(assert (and  (or  (and  (= RF_f2-1_main-1 1) (not (= B_f2-1_main-1 1)) (= false (and (= B_main-1_f1-1 1) (= B_f1-1_f2-1 1))))) (or  (and  (= RF_f2-2_main-2 1) (not (= B_f2-2_main-2 1)) (= false (and (= B_main-2_f1-2 1) (= B_f1-2_f2-2 1)))))))
 
 (check-sat)
 

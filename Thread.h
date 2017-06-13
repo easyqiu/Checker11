@@ -12,10 +12,13 @@ namespace checker {
 
     class Thread {
     public:
-        Thread(std::string tid, std::string n) {
+        Thread(Executor* exe, std::string tid, std::string n) {
+            this->exe = exe;
             id = tid, name = n;
-            //std::cout << "new thread: " << this << " " << tid << " " << n << "\n";
+            //std::cout << "new thread: " << exe << " " << this << " " << tid << " " << n << "\n";
         }
+
+        ~Thread(){}
 
         bool pause(Action *h) {
             return false;
@@ -30,6 +33,8 @@ namespace checker {
         std::vector<Action *> getActionList();
 
         std::string getName();
+
+        Executor* getExe() { return exe; }
 
         void printTrace();
 

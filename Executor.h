@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include <set>
+#include <pthread.h>
 //#include "Thread.h"
 //#include "Action.h"
 //#include "Action.h"
@@ -19,6 +20,7 @@ namespace  checker {
     public:
 
         Executor();
+        ~Executor() {}
 
         void setModelChecker(ModelChecker* checker);
 
@@ -26,7 +28,8 @@ namespace  checker {
 
         void readPrefix(std::string name);
 
-        void addThread(std::string tid, std::string name);
+        Thread* addThread(std::string tid, std::string name);
+        Thread* getThread(std::string tid);
 
         void execute_thread_create_action(std::string id1, std::string id2);
 
@@ -71,11 +74,20 @@ namespace  checker {
         std::vector<int> get_unsat_core() { return unsatCore; }
         void resetSolver();
         void scheduleNewExe();
-        Schedule* getCurSch() { std::cout << "get sch: " << curSch << "\n"; return curSch; }
+        void setCurSch(Schedule* sch) {
+            curSch = sch;
+            //std::cout << "set curSch: " << curSch << "\n";
+        }
+        Schedule* getCurSch() {
+            //std::cout << "get sch: " << curSch << "\n";
+            return curSch;
+        }
 
 
     protected:
         std::map<std::string, Thread*> threadMap;
+        pthread_mutex_t lockForThreadMap;
+
         std::map<Thread*, Thread*> threadCreateMap;
 
         Solver* solver;

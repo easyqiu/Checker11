@@ -1,0 +1,91 @@
+Generate a model checker: 0x7fdee8404bf0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10242
+data: 10 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10243
+Schedule: 0x7fdee87004f0
+For: f1 1
+    f2 1
+For: f2 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f2 1 0
+waiting write!
+data: 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10244
+Schedule: 0x7fdee84069b0
+For: f1 2
+    f3 1
+For: f3 1
+    main 2
+For: main 2
+    f1 2
+Read Map: f3 1 0
+waiting write!
+waiting write!
+data: 10 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10245
+Schedule: 0x7fdee8700d50
+For: f1 2
+    f3 1
+For: f3 1
+    main 2
+For: main 2
+    f1 2
+Read Map: f2 1 0
+Read Map: f3 1 0
+waiting write!
+data: 0 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10246
+Schedule: 0x7fdee8407c20
+For: f1 1
+    f2 1
+For: f2 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f2 1 0
+Read Map: f3 1 0
+waiting write!
+waiting write!
+data: 0 0

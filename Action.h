@@ -200,8 +200,10 @@ namespace checker {
 			location = loc;
 			isWrite = write;
 			value = val;
-			std::cout << "test in RWAction: " << val << " " << ord << " " << order << "\n";
+			//std::cout << "test in RWAction: " << val << " " << ord << " " << order << "\n";
 		}
+
+		~RWAction() {}
 
 		uint64_t get_value() const { return value; }
 

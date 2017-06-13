@@ -16,17 +16,32 @@ void Schedule::updatePreAction(std::pair<std::string, int> action1, std::pair<st
 }
 
 bool Schedule::checkPreRead(std::pair<std::string, int> action) {
-    if (preActions.find(action) == preActions.end())
+    pthread_mutex_lock(&preActionsLock);
+    if (preActions.find(action) == preActions.end() ||
+            preActions[action].size() == 0) {
+        pthread_mutex_unlock(&preActionsLock);
         return true;
-    else
+    } else {
+        /*std::cout << "size: " << preActions[action].size() << "\n";
+        for (std::set<std::pair<std::string, int> >::iterator it = preActions[action].begin();
+                it != preActions[action].end(); ++it) {
+            std::cout << "xxxxx: " << action.first << " " << action.second << " " << it->first << " " << it->second << "\n";
+        }*/
+        pthread_mutex_unlock(&preActionsLock);
         return false;
+    }
 }
 
 void Schedule::eraseAction(std::pair<std::string, int> action) {
+    pthread_mutex_lock(&preActionsLock);
+    //std::cout << "In erase1: " <<  this << " " << preActions.size() << "\n";
     for (std::map<std::pair<std::string, int>, std::set<std::pair<std::string, int> > >::iterator
             it = preActions.begin(); it != preActions.end(); ++it) {
-        it->second.erase(action);
+        if (it->second.find(action) != it->second.end())
+            it->second.erase(it->second.find(action));
     }
+    //std::cout << "end erase\n";
+    pthread_mutex_unlock(&preActionsLock);
 }
 
 uint64_t Schedule::getRFValue(std::pair<std::string, int> action) {
@@ -39,6 +54,7 @@ uint64_t Schedule::getRFValue(std::pair<std::string, int> action) {
 void Schedule::clearData() {
     readValueMap.clear();
     preActions.clear();
+    //std::cout << "size: " << readValueMap.size() << " " << preActions.size() << "\n";
 }
 
 bool Schedule::inPrefix(std::pair<std::string, int> action) {
@@ -46,4 +62,20 @@ bool Schedule::inPrefix(std::pair<std::string, int> action) {
         return true;
     else
         return false;
+}
+
+void Schedule::print() {
+    std::cout << "Schedule: " << this << "\n";
+    for (std::map<std::pair<std::string, int>, std::set<std::pair<std::string, int> > >::iterator
+                 it = preActions.begin(); it != preActions.end(); ++it) {
+        std::cout << "For: " << it->first.first << " " << it->first.second << "\n";
+        for (std::set<std::pair<std::string, int> >::iterator it2 = it->second.begin();
+                it2 != it->second.end(); it2++)
+            std::cout << "    " << it2->first << " " << it2->second << "\n";
+    }
+
+    for (std::map<std::pair<std::string, int>, uint64_t>::iterator it = readValueMap.begin();
+            it != readValueMap.end(); ++it) {
+        std::cout << "Read Map: " << it->first.first << " " << it->first.second << " " << it->second << "\n";
+    }
 }

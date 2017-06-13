@@ -1,0 +1,4066 @@
+==3095== Memcheck, a memory error detector
+==3095== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==3095== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==3095== Command: ./example
+==3095== 
+Generate a model checker: 0x100a2fd60
+Reading Prefix: 
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3096
+Create a Schedule: 0x100a37420
+Generate a new Execuctor: 0x100a2fdd0 0x100a37420
+initialize executor!
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic preStore: 0x100002168 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic preStore: 0x10000216c 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100a37420
+ccc: 0x100a37420
+get sch: 0x100a37420
+ccc: 0x100a37420
+get sch: 0x100a37420
+ccc: 0x100a37420
+get sch: 0x100a37420
+ccc: 0x100a37420
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic postLoad int: 0x100002168 0 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic postLoad int: 0x10000216c 0 4!
+get sch: 0x100a37420
+ccc: 0x100a37420
+print trace: 0x100a37f70 f2 0x100f23000 4
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic preStore: 0x100002168 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic preStore: 0x10000216c 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100a37420
+ccc: 0x100a37420
+get sch: 0x100a37420
+ccc: 0x100a37420
+print trace: 0x100a395d0 f1 0x100ea0000 4
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic postLoad int: 0x100002168 10 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a37420
+ccc: 0x100a37420
+In atomic postLoad int: 0x10000216c 10 4!
+get sch: 0x100a37420
+ccc: 0x100a37420
+print trace: 0x100a3ab80 f3 0x100fa6000 4
+get sch: 0x100a37420
+ccc: 0x100a37420
+print trace: 0x100a374d0 main 0x100710300 7
+get sch: 0x100a37420
+Generating: 0x100a381b0 0x100a39810 ARead 0x100002168 1 0
+ AWrite 0x100002168 2 10
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+declare: RF_f2-1_f1-1 (declare-const RF_f2-1_f1-1 Int)
+
+declare: B_f2-1_f1-1 (declare-const B_f2-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 0
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f2-1 (declare-const B_main-1_f2-1 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f1-1 2
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f2-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_f1-1 1
+Create a Schedule: 0x100a86a80
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f1-1 2
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f2-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100a39810
+Generating: 0x100a3adc0 0x100a37a40 ARead 0x100002168 1 10
+ AWrite 0x100002168 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+declare: RF_f3-1_main-1 (declare-const RF_f3-1_main-1 Int)
+
+declare: B_f3-1_main-1 (declare-const B_f3-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f3-1 (declare-const B_f1-1_f3-1 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f3-1 1
+B_f1-2_f1-3 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-1_main-1 2
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_main-1 1
+Create a Schedule: 0x100aaf720
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f3-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-1_main-1 2
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100a37a40
+Generating: 0x100a38330 0x100a39940 ARead 0x10000216c 1 0
+ AWrite 0x10000216c 2 10
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+declare: RF_f2-1_main-1 (declare-const RF_f2-1_main-1 Int)
+
+declare: B_f2-1_main-1 (declare-const B_f2-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 0
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f2-1 (declare-const B_f1-1_f2-1 Int)
+
+declare: RF_f2-2_f1-2 (declare-const RF_f2-2_f1-2 Int)
+
+declare: B_f2-2_f1-2 (declare-const B_f2-2_f1-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 0
+
+write: AWrite 0x10000216c 2 10
+
+write2: AWrite 0x10000216c 4 0
+
+declare: B_f1-2_main-2 (declare-const B_f1-2_main-2 Int)
+
+declare: B_main-2_f2-2 (declare-const B_main-2_f2-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f2-1 1
+B_f1-2_f1-3 1
+B_f1-2_main-2 2
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-1_main-1 2
+B_f2-2_f1-2 2
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f2-2 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_main-1 1
+RF_f2-2_f1-2 1
+Create a Schedule: 0x100adb200
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f2-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_main-2 2
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-1_main-1 2
+handle: B_f2-2_f1-2 2
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f2-2 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100a37a40
+handle: RF_f2-2_f1-2 1
+action: f1 2 AWrite 0x10000216c 2 10
+
+write: 0x100a39940
+Generating: 0x100a3af40 0x100a37b70 ARead 0x10000216c 1 10
+ AWrite 0x10000216c 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3
+declare: RF_f3-1_f1-1 (declare-const RF_f3-1_f1-1 Int)
+
+declare: B_f3-1_f1-1 (declare-const B_f3-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f3-1 (declare-const B_main-1_f3-1 Int)
+
+declare: RF_f3-2_main-2 (declare-const RF_f3-2_main-2 Int)
+
+declare: B_f3-2_main-2 (declare-const B_f3-2_main-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 10
+
+write: AWrite 0x10000216c 4 0
+
+write2: AWrite 0x10000216c 2 10
+
+declare: B_main-2_f1-2 (declare-const B_main-2_f1-2 Int)
+
+declare: B_f1-2_f3-2 (declare-const B_f1-2_f3-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f1-2_f3-2 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f1-1 2
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_f3-2_main-2 2
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f3-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f1-2 2
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_f1-1 1
+RF_f3-2_main-2 1
+Create a Schedule: 0x100b08d30
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_f3-2 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f1-1 2
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_f3-2_main-2 2
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f3-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f1-2 2
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100a39810
+handle: RF_f3-2_main-2 1
+action: main 2 AWrite 0x10000216c 4 0
+
+write: 0x100a37b70
+End solver!
+New Schedule: 
+New Schedule: 
+New Schedule: 
+New Schedule: 
+eeeendddd!
+end checker_solver!
+Reading Prefix: 
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3097
+Create a Schedule: 0x100b10110
+Generate a new Execuctor: 0x100b0b920 0x100b10110
+initialize executor!
+Schedule: 0x100a86a80
+For: f1 1
+    main 1
+For: f2 1
+    f1 1
+For: main 1
+    f2 1
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic preStore: 0x100002168 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic preStore: 0x10000216c 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic preStore: 0x100002168 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic preStore: 0x10000216c 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+print trace: 0x100b10d20 f1 0x100ea0000 4
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+In atomic postLoad int: 0x100002168 10 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic postLoad int: 0x10000216c 10 4!
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+print trace: 0x100b122d0 f2 0x100f23000 4
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic postLoad int: 0x100002168 10 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+In atomic postLoad int: 0x10000216c 10 4!
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+print trace: 0x100b14970 f3 0x100fa6000 4
+get sch: 0x100a86a80
+ccc: 0x100a86a80
+print trace: 0x100b10280 main 0x100710300 7
+get sch: 0x100a86a80
+Generating: 0x100b14bb0 0x100b107f0 ARead 0x100002168 1 10
+ AWrite 0x100002168 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+declare: RF_f3-1_main-1 (declare-const RF_f3-1_main-1 Int)
+
+declare: B_f3-1_main-1 (declare-const B_f3-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f3-1 (declare-const B_f1-1_f3-1 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f3-1 1
+B_f1-2_f1-3 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-1_main-1 2
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_main-1 1
+Create a Schedule: 0x100b5fbf0
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f3-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-1_main-1 2
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100b107f0
+Generating: 0x100b12690 0x100b10920 ARead 0x10000216c 1 10
+ AWrite 0x10000216c 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+declare: RF_f2-1_f1-1 (declare-const RF_f2-1_f1-1 Int)
+
+declare: B_f2-1_f1-1 (declare-const B_f2-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f2-1 (declare-const B_main-1_f2-1 Int)
+
+declare: RF_f2-2_main-2 (declare-const RF_f2-2_main-2 Int)
+
+declare: B_f2-2_main-2 (declare-const B_f2-2_main-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 10
+
+write: AWrite 0x10000216c 4 0
+
+write2: AWrite 0x10000216c 2 10
+
+declare: B_main-2_f1-2 (declare-const B_main-2_f1-2 Int)
+
+declare: B_f1-2_f2-2 (declare-const B_f1-2_f2-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f1-2_f2-2 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f1-1 2
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f2-2_main-2 2
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f2-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f1-2 2
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_f1-1 1
+RF_f2-2_main-2 1
+Create a Schedule: 0x100b8c470
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_f2-2 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f1-1 2
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f2-2_main-2 2
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f2-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f1-2 2
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100b10f60
+handle: RF_f2-2_main-2 1
+action: main 2 AWrite 0x10000216c 4 0
+
+write: 0x100b10920
+Generating: 0x100b14d30 0x100b10920 ARead 0x10000216c 1 10
+ AWrite 0x10000216c 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+declare: RF_f3-1_f1-1 (declare-const RF_f3-1_f1-1 Int)
+
+declare: B_f3-1_f1-1 (declare-const B_f3-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f3-1 (declare-const B_main-1_f3-1 Int)
+
+declare: RF_f3-2_main-2 (declare-const RF_f3-2_main-2 Int)
+
+declare: B_f3-2_main-2 (declare-const B_f3-2_main-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 10
+
+write: AWrite 0x10000216c 4 0
+
+write2: AWrite 0x10000216c 2 10
+
+declare: B_main-2_f1-2 (declare-const B_main-2_f1-2 Int)
+
+declare: B_f1-2_f3-2 (declare-const B_f1-2_f3-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f1-2_f3-2 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f1-1 2
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_f3-2_main-2 2
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f3-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f1-2 2
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_f1-1 1
+RF_f3-2_main-2 1
+Create a Schedule: 0x100bb88b0
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_f3-2 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f1-1 2
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_f3-2_main-2 2
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f3-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f1-2 2
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100b10f60
+handle: RF_f3-2_main-2 1
+action: main 2 AWrite 0x10000216c 4 0
+
+write: 0x100b10920
+End solver!
+New Schedule: 
+New Schedule: 
+New Schedule: 
+eeeendddd!
+end checker_solver!
+Reading Prefix: 
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3098
+Create a Schedule: 0x100bbfc90
+Generate a new Execuctor: 0x100bbb4a0 0x100bbfc90
+initialize executor!
+Schedule: 0x100aaf720
+For: f1 1
+    f3 1
+For: f3 1
+    main 1
+For: main 1
+    f1 1
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic preStore: 0x100002168 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic preStore: 0x10000216c 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+In atomic postLoad int: 0x100002168 0 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic postLoad int: 0x10000216c 0 4!
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+print trace: 0x100bc08c0 f3 0x100fa6000 4
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic postLoad int: 0x100002168 0 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic postLoad int: 0x10000216c 0 4!
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+print trace: 0x100bc1f20 f2 0x100f23000 4
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic preStore: 0x100002168 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+In atomic preStore: 0x10000216c 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+print trace: 0x100bc3580 f1 0x100ea0000 4
+get sch: 0x100aaf720
+ccc: 0x100aaf720
+print trace: 0x100bbfe20 main 0x100710300 7
+get sch: 0x100aaf720
+Generating: 0x100bc2160 0x100bc37c0 ARead 0x100002168 1 0
+ AWrite 0x100002168 2 10
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+declare: RF_f2-1_f1-1 (declare-const RF_f2-1_f1-1 Int)
+
+declare: B_f2-1_f1-1 (declare-const B_f2-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 0
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f2-1 (declare-const B_main-1_f2-1 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f1-1 2
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f2-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_f1-1 1
+Create a Schedule: 0x100c0f140
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f1-1 2
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f2-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100bc37c0
+Generating: 0x100bc22e0 0x100bc38f0 ARead 0x10000216c 1 0
+ AWrite 0x10000216c 2 10
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+declare: RF_f2-1_main-1 (declare-const RF_f2-1_main-1 Int)
+
+declare: B_f2-1_main-1 (declare-const B_f2-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 0
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f2-1 (declare-const B_f1-1_f2-1 Int)
+
+declare: RF_f2-2_f1-2 (declare-const RF_f2-2_f1-2 Int)
+
+declare: B_f2-2_f1-2 (declare-const B_f2-2_f1-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 0
+
+write: AWrite 0x10000216c 2 10
+
+write2: AWrite 0x10000216c 4 0
+
+declare: B_f1-2_main-2 (declare-const B_f1-2_main-2 Int)
+
+declare: B_main-2_f2-2 (declare-const B_main-2_f2-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f2-1 1
+B_f1-2_f1-3 1
+B_f1-2_main-2 2
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-1_main-1 2
+B_f2-2_f1-2 2
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f2-2 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_main-1 1
+RF_f2-2_f1-2 1
+Create a Schedule: 0x100c3b730
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f2-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_main-2 2
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-1_main-1 2
+handle: B_f2-2_f1-2 2
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f2-2 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100bc0390
+handle: RF_f2-2_f1-2 1
+action: f1 2 AWrite 0x10000216c 2 10
+
+write: 0x100bc38f0
+Generating: 0x100bc0c80 0x100bc38f0 ARead 0x10000216c 1 0
+ AWrite 0x10000216c 2 10
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+declare: RF_f3-1_main-1 (declare-const RF_f3-1_main-1 Int)
+
+declare: B_f3-1_main-1 (declare-const B_f3-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 0
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f3-1 (declare-const B_f1-1_f3-1 Int)
+
+declare: RF_f3-2_f1-2 (declare-const RF_f3-2_f1-2 Int)
+
+declare: B_f3-2_f1-2 (declare-const B_f3-2_f1-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 0
+
+write: AWrite 0x10000216c 2 10
+
+write2: AWrite 0x10000216c 4 0
+
+declare: B_f1-2_main-2 (declare-const B_f1-2_main-2 Int)
+
+declare: B_main-2_f3-2 (declare-const B_main-2_f3-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f3-1 1
+B_f1-2_f1-3 1
+B_f1-2_main-2 2
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-1_main-1 2
+B_f3-2_f1-2 2
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f3-2 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_main-1 1
+RF_f3-2_f1-2 1
+Create a Schedule: 0x100c67880
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f3-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_main-2 2
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-1_main-1 2
+handle: B_f3-2_f1-2 2
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f3-2 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100bc0390
+handle: RF_f3-2_f1-2 1
+action: f1 2 AWrite 0x10000216c 2 10
+
+write: 0x100bc38f0
+End solver!
+New Schedule: 
+New Schedule: 
+New Schedule: 
+eeeendddd!
+end checker_solver!
+Reading Prefix: 
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3099
+Create a Schedule: 0x100c6ec60
+Generate a new Execuctor: 0x100c6a470 0x100c6ec60
+initialize executor!
+Schedule: 0x100adb200
+For: f1 1
+    f2 1
+For: f1 2
+    main 2
+For: f2 1
+    main 1
+For: f2 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f2 2
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic preStore: 0x100002168 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic preStore: 0x10000216c 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100adb200
+ccc: 0x100adb200
+get sch: 0x100adb200
+ccc: 0x100adb200
+get sch: 0x100adb200
+ccc: 0x100adb200
+get sch: 0x100adb200
+ccc: 0x100adb200
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic preStore: 0x100002168 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic preStore: 0x10000216c 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100adb200
+ccc: 0x100adb200
+get sch: 0x100adb200
+ccc: 0x100adb200
+print trace: 0x100c6f8b0 f1 0x100ea0000 4
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic postLoad int: 0x100002168 10 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic postLoad int: 0x10000216c 10 4!
+get sch: 0x100adb200
+ccc: 0x100adb200
+print trace: 0x100c70e60 f3 0x100fa6000 4
+get sch: 0x100adb200
+ccc: 0x100adb200
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100adb200
+ccc: 0x100adb200
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+In atomic postLoad int: 0x100002168 0 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100adb200
+ccc: 0x100adb200
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+In atomic postLoad int: 0x10000216c 10 4!
+get sch: 0x100adb200
+ccc: 0x100adb200
+print trace: 0x100c74540 f2 0x100f23000 4
+get sch: 0x100adb200
+ccc: 0x100adb200
+print trace: 0x100c6ee10 main 0x100710300 7
+get sch: 0x100adb200
+Generating: 0x100c710a0 0x100c6f380 ARead 0x100002168 1 10
+ AWrite 0x100002168 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+declare: RF_f3-1_main-1 (declare-const RF_f3-1_main-1 Int)
+
+declare: B_f3-1_main-1 (declare-const B_f3-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f3-1 (declare-const B_f1-1_f3-1 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f3-1 1
+B_f1-2_f1-3 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-1_main-1 2
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_main-1 1
+Create a Schedule: 0x100cbe6b0
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f3-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-1_main-1 2
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100c6f380
+Generating: 0x100c71220 0x100c6f4b0 ARead 0x10000216c 1 10
+ AWrite 0x10000216c 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+declare: RF_f3-1_f1-1 (declare-const RF_f3-1_f1-1 Int)
+
+declare: B_f3-1_f1-1 (declare-const B_f3-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f3-1 (declare-const B_main-1_f3-1 Int)
+
+declare: RF_f3-2_main-2 (declare-const RF_f3-2_main-2 Int)
+
+declare: B_f3-2_main-2 (declare-const B_f3-2_main-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 10
+
+write: AWrite 0x10000216c 4 0
+
+write2: AWrite 0x10000216c 2 10
+
+declare: B_main-2_f1-2 (declare-const B_main-2_f1-2 Int)
+
+declare: B_f1-2_f3-2 (declare-const B_f1-2_f3-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f1-2_f3-2 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f1-1 2
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_f3-2_main-2 2
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f3-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f1-2 2
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f3-1_f1-1 1
+RF_f3-2_main-2 1
+Create a Schedule: 0x100ceaf30
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_f3-2 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f1-1 2
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_f3-2_main-2 2
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f3-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f1-2 2
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f3-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100c6faf0
+handle: RF_f3-2_main-2 1
+action: main 2 AWrite 0x10000216c 4 0
+
+write: 0x100c6f4b0
+End solver!
+New Schedule: 
+New Schedule: 
+eeeendddd!
+end checker_solver!
+Reading Prefix: 
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3100
+Create a Schedule: 0x100cf23c0
+Generate a new Execuctor: 0x100cedbd0 0x100cf23c0
+initialize executor!
+Schedule: 0x100b08d30
+For: f1 1
+    main 1
+For: f1 2
+    f3 2
+For: f3 1
+    f1 1
+For: f3 2
+    main 2
+For: main 1
+    f3 1
+For: main 2
+    f1 2
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic preStore: 0x100002168 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic preStore: 0x10000216c 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic preStore: 0x100002168 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic preStore: 0x10000216c 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+print trace: 0x100cf3030 f1 0x100ea0000 4
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic postLoad int: 0x100002168 10 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic postLoad int: 0x10000216c 10 4!
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+print trace: 0x100cf45e0 f2 0x100f23000 4
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+In atomic preLoad: 0x100002168 4!
+test in RWAction: 65535 4 1
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+In atomic postLoad int: 0x100002168 10 4!
+In atomic preLoad: 0x10000216c 4!
+test in RWAction: 65535 4 1
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+11111
+bbbbb: 0
+eeeee
+In atomic postLoad int: 0x10000216c 0 4!
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+print trace: 0x100cf5c40 f3 0x100fa6000 4
+get sch: 0x100b08d30
+ccc: 0x100b08d30
+print trace: 0x100cf2590 main 0x100710300 7
+get sch: 0x100b08d30
+Generating: 0x100cf4820 0x100cf2b00 ARead 0x100002168 1 10
+ AWrite 0x100002168 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+declare: RF_f2-1_main-1 (declare-const RF_f2-1_main-1 Int)
+
+declare: B_f2-1_main-1 (declare-const B_f2-1_main-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 4 0
+
+write2: AWrite 0x100002168 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f2-1 (declare-const B_f1-1_f2-1 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_f2-1 1
+B_f1-2_f1-3 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-1_main-1 2
+B_f2-2_f2-3 1
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f1-1 2
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_main-1 1
+Create a Schedule: 0x100d41e30
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_f2-1 1
+handle: B_f1-2_f1-3 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-1_main-1 2
+handle: B_f2-2_f2-3 1
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f1-1 2
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_main-1 1
+action: main 1 AWrite 0x100002168 4 0
+
+write: 0x100cf2b00
+Generating: 0x100cf49a0 0x100cf2c30 ARead 0x10000216c 1 10
+ AWrite 0x10000216c 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+declare: RF_f2-1_f1-1 (declare-const RF_f2-1_f1-1 Int)
+
+declare: B_f2-1_f1-1 (declare-const B_f2-1_f1-1 Int)
+
+location: 0x100002168 0x100002168 0x100002168
+read: ARead 0x100002168 1 10
+
+write: AWrite 0x100002168 2 10
+
+write2: AWrite 0x100002168 4 0
+
+declare: B_f1-1_main-1 (declare-const B_f1-1_main-1 Int)
+
+declare: B_main-1_f2-1 (declare-const B_main-1_f2-1 Int)
+
+declare: RF_f2-2_main-2 (declare-const RF_f2-2_main-2 Int)
+
+declare: B_f2-2_main-2 (declare-const B_f2-2_main-2 Int)
+
+location: 0x10000216c 0x10000216c 0x10000216c
+read: ARead 0x10000216c 1 10
+
+write: AWrite 0x10000216c 4 0
+
+write2: AWrite 0x10000216c 2 10
+
+declare: B_main-2_f1-2 (declare-const B_main-2_f1-2 Int)
+
+declare: B_f1-2_f2-2 (declare-const B_f1-2_f2-2 Int)
+
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solution Value: 
+B_f1-0_f1-1 1
+B_f1-0_f1-2 1
+B_f1-0_f1-3 1
+B_f1-1_f1-2 1
+B_f1-1_f1-3 1
+B_f1-1_main-1 2
+B_f1-2_f1-3 1
+B_f1-2_f2-2 1
+B_f2-0_f2-1 1
+B_f2-0_f2-2 1
+B_f2-0_f2-3 1
+B_f2-1_f1-1 2
+B_f2-1_f2-2 1
+B_f2-1_f2-3 1
+B_f2-2_f2-3 1
+B_f2-2_main-2 2
+B_f3-0_f3-1 1
+B_f3-0_f3-2 1
+B_f3-0_f3-3 1
+B_f3-1_f3-2 1
+B_f3-1_f3-3 1
+B_f3-2_f3-3 1
+B_main-0_main-1 1
+B_main-0_main-2 1
+B_main-0_main-3 1
+B_main-0_main-4 1
+B_main-0_main-5 1
+B_main-0_main-6 1
+B_main-1_f2-1 1
+B_main-1_main-2 1
+B_main-1_main-3 1
+B_main-1_main-4 1
+B_main-1_main-5 1
+B_main-1_main-6 1
+B_main-2_f1-2 2
+B_main-2_main-3 1
+B_main-2_main-4 1
+B_main-2_main-5 1
+B_main-2_main-6 1
+B_main-3_main-4 1
+B_main-3_main-5 1
+B_main-3_main-6 1
+B_main-4_main-5 1
+B_main-4_main-6 1
+B_main-5_main-6 1
+RF_f2-1_f1-1 1
+RF_f2-2_main-2 1
+Create a Schedule: 0x100d6e6b0
+handle: B_f1-0_f1-1 1
+handle: B_f1-0_f1-2 1
+handle: B_f1-0_f1-3 1
+handle: B_f1-1_f1-2 1
+handle: B_f1-1_f1-3 1
+handle: B_f1-1_main-1 2
+handle: B_f1-2_f1-3 1
+handle: B_f1-2_f2-2 1
+handle: B_f2-0_f2-1 1
+handle: B_f2-0_f2-2 1
+handle: B_f2-0_f2-3 1
+handle: B_f2-1_f1-1 2
+handle: B_f2-1_f2-2 1
+handle: B_f2-1_f2-3 1
+handle: B_f2-2_f2-3 1
+handle: B_f2-2_main-2 2
+handle: B_f3-0_f3-1 1
+handle: B_f3-0_f3-2 1
+handle: B_f3-0_f3-3 1
+handle: B_f3-1_f3-2 1
+handle: B_f3-1_f3-3 1
+handle: B_f3-2_f3-3 1
+handle: B_main-0_main-1 1
+handle: B_main-0_main-2 1
+handle: B_main-0_main-3 1
+handle: B_main-0_main-4 1
+handle: B_main-0_main-5 1
+handle: B_main-0_main-6 1
+handle: B_main-1_f2-1 1
+handle: B_main-1_main-2 1
+handle: B_main-1_main-3 1
+handle: B_main-1_main-4 1
+handle: B_main-1_main-5 1
+handle: B_main-1_main-6 1
+handle: B_main-2_f1-2 2
+handle: B_main-2_main-3 1
+handle: B_main-2_main-4 1
+handle: B_main-2_main-5 1
+handle: B_main-2_main-6 1
+handle: B_main-3_main-4 1
+handle: B_main-3_main-5 1
+handle: B_main-3_main-6 1
+handle: B_main-4_main-5 1
+handle: B_main-4_main-6 1
+handle: B_main-5_main-6 1
+handle: RF_f2-1_f1-1 1
+action: f1 1 AWrite 0x100002168 2 10
+
+write: 0x100cf3270
+handle: RF_f2-2_main-2 1
+action: main 2 AWrite 0x10000216c 4 0
+
+write: 0x100cf2c30
+End solver!
+New Schedule: 
+New Schedule: 
+eeeendddd!
+end checker_solver!
+==3095== 
+==3095== HEAP SUMMARY:
+==3095==     in use at exit: 126,934 bytes in 1,019 blocks
+==3095==   total heap usage: 20,221 allocs, 19,202 frees, 2,174,446 bytes allocated
+==3095== 
+==3095== LEAK SUMMARY:
+==3095==    definitely lost: 1,504 bytes in 15 blocks
+==3095==    indirectly lost: 76,704 bytes in 454 blocks
+==3095==      possibly lost: 0 bytes in 0 blocks
+==3095==    still reachable: 13,944 bytes in 127 blocks
+==3095==         suppressed: 34,782 bytes in 423 blocks
+==3095== Rerun with --leak-check=full to see details of leaked memory
+==3095== 
+==3095== For counts of detected and suppressed errors, rerun with: -v
+==3095== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

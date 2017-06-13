@@ -11,7 +11,7 @@
 
 using namespace checker;
 
-# define DEBUG
+//# define DEBUG
 
 std::set<void*> sharedAddresses; 
 Executor* exe;
@@ -190,9 +190,10 @@ void preAtomicStore_char(void* addr, char val, int order) {
     std::cout << "In atomic preStore: " << addr << " " << val << " " << order << "!\n";
 # endif
     
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "atomic_store_char: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    updateTrace(ss.str());*/
+    exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
 void preAtomicStore_int(void* addr, int val, int order) {
@@ -388,9 +389,10 @@ void checker_shared(void* addr) {
 
 void checker_generateExecutor() {
     exe = new Executor();
-    std::cerr << "initialize executor!\n";
+    //std::cerr << "initialize executor!\n";
     modelChecker->setExecutor(exe);
     exe->setModelChecker(modelChecker);
+    //std::cerr << "end initialize\n";
 }
 
 void checker_thread_create(std::thread::id id2) {
@@ -406,6 +408,7 @@ void checker_thread_begin(char *name) {
 void checker_thread_end() {
 
     exe->execute_thread_end_action(getThreadName(std::this_thread::get_id()));
+    //std::cout << "end thread!\n";
 }
 
 void checker_thread_join(std::thread::id id) {
@@ -413,8 +416,10 @@ void checker_thread_join(std::thread::id id) {
 }
 
 void checker_solver() {
+    //std::cout << "begin checker_solver\n";
     exe->begin_solver();
+    //std::cout << "delete exe: " << exe << "\n";
     delete exe;
-    std::cout << "end checker_solver!\n";
+    //std::cout << "end checker_solver!\n";
 }
 }

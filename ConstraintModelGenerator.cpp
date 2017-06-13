@@ -95,10 +95,10 @@ std::string ConstModelGen::addRWRelation(RWAction *read, uint64_t val) {
                 if (write == write2)
                     continue ;
 
-                std::cout << "location: " << read->get_location_str() << " " << write->get_location_str() << " " << write2->get_location_str() << "\n";
+                /*std::cout << "location: " << read->get_location_str() << " " << write->get_location_str() << " " << write2->get_location_str() << "\n";
                 std::cout << "read: " << read->get_action_str() << "\n";
                 std::cout << "write: " << write->get_action_str() << "\n";
-                std::cout << "write2: " << write2->get_action_str() << "\n";
+                std::cout << "write2: " << write2->get_action_str() << "\n";*/
                 string tmpStr = "";
                 string bName1 = write->get_binary_rel_name(write2);
                 declareIntVar(bName1);
@@ -139,7 +139,7 @@ std::string ConstModelGen::addRFRelation(RWAction *read, RWAction *write, int va
 
 void ConstModelGen::declareIntVar(std::string name) {
     string retStr = z3solver->declareIntVar(name);
-    std::cout << "declare: " << name << " " << retStr << "\n";
+    //std::cout << "declare: " << name << " " << retStr << "\n";
     if (retStr != "")
         z3solver->writeLineZ3(retStr);
 }

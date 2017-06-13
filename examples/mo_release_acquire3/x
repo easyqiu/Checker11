@@ -1,84 +1,920 @@
-Instrument code: begin!
-add a function: preStore
-Identify an atomic store!: release
-Identify an atomic store!: release
-Identify an atomic load!: acquire
-  %2 = icmp eq i32 %0, 255
-  %newLoad = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4
-  %0 = call i32 @preAtomicLoad_int(i8* %myCast, i32 4)
-  %1 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4, !dbg !4376
-i32
-i32
-Identify a non-atomic store! 
-Identify an atomic load!: acquire
-  %4 = icmp eq i32 %2, 255
-  %newLoad3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4
-  %2 = call i32 @preAtomicLoad_int(i8* %myCast2, i32 4)
-  %3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4, !dbg !4383
-i32
-i32
-Identify a non-atomic store! 
-Identify an atomic load!: acquire
-  %2 = icmp eq i32 %0, 255
-  %newLoad = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4
-  %0 = call i32 @preAtomicLoad_int(i8* %myCast, i32 4)
-  %1 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @x, i64 0, i32 0) acquire, align 4, !dbg !4376
-i32
-i32
-Identify a non-atomic store! 
-Identify an atomic load!: acquire
-  %4 = icmp eq i32 %2, 255
-  %newLoad3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4
-  %2 = call i32 @preAtomicLoad_int(i8* %myCast2, i32 4)
-  %3 = load atomic i32, i32* getelementptr inbounds ({ i32 }, { i32 }* @y, i64 0, i32 0) acquire, align 4, !dbg !4383
-i32
-i32
-Identify a non-atomic store! 
-Identify an atomic store!: seq_cst
-Identify an atomic store!: seq_cst
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-i8*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-i8*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-i8*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.checker::Schedule"**
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.checker::Schedule"**
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-i8*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-num: 0x7fd75263fca8
-num: 0x7fd75263fca8
-num: 0x7fd75263fca8
-num: 0x7fd75263fca8
-Instrument code: end!
+Generate a model checker: 0x7ff662404bf0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10449
+data: 0 10 10 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10450
+Schedule: 0x7ff662601780
+For: f1 1
+    main 1
+For: f2 1
+    f1 1
+For: main 1
+    f2 1
+Read Map: f2 1 10
+waiting write!
+waiting write!
+data: 10 10 10 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10451
+Schedule: 0x7ff6627012f0
+For: f1 1
+    f3 1
+For: f3 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f3 1 0
+waiting write!
+waiting write!
+data: 0 0 0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10452
+Schedule: 0x7ff6624067e0
+For: f1 1
+    f2 1
+For: f1 2
+    f2 2
+For: f2 1
+    main 1
+For: f2 2
+    main 2
+For: main 1
+    f1 1
+For: main 2
+    f1 2
+Read Map: f2 1 0
+Read Map: f2 2 0
+waiting write!
+waiting write!
+waiting read!
+data: 0 0 10 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10453
+Schedule: 0x7ff6627010c0
+For: f1 1
+    main 1
+For: f1 2
+    f3 2
+For: f3 1
+    f1 1
+For: f3 2
+    main 2
+For: main 1
+    f3 1
+For: main 2
+    f1 2
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting read!
+data: 10 10 10 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10454
+Schedule: 0x7ff662601de0
+For: f1 1
+    f3 1
+For: f3 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f2 1 10
+Read Map: f3 1 0
+waiting write!
+data: 10 0 0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10455
+Schedule: 0x7ff662602ae0
+For: f1 1
+    main 1
+For: f1 2
+    f2 2
+For: f2 1
+    f1 1
+For: f2 2
+    main 2
+For: main 1
+    f2 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+waiting read!
+waiting write!
+waiting write!
+waiting read!
+data: 10 0 10 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10456
+Schedule: 0x7ff6626013f0
+For: f1 1
+    main 1
+For: f1 2
+    f3 2
+For: f3 1
+    f1 1
+For: f3 2
+    main 2
+For: main 1
+    f3 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting read!
+data: 10 0 10 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10457
+Schedule: 0x7ff6626025d0
+For: f1 1
+    main 1
+For: f2 1
+    f1 1
+For: main 1
+    f2 1
+Read Map: f2 1 10
+Read Map: f3 1 0
+waiting write!
+data: 10 10 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10458
+Schedule: 0x7ff662702fa0
+For: f1 1
+    f2 1
+For: f1 2
+    main 2
+For: f2 1
+    main 1
+For: f2 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f2 2
+Read Map: f2 1 0
+Read Map: f2 2 10
+Read Map: f3 1 0
+waiting write!
+waiting write!
+data: 0 10 0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10459
+Schedule: 0x7ff662603b90
+For: f1 1
+    f3 1
+For: f1 2
+    main 2
+For: f3 1
+    main 1
+For: f3 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f3 2
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+data: 0 10 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10460
+Schedule: 0x7ff662407100
+For: f1 1
+    f3 1
+For: f3 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f2 1 0
+Read Map: f2 2 0
+Read Map: f3 1 0
+waiting write!
+waiting write!
+data: 0 0 0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10461
+Schedule: 0x7ff662604830
+For: f1 1
+    main 1
+For: f1 2
+    main 2
+For: f3 1
+    f1 1
+For: f3 2
+    f1 2
+For: main 1
+    f3 1
+For: main 2
+    f3 2
+Read Map: f2 1 0
+Read Map: f2 2 0
+Read Map: f3 1 10
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting write!
+data: 0 0 10 10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10462
+Schedule: 0x7ff6626045d0
+For: f1 1
+    f2 1
+For: f2 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f2 1 0
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting write!
+data: 0 10 10 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10463
+Schedule: 0x7ff6627032c0
+For: f1 1
+    main 1
+For: f1 2
+    f2 2
+For: f2 1
+    f1 1
+For: f2 2
+    main 2
+For: main 1
+    f2 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting read!
+waiting read!
+data: 10 0 10 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10464
+Schedule: 0x7ff662705ff0
+For: f1 1
+    main 1
+For: f1 2
+    main 2
+For: f2 1
+    f1 1
+For: f2 2
+    f1 2
+For: main 1
+    f2 1
+For: main 2
+    f2 2
+Read Map: f2 1 10
+Read Map: f2 2 10
+Read Map: f3 1 0
+waiting write!
+waiting write!
+waiting write!
+data: 10 10 0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10465
+Schedule: 0x7ff662706690
+For: f1 1
+    f3 1
+For: f1 2
+    main 2
+For: f3 1
+    main 1
+For: f3 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f3 2
+Read Map: f2 1 10
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+waiting read!
+data: 10 10 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10466
+Schedule: 0x7ff6626066c0
+For: f1 1
+    f3 1
+For: f3 1
+    main 1
+For: main 1
+    f1 1
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+waiting write!
+waiting write!
+data: 10 0 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10467
+Schedule: 0x7ff662607820
+For: f1 1
+    main 1
+For: f1 2
+    f3 2
+For: f3 1
+    f1 1
+For: f3 2
+    main 2
+For: main 1
+    f3 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting read!
+waiting write!
+waiting read!
+data: 10 0 10 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10468
+Schedule: 0x7ff662608960
+For: f1 1
+    main 1
+For: f1 2
+    main 2
+For: f2 1
+    f1 1
+For: f2 2
+    f1 2
+For: main 1
+    f2 1
+For: main 2
+    f2 2
+Read Map: f2 1 10
+Read Map: f2 2 10
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting write!
+data: 10 10 10 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10469
+Schedule: 0x7ff662707100
+For: f1 1
+    main 1
+For: f1 2
+    f2 2
+For: f2 1
+    f1 1
+For: f2 2
+    main 2
+For: main 1
+    f2 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+waiting write!
+waiting write!
+waiting read!
+data: 10 0 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10470
+Schedule: 0x7ff662609ea0
+For: f1 1
+    f3 1
+For: f1 2
+    f3 2
+For: f3 1
+    main 1
+For: f3 2
+    main 2
+For: main 1
+    f1 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f3 1 0
+Read Map: f3 2 0
+waiting write!
+waiting read!
+waiting write!
+waiting read!
+data: 10 10 0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10471
+Schedule: 0x7ff662707290
+For: f1 1
+    f3 1
+For: f1 2
+    main 2
+For: f3 1
+    main 1
+For: f3 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f3 2
+Read Map: f2 1 0
+Read Map: f2 2 10
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+waiting write!
+data: 0 10 0 10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10472
+Schedule: 0x7ff662709690
+For: f1 1
+    main 1
+For: f2 1
+    f1 1
+For: main 1
+    f2 1
+Read Map: f2 1 10
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+data: 10 10 0 10
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10473
+Schedule: 0x7ff662709d60
+For: f1 1
+    f2 1
+For: f1 2
+    f2 2
+For: f2 1
+    main 1
+For: f2 2
+    main 2
+For: main 1
+    f1 1
+For: main 2
+    f1 2
+Read Map: f2 1 0
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+waiting write!
+data: 0 0 0 10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10474
+Schedule: 0x7ff66270b4c0
+For: f1 1
+    f3 1
+For: f1 2
+    main 2
+For: f3 1
+    main 1
+For: f3 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f3 2
+Read Map: f2 1 0
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+data: 0 0 0 10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10475
+Schedule: 0x7ff66260bb40
+For: f1 1
+    f2 1
+For: f1 2
+    f2 2
+For: f2 1
+    main 1
+For: f2 2
+    main 2
+For: main 1
+    f1 1
+For: main 2
+    f1 2
+Read Map: f2 1 0
+Read Map: f2 2 0
+Read Map: f3 1 10
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting read!
+waiting write!
+data: 0 0 10 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10476
+Schedule: 0x7ff66260b4e0
+For: f1 1
+    f3 1
+For: f1 2
+    main 2
+For: f3 1
+    main 1
+For: f3 2
+    f1 2
+For: main 1
+    f1 1
+For: main 2
+    f3 2
+Read Map: f2 1 10
+Read Map: f2 2 10
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+data: 10 10 0 10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10477
+Schedule: 0x7ff66260dca0
+For: f1 1
+    main 1
+For: f1 2
+    f2 2
+For: f2 1
+    f1 1
+For: f2 2
+    main 2
+For: main 1
+    f2 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+data: 10 0 0 10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10478
+Schedule: 0x7ff66240b390
+For: f1 1
+    f3 1
+For: f1 2
+    f3 2
+For: f3 1
+    main 1
+For: f3 2
+    main 2
+For: main 1
+    f1 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting read!
+waiting write!
+data: 10 0 0 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10479
+Schedule: 0x7ff66250ac10
+For: f1 1
+    f3 1
+For: f1 2
+    f3 2
+For: f3 1
+    main 1
+For: f3 2
+    main 2
+For: main 1
+    f1 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting read!
+waiting write!
+data: 10 0 0 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10480
+Schedule: 0x7ff66240c1b0
+For: f1 1
+    main 1
+For: f1 2
+    f2 2
+For: f2 1
+    f1 1
+For: f2 2
+    main 2
+For: main 1
+    f2 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 0
+waiting write!
+waiting write!
+waiting read!
+data: 10 0 0 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 10481
+Schedule: 0x7ff66260fbf0
+For: f1 1
+    main 1
+For: f1 2
+    f2 2
+For: f2 1
+    f1 1
+For: f2 2
+    main 2
+For: main 1
+    f2 1
+For: main 2
+    f1 2
+Read Map: f2 1 10
+Read Map: f2 2 0
+Read Map: f3 1 0
+Read Map: f3 2 10
+waiting write!
+waiting write!
+waiting read!
+data: 10 0 0 10

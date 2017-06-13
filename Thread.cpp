@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <cassert>
 
 #include "Executor.h"
 #include "Thread.h"
@@ -13,13 +14,12 @@
 using namespace checker;
 
 void Thread::addAction(Action* action) {
-    //std::cout << "Pre Add action: " << this << " " << action->get_action_str() << " " << id << " " << actionList.size() << "\n";
+    //std::cout << "Pre Add action: " << this << " " << action->get_action_str() << " " << id << " " << actionList.size() << "!!!\n";
     actionList.push_back(action);
     action->set_seq_number(actionList.size()-1);
-    //std::cout << "Add action: " << this << " " << id << " " << actionList.size() << "\n";
-    /*Schedule* curSch = exe->getCurSch();
-    std::cout << "ccc: " << curSch << "\n";
-    curSch->eraseAction(std::make_pair(name, action->get_seq_number()));*/
+    //std::cout << "Add action: " << this << " " << id << " " << actionList.size() << "@@@@@\n";
+    Schedule* curSch = exe->getCurSch();
+    curSch->eraseAction(std::make_pair(name, action->get_seq_number()));
 }
 
 std::vector<Action*> Thread::getActionList() {
@@ -28,9 +28,10 @@ std::vector<Action*> Thread::getActionList() {
 
 void Thread::printTrace() {
     std::cout << "print trace: " << this << " " << name << " " << id << " " << actionList.size() << "\n";
-    for (std::vector<Action*>::iterator it = actionList.begin();
-            it != actionList.end(); ++it) {
-        Action* action = *it;
+    //for (std::vector<Action*>::iterator it = actionList.begin();
+    //        it != actionList.end(); ++it) {
+    for (unsigned i=0; i<actionList.size(); i++) {
+        Action* action = actionList[i];
 
         std::ofstream outfile(name, std::ios::app);
         if (action->get_type() == ATOMIC_WRITE || action->get_type() == ATOMIC_READ)
@@ -40,6 +41,7 @@ void Thread::printTrace() {
         outfile.flush();
         outfile.close();
     }
+    //std::cout << "end printTrace!\n";
 }
 
 std::string Thread::getName() {return name;}

@@ -1,0 +1,92 @@
+==3792== Memcheck, a memory error detector
+==3792== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==3792== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==3792== Command: ./example
+==3792== 
+--3792-- run: /usr/bin/dsymutil "/Users/aser/Dropbox/papers/C++11/Checker11/libinstrument.dylib"
+warning: no debug symbols in executable (-arch x86_64)
+Generate a model checker: 0x100a39b80
+Reading Prefix: 
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3794
+Create a Schedule: 0x100a41020
+Generate a new Execuctor: 0x100a39bf0 0x100a41020
+initialize executor!
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic preStore: 0x100002160 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic preStore: 0x100002164 0 7!
+test in RWAction: 0 7 4
+get sch: 0x100a41020
+ccc: 0x100a41020
+get sch: 0x100a41020
+ccc: 0x100a41020
+get sch: 0x100a41020
+ccc: 0x100a41020
+get sch: 0x100a41020
+ccc: 0x100a41020
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic preStore: 0x100002160 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic preStore: 0x100002164 10 5!
+test in RWAction: 10 5 2
+get sch: 0x100a41020
+ccc: 0x100a41020
+get sch: 0x100a41020
+ccc: 0x100a41020
+print trace: 0x100a41b70 f1 0x100eaa000 4
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic preLoad: 0x100002160 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic postLoad int: 0x100002160 10 4!
+get sch: 0x100a41020
+ccc: 0x100a41020
+print trace: 0x100a43120 f2 0x100f2d000 3
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic preLoad: 0x100002164 4!
+test in RWAction: 65535 4 1
+get sch: 0x100a41020
+ccc: 0x100a41020
+In atomic postLoad int: 0x100002164 10 4!
+get sch: 0x100a41020
+ccc: 0x100a41020
+print trace: 0x100a44640 f3 0x100fb0000 3
+data: 10 10
+get sch: 0x100a41020
+ccc: 0x100a41020
+print trace: 0x100a410d0 main 0x10071a300 7
+get sch: 0x100a41020
+Generating: 0x100a43360 0x100a41640 ARead 0x100002160 1 10
+ AWrite 0x100002160 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+declare: RF_f2-1_main-1 (declare-const RF_f2-1_main-1 Int)
+
+declare: B_f2-1_main-1 (declare-const B_f2-1_main-1 Int)
+
+location: 0x100002160 0x100002160 0x100002160
+read: ARead 0x100002160 1 10
+
+write: AWrite 0x100002160 4 0
+
+write2: AWrite 0x100002160 2 10
+
+declare: B_main-1_f1-1 (declare-const B_main-1_f1-1 Int)
+
+declare: B_f1-1_f2-1 (declare-const B_f1-1_f2-1 Int)
+
+[Solver] Model Satisfiability: sat
