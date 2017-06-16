@@ -106,6 +106,9 @@ namespace checker {
 
 		void* get_location() const { return location; }
 
+        std::string get_id1() const { return id1; }
+		std::string get_id2() const { return id2; }
+
 		std::string get_location_str() const;
 
 		int get_seq_number() const { return seq_number; }
@@ -217,6 +220,8 @@ namespace checker {
 
 		std::string get_consraint_name();
 
+		std::string get_mo_constraint();
+
 	protected:
 		/** @brief The value written or read (for write / read / RMW) */
 		uint64_t value;
@@ -228,6 +233,22 @@ namespace checker {
 		void *location;
 
 		bool isWrite;
+	};
+
+
+	class FenceAction :  public Action  {
+	public:
+		FenceAction(Executor* exe, Thread* thread, action_type_t type, int order)
+				: Action(exe, thread, type) {
+			this->order = to_mo(order);
+		}
+
+		memory_order get_mo() { return order; }
+
+		std::string get_action_str();
+
+	protected:
+		memory_order order;
 	};
 }
 

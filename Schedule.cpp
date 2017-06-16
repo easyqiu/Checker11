@@ -13,16 +13,21 @@ void Schedule::updateReadValueMap(std::pair<std::string, int> fs, uint64_t val) 
 
 void Schedule::updatePreAction(std::pair<std::string, int> action1, std::pair<std::string, int> action2) {
     preActions[action1].insert(action2);
+    if (preActions.find(action2) == preActions.end())
+        return ;
+
+    std::set<std::pair<std::string, int> > preSet = preActions[action2];
+    preActions[action1].insert(preSet.begin(), preSet.end());
 }
 
-bool Schedule::checkPreRead(std::pair<std::string, int> action) {
+bool Schedule::checkPreAction(std::pair<std::string, int> action) {
     pthread_mutex_lock(&preActionsLock);
     if (preActions.find(action) == preActions.end() ||
             preActions[action].size() == 0) {
         pthread_mutex_unlock(&preActionsLock);
         return true;
     } else {
-        /*std::cout << "size: " << preActions[action].size() << "\n";
+        /*std::cout << "size: " << action.first << " " << action.second << " " << preActions[action].size() << "\n";
         for (std::set<std::pair<std::string, int> >::iterator it = preActions[action].begin();
                 it != preActions[action].end(); ++it) {
             std::cout << "xxxxx: " << action.first << " " << action.second << " " << it->first << " " << it->second << "\n";
@@ -79,3 +84,5 @@ void Schedule::print() {
         std::cout << "Read Map: " << it->first.first << " " << it->first.second << " " << it->second << "\n";
     }
 }
+
+

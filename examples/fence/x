@@ -1,0 +1,350 @@
+Generate a model checker: 0x7f8518404bf0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 21810
+In atomic preStore: 0x109ab419c 0 7!
+In atomic preStore: 0x109ab4190 0 7!
+In atomic preLoad: 0x109ab419c 4!
+In atomic postLoad int: 0x109ab419c 0 4!
+In atomic preFence: 4!
+In atomic preLoad: 0x109ab4190 7!
+In atomic preStore: 0x109ab4190 27 2!
+In atomic postLoad int: 0x109ab4190 0 7!
+In atomic preStore: 0x109ab4190 42 2!
+In checker_thread_end
+111
+In atomic preFence: 5!
+222
+end thread!
+In atomic preStore: 0x109ab419c 100 5!
+In checker_thread_end
+111
+222
+end thread!
+xxxx: 0 0
+In checker_thread_end
+111
+222
+end thread!
+Generating: 0x7f8518500050 0x7f8518600140 ARead 0x109ab4190 4 0
+ AWrite 0x109ab4190 0 27
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+a2: 0x7f8518405750 0x7f85186000b0
+a2: 0x7f8518500110 0x7f8518405570
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7f8518406440
+Generating: 0x7f8518500050 0x7f85186001f0 ARead 0x109ab4190 4 0
+ AWrite 0x109ab4190 0 42
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+a2: 0x7f8518405750 0x7f85186000b0
+a2: 0x7f8518500110 0x7f8518405570
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7f8518602380
+Generating: 0x7f8518405600 0x7f85184058d0 ARead 0x109ab419c 1 0
+ AWrite 0x109ab419c 2 100
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2
+a2: 0x7f8518405750 0x7f85186000b0
+a2: 0x7f8518500110 0x7f8518405570
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7f8518500340
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 21811
+Schedule: 0x7f8518406440
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 5
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+Read Map: f2 1 0
+Read Map: f2 3 27
+In atomic preStore: 0x109ab419c 0 7!
+In atomic preStore: 0x109ab4190 0 7!
+In atomic preLoad: 0x109ab419c 4!
+In atomic preStore: 0x109ab4190 27 2!
+waiting write!
+In atomic preStore: 0x109ab4190 42 2!
+In atomic preFence: 5!
+In atomic preStore: 0x109ab419c 100 5!
+In checker_thread_end
+111
+222
+end thread!
+waiting read!
+In atomic postLoad int: 0x109ab419c 0 4!
+In atomic preFence: 4!
+In atomic preLoad: 0x109ab4190 7!
+In atomic postLoad int: 0x109ab4190 27 7!
+In checker_thread_end
+111
+222
+end thread!
+xxxx: 0 27
+In checker_thread_end
+111
+222
+end thread!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 21812
+Schedule: 0x7f8518602380
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 5
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    f1 1
+    f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+Read Map: f2 1 0
+Read Map: f2 3 42
+In atomic preStore: 0x109ab419c 0 7!
+In atomic preStore: 0x109ab4190 0 7!
+In atomic preLoad: 0x109ab419c 4!
+In atomic preStore: 0x109ab4190 27 2!
+waiting read!
+In atomic postLoad int: 0x109ab419c 0 4!
+In atomic preFence: 4!
+In atomic preLoad: 0x109ab4190 7!
+waiting write!
+In atomic preStore: 0x109ab4190 42 2!
+In atomic preFence: 5!
+In atomic preStore: 0x109ab419c 100 5!
+In checker_thread_end
+111
+222
+end thread!
+waiting read!
+In atomic postLoad int: 0x109ab4190 42 7!
+In checker_thread_end
+111
+222
+end thread!
+xxxx: 0 42
+In checker_thread_end
+111
+222
+end thread!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 21813
+Schedule: 0x7f8518500340
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 5
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 4
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f1 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+Read Map: f2 1 100
+In atomic preStore: 0x109ab419c 0 7!
+In atomic preStore: 0x109ab4190 0 7!
+In atomic preLoad: 0x109ab419c 4!
+In atomic preStore: 0x109ab4190 27 2!
+waiting read!
+waiting write!
+In atomic preStore: 0x109ab4190 42 2!
+In atomic preFence: 5!
+In atomic preStore: 0x109ab419c 100 5!
+In checker_thread_end
+111
+222
+end thread!
+waiting read!
+In atomic postLoad int: 0x109ab419c 100 4!
+In atomic preFence: 4!
+In atomic preLoad: 0x109ab4190 7!
+In atomic postLoad int: 0x109ab4190 42 7!
+In checker_thread_end
+111
+222
+end thread!
+xxxx: 100 42
+In checker_thread_end
+111
+222
+end thread!
+Generating: 0x7f8518406e80 0x7f8518604330 ARead 0x109ab4190 4 42
+ AWrite 0x109ab4190 0 27
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+a2: 0x7f85186043d0 0x7f85186042b0
+a2: 0x7f8518604450 0x7f8518604120
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 8807: model is not available")
+Generating: 0x7f8518406e80 0x7f8518604010 ARead 0x109ab4190 4 42
+ AWrite 0x109ab4190 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+a2: 0x7f85186043d0 0x7f85186042b0
+a2: 0x7f8518604450 0x7f8518604120
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 17807: model is not available")

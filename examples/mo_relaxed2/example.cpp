@@ -1,3 +1,4 @@
+#include "ModelChecker.h"
 #include "checker.hpp"
 //#include "../../Instrument.h"
 //#include "../../Executor.h"
@@ -8,8 +9,10 @@
 #include <atomic>
 #include <cassert>
  
+using namespace checker;
+
 int data1, data2;
-std::atomic<int> x = {0}, y = {0};
+std::atomic<int> x, y;
  
 void f1()
 {
@@ -32,10 +35,13 @@ void f2()
 }
  
  
-int main()
+int user_main()
 {
     checker_generateExecutor();
     checker_thread_begin("main");
+
+    x = 0, y = 0;
+
     std::thread a(f1);
     std::thread b(f2);
     
@@ -44,11 +50,22 @@ int main()
 
     checker_thread_join(a.get_id());
     checker_thread_join(b.get_id());
+    
     a.join(); b.join();
     std::cout << "data: " << data1 << " " << data2 << "\n";
     if (!(data1 == 1 && data2 == 1)) // may be violated
         std::cout << "ERROR!\n";
     checker_thread_end();
     checker_solver();
+    return 0;
+}
+
+int main() {
+    modelChecker = new ModelChecker();
+    user_main();
+    
+    while (modelChecker->getSchList().size()) 
+        user_main();
+
     return 0;
 }

@@ -27,16 +27,20 @@ std::vector<Action*> Thread::getActionList() {
 }
 
 void Thread::printTrace() {
-    std::cout << "print trace: " << this << " " << name << " " << id << " " << actionList.size() << "\n";
+    //std::cout << "print trace: " << this << " " << name << " " << id << " " << actionList.size() << "\n";
     //for (std::vector<Action*>::iterator it = actionList.begin();
     //        it != actionList.end(); ++it) {
     for (unsigned i=0; i<actionList.size(); i++) {
         Action* action = actionList[i];
 
         std::ofstream outfile(name, std::ios::app);
-        if (action->get_type() == ATOMIC_WRITE || action->get_type() == ATOMIC_READ)
+        action_type_t type = action->get_type();
+        //std::cout << "print: " << name << " " << type << " *" << i << "*\n";
+        if (type == ATOMIC_WRITE || type == ATOMIC_READ)
             outfile << dynamic_cast<RWAction*>(action)->get_action_str();
-        else
+        else if (type == ATOMIC_FENCE) {
+            outfile << dynamic_cast<FenceAction *>(action)->get_action_str();
+        } else
             outfile << action->get_action_str();
         outfile.flush();
         outfile.close();

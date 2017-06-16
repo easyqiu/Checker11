@@ -1,0 +1,40 @@
+TStart main
+AWrite 0x10dd3f168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x10e2d3168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x10ffcb168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x10511c168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x1025e6168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x10ba06168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x102aa0168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main
+TStart main
+AWrite 0x102aa0168 4 0
+TCreate main f1
+TCreate main f2
+TFinish main

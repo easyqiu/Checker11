@@ -132,6 +132,7 @@ bool Z3Solver::checkSat()
         }
         else if(line.find("(define-fun") != std::string::npos)  //its an operation definition
         {
+            //std::cout << line << "\n";
             opName = getOpDefinition(line);
             if(opName.front()=='B')
                 isOrderOp = true;
@@ -520,3 +521,10 @@ string Z3Solver::invertBugCondition(string expr) {
     return (" (= false "+expr+")");
 }
 
+std::string Z3Solver::cIte(std::string cond, std::string tExpr) {
+    return "(ite ( "+cond+" )" + tExpr + " )";
+}
+
+std::string Z3Solver::cIte(std::string cond, std::string tExpr, std::string fExpr) {
+    return "(ite "+cond+" " + tExpr + " " + fExpr + " )";
+}

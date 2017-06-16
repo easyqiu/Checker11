@@ -122,6 +122,8 @@ void Solver::collectData() {
                     break;
                 case ATOMIC_RMW:
                 case ATOMIC_FENCE:
+                    fenceset.insert(dynamic_cast<FenceAction*>(action));
+                    break;
                 case ATOMIC_RMWR:
                 case ATOMIC_RMWC:
                 case ATOMIC_INIT:
@@ -166,7 +168,7 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     cmg = new ConstModelGen(exe, this, z3solver);
 
     cmg->addBinaryConstraints();
-    cmg->addSWConstraints(swRelations);
+    cmg->addMOConstraints();
 
     set<Action*> mhbList = identifyMHBRelation(read);
     //set<Action*> list = identifyMHBRelation(write);
@@ -183,6 +185,7 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
             enforcePairs[r] = r->get_value();
         else
             enforcePairs[r] = val;
+        std::cout << "enfore: " << r << " " << enforcePairs[r] << " " << r->get_mo_constraint() << "\n";
     }
 
     cmg->addRWRelations(enforcePairs);
@@ -216,15 +219,16 @@ void Solver::generateModel() {
                 if (read->get_value() == write->get_value())
                     continue ;
 
-                //std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
+                std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
+                std::cout << "B name: " << read->get_binary_rel_name(write) << "\n";
                 generateSchedule(read, write->get_value());
             }
         }
     }
 }
 
-void Solver::generateSWRelations() {
-
+void Solver::addSWPair(Action *a, Action *b) {
+    swPairs[a] = b;
 }
 
 void Solver::start() {
@@ -233,36 +237,140 @@ void Solver::start() {
     //z3solver->openOutputFile();
     //cmg = new ConstModelGen(exe, this, z3solver);
 
-    generateSWRelations();
     generateModel();
     //std::cout << "End solver!\n";
 }
 
+//set<Action*> Solver::identifyMHBRelation(Action *action) {
+//    set<Action*> mhbList;
+//
+//    mhbList.insert(action);
+//    Thread* thread = action->get_thread();
+//    vector<Action*> actionList = thread->getActionList();
+//
+//    for (vector<Action*>::iterator it = actionList.begin();
+//            it != actionList.end(); ++it) {
+//
+//        Action* curAction = *it;
+//        if (curAction == action)
+//            break ;
+//        mhbList.insert(curAction);
+//    }
+//
+//    map<Thread*, Thread*> createMap = exe->getThreadCreateMap();
+//    if (createMap.find(thread) != createMap.end()) {
+//        Thread* parentThread = createMap[thread];
+//        Action* lastAction = parentThread->getActionList().back();
+//        set<Action*> list = identifyMHBRelation(lastAction);
+//        mhbList.insert(list.begin(), list.end());
+//    }
+//
+//    return mhbList;
+//}
+
 set<Action*> Solver::identifyMHBRelation(Action *action) {
     set<Action*> mhbList;
-
     mhbList.insert(action);
+
     Thread* thread = action->get_thread();
+    //Thread* thread = action->get_thread();
+    std::cout << "111: " << thread << "\n";
     vector<Action*> actionList = thread->getActionList();
 
+    vector<Thread*> threads;
     for (vector<Action*>::iterator it = actionList.begin();
             it != actionList.end(); ++it) {
-
         Action* curAction = *it;
+
         if (curAction == action)
             break ;
+
+        if (curAction->get_type() == THREAD_JOIN) {
+            threads.push_back(exe->getThread(curAction->get_id2()));
+        }
         mhbList.insert(curAction);
     }
 
-    map<Thread*, Thread*> createMap = exe->getThreadCreateMap();
-    if (createMap.find(thread) != createMap.end()) {
-        Thread* parentThread = createMap[thread];
-        Action* lastAction = parentThread->getActionList().back();
-        set<Action*> list = identifyMHBRelation(lastAction);
-        mhbList.insert(list.begin(), list.end());
+    map<string, string> createMap = exe->getThreadCreateMap();
+    std::cout << "bbbbb\n";
+    while(createMap.find(thread->get_id()) != createMap.end()) {
+        string newId = createMap[thread->get_id()];
+        if (newId == "")
+            break ;
+        Thread* parentThr = exe->getThread(newId);
+        std::cout << "222: " << parentThr << " *" << thread->get_id() << "* !!!" << newId << "!!!\n";
+        vector<Action*> list = parentThr->getActionList();
+        for (vector<Action*>::iterator it = list.begin();
+                it != list.end(); ++it) {
+            Action* curAction = *it;
+            mhbList.insert(curAction);
+
+            if (curAction->get_type() == THREAD_CREATE) {
+                if (curAction->get_id2() == thread->get_id())
+                    break;
+            } else if (curAction->get_type() == THREAD_JOIN) {
+                threads.push_back(exe->getThread(curAction->get_id2()));
+            }
+        }
+        thread = parentThr;
+    }
+
+    while (threads.size() != 0) {
+        Thread* thr = threads[0];
+        threads.erase(threads.begin());
+
+        std::cout << "333: " << thr << "\n";
+        vector<Action*> list = thr->getActionList();
+        for (vector<Action*>::iterator it = list.begin();
+                it != list.end(); ++it) {
+            Action* curAction = *it;
+            mhbList.insert(curAction);
+            if (curAction->get_type() == THREAD_JOIN)
+                threads.push_back(exe->getThread(curAction->get_id2()));
+        }
     }
 
     return mhbList;
+}
+
+
+set<Action*> Solver::identifyMHARelation(Action *action) {
+    set<Action*> mhaList;
+    Thread* thread = action->get_thread();
+    vector<Action*> actionList = thread->getActionList();
+
+    bool flag = false;
+    vector<Thread*> threads;
+    for (vector<Action*>::iterator it = actionList.begin();
+            it != actionList.end(); ++it) {
+        Action* curAction = *it;
+        if (flag) {
+            mhaList.insert(curAction);
+            if (curAction->get_type() == THREAD_CREATE) {
+                threads.push_back(exe->getThread(curAction->get_id2()));
+            }
+
+        } else if (curAction == action)
+            flag = true;
+    }
+
+    while(threads.size() != 0) {
+        Thread* thr = threads[0];
+        threads.erase(threads.begin());
+
+        vector<Action*> list = thr->getActionList();
+        for (vector<Action*>::iterator it = list.begin();
+                it != list.end(); ++it) {
+
+            Action* curAction = *it;
+            mhaList.insert(curAction);
+            if (curAction->get_type() == THREAD_CREATE) {
+                threads.push_back(exe->getThread(curAction->get_id2()));
+            }
+        }
+    }
+
+    return mhaList;
 }
 
 std::string Solver::enforceBRelation(Action *a1, Action *a2, int val) {

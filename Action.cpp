@@ -125,7 +125,8 @@ std::string Action::get_rf_rel_name(Action *action) {
 }
 
 std::string Action::get_binary_rel_name(Action *action) {
-    return "B_" + this->get_uniq_name() + "_" + action->get_uniq_name();
+    std::string str =  "B_" + this->get_uniq_name() + "_" + action->get_uniq_name();
+    return str;
 }
 
 std::string Action::get_uniq_name() {
@@ -148,3 +149,14 @@ std::string RWAction::get_consraint_name() {
         return ss.str();
     }
 }
+
+std::string RWAction::get_mo_constraint() {
+    return "M_" + this->get_uniq_name();
+}
+
+std::string FenceAction::get_action_str() {
+    std::stringstream ss;
+    ss << get_type_str(true) << " " << order << "\n";
+    return ss.str();
+}
+

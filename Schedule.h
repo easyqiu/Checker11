@@ -25,7 +25,8 @@ namespace checker {
         void updateReadValueMap(std::pair<std::string, int> fs, uint64_t val);
         std::map <std::pair<std::string, int>, uint64_t> getReadValueMap() { return readValueMap; }
         void updatePreAction(std::pair<std::string, int> action1, std::pair<std::string, int> action2);
-        bool checkPreRead(std::pair<std::string, int> action);
+        bool checkPreAction(std::pair<std::string, int> action);
+        //bool checkPreFence(std::pair<std::string, int> action);
         void eraseAction(std::pair<std::string, int> action);
         uint64_t getRFValue(std::pair<std::string, int> action);
         void clearData();

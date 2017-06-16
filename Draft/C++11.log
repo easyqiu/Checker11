@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  11 JUN 2017 22:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 JUN 2017 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -894,7 +894,7 @@ File: fence.pdf Graphic file (type pdf)
 Package pdftex.def Info: fence.pdf used on input line 699.
 (pdftex.def)             Requested size: 233.46475pt x 64.34184pt.
  [5 <./fence.pdf>]
-Overfull \hbox (2.45213pt too wide) detected at line 771
+Overfull \hbox (2.36678pt too wide) detected at line 771
 [] []
  []
 
@@ -953,7 +953,7 @@ mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist
 e1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on C++11.pdf (8 pages, 4539763 bytes).
+Output written on C++11.pdf (8 pages, 4539781 bytes).
 PDF statistics:
  6282 PDF objects out of 7423 (max. 8388607)
  3478 compressed objects within 35 object streams

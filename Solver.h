@@ -30,12 +30,15 @@ namespace  checker {
         void parse_constraints(std::string filename);
         void generateModel();
         void collectData();
-        void generateSWRelations();
+        //void generateSWRelations();
+        void addSWPair(Action* a, Action* b);
+        std::map<Action*, Action*> getSWPairs() { return swPairs; }
         std::string enforceBRelation(Action* a1, Action* a2, int val);
         std::string enforceRFRelation(Action* a1, Action* a2, int val);
         void enforceRW(RWAction* read, uint64_t val);
         void generateSchedule(RWAction* read, uint64_t val);
         std::set<Action*> identifyMHBRelation(Action* action);
+        std::set<Action*> identifyMHARelation(Action* action);
         std::map<std::string, std::vector<RWAction*> > getReadSet() { return readset; }
         std::map<std::string, std::vector<RWAction*> > getWriteSet() { return writeset; }
         void start();
@@ -47,7 +50,8 @@ namespace  checker {
         Z3Solver* z3solver;
         std::map<std::string, std::vector<RWAction*> > readset;
         std::map<std::string, std::vector<RWAction*> > writeset;
-        std::map<Action*, Action*> swRelations;
+        std::set<FenceAction*> fenceset;
+        std::map<Action*, Action*> swPairs;
     };
 }
 

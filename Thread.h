@@ -34,6 +34,8 @@ namespace checker {
 
         std::string getName();
 
+        std::string get_id() { return id; }
+
         Executor* getExe() { return exe; }
 
         void printTrace();

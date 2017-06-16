@@ -123,6 +123,10 @@ namespace  checker {
         std::string postNamedAssert(std::string constraint, std::string label);
 
         std::string invertBugCondition(std::string expr);
+
+        std::string cIte(std::string cond, std::string tExpr);
+
+        std::string cIte(std::string cond, std::string tExpr, std::string fExpr);
     };
 }
 

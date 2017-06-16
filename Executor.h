@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <map>
 #include <vector>
@@ -12,6 +13,7 @@ namespace  checker {
     class Thread;
     class Solver;
     class Schedule;
+    class Action;
     class ModelChecker;
     //checker::memory_order;
     //enum action_type;
@@ -20,7 +22,10 @@ namespace  checker {
     public:
 
         Executor();
-        ~Executor() {}
+        ~Executor() {
+            pthread_mutex_destroy(&lock);
+            pthread_mutex_destroy(&lockForThreadMap);
+        }
 
         void setModelChecker(ModelChecker* checker);
 
@@ -45,9 +50,11 @@ namespace  checker {
 
         void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
 
+        void execute_fence_action(std::string tid, int mo);
+
         std::map<std::string, Thread *> getThreadMap();
 
-        std::map<Thread*, Thread*> getThreadCreateMap() { return threadCreateMap; };
+        std::map<std::string, std::string> getThreadCreateMap() { return threadCreateMap; };
 
         void begin_solver();
 
@@ -65,7 +72,11 @@ namespace  checker {
         void set_endTime(time_t t) { endTime = t; }
         time_t get_endTime() { return endTime; }
         std::string get_solverPath() { return solverPath; }
-        std::string get_formulaFile() { return formulaFile; }
+        std::string get_formulaFile() {
+            std::stringstream ss;
+            ss << "_" << this ;
+            return formulaFile + ss.str();
+        }
         void addSolutionValue(std::pair<std::string, std::string> p) { solutionValues.insert(p); }
         void printSolutionValue();
         std::map<std::string,std::string> getSolutionValues() { return solutionValues; }
@@ -83,12 +94,28 @@ namespace  checker {
             return curSch;
         }
 
+        void addCreatePoint(Action* a, Action* b = NULL) {
+            threadCreatePoints[a] = b;
+        }
+
+        void addJoinPoint(Action* a, Action* b) {
+            threadJoinPoints[a] = b;
+        }
+
+        std::map<Action*, Action*> getJoinPoints() { return threadJoinPoints; }
+
+        std::map<Action*, Action*> getCreatePoints() { return threadCreatePoints; }
+
 
     protected:
         std::map<std::string, Thread*> threadMap;
         pthread_mutex_t lockForThreadMap;
 
-        std::map<Thread*, Thread*> threadCreateMap;
+        std::map<Action*, Action*> threadCreatePoints;
+        std::map<std::string, std::string> threadCreateMap;
+        std::map<Action*, Action*> threadJoinPoints;
+        std::map<std::string, std::string> threadJoinMap;
+        pthread_mutex_t lock;
 
         Solver* solver;
 

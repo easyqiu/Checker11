@@ -64,14 +64,6 @@ int main() {
     
     while (modelChecker->getSchList().size()) 
         user_main();
-    /*do {
-        int num = modelChecker->getSchList().size();
-        if (num == 0)
-            break ;
-        while (test--) {
-            user_main();
-        }
-    }*/
 
     return 0;
 }

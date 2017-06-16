@@ -1,0 +1,104 @@
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_main-2_f2-3 () Int
+    1)
+  (define-fun B_f1-1_main-2 () Int
+    2)
+  (define-fun B_f1-2_f2-3 () Int
+    2)
+  (define-fun B_f2-3_f1-1 () Int
+    2)
+  (define-fun B_main-1_f2-1 () Int
+    1)
+  (define-fun B_f1-4_main-1 () Int
+    2)
+  (define-fun B_f2-1_f1-4 () Int
+    0)
+  (define-fun RF_f2-3_f1-1 () Int
+    1)
+  (define-fun RF_f2-1_f1-4 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun B_f1-4_f1-5 () Int
+    1)
+  (define-fun B_f1-3_f1-5 () Int
+    1)
+  (define-fun B_f1-3_f1-4 () Int
+    1)
+  (define-fun B_f1-2_f1-5 () Int
+    1)
+  (define-fun B_f1-2_f1-4 () Int
+    1)
+  (define-fun B_f1-2_f1-3 () Int
+    1)
+  (define-fun B_f1-1_f1-5 () Int
+    1)
+  (define-fun B_f1-1_f1-4 () Int
+    1)
+  (define-fun B_f1-1_f1-3 () Int
+    1)
+  (define-fun B_f1-1_f1-2 () Int
+    1)
+  (define-fun B_f1-0_f1-5 () Int
+    1)
+  (define-fun B_f1-0_f1-4 () Int
+    1)
+  (define-fun B_f1-0_f1-3 () Int
+    1)
+  (define-fun B_f1-0_f1-2 () Int
+    1)
+  (define-fun B_f1-0_f1-1 () Int
+    1)
+  (define-fun B_f2-3_f2-4 () Int
+    1)
+  (define-fun B_f2-2_f2-4 () Int
+    1)
+  (define-fun B_f2-2_f2-3 () Int
+    1)
+  (define-fun B_f2-1_f2-4 () Int
+    1)
+  (define-fun B_f2-1_f2-3 () Int
+    1)
+  (define-fun B_f2-1_f2-2 () Int
+    1)
+  (define-fun B_f2-0_f2-4 () Int
+    1)
+  (define-fun B_f2-0_f2-3 () Int
+    1)
+  (define-fun B_f2-0_f2-2 () Int
+    1)
+  (define-fun B_f2-0_f2-1 () Int
+    1)
+)
+(error "line 108 column 15: unsat core is not available")
+end

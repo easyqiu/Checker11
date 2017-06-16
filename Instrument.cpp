@@ -11,7 +11,7 @@
 
 using namespace checker;
 
-//# define DEBUG
+# define DEBUG
 
 std::set<void*> sharedAddresses; 
 Executor* exe;
@@ -221,9 +221,10 @@ void preFence(int order) {
     std::cout << "In atomic preFence: " << order << "!\n";
 # endif
     
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "fence: " << order << "\n";
-    updateTrace(ss.str());
+    updateTrace(ss.str());*/
+    exe->execute_fence_action(getThreadName(std::this_thread::get_id()), order);
 }
 
 void preCmpXchg_int(void* addr, int expect, int newVal, int successOrdering, int failureOrdering) {
@@ -389,7 +390,7 @@ void checker_shared(void* addr) {
 
 void checker_generateExecutor() {
     exe = new Executor();
-    //std::cerr << "initialize executor!\n";
+    std::cerr << "initialize executor: " << exe << "\n";
     modelChecker->setExecutor(exe);
     exe->setModelChecker(modelChecker);
     //std::cerr << "end initialize\n";
@@ -397,22 +398,37 @@ void checker_generateExecutor() {
 
 void checker_thread_create(std::thread::id id2) {
     std::thread::id id1 = std::this_thread::get_id();
+
+    std::stringstream ss;
+    ss << "\nIn checker_thread_create: " << id1 << " " << id2 << "\n";
+    std::cout << ss.str();
+
     exe->execute_thread_create_action(getThreadName(id1), getThreadName(id2));
 }
 
+void checker_thread_join(std::thread::id id2) {
+    std::thread::id id1 = std::this_thread::get_id();
+    exe->execute_thread_join_action(getThreadName(id1), getThreadName(id2));
+}
+
+
 void checker_thread_begin(char *name) {
     std::thread::id id = std::this_thread::get_id();
+
+    std::stringstream ss;
+    ss << "\nIn checker_thread_begin: " << id << "\n";
+    std::cout << ss.str();
+
     exe->execute_thread_begin_action(getThreadName(id), name);
 }
 
 void checker_thread_end() {
 
+# ifdef DEBUG
+    std::cout << "In checker_thread_end\n";
+# endif
     exe->execute_thread_end_action(getThreadName(std::this_thread::get_id()));
-    //std::cout << "end thread!\n";
-}
-
-void checker_thread_join(std::thread::id id) {
-    exe->execute_thread_join_action(getThreadName(std::this_thread::get_id()), getThreadName(id));
+    std::cout << "end thread!\n";
 }
 
 void checker_solver() {

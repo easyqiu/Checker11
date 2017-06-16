@@ -47,6 +47,7 @@ extern "C" void preRMW_UMin(void* addr, int val, int order);
 extern "C" void preFence(int order);
 extern "C" void checker_generateExecutor();
 extern "C" void checker_thread_create(std::thread::id id1);
+extern "C" void checker_thread_join(std::thread::id id1);
 extern "C" void checker_thread_begin(char *name);
 extern "C" void checker_thread_end();
 extern "C" void checker_thread_join(std::thread::id id);

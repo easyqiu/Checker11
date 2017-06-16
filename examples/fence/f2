@@ -1,0 +1,27 @@
+TStart f2
+ARead 0x10dd3f168 0 0
+TFinish f2
+TStart f2
+ARead 0x10e2d3168 0 1
+AFence 1
+TFinish f2
+TStart f2
+ARead 0x10ffcb168 0 0
+TFinish f2
+TStart f2
+ARead 0x10511c168 0 0
+TFinish f2
+TStart f2
+ARead 0x1025e6168 0 0
+TFinish f2
+TStart f2
+ARead 0x10ba06168 0 1
+AFence 1
+TFinish f2
+TStart f2
+ARead 0x102aa0168 0 1
+AFence 1
+TFinish f2
+TStart f2
+ARead 0x102aa0168 0 0
+TFinish f2

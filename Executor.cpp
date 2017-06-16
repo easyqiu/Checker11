@@ -4,7 +4,6 @@
 
 #include <assert.h>
 #include <fstream>
-#include <sstream>
 #include <thread>
 
 #include "Executor.h"
@@ -30,6 +29,7 @@ Executor::Executor() {
     setCurSch(newSch);
     //std::cout << "Generate a new Executor: " << this << " " << curSch << "\n";
     pthread_mutex_init(&lockForThreadMap, NULL);
+    pthread_mutex_init(&lock, NULL);
 }
 
 void Executor::setModelChecker(ModelChecker* checker) {
@@ -47,8 +47,11 @@ Thread* Executor::addThread(std::string tid, std::string name) {
 
     threadMap[tid] = thread;
 
-    /*std::stringstream ss;
-    ss << "\n Add Current Thread: " << this << " " << threadMap.size() << "\n";
+    std::stringstream ss;
+    ss << "add thread: " << tid << "\n";
+    std::cout << ss.str();
+
+    /*ss << "\n Add Current Thread: " << this << " " << threadMap.size() << "\n";
 
     ss << threadMap.size() << "\n";
     int i = 0;
@@ -69,8 +72,10 @@ Thread* Executor::addThread(std::string tid, std::string name) {
 }
 
 Thread* Executor::getThread(std::string tid) {
-    //pthread_mutex_lock(&lockForThreadMap);
+    pthread_mutex_lock(&lockForThreadMap);
     std::stringstream ss;
+    ss << "get thread: " << tid << "\n";
+    std::cout << ss.str();
     /*ss << "\nGet Current Thread: " << threadMap.size() << "\n";
     int i = 0;
     for (std::map<std::string, Thread*>::iterator it = threadMap.begin();
@@ -82,41 +87,107 @@ Thread* Executor::getThread(std::string tid) {
     ss << "get thread: " << this << " " << tid << " " << threadMap.size() << "\n";
     std::cout << ss.str();*/
 
-    assert(threadMap.find(tid) != threadMap.end());
+    if (threadMap.find(tid) == threadMap.end()) {
+        pthread_mutex_unlock(&lockForThreadMap);
+        return NULL;
+    }
+
     Thread* thread = threadMap[tid];
-    //pthread_mutex_unlock(&lockForThreadMap);
+    pthread_mutex_unlock(&lockForThreadMap);
     return thread;
 }
 
 void Executor::execute_thread_create_action(std::string tid1, std::string tid2) {
+    pthread_mutex_lock(&lock);
+    std::stringstream ss;
+    ss << "AAA: " << this << " " << &lock << " " << tid2 << "\n";
+    std::cout << ss.str();
+    ss.str("");
     //Thread* thread1 = threadMap[tid1];
     Thread* thread1 = getThread(tid1);
+    Thread* thread2 = getThread(tid2);
     Action* action = new Action(this, thread1, THREAD_CREATE, tid1, tid2);
     thread1->addAction(action);
+    threadCreateMap[tid2] = tid1;
+    ss << "\ncreate: " << tid1 << " " << tid2 << " " << thread2 << "\n";
+    //std::cout << ss.str();
+
+    //ss.str("");
+    if (thread2 != NULL && thread2->getActionList().size() != 0) {
+        addCreatePoint(action, thread2->getActionList()[0]);
+        ss << "\nccc1: " << action << " " << threadCreatePoints[action] << " " << thread2->getActionList().size() << "\n";
+    } else {
+        addCreatePoint(action);
+        ss << "\nccc2: " << action << " " << tid1 << " " << tid2 << "\n";
+    }
+    std::cout << ss.str();
+    pthread_mutex_unlock(&lock);
 }
 
 void Executor::execute_thread_begin_action(std::string tid, std::string name) {
+    pthread_mutex_lock(&lock);
+    std::stringstream ss;
+    ss << "BBB: " << this << " " << &lock << " " << tid << "\n";
+    std::cout << ss.str();
+    ss.str("");
     //std::cout << "in thread_begin_action: " << this << " " << tid << " " << name << " ~" << threadMap.size() << "~~\n";
     Thread* thread = addThread(tid, name);
 
     Action* action;
     action = new Action(this, thread, THREAD_START, name);
     thread->addAction(action);
+
+    ss << "\nbbbb0: " << tid << " " << thread << "\n";
+    for (std::map<Action*, Action*>::iterator it = threadCreatePoints.begin();
+            it != threadCreatePoints.end(); ++it) {
+        Action* pAction = it->first;
+
+        ss << pAction->get_id1() << " " << pAction->get_id2() << "\n";
+        if (pAction->get_id2() == tid) {
+            threadCreatePoints[pAction] = action;
+            ss << "bbb: " << pAction << " " << action << "\n";
+            break ;
+        }
+    }
+    std::cout << ss.str();
+    pthread_mutex_unlock(&lock);
+
     //curSch->eraseAction(std::make_pair(name, action->get_seq_number()));
 }
 
 void Executor::execute_thread_end_action(std::string tid) {
     //Thread* thread = threadMap[tid];
+    std::cout << "111: " << tid << "\n";
     Thread* thread = getThread(tid);
+    std::cout << "222: " << thread << "\n";
+    assert(thread != NULL);
+    std::cout << "333\n";
     Action* action = new Action(this, thread, THREAD_FINISH, tid);
+    std::cout << "444\n";
     thread->addAction(action);
     //thread->printTrace();
+
+    std::cout << "555\n";
+    for (std::map<Action*, Action*>::iterator it = threadJoinPoints.begin();
+            it != threadJoinPoints.end(); ++it) {
+        if (threadCreateMap[tid] == it->first->get_tid()) {
+            threadJoinPoints[it->first] = thread->getActionList().back();
+            break ;
+        }
+    }
 }
 
 void Executor::execute_thread_join_action(std::string tid1, std::string tid2) {
     Thread* thread = getThread(tid1);
     Action* action = new Action(this, thread, THREAD_JOIN, tid1, tid2);
     thread->addAction(action);
+
+    Thread* childThr = getThread(tid2);
+    std::cout << "ttt: " << tid2 << " " << childThr << "\n";
+    if (childThr == NULL) {
+        addJoinPoint(action, NULL);
+    } else
+        addJoinPoint(action, childThr->getActionList().back());
 }
 
 int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
@@ -132,7 +203,7 @@ int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
     //std::cout << "current action: " << readValueMap.size() << " " << currentPair.first << " " << currentPair.second << "\n";
     //while (preActions[currentPair].size() != 0) {}
     //int i = 100;
-    while (curSch->checkPreRead(currentPair) == false/* && i--*/) {
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
         usleep(1000);
         std::cout << "waiting read!\n";
     }
@@ -168,11 +239,24 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
     thread->addAction(action);
     //while (thread->pause(action) == true) { std::cout << "2222\n"; }
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
-    while (curSch->checkPreRead(currentPair) == false/* && i--*/) {
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
         usleep(1000);
         std::cout << "waiting write!\n";
     }
 
+}
+
+
+void Executor::execute_fence_action(std::string tid, int mo) {
+    Thread* thread = getThread(tid);
+    Action *action = new FenceAction(this, thread, ATOMIC_FENCE, mo);
+    thread->addAction(action);
+
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting fence!\n";
+    }
 }
 
 std::map<std::string, Thread *> Executor::getThreadMap() {
@@ -240,19 +324,25 @@ void Executor::printSolutionValue() {
 }
 
 void Executor::generateSolutionFile() {
+    if (solutionValues.size() == 0)
+        return ;
+
     Schedule* sch = new Schedule();
-    //std::cout << "Generate new schedule: " << sch << "\n";
+    std::cout << "Generate new schedule: " << sch << "\n";
     //curSch->clearData();
 
     bool flag = false;
     std::string inputName = "Input" + util::stringValueOf(inputIndex-1);
-    std::ofstream outfile(inputName, std::ios::app);
+    //std::ofstream outfile(inputName, std::ios::app);
     for (std::map<std::string, std::string>::iterator it = solutionValues.begin();
             it != solutionValues.end(); ++it) {
         std::string name = it->first;
         std::string val = it->second;
         //std::cout << "handle: " << name << " " << val << "\n";
         if (name.at(0) == 'B' && name.find("B_") != std::string::npos) {
+            if (val != "1" && val != "0")
+                continue ;
+
             name = name.substr(2);
             char action[10000];
             std::strcpy(action, name.c_str());
@@ -265,8 +355,14 @@ void Executor::generateSolutionFile() {
             token = strtok(NULL, "_-");
             std::string seq_num2 = token;
             if (fname1 != fname2) {
-                outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
-                sch->updatePreAction(std::make_pair(fname1, util::intValueOf(seq_num1)), std::make_pair(fname2, util::intValueOf(seq_num2)));
+                //outfile << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
+                //std::cout << "B: " << fname1 << " " << seq_num1 << " " << fname2 << " " << seq_num2 << "\n";
+                //sch->updatePreAction(std::make_pair(fname1, util::intValueOf(seq_num1)), std::make_pair(fname2, util::intValueOf(seq_num2)));
+                if (val == "1")
+                    sch->updatePreAction(std::make_pair(fname2, util::intValueOf(seq_num2)), std::make_pair(fname1, util::intValueOf(seq_num1)));
+                else
+                    sch->updatePreAction(std::make_pair(fname1, util::intValueOf(seq_num1)), std::make_pair(fname2, util::intValueOf(seq_num2)));
+
             }
         } else if (name.at(0) == 'R' && name.find("RF_") != std::string::npos) {
             name = name.substr(3);
@@ -294,7 +390,7 @@ void Executor::generateSolutionFile() {
                 }
             }
 
-            outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
+            //outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
             sch->updateReadValueMap(std::make_pair(fname1, util::intValueOf(seq_num1)), val);
         }
     }
@@ -306,8 +402,8 @@ void Executor::generateSolutionFile() {
             it != rfMap.end(); ++it)
         sch->updateReadValueMap(it->first, it->second);
 
-    outfile.flush();
-    outfile.close();
+    //outfile.flush();
+    //outfile.close();
     schedules.push_back(sch);
     getChecker()->addSch(sch);
 }

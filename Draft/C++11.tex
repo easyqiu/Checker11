@@ -651,15 +651,15 @@ where $\Phi_{mhb}(a,b)$ is defined as follow:
 
 \[\Phi_{mhb}(a,b) = \left\{
   \begin{array}{l l}
-    O_{ab}==1,           &  {\text{if $a \stackrel{(sb\cup asw)^+}{\longrightarrow} b$;}}\\\\
-    O_{ab}==\bot,  &  \text{otherwise}.
+    B_{ab}==1,           &  {\text{if $a \stackrel{(sb\cup asw)^+}{\longrightarrow} b$;}}\\\\
+    B_{ab}==\bot,  &  \text{otherwise}.
   \end{array} \right.\]
 
 %At last, $\Phi_{mhb}$ can be described as the transitive closure of 
 %the union of the definition of $sb$ and $asw$. 
 When defining $\Phi_{mhb}$, '+' represents the computation of transitive closure. 
 For the example in Figure~\ref{fig:noStrictOrder}, $\Phi_{mhb}$ will catch the relation
-that $O_{ac}==1$. 
+that $B_{ac}==1$. 
 
 %\subsubsection{synchronizes-with relations $\Phi_{sw}$}
 \subsubsection{Happens-before relations $\Phi_{hb}$}
@@ -726,8 +726,8 @@ where $\Phi_{hb}(a,b)$ is defined as follow:
 
 \[ \Phi_{hb}(a,b) = \left\{
   \begin{array}{l l}
-    O_{ab}==1,           &  {\text{if $a \stackrel{(mhb\cup sw)^+}{\longrightarrow} b$; }}\\\\
-    O_{ab}==\bot,  &  \text{otherwise}.
+    B_{ab}==1,           &  {\text{if $a \stackrel{(mhb\cup sw)^+}{\longrightarrow} b$; }}\\\\
+    B_{ab}==\bot,  &  \text{otherwise}.
   \end{array} \right.\]
 
 \subsubsection{data-validity constraints $\Phi_{rw}$}
@@ -765,8 +765,8 @@ where $\Phi_{value}(r,v)$ is defined as follow:
 \begin{equation}
 \begin{aligned}
 \Phi_{value}(r,v) ={} & \bigvee_{\forall w\in W_v^x} (\Phi_{rw}(w)\wedge F_{wr}\wedge 
-					  O_{rw}\neq 1\wedge \\
-					& (\bigwedge_{\forall w\neq w'\in W^x}\neg (O_{ww'}==1\wedge O_{w'r}==1)))
+					  B_{rw}\neq 1\wedge \\
+					& (\bigwedge_{\forall w\neq w'\in W^x}\neg (B_{ww'}==1\wedge B_{w'r}==1)))
 \end{aligned}
 \end{equation}
 
