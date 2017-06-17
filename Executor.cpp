@@ -47,9 +47,9 @@ Thread* Executor::addThread(std::string tid, std::string name) {
 
     threadMap[tid] = thread;
 
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "add thread: " << tid << "\n";
-    std::cout << ss.str();
+    std::cout << ss.str();*/
 
     /*ss << "\n Add Current Thread: " << this << " " << threadMap.size() << "\n";
 
@@ -73,9 +73,9 @@ Thread* Executor::addThread(std::string tid, std::string name) {
 
 Thread* Executor::getThread(std::string tid) {
     pthread_mutex_lock(&lockForThreadMap);
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "get thread: " << tid << "\n";
-    std::cout << ss.str();
+    std::cout << ss.str();*/
     /*ss << "\nGet Current Thread: " << threadMap.size() << "\n";
     int i = 0;
     for (std::map<std::string, Thread*>::iterator it = threadMap.begin();
@@ -101,8 +101,8 @@ void Executor::execute_thread_create_action(std::string tid1, std::string tid2) 
     pthread_mutex_lock(&lock);
     std::stringstream ss;
     ss << "AAA: " << this << " " << &lock << " " << tid2 << "\n";
-    std::cout << ss.str();
-    ss.str("");
+    //std::cout << ss.str();
+    //ss.str("");
     //Thread* thread1 = threadMap[tid1];
     Thread* thread1 = getThread(tid1);
     Thread* thread2 = getThread(tid2);
@@ -120,7 +120,8 @@ void Executor::execute_thread_create_action(std::string tid1, std::string tid2) 
         addCreatePoint(action);
         ss << "\nccc2: " << action << " " << tid1 << " " << tid2 << "\n";
     }
-    std::cout << ss.str();
+    //std::cout << ss.str();
+
     pthread_mutex_unlock(&lock);
 }
 
@@ -128,8 +129,8 @@ void Executor::execute_thread_begin_action(std::string tid, std::string name) {
     pthread_mutex_lock(&lock);
     std::stringstream ss;
     ss << "BBB: " << this << " " << &lock << " " << tid << "\n";
-    std::cout << ss.str();
-    ss.str("");
+    //std::cout << ss.str();
+    //ss.str("");
     //std::cout << "in thread_begin_action: " << this << " " << tid << " " << name << " ~" << threadMap.size() << "~~\n";
     Thread* thread = addThread(tid, name);
 
@@ -149,45 +150,46 @@ void Executor::execute_thread_begin_action(std::string tid, std::string name) {
             break ;
         }
     }
-    std::cout << ss.str();
+
+    //std::cout << ss.str();
     pthread_mutex_unlock(&lock);
 
     //curSch->eraseAction(std::make_pair(name, action->get_seq_number()));
 }
 
 void Executor::execute_thread_end_action(std::string tid) {
+    pthread_mutex_lock(&lock);
     //Thread* thread = threadMap[tid];
-    std::cout << "111: " << tid << "\n";
     Thread* thread = getThread(tid);
-    std::cout << "222: " << thread << "\n";
     assert(thread != NULL);
-    std::cout << "333\n";
     Action* action = new Action(this, thread, THREAD_FINISH, tid);
-    std::cout << "444\n";
     thread->addAction(action);
     //thread->printTrace();
 
-    std::cout << "555\n";
     for (std::map<Action*, Action*>::iterator it = threadJoinPoints.begin();
             it != threadJoinPoints.end(); ++it) {
-        if (threadCreateMap[tid] == it->first->get_tid()) {
-            threadJoinPoints[it->first] = thread->getActionList().back();
+        Action* pAction = it->first;
+        if (pAction->get_id2() == tid) {
+        //if (threadCreateMap[tid] == it->first->get_tid()) {
+            threadJoinPoints[pAction] = action;
             break ;
         }
     }
+    pthread_mutex_unlock(&lock);
 }
 
 void Executor::execute_thread_join_action(std::string tid1, std::string tid2) {
+    pthread_mutex_lock(&lock);
     Thread* thread = getThread(tid1);
     Action* action = new Action(this, thread, THREAD_JOIN, tid1, tid2);
     thread->addAction(action);
 
     Thread* childThr = getThread(tid2);
-    std::cout << "ttt: " << tid2 << " " << childThr << "\n";
     if (childThr == NULL) {
         addJoinPoint(action, NULL);
     } else
         addJoinPoint(action, childThr->getActionList().back());
+    pthread_mutex_unlock(&lock);
 }
 
 int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {

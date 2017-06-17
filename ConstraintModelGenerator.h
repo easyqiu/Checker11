@@ -64,6 +64,9 @@ namespace  checker {
         void enforeFenceFence(FenceAction* rFence, FenceAction* aFence,
                               RWAction* write, RWAction* read, RWAction* firstW, int writeNum);
 
+        void enforeMOConsistent();
+        void enforeceConsistentConstraint();
+
         void identifySWFence(RWAction* read, RWAction* write);
         bool isEnforceSWRelation(Action* a, Action* b);
         Action* getRelSeqHead(RWAction* write); // get the head of the release sequence that 'write' belong to

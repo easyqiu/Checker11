@@ -1,159 +1,278 @@
-Generate a model checker: 0x7fcf69404bf0
+Generate a model checker: 0x7ffec9404c10
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 16447
-in thread_begin_action: 0x7fcf69404cf0 0x7fff762c2300 main ~0~~
-In atomic preStore: 0x10746f170 0 7!
-In atomic preStore: 0x10746f174 0 7!
-in thread_begin_action: 0x7fcf69404cf0 0x1078b1000 f2 ~1~~
-in thread_begin_action: 0x7fcf69404cf0 0x10782e000 f1 ~1~~
-In checker_shared_int: 0x10746f168
-In checker_shared_int: 0x10746f16c
-In checker_shared_int: 0x10746f168
-In checker_shared_int: 0x10746f16c
-In atomic preLoad: In atomic preLoad: 0x10746f1740x10746f170  22!
-!
-In atomic postLoad int: 0x10746f170 0 2!
-In atomic postLoad int: 0x10746f174 In non-atomic preStore: 0x10746f1680  02!
-!
-In atomic preStore: 0x10746f174 1 2!
-In non-atomic preStore: 0x10746f16c 0!
-In atomic preStore: 0x10746f170 1 2!
-In checker_thread_end
-In checker_thread_end
+[Solver] create Z3 pid 3720
 data: 0 0
 ERROR!
-In checker_thread_end
-Generating: 0x7fcf69405970 0x7fcf69500180 ARead 0x10746f170 0 0
- AWrite 0x10746f170 0 1
+Generating: 0x7ffec9405540 0x7ffec9405480 ARead 0x10c1b1170 0 0
+ AWrite 0x10c1b1170 0 1
 
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
+
+Fences: 0x0 0x0 0x7ffec9405480
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
-Generate new schedule: 0x7fcf697004c0
-Generating: 0x7fcf69600000 0x7fcf696000b0 ARead 0x10746f174 0 0
- AWrite 0x10746f174 0 1
+Generate new schedule: 0x7ffec94061d0
+Generating: 0x7ffec9500670 0x7ffec94055e0 ARead 0x10c1b1174 0 0
+ AWrite 0x10c1b1174 0 1
 
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ffec9404d10
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ffec9404d10
+
+Fences: 0x0 0x0 0x7ffec94055e0
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
-Generate new schedule: 0x7fcf69408150
+Generate new schedule: 0x7ffec96000e0
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 16448
-Schedule: 0x7fcf697004c0
+[Solver] create Z3 pid 3721
+Schedule: 0x7ffec94061d0
 For: f1 1
-    f1 0
     main 0
     main 1
     main 2
     main 3
 For: f1 2
-    f1 0
-    f1 1
     main 0
     main 1
     main 2
     main 3
 For: f1 3
-    f1 0
-    f1 1
-    f1 2
     main 0
     main 1
     main 2
     main 3
 For: f2 1
-    f2 0
     main 0
     main 1
     main 2
     main 3
     main 4
 For: f2 2
-    f2 0
-    f2 1
     main 0
     main 1
     main 2
     main 3
     main 4
 For: f2 3
-    f2 0
-    f2 1
-    f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 1
-    main 0
-For: main 2
-    main 0
-    main 1
-For: main 3
-    main 0
-    main 1
-    main 2
-For: main 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: main 5
     main 0
     main 1
     main 2
     main 3
     main 4
 For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    main 5
+    f1 0
+    f1 1
+    f1 2
+    f1 3
 For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+data: 1 1
+Generating: 0x7ffec9406b40 0x7ffec94069b0 ARead 0x10c1b1174 0 1
+ AWrite 0x10c1b1174 4 0
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
+
+Fences: 0x0 0x0 0x7ffec94069b0
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7ffec940a520
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3722
+Schedule: 0x7ffec96000e0
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
     main 0
     main 1
     main 2
     main 3
     main 4
-    main 5
-    main 6
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f2 1 1
+data: 0 1
+ERROR!
+Generating: 0x7ffec9600ea0 0x7ffec9600d80 ARead 0x10c1b1170 0 0
+ AWrite 0x10c1b1170 0 1
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
+
+Fences: 0x0 0x0 0x7ffec9600d80
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7ffec9603bb0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3723
+Schedule: 0x7ffec940a520
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
 Read Map: f1 1 1
-in thread_begin_action: 0x7fcf69404cf0 0x7fff762c2300 main ~0~~
-In atomic preStore: 0x10746f170 0 7!
-In atomic preStore: 0x10746f174 0 7!
-in thread_begin_action: 0x7fcf69404cf0 0x10782e000 f1 ~1~~
-in thread_begin_action: 0x7fcf69404cf0 0x1078b1000 f2 ~2~~
-In checker_shared_int: 0x10746f168
-In checker_shared_int: 0x10746f16c
-In atomic preLoad: 0x10746f170 2!
-In checker_shared_int: 0x10746f168
-In checker_shared_int: 0x10746f16c
-In atomic preLoad: 0x10746f174 2!
-In atomic postLoad int: 0x10746f170 1 2!
-In non-atomic preStore: 0x10746f168 1!
-In atomic preStore: 0x10746f174 1 2!
-In atomic postLoad int: 0x10746f174 0 2!
-In non-atomic preStore: 0x10746f16c 0!
-In atomic preStore: 0x10746f170 1 2!
-In checker_thread_end
-In checker_thread_end
+Read Map: f2 1 0
+waiting read!
+waiting read!
 data: 1 0
 ERROR!
-In checker_thread_end
-Generating: 0x7fcf69407720 0x7fcf694077c0 ARead 0x10746f174 0 0
- AWrite 0x10746f174 0 1
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 3724
+Schedule: 0x7ffec9603bb0
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+Read Map: f2 1 1
+data: 1 1

@@ -28,6 +28,7 @@ namespace  checker {
 
         void parseTrace();
         void parse_constraints(std::string filename);
+        bool isConsistent();
         void generateModel();
         void collectData();
         //void generateSWRelations();

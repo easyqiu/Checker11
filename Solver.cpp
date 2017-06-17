@@ -162,6 +162,7 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     exe->set_formulaFile(getenv("formulaFile") + util::stringValueOf(exe->get_inputIndex()));
     exe->set_inputIndex(exe->get_inputIndex()+1);
 
+    std::cout << "111\n";
     exe->resetSolver();
     //z3solver->openOutputFile();
     //z3solver->resetDeclaredVars();
@@ -170,25 +171,52 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     cmg->addBinaryConstraints();
     cmg->addMOConstraints();
 
-    set<Action*> mhbList = identifyMHBRelation(read);
-    //set<Action*> list = identifyMHBRelation(write);
-    //mhbList.insert(list.begin(), list.end());
-    map<RWAction*, uint64_t> enforcePairs;
-    for (set<Action*>::iterator it = mhbList.begin();
-            it != mhbList.end(); ++it) {
-        Action* action = *it;
-        RWAction* r = dynamic_cast<RWAction*>(action);
-        if (r == NULL || r->is_write() == true)
-            continue ;
+    std::cout << "222\n";
+    map<RWAction *, uint64_t> enforcePairs;
+    if (read != NULL) {
+        set<Action *> mhbList = identifyMHBRelation(read);
+        //set<Action*> list = identifyMHBRelation(write);
+        //mhbList.insert(list.begin(), list.end());
+        for (set<Action *>::iterator it = mhbList.begin();
+             it != mhbList.end(); ++it) {
+            Action *action = *it;
+            RWAction *r = dynamic_cast<RWAction *>(action);
+            if (r == NULL || r->is_write() == true)
+                continue;
 
-        if (r != read)
-            enforcePairs[r] = r->get_value();
-        else
-            enforcePairs[r] = val;
-        std::cout << "enfore: " << r << " " << enforcePairs[r] << " " << r->get_mo_constraint() << "\n";
+            if (r != read)
+                enforcePairs[r] = r->get_value();
+            else
+                enforcePairs[r] = val;
+            //std::cout << "enfore: " << r << " " << enforcePairs[r] << " " << r->get_mo_constraint() << "\n";
+        }
+    } else { // check the consistency of the original execution
+        map<string, Thread*> tMap = exe->getThreadMap();
+        std::cout << "tMap: " << tMap.size() << "\n";
+        for (map<string, Thread*>::iterator it = tMap.begin();
+                it != tMap.end(); ++it) {
+            Thread* thr = it->second;
+            std::cout << "thread: " << thr << "\n";
+            vector<Action*> aList = thr->getActionList();
+            std::cout << "Thread: " << thr << " " << aList.size() << "\n";
+            for (vector<Action*>::iterator it2 = aList.begin();
+                    it2 != aList.end(); ++it2) {
+                Action* action = *it2;
+                std::cout << "mmm\n";
+                if (dynamic_cast<RWAction*>(action) == NULL) continue ;
+
+                RWAction* r = dynamic_cast<RWAction*>(action);
+                if (r->is_write()) continue ;
+
+                enforcePairs[r] = r->get_value();
+            }
+            std::cout << "333\n";
+        }
     }
 
     cmg->addRWRelations(enforcePairs);
+    cmg->enforeceConsistentConstraint();
+
     z3solver->solve();
     //exe->printSolutionValue();
     exe->generateSolutionFile();
@@ -220,7 +248,7 @@ void Solver::generateModel() {
                     continue ;
 
                 std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
-                std::cout << "B name: " << read->get_binary_rel_name(write) << "\n";
+                //std::cout << "B name: " << read->get_binary_rel_name(write) << "\n";
                 generateSchedule(read, write->get_value());
             }
         }
@@ -231,13 +259,24 @@ void Solver::addSWPair(Action *a, Action *b) {
     swPairs[a] = b;
 }
 
+bool Solver::isConsistent() {
+    generateSchedule(NULL, 0);
+    if (exe->getSolutionValues().size() == 0) {
+        std::cout << "Note: Generate an inconsistent execution!\n";
+        return false;
+    }
+
+    return true;
+}
+
 void Solver::start() {
     collectData();
 
     //z3solver->openOutputFile();
     //cmg = new ConstModelGen(exe, this, z3solver);
 
-    generateModel();
+    if (isConsistent())
+        generateModel();
     //std::cout << "End solver!\n";
 }
 
@@ -274,7 +313,6 @@ set<Action*> Solver::identifyMHBRelation(Action *action) {
 
     Thread* thread = action->get_thread();
     //Thread* thread = action->get_thread();
-    std::cout << "111: " << thread << "\n";
     vector<Action*> actionList = thread->getActionList();
 
     vector<Thread*> threads;
@@ -292,13 +330,11 @@ set<Action*> Solver::identifyMHBRelation(Action *action) {
     }
 
     map<string, string> createMap = exe->getThreadCreateMap();
-    std::cout << "bbbbb\n";
     while(createMap.find(thread->get_id()) != createMap.end()) {
         string newId = createMap[thread->get_id()];
         if (newId == "")
             break ;
         Thread* parentThr = exe->getThread(newId);
-        std::cout << "222: " << parentThr << " *" << thread->get_id() << "* !!!" << newId << "!!!\n";
         vector<Action*> list = parentThr->getActionList();
         for (vector<Action*>::iterator it = list.begin();
                 it != list.end(); ++it) {
@@ -319,7 +355,6 @@ set<Action*> Solver::identifyMHBRelation(Action *action) {
         Thread* thr = threads[0];
         threads.erase(threads.begin());
 
-        std::cout << "333: " << thr << "\n";
         vector<Action*> list = thr->getActionList();
         for (vector<Action*>::iterator it = list.begin();
                 it != list.end(); ++it) {

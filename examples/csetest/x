@@ -1,0 +1,12 @@
+Generate a model checker: 0x7fed62c04c10
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 9490
+Main thread: creating 2 threads
+r1=0
+r2=0
+r3=2
+Main thread is finished
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fed62c04d10

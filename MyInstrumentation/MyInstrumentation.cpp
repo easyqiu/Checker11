@@ -21,6 +21,9 @@
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Constants.h"
+#include "llvm/IR/InstIterator.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/LLVMContext.h"
 #include "llvm/Pass.h"
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Transforms/Utils/BasicBlockUtils.h"
@@ -314,6 +317,13 @@ namespace {
       CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", loadI);
       //callI->insertAfter(loadI);
 
+
+      /*std::cout << "111111\n";
+      /////////////////
+      SplitBlock(loadI->getParent(), callI);
+      /////////////////
+      std::cout << "2222222\n";*/
+
       Instruction* nextI = &*(++BBIt); BBIt--;
       Instruction* newI = callI;
       /*if (callI->getType() != loadI->getType()) {
@@ -323,11 +333,12 @@ namespace {
       Value* defaultV = ConstantInt::get(ty, 0xff);
       LoadInst* newLoadI = new LoadInst(loadI->getPointerOperand(), "newLoad", loadI->isVolatile(), loadI->getAlignment(), loadI->getOrdering(), 
               loadI->getSynchScope(), loadI);
-      ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, newI, defaultV);
 
+      ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, newI, defaultV);
       icmpI->dump(), newLoadI->dump(), callI->dump(), loadI->dump();
       newLoadI->getType()->dump(), newI->getType()->dump();
       SelectInst* selectI = SelectInst::Create(icmpI, newLoadI, newI, "mySelect", nextI);
+
       //BitCastInst* castI = new BitCastInst(selectI, Type::getInt64Ty(loadI->getContext()), "myBitCast", nextI);
       //ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, castI);
       ReplaceInstWithValue(loadI->getParent()->getInstList(), BBIt, selectI);
@@ -544,6 +555,88 @@ namespace {
       }
     }
 
+    void splitBlocks(Function* F) {
+        for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I) {
+            if (auto *op = dyn_cast<CallInst>(&*I)) {
+                CallInst* callI = dyn_cast<CallInst>(&*I);
+                if (callI->getCalledFunction() == NULL)
+                    continue ;
+
+                //std::cout << "ssss: " << (callI->getCalledFunction()->getName()).str() << "\n";
+                if (callI->getCalledFunction()->getName().find("preAtomicLoad") == std::string::npos) 
+                    continue ;
+
+                I++;
+                Instruction* nextI = &*I;
+                I--;
+
+                //callI->dump(), nextI->dump();
+                assert(nextI->getOpcode() == Instruction::Load);
+
+                IRBuilder<> Builder(nextI);
+                LLVMContext theContext;
+
+                Value* defaultV = ConstantInt::get(nextI->getType(), 0xff);
+                Value *icmp1 = Builder.CreateICmpEQ(callI, defaultV);
+
+                TerminatorInst *ThenTerm , *ElseTerm ;
+                SplitBlockAndInsertIfThenElse(icmp1, nextI, &ThenTerm, &ElseTerm, nullptr);
+                std::cout << "ssss\n";
+                ThenTerm->dump(), ElseTerm->dump();
+                BasicBlock* elseBB = ElseTerm->getParent();
+                //auto loadI = nextI->clone();
+                //loadI->dump();
+                LoadInst* loadI = dyn_cast<LoadInst>(nextI);
+
+                std::vector<Value*> params;
+                Value* param = loadI->getOperand(0);
+                if (param->getType() != Type::getInt8PtrTy(loadI->getContext())) {
+                    BitCastInst* castInst = new BitCastInst(param, Type::getInt8PtrTy(loadI->getContext()), "myCast", ThenTerm);
+                    param = castInst;
+                }
+                
+                params.push_back(param);
+                params.push_back(callI);
+                std::string order = toIRString(loadI->getOrdering());
+                Value* o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), orderToInt[order]);
+                params.push_back(o);
+
+                Function* postFunc;
+                if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
+                    //ty = Type::getInt8Ty(loadI->getContext());
+                    postFunc = myFunctions["postAtomicLoad_char"];
+                } else if (loadI->getType() == Type::getInt32Ty(loadI->getContext())) {
+                    //ty = Type::getInt32Ty(loadI->getContext());
+                    postFunc = myFunctions["postAtomicLoad_int"];
+                } else if (loadI->getType() == Type::getInt64Ty(loadI->getContext())) {
+                    //ty = Type::getInt64Ty(loadI->getContext());
+                    postFunc = myFunctions["postAtomicLoad_double"];
+                } else {
+                    loadI->getType()->dump();
+                    errs() << "Not handle this type for atomic load!\n";
+                    return ;
+                }
+                CallInst::Create(postFunc->getFunctionType(), postFunc, params, "", ThenTerm); // add the post call
+
+                LoadInst* newLoadI = new LoadInst(loadI->getPointerOperand(), "newLoad", loadI->isVolatile(), 
+                        loadI->getAlignment(), loadI->getOrdering(), 
+                        loadI->getSynchScope(), ElseTerm);
+
+                ICmpInst* icmpI = new ICmpInst(ElseTerm, ICmpInst::ICMP_EQ, callI, newLoadI);
+
+                BranchInst* branchI = dyn_cast<BranchInst>(ElseTerm);
+                /*branchI->setCondition(icmpI);
+                branchI->setSuccessor(0, branchI->getSuccessor(0));
+                branchI->setSuccessor(1, branchI->getParent());*/
+
+                BranchInst* newTerm = BranchInst::Create(branchI->getSuccessor(0), branchI->getParent(), icmpI, ElseTerm);
+                ElseTerm->eraseFromParent();
+                
+                break ;  
+            }
+        }
+    }
+    
     void instrFunc(Function* func) {
       for (Function::iterator it = func->begin(); 
               it != func->end(); ++it) {
@@ -557,6 +650,8 @@ namespace {
             //std::cout << "sss2:\n";
         }
       }
+
+      //splitBlocks(func);
     }
 
     bool runOnModule(Module &M) override {

@@ -1,0 +1,14 @@
+...
+%0 = @preAtomicLoad_int;
+%1 = icmp eq i32 %0, 255
+br %1, L1, L2
+
+L2: 
+%newLoad = load atomic ...;
+%2 = icmp eq %0, %newLoad;
+br %2, L1, L2;
+
+L1: 
+%1 = icmp eq i32 %0, 255
+%mySelect = select i1 %1, i32 %newLoad, i32 %0
+call postAtomicLoad_int(%mySelect)

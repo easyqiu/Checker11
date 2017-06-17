@@ -11,7 +11,7 @@
 
 using namespace checker;
 
-# define DEBUG
+//# define DEBUG
 
 std::set<void*> sharedAddresses; 
 Executor* exe;
@@ -399,9 +399,11 @@ void checker_generateExecutor() {
 void checker_thread_create(std::thread::id id2) {
     std::thread::id id1 = std::this_thread::get_id();
 
+# ifdef DEBUG
     std::stringstream ss;
     ss << "\nIn checker_thread_create: " << id1 << " " << id2 << "\n";
     std::cout << ss.str();
+# endif
 
     exe->execute_thread_create_action(getThreadName(id1), getThreadName(id2));
 }
@@ -415,9 +417,11 @@ void checker_thread_join(std::thread::id id2) {
 void checker_thread_begin(char *name) {
     std::thread::id id = std::this_thread::get_id();
 
+# ifdef DEBUG
     std::stringstream ss;
     ss << "\nIn checker_thread_begin: " << id << "\n";
     std::cout << ss.str();
+# endif
 
     exe->execute_thread_begin_action(getThreadName(id), name);
 }
@@ -427,8 +431,9 @@ void checker_thread_end() {
 # ifdef DEBUG
     std::cout << "In checker_thread_end\n";
 # endif
+
     exe->execute_thread_end_action(getThreadName(std::this_thread::get_id()));
-    std::cout << "end thread!\n";
+    //std::cout << "end thread!\n";
 }
 
 void checker_solver() {
