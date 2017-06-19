@@ -15,6 +15,8 @@
 #include "Schedule.h"
 #include "checker.hpp"
 
+#define CWH // control the whole program
+
 using namespace checker;
 using namespace util;
 
@@ -24,12 +26,14 @@ Executor::Executor() {
     set_parameters();
     solver = new Solver(this);
     bugFixMode = true;
+    firstThread = true;
     inputIndex = 0;
     Schedule* newSch = new Schedule();
     setCurSch(newSch);
     //std::cout << "Generate a new Executor: " << this << " " << curSch << "\n";
     pthread_mutex_init(&lockForThreadMap, NULL);
     pthread_mutex_init(&lock, NULL);
+    pthread_cond_init(&cond, NULL);
 }
 
 void Executor::setModelChecker(ModelChecker* checker) {
@@ -112,6 +116,8 @@ void Executor::execute_thread_create_action(std::string tid1, std::string tid2) 
     ss << "\ncreate: " << tid1 << " " << tid2 << " " << thread2 << "\n";
     //std::cout << ss.str();
 
+    //pthread_cond_signal(&cond);
+
     //ss.str("");
     if (thread2 != NULL && thread2->getActionList().size() != 0) {
         addCreatePoint(action, thread2->getActionList()[0]);
@@ -126,6 +132,12 @@ void Executor::execute_thread_create_action(std::string tid1, std::string tid2) 
 }
 
 void Executor::execute_thread_begin_action(std::string tid, std::string name) {
+    while ( !firstThread && threadCreateMap.find(tid) == threadCreateMap.end()) {
+        usleep(1000);
+        std::cout << "Waitting for create thread " << tid << "\n";
+        //pthread_cond_wait(&cond, &lock);
+    }
+
     pthread_mutex_lock(&lock);
     std::stringstream ss;
     ss << "BBB: " << this << " " << &lock << " " << tid << "\n";
@@ -133,6 +145,16 @@ void Executor::execute_thread_begin_action(std::string tid, std::string name) {
     //ss.str("");
     //std::cout << "in thread_begin_action: " << this << " " << tid << " " << name << " ~" << threadMap.size() << "~~\n";
     Thread* thread = addThread(tid, name);
+
+    /*while (threadCreateMap.find(tid) == threadCreateMap.end()) {
+        usleep(1000);
+        std::cout << "Waitting for create thread " << tid << "\n";
+        pthread_cond_wait(&cond, &lock);
+    }*/
+
+    if (!firstThread)
+        thread->updateBuffer(getThread(threadCreateMap[tid])->getBuffers());
+    firstThread = false;
 
     Action* action;
     action = new Action(this, thread, THREAD_START, name);
@@ -197,14 +219,11 @@ int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
     assert(threadMap.find(tid) != threadMap.end() && "Should create the thread! Executor.cpp:90");
     Thread* thread = threadMap[tid];*/
     Thread* thread = getThread(tid);
-    Action* action = new RWAction(this, thread, ATOMIC_READ, mo, addr, false);
+    RWAction* action = new RWAction(this, thread, ATOMIC_READ, mo, addr, false);
 
     //assert(threadMap.find(tid) != threadMap.end() && "Should create the thread!");
     thread->addAction(action);
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
-    //std::cout << "current action: " << readValueMap.size() << " " << currentPair.first << " " << currentPair.second << "\n";
-    //while (preActions[currentPair].size() != 0) {}
-    //int i = 100;
     while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
         usleep(1000);
         std::cout << "waiting read!\n";
@@ -216,7 +235,22 @@ int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
         return readValueMap[currentPair];
     }*/
 
+#ifdef CWH
+    uint64_t expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << "\n";
+    action->set_value(expectedVal);
+    return expectedVal;
+#else
     return curSch->getRFValue(currentPair);
+#endif
 }
 
 void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uint64_t val) {
@@ -228,6 +262,7 @@ void Executor::execute_post_read_action(std::string tid, void* addr, int mo, uin
     RWAction* action = dynamic_cast<RWAction*>(thread->getActionList().back());
     assert(action != 0);
     action->set_value(val);
+    std::cout << "Set value: " << action->get_action_str() << " " << action->get_value() << "\n";
 }
 
 
@@ -239,6 +274,8 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
     Action *action = new RWAction(this, thread, ATOMIC_WRITE, mo, addr, true, val);
 
     thread->addAction(action);
+    updateBuffer(addr, val);
+
     //while (thread->pause(action) == true) { std::cout << "2222\n"; }
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
     while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
@@ -325,9 +362,15 @@ void Executor::printSolutionValue() {
     }
 }
 
-void Executor::generateSolutionFile() {
+void Executor::generateSolutionFile(std::map<RWAction *, uint64_t> enforcePairs) {
     if (solutionValues.size() == 0)
         return ;
+
+    std::set<std::string> enforcedRFs;
+    for (std::map<RWAction*, uint64_t >::iterator it = enforcePairs.begin();
+            it != enforcePairs.end(); ++it) {
+        enforcedRFs.insert(it->first->get_uniq_name());
+    }
 
     Schedule* sch = new Schedule();
     std::cout << "Generate new schedule: " << sch << "\n";
@@ -367,6 +410,8 @@ void Executor::generateSolutionFile() {
 
             }
         } else if (name.at(0) == 'R' && name.find("RF_") != std::string::npos) {
+            if (val != "1") continue ;
+
             name = name.substr(3);
             char action[10000];
             std::strcpy(action, name.c_str());
@@ -379,12 +424,16 @@ void Executor::generateSolutionFile() {
             token = strtok(NULL, "_-");
             std::string seq_num2 = token;
             uint64_t  val;
+
+            if (enforcedRFs.find(fname1+"-"+seq_num1) == enforcedRFs.end())
+                continue ;
+
             for (std::map<std::string, Thread*>::iterator tit = threadMap.begin();
                     tit != threadMap.end(); ++tit) {
                 if (tit->second->getName() == fname2) {
                     std::vector<Action*> list = tit->second->getActionList();
                     Action* action = list[util::intValueOf(seq_num2)];
-                    //std::cout << "action: " << fname2 << " " << seq_num2 << " " << action->get_action_str() << "\n";
+                    std::cout << "action: " << fname2 << " " << seq_num2 << " " << action->get_action_str() << "\n";
                     RWAction* write = dynamic_cast<RWAction*>(list[util::intValueOf(seq_num2)]);
                     //std::cout << "write: " << write << "\n";
                     val = write->get_value();
@@ -393,6 +442,7 @@ void Executor::generateSolutionFile() {
             }
 
             //outfile << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
+            std::cout << "RF: " << fname1 << " " << seq_num1 << " " << val << "\n";
             sch->updateReadValueMap(std::make_pair(fname1, util::intValueOf(seq_num1)), val);
         }
     }
@@ -407,6 +457,8 @@ void Executor::generateSolutionFile() {
     //outfile.flush();
     //outfile.close();
     schedules.push_back(sch);
+    //std::cout << "pppppp: " << sch << "\n";
+    //sch->print();
     getChecker()->addSch(sch);
 }
 
@@ -428,5 +480,14 @@ void Executor::scheduleNewExe() {
         //system("./example");
         //std::thread a(user_main);
         //a.join();
+    }
+}
+
+void Executor::updateBuffer(void* loc, uint64_t val) {
+    for (std::map<std::string, Thread*>::iterator it = threadMap.begin();
+            it != threadMap.end(); ++it) {
+        Thread* thread = it->second;
+
+        thread->updateBuffer(loc, val);
     }
 }

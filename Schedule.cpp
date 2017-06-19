@@ -27,11 +27,11 @@ bool Schedule::checkPreAction(std::pair<std::string, int> action) {
         pthread_mutex_unlock(&preActionsLock);
         return true;
     } else {
-        /*std::cout << "size: " << action.first << " " << action.second << " " << preActions[action].size() << "\n";
+        std::cout << "size: " << action.first << " " << action.second << " " << preActions[action].size() << "\n";
         for (std::set<std::pair<std::string, int> >::iterator it = preActions[action].begin();
                 it != preActions[action].end(); ++it) {
             std::cout << "xxxxx: " << action.first << " " << action.second << " " << it->first << " " << it->second << "\n";
-        }*/
+        }
         pthread_mutex_unlock(&preActionsLock);
         return false;
     }

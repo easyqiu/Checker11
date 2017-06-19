@@ -151,15 +151,17 @@ bool Z3Solver::checkSat()
         }
         else if(isOrderOp) //its an index for a previous read variable definition
         {
-            int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
-            int posEnd = (int)line.find_last_of(")");        //place posEnd in the last char of the value
-            string index = line.substr(posBegin, posEnd-posBegin);
-            std::stringstream s_str(index);
-            int ind;
-            s_str >> ind;
-            globalOrderTmp[ind] = opName;
-            isOrderOp = false;
-            exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
+            if (line.find("- ") == std::string::npos) { // check whether its a negative
+                int posBegin = (int) line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
+                int posEnd = (int) line.find_last_of(")");        //place posEnd in the last char of the value
+                string index = line.substr(posBegin, posEnd - posBegin);
+                std::stringstream s_str(index);
+                int ind;
+                s_str >> ind;
+                globalOrderTmp[ind] = opName;
+                isOrderOp = false;
+                exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
+            }
         }
         else if (isRFOp) {
             int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
@@ -168,7 +170,8 @@ bool Z3Solver::checkSat()
             std::stringstream s_str(index);
             int ind;
             s_str >> ind;
-            exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
+            if (ind == 1)
+                exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
         }
         else if(isReadOp)
         {

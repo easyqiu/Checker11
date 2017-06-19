@@ -10,6 +10,7 @@
 #include "Thread.h"
 #include "Action.h"
 #include "Schedule.h"
+#include "Buffer.h"
 
 using namespace checker;
 
@@ -49,3 +50,42 @@ void Thread::printTrace() {
 }
 
 std::string Thread::getName() {return name;}
+
+void Thread::updateBuffer(void* loc, uint64_t val) {
+    std::cout << "update buffer: " << loc << "\n";
+    if (buffers.find(loc) == buffers.end()) {
+        Buffer* buffer = new Buffer(loc);
+        buffers[loc] = buffer;
+        buffer->updateBuffer(val);
+    } else
+        buffers[loc]->updateBuffer(val);
+}
+
+void Thread::updateBuffer(std::map<void*, Buffer*> bufs) {
+    for (std::map<void*, Buffer*>::iterator it = bufs.begin();
+            it != bufs.end(); ++it) {
+        Buffer* buf = it->second;
+        Buffer* newBuf = new Buffer(it->first);
+        buffers[it->first] = newBuf;
+        newBuf->updateBuffer(buf->getAllValues());
+    }
+}
+
+void Thread::fetchExpectVal(void* loc, uint64_t val) {
+    if (buffers.find(loc) == buffers.end()) {
+        Buffer* buffer = new Buffer(loc);
+        buffers[loc] = buffer;
+        buffer->fetchExpectVal(val);
+    } else
+        buffers[loc]->fetchExpectVal(val);
+}
+
+uint64_t Thread::getValue(void* loc) {
+    std::cout << "get buffer: " << loc << "\n";
+    if (buffers.find(loc) == buffers.end()) {
+        assert(false && "Find an un-initialization error!");
+    }
+
+    return buffers[loc]->getValue();
+}
+

@@ -9,6 +9,7 @@ namespace checker {
 
     class Action;
     class Executor;
+    class Buffer;
 
     class Thread {
     public:
@@ -38,6 +39,14 @@ namespace checker {
 
         Executor* getExe() { return exe; }
 
+        void updateBuffer(void* loc, uint64_t val);
+        void updateBuffer(std::map<void*, Buffer*> buffers);
+
+        void fetchExpectVal(void* loc, uint64_t val);
+        uint64_t getValue(void* loc);
+
+        std::map<void*, Buffer*> getBuffers() { return buffers; }
+
         void printTrace();
 
     private:
@@ -46,6 +55,7 @@ namespace checker {
         Executor *exe;
         std::vector<Action *> actionList;
         std::vector<Action *> preFix;
+        std::map<void*, Buffer*> buffers; // loc -> buffer
 
     };
 }

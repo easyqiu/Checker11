@@ -11,7 +11,7 @@
 
 using namespace checker;
 
-//# define DEBUG
+# define DEBUG
 
 std::set<void*> sharedAddresses; 
 Executor* exe;

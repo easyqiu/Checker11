@@ -48,7 +48,7 @@ namespace  checker {
         }
 
         void initialize();
-        void addBinaryConstraints();
+        void addBasicConstraints();
         void addASWRelation();
         void declareIntVar(std::string name);
         std::string addRFRelation(RWAction* read, RWAction* write, int val);
@@ -57,15 +57,16 @@ namespace  checker {
         void addSWConstraints();
         void addMOConstraints();
 
-        void enforeFenceAcquire(FenceAction* fence, RWAction* write, RWAction* read,
+        void enforceFenceAcquire(FenceAction* fence, RWAction* write, RWAction* read,
                                 RWAction* firstW, int writeNum);
-        void enforeReleaseFence(FenceAction* fence, RWAction* write, RWAction* read,
+        void enforceReleaseFence(FenceAction* fence, RWAction* write, RWAction* read,
                                 RWAction* firstW, int writeNum);
-        void enforeFenceFence(FenceAction* rFence, FenceAction* aFence,
+        void enforceFenceFence(FenceAction* rFence, FenceAction* aFence,
                               RWAction* write, RWAction* read, RWAction* firstW, int writeNum);
 
-        void enforeMOConsistent();
-        void enforeceConsistentConstraint();
+        void enforceMOConsistent();
+        void enforceRFConsistent();
+        void enforceConsistentConstraint();
 
         void identifySWFence(RWAction* read, RWAction* write);
         bool isEnforceSWRelation(Action* a, Action* b);

@@ -19,6 +19,7 @@
 #include "Solver.h"
 #include "Util.h"
 #include "Schedule.h"
+#include "ModelChecker.h"
 //#include "Parameters.h"
 
 #define MAX_LINE_SIZE 100
@@ -162,16 +163,14 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     exe->set_formulaFile(getenv("formulaFile") + util::stringValueOf(exe->get_inputIndex()));
     exe->set_inputIndex(exe->get_inputIndex()+1);
 
-    std::cout << "111\n";
     exe->resetSolver();
     //z3solver->openOutputFile();
     //z3solver->resetDeclaredVars();
     cmg = new ConstModelGen(exe, this, z3solver);
 
-    cmg->addBinaryConstraints();
+    cmg->addBasicConstraints();
     cmg->addMOConstraints();
 
-    std::cout << "222\n";
     map<RWAction *, uint64_t> enforcePairs;
     if (read != NULL) {
         set<Action *> mhbList = identifyMHBRelation(read);
@@ -188,38 +187,36 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
                 enforcePairs[r] = r->get_value();
             else
                 enforcePairs[r] = val;
-            //std::cout << "enfore: " << r << " " << enforcePairs[r] << " " << r->get_mo_constraint() << "\n";
+            std::cout << "enforce: " << r << " " << enforcePairs[r] << " " << "\n";
         }
     } else { // check the consistency of the original execution
         map<string, Thread*> tMap = exe->getThreadMap();
-        std::cout << "tMap: " << tMap.size() << "\n";
         for (map<string, Thread*>::iterator it = tMap.begin();
                 it != tMap.end(); ++it) {
             Thread* thr = it->second;
-            std::cout << "thread: " << thr << "\n";
             vector<Action*> aList = thr->getActionList();
-            std::cout << "Thread: " << thr << " " << aList.size() << "\n";
             for (vector<Action*>::iterator it2 = aList.begin();
                     it2 != aList.end(); ++it2) {
                 Action* action = *it2;
-                std::cout << "mmm\n";
                 if (dynamic_cast<RWAction*>(action) == NULL) continue ;
 
                 RWAction* r = dynamic_cast<RWAction*>(action);
                 if (r->is_write()) continue ;
 
+                //std::cout << "enforcing: " << r->get_action_str() << " " << r->get_value() << "\n";
                 enforcePairs[r] = r->get_value();
             }
-            std::cout << "333\n";
         }
     }
 
     cmg->addRWRelations(enforcePairs);
-    cmg->enforeceConsistentConstraint();
+    cmg->enforceConsistentConstraint();
 
     z3solver->solve();
     //exe->printSolutionValue();
-    exe->generateSolutionFile();
+    if (read != NULL)
+        exe->generateSolutionFile(enforcePairs);
+
     delete  cmg;
 }
 
@@ -261,11 +258,14 @@ void Solver::addSWPair(Action *a, Action *b) {
 
 bool Solver::isConsistent() {
     generateSchedule(NULL, 0);
+    std::cout << "Checking consistency of the current execution!\n";
     if (exe->getSolutionValues().size() == 0) {
-        std::cout << "Note: Generate an inconsistent execution!\n";
+        std::cout << "Fail!\n";
+        exe->getChecker()->addSch(exe->getCurSch());
         return false;
     }
 
+    std::cout << "Pass!\n";
     return true;
 }
 

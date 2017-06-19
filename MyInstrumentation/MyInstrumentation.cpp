@@ -164,14 +164,11 @@ namespace {
       Function *postAtomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_double", &M);
       myFunctions["postAtomicLoad_double"] = postAtomicLoadF_double;
 
-
       paramTypes.clear();
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
       Function *fenceF = Function::Create(FT, Function::ExternalLinkage, "preFence", &M);
       myFunctions["preFence"] = fenceF;
-
-
 
       paramTypes.clear();
       paramTypes.push_back(pType);
@@ -316,6 +313,9 @@ namespace {
       params.push_back(o);
       CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", loadI);
       //callI->insertAfter(loadI);
+      loadI->replaceAllUsesWith(callI);
+      //loadI->eraseFromParent();
+      return ;
 
 
       /*std::cout << "111111\n";

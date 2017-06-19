@@ -1,278 +1,425 @@
-Generate a model checker: 0x7ffec9404c10
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 3720
-data: 0 0
-ERROR!
-Generating: 0x7ffec9405540 0x7ffec9405480 ARead 0x10c1b1170 0 0
- AWrite 0x10c1b1170 0 1
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
-
-Fences: 0x0 0x0 0x7ffec9405480
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ffec94061d0
-Generating: 0x7ffec9500670 0x7ffec94055e0 ARead 0x10c1b1174 0 0
- AWrite 0x10c1b1174 0 1
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ffec9404d10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ffec9404d10
-
-Fences: 0x0 0x0 0x7ffec94055e0
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ffec96000e0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 3721
-Schedule: 0x7ffec94061d0
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-Read Map: f1 1 1
-data: 1 1
-Generating: 0x7ffec9406b40 0x7ffec94069b0 ARead 0x10c1b1174 0 1
- AWrite 0x10c1b1174 4 0
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
-
-Fences: 0x0 0x0 0x7ffec94069b0
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ffec940a520
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 3722
-Schedule: 0x7ffec96000e0
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-Read Map: f2 1 1
-data: 0 1
-ERROR!
-Generating: 0x7ffec9600ea0 0x7ffec9600d80 ARead 0x10c1b1170 0 0
- AWrite 0x10c1b1170 0 1
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ffec9404d10
-
-Fences: 0x0 0x0 0x7ffec9600d80
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ffec9603bb0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 3723
-Schedule: 0x7ffec940a520
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-Read Map: f1 1 1
-Read Map: f2 1 0
-waiting read!
-waiting read!
-data: 1 0
-ERROR!
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 3724
-Schedule: 0x7ffec9603bb0
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-Read Map: f1 1 1
-Read Map: f2 1 1
-data: 1 1
+MEMORY-ORDER CONSTRAINTS -----
+(error "line 753 column 127: invalid function application, arguments missing")
+sat
+(model 
+  (define-fun B_s-0_main-4 () Int
+    (- 1))
+  (define-fun B_s-0_main-6 () Int
+    (- 1))
+  (define-fun B_main-6_s-0 () Int
+    (- 1))
+  (define-fun B_s-1_r-0 () Int
+    (- 1))
+  (define-fun B_r-1_s-1 () Int
+    (- 1))
+  (define-fun B_main-6_s-2 () Int
+    (- 1))
+  (define-fun B_r-0_main-0 () Int
+    (- 1))
+  (define-fun RF_r-1_s-2 () Int
+    0)
+  (define-fun B_r-0_s-1 () Int
+    (- 1))
+  (define-fun B_s-3_r-2 () Int
+    (- 1))
+  (define-fun B_r-2_s-2 () Int
+    (- 1))
+  (define-fun B_s-1_r-1 () Int
+    (- 1))
+  (define-fun B_main-4_s-0 () Int
+    (- 1))
+  (define-fun B_s-2_r-0 () Int
+    (- 1))
+  (define-fun B_s-3_r-1 () Int
+    (- 1))
+  (define-fun B_r-3_main-4 () Int
+    (- 1))
+  (define-fun B_main-4_r-2 () Int
+    (- 1))
+  (define-fun B_r-2_s-3 () Int
+    (- 1))
+  (define-fun RF_r-2_main-1 () Int
+    0)
+  (define-fun B_s-0_r-1 () Int
+    (- 1))
+  (define-fun RF_r-2_s-2 () Int
+    0)
+  (define-fun M_main-2 () Int
+    0)
+  (define-fun B_r-1_s-2 () Int
+    (- 1))
+  (define-fun B_r-0_s-3 () Int
+    (- 1))
+  (define-fun B_s-2_r-2 () Int
+    (- 1))
+  (define-fun B_main-5_r-1 () Int
+    (- 1))
+  (define-fun B_r-3_s-3 () Int
+    (- 1))
+  (define-fun B_r-3_s-1 () Int
+    (- 1))
+  (define-fun B_s-2_r-3 () Int
+    (- 1))
+  (define-fun B_r-1_main-5 () Int
+    (- 1))
+  (define-fun B_main-0_s-0 () Int
+    (- 1))
+  (define-fun B_s-2_main-5 () Int
+    (- 1))
+  (define-fun B_r-2_main-4 () Int
+    (- 1))
+  (define-fun B_main-2_s-0 () Int
+    (- 1))
+  (define-fun B_r-3_s-0 () Int
+    (- 1))
+  (define-fun B_r-0_main-2 () Int
+    (- 1))
+  (define-fun B_main-3_r-0 () Int
+    (- 1))
+  (define-fun B_r-2_main-5 () Int
+    (- 1))
+  (define-fun B_s-0_r-2 () Int
+    (- 1))
+  (define-fun B_s-0_main-5 () Int
+    (- 1))
+  (define-fun B_s-0_r-0 () Int
+    (- 1))
+  (define-fun B_main-5_s-3 () Int
+    (- 1))
+  (define-fun B_main-1_s-0 () Int
+    (- 1))
+  (define-fun B_s-1_main-6 () Int
+    (- 1))
+  (define-fun B_main-5_r-2 () Int
+    (- 1))
+  (define-fun B_main-5_s-2 () Int
+    (- 1))
+  (define-fun B_main-0_r-0 () Int
+    (- 1))
+  (define-fun B_main-4_r-0 () Int
+    (- 1))
+  (define-fun B_r-2_s-0 () Int
+    (- 1))
+  (define-fun B_s-0_main-0 () Int
+    (- 1))
+  (define-fun B_main-1_r-0 () Int
+    (- 1))
+  (define-fun B_main-3_s-0 () Int
+    (- 1))
+  (define-fun B_r-3_main-5 () Int
+    (- 1))
+  (define-fun B_s-0_r-3 () Int
+    (- 1))
+  (define-fun B_s-2_main-6 () Int
+    (- 1))
+  (define-fun B_main-4_r-3 () Int
+    (- 1))
+  (define-fun B_s-3_main-5 () Int
+    (- 1))
+  (define-fun B_main-5_s-1 () Int
+    (- 1))
+  (define-fun B_s-2_r-1 () Int
+    (- 1))
+  (define-fun B_r-0_main-1 () Int
+    (- 1))
+  (define-fun B_s-3_main-6 () Int
+    (- 1))
+  (define-fun B_main-4_r-1 () Int
+    (- 1))
+  (define-fun B_r-2_s-1 () Int
+    (- 1))
+  (define-fun B_main-2_r-0 () Int
+    (- 1))
+  (define-fun B_main-5_r-3 () Int
+    (- 1))
+  (define-fun B_s-3_r-0 () Int
+    (- 1))
+  (define-fun B_r-1_main-4 () Int
+    (- 1))
+  (define-fun M_main-1 () Int
+    0)
+  (define-fun B_r-1_s-0 () Int
+    (- 1))
+  (define-fun B_main-5_s-0 () Int
+    (- 1))
+  (define-fun B_r-1_s-3 () Int
+    (- 1))
+  (define-fun B_main-6_s-3 () Int
+    (- 1))
+  (define-fun B_r-0_s-0 () Int
+    (- 1))
+  (define-fun B_r-0_main-4 () Int
+    (- 1))
+  (define-fun B_main-5_r-0 () Int
+    (- 1))
+  (define-fun B_s-1_main-5 () Int
+    (- 1))
+  (define-fun RF_r-1_main-1 () Int
+    0)
+  (define-fun B_s-0_main-2 () Int
+    (- 1))
+  (define-fun B_r-3_s-2 () Int
+    (- 1))
+  (define-fun B_s-0_main-3 () Int
+    (- 1))
+  (define-fun B_s-1_r-3 () Int
+    (- 1))
+  (define-fun B_s-0_main-1 () Int
+    (- 1))
+  (define-fun B_r-0_s-2 () Int
+    (- 1))
+  (define-fun B_s-1_r-2 () Int
+    (- 1))
+  (define-fun B_r-0_main-5 () Int
+    (- 1))
+  (define-fun B_main-6_s-1 () Int
+    (- 1))
+  (define-fun M_s-2 () Int
+    1)
+  (define-fun B_s-3_r-3 () Int
+    (- 1))
+  (define-fun B_r-0_main-3 () Int
+    (- 1))
+  (define-fun B_r-2_r-1 () Int
+    1)
+  (define-fun RF_s-1_main-2 () Int
+    1)
+  (define-fun B_main-7_s-3 () Int
+    2)
+  (define-fun B_main-7_s-2 () Int
+    2)
+  (define-fun B_main-7_s-1 () Int
+    2)
+  (define-fun B_main-7_s-0 () Int
+    2)
+  (define-fun B_s-3_main-4 () Int
+    2)
+  (define-fun B_s-2_main-4 () Int
+    2)
+  (define-fun B_s-1_main-4 () Int
+    2)
+  (define-fun B_s-3_main-3 () Int
+    2)
+  (define-fun B_s-2_main-3 () Int
+    2)
+  (define-fun B_s-1_main-3 () Int
+    2)
+  (define-fun B_s-3_main-2 () Int
+    2)
+  (define-fun B_s-2_main-2 () Int
+    2)
+  (define-fun B_s-1_main-2 () Int
+    2)
+  (define-fun B_s-3_main-1 () Int
+    2)
+  (define-fun B_s-2_main-1 () Int
+    2)
+  (define-fun B_s-1_main-1 () Int
+    2)
+  (define-fun B_s-3_main-0 () Int
+    2)
+  (define-fun B_s-2_main-0 () Int
+    2)
+  (define-fun B_s-1_main-0 () Int
+    2)
+  (define-fun B_main-7_r-3 () Int
+    2)
+  (define-fun B_main-7_r-2 () Int
+    2)
+  (define-fun B_main-7_r-1 () Int
+    2)
+  (define-fun B_main-7_r-0 () Int
+    2)
+  (define-fun B_main-6_r-3 () Int
+    2)
+  (define-fun B_main-6_r-2 () Int
+    2)
+  (define-fun B_main-6_r-1 () Int
+    2)
+  (define-fun B_main-6_r-0 () Int
+    2)
+  (define-fun B_r-3_main-3 () Int
+    2)
+  (define-fun B_r-2_main-3 () Int
+    2)
+  (define-fun B_r-1_main-3 () Int
+    2)
+  (define-fun B_r-3_main-2 () Int
+    2)
+  (define-fun B_r-2_main-2 () Int
+    2)
+  (define-fun B_r-1_main-2 () Int
+    2)
+  (define-fun B_r-3_main-1 () Int
+    2)
+  (define-fun B_r-2_main-1 () Int
+    2)
+  (define-fun B_r-1_main-1 () Int
+    2)
+  (define-fun B_r-3_main-0 () Int
+    2)
+  (define-fun B_r-2_main-0 () Int
+    2)
+  (define-fun B_r-1_main-0 () Int
+    2)
+  (define-fun B_s-2_main-7 () Int
+    1)
+  (define-fun B_s-3_main-7 () Int
+    1)
+  (define-fun B_s-1_main-7 () Int
+    1)
+  (define-fun B_s-0_main-7 () Int
+    1)
+  (define-fun B_r-3_main-6 () Int
+    1)
+  (define-fun B_r-3_main-7 () Int
+    1)
+  (define-fun B_r-0_main-6 () Int
+    1)
+  (define-fun B_r-0_main-7 () Int
+    1)
+  (define-fun B_r-1_main-6 () Int
+    1)
+  (define-fun B_r-1_main-7 () Int
+    1)
+  (define-fun B_r-2_main-6 () Int
+    1)
+  (define-fun B_r-2_main-7 () Int
+    1)
+  (define-fun B_main-3_r-3 () Int
+    1)
+  (define-fun B_main-3_r-1 () Int
+    1)
+  (define-fun B_main-3_r-2 () Int
+    1)
+  (define-fun B_main-2_r-3 () Int
+    1)
+  (define-fun B_main-2_r-1 () Int
+    1)
+  (define-fun B_main-2_r-2 () Int
+    1)
+  (define-fun B_main-1_r-3 () Int
+    1)
+  (define-fun B_main-1_r-1 () Int
+    1)
+  (define-fun B_main-1_r-2 () Int
+    1)
+  (define-fun B_main-0_r-3 () Int
+    1)
+  (define-fun B_main-0_r-1 () Int
+    1)
+  (define-fun B_main-0_r-2 () Int
+    1)
+  (define-fun B_main-3_s-2 () Int
+    1)
+  (define-fun B_main-3_s-3 () Int
+    1)
+  (define-fun B_main-3_s-1 () Int
+    1)
+  (define-fun B_main-2_s-2 () Int
+    1)
+  (define-fun B_main-2_s-3 () Int
+    1)
+  (define-fun B_main-2_s-1 () Int
+    1)
+  (define-fun B_main-1_s-2 () Int
+    1)
+  (define-fun B_main-1_s-3 () Int
+    1)
+  (define-fun B_main-1_s-1 () Int
+    1)
+  (define-fun B_main-0_s-2 () Int
+    1)
+  (define-fun B_main-0_s-3 () Int
+    1)
+  (define-fun B_main-0_s-1 () Int
+    1)
+  (define-fun B_main-4_s-2 () Int
+    1)
+  (define-fun B_main-4_s-3 () Int
+    1)
+  (define-fun B_main-4_s-1 () Int
+    1)
+  (define-fun B_main-6_main-7 () Int
+    1)
+  (define-fun B_main-5_main-7 () Int
+    1)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun B_main-4_main-7 () Int
+    1)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_main-3_main-7 () Int
+    1)
+  (define-fun B_main-3_main-6 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun B_main-2_main-7 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_main-1_main-7 () Int
+    1)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_main-0_main-7 () Int
+    1)
+  (define-fun B_main-0_main-6 () Int
+    1)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun B_s-2_s-3 () Int
+    1)
+  (define-fun B_s-1_s-3 () Int
+    1)
+  (define-fun B_s-1_s-2 () Int
+    1)
+  (define-fun B_s-0_s-3 () Int
+    1)
+  (define-fun B_s-0_s-2 () Int
+    1)
+  (define-fun B_s-0_s-1 () Int
+    1)
+  (define-fun B_r-2_r-3 () Int
+    1)
+  (define-fun B_r-1_r-3 () Int
+    1)
+  (define-fun B_r-1_r-2 () Int
+    1)
+  (define-fun B_r-0_r-3 () Int
+    1)
+  (define-fun B_r-0_r-2 () Int
+    1)
+  (define-fun B_r-0_r-1 () Int
+    1)
+)
+(error "line 877 column 15: unsat core is not available")
+end

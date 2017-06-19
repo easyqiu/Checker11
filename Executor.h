@@ -14,6 +14,7 @@ namespace  checker {
     class Solver;
     class Schedule;
     class Action;
+    class RWAction;
     class ModelChecker;
     //checker::memory_order;
     //enum action_type;
@@ -80,7 +81,7 @@ namespace  checker {
         void addSolutionValue(std::pair<std::string, std::string> p) { solutionValues.insert(p); }
         void printSolutionValue();
         std::map<std::string,std::string> getSolutionValues() { return solutionValues; }
-        void generateSolutionFile();
+        void generateSolutionFile(std::map<RWAction*, uint64_t> enforcePairs);
         void add_unsat_core(int i) { unsatCore.push_back(i); }
         std::vector<int> get_unsat_core() { return unsatCore; }
         void resetSolver();
@@ -106,6 +107,9 @@ namespace  checker {
 
         std::map<Action*, Action*> getCreatePoints() { return threadCreatePoints; }
 
+        std::vector<Schedule*> getSchedules() { return schedules; }
+
+        void updateBuffer(void* loc, uint64_t val);
 
     protected:
         std::map<std::string, Thread*> threadMap;
@@ -116,6 +120,7 @@ namespace  checker {
         std::map<Action*, Action*> threadJoinPoints;
         std::map<std::string, std::string> threadJoinMap;
         pthread_mutex_t lock;
+        pthread_cond_t cond;
 
         Solver* solver;
 
@@ -140,6 +145,7 @@ namespace  checker {
         std::map<std::string,std::string> solutionValues;
         std::vector<int> unsatCore;
         bool bugFixMode;
+        bool firstThread;
         std::vector<Schedule*> schedules;
     };
 }
