@@ -13,6 +13,7 @@
 //===----------------------------------------------------------------------===//
 
 #include <iostream>
+#include <set>
 
 #include "llvm/ADT/Statistic.h"
 #include "llvm/IR/Function.h"
@@ -172,6 +173,24 @@ namespace {
 
       paramTypes.clear();
       paramTypes.push_back(pType);
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *tryLockF = Function::Create(FT, Function::ExternalLinkage, "preTryLock", &M);
+      myFunctions["preTryLock"] = tryLockF;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *lockF = Function::Create(FT, Function::ExternalLinkage, "preLock", &M);
+      myFunctions["preLock"] = lockF;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *unLockF = Function::Create(FT, Function::ExternalLinkage, "preUnlock", &M);
+      myFunctions["preUnlock"] = unLockF;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
@@ -222,17 +241,63 @@ namespace {
       //errs() << "Func: " << func->getName().str() << "\n";
     }
 
+    void instrLockCalls(CallInst* inst) {
+      Function* calledFunc = inst->getCalledFunction();
+
+        std::string name = calledFunc->getName().str();
+        if (name.find("checker_shared") != std::string::npos) {
+            sharedValues.insert(inst->getOperand(0)->stripPointerCasts());
+            std::cout << "shared value: " << dyn_cast<BitCastInst>(inst->getOperand(0)) << "\n";
+            inst->getOperand(0)->stripPointerCasts()->dump();
+        }
+
+        if (name.find("mutex") == std::string::npos)
+            return ;
+
+        std::vector<Value*> params;
+        Value* param = inst->getOperand(0);
+        if (param->getType() != Type::getInt8PtrTy(inst->getContext())) {
+            BitCastInst* castInst = new BitCastInst(param, Type::getInt8PtrTy(inst->getContext()), "myCast", inst);
+            param = castInst;
+        }
+        params.push_back(param);
+
+        Function* func;
+        if (name.find("try_lock") != std::string::npos) {
+            func = myFunctions["preTryLock"];
+        } else if (name.find("unlock") != std::string::npos) {
+            func = myFunctions["preUnlock"];
+            std::cout << "in unlock!\n";
+        } else if (name.find("lock") != std::string::npos) {
+            func = myFunctions["preLock"];
+        } else {
+            return ;
+        }
+
+        std::cout << "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww: " << func;
+        inst->dump();
+        CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", inst);    
+        callI->dump();
+    }
+
     void instrCall(Instruction* inst) {
+      //inst->dump();
       CallInst* cInst;
       if ((cInst = dyn_cast<CallInst>(inst)) == NULL)
           return ;
       
       Function* func = cInst->getCalledFunction();
-      errs() << "Func: " << func->getName().str() << "\n";
+      if (func == NULL) {
+         errs() << "Not handle indirect calls!\n";
+         return ;
+      }
       if (func->isIntrinsic()) {
         errs() << "Is Intrinsic!\n";
         return ;
       }
+
+      //errs() << "Func: " << func->getName().str() << "\n";
+      instrLockCalls(cInst);
     }
     void instrNonAtomicLoad(LoadInst* loadI) {
       errs() << "Identify a non-atomic load!\n";
@@ -274,10 +339,19 @@ namespace {
 
     }
 
-    void instrAtomicLoad(LoadInst* loadI) {
-      std::string order = toIRString(loadI->getOrdering());
-      errs() << "Identify an atomic load!: " << order << "\n";
-      Value* o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), orderToInt[order]);
+    void instrAtomicLoad(LoadInst* loadI, bool flag) {
+      Value* o;
+      
+      if (flag) {
+          std::string order = toIRString(loadI->getOrdering());
+          errs() << "Identify an atomic load!: " << order << "\n";
+          o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), orderToInt[order]);
+      } else {
+          errs() << "Identify an non-atomic load!\n";
+          o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), 2);
+          if (sharedValues.find(loadI->getOperand(0)) == sharedValues.end())
+              return ;
+      }
       
       Function* func, *postFunc;// = myFunctions["postAtomicLoad"];
       Type* ty;// = Type::getInt64Ty(loadI->getContext());
@@ -355,9 +429,10 @@ namespace {
       //inst->dump();
       LoadInst* loadI = dyn_cast<LoadInst>(inst);
       if (loadI->isAtomic() == false)
-          ;//instrNonAtomicLoad(loadI);
+          //instrNonAtomicLoad(loadI);
+          instrAtomicLoad(loadI, false);
       else 
-          instrAtomicLoad(loadI);
+          instrAtomicLoad(loadI, true);
     }
 
     void instrNonAtomicStore(StoreInst* storeI) {
@@ -530,7 +605,7 @@ namespace {
     void instrInst(Instruction* inst) {
       switch (inst->getOpcode()) {
         case Instruction::Call:
-            //instrCall(inst);
+            instrCall(inst);
             break ;
         case Instruction::Invoke:
             instrInvoke(inst);
@@ -670,6 +745,9 @@ namespace {
       return true;
     }
   
+  private:
+    std::set<Value*> sharedValues;
+
   public:
     static char ID; 
     codeInstr() : ModulePass(ID) {}

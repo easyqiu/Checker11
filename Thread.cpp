@@ -52,7 +52,7 @@ void Thread::printTrace() {
 std::string Thread::getName() {return name;}
 
 void Thread::updateBuffer(void* loc, uint64_t val) {
-    std::cout << "update buffer: " << loc << "\n";
+    std::cout << "update buffer: " << loc << " " << val << "\n";
     if (buffers.find(loc) == buffers.end()) {
         Buffer* buffer = new Buffer(loc);
         buffers[loc] = buffer;
@@ -81,11 +81,11 @@ void Thread::fetchExpectVal(void* loc, uint64_t val) {
 }
 
 uint64_t Thread::getValue(void* loc) {
-    std::cout << "get buffer: " << loc << "\n";
     if (buffers.find(loc) == buffers.end()) {
         assert(false && "Find an un-initialization error!");
     }
 
+    std::cout << "get buffer: " << loc << " " << buffers[loc]->getValue() << "\n";
     return buffers[loc]->getValue();
 }
 

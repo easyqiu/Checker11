@@ -25,6 +25,10 @@ extern "C" void preAtomicStore_double(void* addr, uint64_t val, int order);
 extern "C" void postAtomicLoad_char(void* addr, char val, int order);
 extern "C" void postAtomicLoad_int(void* addr, int val, int order);
 extern "C" void postAtomicLoad_double(void* addr, uint64_t val, int order);
+extern "C" void preLock(void* addr);
+extern "C" void preTryLock(void* addr);
+extern "C" void preUnlock(void* addr);
+
 extern "C" void preCmpXchg_int(void* addr, int expect,
         int newVal, int successOrdering, int failureOrdering);
 extern "C" void preCmpXchg_char(void* addr, char expect, 
@@ -33,6 +37,7 @@ extern "C" void preCmpXchg_long(void* addr, long expect,
         long newVal, int successOrdering, int failureOrdering);
 extern "C" void preCmpXchg_double(void* addr, double expect, 
         double newVal, int successOrdering, int failureOrdering);
+
 extern "C" void preRMW_Xchg(void* addr, int val, int order);
 extern "C" void preRMW_Add(void* addr, int val, int order);
 extern "C" void preRMW_Sub(void* addr, int val, int order);
@@ -44,6 +49,7 @@ extern "C" void preRMW_Max(void* addr, int val, int order);
 extern "C" void preRMW_Min(void* addr, int val, int order);
 extern "C" void preRMW_UMax(void* addr, int val, int order);
 extern "C" void preRMW_UMin(void* addr, int val, int order);
+
 extern "C" void preFence(int order);
 extern "C" void checker_generateExecutor();
 extern "C" void checker_thread_create(std::thread::id id1);

@@ -14,6 +14,7 @@ namespace checker {
     public:
         Buffer(void* loc) {
             addr = loc;
+            verify = false;
         }
 
         // read the expected value required by the given schedule
@@ -22,19 +23,16 @@ namespace checker {
         // for the reads which are not restricted by the schedule
         uint64_t getValue();
 
-        void updateBuffer(uint64_t val) {
-            values.push_back(val);
-        }
+        void updateBuffer(uint64_t val);
 
-        void updateBuffer(std::vector<uint64_t> vals) {
-            assert(values.size() == 0);
-            values.insert(values.begin(), vals.begin(), vals.end());
-        }
+        void updateBuffer(std::vector<uint64_t> vals);
 
         std::vector<uint64_t> getAllValues() { return  values; }
 
     private:
         void* addr;
+        uint64_t verifyVal;
+        bool verify;
         std::vector<uint64_t> values; // the buffered values
 
     };

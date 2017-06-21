@@ -11,6 +11,7 @@
 #include <vector>
 #include <stack>
 #include <dirent.h>
+#include <cassert>
 
 #include "ConstraintModelGenerator.h"
 #include "Executor.h"
@@ -129,7 +130,19 @@ void Solver::collectData() {
                 case ATOMIC_RMWC:
                 case ATOMIC_INIT:
                 case ATOMIC_LOCK:
-                case ATOMIC_UNLOCK:
+                    break;
+                case ATOMIC_UNLOCK: {
+                    std::string loc = action->get_location_str();
+                    LockAction *cur = dynamic_cast<LockAction *>(action);
+                    Thread *thread = action->get_thread();
+                    std::vector<Action *> list = thread->getActionList();
+                    Action *lock = list[cur->get_pairedNum()];
+                    assert(dynamic_cast<LockAction *>(lock));
+                    lockset[loc].push_back(std::make_pair(
+                            dynamic_cast<LockAction *>(lock), dynamic_cast<LockAction *>(action)));
+                    std::cout << "lock pair: " << lock->get_uniq_name() << " " << action->get_uniq_name() << "\n";
+                    break;
+                }
                 case ATOMIC_TRYLOCK:
                 case ATOMIC_WAIT:
                 case ATOMIC_NOTIFY_ONE:
@@ -170,6 +183,7 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
 
     cmg->addBasicConstraints();
     cmg->addMOConstraints();
+    cmg->addLockConstraints();
 
     map<RWAction *, uint64_t> enforcePairs;
     if (read != NULL) {
@@ -187,8 +201,32 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
                 enforcePairs[r] = r->get_value();
             else
                 enforcePairs[r] = val;
-            std::cout << "enforce: " << r << " " << enforcePairs[r] << " " << "\n";
+            std::cout << "enforce: " << r << " " << r->get_uniq_name() << " " << enforcePairs[r] << " " << "\n";
         }
+
+        std::map<std::string, Thread*> tMap = exe->getThreadMap();
+        std::map <std::pair<std::string, int>, uint64_t> readMap = exe->getCurSch()->getReadValueMap();
+        std::cout << "curSch: " << exe->getCurSch() << " " << readMap.size() << "\n";
+        for (std::map<std::pair<std::string, int>, uint64_t>::iterator it = readMap.begin();
+                it != readMap.end(); ++it) {
+            Thread* thread = NULL;
+            for (std::map<std::string, Thread*>::iterator tIt = tMap.begin();
+                    tIt != tMap.end(); ++tIt) {
+                if (tIt->second->getName() == it->first.first) {
+                    thread = tIt->second;
+                    break ;
+                }
+            }
+
+            assert(thread != NULL && "No expected thread is identified!\n");
+
+            Action* action = exe->getAction(thread->get_id(), it->first.second);
+            RWAction* r = dynamic_cast<RWAction*>(action);
+            assert(r != NULL);
+            enforcePairs[r] = it->second;
+            std::cout << "enforce11: " << r << " " << r->get_uniq_name() << " " << enforcePairs[r] << " " << "\n";
+        }
+
     } else { // check the consistency of the original execution
         map<string, Thread*> tMap = exe->getThreadMap();
         for (map<string, Thread*>::iterator it = tMap.begin();
@@ -209,7 +247,12 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
         }
     }
 
-    cmg->addRWRelations(enforcePairs);
+    bool flag = cmg->addRWRelations(enforcePairs);
+    if (!flag) {// identify inconsistency
+        delete cmg;
+        return;
+    }
+
     cmg->enforceConsistentConstraint();
 
     z3solver->solve();
@@ -261,7 +304,7 @@ bool Solver::isConsistent() {
     std::cout << "Checking consistency of the current execution!\n";
     if (exe->getSolutionValues().size() == 0) {
         std::cout << "Fail!\n";
-        exe->getChecker()->addSch(exe->getCurSch());
+        //exe->getChecker()->addSch(exe->getCurSch());
         return false;
     }
 

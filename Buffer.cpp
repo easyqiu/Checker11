@@ -2,6 +2,7 @@
 // Created by aser on 6/18/17.
 //
 
+#include <iostream>
 #include "Buffer.h"
 
 using namespace checker;
@@ -13,11 +14,16 @@ void Buffer::fetchExpectVal(uint64_t val) {
             break;
     }
 
-    if (it != values.end())
+    if (it != values.end()) {
         values.erase(values.begin(), it);
-    else {
+        std::cout << "catch the expected val!\n";
+    } else {
         // it expects an future value
+        values.clear();
         values.push_back(val);
+        std::cout << "Fetch the future value: " << val << "\n";
+        verifyVal = val;
+        verify = true;
     }
 
 }
@@ -25,4 +31,18 @@ void Buffer::fetchExpectVal(uint64_t val) {
 uint64_t Buffer::getValue() {
     assert(values.size() != 0);
     return values[0];
+}
+
+void Buffer::updateBuffer(uint64_t val) {
+    if (verify) {
+        assert(val == verifyVal);
+        verify = false;
+    }
+
+    values.push_back(val);
+}
+
+void Buffer::updateBuffer(std::vector<uint64_t> vals) {
+    assert(values.size() == 0);
+    values.insert(values.begin(), vals.begin(), vals.end());
 }

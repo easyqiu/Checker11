@@ -1,53 +1,53 @@
-Generate a model checker: 0x7ff338c04c40
+Generate a model checker: 0x7fc258600000
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 7623
+[Solver] create Z3 pid 11292
 
 In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
+In atomic preStore: 0x1026cd160 0 7!
+update buffer: 0x1026cd160 0
+In atomic preStore: 0x1026cd164 1 7!
+update buffer: 0x1026cd164 1
 Main thread: creating 2 threads
 
-In checker_thread_create: 0x7fff7571e300 0x10165b000
+In checker_thread_create: 0x7fff7571e300 0x102abd000
 
-In checker_thread_begin: 0x1016de000
+In checker_thread_begin: 0x102abd000
 
-In checker_thread_begin: 0x10165b000
+In checker_thread_begin: 0x102b40000
 
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
+In checker_thread_create: 0x7fff7571e300 0x102b40000
+In atomic preLoad: 0x1026cd160 2!
+get buffer: 0x1026cd160 0
 
 expect value: r 1 0
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
+In atomic preLoad: 0x1026cd160 2!
+get buffer: 0x1026cd160 0
 
 expect value: r 2 0
-In atomic preStore: 0x101277164 2 2!
-update buffer: 0x101277164
-update buffer: 0x101277164
+In atomic preStore: 0x1026cd164 2 2!
+update buffer: 0x1026cd164 2
+update buffer: 0x1026cd164 2
 r1=0
 r2=0
 In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-get buffer: 0x101277164
+Waitting for create thread 0x102b40000
+In atomic preLoad: 0x1026cd164 2!
+get buffer: 0x1026cd164 1
 
 expect value: s 1 1
-In atomic preStore: 0x101277160 1 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
+In atomic preStore: 0x1026cd160 1 2!
+update buffer: 0x1026cd160 1
+update buffer: 0x1026cd160 1
+update buffer: 0x1026cd160 1
 r3=1
 In checker_thread_end
 Main thread is finished
 In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e00000
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e00000
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc258600030
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc258600030
 
 read: s-1 1
 
@@ -55,19 +55,9 @@ write: r-3 2
 
 write: main-2 1
 
-Fences: 0x0 0x0 0x7ff338f00330
+Fences: 0x0 0x0 0x7fc258700280
 orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
-xxx: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1)))))ttt: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1)))))
-
-read: r-1 0
-
-write: s-2 1
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338f00290
-orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
-xxx: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
+ttt: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1)))))
 
 read: r-2 0
 
@@ -75,103 +65,160 @@ write: s-2 1
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338f00290
+Fences: 0x0 0x0 0x7fc2587001e0
 orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
+ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
+
+read: r-1 0
+
+write: s-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587001e0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
 Checking consistency of the current execution!
 Pass!
-Generating: 0x7ff338f00650 0x7ff338e00940 ARead 0x101277160 0 0
- AWrite 0x101277160 0 1
+Generating: 0x7fc258700960 0x7fc258400340 ARead 0x1026cd160 0 0
+ AWrite 0x1026cd160 0 1
 
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e00000
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e00000
-enforce: 0x7ff338f00650 1 
-
-read: r-1 0
-
-write: s-2 1
-
-Fences: 0x0 0x0 0x7ff338e00940
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d00b40
-action: s 2 AWrite 0x101277160 0 1
-
-RF: r 1 1
-Generating: 0x7ff338f00730 0x7ff338e00940 ARead 0x101277160 0 0
- AWrite 0x101277160 0 1
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7ff338e00000
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7ff338e00000
-enforce: 0x7ff338f00650 0 
-enforce: 0x7ff338f00730 1 
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fc258600030
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fc258600030
+enforce: 0x7fc258700960 r-1 1 
+curSch: 0x7fc258600600 0
 
 read: r-1 0
 
 write: s-2 1
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338f00290
-orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
-xxx: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
-
-read: r-2 0
-
-write: s-2 1
-
-Fences: 0x0 0x0 0x7ff338e00940
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e00f90
-action: main 1 AWrite 0x101277160 4 0
-
-RF: r 1 0
-action: s 2 AWrite 0x101277160 0 1
-
-RF: r 2 1
-Generating: 0x7ff338e00a60 0x7ff338f007d0 ARead 0x101277164 0 1
- AWrite 0x101277164 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7ff338e00000
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7ff338e00000
-enforce: 0x7ff338e00a60 2 
 
 read: s-1 1
 
 write: r-3 2
 
-Fences: 0x0 0x0 0x7ff338f007d0
-orStr:  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
-
 write: main-2 1
-xxx: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))ttt: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
+
+Fences: 0x0 0x0 0x7fc258700280
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+
+Fences: 0x0 0x0 0x7fc258400340
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
-Generate new schedule: 0x7ff338c07c20
-action: r 3 AWrite 0x101277164 0 2
+Generate new schedule: 0x7fc2587064e0
+action: s 2 AWrite 0x1026cd160 0 1
+
+RF: r 1 1
+Generating: 0x7fc258700840 0x7fc258400340 ARead 0x1026cd160 0 0
+ AWrite 0x1026cd160 0 1
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fc258600030
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fc258600030
+enforce: 0x7fc258700840 r-2 1 
+enforce: 0x7fc258700960 r-1 0 
+curSch: 0x7fc258600600 0
+
+read: r-2 0
+
+write: s-2 1
+
+read: s-1 1
+
+write: r-3 2
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258700280
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+
+Fences: 0x0 0x0 0x7fc258400340
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
+
+read: r-1 0
+
+write: s-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587001e0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7fc258703800
+action: main 1 AWrite 0x1026cd160 4 0
+
+RF: r 1 0
+action: s 2 AWrite 0x1026cd160 0 1
+
+RF: r 2 1
+Generating: 0x7fc258400460 0x7fc258700a00 ARead 0x1026cd164 0 1
+ AWrite 0x1026cd164 0 2
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fc258600030
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fc258600030
+enforce: 0x7fc258400460 s-1 2 
+curSch: 0x7fc258600600 0
+
+read: s-1 1
+
+write: r-3 2
+
+read: r-2 0
+
+write: s-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587001e0
+orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
+
+read: r-1 0
+
+write: s-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587001e0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+
+Fences: 0x0 0x0 0x7fc258700a00
+orStr:  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
+
+write: main-2 1
+ttt: (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7fc258404010
+action: r 3 AWrite 0x1026cd164 0 2
 
 RF: s 1 2
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 7624
-Schedule: 0x7ff338d00b40
+[Solver] create Z3 pid 11293
+Schedule: 0x7fc2587064e0 1
 For: main 6
     main 0
     main 1
@@ -238,49 +285,53 @@ For: s 3
 Read Map: r 1 1
 
 In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
+In atomic preStore: 0x1026cd160 0 7!
+update buffer: 0x1026cd160 0
+In atomic preStore: 0x1026cd164 1 7!
+update buffer: 0x1026cd164 1
 Main thread: creating 2 threads
 
-In checker_thread_begin: 0x10165b000
+In checker_thread_begin: 0x102abd000
 
-In checker_thread_create: 0x7fff7571e300 0x10165b000
+In checker_thread_begin: 0x102b40000
 
-In checker_thread_begin: 0x1016de000
+In checker_thread_create: 0x7fff7571e300 0x102abd000
 
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277164 2!
-get buffer: 0x101277164
-
-expect value: s 1 1
-In atomic preStore: 0x101277160 1 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-In atomic preLoad: 0x101277160 2!
-r3=1
-In checker_thread_end
+In checker_thread_create: 0x7fff7571e300 0x102b40000
+Waitting for create thread 0x102abd000
+In atomic preLoad: 0x1026cd160 2!
+Fetch the future value: 1
 
 expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
+In atomic preLoad: 0x1026cd160 2!
+get buffer: 0x1026cd160 1
 
 expect value: r 2 1
-In atomic preStore: 0x101277164 2 2!
-update buffer: 0x101277164
-update buffer: 0x101277164
-update buffer: 0x101277164
+In atomic preStore: 0x1026cd164 2 2!
+update buffer: 0x1026cd164 2
+update buffer: 0x1026cd164 2
 r1=1
 r2=1
 In checker_thread_end
+Waitting for create thread 0x102b40000
+In atomic preLoad: 0x1026cd164 2!
+get buffer: 0x1026cd164 1
+
+expect value: s 1 1
+In atomic preStore: 0x1026cd160 1 2!
+update buffer: 0x1026cd160 1
+update buffer: 0x1026cd160 1
+update buffer: 0x1026cd160 1
+r3=1
+In checker_thread_end
 Main thread is finished
 In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c04d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c04d40
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc2584049c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc2584049c0
+
+read: r-2 1
+
+write: s-2 1
 
 read: s-1 1
 
@@ -288,51 +339,59 @@ write: r-3 2
 
 write: main-2 1
 
-Fences: 0x0 0x0 0x7ff338e00e40
+Fences: 0x0 0x0 0x7fc258600770
 orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
-xxx: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1)))))ttt: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1)))))
+
+Fences: 0x0 0x0 0x7fc2585056c0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
 
 read: r-1 1
 
 write: s-2 1
 
-Fences: 0x0 0x0 0x7ff338d03c60
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
+read: s-1 1
+
+write: r-3 2
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258600770
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+
+Fences: 0x0 0x0 0x7fc2585056c0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
 
 write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
 
-read: r-2 1
+read: s-1 1
 
-write: s-2 1
+write: r-3 2
 
-Fences: 0x0 0x0 0x7ff338d03c60
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
+write: main-2 1
 
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
+Fences: 0x0 0x0 0x7fc258600770
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+ttt: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
 Checking consistency of the current execution!
 Pass!
-Generating: 0x7ff338d041a0 0x7ff338e00da0 ARead 0x101277160 0 1
- AWrite 0x101277160 4 0
+Generating: 0x7fc258505130 0x7fc258403e40 ARead 0x1026cd160 0 1
+ AWrite 0x1026cd160 4 0
 
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c04d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c04d40
-enforce: 0x7ff338d03ef0 1 
-enforce: 0x7ff338d041a0 0 
-
-read: r-1 1
-
-write: s-2 1
-
-Fences: 0x0 0x0 0x7ff338d03c60
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fc2584049c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fc2584049c0
+enforce: 0x7fc258505130 r-2 0 
+enforce: 0x7fc258505250 r-1 1 
+curSch: 0x7fc2587064e0 1
+enforce11: 0x7fc258505250 r-1 1 
 
 read: r-2 1
 
@@ -340,40 +399,115 @@ write: s-2 1
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338e00da0
+Fences: 0x0 0x0 0x7fc258403e40
 orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 66445: model is not available")
-Generating: 0x7ff338d03d30 0x7ff338d04240 ARead 0x101277164 0 1
- AWrite 0x101277164 0 2
+ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
 
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7ff338c04d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7ff338c04d40
-enforce: 0x7ff338d03d30 2 
+read: r-1 1
+
+write: s-2 1
 
 read: s-1 1
 
 write: r-3 2
 
-Fences: 0x0 0x0 0x7ff338d04240
-orStr:  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258600770
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+
+Fences: 0x0 0x0 0x7fc2585056c0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 66772: model is not available")
+Generating: 0x7fc258505620 0x7fc2585052f0 ARead 0x1026cd164 0 1
+ AWrite 0x1026cd164 0 2
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fc2584049c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fc2584049c0
+enforce: 0x7fc258505620 s-1 2 
+curSch: 0x7fc2587064e0 1
+enforce11: 0x7fc258505250 r-1 1 
+
+read: r-1 1
+
+write: s-2 1
+
+read: s-1 1
+
+write: r-3 2
 
 write: main-2 1
-xxx: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))ttt: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
 
-Generate new schedule: 0x7ff338c06bb0
-action: r 3 AWrite 0x101277164 0 2
+Fences: 0x0 0x0 0x7fc258600770
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
 
-RF: s 1 2
+Fences: 0x0 0x0 0x7fc2585056c0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
+
+read: s-1 1
+
+write: r-3 2
+
+read: r-2 1
+
+write: s-2 1
+
+read: s-1 1
+
+write: r-3 2
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258600770
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+
+Fences: 0x0 0x0 0x7fc2585056c0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
+
+write: main-1 0
+
+read: r-1 1
+
+write: s-2 1
+
+read: s-1 1
+
+write: r-3 2
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258600770
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))
+
+Fences: 0x0 0x0 0x7fc2585056c0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2585052f0
+orStr:  (and  (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))) (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
+
+write: main-2 1
+ttt: (or  (and  (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))) (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)) (= false (and (= B_main-2_r-3 1) (= B_r-3_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 100495: model is not available")
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 7625
-Schedule: 0x7ff338e00f90
+[Solver] create Z3 pid 11294
+Schedule: 0x7fc258703800 2
 For: main 6
     main 0
     main 1
@@ -441,71 +575,83 @@ Read Map: r 1 0
 Read Map: r 2 1
 
 In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
+In atomic preStore: 0x1026cd160 0 7!
+update buffer: 0x1026cd160 0
+In atomic preStore: 0x1026cd164 1 7!
+update buffer: 0x1026cd164 1
 Main thread: creating 2 threads
 
-In checker_thread_create: 0x7fff7571e300 0x10165b000
+In checker_thread_begin: 0x102abd000
 
-In checker_thread_begin: 0x10165b000
+In checker_thread_begin: 0x102b40000
 
-In checker_thread_create: 0x7fff7571e300 0x1016de000
+In checker_thread_create: 0x7fff7571e300 0x102abd000
 
-In checker_thread_begin: 0x1016de000
-In atomic preLoad: 0x101277160 2!
+In checker_thread_create: 0x7fff7571e300 0x102b40000
+Waitting for create thread Waitting for create thread 0x102abd0000x102b40000
+
+In atomic preLoad: 0x1026cd160 2!
+catch the expected val!
 
 expect value: r 1 0
-In atomic preLoad: 0x101277160 2!
+In atomic preLoad: 0x1026cd160 2!
+Fetch the future value: 1
 
 expect value: r 2 1
 r1=0
 r2=1
 In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-get buffer: 0x101277164
+In atomic preLoad: 0x1026cd164 2!
+get buffer: 0x1026cd164 1
 
 expect value: s 1 1
-In atomic preStore: 0x101277160 1 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
+In atomic preStore: 0x1026cd160 1 2!
+update buffer: 0x1026cd160 1
+update buffer: 0x1026cd160 1
+update buffer: 0x1026cd160 1
 r3=1
 In checker_thread_end
 Main thread is finished
 In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c04d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c04d40
-
-read: r-2 1
-
-write: s-2 1
-
-Fences: 0x0 0x0 0x7ff338c075e0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 0
-
-write: s-2 1
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c06f60
-orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
-xxx: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc258509810
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc258509810
 
 read: s-1 1
 
 write: main-2 1
 
-Fences: 0x0 0x0 0x7ff338c07000
+Fences: 0x0 0x0 0x7fc2586000d0
 orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)))
-xxx: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1))))ttt: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1))))
+ttt: (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1))))
+
+read: r-2 1
+
+write: s-2 1
+
+read: s-1 1
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc2586000d0
+orStr:  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)))
+
+Fences: 0x0 0x0 0x7fc258509ec0
+orStr:  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (= RF_s-1_main-2 1) (not (= B_s-1_main-2 1)))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
+
+read: r-1 0
+
+write: s-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc258600030
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
@@ -515,8 +661,8 @@ Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 7626
-Schedule: 0x7ff338c07c20
+[Solver] create Z3 pid 11295
+Schedule: 0x7fc258404010 1
 For: main 6
     main 0
     main 1
@@ -583,47 +729,60 @@ For: s 3
 Read Map: s 1 2
 
 In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
+In atomic preStore: 0x1026cd160 0 7!
+update buffer: 0x1026cd160 0
+In atomic preStore: 0x1026cd164 1 7!
+update buffer: 0x1026cd164 1
 Main thread: creating 2 threads
 
-In checker_thread_create: 0x7fff7571e300 0x10165b000
+In checker_thread_begin: 0x102abd000
 
-In checker_thread_begin: 0x10165b000
+In checker_thread_create: 0x7fff7571e300 0x102abd000
 
-In checker_thread_create: 0x7fff7571e300 0x1016de000
+In checker_thread_begin: 0x102b40000
 
-In checker_thread_begin: 0x1016de000
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
+In checker_thread_create: 0x7fff7571e300 0x102b40000
+Waitting for create thread 0x102abd000
+Waitting for create thread 0x102b40000
+In atomic preLoad: 0x1026cd160 2!
+get buffer: 0x1026cd160 0
 
 expect value: r 1 0
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
+In atomic preLoad: In atomic preLoad: 0x1026cd1600x1026cd164  22!
+!
+get buffer: 0x1026cd160 0
 
 expect value: r 2 0
-In atomic preStore: 0x101277164 2 2!
-update buffer: 0x101277164
-update buffer: 0x101277164
-update buffer: 0x101277164
-In atomic preLoad: 0x101277164 r1=0
-r2=0
-2In checker_thread_end
-!
+In atomic preStore: 0x1026cd164 2 2!
+update buffer: 0x1026cd164 2
+update buffer: 0x1026cd164 2
+update buffer: 0x1026cd164 2
+catch the expected val!
 
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
+expect value: s r1=0
+r2=0
+In checker_thread_end
+1 2
+In atomic preStore: 0x1026cd160 2 2!
+update buffer: 0x1026cd160 2
+update buffer: 0x1026cd160 2
+update buffer: 0x1026cd160 2
 r3=2
 In checker_thread_end
 Main thread is finished
 In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d0a380
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d0a380
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc258604630
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fc258604630
+
+read: r-2 0
+
+write: s-2 2
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
+ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
 
 read: r-1 0
 
@@ -631,64 +790,22 @@ write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338e028d0
+Fences: 0x0 0x0 0x7fc2587043f0
 orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
-xxx: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
+ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
 
 read: s-1 2
 
 write: r-3 2
 
-Fences: 0x0 0x0 0x7ff338e02f00
-orStr:  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
-
-write: main-2 1
-xxx: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))ttt: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
-
 read: r-2 0
 
 write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338e028d0
+Fences: 0x0 0x0 0x7fc2587043f0
 orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 1s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d0a8d0 0x7ff338d0abb0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d0a380
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d0a380
-enforce: 0x7ff338d0a8d0 2 
-
-read: r-1 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d0abb0
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d0f490
-action: s 2 AWrite 0x101277160 0 2
-
-RF: r 1 2
-Generating: 0x7ff338e02e60 0x7ff338d0abb0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7ff338d0a380
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7ff338d0a380
-enforce: 0x7ff338d0a8d0 0 
-enforce: 0x7ff338e02e60 2 
 
 read: r-1 0
 
@@ -696,1104 +813,70 @@ write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338e028d0
+Fences: 0x0 0x0 0x7fc2587043f0
 orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
-xxx: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
 
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d0abb0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338f02640
-action: main 1 AWrite 0x101277160 4 0
-
-RF: r 1 0
-action: s 2 AWrite 0x101277160 0 2
-
-RF: r 2 2
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7627
-Schedule: 0x7ff338c06bb0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-    r 4
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    r 4
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-
-In checker_thread_begin: 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2In atomic preLoad:  0x101277164 20!
-
-r1=1
-r2=0
-In checker_thread_end
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f00a70
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f00a70
-
-read: s-1 2
+Fences: 0x0 0x0 0x7fc258704b10
+orStr:  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
 
 write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338d0a480
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
+ttt: (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
 Checking consistency of the current execution!
 Pass!
-Generating: 0x7ff338e030a0 0x7ff338d0f130 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
+Generating: 0x7fc258704140 0x7fc258509810 ARead 0x1026cd160 0 0
+ AWrite 0x1026cd160 0 2
 
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f00a70
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f00a70
-enforce: 0x7ff338d0f040 1 
-enforce: 0x7ff338e030a0 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d0f130
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c0de70
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7628
-Schedule: 0x7ff338d0f490
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-    r 4
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    r 4
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 2
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x10165b0000x1016de000
-
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 2
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: 0x101277164 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=2
-r2=0
-In checker_thread_end
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c0bd10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c0bd10
-
-read: r-1 2
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e039a0
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e032c0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25886: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c0c310 0x7ff338e039a0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c0bd10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c0bd10
-enforce: 0x7ff338c0c270 2 
-enforce: 0x7ff338c0c310 2 
-
-read: r-1 2
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e039a0
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e039a0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d10fb0
-action: s 2 AWrite 0x101277160 0 2
-
-RF: r 1 2
-action: s 2 AWrite 0x101277160 0 2
-
-RF: r 2 2
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7629
-Schedule: 0x7ff338f02640
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-    r 4
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    r 4
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 0
-Read Map: r 2 2
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 0
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: 0x101277164 2!
-
-expect value: r 2 2
-r1=0
-r2=2
-In checker_thread_end
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fc258604630
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fc258604630
+enforce: 0x7fc258704140 r-1 2 
+curSch: 0x7fc258404010 1
+enforce11: 0x7fc258704a70 s-1 2 
 
 read: r-1 0
 
 write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338f05530
-orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
-xxx: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
-
-read: r-2 2
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e03e60
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25886: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7630
-Schedule: 0x7ff338c0de70
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-
-In checker_thread_begin: 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338d12200
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d12840 0x7ff338d12650 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d10680
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d10680
-enforce: 0x7ff338d12840 2 
-enforce: 0x7ff338d12910 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d12650
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d13580
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7631
-Schedule: 0x7ff338d10fb0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 2
-Read Map: r 2 2
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x1016de0000x10165b000
-
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 2
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 2 2
-In atomic preStore: 0x101277164 2 2!
-update buffer: 0x101277164
-update buffer: 0x101277164
-update buffer: 0x101277164
-r1=2
-r2=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-
-read: r-1 2
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338f060e0
-orStr:  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))ttt: (or  (and  (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
-
-read: r-2 2
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338f060e0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
 
 read: s-1 2
 
 write: r-3 2
 
-Fences: 0x0 0x0 0x7ff338e08d90
-orStr:  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
-
-write: main-2 1
-xxx: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))ttt: (or  (and  (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7632
-Schedule: 0x7ff338d13580
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x10165b000
-0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d10680
-
 read: r-2 0
 
 write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338d172d0
+Fences: 0x0 0x0 0x7fc2587043f0
 orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
 
-read: r-1 1
+read: r-1 0
 
 write: s-2 2
 
 write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
+
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+
+Fences: 0x0 0x0 0x7fc258704b10
+orStr:  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258509810
+orStr:  (and  (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))) (= RF_r-1_s-2 1) (not (= B_r-1_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-1 1)))))
 
 read: s-1 2
 
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d13bb0 0x7ff338d13f90 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d10680
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d10680
-enforce: 0x7ff338d13bb0 2 
-enforce: 0x7ff338d13c70 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d13f90
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e09e70
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7633
-Schedule: 0x7ff338e09e70
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e09150
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e09150
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
+write: r-3 2
 
 read: r-2 0
 
@@ -1801,169 +884,87 @@ write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338d18030
+Fences: 0x0 0x0 0x7fc2587043f0
 orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
+
+read: r-1 0
+
+write: s-2 2
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+
+Fences: 0x0 0x0 0x7fc258704b10
+orStr:  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
+
+write: main-2 1
+ttt: (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 67205: model is not available")
+Generating: 0x7fc258604e10 0x7fc258509810 ARead 0x1026cd160 0 0
+ AWrite 0x1026cd160 0 2
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fc258604630
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fc258604630
+enforce: 0x7fc258604e10 r-2 2 
+enforce: 0x7fc258704140 r-1 0 
+curSch: 0x7fc258404010 1
+enforce11: 0x7fc258704a70 s-1 2 
+
+read: r-2 0
+
+write: s-2 2
 
 read: s-1 2
 
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d18640 0x7ff338d18930 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e09150
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e09150
-enforce: 0x7ff338d185a0 1 
-enforce: 0x7ff338d18640 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
+write: r-3 2
 
 read: r-2 0
 
 write: s-2 2
 
-Fences: 0x0 0x0 0x7ff338d18930
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
 write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
 
-Generate new schedule: 0x7ff338c112c0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7634
-Schedule: 0x7ff338c112c0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
 
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f07280
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f07280
-
-read: r-1 1
+read: r-1 0
 
 write: s-2 2
 
 write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
+
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+
+Fences: 0x0 0x0 0x7fc258704b10
+orStr:  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
+
+write: main-2 1
+
+Fences: 0x0 0x0 0x7fc258509810
+orStr:  (and  (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
+
+write: main-1 0
+ttt: (or  (and  (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))) (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
+
+read: r-1 0
+
+write: s-2 2
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
+ttt: (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1)))))
 
 read: s-1 2
 
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
+write: r-3 2
 
 read: r-2 0
 
@@ -1971,3971 +972,24 @@ write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338f07630
+Fences: 0x0 0x0 0x7fc2587043f0
 orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
 
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c11e50 0x7ff338c116f0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f07280
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f07280
-enforce: 0x7ff338c11650 1 
-enforce: 0x7ff338c11e50 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c116f0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d19da0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7635
-Schedule: 0x7ff338d19da0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d19b90
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d19b90
-
-read: r-2 0
+read: r-1 0
 
 write: s-2 2
 
 write: main-1 0
 
-Fences: 0x0 0x0 0x7ff338d1a4e0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
+Fences: 0x0 0x0 0x7fc2587043f0
+orStr:  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))
 
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: s-1 2
+Fences: 0x0 0x0 0x7fc258704b10
+orStr:  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1))))
 
 write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338e0bd80 0x7ff338e0c080 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d19b90
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d19b90
-enforce: 0x7ff338e0bd80 2 
-enforce: 0x7ff338e0be50 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e0c080
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c13aa0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7636
-Schedule: 0x7ff338c13aa0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f08d20
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f08d20
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c14390
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c13d50 0x7ff338e0cb00 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f08d20
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f08d20
-enforce: 0x7ff338c13d50 2 
-enforce: 0x7ff338d1d340 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e0cb00
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e0e360
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7637
-Schedule: 0x7ff338e0e360
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-In atomic preLoad: update buffer: 0x101277160 0x101277160
-2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e0d760
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e0d760
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e0de90
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338e0df30 0x7ff338d20060 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e0d760
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e0d760
-enforce: 0x7ff338e0df30 2 
-enforce: 0x7ff338e0eef0 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d20060
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d21c30
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7638
-Schedule: 0x7ff338d21c30
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-get buffer: In checker_thread_end
-0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d20520
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d20520
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338d20b00
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d22350 0x7ff338d22640 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d20520
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d20520
-enforce: 0x7ff338d222b0 1 
-enforce: 0x7ff338d22350 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d22640
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c17f10
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7639
-Schedule: 0x7ff338c17f10
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In atomic preLoad: In checker_thread_end
-0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c17300
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c17300
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c178e0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338f0a870 0x7ff338f0a700 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c17300
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c17300
-enforce: 0x7ff338f0a870 2 
-enforce: 0x7ff338f0a990 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338f0a700
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338f0b970
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7640
-Schedule: 0x7ff338f0b970
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x1016de0000x10165b000
-
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-In atomic preLoad: 0x101277160 r3=2
-2In checker_thread_end
-!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c17300
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c17300
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c19480
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338f0bd00 0x7ff338c19bf0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c17300
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c17300
-enforce: 0x7ff338f0bd00 2 
-enforce: 0x7ff338f0bdc0 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c19bf0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d29240
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7641
-Schedule: 0x7ff338d29240
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2update buffer: !
-0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d27530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d27530
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e103b0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d23df0 0x7ff338f0c060 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d27530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d27530
-enforce: 0x7ff338d23df0 2 
-enforce: 0x7ff338d2a1d0 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338f0c060
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d27cf0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7642
-Schedule: 0x7ff338d27cf0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In atomic preLoad: In checker_thread_end
-0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d27530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d27530
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e10610
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338e10af0 0x7ff338c1d1c0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d27530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d27530
-enforce: 0x7ff338e10af0 2 
-enforce: 0x7ff338f0b0b0 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c1d1c0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d28fe0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7643
-Schedule: 0x7ff338d28fe0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d27530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d27530
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e10c10
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c21360 0x7ff338c21220 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d27530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d27530
-enforce: 0x7ff338c212c0 1 
-enforce: 0x7ff338c21360 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c21220
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338f10180
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7644
-Schedule: 0x7ff338f10180
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e117a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e117a0
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e11b30
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c21740 0x7ff338d2b530 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e117a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e117a0
-enforce: 0x7ff338c21650 1 
-enforce: 0x7ff338c21740 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d2b530
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e12180
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7645
-Schedule: 0x7ff338e12180
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c22fe0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c22fe0
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c234c0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338e11900 0x7ff338c22e80 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c22fe0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c22fe0
-enforce: 0x7ff338e11860 1 
-enforce: 0x7ff338e11900 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c22e80
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d30b10
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7646
-Schedule: 0x7ff338d30b10
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c22fe0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c22fe0
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c22a60
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c23d30 0x7ff338c24050 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c22fe0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c22fe0
-enforce: 0x7ff338c23c90 1 
-enforce: 0x7ff338c23d30 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c24050
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e13450
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7647
-Schedule: 0x7ff338e13450
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: 0x101277164get buffer:  0x1012771602
-!
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e129a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e129a0
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c22fe0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338e14120 0x7ff338d2f740 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e129a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e129a0
-enforce: 0x7ff338e13fe0 1 
-enforce: 0x7ff338e14120 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d2f740
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c28080
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7648
-Schedule: 0x7ff338c28080
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c28370
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c28370
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c27f80
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c29830 0x7ff338c29a90 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c28370
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c28370
-enforce: 0x7ff338c29790 1 
-enforce: 0x7ff338c29830 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c29a90
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e129f0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7649
-Schedule: 0x7ff338e129f0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 Waitting for create thread 0x1016de000
-2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e147a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e147a0
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e141c0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338f139a0 0x7ff338d32440 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e147a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e147a0
-enforce: 0x7ff338f139a0 2 
-enforce: 0x7ff338f13a60 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d32440
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c2f450
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7650
-Schedule: 0x7ff338c2f450
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: get buffer: 0x1012771640x101277160 
-2
-expect value: !
-r 2 0
-r1=1
-r2=0
-In checker_thread_end
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c2cd10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c2cd10
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c2d1f0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c2f880 0x7ff338c30080 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c2cd10
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c2cd10
-enforce: 0x7ff338c2f880 2 
-enforce: 0x7ff338c2ffe0 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c30080
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d33990
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7651
-Schedule: 0x7ff338d33990
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x1016de0000x10165b000
-
-In atomic preLoad: 0x101277164 2!
-In atomic preLoad: 0x101277160 2!
-
-expect value: s 1 
-expect value: r 2
-1 1
-In atomic preStore: In atomic preLoad: 0x1012771600x101277160  22 !
-2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-get buffer: In checker_thread_end
-0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e169b0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e169b0
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c2ff00
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c2fb10 0x7ff338e17230 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e169b0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e169b0
-enforce: 0x7ff338c2fb10 2 
-enforce: 0x7ff338e17390 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e17230
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 1s:
-
-Generate new schedule: 0x7ff338c30bc0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7652
-Schedule: 0x7ff338c30bc0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-
-In checker_thread_begin: 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-
-In checker_thread_begin: 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c30540
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c30540
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e16b10
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338f14bf0 0x7ff338f14f10 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c30540
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c30540
-enforce: 0x7ff338f14b50 1 
-enforce: 0x7ff338f14bf0 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338f14f10
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c2efe0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7653
-Schedule: 0x7ff338c2efe0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-
-In checker_thread_begin: 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d38df0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338d38df0
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338f15130
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c30a20 0x7ff338f15390 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d38df0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338d38df0
-enforce: 0x7ff338c2f3a0 1 
-enforce: 0x7ff338c30a20 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338f15390
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c2eaa0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7654
-Schedule: 0x7ff338c2eaa0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x10165b0000x1016de000
-
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-In atomic preLoad: 0x101277164 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c30540
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338c30540
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e17ba0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c30ac0 0x7ff338e181a0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c30540
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338c30540
-enforce: 0x7ff338c30ac0 2 
-enforce: 0x7ff338c32490 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e181a0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338d41d40
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7655
-Schedule: 0x7ff338d41d40
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-Waitting for create thread 0x1016de000
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f154b0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f154b0
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e183d0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d425f0 0x7ff338e18610 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f154b0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f154b0
-enforce: 0x7ff338d425f0 2 
-enforce: 0x7ff338f15bc0 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338e18610
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338f16b20
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7656
-Schedule: 0x7ff338f16b20
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f154b0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338f154b0
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338c32310
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c32b10 0x7ff338c32c50 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f154b0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338f154b0
-enforce: 0x7ff338c32a70 1 
-enforce: 0x7ff338c32b10 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c32c50
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338e1e1a0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7657
-Schedule: 0x7ff338e1e1a0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread 0x10165b000
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-Waitting for create thread 0x1016de000
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e1e490
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e1e490
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338d42830
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-[Solver] (error "line 1 column 25671: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338d42320 0x7ff338d3fd30 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e1e490
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e1e490
-enforce: 0x7ff338d42230 1 
-enforce: 0x7ff338d42320 2 
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338d3fd30
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-[Solver] (error "line 1 column 54480: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Generate new schedule: 0x7ff338c340d0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7658
-Schedule: 0x7ff338c340d0
-For: main 6
-    main 0
-    main 1
-    main 2
-    main 3
-    r 0
-    r 1
-    r 2
-    r 3
-For: main 7
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-    r 0
-    r 1
-    r 2
-    r 3
-    s 0
-    s 1
-    s 2
-    s 3
-For: r 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: r 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: s 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: s 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-Read Map: r 1 1
-Read Map: s 1 2
-
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x101277160 0 7!
-update buffer: 0x101277160
-In atomic preStore: 0x101277164 1 7!
-update buffer: 0x101277164
-Main thread: creating 2 threads
-
-In checker_thread_begin: 0x10165b000
-
-In checker_thread_create: 0x7fff7571e300 0x10165b000
-
-In checker_thread_begin: 0x1016de000
-
-In checker_thread_create: 0x7fff7571e300 0x1016de000
-Waitting for create thread Waitting for create thread 0x10165b0000x1016de000
-
-In atomic preLoad: 0x101277160 2!
-
-expect value: r 1 1
-In atomic preLoad: 0x101277160 2!
-get buffer: 0x101277160
-
-expect value: r 2 0
-r1=1
-r2=0
-In checker_thread_end
-In atomic preLoad: 0x101277164 2!
-
-expect value: s 1 2
-In atomic preStore: 0x101277160 2 2!
-update buffer: 0x101277160
-update buffer: 0x101277160
-update buffer: 0x101277160
-r3=2
-In checker_thread_end
-Main thread is finished
-In checker_thread_end
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e1e490
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7ff338e1e490
-
-read: r-2 0
-
-write: s-2 2
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7ff338e200b0
-orStr:  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))
-xxx: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))ttt: (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-
-read: s-1 2
-
-write: main-2 1
-xxx: (or )ssss: s-1 2 1
-ttt: (or )
-[Solver] (error "line 1 column 25780: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-Checking consistency of the current execution!
-Pass!
-Generating: 0x7ff338c33f90 0x7ff338c367b0 ARead 0x101277160 0 0
- AWrite 0x101277160 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e1e490
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7ff338e1e490
-enforce: 0x7ff338c33f90 2 
-enforce: 0x7ff338c36710 1 
-
-read: r-2 0
-
-write: s-2 2
-
-Fences: 0x0 0x0 0x7ff338c367b0
-orStr:  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))ttt: (or  (and  (= RF_r-2_s-2 1) (not (= B_r-2_s-2 1)) (= false (and (= B_s-2_main-1 1) (= B_main-1_r-2 1)))))
-
-read: r-1 1
-
-write: s-2 2
-
-write: main-1 0
-xxx: (or )ssss: r-1 1 2
-ttt: (or )
-[Solver] (error "line 1 column 54586: invalid function application, arguments missing")
-[Solver] Model Satisfiability: sat
+ttt: (or  (and  (or  (and  (= RF_r-2_main-1 1) (not (= B_r-2_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-2 1))))) (or  (and  (= RF_r-1_main-1 1) (not (= B_r-1_main-1 1)) (= false (and (= B_main-1_s-2 1) (= B_s-2_r-1 1))))) (= RF_s-1_r-3 1) (not (= B_s-1_r-3 1)) (= false (and (= B_r-3_main-2 1) (= B_main-2_s-1 1)))))
+Adding SWwww Constraints: 0
+End adding SW Constraints!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 101040: model is not available")

@@ -151,9 +151,11 @@ void preNonAtomicStore_char(void* addr, char val) {
     std::cout << "In non-atomic preStore: " << addr << " " << val << "!\n";
 # endif
     
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "non_atomic_store_char: " << addr << " " << val << "\n";
-    updateTrace(ss.str());
+    updateTrace(ss.str());*/
+
+    exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, 2, val);
 }
 
 void preNonAtomicStore_int(void* addr, int val) {
@@ -166,7 +168,9 @@ void preNonAtomicStore_int(void* addr, int val) {
 # ifdef DEBUG
     std::cout << "In non-atomic preStore: " << addr << " " << val << "!\n";
 # endif
-    
+
+    exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, 2, val);
+
 }
 
 void preNonAtomicStore_double(void* addr, double val) {
@@ -180,9 +184,11 @@ void preNonAtomicStore_double(void* addr, double val) {
     std::cout << "In non-atomic preStore: " << addr << " " << val << "!\n";
 # endif
     
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "non_atomic_store_double: " << addr << " " << val << "\n";
-    updateTrace(ss.str());
+    updateTrace(ss.str());*/
+
+    exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, 2, val);
 }
 
 void preAtomicStore_char(void* addr, char val, int order) {
@@ -214,6 +220,30 @@ void preAtomicStore_double(void* addr, uint64_t val, int order) {
     updateTrace(ss.str());*/
 
     exe->execute_write_action(getThreadName(std::this_thread::get_id()), addr, order, val);
+}
+
+void preLock(void* addr) {
+# ifdef DEBUG
+    std::cout << "In preLock: " << addr << "!\n";
+# endif
+
+    exe->execute_lock_action(getThreadName(std::this_thread::get_id()), addr);
+}
+
+void preTryLock(void* addr) {
+# ifdef DEBUG
+    std::cout << "In preTryLock: " << addr << "!\n";
+# endif
+
+    exe->execute_tryLock_action(getThreadName(std::this_thread::get_id()), addr);
+}
+
+void preUnlock(void* addr) {
+# ifdef DEBUG
+    std::cout << "In preUnlock: " << addr << "!\n";
+# endif
+
+    exe->execute_unLock_action(getThreadName(std::this_thread::get_id()), addr);
 }
 
 void preFence(int order) {

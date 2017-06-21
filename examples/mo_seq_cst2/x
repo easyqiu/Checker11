@@ -1,0 +1,643 @@
+Generate a model checker: 0x7faaca404c40
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 11175
+
+In checker_thread_begin: 0x7fff7571e300
+In atomic preStore: 0x1057d2168 0 7!
+update buffer: 0x1057d2168 0
+In atomic preStore: 0x1057d216c 0 7!
+update buffer: 0x1057d216c 0
+
+In checker_thread_create: 0x7fff7571e300 0x105bb8000
+
+In checker_thread_begin: 0x105bb8000
+
+In checker_thread_begin: 0x105c3b000
+
+In checker_thread_create: 0x7fff7571e300 0x105c3b000
+Waitting for create thread 0x105bb8000
+Waitting for create thread 0x105c3b000
+In checker_shared_int: 0x1057d2160
+In checker_shared_int: 0x1057d2164
+In atomic preLoad: 0x1057d2168 7!
+get buffer: 0x1057d2168 0
+
+expect value: f1 1 0
+In non-atomic preStore: 0x1057d2160 0!
+Set value: ARead 0x1057d2168 4 0
+ 0
+In atomic preStore: 0x1057d216c 1 7!
+update buffer: 0x1057d216c 1
+update buffer: 0x1057d216c 1
+update buffer: 0x1057d216c 1
+In checker_shared_int: 0x1057d2160
+In checker_thread_end
+In checker_shared_int: 0x1057d2164
+In atomic preLoad: 0x1057d216c 7!
+get buffer: 0x1057d216c 0
+
+expect value: f2 1 0
+In non-atomic preStore: 0x1057d2164 0!
+Set value: ARead 0x1057d216c 4 0
+ 0
+In atomic preStore: 0x1057d2168 1 7!
+update buffer: 0x1057d2168 1
+update buffer: 0x1057d2168 1
+update buffer: 0x1057d2168 1
+In checker_thread_end
+data: 0 0
+ERROR!
+In checker_thread_end
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7faaca404d40
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7faaca404d40
+
+read: f1-1 0
+
+write: f2-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7faaca4054b0
+Add swRelation: 0x7faaca500fb0 main-1 f1-1
+Print Actions: 
+0: main-0
+1: main-1
+Print Actions: 
+0: f1-2
+1: f1-3
+orStr:  (and  (= RF_f1-1_main-1 1) (= B_f1-1_main-1 0) (= false (and (= B_main-1_f2-2 1) (= B_f2-2_f1-1 1))))
+ttt: (or  (and  (= RF_f1-1_main-1 1) (= B_f1-1_main-1 0) (= false (and (= B_main-1_f2-2 1) (= B_f2-2_f1-1 1)))))
+
+read: f2-1 0
+
+write: f1-2 1
+
+write: main-2 0
+
+Fences: 0x0 0x0 0x7faaca405550
+Add swRelation: 0x7faaca501080 main-2 f2-1
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+Print Actions: 
+0: f2-2
+1: f2-3
+orStr:  (and  (= RF_f2-1_main-2 1) (= B_f2-1_main-2 0) (= false (and (= B_main-2_f1-2 1) (= B_f1-2_f2-1 1))))
+ttt: (or  (and  (= RF_f2-1_main-2 1) (= B_f2-1_main-2 0) (= false (and (= B_main-2_f1-2 1) (= B_f1-2_f2-1 1)))))
+Adding SWwww Constraints: 2
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Checking consistency of the current execution!
+Pass!
+Generating: 0x7faaca405e10 0x7faaca405f50 ARead 0x1057d2168 4 0
+ AWrite 0x1057d2168 4 1
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7faaca404d40
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7faaca404d40
+enforce: 0x7faaca405e10 f1-1 1 
+curSch: 0x7faaca405240 0
+
+read: f1-1 0
+
+write: f2-2 1
+
+Fences: 0x0 0x0 0x7faaca405f50
+Add swRelation: 0x7faaca409990 f2-2 f1-1
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: main-4
+5: f2-1
+6: f2-2
+7: f2-0
+Print Actions: 
+0: f1-2
+1: f1-3
+orStr:  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1)))))
+Adding SWwww Constraints: 1
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7faaca6002c0
+action: f2 2 AWrite 0x1057d2168 4 1
+
+RF: f1 1 1
+Generating: 0x7faaca405eb0 0x7faaca405d30 ARead 0x1057d216c 4 0
+ AWrite 0x1057d216c 4 1
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7faaca404d40
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7faaca404d40
+enforce: 0x7faaca405eb0 f2-1 1 
+curSch: 0x7faaca405240 0
+
+read: f2-1 0
+
+write: f1-2 1
+
+Fences: 0x0 0x0 0x7faaca405d30
+Add swRelation: 0x7faaca6007a0 f1-2 f2-1
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f1-0
+5: f1-2
+6: f1-1
+Print Actions: 
+0: f2-2
+1: f2-3
+orStr:  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1))))
+
+write: main-2 0
+ttt: (or  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1)))))
+Adding SWwww Constraints: 1
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Generate new schedule: 0x7faaca7038b0
+action: f1 2 AWrite 0x1057d216c 4 1
+
+RF: f2 1 1
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 11176
+Schedule: 0x7faaca6002c0 1
+For: f1 1
+    f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    f2 0
+    f2 1
+    f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f1 3
+    f2 0
+    f2 1
+    f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 2
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+
+In checker_thread_begin: 0x7fff7571e300
+In atomic preStore: 0x1057d2168 0 7!
+update buffer: 0x1057d2168 0
+In atomic preStore: 0x1057d216c 0 7!
+update buffer: 0x1057d216c 0
+
+In checker_thread_create: 0x7fff7571e300 0x105bb8000
+
+In checker_thread_begin: 0x105bb8000
+
+In checker_thread_begin: 0x105c3b000
+
+In checker_thread_create: 0x7fff7571e300 0x105c3b000
+Waitting for create thread Waitting for create thread 0x105c3b0000x105bb8000
+
+In checker_shared_int: In checker_shared_int: 0x1057d21600x1057d2160
+
+In checker_shared_int: In checker_shared_int: 0x1057d21640x1057d2164
+
+In atomic preLoad: In atomic preLoad: 0x1057d216c0x1057d2168  77!
+!
+get buffer: size: 0x1057d216cf1  01
+ 
+expect value: 1f2
+ xxxxx: 1f1  01
+ In non-atomic preStore: f20x1057d2164  20
+!
+Set value: ARead 0x1057d216c 4 0
+ 0
+In atomic preStore: 0x1057d2168 1 7!
+update buffer: 0x1057d2168 1
+update buffer: 0x1057d2168 1
+update buffer: 0x1057d2168 1
+In checker_thread_end
+waiting read!
+catch the expected val!
+
+expect value: f1 1 1
+In non-atomic preStore: 0x1057d2160 1!
+Set value: ARead 0x1057d2168 4 1
+ 1
+In atomic preStore: 0x1057d216c 1 7!
+update buffer: 0x1057d216c 1
+update buffer: 0x1057d216c 1
+update buffer: 0x1057d216c 1
+In checker_thread_end
+data: 1 0
+ERROR!
+In checker_thread_end
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7faaca700f30
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7faaca700f30
+
+read: f1-1 1
+
+write: f2-2 1
+
+Fences: 0x0 0x0 0x7faaca500480
+Add swRelation: 0x7faaca600920 f2-2 f1-1
+Print Actions: 
+0: f2-0
+1: f2-1
+2: f2-2
+3: main-0
+4: main-1
+5: main-2
+6: main-3
+7: main-4
+Print Actions: 
+0: f1-2
+1: f1-3
+orStr:  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1)))))
+
+read: f2-1 0
+
+write: f1-2 1
+
+write: main-2 0
+
+Fences: 0x0 0x0 0x7faaca701610
+Add swRelation: 0x7faaca600330 main-2 f2-1
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+Print Actions: 
+0: f2-2
+1: f2-3
+orStr:  (and  (= RF_f2-1_main-2 1) (= B_f2-1_main-2 0) (= false (and (= B_main-2_f1-2 1) (= B_f1-2_f2-1 1))))
+ttt: (or  (and  (= RF_f2-1_main-2 1) (= B_f2-1_main-2 0) (= false (and (= B_main-2_f1-2 1) (= B_f1-2_f2-1 1)))))
+Adding SWwww Constraints: 2
+rels1: 0x7faaca600920 0x7faaca600330
+Print Actions: 
+0: f2-0
+1: f2-1
+2: f2-2
+3: main-0
+4: main-1
+5: main-2
+6: main-3
+7: main-4
+Print Actions: 
+0: f1-2
+1: f1-3
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+Print Actions: 
+0: f2-2
+1: f2-3
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Checking consistency of the current execution!
+Pass!
+Generating: 0x7faaca5003e0 0x7faaca701af0 ARead 0x1057d216c 4 0
+ AWrite 0x1057d216c 4 1
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7faaca700f30
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7faaca700f30
+enforce: 0x7faaca5003e0 f2-1 1 
+curSch: 0x7faaca6002c0 1
+enforce11: 0x7faaca500310 f1-1 1 
+
+read: f1-1 1
+
+write: f2-2 1
+
+Fences: 0x0 0x0 0x7faaca500480
+Add swRelation: 0x7faaca706300 f2-2 f1-1
+Print Actions: 
+0: f2-0
+1: f2-1
+2: f2-2
+3: main-0
+4: main-1
+5: main-2
+6: main-3
+7: main-4
+Print Actions: 
+0: f1-2
+1: f1-3
+orStr:  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1)))))
+
+read: f2-1 0
+
+write: f1-2 1
+
+Fences: 0x0 0x0 0x7faaca701af0
+Add swRelation: 0x7faaca701c90 f1-2 f2-1
+Print Actions: 
+0: f1-0
+1: f1-1
+2: main-0
+3: main-1
+4: main-2
+5: main-3
+6: f1-2
+Print Actions: 
+0: f2-2
+1: f2-3
+orStr:  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1))))
+
+write: main-2 0
+ttt: (or  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1)))))
+Adding SWwww Constraints: 2
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 11177
+Schedule: 0x7faaca7038b0 1
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    f1 0
+    f1 1
+    f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    f1 0
+    f1 1
+    f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7571e300
+In atomic preStore: 0x1057d2168 0 7!
+update buffer: 0x1057d2168 0
+In atomic preStore: 0x1057d216c 0 7!
+update buffer: 0x1057d216c 0
+
+In checker_thread_begin: 0x105bb8000
+
+In checker_thread_begin: 0x105c3b000
+
+In checker_thread_create: 0x7fff7571e300 0x105bb8000
+
+In checker_thread_create: 0x7fff7571e300 0x105c3b000
+Waitting for create thread 0x105c3b000
+Waitting for create thread 0x105bb8000
+In checker_shared_int: 0x1057d2160
+In checker_shared_int: 0x1057d2164
+In atomic preLoad: 0x1057d216c 7!
+size: f2 1 1
+xxxxx: f2 1 f1 2
+In checker_shared_int: 0x1057d2160
+In checker_shared_int: 0x1057d2164
+In atomic preLoad: 0x1057d2168 7!
+get buffer: 0x1057d2168 0
+
+expect value: f1 1 0
+In non-atomic preStore: 0x1057d2160 0!
+Set value: ARead 0x1057d2168 4 0
+ 0
+In atomic preStore: 0x1057d216c 1 7!
+update buffer: 0x1057d216c 1
+update buffer: 0x1057d216c 1
+update buffer: 0x1057d216c 1
+In checker_thread_end
+waiting read!
+catch the expected val!
+
+expect value: f2 1 1
+In non-atomic preStore: 0x1057d2164 1!
+Set value: ARead 0x1057d216c 4 1
+ 1
+In atomic preStore: 0x1057d2168 1 7!
+update buffer: 0x1057d2168 1
+update buffer: 0x1057d2168 1
+update buffer: 0x1057d2168 1
+In checker_thread_end
+data: 0 1
+ERROR!
+In checker_thread_end
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7faaca700f30
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7faaca700f30
+
+read: f1-1 0
+
+write: f2-2 1
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7faaca600990
+Add swRelation: 0x7faaca501c10 main-1 f1-1
+Print Actions: 
+0: main-0
+1: main-1
+Print Actions: 
+0: f1-2
+1: f1-3
+orStr:  (and  (= RF_f1-1_main-1 1) (= B_f1-1_main-1 0) (= false (and (= B_main-1_f2-2 1) (= B_f2-2_f1-1 1))))
+ttt: (or  (and  (= RF_f1-1_main-1 1) (= B_f1-1_main-1 0) (= false (and (= B_main-1_f2-2 1) (= B_f2-2_f1-1 1)))))
+
+read: f2-1 1
+
+write: f1-2 1
+
+Fences: 0x0 0x0 0x7faaca703a10
+Add swRelation: 0x7faaca501e70 f1-2 f2-1
+Print Actions: 
+0: main-3
+1: main-0
+2: main-2
+3: main-1
+4: f1-2
+5: f1-0
+6: f1-1
+Print Actions: 
+0: f2-2
+1: f2-3
+orStr:  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1))))
+
+write: main-2 0
+ttt: (or  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1)))))
+Adding SWwww Constraints: 2
+rels1: 0x7faaca501e70 0x7faaca501c10
+Print Actions: 
+0: main-3
+1: main-0
+2: main-2
+3: main-1
+4: f1-2
+5: f1-0
+6: f1-1
+Print Actions: 
+0: f2-2
+1: f2-3
+Print Actions: 
+0: main-0
+1: main-1
+Print Actions: 
+0: f1-2
+1: f1-3
+End adding SW Constraints!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Checking consistency of the current execution!
+Pass!
+Generating: 0x7faaca706500 0x7faaca703ab0 ARead 0x1057d2168 4 0
+ AWrite 0x1057d2168 4 1
+
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7faaca700f30
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7faaca700f30
+enforce: 0x7faaca706500 f1-1 1 
+curSch: 0x7faaca7038b0 1
+enforce11: 0x7faaca7065a0 f2-1 1 
+
+read: f1-1 0
+
+write: f2-2 1
+
+Fences: 0x0 0x0 0x7faaca703ab0
+Add swRelation: 0x7faaca7040d0 f2-2 f1-1
+Print Actions: 
+0: main-3
+1: main-4
+2: main-0
+3: main-2
+4: main-1
+5: f2-2
+6: f2-0
+7: f2-1
+Print Actions: 
+0: f1-2
+1: f1-3
+orStr:  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1))))
+
+write: main-1 0
+ttt: (or  (and  (= RF_f1-1_f2-2 1) (= B_f1-1_f2-2 0) (= false (and (= B_f2-2_main-1 1) (= B_main-1_f1-1 1)))))
+
+read: f2-1 1
+
+write: f1-2 1
+
+Fences: 0x0 0x0 0x7faaca703a10
+Add swRelation: 0x7faaca704140 f1-2 f2-1
+Print Actions: 
+0: main-3
+1: main-0
+2: main-2
+3: main-1
+4: f1-2
+5: f1-0
+6: f1-1
+Print Actions: 
+0: f2-2
+1: f2-3
+orStr:  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1))))
+
+write: main-2 0
+ttt: (or  (and  (= RF_f2-1_f1-2 1) (= B_f2-1_f1-2 0) (= false (and (= B_f1-2_main-2 1) (= B_main-2_f2-1 1)))))
+Adding SWwww Constraints: 2

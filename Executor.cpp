@@ -47,6 +47,13 @@ void Executor::setModelChecker(ModelChecker* checker) {
 
 Thread* Executor::addThread(std::string tid, std::string name) {
     pthread_mutex_lock(&lockForThreadMap);
+    if (threadsName.find(name) == threadsName.end()) {
+        threadsName[name] = 0;
+    } else {
+        threadsName[name]++;
+        name = name + util::stringValueOf(threadsName[name]);
+    }
+
     Thread* thread = new Thread(this, tid, name);
 
     threadMap[tid] = thread;
@@ -219,6 +226,9 @@ int Executor::execute_pre_read_action(std::string tid, void* addr, int mo) {
     assert(threadMap.find(tid) != threadMap.end() && "Should create the thread! Executor.cpp:90");
     Thread* thread = threadMap[tid];*/
     Thread* thread = getThread(tid);
+    //if (thread == NULL)
+    //    return -1;
+    assert(thread != NULL);
     RWAction* action = new RWAction(this, thread, ATOMIC_READ, mo, addr, false);
 
     //assert(threadMap.find(tid) != threadMap.end() && "Should create the thread!");
@@ -285,6 +295,58 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
 
 }
 
+void Executor::execute_lock_action(std::string tid, void *addr) {
+    Thread* thread = getThread(tid);
+    Action *action = new LockAction(this, thread, ATOMIC_LOCK, addr);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting lock!\n";
+    }
+}
+
+void Executor::execute_tryLock_action(std::string tid, void *addr) {
+    Thread* thread = getThread(tid);
+    Action *action = new LockAction(this, thread, ATOMIC_TRYLOCK, addr);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting try_lock!\n";
+    }
+}
+
+void Executor::execute_unLock_action(std::string tid, void *addr) {
+    Thread* thread = getThread(tid);
+    LockAction *action = new LockAction(this, thread, ATOMIC_UNLOCK, addr);
+    thread->addAction(action);
+
+    // set the paired num for lock/unlock/trylock
+    for (std::vector<Action*>::reverse_iterator it = thread->getActionList().rbegin();
+            it != thread->getActionList().rend(); ++it) {
+        Action* a = *it;
+        if (dynamic_cast<LockAction*>(a) == NULL) continue ;
+
+        LockAction* lockAction = dynamic_cast<LockAction*>(a);
+        if (lockAction->get_type() == ATOMIC_LOCK || lockAction->get_type() == ATOMIC_TRYLOCK) {
+            if (lockAction->get_location() == addr) {
+                lockAction->set_pairedNum(action->get_seq_number());
+                action->set_pairedNum(lockAction->get_seq_number());
+                break ;
+            }
+        }
+
+    }
+
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting unlock!\n";
+    }
+}
 
 void Executor::execute_fence_action(std::string tid, int mo) {
     Thread* thread = getThread(tid);
@@ -490,4 +552,9 @@ void Executor::updateBuffer(void* loc, uint64_t val) {
 
         thread->updateBuffer(loc, val);
     }
+}
+
+Action* Executor::getAction(std::string tid, int seq_num) {
+    Thread* thread = getThread(tid);
+    return thread->getActionList()[seq_num];
 }

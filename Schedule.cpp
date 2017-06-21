@@ -70,7 +70,7 @@ bool Schedule::inPrefix(std::pair<std::string, int> action) {
 }
 
 void Schedule::print() {
-    std::cout << "Schedule: " << this << "\n";
+    std::cout << "Schedule: " << this << " " << readValueMap.size() << "\n";
     for (std::map<std::pair<std::string, int>, std::set<std::pair<std::string, int> > >::iterator
                  it = preActions.begin(); it != preActions.end(); ++it) {
         std::cout << "For: " << it->first.first << " " << it->first.second << "\n";

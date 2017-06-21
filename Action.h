@@ -250,5 +250,24 @@ namespace checker {
 	protected:
 		memory_order order;
 	};
+
+	class LockAction : public Action {
+	public:
+		LockAction(Executor* exe, Thread* thread, action_type_t type, void* loc)
+				: Action(exe, thread, loc, type) {
+			this->location = loc;
+			paired_seq_num = -1;
+		}
+
+		std::string get_action_str();
+
+		void set_pairedNum(int num) { paired_seq_num = num; }
+
+		int get_pairedNum() { return paired_seq_num; }
+
+	private:
+		void *location;
+		int paired_seq_num; // the paired lock/unlock action
+	};
 }
 

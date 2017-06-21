@@ -1,0 +1,92 @@
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_main-1_f2-1 () Int
+    1)
+  (define-fun B_f1-1_main-1 () Int
+    2)
+  (define-fun B_f2-1_f1-1 () Int
+    2)
+  (define-fun RF_f2-1_f1-1 () Int
+    1)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_main-3_main-6 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_main-0_main-6 () Int
+    1)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun B_f3-2_f3-3 () Int
+    1)
+  (define-fun B_f3-1_f3-3 () Int
+    1)
+  (define-fun B_f3-1_f3-2 () Int
+    1)
+  (define-fun B_f3-0_f3-3 () Int
+    1)
+  (define-fun B_f3-0_f3-2 () Int
+    1)
+  (define-fun B_f3-0_f3-1 () Int
+    1)
+  (define-fun B_f2-2_f2-3 () Int
+    1)
+  (define-fun B_f2-1_f2-3 () Int
+    1)
+  (define-fun B_f2-1_f2-2 () Int
+    1)
+  (define-fun B_f2-0_f2-3 () Int
+    1)
+  (define-fun B_f2-0_f2-2 () Int
+    1)
+  (define-fun B_f2-0_f2-1 () Int
+    1)
+  (define-fun B_f1-2_f1-3 () Int
+    1)
+  (define-fun B_f1-1_f1-3 () Int
+    1)
+  (define-fun B_f1-1_f1-2 () Int
+    1)
+  (define-fun B_f1-0_f1-3 () Int
+    1)
+  (define-fun B_f1-0_f1-2 () Int
+    1)
+  (define-fun B_f1-0_f1-1 () Int
+    1)
+)
+(error "line 96 column 15: unsat core is not available")
+end

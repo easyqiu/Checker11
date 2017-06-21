@@ -7,12 +7,15 @@
 
 std::atomic<int> a;
 std::atomic<int> b;
+//std::atomic<int> r3;
+int r3;
 
 using namespace std;
 
 void r()
 {
     checker_thread_begin("r");
+    //checker_shared((void*)&r3);
 	
     int r1=atomic_load_explicit(&a, memory_order_relaxed);
 	int r2=atomic_load_explicit(&a, memory_order_relaxed);
@@ -27,8 +30,9 @@ void r()
 void s()
 {
     checker_thread_begin("s");
-	
-    int r3=atomic_load_explicit(&b, memory_order_relaxed);
+    //checker_shared((void*)&r3);
+
+    r3=atomic_load_explicit(&b, memory_order_relaxed);
 	atomic_store_explicit(&a, r3, memory_order_relaxed);
 	printf("r3=%d\n",r3);
     
@@ -41,6 +45,7 @@ int user_main(int argc, char **argv)
 {
     checker_generateExecutor();
     checker_thread_begin("main");
+    //checker_shared((void*)&r3);
 
     a = 0, b = 1;
 	

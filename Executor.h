@@ -36,6 +36,7 @@ namespace  checker {
 
         Thread* addThread(std::string tid, std::string name);
         Thread* getThread(std::string tid);
+        Action* getAction(std::string tid, int seq_num);
 
         void execute_thread_create_action(std::string id1, std::string id2);
 
@@ -50,6 +51,12 @@ namespace  checker {
         void execute_post_read_action(std::string tid, void *addr, int mo, uint64_t val);
 
         void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
+
+        void execute_tryLock_action(std::string tid, void *addr);
+
+        void execute_lock_action(std::string tid, void *addr);
+
+        void execute_unLock_action(std::string tid, void *addr);
 
         void execute_fence_action(std::string tid, int mo);
 
@@ -147,6 +154,7 @@ namespace  checker {
         bool bugFixMode;
         bool firstThread;
         std::vector<Schedule*> schedules;
+        std::map<std::string, int> threadsName;
     };
 }
 

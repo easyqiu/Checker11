@@ -160,3 +160,8 @@ std::string FenceAction::get_action_str() {
     return ss.str();
 }
 
+std::string LockAction::get_action_str() {
+    std::stringstream ss;
+    ss << get_type_str(true) << " " << location << "\n";
+    return ss.str();
+}

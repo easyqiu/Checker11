@@ -63,6 +63,7 @@ void ConstModelGen::addBasicConstraints() {
     z3solver->setNumOps(numB);
     numUnkownVars += numB; //there is an unknown order variable per even
 
+    int num = 0;
     for (map<string, Thread*>::iterator it1 = tMap.begin(); it1 != tMap.end(); it1++) {
         Thread* thread1 = it1->second;
         for (map<string, Thread*>::iterator it2 = tMap.begin(); it2 != tMap.end(); it2++) {
@@ -86,7 +87,8 @@ void ConstModelGen::addBasicConstraints() {
 
                     // !(B_{ab}=1 ^ B_{ba}=1 V B_{ab}=0 ^ B_{ba}=0)
                     //std::cout << "xxxx: " << (z3solver->postAssert(z3solver->invertBugCondition(z3solver->cOr(cond1, cond2)))) << "\n";
-                    z3solver->writeLineZ3(z3solver->postAssert(z3solver->invertBugCondition(z3solver->cOr(cond1, cond2))));
+                    string label = "Basic" + util::stringValueOf(num++);
+                    z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->invertBugCondition(z3solver->cOr(cond1, cond2)), label));
                 }
             }
         }
@@ -117,13 +119,15 @@ void ConstModelGen::addBasicConstraints() {
                     plusStr = z3solver->cPlus(plusStr, rfName);
             }
 
-            z3solver->writeLineZ3(z3solver->postAssert(z3solver->cLeq(plusStr, "1")));
+            string label = "Basic" + util::stringValueOf(num++);
+            z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cLeq(plusStr, "1"), label));
         }
     }
 }
 
 // add asw relations
 void ConstModelGen::addASWRelation() {
+    int num = 0;
     std::map<Action*, Action*> createPoints = exe->getCreatePoints();
     for (std::map<Action*, Action*>::iterator it = createPoints.begin();
          it != createPoints.end(); ++it) {
@@ -144,7 +148,8 @@ void ConstModelGen::addASWRelation() {
                 Action* a2 = *it2;
                 string bRelName = a1->get_binary_rel_name(a2);
                 declareIntVar(bRelName);
-                z3solver->writeLineZ3(z3solver->postAssert(z3solver->cEq(bRelName, "1")));
+                string label = "ASW" + util::stringValueOf(num++);
+                z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cEq(bRelName, "1"), label));
             }
         }
     }
@@ -168,14 +173,25 @@ void ConstModelGen::addASWRelation() {
                 Action* a2 = *it2;
                 string bRelName = a1->get_binary_rel_name(a2);
                 declareIntVar(bRelName);
-                z3solver->writeLineZ3(z3solver->postAssert(z3solver->cEq(bRelName, "1")));
+                string label = "ASW" + util::stringValueOf(num++);
+                z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cEq(bRelName, "1"), label));
             }
         }
 
     }
 }
 
-void ConstModelGen::addSWConstraints() {
+void ConstModelGen::printActionSet(set<Action*> list) {
+    int i = 0;
+    std::cout << "Print Actions: \n";
+    for (set<Action*>:: iterator it = list.begin();
+            it != list.end(); ++it) {
+        Action* action = *it;
+        std::cout << (i++) << ": " << action->get_uniq_name() << "\n";
+    }
+}
+
+bool ConstModelGen::addSWConstraints() {
     /*std::map<Action*, Action*> swPairs = solver->getSWPairs();
     for (std::map<Action*, Action*>::iterator it = swPairs.begin();
             it != swPairs.end(); ++it) {
@@ -191,10 +207,13 @@ void ConstModelGen::addSWConstraints() {
         swRelations.insert(swRelation);
     }*/
 
+    std::cout << "Adding SW Constraints: " << swRelations.size() << "\n";
     bool flag = true;
+    set<pair<SWRelation*, SWRelation*> > checkedPairs;
     while (flag) {
         flag = false;
 
+        set<SWRelation*> tmpSet;
         for (std::set<SWRelation *>::iterator it = swRelations.begin();
              it != swRelations.end(); ++it) {
             for (std::set<SWRelation *>::iterator it2 = swRelations.begin();
@@ -203,13 +222,31 @@ void ConstModelGen::addSWConstraints() {
                 SWRelation *rel2 = *it2;
 
                 if (rel1 == rel2) continue;
+                if (checkedPairs.find(std::make_pair(rel1, rel2)) != checkedPairs.end()) continue;
+
+                checkedPairs.insert(std::make_pair(rel1, rel2));
 
                 std::set<Action *> list1 = rel1->getHBList();
                 std::set<Action *> list2 = rel1->getHAList();
                 std::set<Action *> list3 = rel2->getHBList();
                 std::set<Action *> list4 = rel2->getHAList();
 
+                if (rel1->getFromAction()->get_thread() == rel2->getToAction()->get_thread())
+                    continue ;
+
                 if (overlap(list1, list4)) {
+
+                    printActionSet(list1);
+                    printActionSet(list2);
+                    printActionSet(list3);
+                    printActionSet(list4);
+
+                    /*if (overlap(list2, list3)) {
+                        //std::cout << "Identify inconsistency!\n";
+                        //return false;   // identify inconsistency
+                        continue ;
+                    }*/
+
                     SWRelation *swRelation = new SWRelation(rel2->getFromAction(), rel1->getToAction());
                     if (rel1->getContained().size() == 0)
                         swRelation->addContained(rel1);
@@ -226,9 +263,12 @@ void ConstModelGen::addSWConstraints() {
 
                     swRelation->setHBList(list3);
                     swRelation->setHAList(list2);
-                    swRelations.insert(swRelation);
+                    //swRelations.insert(swRelation);
+                    tmpSet.insert(swRelation);
                     flag = true;
-                } else if (overlap(list2, list3)) {
+                    std::cout << "rels1: " << rel1 << " " << rel2 << "\n";
+
+                } /*else if (overlap(list2, list3)) {
                     SWRelation *swRelation = new SWRelation(rel1->getFromAction(), rel2->getToAction());
                     if (rel1->getContained().size() == 0)
                         swRelation->addContained(rel1);
@@ -245,11 +285,14 @@ void ConstModelGen::addSWConstraints() {
 
                     swRelation->setHBList(list1);
                     swRelation->setHAList(list4);
-                    swRelations.insert(swRelation);
+                    //swRelations.insert(swRelation);
+                    tmpSet.insert(swRelation);
                     flag = true;
-                }
+                    std::cout << "rels2: " << rel1 << " " << rel2 << "\n";
+                }*/
             }
         }
+        swRelations.insert(tmpSet.begin(), tmpSet.end());
     }
 
     // add asw relations
@@ -274,6 +317,7 @@ void ConstModelGen::addSWConstraints() {
         swRelations.insert(swRelation);
     }*/
 
+    int num = 0;
     for (set<SWRelation*>::iterator it = swRelations.begin();
             it != swRelations.end(); ++it) {
         SWRelation* swRelation = *it;
@@ -293,7 +337,8 @@ void ConstModelGen::addSWConstraints() {
                 andStr.push_back(z3solver->cEq(bRelName, "1"));
                 //std::cout << "precond: " << swRelation->getPrecond() << "\n";
                 string ite = z3solver->cIte(swRelation->getPrecond(), " 1", " 0");
-                z3solver->writeLineZ3(z3solver->postAssert(z3solver->cEq(bRelName, ite)));
+                string label = "SWRelation" + util::stringValueOf(num++);
+                z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cEq(bRelName, ite), label));
             }
         }
 
@@ -321,10 +366,14 @@ void ConstModelGen::addSWConstraints() {
         //z3solver->writeLineZ3(z3solver->postAssert(z3solver->cIte(swRelation->getPrecond(), z3solver->cAnd(andStr))));
     }
     addASWRelation();
+
+    std::cout << "End adding SW Constraints!\n";
+    return true;
 }
 
 void ConstModelGen::addMOConstraints() {
     std::map<std::string, std::vector<RWAction*> > writeset = solver->getWriteSet();
+    int num = 0;
     for (std::map<std::string, std::vector<RWAction*> >::iterator it = writeset.begin();
             it != writeset.end(); ++it) {
         std::vector<RWAction*> writeList = it->second;
@@ -342,8 +391,31 @@ void ConstModelGen::addMOConstraints() {
         }
         distinct.append(")");
         //indicate that we want that each operation has its own global order
-        z3solver->writeLineZ3(z3solver->postAssert(distinct));
+        string label = "MO" + util::stringValueOf(num++);
+        z3solver->writeLineZ3(z3solver->postNamedAssert(distinct, label));
     }
+}
+
+std::string ConstModelGen::guaranteeReachability(Action* action) {
+    std::cout << "Gurantee begin: " << action->get_uniq_name() << "\n";
+
+    string retStr = "";
+    set<Action*> mhbList = solver->identifyMHBRelation(action);
+    for (set<Action*>::iterator it = mhbList.begin();
+            it != mhbList.end(); ++it) {
+        Action* a = *it;
+        RWAction* r = dynamic_cast<RWAction*>(a);
+        if (r == NULL || r->is_write()) continue ;
+
+        std::string tmpStr = addRWRelation(r, r->get_value());
+        if (retStr == "")
+            retStr = tmpStr;
+        else
+            retStr += " " + tmpStr;
+    }
+
+    std::cout << "Gurantee end: " << action->get_uniq_name() << "\n";
+    return retStr;
 }
 
 std::string ConstModelGen::addRWRelation(RWAction *read, uint64_t val) {
@@ -352,13 +424,17 @@ std::string ConstModelGen::addRWRelation(RWAction *read, uint64_t val) {
     std::vector<RWAction*> writeSet = writeMap[read->get_location_str()];
 
     string orStr = "";
-    std::cout << "\nread: " << read->get_uniq_name() << " " << read->get_value() << "\n";
+    std::cout << "\nxxxx read: " << read->get_uniq_name() << " " << read->get_value() << " " << val << "\n";
     for (std::vector<RWAction*>::iterator it = writeSet.begin();
             it != writeSet.end(); ++it) {
         RWAction* write = *it;
         string andStr = "";
         std::cout << "\nwrite: " << write->get_uniq_name() << " " << write->get_value() << "\n";
         if (write->get_value() == val) {
+            string tmp = guaranteeReachability(write);
+            if (tmp != "")
+                andStr += " " + tmp;
+
             string rfRelName = read->get_rf_rel_name(write);
             declareIntVar(rfRelName);
             andStr += " " + z3solver->cEq(rfRelName, "1");
@@ -400,13 +476,13 @@ std::string ConstModelGen::addRWRelation(RWAction *read, uint64_t val) {
         }
     }
 
-    std::cout << "xxx: " << z3solver->cOr((orStr));
+    /*std::cout << "xxx: " << z3solver->cOr((orStr));
     if (orStr == "")
-        std::cout << "ssss: " << read->get_uniq_name() << " " << val << " " << writeSet.size() << "\n";
+        std::cout << "ssss: " << read->get_uniq_name() << " " << val << " " << writeSet.size() << "\n";*/
     return z3solver->cOr(orStr);
 }
 
-void ConstModelGen::addRWRelations(std::map<RWAction *, uint64_t> pairs) {
+bool ConstModelGen::addRWRelations(std::map<RWAction *, uint64_t> pairs) {
     string andStr = "";
     for (std::map<RWAction*, uint64_t >::iterator it = pairs.begin();
             it != pairs.end(); ++it) {
@@ -419,9 +495,9 @@ void ConstModelGen::addRWRelations(std::map<RWAction *, uint64_t> pairs) {
         andStr += " " + tmpAndStr;
     }
 
-    andStr = z3solver->cAnd(andStr);
-    z3solver->writeLineZ3(z3solver->postAssert(andStr));
-    addSWConstraints();
+    if (andStr != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "RW"));
+    return addSWConstraints();
 }
 
 std::string ConstModelGen::addRFRelation(RWAction *read, RWAction *write, int val) {
@@ -540,6 +616,36 @@ void ConstModelGen::enforceFenceFence(FenceAction* releaseF, FenceAction* acquir
 
     sw->setPreCond(cond);
     swRelations.insert(sw);
+}
+
+void ConstModelGen::enforceLockSW(std::pair<LockAction*, LockAction*> pair1,
+                                  std::pair<LockAction*, LockAction*> pair2) {
+    LockAction* lock1 = pair1.first;
+    LockAction* unlock1 = pair1.second;
+    LockAction* lock2 = pair2.first;
+    LockAction* unlock2 = pair2.second;
+
+    SWRelation* sw1 = new SWRelation(unlock1, lock2);
+    set<Action*> mhbList = solver->identifyMHBRelation(unlock1);
+    set<Action*> mhaList = solver->identifyMHARelation(lock2);
+    sw1->setHBList(mhbList);
+    sw1->setHAList(mhaList);
+    string rfRelName1 = unlock1->get_binary_rel_name(lock2);
+    declareIntVar(rfRelName1);
+    string cond1 = " " + z3solver->cEq(rfRelName1, "1");
+    sw1->setPreCond(cond1);
+    swRelations.insert(sw1);
+
+    SWRelation* sw2 = new SWRelation(unlock2, lock1);
+    set<Action*> mhbList2 = solver->identifyMHBRelation(unlock2);
+    set<Action*> mhaList2 = solver->identifyMHARelation(lock1);
+    sw1->setHBList(mhbList2);
+    sw1->setHAList(mhaList2);
+    string rfRelName2 = unlock2->get_binary_rel_name(lock1);
+    declareIntVar(rfRelName2);
+    string cond2 = " " + z3solver->cEq(rfRelName2, "1");
+    sw2->setPreCond(cond2);
+    swRelations.insert(sw2);
 }
 
 void ConstModelGen::identifySWFence(RWAction* read, RWAction* write) {
@@ -663,6 +769,9 @@ bool ConstModelGen::isEnforceSWRelation(Action* a, Action* b) {
                 string cond = " " + z3solver->cEq(rfRelName, "1");
                 sw->setPreCond(cond);
                 swRelations.insert(sw);
+                std::cout << "Add swRelation: " << sw << " " << w->get_uniq_name() << " " << read->get_uniq_name() << "\n";
+                printActionSet(mhbList);
+                printActionSet(mhaList);
             }
             return true;
         }
@@ -716,7 +825,8 @@ void ConstModelGen::enforceMOConsistent() {
         }
     }
 
-    z3solver->writeLineZ3(z3solver->postAssert(z3solver->cAnd(andStr)));
+    if (andStr != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
 }
 
 void ConstModelGen::enforceRFConsistent() {
@@ -747,7 +857,8 @@ void ConstModelGen::enforceRFConsistent() {
             }
         }
     }
-    z3solver->writeLineZ3(z3solver->postAssert(z3solver->cAnd(andStr)));
+    if (andStr != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF"));
 
     // corr
     andStr = "";
@@ -797,7 +908,8 @@ void ConstModelGen::enforceRFConsistent() {
             }
         }
     }
-    z3solver->writeLineZ3(z3solver->postAssert(z3solver->cAnd(andStr)));
+    if (andStr != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR"));
 
     // corw & cowr
     andStr = "";          // for corw
@@ -856,8 +968,10 @@ void ConstModelGen::enforceRFConsistent() {
             }
         }
     }
-    z3solver->writeLineZ3(z3solver->postAssert(z3solver->cAnd(andStr)));
-    z3solver->writeLineZ3(z3solver->postAssert(z3solver->cAnd(andStr2)));
+    if (andStr != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+    if (andStr2 != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
 
     // coww
     andStr = "";
@@ -890,10 +1004,63 @@ void ConstModelGen::enforceRFConsistent() {
             }
         }
     }
-    z3solver->writeLineZ3(z3solver->postAssert(z3solver->cAnd(andStr)));
+    if (andStr != "")
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+}
+
+void ConstModelGen::addLockConstraints() {
+    string andStr = "";
+    std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > > lockset = solver->getLockset();
+    std::cout << "In addLockConstraints: " << lockset.size() << "\n";
+    for (std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > >::iterator
+            it = lockset.begin(); it != lockset.end(); ++it) {
+        std::vector<std::pair<LockAction*, LockAction*> > vec = it->second;
+        for (std::vector<std::pair<LockAction*, LockAction*> >::iterator it1 = vec.begin();
+                it1 != vec.end(); ++it1) {
+            std::pair<LockAction*, LockAction*> pair1 = *it1;
+            LockAction* lock1 = pair1.first;
+            LockAction* unlock1 = pair1.second;
+            for (std::vector<std::pair<LockAction*, LockAction*> >::iterator it2 = vec.begin();
+                    it2 != vec.end(); ++it2) {
+                std::pair<LockAction*, LockAction*> pair2 = *it2;
+                LockAction* lock2 = pair2.first;
+                LockAction* unlock2 = pair2.second;
+                if (lock1->get_thread() == lock2->get_thread()) continue ;
+
+                // for each two lock-unlock pairs (a, b) a < b || b < a
+                string bName1 = unlock1->get_binary_rel_name(lock2);
+                string bName2 = unlock2->get_binary_rel_name(lock1);
+                declareIntVar(bName1);
+                declareIntVar(bName2);
+
+                std::cout << "lock pairs: " << lock1->get_uniq_name() << " " <<
+                          unlock1->get_uniq_name() << " " << lock2->get_uniq_name() << " " << unlock2->get_uniq_name() << "\n";
+                std::cout << "name: " << bName1 << " " << bName2 << "\n";
+
+                string cond1 = z3solver->cEq(bName1, "1");
+                string cond2 = z3solver->cEq(bName2, "1");
+                if (andStr == "")
+                    andStr = z3solver->cOr(cond1, cond2);
+                else
+                    andStr += " " + z3solver->cOr(cond1, cond2);
+
+                enforceLockSW(pair1, pair2);
+            }
+        }
+    }
+
+    if (andStr != "") {
+        std::cout << "qqqqqqqqq\n";
+        z3solver->writeLineZ3("(echo \"Lock CONSTRAINTS -----\")\n");
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "Lock"));
+    }
 }
 
 void ConstModelGen::enforceConsistentConstraint() {
     enforceMOConsistent();
     enforceRFConsistent();
+}
+
+void ConstModelGen::addSCConstraints() {
+
 }

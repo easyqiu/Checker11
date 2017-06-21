@@ -1,0 +1,64 @@
+Generate a model checker: 0x7fa2e2404c40
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 9582
+
+In checker_thread_begin: 0x7fff7571e300
+In atomic preStore: 0x10f8c2168 0 7!
+update buffer: 0x10f8c2168
+In atomic preStore: 0x10f8c216c 0 7!
+update buffer: 0x10f8c216c
+
+In checker_thread_create: 0x7fff7571e300 0x10fcaa000
+
+In checker_thread_begin: 0x10fcaa000
+
+In checker_thread_create: 0x7fff7571e300 0x10fd2d000
+
+In checker_thread_begin: 0x10fd2d000
+In checker_shared_int: 0x10f8c2160
+In checker_shared_int: 0x10f8c2164
+In atomic preLoad: 0x10f8c216c 2!
+get buffer: 0x10f8c216c
+
+expect value: f2 1 0
+In non-atomic preStore: 0x10f8c2164 0!
+In checker_thread_end
+Waitting for create thread 0x10fcaa000
+In checker_shared_int: 0x10f8c2160
+In checker_shared_int: 0x10f8c2164
+In atomic preLoad: 0x10f8c2168 2!
+get buffer: 0x10f8c2168
+
+expect value: f1 1 0
+In non-atomic preStore: 0x10f8c2160 0!
+In checker_thread_end
+data: 0 0
+ERROR!
+In checker_thread_end
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fa2e2404d40
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fa2e2404d40
+
+read: f2-1 0
+
+write: main-2 0
+
+Fences: 0x0 0x0 0x7fa2e25001d0
+orStr:  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)))
+xxx: (or  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1))))ttt: (or  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1))))
+
+read: f1-1 0
+
+write: main-1 0
+
+Fences: 0x0 0x0 0x7fa2e25000d0
+orStr:  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)))
+xxx: (or  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1))))ttt: (or  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1))))
+[Solver] (error "line 1 column 20678: invalid function application, arguments missing")
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+Checking consistency of the current execution!
+Pass!

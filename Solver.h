@@ -19,6 +19,7 @@ namespace  checker {
     class Thread;
     class Action;
     class RWAction;
+    class LockAction;
     class ConstModelGen;
     class Z3Solver;
 
@@ -40,8 +41,11 @@ namespace  checker {
         void generateSchedule(RWAction* read, uint64_t val);
         std::set<Action*> identifyMHBRelation(Action* action);
         std::set<Action*> identifyMHARelation(Action* action);
+
         std::map<std::string, std::vector<RWAction*> > getReadSet() { return readset; }
         std::map<std::string, std::vector<RWAction*> > getWriteSet() { return writeset; }
+        std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > > getLockset() { return lockset; }
+
         void start();
         Z3Solver* getSolver() { return z3solver; }
 
@@ -51,6 +55,7 @@ namespace  checker {
         Z3Solver* z3solver;
         std::map<std::string, std::vector<RWAction*> > readset;
         std::map<std::string, std::vector<RWAction*> > writeset;
+        std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > > lockset;
         std::set<FenceAction*> fenceset;
         std::map<Action*, Action*> swPairs;
     };
