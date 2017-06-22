@@ -12,6 +12,7 @@ void Schedule::updateReadValueMap(std::pair<std::string, int> fs, uint64_t val) 
 }
 
 void Schedule::updatePreAction(std::pair<std::string, int> action1, std::pair<std::string, int> action2) {
+    std::cout << "update preAction: " << action1.first << " " << action1.second << " " << action2.first << " " << action2.second << "\n";
     preActions[action1].insert(action2);
     if (preActions.find(action2) == preActions.end())
         return ;

@@ -79,3 +79,21 @@ int main(int argc, char **argv) {
    
     return 0;
 }
+
+// for CPPMem
+/*int main() {
+    atomic_int x = 0;
+    atomic_int y = 1; 
+    {{{ {
+            int a = x.load(memory_order_relaxed);
+            int b = x.load(memory_order_relaxed);
+            if (a == b) 
+                y.store(2, memory_order_relaxed);
+        }
+    |||  {
+        int b = y.load(memory_order_relaxed);
+        x.store(b, memory_order_relaxed);
+    }
+      }}};
+    return 0; }*/
+

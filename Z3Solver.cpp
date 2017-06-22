@@ -110,7 +110,7 @@ string getOpDefinition(string line)
  */
 bool Z3Solver::checkSat()
 {
-    vector<string> globalOrderTmp (numOps+10); //order of execution of each operation (we add a little extra room to account for errors in the parsing)
+    vector<string> globalOrderTmp (numOps+100); //order of execution of each operation (we add a little extra room to account for errors in the parsing)
     string line;
     string opName;                   //indicates the name of the operation
     bool isOrderOp = false;          //indicates that we have parsed an order constraint, thus we need to read its value
@@ -121,7 +121,7 @@ bool Z3Solver::checkSat()
 
     while (line.compare("end") != 0 && line.compare("end") != 1)
     {
-        //cout << "\n\n"<<line << endl;
+        //cout << "\n\n"<<line << " " << isOrderOp << endl;
         if(!line.compare("unsat")) {
             cout << "[Solver] Model Satisfiability: "<< line << endl;
         }
@@ -244,7 +244,9 @@ bool Z3Solver::solve()
     exe->set_startTime(time(NULL));
     infile.close();
 
+    std::cout << "begin checksat!\n";
     bool success = checkSat();
+    std::cout << "end checksat!\n";
 
     return success;
 }

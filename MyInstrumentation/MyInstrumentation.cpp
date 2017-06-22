@@ -203,7 +203,7 @@ namespace {
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
       Function *rmwXchgF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg", &M);
       myFunctions["preRMW_Xchg"] = rmwXchgF; 
       Function *rmwAddF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add", &M);
@@ -582,7 +582,9 @@ namespace {
                                              }
             case AtomicRMWInst::BinOp::Add: { 
                 Function* func = myFunctions["preRMW_Add"];
-                CallInst::Create(func->getFunctionType(), func, params, "", rmwI);
+                CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", rmwI);
+                rmwI->replaceAllUsesWith(callI);
+                //rmwI->eraseFromParent();
                 break; 
             }
             case AtomicRMWInst::BinOp::Sub: {}
@@ -711,6 +713,28 @@ namespace {
             }
         }
     }
+
+    void deleteInsts(Function* F) {
+        bool flag = true;
+        while (flag) {
+            flag = false;
+            for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I) {
+                if (auto *op = dyn_cast<AtomicRMWInst>(&*I)) {
+                    AtomicRMWInst* inst = dyn_cast<AtomicRMWInst>(&*I);
+                    inst->eraseFromParent();
+                    flag = true;
+                    break;
+                } else if (auto *op = dyn_cast<LoadInst>(&*I)) {
+                    LoadInst* inst = dyn_cast<LoadInst>(&*I);
+                    if (inst->isAtomic()) {
+                        inst->eraseFromParent();
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
     
     void instrFunc(Function* func) {
       for (Function::iterator it = func->begin(); 
@@ -725,6 +749,8 @@ namespace {
             //std::cout << "sss2:\n";
         }
       }
+
+      deleteInsts(func);
 
       //splitBlocks(func);
     }

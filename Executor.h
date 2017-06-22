@@ -52,6 +52,8 @@ namespace  checker {
 
         void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
 
+        int execute_pre_rmw_add_action(std::string tid, void *addr, int mo, int val);
+
         void execute_tryLock_action(std::string tid, void *addr);
 
         void execute_lock_action(std::string tid, void *addr);

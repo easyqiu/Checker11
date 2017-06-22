@@ -312,14 +312,17 @@ void preRMW_Xchg(void* addr, int val, int order) {
     updateTrace(ss.str());
 }
 
-void preRMW_Add(void* addr, int val, int order) {
+int preRMW_Add(void* addr, int val, int order) {
 # ifdef DEFBUG
     std::cout << "In rmw_add: " << addr << " " << val << " " << order << "\n";
 # endif
     
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "rmw_add_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    updateTrace(ss.str());*/
+
+    int retV = exe->execute_pre_rmw_add_action(getThreadName(std::this_thread::get_id()), addr, val, order);
+    return retV;
 }
 
 void preRMW_Sub(void* addr, int val, int order) {

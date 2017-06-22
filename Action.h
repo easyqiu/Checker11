@@ -26,6 +26,8 @@ namespace checker {
 		ATOMIC_UNINIT,        /**< Represents an uninitialized atomic */
 		ATOMIC_READ,          /**< An atomic read action */
 		ATOMIC_WRITE,         /**< An atomic write action */
+
+		ATOMIC_RMW_ADD,
 		ATOMIC_RMWR,          /**< The read part of an atomic RMW action */
 		ATOMIC_RMW,           /**< The write part of an atomic RMW action */
 		ATOMIC_RMWC,          /**< Convert an atomic RMW action into a READ */
@@ -119,7 +121,7 @@ namespace checker {
 
 		uint64_t get_reads_from_value() const;
 
-		uint64_t get_write_value() const;
+		//uint64_t get_write_value() const;
 
 		uint64_t get_return_value() const;
 
@@ -140,6 +142,8 @@ namespace checker {
 		std::string get_rf_rel_name(Action* action);
 
 		std::string get_binary_rel_name(Action* action);
+
+		std::string get_SC_name();
 
 	protected:
 
@@ -197,7 +201,7 @@ namespace checker {
 	class RWAction :  public Action  {
 	public:
 		RWAction(Executor* exe, Thread* thread, action_type_t type,
-				 int ord, void *loc, bool write, uint64_t val = 0xffff) : Action(exe, thread, loc, type) {
+				 int ord, void *loc, bool write = false, uint64_t val = 0xffff) : Action(exe, thread, loc, type) {
 
 			order = to_mo(ord);
 			location = loc;
@@ -208,11 +212,13 @@ namespace checker {
 
 		~RWAction() {}
 
-		uint64_t get_value() const { return value; }
+		uint64_t get_value() const;
 
 		bool is_write() const { return isWrite; }
 
 		memory_order get_mo() const { return order; }
+
+        bool isSCAction();
 
 		void set_value(uint64_t val) { value = val; }
 
@@ -235,6 +241,40 @@ namespace checker {
 		bool isWrite;
 	};
 
+    class RMWAction : public RWAction {
+    public:
+        RMWAction(Executor* exe, Thread* thread, action_type_t type,
+                  int ord, void* loc, int val) : RWAction(exe, thread, type, ord, loc) {
+            //order = to_mo(ord);
+            //location = loc;
+            value = val;
+        }
+
+		void setReadValue(int val) {
+            readValue = val;
+            std::cout << "Set Read Value: " << val << "\n";
+        }
+
+		int getReadValue() { return readValue; }
+
+		void setWriteValue(int val) {
+			writeValue = val;
+			std::cout << "Set write Value: " << val << "\n";
+		}
+
+		int getWriteValue() { return writeValue; }
+
+		std::string get_action_str();
+
+    private:
+        int value;
+		int readValue;
+		int writeValue;
+        //memory_order order;
+        //void *location;
+
+    };
+
 
 	class FenceAction :  public Action  {
 	public:
@@ -246,6 +286,8 @@ namespace checker {
 		memory_order get_mo() { return order; }
 
 		std::string get_action_str();
+
+		bool isSCAction();
 
 	protected:
 		memory_order order;

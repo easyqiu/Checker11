@@ -38,6 +38,7 @@ namespace  checker {
         set<SWRelation*> swRelations;
 
     private:
+        bool consistency;
         //std::vector<Action *> getWritesForRead(Action readop, std::vector<Action> writeset);
 
     public:
@@ -46,6 +47,7 @@ namespace  checker {
             this->solver = s;
             z3solver = solver;
             initialize();
+            consistency = true;
         }
 
         void initialize();
@@ -85,6 +87,7 @@ namespace  checker {
         bool isRelease(RWAction* fence);
 
         void printActionSet(set<Action*> list);
+        bool getConsistency() { return consistency; }
     };
 }
 

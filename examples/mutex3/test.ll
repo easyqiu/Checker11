@@ -8,67 +8,206 @@ target triple = "x86_64-apple-macosx10.10.0"
 %"struct.std::__1::__atomic_base.0" = type { i32 }
 
 @x = global %"struct.std::__1::atomic" zeroinitializer, align 4, !dbg !0
+@.str = private unnamed_addr constant [9 x i8] c"r1 = %d\0A\00", align 1
 
-; Function Attrs: noinline norecurse nounwind ssp uwtable
+; Function Attrs: noinline norecurse ssp uwtable
 define i32 @main() #0 !dbg !1112 {
 entry:
+  %this.addr.i.i17 = alloca %"struct.std::__1::__atomic_base.0"*, align 8
+  call void @llvm.dbg.declare(metadata %"struct.std::__1::__atomic_base.0"** %this.addr.i.i17, metadata !1114, metadata !1117), !dbg !1118
+  %__m.addr.i.i18 = alloca i32, align 4
+  call void @llvm.dbg.declare(metadata i32* %__m.addr.i.i18, metadata !1122, metadata !1117), !dbg !1123
+  %atomic-temp.i.i = alloca i32, align 4
+  %this.addr.i19 = alloca %"struct.std::__1::__atomic_base.0"*, align 8
+  call void @llvm.dbg.declare(metadata %"struct.std::__1::__atomic_base.0"** %this.addr.i19, metadata !1124, metadata !1117), !dbg !1125
+  %this.addr.i9 = alloca %"struct.std::__1::__atomic_base"*, align 8
+  call void @llvm.dbg.declare(metadata %"struct.std::__1::__atomic_base"** %this.addr.i9, metadata !1126, metadata !1117), !dbg !1129
+  %__op.addr.i = alloca i32, align 4
+  call void @llvm.dbg.declare(metadata i32* %__op.addr.i, metadata !1131, metadata !1117), !dbg !1132
+  %__m.addr.i10 = alloca i32, align 4
+  call void @llvm.dbg.declare(metadata i32* %__m.addr.i10, metadata !1133, metadata !1117), !dbg !1134
+  %.atomictmp.i = alloca i32, align 4
+  %atomic-temp.i11 = alloca i32, align 4
+  %this.addr.i7 = alloca %"struct.std::__1::__atomic_base.0"*, align 8
+  call void @llvm.dbg.declare(metadata %"struct.std::__1::__atomic_base.0"** %this.addr.i7, metadata !1114, metadata !1117), !dbg !1135
+  %__m.addr.i = alloca i32, align 4
+  call void @llvm.dbg.declare(metadata i32* %__m.addr.i, metadata !1122, metadata !1117), !dbg !1137
+  %atomic-temp.i = alloca i32, align 4
   %this.addr.i.i = alloca %"struct.std::__1::__atomic_base.0"*, align 8
-  call void @llvm.dbg.declare(metadata %"struct.std::__1::__atomic_base.0"** %this.addr.i.i, metadata !1114, metadata !1117), !dbg !1118
+  call void @llvm.dbg.declare(metadata %"struct.std::__1::__atomic_base.0"** %this.addr.i.i, metadata !1138, metadata !1117), !dbg !1141
   %__d.addr.i.i = alloca i32, align 4
-  call void @llvm.dbg.declare(metadata i32* %__d.addr.i.i, metadata !1122, metadata !1117), !dbg !1123
+  call void @llvm.dbg.declare(metadata i32* %__d.addr.i.i, metadata !1145, metadata !1117), !dbg !1146
   %__m.addr.i.i = alloca i32, align 4
-  call void @llvm.dbg.declare(metadata i32* %__m.addr.i.i, metadata !1124, metadata !1117), !dbg !1125
+  call void @llvm.dbg.declare(metadata i32* %__m.addr.i.i, metadata !1147, metadata !1117), !dbg !1148
   %.atomictmp.i.i = alloca i32, align 4
   %this.addr.i = alloca %"struct.std::__1::atomic"*, align 8
-  call void @llvm.dbg.declare(metadata %"struct.std::__1::atomic"** %this.addr.i, metadata !1126, metadata !1117), !dbg !1128
+  call void @llvm.dbg.declare(metadata %"struct.std::__1::atomic"** %this.addr.i, metadata !1149, metadata !1117), !dbg !1151
   %__d.addr.i = alloca i32, align 4
-  call void @llvm.dbg.declare(metadata i32* %__d.addr.i, metadata !1129, metadata !1117), !dbg !1130
+  call void @llvm.dbg.declare(metadata i32* %__d.addr.i, metadata !1152, metadata !1117), !dbg !1153
   %retval = alloca i32, align 4
+  %xx = alloca double, align 8
   store i32 0, i32* %retval, align 4
+  call void @llvm.dbg.declare(metadata double* %xx, metadata !1154, metadata !1117), !dbg !1155
   store %"struct.std::__1::atomic"* @x, %"struct.std::__1::atomic"** %this.addr.i, align 8
   store i32 0, i32* %__d.addr.i, align 4
   %this1.i = load %"struct.std::__1::atomic"*, %"struct.std::__1::atomic"** %this.addr.i, align 8
-  %0 = bitcast %"struct.std::__1::atomic"* %this1.i to %"struct.std::__1::__atomic_base"*, !dbg !1131
-  %1 = bitcast %"struct.std::__1::__atomic_base"* %0 to %"struct.std::__1::__atomic_base.0"*, !dbg !1131
-  %2 = load i32, i32* %__d.addr.i, align 4, !dbg !1132
+  %0 = bitcast %"struct.std::__1::atomic"* %this1.i to %"struct.std::__1::__atomic_base"*, !dbg !1156
+  %1 = bitcast %"struct.std::__1::__atomic_base"* %0 to %"struct.std::__1::__atomic_base.0"*, !dbg !1156
+  %2 = load i32, i32* %__d.addr.i, align 4, !dbg !1157
   store %"struct.std::__1::__atomic_base.0"* %1, %"struct.std::__1::__atomic_base.0"** %this.addr.i.i, align 8
   store i32 %2, i32* %__d.addr.i.i, align 4
   store i32 5, i32* %__m.addr.i.i, align 4
   %this1.i.i = load %"struct.std::__1::__atomic_base.0"*, %"struct.std::__1::__atomic_base.0"** %this.addr.i.i, align 8
-  %__a_.i.i = getelementptr inbounds %"struct.std::__1::__atomic_base.0", %"struct.std::__1::__atomic_base.0"* %this1.i.i, i32 0, i32 0, !dbg !1133
-  %3 = load i32, i32* %__m.addr.i.i, align 4, !dbg !1134
-  %4 = load i32, i32* %__d.addr.i.i, align 4, !dbg !1135
-  store i32 %4, i32* %.atomictmp.i.i, align 4, !dbg !1136
+  %__a_.i.i = getelementptr inbounds %"struct.std::__1::__atomic_base.0", %"struct.std::__1::__atomic_base.0"* %this1.i.i, i32 0, i32 0, !dbg !1158
+  %3 = load i32, i32* %__m.addr.i.i, align 4, !dbg !1159
+  %4 = load i32, i32* %__d.addr.i.i, align 4, !dbg !1160
+  store i32 %4, i32* %.atomictmp.i.i, align 4, !dbg !1161
   switch i32 %3, label %monotonic.i.i [
     i32 3, label %release.i.i
     i32 5, label %seqcst.i.i
-  ], !dbg !1136
+  ], !dbg !1161
 
 monotonic.i.i:                                    ; preds = %entry
-  %5 = load i32, i32* %.atomictmp.i.i, align 4, !dbg !1137
-  store atomic i32 %5, i32* %__a_.i.i monotonic, align 4, !dbg !1137
-  br label %_ZNSt3__16atomicIiEaSEi.exit, !dbg !1137
+  %5 = load i32, i32* %.atomictmp.i.i, align 4, !dbg !1162
+  store atomic i32 %5, i32* %__a_.i.i monotonic, align 4, !dbg !1162
+  br label %_ZNSt3__16atomicIiEaSEi.exit, !dbg !1162
 
 release.i.i:                                      ; preds = %entry
-  %6 = load i32, i32* %.atomictmp.i.i, align 4, !dbg !1139
-  store atomic i32 %6, i32* %__a_.i.i release, align 4, !dbg !1139
-  br label %_ZNSt3__16atomicIiEaSEi.exit, !dbg !1139
+  %6 = load i32, i32* %.atomictmp.i.i, align 4, !dbg !1164
+  store atomic i32 %6, i32* %__a_.i.i release, align 4, !dbg !1164
+  br label %_ZNSt3__16atomicIiEaSEi.exit, !dbg !1164
 
 seqcst.i.i:                                       ; preds = %entry
-  %7 = load i32, i32* %.atomictmp.i.i, align 4, !dbg !1141
-  store atomic i32 %7, i32* %__a_.i.i seq_cst, align 4, !dbg !1141
-  br label %_ZNSt3__16atomicIiEaSEi.exit, !dbg !1141
+  %7 = load i32, i32* %.atomictmp.i.i, align 4, !dbg !1166
+  store atomic i32 %7, i32* %__a_.i.i seq_cst, align 4, !dbg !1166
+  br label %_ZNSt3__16atomicIiEaSEi.exit, !dbg !1166
 
 _ZNSt3__16atomicIiEaSEi.exit:                     ; preds = %monotonic.i.i, %release.i.i, %seqcst.i.i
-  %8 = load i32, i32* %__d.addr.i, align 4, !dbg !1143
-  ret i32 0, !dbg !1144
+  %8 = load i32, i32* %__d.addr.i, align 4, !dbg !1168
+  store %"struct.std::__1::__atomic_base.0"* getelementptr inbounds (%"struct.std::__1::atomic", %"struct.std::__1::atomic"* @x, i32 0, i32 0, i32 0), %"struct.std::__1::__atomic_base.0"** %this.addr.i19, align 8
+  %this1.i20 = load %"struct.std::__1::__atomic_base.0"*, %"struct.std::__1::__atomic_base.0"** %this.addr.i19, align 8
+  store %"struct.std::__1::__atomic_base.0"* %this1.i20, %"struct.std::__1::__atomic_base.0"** %this.addr.i.i17, align 8
+  store i32 5, i32* %__m.addr.i.i18, align 4
+  %this1.i.i21 = load %"struct.std::__1::__atomic_base.0"*, %"struct.std::__1::__atomic_base.0"** %this.addr.i.i17, align 8
+  %__a_.i.i22 = getelementptr inbounds %"struct.std::__1::__atomic_base.0", %"struct.std::__1::__atomic_base.0"* %this1.i.i21, i32 0, i32 0, !dbg !1169
+  %9 = load i32, i32* %__m.addr.i.i18, align 4, !dbg !1170
+  switch i32 %9, label %monotonic.i.i23 [
+    i32 1, label %acquire.i.i
+    i32 2, label %acquire.i.i
+    i32 5, label %seqcst.i.i24
+  ], !dbg !1171
+
+monotonic.i.i23:                                  ; preds = %_ZNSt3__16atomicIiEaSEi.exit
+  %10 = load atomic i32, i32* %__a_.i.i22 monotonic, align 4, !dbg !1172
+  store i32 %10, i32* %atomic-temp.i.i, align 4, !dbg !1172
+  br label %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit, !dbg !1172
+
+acquire.i.i:                                      ; preds = %_ZNSt3__16atomicIiEaSEi.exit, %_ZNSt3__16atomicIiEaSEi.exit
+  %11 = load atomic i32, i32* %__a_.i.i22 acquire, align 4, !dbg !1174
+  store i32 %11, i32* %atomic-temp.i.i, align 4, !dbg !1174
+  br label %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit, !dbg !1174
+
+seqcst.i.i24:                                     ; preds = %_ZNSt3__16atomicIiEaSEi.exit
+  %12 = load atomic i32, i32* %__a_.i.i22 seq_cst, align 4, !dbg !1176
+  store i32 %12, i32* %atomic-temp.i.i, align 4, !dbg !1176
+  br label %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit, !dbg !1176
+
+_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit:       ; preds = %monotonic.i.i23, %acquire.i.i, %seqcst.i.i24
+  %13 = load i32, i32* %atomic-temp.i.i, align 4, !dbg !1178
+  %add = add nsw i32 %13, 2, !dbg !1180
+  %call2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str, i32 0, i32 0), i32 %add), !dbg !1181
+  %14 = load double, double* %xx, align 8, !dbg !1183
+  %conv = fptosi double %14 to i32, !dbg !1183
+  store %"struct.std::__1::__atomic_base"* getelementptr inbounds (%"struct.std::__1::atomic", %"struct.std::__1::atomic"* @x, i32 0, i32 0), %"struct.std::__1::__atomic_base"** %this.addr.i9, align 8
+  store i32 %conv, i32* %__op.addr.i, align 4
+  store i32 5, i32* %__m.addr.i10, align 4
+  %this1.i12 = load %"struct.std::__1::__atomic_base"*, %"struct.std::__1::__atomic_base"** %this.addr.i9, align 8
+  %15 = bitcast %"struct.std::__1::__atomic_base"* %this1.i12 to %"struct.std::__1::__atomic_base.0"*, !dbg !1184
+  %__a_.i13 = getelementptr inbounds %"struct.std::__1::__atomic_base.0", %"struct.std::__1::__atomic_base.0"* %15, i32 0, i32 0, !dbg !1184
+  %16 = load i32, i32* %__m.addr.i10, align 4, !dbg !1185
+  %17 = load i32, i32* %__op.addr.i, align 4, !dbg !1186
+  store i32 %17, i32* %.atomictmp.i, align 4, !dbg !1187
+  switch i32 %16, label %monotonic.i14 [
+    i32 1, label %acquire.i15
+    i32 2, label %acquire.i15
+    i32 3, label %release.i
+    i32 4, label %acqrel.i
+    i32 5, label %seqcst.i16
+  ], !dbg !1187
+
+monotonic.i14:                                    ; preds = %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit
+  %18 = load i32, i32* %.atomictmp.i, align 4, !dbg !1188
+  %19 = atomicrmw add i32* %__a_.i13, i32 %18 monotonic, !dbg !1188
+  store i32 %19, i32* %atomic-temp.i11, align 4, !dbg !1188
+  br label %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit, !dbg !1188
+
+acquire.i15:                                      ; preds = %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit, %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit
+  %20 = load i32, i32* %.atomictmp.i, align 4, !dbg !1190
+  %21 = atomicrmw add i32* %__a_.i13, i32 %20 acquire, !dbg !1190
+  store i32 %21, i32* %atomic-temp.i11, align 4, !dbg !1190
+  br label %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit, !dbg !1190
+
+release.i:                                        ; preds = %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit
+  %22 = load i32, i32* %.atomictmp.i, align 4, !dbg !1192
+  %23 = atomicrmw add i32* %__a_.i13, i32 %22 release, !dbg !1192
+  store i32 %23, i32* %atomic-temp.i11, align 4, !dbg !1192
+  br label %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit, !dbg !1192
+
+acqrel.i:                                         ; preds = %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit
+  %24 = load i32, i32* %.atomictmp.i, align 4, !dbg !1194
+  %25 = atomicrmw add i32* %__a_.i13, i32 %24 acq_rel, !dbg !1194
+  store i32 %25, i32* %atomic-temp.i11, align 4, !dbg !1194
+  br label %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit, !dbg !1194
+
+seqcst.i16:                                       ; preds = %_ZNKSt3__113__atomic_baseIiLb0EEcviEv.exit
+  %26 = load i32, i32* %.atomictmp.i, align 4, !dbg !1196
+  %27 = atomicrmw add i32* %__a_.i13, i32 %26 seq_cst, !dbg !1196
+  store i32 %27, i32* %atomic-temp.i11, align 4, !dbg !1196
+  br label %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit, !dbg !1196
+
+_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit: ; preds = %monotonic.i14, %acquire.i15, %release.i, %acqrel.i, %seqcst.i16
+  %28 = load i32, i32* %atomic-temp.i11, align 4, !dbg !1198
+  %call4 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str, i32 0, i32 0), i32 %28), !dbg !1200
+  store %"struct.std::__1::__atomic_base.0"* getelementptr inbounds (%"struct.std::__1::atomic", %"struct.std::__1::atomic"* @x, i32 0, i32 0, i32 0), %"struct.std::__1::__atomic_base.0"** %this.addr.i7, align 8
+  store i32 5, i32* %__m.addr.i, align 4
+  %this1.i8 = load %"struct.std::__1::__atomic_base.0"*, %"struct.std::__1::__atomic_base.0"** %this.addr.i7, align 8
+  %__a_.i = getelementptr inbounds %"struct.std::__1::__atomic_base.0", %"struct.std::__1::__atomic_base.0"* %this1.i8, i32 0, i32 0, !dbg !1201
+  %29 = load i32, i32* %__m.addr.i, align 4, !dbg !1202
+  switch i32 %29, label %monotonic.i [
+    i32 1, label %acquire.i
+    i32 2, label %acquire.i
+    i32 5, label %seqcst.i
+  ], !dbg !1203
+
+monotonic.i:                                      ; preds = %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit
+  %30 = load atomic i32, i32* %__a_.i monotonic, align 4, !dbg !1204
+  store i32 %30, i32* %atomic-temp.i, align 4, !dbg !1204
+  br label %_ZNKSt3__113__atomic_baseIiLb0EE4loadENS_12memory_orderE.exit, !dbg !1204
+
+acquire.i:                                        ; preds = %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit, %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit
+  %31 = load atomic i32, i32* %__a_.i acquire, align 4, !dbg !1205
+  store i32 %31, i32* %atomic-temp.i, align 4, !dbg !1205
+  br label %_ZNKSt3__113__atomic_baseIiLb0EE4loadENS_12memory_orderE.exit, !dbg !1205
+
+seqcst.i:                                         ; preds = %_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE.exit
+  %32 = load atomic i32, i32* %__a_.i seq_cst, align 4, !dbg !1206
+  store i32 %32, i32* %atomic-temp.i, align 4, !dbg !1206
+  br label %_ZNKSt3__113__atomic_baseIiLb0EE4loadENS_12memory_orderE.exit, !dbg !1206
+
+_ZNKSt3__113__atomic_baseIiLb0EE4loadENS_12memory_orderE.exit: ; preds = %monotonic.i, %acquire.i, %seqcst.i
+  %33 = load i32, i32* %atomic-temp.i, align 4, !dbg !1207
+  %call6 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str, i32 0, i32 0), i32 %33), !dbg !1208
+  ret i32 0, !dbg !1209
 }
 
 ; Function Attrs: nounwind readnone
 declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
 
-attributes #0 = { noinline norecurse nounwind ssp uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="core2" "target-features"="+cx16,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+declare i32 @printf(i8*, ...) #2
+
+attributes #0 = { noinline norecurse ssp uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="core2" "target-features"="+cx16,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 attributes #1 = { nounwind readnone }
+attributes #2 = { "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "less-precise-fpmad"="false" "no-frame-pointer-elim"="true" "no-frame-pointer-elim-non-leaf" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="false" "stack-protector-buffer-size"="8" "target-cpu"="core2" "target-features"="+cx16,+fxsr,+mmx,+sse,+sse2,+sse3,+ssse3,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 
 !llvm.dbg.cu = !{!2}
 !llvm.module.flags = !{!1108, !1109, !1110}
@@ -77,12 +216,12 @@ attributes #1 = { nounwind readnone }
 !0 = !DIGlobalVariableExpression(var: !1)
 !1 = distinct !DIGlobalVariable(name: "x", scope: !2, file: !3, line: 6, type: !955, isLocal: false, isDefinition: true)
 !2 = distinct !DICompileUnit(language: DW_LANG_C_plus_plus, file: !3, producer: "clang version 4.0.0 (tags/RELEASE_400/final)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !4, globals: !17, imports: !18)
-!3 = !DIFile(filename: "test.cpp", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!3 = !DIFile(filename: "test.cpp", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !4 = !{!5}
 !5 = !DICompositeType(tag: DW_TAG_enumeration_type, name: "memory_order", scope: !7, file: !6, line: 581, size: 32, elements: !10, identifier: "_ZTSNSt3__112memory_orderE")
-!6 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/atomic", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!6 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/atomic", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !7 = !DINamespace(name: "__1", scope: !9, file: !8, line: 438, exportSymbols: true)
-!8 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/__config", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!8 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/__config", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !9 = !DINamespace(name: "std", scope: null, file: !8, line: 437)
 !10 = !{!11, !12, !13, !14, !15, !16}
 !11 = !DIEnumerator(name: "memory_order_relaxed", value: 0)
@@ -95,22 +234,22 @@ attributes #1 = { nounwind readnone }
 !18 = !{!19, !23, !29, !33, !34, !42, !44, !52, !56, !58, !60, !65, !69, !73, !75, !79, !84, !88, !92, !94, !96, !98, !100, !102, !104, !108, !112, !116, !120, !123, !127, !131, !135, !139, !143, !146, !148, !150, !152, !154, !156, !158, !160, !162, !164, !166, !168, !170, !172, !174, !176, !180, !183, !186, !189, !190, !197, !203, !209, !214, !218, !222, !226, !231, !236, !240, !244, !248, !252, !256, !260, !264, !268, !272, !276, !280, !284, !289, !293, !295, !299, !301, !308, !312, !317, !321, !323, !327, !331, !333, !337, !343, !347, !351, !357, !411, !412, !413, !418, !420, !424, !428, !432, !434, !438, !442, !446, !457, !459, !463, !467, !471, !473, !477, !481, !485, !487, !489, !491, !495, !499, !504, !508, !514, !518, !522, !524, !526, !528, !532, !536, !540, !542, !544, !548, !552, !554, !556, !560, !564, !566, !570, !572, !574, !577, !579, !581, !583, !585, !587, !589, !591, !593, !595, !597, !599, !601, !603, !607, !612, !617, !622, !624, !627, !629, !631, !633, !635, !637, !639, !641, !643, !645, !649, !653, !657, !659, !663, !667, !679, !680, !695, !696, !697, !702, !704, !708, !712, !716, !720, !722, !726, !730, !734, !738, !742, !746, !748, !750, !754, !759, !763, !767, !771, !775, !779, !783, !787, !791, !793, !795, !799, !801, !805, !809, !814, !816, !818, !820, !824, !828, !832, !834, !838, !840, !842, !844, !846, !852, !856, !858, !864, !869, !873, !877, !882, !887, !891, !895, !899, !903, !905, !907, !911, !912, !916, !917, !921, !925, !930, !935, !939, !945, !949, !951}
 !19 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !20, line: 49)
 !20 = !DIDerivedType(tag: DW_TAG_typedef, name: "ptrdiff_t", file: !21, line: 51, baseType: !22)
-!21 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../lib/clang/4.0.0/include/stddef.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!21 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../lib/clang/4.0.0/include/stddef.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !22 = !DIBasicType(name: "long int", size: 64, encoding: DW_ATE_signed)
 !23 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !24, line: 50)
 !24 = !DIDerivedType(tag: DW_TAG_typedef, name: "size_t", file: !25, line: 30, baseType: !26)
-!25 = !DIFile(filename: "/usr/include/sys/_types/_size_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!25 = !DIFile(filename: "/usr/include/sys/_types/_size_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !26 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_size_t", file: !27, line: 92, baseType: !28)
-!27 = !DIFile(filename: "/usr/include/i386/_types.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!27 = !DIFile(filename: "/usr/include/i386/_types.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !28 = !DIBasicType(name: "long unsigned int", size: 64, encoding: DW_ATE_unsigned)
 !29 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !30, line: 55)
 !30 = !DIDerivedType(tag: DW_TAG_typedef, name: "max_align_t", file: !31, line: 32, baseType: !32)
-!31 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../lib/clang/4.0.0/include/__stddef_max_align_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!31 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../lib/clang/4.0.0/include/__stddef_max_align_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !32 = !DIBasicType(name: "long double", size: 128, encoding: DW_ATE_float)
 !33 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !24, line: 69)
 !34 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !35, line: 70)
 !35 = !DISubprogram(name: "memcpy", scope: !36, file: !36, line: 72, type: !37, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!36 = !DIFile(filename: "/usr/include/string.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!36 = !DIFile(filename: "/usr/include/string.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !37 = !DISubroutineType(types: !38)
 !38 = !{!39, !39, !40, !24}
 !39 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: null, size: 64)
@@ -155,7 +294,7 @@ attributes #1 = { nounwind readnone }
 !78 = !{!24, !48, !50, !24}
 !79 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !80, line: 81)
 !80 = !DISubprogram(name: "memchr", linkageName: "_Z6memchrUa9enable_ifIXLb1EEEPvim", scope: !81, file: !81, line: 99, type: !82, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!81 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/string.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!81 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/string.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !82 = !DISubroutineType(types: !83)
 !83 = !{!39, !39, !64, !24}
 !84 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !85, line: 82)
@@ -188,38 +327,38 @@ attributes #1 = { nounwind readnone }
 !111 = !{!24, !50}
 !112 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !113, line: 153)
 !113 = !DIDerivedType(tag: DW_TAG_typedef, name: "int8_t", file: !114, line: 30, baseType: !115)
-!114 = !DIFile(filename: "/usr/include/sys/_types/_int8_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!114 = !DIFile(filename: "/usr/include/sys/_types/_int8_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !115 = !DIBasicType(name: "signed char", size: 8, encoding: DW_ATE_signed_char)
 !116 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !117, line: 154)
 !117 = !DIDerivedType(tag: DW_TAG_typedef, name: "int16_t", file: !118, line: 30, baseType: !119)
-!118 = !DIFile(filename: "/usr/include/sys/_types/_int16_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!118 = !DIFile(filename: "/usr/include/sys/_types/_int16_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !119 = !DIBasicType(name: "short", size: 16, encoding: DW_ATE_signed)
 !120 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !121, line: 155)
 !121 = !DIDerivedType(tag: DW_TAG_typedef, name: "int32_t", file: !122, line: 30, baseType: !64)
-!122 = !DIFile(filename: "/usr/include/sys/_types/_int32_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!122 = !DIFile(filename: "/usr/include/sys/_types/_int32_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !123 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !124, line: 156)
 !124 = !DIDerivedType(tag: DW_TAG_typedef, name: "int64_t", file: !125, line: 30, baseType: !126)
-!125 = !DIFile(filename: "/usr/include/sys/_types/_int64_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!125 = !DIFile(filename: "/usr/include/sys/_types/_int64_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !126 = !DIBasicType(name: "long long int", size: 64, encoding: DW_ATE_signed)
 !127 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !128, line: 158)
 !128 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint8_t", file: !129, line: 31, baseType: !130)
-!129 = !DIFile(filename: "/usr/include/_types/_uint8_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!129 = !DIFile(filename: "/usr/include/_types/_uint8_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !130 = !DIBasicType(name: "unsigned char", size: 8, encoding: DW_ATE_unsigned_char)
 !131 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !132, line: 159)
 !132 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint16_t", file: !133, line: 31, baseType: !134)
-!133 = !DIFile(filename: "/usr/include/_types/_uint16_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!133 = !DIFile(filename: "/usr/include/_types/_uint16_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !134 = !DIBasicType(name: "unsigned short", size: 16, encoding: DW_ATE_unsigned)
 !135 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !136, line: 160)
 !136 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint32_t", file: !137, line: 31, baseType: !138)
-!137 = !DIFile(filename: "/usr/include/_types/_uint32_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!137 = !DIFile(filename: "/usr/include/_types/_uint32_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !138 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
 !139 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !140, line: 161)
 !140 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint64_t", file: !141, line: 31, baseType: !142)
-!141 = !DIFile(filename: "/usr/include/_types/_uint64_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!141 = !DIFile(filename: "/usr/include/_types/_uint64_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !142 = !DIBasicType(name: "long long unsigned int", size: 64, encoding: DW_ATE_unsigned)
 !143 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !144, line: 163)
 !144 = !DIDerivedType(tag: DW_TAG_typedef, name: "int_least8_t", file: !145, line: 29, baseType: !113)
-!145 = !DIFile(filename: "/usr/include/stdint.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!145 = !DIFile(filename: "/usr/include/stdint.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !146 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !147, line: 164)
 !147 = !DIDerivedType(tag: DW_TAG_typedef, name: "int_least16_t", file: !145, line: 30, baseType: !117)
 !148 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !149, line: 165)
@@ -252,21 +391,21 @@ attributes #1 = { nounwind readnone }
 !175 = !DIDerivedType(tag: DW_TAG_typedef, name: "uint_fast64_t", file: !145, line: 47, baseType: !140)
 !176 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !177, line: 183)
 !177 = !DIDerivedType(tag: DW_TAG_typedef, name: "intptr_t", file: !178, line: 30, baseType: !179)
-!178 = !DIFile(filename: "/usr/include/sys/_types/_intptr_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!178 = !DIFile(filename: "/usr/include/sys/_types/_intptr_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !179 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_intptr_t", file: !27, line: 49, baseType: !22)
 !180 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !181, line: 184)
 !181 = !DIDerivedType(tag: DW_TAG_typedef, name: "uintptr_t", file: !182, line: 30, baseType: !28)
-!182 = !DIFile(filename: "/usr/include/sys/_types/_uintptr_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!182 = !DIFile(filename: "/usr/include/sys/_types/_uintptr_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !183 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !184, line: 186)
 !184 = !DIDerivedType(tag: DW_TAG_typedef, name: "intmax_t", file: !185, line: 32, baseType: !22)
-!185 = !DIFile(filename: "/usr/include/_types/_intmax_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!185 = !DIFile(filename: "/usr/include/_types/_intmax_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !186 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !187, line: 187)
 !187 = !DIDerivedType(tag: DW_TAG_typedef, name: "uintmax_t", file: !188, line: 32, baseType: !28)
-!188 = !DIFile(filename: "/usr/include/_types/_uintmax_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!188 = !DIFile(filename: "/usr/include/_types/_uintmax_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !189 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !24, line: 100)
 !190 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !191, line: 101)
 !191 = !DIDerivedType(tag: DW_TAG_typedef, name: "div_t", file: !192, line: 85, baseType: !193)
-!192 = !DIFile(filename: "/usr/include/stdlib.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!192 = !DIFile(filename: "/usr/include/stdlib.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !193 = distinct !DICompositeType(tag: DW_TAG_structure_type, file: !192, line: 82, size: 64, elements: !194, identifier: "_ZTS5div_t")
 !194 = !{!195, !196}
 !195 = !DIDerivedType(tag: DW_TAG_member, name: "quot", scope: !193, file: !192, line: 83, baseType: !64, size: 32)
@@ -388,7 +527,7 @@ attributes #1 = { nounwind readnone }
 !311 = !{null, !39, !24, !24, !305}
 !312 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !313, line: 139)
 !313 = !DISubprogram(name: "abs", linkageName: "_Z3absx", scope: !314, file: !314, line: 113, type: !315, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!314 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/stdlib.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!314 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/stdlib.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !315 = !DISubroutineType(types: !316)
 !316 = !{!126, !126}
 !317 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !318, line: 140)
@@ -433,7 +572,7 @@ attributes #1 = { nounwind readnone }
 !356 = !DIDerivedType(tag: DW_TAG_const_type, baseType: !342)
 !357 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !358, line: 108)
 !358 = !DIDerivedType(tag: DW_TAG_typedef, name: "FILE", file: !359, line: 153, baseType: !360)
-!359 = !DIFile(filename: "/usr/include/stdio.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!359 = !DIFile(filename: "/usr/include/stdio.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !360 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "__sFILE", file: !359, line: 122, size: 1216, elements: !361, identifier: "_ZTS7__sFILE")
 !361 = !{!362, !364, !365, !366, !367, !368, !373, !374, !375, !379, !383, !391, !395, !396, !399, !400, !404, !408, !409, !410}
 !362 = !DIDerivedType(tag: DW_TAG_member, name: "_p", scope: !360, file: !359, line: 123, baseType: !363, size: 64)
@@ -463,7 +602,7 @@ attributes #1 = { nounwind readnone }
 !386 = !{!387, !39, !387, !64}
 !387 = !DIDerivedType(tag: DW_TAG_typedef, name: "fpos_t", file: !359, line: 77, baseType: !388)
 !388 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_off_t", file: !389, line: 71, baseType: !390)
-!389 = !DIFile(filename: "/usr/include/sys/_types.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!389 = !DIFile(filename: "/usr/include/sys/_types.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !390 = !DIDerivedType(tag: DW_TAG_typedef, name: "__int64_t", file: !27, line: 46, baseType: !126)
 !391 = !DIDerivedType(tag: DW_TAG_member, name: "_write", scope: !360, file: !359, line: 136, baseType: !392, size: 64, offset: 640)
 !392 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !393, size: 64)
@@ -650,7 +789,7 @@ attributes #1 = { nounwind readnone }
 !573 = !DISubprogram(name: "vprintf", scope: !359, file: !359, line: 279, type: !562, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
 !574 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !575, line: 104)
 !575 = !DISubprogram(name: "isalnum", linkageName: "_Z7isalnumi", scope: !576, file: !576, line: 212, type: !568, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!576 = !DIFile(filename: "/usr/include/ctype.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!576 = !DIFile(filename: "/usr/include/ctype.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !577 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !578, line: 105)
 !578 = !DISubprogram(name: "isalpha", linkageName: "_Z7isalphai", scope: !576, file: !576, line: 218, type: !568, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
 !579 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !580, line: 106)
@@ -679,28 +818,28 @@ attributes #1 = { nounwind readnone }
 !602 = !DISubprogram(name: "toupper", linkageName: "_Z7toupperi", scope: !576, file: !576, line: 298, type: !568, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
 !603 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !604, line: 63)
 !604 = !DIDerivedType(tag: DW_TAG_typedef, name: "wint_t", file: !605, line: 31, baseType: !606)
-!605 = !DIFile(filename: "/usr/include/sys/_types/_wint_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!605 = !DIFile(filename: "/usr/include/sys/_types/_wint_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !606 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_wint_t", file: !27, line: 112, baseType: !64)
 !607 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !608, line: 64)
 !608 = !DIDerivedType(tag: DW_TAG_typedef, name: "wctrans_t", file: !609, line: 31, baseType: !610)
-!609 = !DIFile(filename: "/usr/include/_types/_wctrans_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!609 = !DIFile(filename: "/usr/include/_types/_wctrans_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !610 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_wctrans_t", file: !611, line: 40, baseType: !64)
-!611 = !DIFile(filename: "/usr/include/_types.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!611 = !DIFile(filename: "/usr/include/_types.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !612 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !613, line: 65)
 !613 = !DIDerivedType(tag: DW_TAG_typedef, name: "wctype_t", file: !614, line: 31, baseType: !615)
-!614 = !DIFile(filename: "/usr/include/_types/_wctype_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!614 = !DIFile(filename: "/usr/include/_types/_wctype_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !615 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_wctype_t", file: !611, line: 42, baseType: !616)
 !616 = !DIDerivedType(tag: DW_TAG_typedef, name: "__uint32_t", file: !27, line: 45, baseType: !138)
 !617 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !618, line: 66)
 !618 = !DISubprogram(name: "iswalnum", linkageName: "_Z8iswalnumi", scope: !619, file: !619, line: 66, type: !620, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!619 = !DIFile(filename: "/usr/include/_wctype.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!619 = !DIFile(filename: "/usr/include/_wctype.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !620 = !DISubroutineType(types: !621)
 !621 = !{!64, !604}
 !622 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !623, line: 67)
 !623 = !DISubprogram(name: "iswalpha", linkageName: "_Z8iswalphai", scope: !619, file: !619, line: 72, type: !620, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
 !624 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !625, line: 68)
 !625 = !DISubprogram(name: "iswblank", linkageName: "_Z8iswblanki", scope: !626, file: !626, line: 50, type: !620, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!626 = !DIFile(filename: "/usr/include/wctype.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!626 = !DIFile(filename: "/usr/include/wctype.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !627 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !628, line: 69)
 !628 = !DISubprogram(name: "iswcntrl", linkageName: "_Z8iswcntrli", scope: !619, file: !619, line: 78, type: !620, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
 !629 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !630, line: 70)
@@ -743,7 +882,7 @@ attributes #1 = { nounwind readnone }
 !666 = !{!608, !50}
 !667 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !668, line: 116)
 !668 = !DIDerivedType(tag: DW_TAG_typedef, name: "mbstate_t", file: !669, line: 31, baseType: !670)
-!669 = !DIFile(filename: "/usr/include/sys/_types/_mbstate_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!669 = !DIFile(filename: "/usr/include/sys/_types/_mbstate_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !670 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_mbstate_t", file: !27, line: 81, baseType: !671)
 !671 = !DIDerivedType(tag: DW_TAG_typedef, name: "__mbstate_t", file: !27, line: 79, baseType: !672)
 !672 = distinct !DICompositeType(tag: DW_TAG_union_type, file: !27, line: 76, size: 1024, elements: !673, identifier: "_ZTS11__mbstate_t")
@@ -756,7 +895,7 @@ attributes #1 = { nounwind readnone }
 !679 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !24, line: 117)
 !680 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !681, line: 118)
 !681 = distinct !DICompositeType(tag: DW_TAG_structure_type, name: "tm", file: !682, line: 73, size: 448, elements: !683, identifier: "_ZTS2tm")
-!682 = !DIFile(filename: "/usr/include/time.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!682 = !DIFile(filename: "/usr/include/time.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !683 = !{!684, !685, !686, !687, !688, !689, !690, !691, !692, !693, !694}
 !684 = !DIDerivedType(tag: DW_TAG_member, name: "tm_sec", scope: !681, file: !682, line: 74, baseType: !64, size: 32)
 !685 = !DIDerivedType(tag: DW_TAG_member, name: "tm_min", scope: !681, file: !682, line: 75, baseType: !64, size: 32, offset: 32)
@@ -773,7 +912,7 @@ attributes #1 = { nounwind readnone }
 !696 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !358, line: 120)
 !697 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !698, line: 121)
 !698 = !DISubprogram(name: "fwprintf", scope: !699, file: !699, line: 103, type: !700, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!699 = !DIFile(filename: "/usr/include/wchar.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!699 = !DIFile(filename: "/usr/include/wchar.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !700 = !DISubroutineType(types: !701)
 !701 = !{!64, !417, !355, null}
 !702 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !703, line: 122)
@@ -885,7 +1024,7 @@ attributes #1 = { nounwind readnone }
 !808 = !{!24, !341, !355, !24}
 !809 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !810, line: 156)
 !810 = !DISubprogram(name: "wcschr", linkageName: "_Z6wcschrUa9enable_ifIXLb1EEEPww", scope: !811, file: !811, line: 137, type: !812, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
-!811 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/wchar.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!811 = !DIFile(filename: "/Users/aser/Documents/LLVM/llvm-4.0/build/bin/../include/c++/v1/wchar.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !812 = !DISubroutineType(types: !813)
 !813 = !{!341, !341, !342}
 !814 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !815, line: 157)
@@ -983,12 +1122,12 @@ attributes #1 = { nounwind readnone }
 !906 = !DISubprogram(name: "wprintf", scope: !699, file: !699, line: 155, type: !897, isLocal: false, isDefinition: false, flags: DIFlagPrototyped, isOptimized: false)
 !907 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !908, line: 56)
 !908 = !DIDerivedType(tag: DW_TAG_typedef, name: "clock_t", file: !909, line: 30, baseType: !910)
-!909 = !DIFile(filename: "/usr/include/sys/_types/_clock_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!909 = !DIFile(filename: "/usr/include/sys/_types/_clock_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !910 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_clock_t", file: !27, line: 117, baseType: !28)
 !911 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !24, line: 57)
 !912 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !913, line: 58)
 !913 = !DIDerivedType(tag: DW_TAG_typedef, name: "time_t", file: !914, line: 30, baseType: !915)
-!914 = !DIFile(filename: "/usr/include/sys/_types/_time_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex2")
+!914 = !DIFile(filename: "/usr/include/sys/_types/_time_t.h", directory: "/Users/aser/Dropbox/papers/C++11/Checker11/examples/mutex3")
 !915 = !DIDerivedType(tag: DW_TAG_typedef, name: "__darwin_time_t", file: !27, line: 120, baseType: !22)
 !916 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !681, line: 59)
 !917 = !DIImportedEntity(tag: DW_TAG_imported_declaration, scope: !7, entity: !918, line: 60)
@@ -1189,33 +1328,98 @@ attributes #1 = { nounwind readnone }
 !1112 = distinct !DISubprogram(name: "main", scope: !3, file: !3, line: 8, type: !258, isLocal: false, isDefinition: true, scopeLine: 8, flags: DIFlagPrototyped, isOptimized: false, unit: !2, variables: !1113)
 !1113 = !{}
 !1114 = !DILocalVariable(name: "this", arg: 1, scope: !1115, type: !1116, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1115 = distinct !DISubprogram(name: "store", linkageName: "_ZNSt3__113__atomic_baseIiLb0EE5storeEiNS_12memory_orderE", scope: !961, file: !6, line: 916, type: !983, isLocal: false, isDefinition: true, scopeLine: 918, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !982, variables: !1113)
-!1116 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !961, size: 64)
+!1115 = distinct !DISubprogram(name: "load", linkageName: "_ZNKSt3__113__atomic_baseIiLb0EE4loadENS_12memory_orderE", scope: !961, file: !6, line: 924, type: !990, isLocal: false, isDefinition: true, scopeLine: 926, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !989, variables: !1113)
+!1116 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !976, size: 64)
 !1117 = !DIExpression()
 !1118 = !DILocation(line: 0, scope: !1115, inlinedAt: !1119)
-!1119 = distinct !DILocation(line: 1098, column: 18, scope: !1120, inlinedAt: !1121)
-!1120 = distinct !DISubprogram(name: "operator=", linkageName: "_ZNSt3__16atomicIiEaSEi", scope: !955, file: !6, line: 1097, type: !1105, isLocal: false, isDefinition: true, scopeLine: 1098, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !1104, variables: !1113)
-!1121 = distinct !DILocation(line: 10, column: 7, scope: !1112)
-!1122 = !DILocalVariable(name: "__d", arg: 2, scope: !1115, file: !6, line: 916, type: !64)
-!1123 = !DILocation(line: 916, column: 20, scope: !1115, inlinedAt: !1119)
-!1124 = !DILocalVariable(name: "__m", arg: 3, scope: !1115, file: !6, line: 916, type: !981)
-!1125 = !DILocation(line: 916, column: 38, scope: !1115, inlinedAt: !1119)
-!1126 = !DILocalVariable(name: "this", arg: 1, scope: !1120, type: !1127, flags: DIFlagArtificial | DIFlagObjectPointer)
-!1127 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !955, size: 64)
-!1128 = !DILocation(line: 0, scope: !1120, inlinedAt: !1121)
-!1129 = !DILocalVariable(name: "__d", arg: 2, scope: !1120, file: !6, line: 1097, type: !64)
-!1130 = !DILocation(line: 1097, column: 23, scope: !1120, inlinedAt: !1121)
-!1131 = !DILocation(line: 1098, column: 18, scope: !1120, inlinedAt: !1121)
-!1132 = !DILocation(line: 1098, column: 24, scope: !1120, inlinedAt: !1121)
-!1133 = !DILocation(line: 918, column: 30, scope: !1115, inlinedAt: !1119)
-!1134 = !DILocation(line: 918, column: 41, scope: !1115, inlinedAt: !1119)
-!1135 = !DILocation(line: 918, column: 36, scope: !1115, inlinedAt: !1119)
-!1136 = !DILocation(line: 918, column: 10, scope: !1115, inlinedAt: !1119)
-!1137 = !DILocation(line: 918, column: 10, scope: !1138, inlinedAt: !1119)
-!1138 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 1)
-!1139 = !DILocation(line: 918, column: 10, scope: !1140, inlinedAt: !1119)
-!1140 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 2)
-!1141 = !DILocation(line: 918, column: 10, scope: !1142, inlinedAt: !1119)
-!1142 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 3)
-!1143 = !DILocation(line: 1098, column: 37, scope: !1120, inlinedAt: !1121)
-!1144 = !DILocation(line: 14, column: 5, scope: !1112)
+!1119 = distinct !DILocation(line: 930, column: 53, scope: !1120, inlinedAt: !1121)
+!1120 = distinct !DISubprogram(name: "operator int", linkageName: "_ZNKSt3__113__atomic_baseIiLb0EEcviEv", scope: !961, file: !6, line: 930, type: !996, isLocal: false, isDefinition: true, scopeLine: 930, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !995, variables: !1113)
+!1121 = distinct !DILocation(line: 12, column: 25, scope: !1112)
+!1122 = !DILocalVariable(name: "__m", arg: 2, scope: !1115, file: !6, line: 924, type: !981)
+!1123 = !DILocation(line: 924, column: 27, scope: !1115, inlinedAt: !1119)
+!1124 = !DILocalVariable(name: "this", arg: 1, scope: !1120, type: !1116, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1125 = !DILocation(line: 0, scope: !1120, inlinedAt: !1121)
+!1126 = !DILocalVariable(name: "this", arg: 1, scope: !1127, type: !1128, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1127 = distinct !DISubprogram(name: "fetch_add", linkageName: "_ZNSt3__113__atomic_baseIiLb1EE9fetch_addEiNS_12memory_orderE", scope: !958, file: !6, line: 1016, type: !1054, isLocal: false, isDefinition: true, scopeLine: 1017, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !1053, variables: !1113)
+!1128 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !958, size: 64)
+!1129 = !DILocation(line: 0, scope: !1127, inlinedAt: !1130)
+!1130 = distinct !DILocation(line: 13, column: 27, scope: !1112)
+!1131 = !DILocalVariable(name: "__op", arg: 2, scope: !1127, file: !6, line: 1016, type: !64)
+!1132 = !DILocation(line: 1016, column: 23, scope: !1127, inlinedAt: !1130)
+!1133 = !DILocalVariable(name: "__m", arg: 3, scope: !1127, file: !6, line: 1016, type: !981)
+!1134 = !DILocation(line: 1016, column: 42, scope: !1127, inlinedAt: !1130)
+!1135 = !DILocation(line: 0, scope: !1115, inlinedAt: !1136)
+!1136 = distinct !DILocation(line: 14, column: 27, scope: !1112)
+!1137 = !DILocation(line: 924, column: 27, scope: !1115, inlinedAt: !1136)
+!1138 = !DILocalVariable(name: "this", arg: 1, scope: !1139, type: !1140, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1139 = distinct !DISubprogram(name: "store", linkageName: "_ZNSt3__113__atomic_baseIiLb0EE5storeEiNS_12memory_orderE", scope: !961, file: !6, line: 916, type: !983, isLocal: false, isDefinition: true, scopeLine: 918, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !982, variables: !1113)
+!1140 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !961, size: 64)
+!1141 = !DILocation(line: 0, scope: !1139, inlinedAt: !1142)
+!1142 = distinct !DILocation(line: 1098, column: 18, scope: !1143, inlinedAt: !1144)
+!1143 = distinct !DISubprogram(name: "operator=", linkageName: "_ZNSt3__16atomicIiEaSEi", scope: !955, file: !6, line: 1097, type: !1105, isLocal: false, isDefinition: true, scopeLine: 1098, flags: DIFlagPrototyped, isOptimized: false, unit: !2, declaration: !1104, variables: !1113)
+!1144 = distinct !DILocation(line: 11, column: 7, scope: !1112)
+!1145 = !DILocalVariable(name: "__d", arg: 2, scope: !1139, file: !6, line: 916, type: !64)
+!1146 = !DILocation(line: 916, column: 20, scope: !1139, inlinedAt: !1142)
+!1147 = !DILocalVariable(name: "__m", arg: 3, scope: !1139, file: !6, line: 916, type: !981)
+!1148 = !DILocation(line: 916, column: 38, scope: !1139, inlinedAt: !1142)
+!1149 = !DILocalVariable(name: "this", arg: 1, scope: !1143, type: !1150, flags: DIFlagArtificial | DIFlagObjectPointer)
+!1150 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !955, size: 64)
+!1151 = !DILocation(line: 0, scope: !1143, inlinedAt: !1144)
+!1152 = !DILocalVariable(name: "__d", arg: 2, scope: !1143, file: !6, line: 1097, type: !64)
+!1153 = !DILocation(line: 1097, column: 23, scope: !1143, inlinedAt: !1144)
+!1154 = !DILocalVariable(name: "xx", scope: !1112, file: !3, line: 10, type: !213)
+!1155 = !DILocation(line: 10, column: 12, scope: !1112)
+!1156 = !DILocation(line: 1098, column: 18, scope: !1143, inlinedAt: !1144)
+!1157 = !DILocation(line: 1098, column: 24, scope: !1143, inlinedAt: !1144)
+!1158 = !DILocation(line: 918, column: 30, scope: !1139, inlinedAt: !1142)
+!1159 = !DILocation(line: 918, column: 41, scope: !1139, inlinedAt: !1142)
+!1160 = !DILocation(line: 918, column: 36, scope: !1139, inlinedAt: !1142)
+!1161 = !DILocation(line: 918, column: 10, scope: !1139, inlinedAt: !1142)
+!1162 = !DILocation(line: 918, column: 10, scope: !1163, inlinedAt: !1142)
+!1163 = !DILexicalBlockFile(scope: !1139, file: !6, discriminator: 1)
+!1164 = !DILocation(line: 918, column: 10, scope: !1165, inlinedAt: !1142)
+!1165 = !DILexicalBlockFile(scope: !1139, file: !6, discriminator: 2)
+!1166 = !DILocation(line: 918, column: 10, scope: !1167, inlinedAt: !1142)
+!1167 = !DILexicalBlockFile(scope: !1139, file: !6, discriminator: 3)
+!1168 = !DILocation(line: 1098, column: 37, scope: !1143, inlinedAt: !1144)
+!1169 = !DILocation(line: 926, column: 36, scope: !1115, inlinedAt: !1119)
+!1170 = !DILocation(line: 926, column: 42, scope: !1115, inlinedAt: !1119)
+!1171 = !DILocation(line: 926, column: 17, scope: !1115, inlinedAt: !1119)
+!1172 = !DILocation(line: 926, column: 17, scope: !1173, inlinedAt: !1119)
+!1173 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 1)
+!1174 = !DILocation(line: 926, column: 17, scope: !1175, inlinedAt: !1119)
+!1175 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 2)
+!1176 = !DILocation(line: 926, column: 17, scope: !1177, inlinedAt: !1119)
+!1177 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 3)
+!1178 = !DILocation(line: 926, column: 17, scope: !1179, inlinedAt: !1119)
+!1179 = !DILexicalBlockFile(scope: !1115, file: !6, discriminator: 4)
+!1180 = !DILocation(line: 12, column: 26, scope: !1112)
+!1181 = !DILocation(line: 12, column: 5, scope: !1182)
+!1182 = !DILexicalBlockFile(scope: !1112, file: !3, discriminator: 1)
+!1183 = !DILocation(line: 13, column: 37, scope: !1112)
+!1184 = !DILocation(line: 1017, column: 47, scope: !1127, inlinedAt: !1130)
+!1185 = !DILocation(line: 1017, column: 59, scope: !1127, inlinedAt: !1130)
+!1186 = !DILocation(line: 1017, column: 53, scope: !1127, inlinedAt: !1130)
+!1187 = !DILocation(line: 1017, column: 17, scope: !1127, inlinedAt: !1130)
+!1188 = !DILocation(line: 1017, column: 17, scope: !1189, inlinedAt: !1130)
+!1189 = !DILexicalBlockFile(scope: !1127, file: !6, discriminator: 1)
+!1190 = !DILocation(line: 1017, column: 17, scope: !1191, inlinedAt: !1130)
+!1191 = !DILexicalBlockFile(scope: !1127, file: !6, discriminator: 2)
+!1192 = !DILocation(line: 1017, column: 17, scope: !1193, inlinedAt: !1130)
+!1193 = !DILexicalBlockFile(scope: !1127, file: !6, discriminator: 3)
+!1194 = !DILocation(line: 1017, column: 17, scope: !1195, inlinedAt: !1130)
+!1195 = !DILexicalBlockFile(scope: !1127, file: !6, discriminator: 4)
+!1196 = !DILocation(line: 1017, column: 17, scope: !1197, inlinedAt: !1130)
+!1197 = !DILexicalBlockFile(scope: !1127, file: !6, discriminator: 5)
+!1198 = !DILocation(line: 1017, column: 17, scope: !1199, inlinedAt: !1130)
+!1199 = !DILexicalBlockFile(scope: !1127, file: !6, discriminator: 6)
+!1200 = !DILocation(line: 13, column: 5, scope: !1182)
+!1201 = !DILocation(line: 926, column: 36, scope: !1115, inlinedAt: !1136)
+!1202 = !DILocation(line: 926, column: 42, scope: !1115, inlinedAt: !1136)
+!1203 = !DILocation(line: 926, column: 17, scope: !1115, inlinedAt: !1136)
+!1204 = !DILocation(line: 926, column: 17, scope: !1173, inlinedAt: !1136)
+!1205 = !DILocation(line: 926, column: 17, scope: !1175, inlinedAt: !1136)
+!1206 = !DILocation(line: 926, column: 17, scope: !1177, inlinedAt: !1136)
+!1207 = !DILocation(line: 926, column: 17, scope: !1179, inlinedAt: !1136)
+!1208 = !DILocation(line: 14, column: 5, scope: !1182)
+!1209 = !DILocation(line: 15, column: 5, scope: !1112)

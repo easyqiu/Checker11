@@ -39,7 +39,7 @@ extern "C" void preCmpXchg_double(void* addr, double expect,
         double newVal, int successOrdering, int failureOrdering);
 
 extern "C" void preRMW_Xchg(void* addr, int val, int order);
-extern "C" void preRMW_Add(void* addr, int val, int order);
+extern "C" int preRMW_Add(void* addr, int val, int order);
 extern "C" void preRMW_Sub(void* addr, int val, int order);
 extern "C" void preRMW_And(void* addr, int val, int order);
 extern "C" void preRMW_Nand(void* addr, int val, int order);

@@ -116,16 +116,37 @@ void Solver::collectData() {
                     break;
                 case ATOMIC_UNINIT:
                     break;
-                case ATOMIC_READ:
-                    readset[action->get_location_str()].push_back(dynamic_cast<RWAction*>(action));
+                case ATOMIC_READ: {
+                    RWAction* rwAction = dynamic_cast<RWAction*>(action);
+                    readset[action->get_location_str()].push_back(rwAction);
+                    if (rwAction->isSCAction())
+                        scActions.insert(action);
                     break;
-                case ATOMIC_WRITE:
-                    writeset[action->get_location_str()].push_back(dynamic_cast<RWAction*>(action));
+                }
+                case ATOMIC_WRITE: {
+                    RWAction* rwAction = dynamic_cast<RWAction*>(action);
+                    writeset[action->get_location_str()].push_back(rwAction);
+                    if (rwAction->isSCAction())
+                        scActions.insert(action);
                     break;
+                }
                 case ATOMIC_RMW:
-                case ATOMIC_FENCE:
-                    fenceset.insert(dynamic_cast<FenceAction*>(action));
+                case ATOMIC_FENCE: {
+                    FenceAction* fenceAction = dynamic_cast<FenceAction*>(action);
+                    fenceset.insert(fenceAction);
+                    if (fenceAction->isSCAction())
+                        scActions.insert(action);
                     break;
+                }
+
+                case ATOMIC_RMW_ADD: {
+                    RMWAction* rmwAction = dynamic_cast<RMWAction*>(action);
+                    readset[action->get_location_str()].push_back(rmwAction);
+                    writeset[action->get_location_str()].push_back(rmwAction);
+                    if (rmwAction->isSCAction())
+                        scActions.insert(action);
+                    break;
+                }
                 case ATOMIC_RMWR:
                 case ATOMIC_RMWC:
                 case ATOMIC_INIT:
@@ -171,7 +192,7 @@ void Solver::enforceRW(RWAction *read, uint64_t val) {
 }
 
 // generate a schedule which enforces 'read' reads value 'val'.
-void Solver::generateSchedule(RWAction *read, uint64_t val) {
+bool Solver::generateSchedule(RWAction *read, uint64_t val) {
     exe->getSolutionValues().clear();
     exe->set_formulaFile(getenv("formulaFile") + util::stringValueOf(exe->get_inputIndex()));
     exe->set_inputIndex(exe->get_inputIndex()+1);
@@ -179,10 +200,11 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     exe->resetSolver();
     //z3solver->openOutputFile();
     //z3solver->resetDeclaredVars();
-    cmg = new ConstModelGen(exe, this, z3solver);
 
+    cmg = new ConstModelGen(exe, this, z3solver);
     cmg->addBasicConstraints();
     cmg->addMOConstraints();
+    cmg->addSCConstraints();
     cmg->addLockConstraints();
 
     map<RWAction *, uint64_t> enforcePairs;
@@ -197,8 +219,11 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
             if (r == NULL || r->is_write() == true)
                 continue;
 
+            uint64_t readVal = r->get_value();
+            if (dynamic_cast<RMWAction*>(r))
+                readVal = dynamic_cast<RMWAction*>(r)->getReadValue();
             if (r != read)
-                enforcePairs[r] = r->get_value();
+                enforcePairs[r] = readVal;
             else
                 enforcePairs[r] = val;
             std::cout << "enforce: " << r << " " << r->get_uniq_name() << " " << enforcePairs[r] << " " << "\n";
@@ -242,7 +267,10 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
                 if (r->is_write()) continue ;
 
                 //std::cout << "enforcing: " << r->get_action_str() << " " << r->get_value() << "\n";
-                enforcePairs[r] = r->get_value();
+                uint64_t readVal = r->get_value();
+                if (dynamic_cast<RMWAction*>(r))
+                    readVal = dynamic_cast<RMWAction*>(r)->getReadValue();
+                enforcePairs[r] = readVal;
             }
         }
     }
@@ -250,17 +278,20 @@ void Solver::generateSchedule(RWAction *read, uint64_t val) {
     bool flag = cmg->addRWRelations(enforcePairs);
     if (!flag) {// identify inconsistency
         delete cmg;
-        return;
+        return false;
     }
 
     cmg->enforceConsistentConstraint();
 
     z3solver->solve();
     //exe->printSolutionValue();
-    if (read != NULL)
+    if (read != NULL && cmg->getConsistency())
         exe->generateSolutionFile(enforcePairs);
 
+    bool retFlag = cmg->getConsistency();
     delete  cmg;
+
+    return retFlag;
 }
 
 void Solver::generateModel() {
@@ -282,14 +313,27 @@ void Solver::generateModel() {
             for (vector<RWAction*>::iterator wIt = writeList.begin();
                     wIt != writeList.end(); ++wIt) {
                 RWAction* write = *wIt;
+
+                if (read == write) continue ;
+
                 if (curSch->inPrefix(std::make_pair(thread->getName(), read->get_seq_number())))
                     continue ;
-                if (read->get_value() == write->get_value())
+
+                uint64_t readVal = read->get_value();
+                if (dynamic_cast<RMWAction*>(read))
+                    readVal = dynamic_cast<RMWAction*>(read)->getReadValue();
+
+                uint64_t writeVal = write->get_value();
+                if (dynamic_cast<RMWAction*>(write))
+                    writeVal = dynamic_cast<RMWAction*>(write)->getWriteValue();
+
+                if (readVal == writeVal)
                     continue ;
 
-                std::cout << "Generating: " << read << " " << write << " " << read->get_action_str() << " " << write->get_action_str() << "\n";
+                std::cout << "Generating: " << read->get_uniq_name() << " " << write->get_uniq_name() << " "
+                          << readVal << " " << writeVal << "\n";
                 //std::cout << "B name: " << read->get_binary_rel_name(write) << "\n";
-                generateSchedule(read, write->get_value());
+                generateSchedule(read, writeVal);
             }
         }
     }
@@ -300,10 +344,9 @@ void Solver::addSWPair(Action *a, Action *b) {
 }
 
 bool Solver::isConsistent() {
-    generateSchedule(NULL, 0);
     std::cout << "Checking consistency of the current execution!\n";
-    if (exe->getSolutionValues().size() == 0) {
-        std::cout << "Fail!\n";
+    if (generateSchedule(NULL, 0) == false || exe->getSolutionValues().size() == 0) {
+        std::cout << "Fail!: " << cmg->getConsistency() << "\n";
         //exe->getChecker()->addSch(exe->getCurSch());
         return false;
     }

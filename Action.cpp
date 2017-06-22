@@ -26,6 +26,9 @@ std::string Action::get_type_str(bool simple) const {
         case ATOMIC_UNINIT: return simple? "Uninitial" : "uninitialized";
         case ATOMIC_READ: return simple? "ARead" : "atomic read";
         case ATOMIC_WRITE: return simple? "AWrite" : "atomic write";
+
+        case ATOMIC_RMW_ADD: return simple? "ARMW_ADD" : "atomic rmw_add";
+
         case ATOMIC_RMW: return simple? "ARMW" : "atomic rmw";
         case ATOMIC_FENCE: return simple? "AFence" : "atomic fence";
         case ATOMIC_RMWR: return simple? "ARMWR" : "atomic rmwr";
@@ -81,6 +84,8 @@ std::string Action::get_action_str() {
             //RWAction* a = dynamic_cast<RWAction*>(this);
             //ss << " " << location << " " << a->get_mo() << " " << a->get_value() << "\n";
             return ss.str();
+        case ATOMIC_RMW_ADD:
+            return ss.str();
 
         case ATOMIC_RMW:
         case ATOMIC_RMWR:
@@ -129,6 +134,11 @@ std::string Action::get_binary_rel_name(Action *action) {
     return str;
 }
 
+std::string Action::get_SC_name() {
+    std::string str = "S_" + this->get_uniq_name();
+    return str;
+}
+
 std::string Action::get_uniq_name() {
     return thread->getName() + "-" + util::stringValueOf(get_seq_number());
 }
@@ -150,14 +160,36 @@ std::string RWAction::get_consraint_name() {
     }
 }
 
+uint64_t RWAction::get_value() const {
+    return value;
+}
+
 std::string RWAction::get_mo_constraint() {
     return "M_" + this->get_uniq_name();
+}
+
+bool RWAction::isSCAction() {
+    if (order == memory_order_seq_cst)
+        return true;
+    return false;
+}
+
+std::string RMWAction::get_action_str() {
+    std::stringstream ss;
+    ss << get_type_str(true) << " " << location << " " << order << " " << value << "\n";
+    return ss.str();
 }
 
 std::string FenceAction::get_action_str() {
     std::stringstream ss;
     ss << get_type_str(true) << " " << order << "\n";
     return ss.str();
+}
+
+bool FenceAction::isSCAction() {
+    if (order == memory_order_seq_cst)
+        return true;
+    return false;
 }
 
 std::string LockAction::get_action_str() {

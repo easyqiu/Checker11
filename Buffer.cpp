@@ -35,7 +35,7 @@ uint64_t Buffer::getValue() {
 
 void Buffer::updateBuffer(uint64_t val) {
     if (verify) {
-        assert(val == verifyVal);
+        //assert(val == verifyVal);
         verify = false;
     }
 

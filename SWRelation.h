@@ -20,8 +20,8 @@ namespace checker {
             toAction = b;
         }
 
-        void setHBList(set<Action*> list) { hbList = list; }
-        void setHAList(set<Action*> list) { haList = list; }
+        void setHBList(set<Action*> list) { std::cout << "set hblist: " << this << "\n"; hbList = list; }
+        void setHAList(set<Action*> list) { std::cout << "set halist: " << this << "\n"; haList = list; }
 
         set<Action*> getHBList() { return hbList; }
         set<Action*> getHAList() { return haList; }

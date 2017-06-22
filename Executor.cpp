@@ -295,6 +295,33 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
 
 }
 
+int Executor::execute_pre_rmw_add_action(std::string tid, void *addr, int val, int mo) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_ADD, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_add!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal+val);
+    return expectedVal;
+
+}
+
 void Executor::execute_lock_action(std::string tid, void *addr) {
     Thread* thread = getThread(tid);
     Action *action = new LockAction(this, thread, ATOMIC_LOCK, addr);
@@ -498,7 +525,12 @@ void Executor::generateSolutionFile(std::map<RWAction *, uint64_t> enforcePairs)
                     std::cout << "action: " << fname2 << " " << seq_num2 << " " << action->get_action_str() << "\n";
                     RWAction* write = dynamic_cast<RWAction*>(list[util::intValueOf(seq_num2)]);
                     //std::cout << "write: " << write << "\n";
-                    val = write->get_value();
+
+                    uint64_t writeVal = write->get_value();
+                    if (dynamic_cast<RMWAction*>(write))
+                        writeVal = dynamic_cast<RMWAction*>(write)->getWriteValue();
+
+                    val = writeVal;
                     break ;
                 }
             }

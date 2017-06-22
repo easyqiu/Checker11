@@ -19,8 +19,10 @@ void f1()
     checker_thread_begin("f1");
     //checker_shared((void*)&data1);
     //checker_shared((void*)&data2);
-    data1 = x.load(std::memory_order_seq_cst);
-    y.store(1, std::memory_order_seq_cst);
+    data1 = x.load(std::memory_order_relaxed);
+    //y.store(1, std::memory_order_relaxed);
+    int m = y.fetch_add(1, std::memory_order_relaxed);
+    //printf("m = %d\n", &m);
     checker_thread_end();
 }
 
@@ -29,8 +31,9 @@ void f2()
     checker_thread_begin("f2");
     //checker_shared((void*)&data1);
     //checker_shared((void*)&data2);
-    data2 = y.load(std::memory_order_seq_cst);
-    x.store(1, std::memory_order_seq_cst);
+    data2 = y.load(std::memory_order_relaxed);
+    //x.store(1, std::memory_order_relaxed);
+    x.fetch_add(1, std::memory_order_relaxed);
     checker_thread_end();
 }
  
@@ -52,9 +55,8 @@ int user_main()
     checker_thread_join(b.get_id());
     
     a.join(); b.join();
-    std::cout << "data: " << data1 << " " << data2 << "\n";
-    if (!(data1 == 1 && data2 == 1)) // may be violated
-        std::cout << "ERROR!\n";
+    printf("data: %d, %d\n", data1, data2);
+    //std::cout << "data: " << data1 << " " << data2 << "\n";
     checker_thread_end();
     checker_solver();
     return 0;

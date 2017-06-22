@@ -19,7 +19,8 @@ void f2() {
 int main() {
     std::thread t1(f1);
     std::thread t2(f2);
-    assert(!(data1==1 && data2 == 1)); // never be violated
     t1.join(); t2.join();
+    assert(!(data1==1 && data2 == 1)); // never be violated
+    printf("data1=%d, data2=%d\n", &data1, &data2);
     return 0;
 }
