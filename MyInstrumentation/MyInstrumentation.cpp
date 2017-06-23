@@ -190,42 +190,156 @@ namespace {
       myFunctions["preUnlock"] = unLockF;
 
       paramTypes.clear();
+      paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
+      paramTypes.push_back(Type::getInt8Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt8Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
+      Function* cmpXchgIntF_8 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_8", &M);
+      myFunctions["preCmpXchg_8"] = cmpXchgIntF_8;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
+      paramTypes.push_back(Type::getInt16Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt16Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getInt16Ty(M.getContext()), paramTypes, false);
+      Function* cmpXchgIntF_16 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_16", &M);
+      myFunctions["preCmpXchg_16"] = cmpXchgIntF_16;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
+      Function* cmpXchgIntF_32 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_32", &M);
+      myFunctions["preCmpXchg_32"] = cmpXchgIntF_32;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
+      Function* cmpXchgIntF_64 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_64", &M);
+      myFunctions["preCmpXchg_64"] = cmpXchgIntF_64;
+
+      paramTypes.clear();
       paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
+      Function *rmwXchgF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_8", &M);
+      myFunctions["preRMW_Xchg_8"] = rmwXchgF_8;
+      Function *rmwAddF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_8", &M);
+      myFunctions["preRMW_Add_8"] = rmwAddF_8;
+      Function *rmwSubF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_8", &M);
+      myFunctions["preRMW_Sub_8"] = rmwSubF_8;
+      Function *rmwAndF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_8", &M);
+      myFunctions["preRMW_And_8"] = rmwAndF_8;
+      Function *rmwNandF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_8", &M);
+      myFunctions["preRMW_Nand_8"] = rmwNandF_8;
+      Function *rmwOrF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_8", &M);
+      myFunctions["preRMW_Or_8"] = rmwOrF_8;
+      Function *rmwXorF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_8", &M);
+      myFunctions["preRMW_Xor_8"] = rmwXorF_8;
+      Function *rmwMaxF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_8", &M);
+      myFunctions["preRMW_Max_8"] = rmwMaxF_8;
+      Function *rmwMinF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_8", &M);
+      myFunctions["preRMW_Min_8"] = rmwMinF_8;
+      Function *rmwUMaxF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_8", &M);
+      myFunctions["preRMW_UMax_8"] = rmwUMaxF_8;
+      Function *rmwUMinF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_8", &M);
+      myFunctions["preRMW_UMin_8"] = rmwUMinF_8;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt16Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function* cmpXchgIntF = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_int", &M);
-      myFunctions["preCmpXchg_int"] = cmpXchgIntF;
+      FT = FunctionType::get(Type::getInt16Ty(M.getContext()), paramTypes, false);
+      Function *rmwXchgF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_16", &M);
+      myFunctions["preRMW_Xchg_16"] = rmwXchgF_16;
+      Function *rmwAddF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_16", &M);
+      myFunctions["preRMW_Add_16"] = rmwAddF_16;
+      Function *rmwSubF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_16", &M);
+      myFunctions["preRMW_Sub_16"] = rmwSubF_16;
+      Function *rmwAndF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_16", &M);
+      myFunctions["preRMW_And_16"] = rmwAndF_16;
+      Function *rmwNandF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_16", &M);
+      myFunctions["preRMW_Nand_16"] = rmwNandF_16;
+      Function *rmwOrF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_16", &M);
+      myFunctions["preRMW_Or_16"] = rmwOrF_16;
+      Function *rmwXorF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_16", &M);
+      myFunctions["preRMW_Xor_16"] = rmwXorF_16;
+      Function *rmwMaxF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_16", &M);
+      myFunctions["preRMW_Max_16"] = rmwMaxF_16;
+      Function *rmwMinF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_16", &M);
+      myFunctions["preRMW_Min_16"] = rmwMinF_16;
+      Function *rmwUMaxF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_16", &M);
+      myFunctions["preRMW_UMax_16"] = rmwUMaxF_16;
+      Function *rmwUMinF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_16", &M);
+      myFunctions["preRMW_UMin_16"] = rmwUMinF_16;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
-      Function *rmwXchgF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg", &M);
-      myFunctions["preRMW_Xchg"] = rmwXchgF; 
-      Function *rmwAddF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add", &M);
-      myFunctions["preRMW_Add"] = rmwAddF;
-      Function *rmwSubF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub", &M);
-      myFunctions["preRMW_Sub"] = rmwSubF;
-      Function *rmwAndF = Function::Create(FT, Function::ExternalLinkage, "preRMW_And", &M);
-      myFunctions["preRMW_And"] = rmwAndF;
-      Function *rmwNandF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand", &M);
-      myFunctions["preRMW_Nand"] = rmwNandF;
-      Function *rmwOrF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or", &M);
-      myFunctions["preRMW_Or"] = rmwOrF;
-      Function *rmwXorF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor", &M);
-      myFunctions["preRMW_Xor"] = rmwXorF;
-      Function *rmwMaxF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max", &M);
-      myFunctions["preRMW_Max"] = rmwMaxF;
-      Function *rmwMinF = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min", &M);
-      myFunctions["preRMW_Min"] = rmwMinF;
-      Function *rmwUMaxF = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax", &M);
-      myFunctions["preRMW_UMax"] = rmwUMaxF;
-      Function *rmwUMinF = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin", &M);
-      myFunctions["preRMW_UMin"] = rmwUMinF;
+      Function *rmwXchgF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_32", &M);
+      myFunctions["preRMW_Xchg_32"] = rmwXchgF_32;
+      Function *rmwAddF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_32", &M);
+      myFunctions["preRMW_Add_32"] = rmwAddF_32;
+      Function *rmwSubF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_32", &M);
+      myFunctions["preRMW_Sub_32"] = rmwSubF_32;
+      Function *rmwAndF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_32", &M);
+      myFunctions["preRMW_And_32"] = rmwAndF_32;
+      Function *rmwNandF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_32", &M);
+      myFunctions["preRMW_Nand_32"] = rmwNandF_32;
+      Function *rmwOrF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_32", &M);
+      myFunctions["preRMW_Or_32"] = rmwOrF_32;
+      Function *rmwXorF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_32", &M);
+      myFunctions["preRMW_Xor_32"] = rmwXorF_32;
+      Function *rmwMaxF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_32", &M);
+      myFunctions["preRMW_Max_32"] = rmwMaxF_32;
+      Function *rmwMinF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_32", &M);
+      myFunctions["preRMW_Min_32"] = rmwMinF_32;
+      Function *rmwUMaxF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_32", &M);
+      myFunctions["preRMW_UMax_32"] = rmwUMaxF_32;
+      Function *rmwUMinF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_32", &M);
+      myFunctions["preRMW_UMin_32"] = rmwUMinF_32;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
+      Function *rmwXchgF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_64", &M);
+      myFunctions["preRMW_Xchg_64"] = rmwXchgF_64;
+      Function *rmwAddF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_64", &M);
+      myFunctions["preRMW_Add_64"] = rmwAddF_64;
+      Function *rmwSubF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_64", &M);
+      myFunctions["preRMW_Sub_64"] = rmwSubF_64;
+      Function *rmwAndF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_64", &M);
+      myFunctions["preRMW_And_64"] = rmwAndF_64;
+      Function *rmwNandF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_64", &M);
+      myFunctions["preRMW_Nand_64"] = rmwNandF_64;
+      Function *rmwOrF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_64", &M);
+      myFunctions["preRMW_Or_64"] = rmwOrF_64;
+      Function *rmwXorF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_64", &M);
+      myFunctions["preRMW_Xor_64"] = rmwXorF_64;
+      Function *rmwMaxF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_64", &M);
+      myFunctions["preRMW_Max_64"] = rmwMaxF_64;
+      Function *rmwMinF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_64", &M);
+      myFunctions["preRMW_Min_64"] = rmwMinF_64;
+      Function *rmwUMaxF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_64", &M);
+      myFunctions["preRMW_UMax_64"] = rmwUMaxF_64;
+      Function *rmwUMinF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_64", &M);
+      myFunctions["preRMW_UMin_64"] = rmwUMinF_64;
     }
 
     
@@ -537,25 +651,31 @@ namespace {
 
         //v1->dump(), v2->dump(), v3->dump();
 
-        if (v1->getType() != Type::getInt8PtrTy(cmpXchgI->getContext())) {
-          BitCastInst* castInst = new BitCastInst(v1, Type::getInt8PtrTy(cmpXchgI->getContext()), "myCast", cmpXchgI);
-          v1 = castInst;
-        }
-
-        if (v3->getType() == Type::getInt32Ty(cmpXchgI->getContext())) {
-            Function* func = myFunctions["preCmpXchg_int"];
-            params.push_back(v1);
-            params.push_back(v2);
-            params.push_back(v3);
-            params.push_back(o1);
-            params.push_back(o2);
-            CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
+        Function* func;
+        if (v1->getType() == Type::getInt8PtrTy(cmpXchgI->getContext())) {
+            func = myFunctions["preCmpXchg_8"];
+        } else if (v1->getType() == Type::getInt16PtrTy(cmpXchgI->getContext())) {
+            func = myFunctions["preCmpXchg_16"];
+        } else if (v1->getType() == Type::getInt32PtrTy(cmpXchgI->getContext())) {
+            func = myFunctions["preCmpXchg_32"];
+        } else if (v1->getType() == Type::getInt64PtrTy(cmpXchgI->getContext())) {
+            func = myFunctions["preCmpXchg_64"];
         } else {
-            v3->getType()->dump();
-            errs() << "Not handle this type of cmpXchg inst!\n";
+            assert(false && "Don't handle this type of cmpXchg instruction!\n");
             return ;
         }
-        
+
+        if (v1->getType() != Type::getInt8PtrTy(cmpXchgI->getContext())) {
+            BitCastInst* castInst = new BitCastInst(v1, Type::getInt8PtrTy(cmpXchgI->getContext()), "myCast", cmpXchgI);
+            v1 = castInst;
+        }
+
+        params.push_back(v1);
+        params.push_back(v2);
+        params.push_back(v3);
+        params.push_back(o1);
+        params.push_back(o2);
+        CallInst::Create(func->getFunctionType(), func, params, "myCmpXchg", cmpXchgI);
     }
 
     void instrRMW(Instruction* inst) {
@@ -576,32 +696,165 @@ namespace {
         params.push_back(v1);
         params.push_back(v2);
         params.push_back(o);
+
+        Function* func;
+        Type* ty;
+        if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) {
+            func = myFunctions["preAtomicLoad_char"];
+            ty = Type::getInt8Ty(rmwI->getContext());
+        }
         switch (op) {
             case AtomicRMWInst::BinOp::Xchg: {
-                                             
-                                             }
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Xchg_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Xchg_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Xchg_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Xchg_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
             case AtomicRMWInst::BinOp::Add: { 
-                Function* func = myFunctions["preRMW_Add"];
-                CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", rmwI);
-                rmwI->replaceAllUsesWith(callI);
-                //rmwI->eraseFromParent();
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Add_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Add_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Add_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Add_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
                 break; 
             }
-            case AtomicRMWInst::BinOp::Sub: {}
-            case AtomicRMWInst::BinOp::And: {}
-            case AtomicRMWInst::BinOp::Nand: {}
-            case AtomicRMWInst::BinOp::Or: {}
-            case AtomicRMWInst::BinOp::Xor: {}
-            case AtomicRMWInst::BinOp::Max: {}
-            case AtomicRMWInst::BinOp::Min: {}
-            case AtomicRMWInst::BinOp::UMax: {}
-            case AtomicRMWInst::BinOp::UMin: {}
+            case AtomicRMWInst::BinOp::Sub: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Sub_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Sub_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Sub_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Sub_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::And: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_And_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_And_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_And_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_And_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::Nand: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Nand_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Nand_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Nand_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Nand_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::Or: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Or_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Or_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Or_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Or_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::Xor: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Xor_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Xor_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Xor_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Xor_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::Max: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Max_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Max_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Max_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Max_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;                            
+            }
+            case AtomicRMWInst::BinOp::Min: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_Min_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Min_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Min_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_Min_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::UMax: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_UMax_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_UMax_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_UMax_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_UMax_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
+            case AtomicRMWInst::BinOp::UMin: {
+                if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
+                    func = myFunctions["preRMW_UMin_8"];
+                else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_UMin_16"];
+                else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_UMin_32"];
+                else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
+                    func = myFunctions["preRMW_UMin_64"];
+                else
+                    assert(false && "Do not handle this type!\n");
+                break;
+            }
             default: {
                 inst->dump();
                 errs() << "Not handle this type of cmpXchg inst!\n";
                 return ;
             }
         }
+        CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", rmwI);
+        rmwI->replaceAllUsesWith(callI);
     }
 
     void instrInst(Instruction* inst) {

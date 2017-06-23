@@ -292,10 +292,64 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
         usleep(1000);
         std::cout << "waiting write!\n";
     }
+}
+
+int64_t Executor::execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
+                                            int64_t expectV, int64_t newVal) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_XCHG, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_xchg!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal);
+    return expectedVal;
 
 }
 
-int Executor::execute_pre_rmw_add_action(std::string tid, void *addr, int val, int mo) {
+int64_t Executor::execute_pre_rmw_xchg_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_XCHG, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_xchg!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal);
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_add_action(std::string tid, void *addr, int mo, int64_t val) {
     Thread* thread = getThread(tid);
     RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_ADD, mo, addr, val);
 
@@ -321,6 +375,250 @@ int Executor::execute_pre_rmw_add_action(std::string tid, void *addr, int val, i
     return expectedVal;
 
 }
+
+int64_t Executor::execute_pre_rmw_sub_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_SUB, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_sub!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal-val);
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_and_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_AND, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_and!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal & val);
+    return expectedVal;
+}
+
+int64_t Executor::execute_pre_rmw_nand_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_NAND, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_nand!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(~(expectedVal & val));
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_or_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_OR, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_or!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal | val);
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_xor_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_XOR, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_xor!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal ^ val);
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_max_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_MAX, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_max!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal > val ? expectedVal : val);
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_umax_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_UMAX, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_umax!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal > val ? expectedVal : val);
+    return expectedVal;
+
+}
+
+
+int64_t Executor::execute_pre_rmw_min_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_MIN, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_min!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal < val ? expectedVal : val);
+    return expectedVal;
+
+}
+
+int64_t Executor::execute_pre_rmw_umin_action(std::string tid, void *addr, int mo, int64_t val) {
+    Thread* thread = getThread(tid);
+    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_UMIN, mo, addr, val);
+
+    thread->addAction(action);
+    std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
+    while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
+        usleep(1000);
+        std::cout << "waiting rmw_umin!\n";
+    }
+
+    int expectedVal;
+    std::map <std::pair<std::string, int>, uint64_t> readMap = curSch->getReadValueMap();
+    if (readMap.find(currentPair) != readMap.end()) {
+        expectedVal = readMap[currentPair];
+        thread->fetchExpectVal(addr, expectedVal);
+    } else {
+        expectedVal = thread->getValue(addr);
+    }
+
+    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    action->setReadValue(expectedVal);
+    action->setWriteValue(expectedVal < val ? expectedVal : val);
+    return expectedVal;
+
+}
+
 
 void Executor::execute_lock_action(std::string tid, void *addr) {
     Thread* thread = getThread(tid);

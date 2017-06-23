@@ -139,7 +139,18 @@ void Solver::collectData() {
                     break;
                 }
 
-                case ATOMIC_RMW_ADD: {
+                case ATOMIC_RMW_XCHG:
+                case ATOMIC_RMW_ADD:
+                case ATOMIC_RMW_SUB:
+                case ATOMIC_RMW_AND:
+                case ATOMIC_RMW_NAND:
+                case ATOMIC_RMW_OR:
+                case ATOMIC_RMW_XOR:
+                case ATOMIC_RMW_MAX:
+                case ATOMIC_RMW_MIN:
+                case ATOMIC_RMW_UMAX:
+                case ATOMIC_RMW_UMIN:
+                {
                     RMWAction* rmwAction = dynamic_cast<RMWAction*>(action);
                     readset[action->get_location_str()].push_back(rmwAction);
                     writeset[action->get_location_str()].push_back(rmwAction);
@@ -147,6 +158,7 @@ void Solver::collectData() {
                         scActions.insert(action);
                     break;
                 }
+
                 case ATOMIC_RMWR:
                 case ATOMIC_RMWC:
                 case ATOMIC_INIT:

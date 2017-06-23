@@ -27,7 +27,18 @@ namespace checker {
 		ATOMIC_READ,          /**< An atomic read action */
 		ATOMIC_WRITE,         /**< An atomic write action */
 
+		ATOMIC_RMW_XCHG,
 		ATOMIC_RMW_ADD,
+		ATOMIC_RMW_SUB,
+		ATOMIC_RMW_AND,
+		ATOMIC_RMW_NAND,
+		ATOMIC_RMW_OR,
+		ATOMIC_RMW_XOR,
+		ATOMIC_RMW_MAX,
+		ATOMIC_RMW_MIN,
+		ATOMIC_RMW_UMAX,
+		ATOMIC_RMW_UMIN,
+
 		ATOMIC_RMWR,          /**< The read part of an atomic RMW action */
 		ATOMIC_RMW,           /**< The write part of an atomic RMW action */
 		ATOMIC_RMWC,          /**< Convert an atomic RMW action into a READ */

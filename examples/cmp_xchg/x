@@ -1,0 +1,74 @@
+Instrument code: begin!
+add a function: preStore
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a non-atomic store! 
+Is Intrinsic!
+Identify an atomic load!: monotonic
+Identify a non-atomic store! 
+%struct.node*
+Not handle this type for non-atomic store!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a cmpXchg!: release monotonic
+Identify a non-atomic store! 
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a cmpXchg!: release monotonic
+Is Intrinsic!
+Is Intrinsic!
+Identify a non-atomic store! 
+Is Intrinsic!
+Identify an atomic load!: monotonic
+Identify a non-atomic store! 
+%struct.node*
+Not handle this type for non-atomic store!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a cmpXchg!: release monotonic
+Identify a non-atomic store! 
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a cmpXchg!: release monotonic
+Is Intrinsic!
+Is Intrinsic!
+Identify a non-atomic store! 
+Is Intrinsic!
+Identify an atomic load!: monotonic
+Identify a non-atomic store! 
+%struct.node*
+Not handle this type for non-atomic store!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a cmpXchg!: release monotonic
+Identify a non-atomic store! 
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Is Intrinsic!
+Identify a cmpXchg!: release monotonic
+Is Intrinsic!
+Instrument code: end!

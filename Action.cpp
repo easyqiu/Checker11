@@ -27,7 +27,17 @@ std::string Action::get_type_str(bool simple) const {
         case ATOMIC_READ: return simple? "ARead" : "atomic read";
         case ATOMIC_WRITE: return simple? "AWrite" : "atomic write";
 
+        case ATOMIC_RMW_XCHG: return simple? "ARMW_XCHG" : "atomic rmw_xchg";
         case ATOMIC_RMW_ADD: return simple? "ARMW_ADD" : "atomic rmw_add";
+        case ATOMIC_RMW_SUB: return simple? "ARMW_SUB" : "atomic rmw_sub";
+        case ATOMIC_RMW_AND: return simple? "ARMW_AND" : "atomic rmw_and";
+        case ATOMIC_RMW_NAND: return simple? "ARMW_NAND" : "atomic rmw_nand";
+        case ATOMIC_RMW_OR: return simple? "ARMW_OR" : "atomic rmw_or";
+        case ATOMIC_RMW_XOR: return simple? "ARMW_XOR" : "atomic rmw_xor";
+        case ATOMIC_RMW_MAX: return simple? "ARMW_MAX" : "atmoic rmw_max";
+        case ATOMIC_RMW_MIN: return simple? "ARMW_MIN" : "atomic rmw_min";
+        case ATOMIC_RMW_UMAX: return simple? "ARMW_UMAX" : "atomic rmw_umax";
+        case ATOMIC_RMW_UMIN: return simple? "ARWM_UMIN" : "atomic rmw_umin";
 
         case ATOMIC_RMW: return simple? "ARMW" : "atomic rmw";
         case ATOMIC_FENCE: return simple? "AFence" : "atomic fence";
@@ -84,7 +94,18 @@ std::string Action::get_action_str() {
             //RWAction* a = dynamic_cast<RWAction*>(this);
             //ss << " " << location << " " << a->get_mo() << " " << a->get_value() << "\n";
             return ss.str();
+
+        case ATOMIC_RMW_XCHG:
         case ATOMIC_RMW_ADD:
+        case ATOMIC_RMW_SUB:
+        case ATOMIC_RMW_AND:
+        case ATOMIC_RMW_NAND:
+        case ATOMIC_RMW_OR:
+        case ATOMIC_RMW_XOR:
+        case ATOMIC_RMW_MAX:
+        case ATOMIC_RMW_MIN:
+        case ATOMIC_RMW_UMAX:
+        case ATOMIC_RMW_UMIN:
             return ss.str();
 
         case ATOMIC_RMW:

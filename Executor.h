@@ -52,7 +52,30 @@ namespace  checker {
 
         void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
 
-        int execute_pre_rmw_add_action(std::string tid, void *addr, int mo, int val);
+        int64_t execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
+                                            int64_t expectV, int64_t newVal);
+
+        int64_t execute_pre_rmw_xchg_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_add_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_sub_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_and_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_nand_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_or_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_xor_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_max_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_min_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_umax_action(std::string tid, void *addr, int mo, int64_t val);
+
+        int64_t execute_pre_rmw_umin_action(std::string tid, void *addr, int mo, int64_t val);
 
         void execute_tryLock_action(std::string tid, void *addr);
 

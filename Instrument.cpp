@@ -302,116 +302,245 @@ void preCmpXchg_double(void* addr, double expect, double newVal, int successOrde
     updateTrace(ss.str());
 }
 
-void preRMW_Xchg(void* addr, int val, int order) {
+int8_t preCmpXchg_8(void* addr, int8_t expect,
+        int8_t newVal, int successOrdering, int failureOrdering) {
+    return preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+}
+
+int16_t preCmpXchg_16(void* addr, int16_t expect,
+        int16_t newVal, int successOrdering, int failureOrdering) {
+    return preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+}
+
+int32_t preCmpXchg_32(void* addr, int32_t expect,
+        int32_t newVal, int successOrdering, int failureOrdering) {
+    return preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+}
+
+int64_t preCmpXchg_64(void* addr, int64_t expect,
+        int64_t newVal, int successOrdering, int failureOrdering) {
+    return exe->execute_pre_rmw_xchg_action(getThreadName(std::this_thread::get_id()), addr, successOrdering,
+            failureOrdering, expect, newVal);
+}
+
+int8_t preRMW_Xchg_8(void* addr, int8_t val, int order) {
+    return preRMW_And_64(addr, val, order);
+}
+
+int16_t preRMW_Xchg_16(void* addr, int16_t val, int order) {
+    return preRMW_And_64(addr, val, order);
+}
+
+int32_t preRMW_Xchg_32(void* addr, int32_t val, int order) {
+    return preRMW_And_64(addr, val, order);
+}
+
+int64_t preRMW_Xchg_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_xchg: " << addr << " " << val << " " << order << "\n";
 # endif
-    
-    std::stringstream ss;
-    ss << "rmw_xchg_int" << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+
+    return exe->execute_pre_rmw_xchg_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-int preRMW_Add(void* addr, int val, int order) {
-# ifdef DEFBUG
+int8_t preRMW_Add_8(void* addr, int8_t val, int order) {
+    return preRMW_Add_64(addr, val, order);
+}
+
+int16_t preRMW_Add_16(void* addr, int16_t val, int order) {
+    return preRMW_Add_64(addr, val, order);
+}
+
+int32_t preRMW_Add_32(void* addr, int32_t val, int order) {
+    return preRMW_Add_64(addr, val, order);
+}
+
+int64_t preRMW_Add_64(void* addr, int64_t val, int order) {
+# ifdef DEBUG
     std::cout << "In rmw_add: " << addr << " " << val << " " << order << "\n";
 # endif
-    
-    /*std::stringstream ss;
-    ss << "rmw_add_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());*/
 
-    int retV = exe->execute_pre_rmw_add_action(getThreadName(std::this_thread::get_id()), addr, val, order);
-    return retV;
+    return exe->execute_pre_rmw_add_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_Sub(void* addr, int val, int order) {
+int8_t preRMW_Sub_8(void* addr, int8_t val, int order) {
+    return preRMW_Sub_64(addr, val, order);
+}
+
+int16_t preRMW_Sub_16(void* addr, int16_t val, int order) {
+    return preRMW_Sub_64(addr, val, order);
+}
+
+int32_t preRMW_Sub_32(void* addr, int32_t val, int order) {
+    return preRMW_Sub_64(addr, val, order);
+}
+
+int64_t preRMW_Sub_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_sub: " << addr << " " << val << " " << order << "\n";
 # endif
-    
-    std::stringstream ss;
-    ss << "rmw_sub_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+
+    return exe->execute_pre_rmw_sub_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_And(void* addr, int val, int order) {
+int8_t preRMW_And_8(void* addr, int8_t val, int order) {
+    return preRMW_And_64(addr, val, order);
+}
+
+int16_t preRMW_And_16(void* addr, int16_t val, int order) {
+    return preRMW_And_64(addr, val, order);
+}
+
+int32_t preRMW_And_32(void* addr, int32_t val, int order) {
+    return preRMW_And_64(addr, val, order);
+}
+
+int64_t preRMW_And_64(void* addr, int64_t val, int order) {
 # ifdef DEFBUG
     std::cout << "In rmw_and: " << addr << " " << val << " " << order << "\n";
 # endif
-    
-    std::stringstream ss;
-    ss << "rmw_and_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+
+    return exe->execute_pre_rmw_and_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
-void preRMW_Nand(void* addr, int val, int order) {
+
+int8_t preRMW_Nand_8(void* addr, int8_t val, int order) {
+    return preRMW_Nand_64(addr, val, order);
+}
+
+int16_t preRMW_Nand_16(void* addr, int16_t val, int order) {
+    return preRMW_Nand_64(addr, val, order);
+}
+
+int32_t preRMW_Nand_32(void* addr, int32_t val, int order) {
+    return preRMW_Nand_64(addr, val, order);
+}
+
+int64_t preRMW_Nand_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_nand: " << addr << " " << val << " " << order << "\n";
 # endif
-    
-    std::stringstream ss;
-    ss << "rmw_nand_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+
+    return exe->execute_pre_rmw_nand_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_Or(void* addr, int val, int order) {
+int8_t preRMW_Or_8(void* addr, int8_t val, int order) {
+    return preRMW_Or_64(addr, val, order);
+}
+
+int16_t preRMW_Or_16(void* addr, int16_t val, int order) {
+    return preRMW_Or_64(addr, val, order);
+}
+
+int32_t preRMW_Or_32(void* addr, int32_t val, int order) {
+    return preRMW_Or_64(addr, val, order);
+}
+
+int64_t preRMW_Or_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_or: " << addr << " " << val << " " << order << "\n";
 # endif 
     
-    std::stringstream ss;
-    ss << "rmw_or: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    return exe->execute_pre_rmw_or_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_Xor(void* addr, int val, int order) {
+int8_t preRMW_Xor_8(void* addr, int8_t val, int order) {
+    return preRMW_Xor_64(addr, val, order);
+}
+
+int16_t preRMW_Xor_16(void* addr, int16_t val, int order) {
+    return preRMW_Xor_64(addr, val, order);
+}
+
+int32_t preRMW_Xor_32(void* addr, int32_t val, int order) {
+    return preRMW_Xor_64(addr, val, order);
+}
+
+int64_t preRMW_Xor_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_xor: " << addr << " " << val << " " << order << "\n";
 # endif
     
-    std::stringstream ss;
-    ss << "rmw_xor_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    return exe->execute_pre_rmw_xor_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_Max(void* addr, int val, int order) {
+int8_t preRMW_Max_8(void* addr, int8_t val, int order) {
+    return preRMW_Max_64(addr, val, order);
+}
+
+int16_t preRMW_Max_16(void* addr, int16_t val, int order) {
+    return preRMW_Max_64(addr, val, order);
+}
+
+int32_t preRMW_Max_32(void* addr, int32_t val, int order) {
+    return preRMW_Max_64(addr, val, order);
+}
+
+int64_t preRMW_Max_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_max: " << addr << " " << val << " " << order << "\n";
 # endif
     
-    std::stringstream ss;
-    ss << "rmw_max_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    return exe->execute_pre_rmw_max_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_Min(void* addr, int val, int order) {
+int8_t preRMW_Min_8(void* addr, int8_t val, int order) {
+    return preRMW_Min_64(addr, val, order);
+}
+
+int16_t preRMW_Min_16(void* addr, int16_t val, int order) {
+    return preRMW_Min_64(addr, val, order);
+}
+
+int32_t preRMW_Min_32(void* addr, int32_t val, int order) {
+    return preRMW_Min_64(addr, val, order);
+}
+
+int64_t preRMW_Min_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_min: " << addr << " " << val << " " << order << "\n";
 # endif
     
-    std::stringstream ss;
-    ss << "rmw_min_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    return exe->execute_pre_rmw_min_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_UMax(void* addr, int val, int order) {
+int8_t preRMW_UMax_8(void* addr, int8_t val, int order) {
+    return preRMW_UMax_64(addr, val, order);
+}
+
+int16_t preRMW_UMax_16(void* addr, int16_t val, int order) {
+    return preRMW_UMax_64(addr, val, order);
+}
+
+int32_t preRMW_UMax_32(void* addr, int32_t val, int order) {
+    return preRMW_UMax_64(addr, val, order);
+}
+
+int64_t preRMW_UMax_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_umax: " << addr << " " << val << " " << order << "\n";
 # endif
     
-    std::stringstream ss;
-    ss << "rmw_umax_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    return exe->execute_pre_rmw_umax_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
-void preRMW_UMin(void* addr, int val, int order) {
+int8_t preRMW_UMin_8(void* addr, int8_t val, int order) {
+    return preRMW_UMin_64(addr, val, order);
+}
+
+int16_t preRMW_UMin_16(void* addr, int16_t val, int order) {
+    return preRMW_UMin_64(addr, val, order);
+}
+
+int32_t preRMW_UMin_32(void* addr, int32_t val, int order) {
+    return preRMW_UMin_64(addr, val, order);
+}
+
+int64_t preRMW_UMin_64(void* addr, int64_t val, int order) {
 # ifdef DEBUG
     std::cout << "In rmw_umin: " << addr << " " << val << " " << order << "\n";
 # endif
     
-    std::stringstream ss;
-    ss << "rmw_umin_int: " << addr << " " << val << " " << order << "\n";
-    updateTrace(ss.str());
+    return exe->execute_pre_rmw_umin_action(getThreadName(std::this_thread::get_id()), addr, order, val);
 }
 
 void checker_shared(void* addr) {
