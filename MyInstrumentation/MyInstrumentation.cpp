@@ -54,7 +54,43 @@ namespace {
       FunctionType *FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
       Function *storeF_char = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicStore_char", &M);
       myFunctions["preNonAtomicStore_char"] = storeF_char; 
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *printF_64 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_64", &M);
+      myFunctions["myPrintf_64"] = printF_64;
       
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *printF_32 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_32", &M);
+      myFunctions["myPrintf_32"] = printF_32;
+      
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt8Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *printF_8 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_8", &M);
+      myFunctions["myPrintf_8"] = printF_8;
+      
+      paramTypes.clear();
+      std::vector<Type*> typess;
+      typess.push_back(Type::getInt8Ty(M.getContext()));
+      typess.push_back(Type::getInt1Ty(M.getContext()));
+      StructType* ssType = StructType::get(M.getContext(), typess);
+      paramTypes.push_back(ssType);
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *printF_81 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_81", &M);
+      myFunctions["myPrintf_81"] = printF_81;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt1Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *printF_1 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_1", &M);
+      myFunctions["myPrintf_1"] = printF_1;
+      std::cout << "printfffff: \n";
+      printF_1->dump();
+
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
@@ -195,9 +231,17 @@ namespace {
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
+      std::vector<Type*> types;
+      types.push_back(Type::getInt64Ty(M.getContext()));
+      types.push_back(Type::getInt1Ty(M.getContext()));
+      StructType* sType = StructType::get(M.getContext(), types);
+      //FT = FunctionType::get(sType, paramTypes, false);
+      FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_8 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_8", &M);
       myFunctions["preCmpXchg_8"] = cmpXchgIntF_8;
+      std::cout << "yyyyyyyyyyyyyyyyyyyyyyyyyyy\n";
+      cmpXchgIntF_8->dump();
+      cmpXchgIntF_8->getFunctionType()->getReturnType()->dump();
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
@@ -205,7 +249,11 @@ namespace {
       paramTypes.push_back(Type::getInt16Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt16Ty(M.getContext()), paramTypes, false);
+      types.clear();
+      types.push_back(Type::getInt64Ty(M.getContext()));
+      types.push_back(Type::getInt1Ty(M.getContext()));
+      sType = StructType::get(M.getContext(), types);
+      FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_16 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_16", &M);
       myFunctions["preCmpXchg_16"] = cmpXchgIntF_16;
 
@@ -215,7 +263,11 @@ namespace {
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
+      types.clear();
+      types.push_back(Type::getInt64Ty(M.getContext()));
+      types.push_back(Type::getInt1Ty(M.getContext()));
+      sType = StructType::get(M.getContext(), types);
+      FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_32 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_32", &M);
       myFunctions["preCmpXchg_32"] = cmpXchgIntF_32;
 
@@ -225,7 +277,11 @@ namespace {
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
+      types.clear();
+      types.push_back(Type::getInt64Ty(M.getContext()));
+      types.push_back(Type::getInt1Ty(M.getContext()));
+      sType = StructType::get(M.getContext(), types);
+      FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_64 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_64", &M);
       myFunctions["preCmpXchg_64"] = cmpXchgIntF_64;
 
@@ -617,7 +673,7 @@ namespace {
     void instrStore(Instruction* inst) {
       StoreInst* storeI = dyn_cast<StoreInst>(inst);
       if (storeI->isAtomic() == false)
-          instrNonAtomicStore(storeI);
+          ;//instrNonAtomicStore(storeI);
       else 
           instrAtomicStore(storeI);
     }
@@ -652,6 +708,10 @@ namespace {
         //v1->dump(), v2->dump(), v3->dump();
 
         Function* func;
+        //std::cout << "cmppp//ppppppppppppp: \n";
+        //inst->getType()->dump();
+
+        //func = myFunctions["preCmpXchg_64"];
         if (v1->getType() == Type::getInt8PtrTy(cmpXchgI->getContext())) {
             func = myFunctions["preCmpXchg_8"];
         } else if (v1->getType() == Type::getInt16PtrTy(cmpXchgI->getContext())) {
@@ -668,14 +728,132 @@ namespace {
         if (v1->getType() != Type::getInt8PtrTy(cmpXchgI->getContext())) {
             BitCastInst* castInst = new BitCastInst(v1, Type::getInt8PtrTy(cmpXchgI->getContext()), "myCast", cmpXchgI);
             v1 = castInst;
+        } 
+
+        /*if (v2->getType() != Type::getInt64Ty(cmpXchgI->getContext())) {
+            std::cout << "22233\n";
+            v2->dump();
+            BitCastInst* castInst = new BitCastInst(v2, Type::getInt64Ty(cmpXchgI->getContext()), "myCast", cmpXchgI);
+            std::cout << "333\n";
+            v2 = castInst;
         }
+
+        if (v3->getType() != Type::getInt64Ty(cmpXchgI->getContext())) {
+            std::cout << "333\n";
+            BitCastInst* castInst = new BitCastInst(v3, Type::getInt64Ty(cmpXchgI->getContext()), "myCast", cmpXchgI);
+            v3 = castInst;
+        }*/
 
         params.push_back(v1);
         params.push_back(v2);
         params.push_back(v3);
         params.push_back(o1);
         params.push_back(o2);
-        CallInst::Create(func->getFunctionType(), func, params, "myCmpXchg", cmpXchgI);
+        CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "myCmpXchg", cmpXchgI);
+        
+        /*params.clear();
+        params.push_back(callI);
+        func = myFunctions["myPrintf_1"];
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);*/
+
+        std::vector<Type*> types;
+        types.push_back(v2->getType());
+        types.push_back(Type::getInt1Ty(inst->getContext()));
+        StructType* sType = StructType::get(inst->getContext(), types);
+        
+        //Value* constV_1 = ConstantInt::get( Type::getInt1Ty(inst->getContext()), 1);
+        //ICmpInst* icmpI = new ICmpInst(callI, ICmpInst::ICMP_EQ, callI, constV_1);
+        //Instruction* nextI = &*(++BBIt); BBIt--;
+        //SelectInst* selectI = SelectInst::Create(icmpI, v3, loadI, "mySelect", nextI);
+        /*AllocaInst* sV = new AllocaInst(sType, "myAlloc", cmpXchgI);
+        LoadInst* loadI = new LoadInst(sV, "myLoad", cmpXchgI);*/
+        std::vector<unsigned int> indx;
+        indx.push_back(0);
+        
+        UndefValue* undefV = UndefValue::get(sType);
+        
+        /*func = myFunctions["myPrintf_81"];
+        params.clear();
+        params.push_back(undefV);
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
+        
+        Value* o = ConstantInt::get( Type::getInt8Ty(loadI->getContext()), 1);*/
+        InsertValueInst* insert1 = InsertValueInst::Create(undefV, v2, indx, "myInsert", cmpXchgI);
+        /*func = myFunctions["myPrintf_81"];
+        params.clear();
+        params.push_back(insert1);
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);*/
+
+        indx.clear();
+        indx.push_back(1);
+        //Value* o3 = ConstantInt::get( Type::getInt1Ty(loadI->getContext()), 1);
+        InsertValueInst* insert2 = InsertValueInst::Create(insert1, callI, indx, "myInsert", cmpXchgI);
+        /*std::vector<Value*> vals;
+        vals.push_back(v2);
+        vals.push_back(callI);
+        Value* constStruct = ConstantStruct::get(sType, vals);*/
+
+        cmpXchgI->replaceAllUsesWith(insert2);
+        
+        /*Value* retV = callI;
+        if (callI->getType() != sType) {
+            std::cout << "types: \n";
+            callI->getType()->dump(), sType->dump();
+            BitCastInst* castInst = new BitCastInst(callI, sType, "myCast", cmpXchgI);
+            retV = castInst;
+        }
+
+        func = myFunctions["myPrintf_81"];
+        params.clear();
+        params.push_back(insert2);
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
+
+        params.clear();
+        params.push_back(callI);
+        func = myFunctions["myPrintf_1"];
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
+
+        std::cout << "types: \n";
+        callI->getType()->dump();
+        cmpXchgI->getType()->dump();
+        inst->getType()->dump();*/
+        
+        /*cmpXchgI->replaceAllUsesWith(callI);
+
+        //CallInst::Create(sType, func, params, "myCmpXchg", cmpXchgI);
+        std::vector<unsigned int> indexes;
+        indexes.push_back(0);
+        ExtractValueInst* eI1 = ExtractValueInst::Create(callI, indexes, "eI1", cmpXchgI);
+        eI1->dump();
+        if (eI1->getType() == Type::getInt64Ty(cmpXchgI->getContext()))
+            func = myFunctions["myPrintf_64"];
+        else if (eI1->getType() == Type::getInt32Ty(cmpXchgI->getContext()))
+            func = myFunctions["myPrintf_32"];
+        else if (eI1->getType() == Type::getInt8Ty(cmpXchgI->getContext()))
+            func = myFunctions["myPrintf_8"];
+
+        params.clear();
+        params.push_back(eI1);
+        func->dump();
+        eI1->getType()->dump();
+        CallInst* c1 = CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
+        std::cout << "2222\n";
+        c1->dump();
+        indexes.clear();
+        indexes.push_back(1);
+        ExtractValueInst* eI2 = ExtractValueInst::Create(callI, indexes, "eI2", cmpXchgI);
+        eI2->dump();
+        params.clear();
+        params.push_back(eI2);
+        func = myFunctions["myPrintf_1"];
+        std::cout << "1111: " << func << "\n";
+        func->dump();
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
+        
+        func = myFunctions["myPrintf_81"];
+        params.clear();
+        params.push_back(callI);
+        CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);*/
     }
 
     void instrRMW(Instruction* inst) {
@@ -984,6 +1162,11 @@ namespace {
                         flag = true;
                         break;
                     }
+                } else if (auto *op = dyn_cast<AtomicCmpXchgInst>(&*I)) {
+                    AtomicCmpXchgInst* inst = dyn_cast<AtomicCmpXchgInst>(&*I);
+                    inst->eraseFromParent();
+                    flag = true;
+                    break;
                 }
             }
         }

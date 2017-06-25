@@ -23,6 +23,8 @@ namespace checker {
         // for the reads which are not restricted by the schedule
         uint64_t getValue();
 
+        void clear() { values.clear(); }
+
         void updateBuffer(uint64_t val);
 
         void updateBuffer(std::vector<uint64_t> vals);

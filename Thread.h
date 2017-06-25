@@ -39,6 +39,7 @@ namespace checker {
 
         Executor* getExe() { return exe; }
 
+        void clearBuffer(void* loc);
         void updateBuffer(void* loc, uint64_t val);
         void updateBuffer(std::map<void*, Buffer*> buffers);
 

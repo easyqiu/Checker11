@@ -1,46 +1,75 @@
+#include "ModelChecker.h"
+#include "checker.hpp"
+//#include "../../Instrument.h"
+//#include "../../Executor.h"
+
+#include <vector>
+#include <iostream>
+#include <thread>
 #include <atomic>
+#include <cassert>
  
-template<class T>
-struct node
+using namespace checker;
+
+int data1, data2;
+std::atomic<int> x, y;
+
+void f1()
 {
-    T data;
-    node* next;
-    node(const T& data) : data(data), next(nullptr) {}
-};
+    checker_thread_begin("f1");
 
-template<class T>
-class stack
+    data1 = x.load(std::memory_order_relaxed);
+    //printf("ddd1: %d\n", data1);
+    //y.store(1, std::memory_order_relaxed);
+    bool flag = y.compare_exchange_weak(data1, 0, std::memory_order_release, std::memory_order_relaxed);
+    //data2 = y.load(std::memory_order_relaxed);
+    //printf("ddd2: %d, %d\n", flag, data1);
+    //int m = y.fetch_and(0, std::memory_order_relaxed);
+    //printf("m = %d\n", &m);
+    checker_thread_end();
+}
+
+void f2()
 {
-    std::atomic<node<T>*> head;
-    public:
-    void push(const T& data)
-    {
-        node<T>* new_node = new node<T>(data);
-
-        // put the current value of head into new_node->next
-        new_node->next = head.load(std::memory_order_relaxed);
-
-        // now make new_node the new head, but if the head
-        // is no longer what's stored in new_node->next
-        // (some other thread must have inserted a node just now)
-        // then put that new head into new_node->next and try again
-        while(!std::atomic_compare_exchange_weak_explicit(
-                    &head,
-                    &new_node->next,
-                    new_node,
-                    std::memory_order_release,
-                    std::memory_order_relaxed))
-            ; // the body of the loop is empty
-        // note: the above loop is not thread-safe in at least
-        // GCC prior to 4.8.3 (bug 60272), clang prior to 2014-05-05 (bug 18899)
-        // MSVC prior to 2014-03-17 (bug 819819). See member function version for workaround
-    }
-};
-
-int main()
+    checker_thread_begin("f2");
+    data2 = y.load(std::memory_order_relaxed);
+    x.store(2, std::memory_order_relaxed);
+    //x.fetch_and(0, std::memory_order_relaxed);
+    checker_thread_end();
+}
+ 
+ 
+int user_main()
 {
-    stack<int> s;
-    s.push(1);
-    s.push(2);
-    s.push(3);
+    checker_generateExecutor();
+    checker_thread_begin("main");
+
+    data1 = data2 = 0;
+    x = 1, y = 1;
+
+    std::thread a(f1);
+    std::thread b(f2);
+    
+    checker_thread_create(a.get_id());
+    checker_thread_create(b.get_id());
+
+    checker_thread_join(a.get_id());
+    checker_thread_join(b.get_id());
+    
+    a.join(); 
+    b.join();
+    std::cout << "data: " << data1 << " " << data2 << "\n";
+    checker_thread_end();
+    checker_solver();
+    return 0;
+}
+
+int main() {
+    modelChecker = new ModelChecker();
+    user_main();
+    
+    while (modelChecker->getSchList().size()) 
+        user_main();
+
+    return 0;
 }

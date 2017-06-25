@@ -30,6 +30,7 @@ void Buffer::fetchExpectVal(uint64_t val) {
 
 uint64_t Buffer::getValue() {
     assert(values.size() != 0);
+    std::cout << "get value: " << this << " " << values[0] << "\n";
     return values[0];
 }
 
@@ -40,6 +41,7 @@ void Buffer::updateBuffer(uint64_t val) {
     }
 
     values.push_back(val);
+    std::cout << "update buffer: " << this << " " << val << "\n";
 }
 
 void Buffer::updateBuffer(std::vector<uint64_t> vals) {

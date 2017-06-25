@@ -284,7 +284,7 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
     Action *action = new RWAction(this, thread, ATOMIC_WRITE, mo, addr, true, val);
 
     thread->addAction(action);
-    updateBuffer(addr, val);
+    updateBuffer(tid, addr, val);
 
     //while (thread->pause(action) == true) { std::cout << "2222\n"; }
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
@@ -294,16 +294,16 @@ void Executor::execute_write_action(std::string tid, void* addr, int mo, uint64_
     }
 }
 
-int64_t Executor::execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
+bool Executor::execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
                                             int64_t expectV, int64_t newVal) {
     Thread* thread = getThread(tid);
-    RMWAction* action = new RMWAction(this, thread, ATOMIC_RMW_XCHG, mo, addr, val);
+    CmpXchgAction* action = new CmpXchgAction(this, thread, ATOMIC_CMP_XCHG, mo1, mo2, addr, expectV, newVal);
 
     thread->addAction(action);
     std::pair<std::string, int> currentPair = std::make_pair(thread->getName(), action->get_seq_number());
     while (curSch->checkPreAction(currentPair) == false/* && i--*/) {
         usleep(1000);
-        std::cout << "waiting rmw_xchg!\n";
+        std::cout << "waiting cmp_xchg!\n";
     }
 
     int expectedVal;
@@ -315,10 +315,24 @@ int64_t Executor::execute_pre_cmp_xchg_action(std::string tid, void *addr, int m
         expectedVal = thread->getValue(addr);
     }
 
-    std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
+    std::cout << "\nexpect value 64: " << currentPair.first << " " << currentPair.second
+              << " " << expectedVal << " " << expectV << " !" << newVal << "!\n";
+
+    int val = (expectedVal == expectV? newVal : expectedVal);
     action->setReadValue(expectedVal);
-    action->setWriteValue(expectedVal);
-    return expectedVal;
+    action->setWriteValue(val);
+    int64_1 retS;
+    retS.val = val;
+    if (expectedVal == expectV) {
+        updateBuffer(tid, addr, newVal);
+        retS.flag = 1;
+    } else
+        retS.flag = 0;
+    //retS.flag = (expectedVal == expectV? true : false);
+    //retS.val = 100;
+    //retS.flag = true;
+    std::cout << "ret 64: " << retS.val << " " << retS.flag << "\n";
+    return retS.flag;
 
 }
 
@@ -344,7 +358,8 @@ int64_t Executor::execute_pre_rmw_xchg_action(std::string tid, void *addr, int m
 
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
-    action->setWriteValue(expectedVal);
+    action->setWriteValue(val);
+    updateBuffer(tid, addr, val);
     return expectedVal;
 
 }
@@ -372,6 +387,7 @@ int64_t Executor::execute_pre_rmw_add_action(std::string tid, void *addr, int mo
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
     action->setWriteValue(expectedVal+val);
+    updateBuffer(tid, addr, expectedVal+val);
     return expectedVal;
 
 }
@@ -399,6 +415,7 @@ int64_t Executor::execute_pre_rmw_sub_action(std::string tid, void *addr, int mo
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
     action->setWriteValue(expectedVal-val);
+    updateBuffer(tid, addr, expectedVal-val);
     return expectedVal;
 
 }
@@ -426,6 +443,7 @@ int64_t Executor::execute_pre_rmw_and_action(std::string tid, void *addr, int mo
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
     action->setWriteValue(expectedVal & val);
+    updateBuffer(tid, addr, expectedVal & val);
     return expectedVal;
 }
 
@@ -452,6 +470,7 @@ int64_t Executor::execute_pre_rmw_nand_action(std::string tid, void *addr, int m
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
     action->setWriteValue(~(expectedVal & val));
+    updateBuffer(tid, addr, ~(expectedVal & val));
     return expectedVal;
 
 }
@@ -479,6 +498,7 @@ int64_t Executor::execute_pre_rmw_or_action(std::string tid, void *addr, int mo,
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
     action->setWriteValue(expectedVal | val);
+    updateBuffer(tid, addr, expectedVal | val);
     return expectedVal;
 
 }
@@ -506,6 +526,7 @@ int64_t Executor::execute_pre_rmw_xor_action(std::string tid, void *addr, int mo
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
     action->setWriteValue(expectedVal ^ val);
+    updateBuffer(tid, addr, expectedVal ^ val);
     return expectedVal;
 
 }
@@ -532,7 +553,9 @@ int64_t Executor::execute_pre_rmw_max_action(std::string tid, void *addr, int mo
 
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
-    action->setWriteValue(expectedVal > val ? expectedVal : val);
+    int64_t newVal = (expectedVal > val? expectedVal : val);
+    action->setWriteValue(newVal);
+    updateBuffer(tid, addr, newVal);
     return expectedVal;
 
 }
@@ -559,11 +582,12 @@ int64_t Executor::execute_pre_rmw_umax_action(std::string tid, void *addr, int m
 
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
-    action->setWriteValue(expectedVal > val ? expectedVal : val);
+    int64_t newVal = (expectedVal > val? expectedVal : val);
+    action->setWriteValue(newVal);
+    updateBuffer(tid, addr, newVal);
     return expectedVal;
 
 }
-
 
 int64_t Executor::execute_pre_rmw_min_action(std::string tid, void *addr, int mo, int64_t val) {
     Thread* thread = getThread(tid);
@@ -587,7 +611,9 @@ int64_t Executor::execute_pre_rmw_min_action(std::string tid, void *addr, int mo
 
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
-    action->setWriteValue(expectedVal < val ? expectedVal : val);
+    int64_t newVal = (expectedVal < val? expectedVal : val);
+    action->setWriteValue(newVal);
+    updateBuffer(tid, addr, newVal);
     return expectedVal;
 
 }
@@ -614,7 +640,9 @@ int64_t Executor::execute_pre_rmw_umin_action(std::string tid, void *addr, int m
 
     std::cout << "\nexpect value: " << currentPair.first << " " << currentPair.second << " " << expectedVal << " !" << val << "!\n";
     action->setReadValue(expectedVal);
-    action->setWriteValue(expectedVal < val ? expectedVal : val);
+    int64_t newVal = (expectedVal < val? expectedVal : val);
+    action->setWriteValue(newVal);
+    updateBuffer(tid, addr, newVal);
     return expectedVal;
 
 }
@@ -875,10 +903,13 @@ void Executor::scheduleNewExe() {
     }
 }
 
-void Executor::updateBuffer(void* loc, uint64_t val) {
+void Executor::updateBuffer(std::string tid, void* loc, uint64_t val) {
     for (std::map<std::string, Thread*>::iterator it = threadMap.begin();
             it != threadMap.end(); ++it) {
         Thread* thread = it->second;
+
+        if (it->first == tid)
+            thread->clearBuffer(loc);
 
         thread->updateBuffer(loc, val);
     }

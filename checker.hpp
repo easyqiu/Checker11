@@ -14,9 +14,18 @@ using namespace checker;
 
 //ModelChecker* modelChecker;
 
+# define DEBUG
+
 extern "C" void checker_shared(void*);
 extern "C" void thread_begin();
 extern "C" int user_main();
+
+/*std::set<void*> sharedAddresses; 
+Executor* exe;
+ModelChecker* modelChecker;*/
+
+extern "C" {
+
 /*extern "C" int main() {
     user_main();
     return 0;
@@ -50,3 +59,4 @@ extern "C" int user_main();
 //    outfile.close();
 //    thread_begin();
 //}
+}

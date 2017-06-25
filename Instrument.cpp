@@ -8,8 +8,9 @@
 
 #include "Executor.h"
 #include "checker.hpp"
+#include "Instrument.h"
 
-using namespace checker;
+//using namespace checker;
 
 # define DEBUG
 
@@ -52,7 +53,7 @@ void preNonAtomicLoad_char(void* addr, char val) {
 int preNonAtomicLoad_int(void* addr) {
     if (sharedAddresses.find(addr) == sharedAddresses.end()) {
 # ifdef DEBUG
-        ;//std::cout << "Skip a non-atomic preLoad!\n";
+        std::cout << "Skip an int non-atomic preLoad!\n";
 # endif
         return 1;
     }
@@ -78,7 +79,7 @@ void preNonAtomicLoad_double(void* addr, int val) {
 # endif
 
     std::stringstream ss;
-    ss << "non_atomic_load_double: " << addr << " " << val << "\n";
+    ss << "non_atomic_load_double: " <<  addr << " " << val << "\n";
     updateTrace(ss.str());
 }
 
@@ -159,9 +160,10 @@ void preNonAtomicStore_char(void* addr, char val) {
 }
 
 void preNonAtomicStore_int(void* addr, int val) {
+    std::cout << "qqqqqqqqqqqqqqqqqqq: " << addr << " " << val << "\n";
     if (sharedAddresses.find(addr) == sharedAddresses.end()) {
-# ifdef DEFBUG
-        ;//std::cout << "Skip a non-atomic preStore!\n";
+# ifdef DEBUG
+        std::cout << "Skip a non-atomic preStore!\n";
 # endif
         return ;
     }
@@ -238,7 +240,7 @@ void preTryLock(void* addr) {
     exe->execute_tryLock_action(getThreadName(std::this_thread::get_id()), addr);
 }
 
-void preUnlock(void* addr) {
+extern void preUnlock(void* addr) {
 # ifdef DEBUG
     std::cout << "In preUnlock: " << addr << "!\n";
 # endif
@@ -302,24 +304,43 @@ void preCmpXchg_double(void* addr, double expect, double newVal, int successOrde
     updateTrace(ss.str());
 }
 
-int8_t preCmpXchg_8(void* addr, int8_t expect,
+bool preCmpXchg_8(void* addr, int8_t expect,
         int8_t newVal, int successOrdering, int failureOrdering) {
     return preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+    /*int8_1 retS_8;
+    retS_8.val = retS_64.val;
+    retS_8.flag = retS_64.flag;
+
+    std::cout << "flag: " << sizeof(int8_1) << " " << retS_8.flag << "\n";
+    return retS_8;*/
 }
 
-int16_t preCmpXchg_16(void* addr, int16_t expect,
+bool preCmpXchg_16(void* addr, int16_t expect,
         int16_t newVal, int successOrdering, int failureOrdering) {
     return preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+    /*int64_1 retS_64 = preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+    int16_1 retS_16;
+    retS_16.val = retS_64.val;
+    retS_16.flag = retS_64.flag;
+    return retS_16;*/
 }
 
-int32_t preCmpXchg_32(void* addr, int32_t expect,
+bool preCmpXchg_32(void* addr, int32_t expect,
         int32_t newVal, int successOrdering, int failureOrdering) {
     return preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+    /*int64_1 retS_64 = preCmpXchg_64(addr, expect, newVal, successOrdering, failureOrdering);
+    int32_1 retS_32;
+    retS_32.val = retS_64.val;
+    retS_32.flag = retS_64.flag;
+    printf("ret: %d, %d\n", retS_32.val, retS_32.flag);
+    return retS_32;*/
+    //return exe->execute_pre_cmp_xchg_action(getThreadName(std::this_thread::get_id()), addr, successOrdering,
+    //        failureOrdering, expect, newVal);
 }
 
-int64_t preCmpXchg_64(void* addr, int64_t expect,
+bool preCmpXchg_64(void* addr, int64_t expect,
         int64_t newVal, int successOrdering, int failureOrdering) {
-    return exe->execute_pre_rmw_xchg_action(getThreadName(std::this_thread::get_id()), addr, successOrdering,
+    return exe->execute_pre_cmp_xchg_action(getThreadName(std::this_thread::get_id()), addr, successOrdering,
             failureOrdering, expect, newVal);
 }
 
@@ -605,4 +626,28 @@ void checker_solver() {
     delete exe;
     //std::cout << "end checker_solver!\n";
 }
+
+void myPrintf_64(int64_t x) {
+    std::cout << "myPrintf_64: " << x << "\n";
+}
+
+void myPrintf_32(int32_t x) {
+    std::cout << "myPrintf_32: " << x << "\n";
+}
+
+void myPrintf_8(int8_t x) {
+    std::cout << "myPrintf_8: " << x << "\n";
+}
+
+void myPrintf_81(int8_1 x) {
+    std::cout << "myPrintf_811: " << x.val << " " << x.flag << "\n";
+}
+
+void myPrintf_1(bool x) {
+    //int t = x ? 1 : 0;
+    std::cout << "myPrintf_1: " << x << "\n";
+    printf("myPrintf_1: %u\n", x);
+}
+
+
 }

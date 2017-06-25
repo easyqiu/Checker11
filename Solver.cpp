@@ -139,6 +139,7 @@ void Solver::collectData() {
                     break;
                 }
 
+                case ATOMIC_CMP_XCHG:
                 case ATOMIC_RMW_XCHG:
                 case ATOMIC_RMW_ADD:
                 case ATOMIC_RMW_SUB:

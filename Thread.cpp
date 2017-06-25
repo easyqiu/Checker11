@@ -51,6 +51,12 @@ void Thread::printTrace() {
 
 std::string Thread::getName() {return name;}
 
+
+void Thread::clearBuffer(void* loc) {
+    if (buffers.find(loc) != buffers.end())
+        buffers[loc]->clear();
+}
+
 void Thread::updateBuffer(void* loc, uint64_t val) {
     std::cout << "update buffer: " << loc << " " << val << "\n";
     if (buffers.find(loc) == buffers.end()) {

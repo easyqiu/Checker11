@@ -27,6 +27,8 @@ namespace checker {
 		ATOMIC_READ,          /**< An atomic read action */
 		ATOMIC_WRITE,         /**< An atomic write action */
 
+		ATOMIC_CMP_XCHG,
+
 		ATOMIC_RMW_XCHG,
 		ATOMIC_RMW_ADD,
 		ATOMIC_RMW_SUB,
@@ -223,7 +225,7 @@ namespace checker {
 
 		~RWAction() {}
 
-		uint64_t get_value() const;
+		int64_t get_value() const;
 
 		bool is_write() const { return isWrite; }
 
@@ -241,7 +243,7 @@ namespace checker {
 
 	protected:
 		/** @brief The value written or read (for write / read / RMW) */
-		uint64_t value;
+		int64_t value;
 
 		/** @brief The memory order for this operation. */
 		memory_order order;
@@ -278,13 +280,33 @@ namespace checker {
 		std::string get_action_str();
 
     private:
-        int value;
-		int readValue;
-		int writeValue;
+        int64_t value;
+		int64_t readValue;
+		int64_t writeValue;
         //memory_order order;
         //void *location;
 
     };
+
+	class CmpXchgAction : public RMWAction {
+	public:
+		CmpXchgAction(Executor* exe, Thread* thread, action_type_t type,
+				int order1, int order2, void* loc, int eVal, int val)
+				: RMWAction(exe, thread, type, order1, loc, val) {
+			expectVal = eVal;
+			succOrder = to_mo(order1);
+			failOrder = to_mo(order2);
+		}
+
+		memory_order get_mo_succ() { return succOrder; }
+		memory_order get_mo_fail() { return failOrder; }
+		int64_t get_expectVal() { return expectVal; }
+
+	private:
+		int64_t expectVal;
+		memory_order succOrder;
+		memory_order failOrder;
+	};
 
 
 	class FenceAction :  public Action  {

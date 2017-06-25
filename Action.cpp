@@ -27,6 +27,7 @@ std::string Action::get_type_str(bool simple) const {
         case ATOMIC_READ: return simple? "ARead" : "atomic read";
         case ATOMIC_WRITE: return simple? "AWrite" : "atomic write";
 
+        case ATOMIC_CMP_XCHG: return simple? "ACMP_XCHG" : "Atomic cmp_xchg";
         case ATOMIC_RMW_XCHG: return simple? "ARMW_XCHG" : "atomic rmw_xchg";
         case ATOMIC_RMW_ADD: return simple? "ARMW_ADD" : "atomic rmw_add";
         case ATOMIC_RMW_SUB: return simple? "ARMW_SUB" : "atomic rmw_sub";
@@ -95,6 +96,7 @@ std::string Action::get_action_str() {
             //ss << " " << location << " " << a->get_mo() << " " << a->get_value() << "\n";
             return ss.str();
 
+        case ATOMIC_CMP_XCHG:
         case ATOMIC_RMW_XCHG:
         case ATOMIC_RMW_ADD:
         case ATOMIC_RMW_SUB:
@@ -181,7 +183,7 @@ std::string RWAction::get_consraint_name() {
     }
 }
 
-uint64_t RWAction::get_value() const {
+int64_t RWAction::get_value() const {
     return value;
 }
 

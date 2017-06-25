@@ -9,6 +9,8 @@
 //#include "Action.h"
 //#include "Action.h"
 
+#include "Types.h"
+
 namespace  checker {
     class Thread;
     class Solver;
@@ -52,7 +54,11 @@ namespace  checker {
 
         void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
 
-        int64_t execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
+
+        bool execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
+                                            int32_t expectV, int32_t newVal);
+
+        bool execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
                                             int64_t expectV, int64_t newVal);
 
         int64_t execute_pre_rmw_xchg_action(std::string tid, void *addr, int mo, int64_t val);
@@ -141,7 +147,7 @@ namespace  checker {
 
         std::vector<Schedule*> getSchedules() { return schedules; }
 
-        void updateBuffer(void* loc, uint64_t val);
+        void updateBuffer(std::string, void* loc, uint64_t val);
 
     protected:
         std::map<std::string, Thread*> threadMap;
