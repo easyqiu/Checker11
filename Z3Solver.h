@@ -14,6 +14,8 @@ namespace  checker {
 
     class Executor;
     class Z3Solver {
+    private:
+        std::string formulaFile;
 
     protected:
         Executor* exe;
@@ -33,7 +35,7 @@ namespace  checker {
         Z3Solver(Executor* exe);
 
         //general functions
-        bool solve();
+        bool solve(bool flag);
 
         bool solveWithSolution(std::vector<std::string> solution, bool invertBugCond);
 
@@ -50,6 +52,8 @@ namespace  checker {
         void printModel();
 
         void writeLineZ3(std::string content);
+
+        void clearFormula() { formulaFile = ""; }
 
         int getNumOps();
 
@@ -97,6 +101,8 @@ namespace  checker {
         std::string declareIntVar(std::string varname);
 
         std::string declareIntVarNE(std::string varname, int val);
+
+        std::string declareIntVarGE(std::string varname, int val);
 
         std::string declareIntVar(std::string varname, int val);
 

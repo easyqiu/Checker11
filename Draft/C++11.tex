@@ -577,22 +577,22 @@ on $\Phi$ because $\Phi_{corf}$ is violated. }
 \end{figure}
 
 To describe the happens-before relation for the executions from C++11 programs, 
-we use binary order variables $O$ among different actions.
-Specifically, variable $O_{ab}$ represents the happens-before
+we use binary order variables $B$ among different actions.
+Specifically, variable $B_{ab}$ represents the happens-before
 relationship between action $a$ and $b$, which is set to 1 only when 
 $a \stackrel{hb}{\longrightarrow} b$ and 
 can be defined as follow: 
 
-\[ O_{ab} = \left\{
+\[ B_{ab} = \left\{
   \begin{array}{l l}
     1,           &  {\text{if $a \stackrel{hb}{\longrightarrow} b$}};\\
     0,           &  {\text{if $b \stackrel{hb}{\longrightarrow} a$}};\\
     \bot,  &  \text{otherwise}.
   \end{array} \right.\]
 
-Note that, instead of set $O_{ab}$ to 0, we always set $O_{ba}$ to 1 for simplification. 
-Thus, in the following description, we only consider $O_{ab}$ if $O_{ba}=0$. 
-Furthermore, $O_{ab}=\bot$ means that the action $a$ and $b$
+Note that, instead of set $B_{ab}$ to 0, we always set $B_{ba}$ to 1 for simplification. 
+Thus, in the following description, we only consider $B_{ab}$ if $B_{ba}=0$. 
+Furthermore, $B_{ab}=\bot$ means that the action $a$ and $b$
 have no happens-before relation, and thus can be executed \textit{concurrently}.   
 %In addition, two other types of variables are used: $M$, $F$ and $S$.
 %$M_{a}$ represents the memory modification order for a write $a$. 
@@ -629,15 +629,15 @@ relations ($sb$) and additional-synchronized-with relations ($asw$).
 
 The encode for $sb$ is straightforward, since $sb$ only 
 considers the relations among the actions from the same thread, and 
-we can generate the fact that $O_{ab}=1$ whenever 
+we can generate the fact that $B_{ab}=1$ whenever 
 $a$ and $b$ are actions from the same thread and $a \stackrel{sb}{\longrightarrow} b$. 
-Note that when $b \stackrel{sb}{\longrightarrow} a$, we add a conjunct $O_{ba}=1$ instead of
-$O_{ab}=0$. 
+Note that when $b \stackrel{sb}{\longrightarrow} a$, we add a conjunct $B_{ba}=1$ instead of
+$B_{ab}=0$. 
 
 For encoding $asw$, we first identify all thread creation/join action pairs, $CJ$.
 Specifically, each pair $(a,b)\in CJ$ describes the fact that the action $a$ in thread $T_i$ creates/joins to 
 thread $T_j$ and the action $b$ is the first/last instruction of $T_j$. Thus,
-$a$ must happens-before $b$ and $O_{ab}$ is set to 1.
+$a$ must happens-before $b$ and $B_{ab}$ is set to 1.
 
 Based on the encoded basic facts of both $sb$ and $asw$, we can encode $\Phi_{mhb}$ as follow: 
 
@@ -746,16 +746,61 @@ can be satisfied. For example, if more than one writes write the same value read
 by a read action, then the read may read the value written by any write.  
 
 Let $\Phi_{rw}(e)$ be the constraint of the reachability of the action $e$ in trace $\tau$,
-and  $\stackrel{mhb}{\longrightarrow} e$ the set of the actions that must-happen-before
-the action $e$. For each read $r$ in set  $\stackrel{hb}{\longrightarrow} e$, $\Phi_{rw}(e)$
+then the data-validity constraint $\Phi_{rw}$
+is a disjunction of the feasibility constraints of all actions in $\tau$, defined as follow:
+
+\begin{equation}
+\begin{aligned}
+\Phi_{rw} = \bigvee_{\forall e\in \tau} (\Phi_{rw}(e))
+\end{aligned}
+\end{equation} 
+
+The construction of $\Phi_{rw}(e)$ in sequential consistency memory model is straightforward,
+it just requires that every read that must-happen-before $w$ should read 
+the same value as that in the input trace. However, the \textit{happens-before} relation
+in C/C++11 memory model dose not actually equals to the \textit{happen before} relation in sequential 
+consistency memory model, thus such encoding will miss consistent executions for C/C++ programs with atomics. 
+Furthermore, too loose constraint may result to inconsistency executions. 
+
+\begin{figure}%[t]
+\centering\includegraphics[scale=0.5]{inconsistency.pdf} %[width=6in]
+\caption{Incorrect reachability constraints may introduce inconsistent executions or
+miss consistent exectuions.}
+\label{fig:inconsistency}
+\end{figure}
+
+Take the code snippet in Figure~\ref{fig:inconsistency} as example. 
+$E_0$ is one of the possible consistent execution, based on which, 
+we can generate a new schedule to enforce the execution $E_1$, 
+when no reachability constraints is enforced. 
+However, $E_1$ is actually an inconsistent execution which 
+will not be manifested in the real world, 
+since line 1 and 2 reads 1 requires that line 7 must store 1 to x,
+thus $c$ loaded at line 6 must be 1, which is contradictory with the expectation that line 6 reads 2. 
+Furthermore, the strict constraints which require that every read that must-happen-before 
+$w$ read the same value as that in the input trace may miss some consistent execution. 
+Let the input execution be $E_2$, then we can not identify the execution $E_3$ based on $E_2$,
+since the reachability of line 5 requires that line 1, 2 and 3 all read 0.
+
+To construct the appropriate reachability constraints, we carry out a dynamic control- and 
+data-dependency analysis along each execution to identify the exact reads that an action 
+really dependents on. Thus, we can successfully
+identify the consistent execution $E_3$ based on $E_2$, because the reachability of the store at
+line 5 only dependents on the read at line 1 and line 2, but not that at line 3.
+
+Let $\stackrel{cd}{\longrightarrow} e$ be the set of the actions that 
+the action $e$ control- or data-dependents on. 
+For each read $r$ in set  $\stackrel{cd}{\longrightarrow} e$, $\Phi_{rw}(e)$
 requires that $r$ must read the same value as that in $\tau$, represented as $value(r, \tau)$. 
+%(\textit{Note that, we can not straightforward enforce all the reads that happens-before $e$,
+%and we will explain the reachability problem in the next paragraph.})
 Suppose %the set $W^x$ contains all the writes which write to location $x$, and 
 the set $W_v^x\subseteq W^x$ contain these which write value $v$, then
 $\Phi_{rw}(e)$ can be described as follow: 
 
 \begin{equation}
 \begin{aligned}
-\Phi_{rw}(e) ={} & \bigwedge_{\forall r\in \stackrel{mhb}{\longrightarrow} e} 
+\Phi_{rw}(e) ={} & \bigwedge_{\forall r\in \stackrel{cd}{\longrightarrow} e} 
 					(\Phi_{value}(r,value(r,\tau)))
 \end{aligned}
 \end{equation} 
@@ -770,31 +815,23 @@ where $\Phi_{value}(r,v)$ is defined as follow:
 \end{aligned}
 \end{equation}
 
-The constraint $\Phi_{rw}(e)$ requires that every read that must-happen-before 
-$e$ should read the same value as that in the input trace. 
+The constraint $\Phi_{rw}(w)$ is utilized to guarantee the reachability of $w$. 
+%requires that every read that must-happen-before 
+%$e$ should read the same value as that in the input trace. 
 The constraint $\Phi_{value}(r,v)$ enforces the read action $r=read(t ,x,v)$ 
 to read the value $v$ on $x$ written by any write action $w =write(\_,x,v)$ in $W^x_v$.
 Specifically, when the read $r$ reads the value written by the write $w$,
 $w$ itself must be feasible, which is ensured by $\Phi_{rw}(w)$. 
 %$\Phi_{sw}(r,w)$ is enforced to add the release-acquire synchronization, introduced by read-write pair $(r,w)$. 
 $F_{wr}$ is enforced to require that the read $r$ reads the value written by the write $w$. 
-Furthermore, it also subjects to the condition that $O_{rw}\neq 1$, which means that $r$ can
-not happens before $w$. %Note that $O_{wr}\neq 0$ means $O_{wr}==1 \vee O_{wr}==\bot$.  
+Furthermore, it also subjects to the condition that $B_{rw}\neq 1$, which means that $r$ can
+not happens before $w$. %Note that $B_{wr}\neq 0$ means $B_{wr}==1 \vee B_{wr}==\bot$.  
 At the same time, there is no interfering write $w'$ between $w$ and $r$, represented as 
-$\neg (O_{ww'}==1\wedge O_{w'r}==1)$, which means that 
+$\neg (B_{ww'}==1\wedge B_{w'r}==1)$, which means that 
 $w'$ can not happens after $w$ but before $r$.
 %Since not all the actions for C++11 programs can be sorted with 
 %a strict total order, thus when two actions are incomparable, we need to enforce
 %an order between them. 
-
-Based on the definition of $\Phi_{rw}(e)$, the data-validity constraint $\Phi_{rw}$
-is a disjunction of the feasibility constraints of all actions in $\tau$, defined as follow:
-
-\begin{equation}
-\begin{aligned}
-\Phi_{rw} = \bigvee_{\forall e\in \tau} (\Phi_{rw}(e))
-\end{aligned}
-\end{equation} 
 
 \subsubsection{Encode coherence constraints $\Phi_{co}$}
 
@@ -961,6 +998,14 @@ described in Section~\ref{sec:check}.
 \subsection{Property Checking}
 \label{sec:check}
 
+Instead of checking properties for one interleaving at a time as the existing stateless
+model checkers, \checker checks properties against a maximal causal set of 
+interleavings offline. Specifically, given a progerty $\phi$ defined over the values of reads, we 
+use a constraint solver to solver formula $\Phi\wedge\neg\phi$. If the formula is satisifiable, then
+it means that there exists an interleaving violating the property and the corresponding interleaving
+can be extracted from the solution and reported to users. Note that, the solving of $\Phi\wedge\phi$
+can be significantly simplified by tailoring $\Phi$ to only the relevant events considered in property $\phi$.
+
 Undefined behavior will be introduced by an indeterminate read (\textit{ir}), 
 an unsequenced race (\textit{ur}) or a data race (\textit{dr}). Thus, 
 we need to check such undefined behavior along the consistent executions
@@ -983,40 +1028,47 @@ a write, participate in an unsequenced race if neither is sequenced before the o
 %happens-before the other. A program that has a consistent execution 
 %with a data race, like the one below, has undefined behavior.
 
-\subsection{Identify Unexplored Consistent Executions}
+\section{Identify Unexplored Consistent Executions}
 \label{sec:identify}
 
-\begin{algorithm}%[t]
-  \caption{{\bf Identify new schedules.}}
-%  its cycles as potential deadlocks.}}%: The top algorithm.
-  \label{alg:gen}
-{%\footnotesize
-\begin{algorithmic}[1]
-  \State{\Ind{0} \textbf{Input:} an input trace $\tau$;}
-  \State{\Ind{0} \textbf{Output:} S - a set of schedules;}
-  \State{\Ind{0} Let $sch$ be a random schedule;}
-  \State{\Ind{0} {\bf for} (each read $r\in R^x$)}
-  \State{\Ind{1} {		\bf for} (each write $w\in W^x$)}
-  \State{\Ind{2} 				Let $v$/$v'$ be the read/write value by $r$/$w$;}
-  \State{\Ind{2} 				\bf if ($v\neq v'$)}
-%  \State{\Ind{3} 						$\Phi(r,w)=\Phi_{hb}\wedge\Phi_{rw}(r)\wedge\Phi_{rw}(w)\wedge\Phi_{value}(r,v')$;}
-  \State{\Ind{3} {							$\Phi(r,w)=$construct$(r,w)$;}}
-  \State{\Ind{3} {						$s\leftarrow$solve($\Phi(r,w)$);}}
-  \State{\Ind{3} {						\bf if ($s\neq null$)}}
-  \State{\Ind{4} {								$S.add(s)$;}}
-%  \State{\Ind{3} {						\bf end if}}
-%  \State{\Ind{2}				\bf end if}
-%  \State{\Ind{1} {		\bf end for}}
-%  \State{\Ind{0} {\bf end for}}  
-\end{algorithmic}
-}
-\end{algorithm}
+%\begin{algorithm}%[t]
+%  \caption{{\bf Identify new seed schedules.}}
+%%  its cycles as potential deadlocks.}}%: The top algorithm.
+%  \label{alg:gen}
+%{%\footnotesize
+%\begin{algorithmic}[1]
+%  \State{\Ind{0} \textbf{Input:} an input trace $\tau$;}
+%  \State{\Ind{0} \textbf{Output:} S - a set of schedules;}
+%%  \State{\Ind{0} Let $sch$ be a random schedule;}
+%  \State{\Ind{0} {\bf for} (each read $r\in R^x$)}
+%  \State{\Ind{1} {		\bf for} (each write $w\in W^x$)}
+%  \State{\Ind{2} 				Let $v$/$v'$ be the read/write value by $r$/$w$;}
+%  \State{\Ind{2} 				\bf if ($v\neq v'$)}
+%%  \State{\Ind{3} 						$\Phi(r,w)=\Phi_{hb}\wedge\Phi_{rw}(r)\wedge\Phi_{rw}(w)\wedge\Phi_{value}(r,v')$;}
+%  \State{\Ind{3} {							$\Phi(r,w)=$construct$(r,w)$;}}
+%  \State{\Ind{3} {						$s\leftarrow$solve($\Phi(r,w)$);}}
+%  \State{\Ind{3} {						\bf if ($s\neq null$)}}
+%  \State{\Ind{4} {								$S.add(s)$;}}
+%%  \State{\Ind{3} {						\bf end if}}
+%%  \State{\Ind{2}				\bf end if}
+%%  \State{\Ind{1} {		\bf end for}}
+%%  \State{\Ind{0} {\bf end for}}  
+%\end{algorithmic}
+%}
+%\end{algorithm}
+
+
+%\begin{equation}
+%\begin{aligned}
+%\Phi_{rw}(prefix, vSet) = \bigwedge_{\forall r\in prefix}\Phi_{rw}(r, vSet(r))
+%\end{aligned}
+%\end{equation} 
 
 Our approach uses MCM to catch all the executions which can be inferred 
-from the input trace $\tau$, an then check all the executions at the same time. 
+from the input trace $\tau$, and then check all the executions at the same time. 
 To explore other uncaught executions, we generate seed interleavings
 which have at least one new behavior: one read action reads a different
-value, as long as these interleavings are feasible. This approach can guarantee
+value, as long as these interleavings are feasible and consistent. This approach can guarantee
 that no two seed interleavings are redundant from the view of reading 
 different values. Furthermore, our approach consider all feasible combinations
 of read values, thus it guarantee that no unexplored seed interleaving will
@@ -1024,14 +1076,165 @@ be missed and thus cover the entire state-space eventually.
 
 %Different from applying such approach on concurrent program with sequential
 %consistent memory model, when considering weak memory model...
+However, it is not trivial to guarantee the soundness and completeness when generating
+seeding interleavings with the following definitions:
+\begin{definition}
+(\textbf{Soundness}) No unexplored interleaving which reads different values as others will be missed.
+(\textbf{Completeness}) Each unique interleaving will be explored only once.
+\end{definition}
 
-As described in Algorithm~\ref{alg:gen}, for each read $r$ on location $x$
-in trace $\tau$, it checks each write $w$ on $x$ to construct a formula $\Phi(r,w)$.
-Specifically, when the value $v$ read by $r$ is different from $v'$ written by $w$,
-it constructs $\Phi(r,w)$ as 
-$\Phi_{hb}\wedge\Phi_{rw}(r)\wedge\Phi_{rw}(w)\wedge \Phi_{co}\wedge\Phi_{value}(r,v')$.
-If $\Phi(r,w)$ is solvable, then a new schedule is generated to trigger an execution in which
-$r$ will read the new value $v'$. 
+\begin{figure}%[t]
+\centering\includegraphics[scale=0.45]{soundnessCompleteness.pdf} %[width=6in]
+\caption{Two simple examples for describing the soundness and completeness for
+generating seeding interleavings.}
+\label{fig:soundComplete}
+\end{figure}
+
+The most straightforward way of generating seeding interleavings is to iterate on each read $r$ 
+in each thread and each possible value $v$ that $r$ may read and 
+then generate a corresponding interleaving to enforce $r$ read $v$. 
+However, this approach may generate redundant seed interleavings and thus harm the completeness. 
+
+\begin{figure}%[t]
+\centering\includegraphics[scale=0.35]{interleavingGen.pdf} %[width=6in]
+\caption{Two simple examples for describing the soundness and completeness for
+generating seeding interleavings.}
+\label{fig:interleavingGen}
+\end{figure}
+
+Take the code snippet in Figure~\ref{fig:soundComplete}(a) as example. Figure~\ref{fig:interleavingGen}(a)
+describes the process of generating seed interleavings for exploring the whole search space by the straightforward
+approach, starting with the initial empty seed interleaving $I_0$, which means no read is required to read a special value. 
+Let $r$:$v$ represent read $r$ reading value $v$.
+It ends with exploring five interleavings but only four different traces are explored, 
+since trace $\{r1$:$1, r2$:$1\}$ is considered twice by both $I_3$ and $I_4$.
+Note that the number of the redundant seed interleavings introduced by this approach will be \textit{exponential}
+to that of reads along the trace. 
+
+\subsection{Basic Algorithm}
+
+This section will present the basic algorithm for generating seed interleavings to maintain 
+both the completeness and soundness.
+
+\begin{algorithm}%[t]
+  \caption{{\bf IdentifyNewSch($\tau$)}}
+%  its cycles as potential deadlocks.}}%: The top algorithm.
+  \label{alg:gen}
+{%\footnotesize
+\begin{algorithmic}[1]
+  \State{\Ind{0} \textbf{Input:} an input trace $\tau$;}
+  \State{\Ind{0} \textbf{Output:} S - a set of new seed interleavings;}
+  \State{\Ind{0} {\textit{// **For completeness**}}}
+  \State{\Ind{0} {\bf for} (each $p\in allPrefixes(\tau)$)}
+  \State{\Ind{1} {		\bf for} (each $v\in allValues(prefix)$)}
+  \State{\Ind{2} {			\bf if} {$p$ reads $v$} as in $\tau$} {\bf then} continue;
+  \State{\Ind{2} {			$\Phi_{rw}'(p, v) = \bigwedge_{\forall r\in prefix}\Phi_{rw}(r, vSet(r))$;}}
+  \State{\Ind{2} {			$\Phi_{seed}(p,v)=\Phi_{hb}\wedge\Phi_{rw}'(p,v)\wedge\Phi_{co}$;}}
+  \State{\Ind{2} {			$s\leftarrow$solve($\Phi_{seed}(p,v)$);}}
+  \State{\Ind{2} {			\bf if ($s\neq null$)}} {\bf then} $S.add(s)$;
+  \State{\Ind{2} {			\bf else}} $recheckList.add((p, v))$;
+%  \State{\Ind{2} {			\bf end if}}
+  \State{\Ind{1} {		\bf end for}}
+  \State{\Ind{0} {\bf end for}}
+  \State{\Ind{0} {\textit{// **For soundness**}}}
+  \State{\Ind{0} {\bf for} (each pair $(p, v)\in recheckList$)}
+  \State{\Ind{1} {		construct $\Phi_{seed}(p,v)$} as line 6$\sim$7;}
+  \State{\Ind{1} {		$s\leftarrow$solve($\Phi_{seed}(p,v)$);}}
+  \State{\Ind{1} {		\bf if ($s\neq null$)}} {\bf then} 
+  \State{\Ind{2} {		$S.add(s)$; }}
+  \State{\Ind{2} {		$recheckList.erase((p, v))$;}}
+  \State{\Ind{0} {\bf end for}}
+\end{algorithmic}
+}
+\end{algorithm}
+
+\paragraph{Completeness}
+To avoid such redundancy, we propose an approach based on
+\textit{prefix combination}. As described in Algorithm~\ref{alg:gen}, when generating seed interleavings based on
+the input trace $\tau$, we catch all prefixes exposed by $\tau$, as described by set $allPrefix(\tau)$, and then iterate
+each prefix $p$ in the outer loop (between line 4 to 13). 
+Specifically, $p=\{p_1,...,p_N\}$ contains a sub-prefix $p_i$ along the $i$-th thread, where $N$ represents 
+the number of threads. Thus, there are $\prod_{1\leq i\leq N}|p_i|$ different prefixes for $p$.
+For each $p$, it identifies all possible value combinations
+that the reads in $p$ may read, represented by the set $allValues(p)$, which contains
+$\prod_{r_i\in prefix}n_i(r_i)$ elements, where $n_i(r_i)$ is the number of different values that $r_i$
+in $p$ can read. The inner loop (between line 5 to 12) iterates on each element
+$v$ and tries to generate a new seed interleaving. 
+Specifically, it constructs the formula $\Phi_{seed}(p,v)$ at line 8 to generate a consistent seed interleaving which 
+enforce the reads in $p$ read the values described by $v$, as described by constraints $\Phi_{rw}'(p,v)$.
+If $\Phi_{seed}(p,v)$ is solvable, then a new schedule is generated to trigger an execution which will explore new unexplored behavior.
+Note that, the value combination that is just explored by the input trace will be skipped at line 6. 
+
+For the code in Figure~\ref{fig:soundComplete}(a), our approach generates three seed interleavings ($I_1$ to $I_3$)
+at the same time, as described in Figure~\ref{fig:interleavingGen}(b), and ends without any redundant executions.
+
+\paragraph{Soundness}
+
+While the loop iteration in Algorithm~\ref{alg:gen} maintains the completeness of the algorithm, it may miss some
+consistent executions. Take the code snippet in Figure~\ref{fig:soundComplete}(b) as example. 
+Suppose the initial trace is $\tau_0$: $\{r1$:$1,r3$:$2\}$, then prefix $p=\{r1$:$0,r3$:$2\}$ will be 
+identified as an unreachable prefix based on $\tau_0$, because when $r1$ reads value $0$ then the reachability of 
+the write at line 2 will not be guaranteed and thus $r2$ can not read value $2$. However, $p$ is actually reachable
+and contains a more concrete prefix $\{r1$:$0,r2$:$1,r3$:$2\}$.
+
+For the soundness, Algorithm~\ref{alg:gen} maintains the currently discovered unreachable prefixes in set $recheckList$,
+and rechecks their reachability when a new trace is generated, as described by the loop between line 15 and 21.
+$reCheckList$ is updated at line 20 whenever a pair $(p,v)$ is successfully identified as a reachable prefix by a seed interleaving.
+Take prefix $p=\{r1$:$0,r3$:$2\}$ as example. It is added to $recheckList$ when identified, and will be checked and satisfied
+when new trace $\tau'$: $\{r1$:$0,r2$:$1,r3$:$0\}$ is triggered by the seed interleaving 
+corresponding to the prefix $p'=\{r1$:$0,r3$:$0\}$ generated base on $\tau_0$.
+
+\begin{theorem}
+Suppose the program is terminating and the solver is sound (i.e, for a satisfiable constraint formula
+ the solver will always return a correct solution), our approach will eventually cover the whole state-space
+of the program that can be driven by the possible interleavings with respect to a given input.
+\end{theorem}
+
+\textit{Proof.} \textit{By contradiction}. Suppose there exists an interleaving $I$ is not covered, and 
+$I$ will explore the behavior that the explored interleavings do not touch.
+Two possibilities exist: (1) $I$ contains an previously observed read which reads a new unobserved value;
+(2) $I$ contains a previously unobserved event. 
+Obviously, case (1) is impossible, because our algorithm consider all possible values that a read event can read.
+For case (2), whenever a new trace is observed, our algorithm consider all prefixes exposed by the given input trace. 
+Thus, an event is not considered only when it dependents on a branch, the condition of which can not be satisfied by any 
+of the states driven by the generated seed interleavings. However, it contradicts to the fact that our algorithm
+generates a seed interleaving for each possible value set that the reads in a prefix can read.
+
+\subsection{Handle Nonterminating Programs}
+
+Many realistic concurrent programs are nonterminating and thus have cyclic state spaces~\cite{Musuvathi:2008}.
+Specifically, infinite spaces of executions exist for these programs when allowed to continually read 
+the same value from an atomic object (even after new values have been written to the
+object). Take Figure~\ref{fig:soundComplete}(b) as example. If line 1 continues to read the initial value $0$, 
+then thread $T1$ will not terminate and thus introduce an infinite search space. 
+
+To handle such nonterminating programs, we introduce two strategies. 
+First, \checker supports CHESS-like~\cite{Musuvathi:2008}
+fairness based the thread-\textit{yield} statements in the test programs. 
+This strategy can efficiently prevent the nontermination resulted from unfair schedules.
+Second, \checker supports a user-defined number to limit the times that
+the same value from an atomic object can be continually read. 
+During the seed interleaving generation, \checker can use this number to 
+generate fair schedules without tripping into a circle state space.
+
+\section{Evaluation}
+
+To evaluate our approach, we have developed a stateless model checker, called \checker,
+which is implemented as a shared library to handles the 
+atomic operations. Specifically, based compiler architecture LLVM~\cite{Lattner:2004}, we firstly compile
+the tested programs into LLVM Bitcode, which contains a fixed number of atomic operations,
+and then replace the atomic operations in the bitcode to the corresponding calls in the shared 
+library to totally control their executions based on a given seed interleaving. 
+
+Since C++11 is new, only few tools supports C++11 memory model and few benchmarks are available. 
+Some existing tools are designed for different purpose, and thus have limitations on scalability 
+(only considering small programs) or soundness (missing many potential program behavior). 
+In this paper, we will mainly compare \checker with CDSChecker~\cite{Norris:2013}, which is the most
+recently publicly available tool for C++11. 
+We compiled our evaluations with compiler Clang's $-O3$ optimization, and ran all our experiments 
+on a four-core machine with 2.70GHz Intel Core i5 CPU 703 running Ubuntu 14.04, 
+and set a timeout of one hour for each benchmark.
+
 
 %\appendix
 %\section{Appendix Title}

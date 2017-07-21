@@ -1,0 +1,825 @@
+Begin
+Generate a model checker: BeginFunc: 0x0
+0x7f98d1c04cd0
+BeginFunc: 0x0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 25904
+Generate a new Executor: 0x7f98d1c04dd0 0x7f98d1d00000
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1028231c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c4 1 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c8 0 7!
+update reachabilty!
+end update!
+Main thread: creating 2 threads
+BeginFunc: 0x7f98d1c04dd0
+func begin
+BeginFunc: 0x7f98d1c04dd0
+func begin
+BeginFunc: 0x7f98d1c04dd0
+func begin
+
+In checker_thread_begin: 0x102c89000
+
+In checker_thread_begin: 0x102d0c000
+
+In checker_thread_create: 0x7fff7d800300 0x102c89000
+
+In checker_thread_create: 0x7fff7d800300 0x102d0c000
+Waitting for create thread 0x102c89000
+In atomic checker_preLoad: 0x1028231c0 2!
+get buffer: 0x1028231c0 0
+
+expect value: r 1 0
+In atomic checker_preLoad: 0x1028231c0 2!
+get buffer: 0x1028231c0 0
+
+expect value: r 2 0
+Waitting for create thread 0x102d0c000
+In rmw_add: 0x1028231c4 1 2
+update reachabilty!
+In atomic checker_preLoad: 0x1028231c4 end update!
+2!
+get buffer: 0x1028231c4 1
+
+expect value: r 3 1 !1!
+Set Read Value: get buffer: 10x1028231c4
+ Set write Value: 21
+
+
+expect value: s 1 1
+In atomic checker_preStore: 0x1028231c0 1 2!
+update reachabilty!
+r1=0
+end update!
+r2=0
+In checker_thread_end
+r4=1
+In checker_thread_end
+BeginFunc: 0x7f98d1c04dd0
+func begin
+BeginFunc: 0x7f98d1c04dd0
+func begin
+Main thread is finished
+In checker_thread_end
+In generateModel2!: 3
+vec: 1 0
+vec: 1 0
+vec: 0 0
+vec: 1 1
+vec: 0 2
+vec: 0 2
+vec: 1 2
+vec: 0 3
+vec: 0 3
+vec: 0 3
+vec: 0 4
+vec: 0 4
+size: 2
+size: 1
+vecset: 1
+valuesVec: 2
+valueSet: 4
+Generating: 1 2
+v: r-1 0
+v: s-1 2
+prefix: 0
+enforce: 0x7f98d1c057e0 r-1 0 
+curSch: 0x7f98d1d00000 0
+enforce: 0x7f98d1d01b70 s-1 2 
+curSch: 0x7f98d1d00000 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7f98d1c04dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7f98d1c04dd0
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7f98d1d06450
+action: main 1 AWrite 0x1028231c0 4 0
+
+RF: r 1 0
+action: r 3 ARMW_ADD 0x1028231c4 0 1
+
+RF: s 1 2
+Generating: 2 2
+v: r-1 1
+v: s-1 1
+prefix: 0
+enforce: 0x7f98d1c057e0 r-1 1 
+curSch: 0x7f98d1d00000 0
+enforce: 0x7f98d1d01b70 s-1 1 
+curSch: 0x7f98d1d00000 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7f98d1c04dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7f98d1c04dd0
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7f98d1d049c0
+action: s 2 AWrite 0x1028231c0 0 1
+
+RF: r 1 1
+action: main 2 AWrite 0x1028231c4 4 1
+
+RF: s 1 1
+Generating: 3 2
+v: r-1 1
+v: s-1 2
+prefix: 0
+enforce: 0x7f98d1c057e0 r-1 1 
+curSch: 0x7f98d1d00000 0
+enforce: 0x7f98d1d01b70 s-1 2 
+curSch: 0x7f98d1d00000 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7f98d1c04dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7f98d1c04dd0
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 78594: model is not available")
+end checksat!
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 2
+Generating: 1 1
+v: r-2 1
+prefix: 2
+enforce: 0x7f98d1c057e0 r-1 0 
+enforce: 0x7f98d1d01b70 s-1 1 
+enforce: 0x7f98d1c057e0 r-1 0 
+enforce: 0x7f98d1c058e0 r-2 1 
+curSch: 0x7f98d1d00000 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7f98d1c04dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7f98d1c04dd0
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7f98d1e00480
+action: main 1 AWrite 0x1028231c0 4 0
+
+RF: r 1 0
+action: s 2 AWrite 0x1028231c0 0 1
+
+RF: r 2 1
+action: main 2 AWrite 0x1028231c4 4 1
+
+RF: s 1 1
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 2
+Generating: 1 1
+v: r-3 2
+prefix: 3
+enforce: 0x7f98d1c057e0 r-1 0 
+enforce: 0x7f98d1c058e0 r-2 0 
+enforce: 0x7f98d1d01b70 s-1 1 
+enforce: 0x7f98d1c057e0 r-1 0 
+enforce: 0x7f98d1c058e0 r-2 0 
+enforce: 0x7f98d1c05b90 r-3 2 
+curSch: 0x7f98d1d00000 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7f98d1c04dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7f98d1c04dd0
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 131197: model is not available")
+end checksat!
+In generateModel2 End!
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 25905
+Generate a new Executor: 0x7f98d1d05d50 0x7f98d1d02f40
+Schedule: 0x7f98d1d06450 2
+For: main 7
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    r 0
+    r 1
+    r 2
+    r 3
+    r 4
+For: main 8
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+    r 0
+    r 1
+    r 2
+    r 3
+    r 4
+    s 0
+    s 1
+    s 2
+    s 3
+For: r 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: s 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+For: s 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+For: s 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+Read Map: r 1 0
+Read Map: s 1 2
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1028231c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c4 1 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c8 0 7!
+update reachabilty!
+end update!
+Main thread: creating 2 threads
+BeginFunc: 0x7f98d1d05d50
+func begin
+BeginFunc: 0x7f98d1d05d50
+func begin
+BeginFunc: 0x7f98d1d05d50
+func begin
+
+In checker_thread_begin: 0x102c89000
+
+In checker_thread_create: 0x7fff7d800300 0x102c89000
+
+In checker_thread_create: 0x7fff7d800300 0x102d0c000
+
+In checker_thread_begin: 0x102d0c000
+In atomic checker_preLoad: 0x1028231c4 2!
+
+expect value: s 1 2
+In atomic checker_preStore: 0x1028231c0 2 2!
+update reachabilty!
+end update!
+r4=2
+In checker_thread_end
+BeginFunc: 0x7f98d1d05d50
+func begin
+Waitting for create thread 0x102c89000
+In atomic checker_preLoad: 0x1028231c0 2!
+
+expect value: r 1 0
+In atomic checker_preLoad: 0x1028231c0 2!
+get buffer: 0x1028231c0 0
+
+expect value: r 2 0
+In rmw_add: 0x1028231c4 1 2
+update reachabilty!
+end update!
+get buffer: 0x1028231c4 1
+
+expect value: r 3 1 !1!
+Set Read Value: 1
+Set write Value: 2
+r1=0
+r2=0
+In checker_thread_end
+BeginFunc: 0x7f98d1d05d50
+func begin
+Main thread is finished
+In checker_thread_end
+In generateModel2!: 3
+vec: 1 1
+vec: 0 2
+vec: 0 2
+vec: 1 0
+vec: 1 0
+vec: 0 0
+vec: 1 2
+vec: 0 3
+vec: 0 3
+vec: 0 3
+vec: 0 4
+vec: 0 4
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 2
+Generating: 1 1
+v: r-2 2
+prefix: 2
+enforce: 0x7f98d1d03950 s-1 2 
+enforce: 0x7f98d1d03fe0 r-1 0 
+enforce: 0x7f98d1d03fe0 r-1 0 
+enforce: 0x7f98d1d04080 r-2 2 
+curSch: 0x7f98d1d06450 2
+enforce11: 0x7f98d1d03fe0 r-1 0 
+enforce11: 0x7f98d1d03950 s-1 2 
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7f98d1d05d50
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7f98d1d05d50
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 26751: model is not available")
+end checksat!
+size: 2
+size: 1
+vecset: 1
+valuesVec: 2
+valueSet: 4
+Generating: 0 2
+v: r-1 0
+v: s-1 1
+prefix: 0
+enforce: 0x7f98d1d03fe0 r-1 0 
+curSch: 0x7f98d1d06450 2
+enforce11: 0x7f98d1d03fe0 r-1 0 
+enforce11: 0x7f98d1d03950 s-1 2 
+Indentify inconsistency!
+Generating: 2 2
+v: r-1 2
+v: s-1 1
+prefix: 0
+enforce: 0x7f98d1d03fe0 r-1 2 
+curSch: 0x7f98d1d06450 2
+Indentify inconsistency!
+Generating: 3 2
+v: r-1 2
+v: s-1 2
+prefix: 0
+enforce: 0x7f98d1d03fe0 r-1 2 
+curSch: 0x7f98d1d06450 2
+Indentify inconsistency!
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 2
+Generating: 1 1
+v: r-3 2
+prefix: 3
+enforce: 0x7f98d1d03950 s-1 2 
+enforce: 0x7f98d1d03fe0 r-1 0 
+enforce: 0x7f98d1d04080 r-2 0 
+enforce: 0x7f98d1d03fe0 r-1 0 
+enforce: 0x7f98d1d04080 r-2 0 
+enforce: 0x7f98d1d04220 r-3 2 
+curSch: 0x7f98d1d06450 2
+enforce11: 0x7f98d1d03fe0 r-1 0 
+enforce11: 0x7f98d1d03950 s-1 2 
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7f98d1d05d50
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7f98d1d05d50
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 53540: model is not available")
+end checksat!
+In generateModel2 End!
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 25906
+Generate a new Executor: 0x7f98d1f00500 0x7f98d1f00aa0
+Schedule: 0x7f98d1d049c0 2
+For: main 7
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    r 0
+    r 1
+    r 2
+    r 3
+    r 4
+For: main 8
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+    r 0
+    r 1
+    r 2
+    r 3
+    r 4
+    s 0
+    s 1
+    s 2
+    s 3
+For: r 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: s 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+For: s 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+For: s 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+Read Map: r 1 1
+Read Map: s 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1028231c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c4 1 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c8 0 7!
+update reachabilty!
+end update!
+Main thread: creating 2 threads
+BeginFunc: 0x7f98d1f00500
+func begin
+BeginFunc: 0x7f98d1f00500
+func begin
+BeginFunc: 0x7f98d1f00500
+func begin
+
+In checker_thread_begin: 0x102c89000
+
+In checker_thread_begin: 0x102d0c000
+
+In checker_thread_create: 0x7fff7d800300 0x102c89000
+
+In checker_thread_create: 0x7fff7d800300 0x102d0c000
+Waitting for create thread 0x102c89000
+Waitting for create thread 0x102d0c000
+In atomic checker_preLoad: 0x1028231c0 2!
+
+expect value: r 1 1
+In atomic checker_preLoad: 0x1028231c0 2!
+In atomic checker_preLoad: 0x1028231c4 2!
+get buffer: 0x1028231c0 1
+
+expect value: r 2 1
+
+expect value: s 1 1
+In atomic checker_preStore: 0x1028231c0 1 2!
+update reachabilty!
+end update!
+In rmw_add: 0x1028231c4 1 2
+update reachabilty!
+r4=1
+In checker_thread_end
+end update!
+get buffer: 0x1028231c4 1
+
+expect value: r 3 1 !1!
+Set Read Value: 1
+Set write Value: 2
+BeginFunc: 0x7f98d1f00500
+func begin
+r1=1
+r2=1
+In checker_thread_end
+BeginFunc: 0x7f98d1f00500
+func begin
+Main thread is finished
+In checker_thread_end
+In generateModel2!: 3
+vec: 1 1
+vec: 0 2
+vec: 0 2
+vec: 1 0
+vec: 1 0
+vec: 0 0
+vec: 1 2
+vec: 0 3
+vec: 0 3
+vec: 0 3
+vec: 0 4
+vec: 0 4
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 2
+Generating: 0 1
+v: r-2 0
+prefix: 2
+enforce: 0x7f98d1c09f10 r-1 1 
+enforce: 0x7f98d1e07070 s-1 1 
+enforce: 0x7f98d1c09f10 r-1 1 
+enforce: 0x7f98d1c0a0f0 r-2 0 
+curSch: 0x7f98d1d049c0 2
+enforce11: 0x7f98d1c09f10 r-1 1 
+enforce11: 0x7f98d1e07070 s-1 1 
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7f98d1f00500
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7f98d1f00500
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 26103: model is not available")
+end checksat!
+size: 2
+size: 1
+vecset: 1
+valuesVec: 2
+valueSet: 4
+Generating: 0 2
+v: r-1 0
+v: s-1 1
+prefix: 0
+enforce: 0x7f98d1c09f10 r-1 0 
+curSch: 0x7f98d1d049c0 2
+Indentify inconsistency!
+Generating: 1 2
+v: r-1 0
+v: s-1 2
+prefix: 0
+enforce: 0x7f98d1c09f10 r-1 0 
+curSch: 0x7f98d1d049c0 2
+Indentify inconsistency!
+Generating: 3 2
+v: r-1 1
+v: s-1 2
+prefix: 0
+enforce: 0x7f98d1c09f10 r-1 1 
+curSch: 0x7f98d1d049c0 2
+enforce11: 0x7f98d1c09f10 r-1 1 
+enforce11: 0x7f98d1e07070 s-1 1 
+Indentify inconsistency!
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 2
+Generating: 1 1
+v: r-3 2
+prefix: 3
+enforce: 0x7f98d1c09f10 r-1 1 
+enforce: 0x7f98d1c0a0f0 r-2 1 
+enforce: 0x7f98d1e07070 s-1 1 
+enforce: 0x7f98d1c09f10 r-1 1 
+enforce: 0x7f98d1c0a0f0 r-2 1 
+enforce: 0x7f98d1c0a2d0 r-3 2 
+curSch: 0x7f98d1d049c0 2
+enforce11: 0x7f98d1c09f10 r-1 1 
+enforce11: 0x7f98d1e07070 s-1 1 
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7f98d1f00500
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7f98d1f00500
+Adding sc constraints: 3
+In addLockConstraints: 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 52992: model is not available")
+end checksat!
+In generateModel2 End!
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 25907
+Generate a new Executor: 0x7f98d1f00500 0x7f98d1f06230
+Schedule: 0x7f98d1e00480 3
+For: main 7
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    r 0
+    r 1
+    r 2
+    r 3
+    r 4
+For: main 8
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+    r 0
+    r 1
+    r 2
+    r 3
+    r 4
+    s 0
+    s 1
+    s 2
+    s 3
+For: r 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: r 4
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: s 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+For: s 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+For: s 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+    main 5
+Read Map: r 1 0
+Read Map: r 2 1
+Read Map: s 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1028231c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c4 1 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1028231c8 0 7!
+update reachabilty!
+end update!
+Main thread: creating 2 threads
+BeginFunc: 0x7f98d1f00500
+func begin
+BeginFunc: 0x7f98d1f00500
+func begin
+BeginFunc: 0x7f98d1f00500
+func begin
+
+In checker_thread_begin: 0x102c89000
+
+In checker_thread_create: 0x7fff7d800300 0x102c89000
+
+In checker_thread_begin: 0x102d0c000
+
+In checker_thread_create: 0x7fff7d800300 0x102d0c000
+Waitting for create thread 0x102c89000
+In atomic checker_preLoad: 0x1028231c0 2!
+
+expect value: r 1 0
+In atomic checker_preLoad: 0x1028231c0 2!
+
+expect value: r 2 1
+r1=0
+Waitting for create thread r2=1
+0x102d0c000In checker_thread_end
+
+BeginFunc: 0x7f98d1f00500
+func begin
+In atomic checker_preLoad: 0x1028231c4 2!
+
+expect value: s 1 1
+In atomic checker_preStore: 0x1028231c0 1 2!
+update reachabilty!
+end update!
+r4=1
+In checker_thread_end
+BeginFunc: 0x7f98d1f00500
+func begin
+Main thread is finished
+In checker_thread_end
+In generateModel2!: 3
+vec: 0 2
+vec: 0 3
+vec: 0 3
+In generateModel2 End!
+sover return!

@@ -39,19 +39,26 @@ void f3() {
 int user_main() {
     checker_generateExecutor();
     checker_thread_begin("main");
+    
+    x = 0, y = 0;
+    
     std::thread a(f1);
     std::thread b(f2);
     std::thread c(f3);
 
-    x = 0, y = 0;
     
     checker_thread_create(a.get_id());
     checker_thread_create(b.get_id());
     checker_thread_create(c.get_id());
     
-    assert(!(data1==1 && data2 == 0 && data3 == 0 && data4 == 1)); //may be violated
+    checker_thread_join(a.get_id());
+    checker_thread_join(b.get_id());
+    checker_thread_join(c.get_id());
+    
     a.join(), b.join();
     c.join();
+    assert(!(data1==1 && data2 == 0 && data3 == 0 && data4 == 1)); //may be violated
+    printf("data: %d, %d, %d, %d\n", data1, data2, data3, data4);
     std::cout << "data: " << data1 << " " << data2 << " " << data3 << " " << data4 << "\n";
     checker_thread_end();
     checker_solver();

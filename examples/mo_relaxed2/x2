@@ -1,810 +1,567 @@
-MEMORY-ORDER CONSTRAINTS -----
-sat
-(model 
-  (define-fun Basic64 () Bool
-    true)
-  (define-fun B_main-1_main-3 () Int
-    1)
-  (define-fun B_f1-1_f1-2 () Int
-    1)
-  (define-fun B_main-1_main-2 () Int
-    1)
-  (define-fun B_main-7_f2-3 () Int
-    80)
-  (define-fun Basic83 () Bool
-    true)
-  (define-fun B_f2-0_f1-2 () Int
-    10)
-  (define-fun Basic63 () Bool
-    true)
-  (define-fun CORW () Bool
-    true)
-  (define-fun B_main-2_f2-1 () Int
-    1)
-  (define-fun Basic3 () Bool
-    true)
-  (define-fun ASW42 () Bool
-    true)
-  (define-fun SWRelation4 () Bool
-    true)
-  (define-fun Basic100 () Bool
-    true)
-  (define-fun Basic81 () Bool
-    true)
-  (define-fun Basic82 () Bool
-    true)
-  (define-fun ASW25 () Bool
-    true)
-  (define-fun Basic104 () Bool
-    true)
-  (define-fun Basic127 () Bool
-    true)
-  (define-fun ASW23 () Bool
-    true)
-  (define-fun B_main-5_f1-1 () Int
-    31)
-  (define-fun Basic79 () Bool
-    true)
-  (define-fun RF_f2-1_f1-2 () Int
-    1)
-  (define-fun M_main-2 () Int
-    0)
-  (define-fun Basic135 () Bool
-    true)
-  (define-fun B_f1-1_main-7 () Int
-    1)
-  (define-fun Basic1 () Bool
-    true)
-  (define-fun SWRelation6 () Bool
-    true)
-  (define-fun B_main-7_f2-2 () Int
-    72)
-  (define-fun B_f1-1_main-3 () Int
-    29)
-  (define-fun B_main-0_main-3 () Int
-    1)
-  (define-fun B_main-3_main-5 () Int
-    1)
-  (define-fun Basic51 () Bool
-    true)
-  (define-fun Basic24 () Bool
-    true)
-  (define-fun RW () Bool
-    true)
-  (define-fun B_f2-2_f1-3 () Int
-    16)
-  (define-fun B_f1-1_main-1 () Int
-    27)
-  (define-fun B_main-2_f1-3 () Int
-    1)
-  (define-fun B_main-2_f1-1 () Int
-    1)
-  (define-fun ASW36 () Bool
-    true)
-  (define-fun Basic39 () Bool
-    true)
-  (define-fun B_main-0_f1-0 () Int
-    18)
-  (define-fun RF_f2-1_main-2 () Int
-    1)
-  (define-fun B_f1-3_main-6 () Int
-    1)
-  (define-fun M_f2-2 () Int
-    1)
-  (define-fun B_f1-2_main-3 () Int
-    37)
-  (define-fun Basic11 () Bool
-    true)
-  (define-fun B_main-2_main-3 () Int
-    1)
-  (define-fun ASW14 () Bool
-    true)
-  (define-fun B_f1-0_main-6 () Int
-    1)
-  (define-fun B_f1-3_main-2 () Int
-    44)
-  (define-fun SWRelation10 () Bool
-    true)
-  (define-fun B_main-5_f1-2 () Int
-    39)
-  (define-fun ASW39 () Bool
-    true)
-  (define-fun Basic144 () Bool
-    true)
-  (define-fun Basic41 () Bool
-    true)
-  (define-fun B_main-3_main-4 () Int
-    1)
-  (define-fun B_f2-0_f2-3 () Int
-    1)
-  (define-fun B_f2-3_main-2 () Int
-    75)
-  (define-fun Basic16 () Bool
-    true)
-  (define-fun Basic6 () Bool
-    true)
-  (define-fun Basic154 () Bool
-    true)
-  (define-fun B_main-1_f2-3 () Int
-    1)
-  (define-fun B_main-6_f1-0 () Int
-    24)
-  (define-fun B_main-2_main-4 () Int
-    1)
-  (define-fun B_main-4_f2-1 () Int
-    1)
-  (define-fun B_main-3_f1-1 () Int
-    1)
-  (define-fun Basic84 () Bool
-    true)
-  (define-fun ASW8 () Bool
-    true)
-  (define-fun ASW37 () Bool
-    true)
-  (define-fun B_f2-0_f1-3 () Int
-    14)
-  (define-fun B_main-5_f2-2 () Int
-    70)
-  (define-fun B_f2-2_main-1 () Int
-    66)
-  (define-fun Basic31 () Bool
-    true)
-  (define-fun B_main-3_main-7 () Int
-    1)
-  (define-fun Basic55 () Bool
-    true)
-  (define-fun B_main-1_main-4 () Int
-    1)
-  (define-fun B_main-2_main-6 () Int
-    1)
-  (define-fun Basic113 () Bool
-    true)
-  (define-fun ASW24 () Bool
-    true)
-  (define-fun Basic68 () Bool
-    true)
-  (define-fun Basic145 () Bool
-    true)
-  (define-fun SWRelation5 () Bool
-    true)
-  (define-fun Basic133 () Bool
-    true)
-  (define-fun B_f2-3_f1-2 () Int
-    13)
-  (define-fun Basic109 () Bool
-    true)
-  (define-fun COWR () Bool
-    true)
-  (define-fun Basic36 () Bool
-    true)
-  (define-fun B_main-2_main-5 () Int
-    1)
-  (define-fun Basic155 () Bool
-    true)
-  (define-fun B_main-4_main-5 () Int
-    1)
-  (define-fun B_f2-3_f1-1 () Int
-    9)
-  (define-fun Basic136 () Bool
-    true)
-  (define-fun Basic28 () Bool
-    true)
-  (define-fun Basic89 () Bool
-    true)
-  (define-fun B_f2-1_main-4 () Int
-    61)
-  (define-fun Basic48 () Bool
-    true)
-  (define-fun B_main-1_f2-1 () Int
-    1)
-  (define-fun Basic35 () Bool
-    true)
-  (define-fun Basic128 () Bool
-    true)
-  (define-fun Basic80 () Bool
-    true)
-  (define-fun B_f2-1_f2-2 () Int
-    1)
-  (define-fun Basic60 () Bool
-    true)
-  (define-fun B_main-4_f2-0 () Int
-    54)
-  (define-fun Basic103 () Bool
-    true)
-  (define-fun B_f2-2_f1-2 () Int
-    12)
-  (define-fun B_f1-2_main-0 () Int
-    34)
-  (define-fun B_main-1_f2-0 () Int
-    51)
-  (define-fun B_f1-2_main-2 () Int
-    36)
-  (define-fun B_f1-3_main-3 () Int
-    45)
-  (define-fun Basic71 () Bool
-    true)
-  (define-fun M_f1-2 () Int
-    1)
-  (define-fun Basic0 () Bool
-    true)
-  (define-fun B_main-2_f1-2 () Int
-    1)
-  (define-fun Basic44 () Bool
-    true)
-  (define-fun B_f2-2_main-7 () Int
-    1)
-  (define-fun Basic107 () Bool
-    true)
-  (define-fun ASW15 () Bool
-    true)
-  (define-fun Basic22 () Bool
-    true)
-  (define-fun SWRelation9 () Bool
-    true)
-  (define-fun Basic158 () Bool
-    true)
-  (define-fun Basic159 () Bool
-    true)
-  (define-fun Basic62 () Bool
-    true)
-  (define-fun SWRelation1 () Bool
-    true)
-  (define-fun ASW22 () Bool
-    true)
-  (define-fun Basic125 () Bool
-    true)
-  (define-fun B_main-2_f1-0 () Int
-    20)
-  (define-fun B_f1-3_main-1 () Int
-    43)
-  (define-fun Basic69 () Bool
-    true)
-  (define-fun Basic29 () Bool
-    true)
-  (define-fun Basic37 () Bool
-    true)
-  (define-fun Basic53 () Bool
-    true)
-  (define-fun ASW21 () Bool
-    true)
-  (define-fun B_main-5_f1-3 () Int
-    47)
-  (define-fun ASW49 () Bool
-    true)
-  (define-fun Basic93 () Bool
-    true)
-  (define-fun Basic112 () Bool
-    true)
-  (define-fun Basic21 () Bool
-    true)
-  (define-fun B_main-7_f1-1 () Int
-    33)
-  (define-fun B_main-0_main-5 () Int
-    1)
-  (define-fun Basic85 () Bool
-    true)
-  (define-fun ASW5 () Bool
-    true)
-  (define-fun Basic147 () Bool
-    true)
-  (define-fun Basic40 () Bool
-    true)
-  (define-fun Basic47 () Bool
-    true)
-  (define-fun B_f1-1_f1-3 () Int
-    1)
-  (define-fun B_main-3_f2-0 () Int
-    53)
-  (define-fun Basic17 () Bool
-    true)
-  (define-fun Basic30 () Bool
-    true)
-  (define-fun Basic140 () Bool
-    true)
-  (define-fun Basic148 () Bool
-    true)
-  (define-fun B_main-2_main-7 () Int
-    1)
-  (define-fun B_main-4_f1-2 () Int
-    38)
-  (define-fun Basic110 () Bool
-    true)
-  (define-fun Basic49 () Bool
-    true)
-  (define-fun B_f2-2_f1-0 () Int
-    4)
-  (define-fun B_main-0_main-2 () Int
-    1)
-  (define-fun Basic92 () Bool
-    true)
-  (define-fun B_main-1_f2-2 () Int
-    1)
-  (define-fun Basic88 () Bool
-    true)
-  (define-fun B_main-4_f1-1 () Int
-    30)
-  (define-fun Basic149 () Bool
-    true)
-  (define-fun B_f2-2_f1-1 () Int
-    8)
-  (define-fun SWRelation8 () Bool
-    true)
-  (define-fun SWRelation7 () Bool
-    true)
-  (define-fun ASW43 () Bool
-    true)
-  (define-fun Basic129 () Bool
-    true)
-  (define-fun Basic111 () Bool
-    true)
-  (define-fun ASW27 () Bool
-    true)
-  (define-fun Basic7 () Bool
-    true)
-  (define-fun B_f2-3_main-4 () Int
-    77)
-  (define-fun B_f2-1_main-0 () Int
-    58)
-  (define-fun B_main-3_f1-0 () Int
-    21)
-  (define-fun ASW41 () Bool
-    true)
-  (define-fun Basic132 () Bool
-    true)
-  (define-fun B_f1-2_main-7 () Int
-    1)
-  (define-fun B_f1-2_main-6 () Int
-    1)
-  (define-fun ASW18 () Bool
-    true)
-  (define-fun Basic12 () Bool
-    true)
-  (define-fun B_f2-2_main-4 () Int
-    69)
-  (define-fun B_main-5_f2-3 () Int
-    78)
-  (define-fun Basic150 () Bool
-    true)
-  (define-fun ASW44 () Bool
-    true)
-  (define-fun B_f1-3_main-0 () Int
-    42)
-  (define-fun Basic25 () Bool
-    true)
-  (define-fun Basic66 () Bool
-    true)
-  (define-fun CORF () Bool
-    true)
-  (define-fun SWRelation3 () Bool
-    true)
-  (define-fun B_main-4_f2-3 () Int
-    1)
-  (define-fun B_main-6_f2-1 () Int
-    63)
-  (define-fun SWRelation2 () Bool
-    true)
-  (define-fun B_main-1_main-6 () Int
-    1)
-  (define-fun Basic76 () Bool
-    true)
-  (define-fun MO1 () Bool
-    true)
-  (define-fun Basic58 () Bool
-    true)
-  (define-fun B_main-3_f1-3 () Int
-    1)
-  (define-fun B_f1-1_f2-2 () Int
-    0)
-  (define-fun B_main-1_f1-2 () Int
-    1)
-  (define-fun B_main-0_main-6 () Int
-    1)
-  (define-fun ASW17 () Bool
-    true)
-  (define-fun Basic105 () Bool
-    true)
-  (define-fun Basic54 () Bool
-    true)
-  (define-fun ASW13 () Bool
-    true)
-  (define-fun Basic156 () Bool
-    true)
-  (define-fun B_f2-1_main-7 () Int
-    1)
-  (define-fun B_main-7_f2-0 () Int
-    57)
-  (define-fun B_main-5_f2-1 () Int
-    62)
-  (define-fun Basic74 () Bool
-    true)
-  (define-fun B_main-6_f1-1 () Int
-    32)
-  (define-fun B_main-6_main-7 () Int
-    1)
-  (define-fun B_main-5_f1-0 () Int
-    23)
-  (define-fun B_f2-3_f1-0 () Int
-    5)
-  (define-fun B_main-3_main-6 () Int
-    1)
-  (define-fun B_main-0_f2-2 () Int
-    1)
-  (define-fun Basic101 () Bool
-    true)
-  (define-fun B_f2-0_main-7 () Int
-    1)
-  (define-fun Basic96 () Bool
-    true)
-  (define-fun B_f2-3_main-1 () Int
-    74)
-  (define-fun Basic143 () Bool
-    true)
-  (define-fun B_f1-0_main-7 () Int
-    1)
-  (define-fun ASW45 () Bool
-    true)
-  (define-fun ASW34 () Bool
-    true)
-  (define-fun MOConsistent () Bool
-    true)
-  (define-fun Basic141 () Bool
-    true)
-  (define-fun Basic138 () Bool
-    true)
-  (define-fun Basic152 () Bool
-    true)
-  (define-fun B_main-0_main-7 () Int
-    1)
-  (define-fun ASW10 () Bool
-    true)
-  (define-fun B_f1-0_f1-2 () Int
-    1)
-  (define-fun Basic95 () Bool
-    true)
-  (define-fun B_f1-1_main-6 () Int
-    1)
-  (define-fun Basic123 () Bool
-    true)
-  (define-fun Basic97 () Bool
-    true)
-  (define-fun ASW48 () Bool
-    true)
-  (define-fun Basic70 () Bool
-    true)
-  (define-fun B_main-1_f1-3 () Int
-    1)
-  (define-fun SWRelation11 () Bool
-    true)
-  (define-fun Basic120 () Bool
-    true)
-  (define-fun Basic146 () Bool
-    true)
-  (define-fun Basic67 () Bool
-    true)
-  (define-fun SWRelation0 () Bool
-    true)
-  (define-fun Basic19 () Bool
-    true)
-  (define-fun B_f2-1_f2-3 () Int
-    1)
-  (define-fun B_main-2_f2-0 () Int
-    52)
-  (define-fun ASW20 () Bool
-    true)
-  (define-fun B_f2-2_main-2 () Int
-    67)
-  (define-fun Basic99 () Bool
-    true)
-  (define-fun Basic15 () Bool
-    true)
-  (define-fun B_main-7_f2-1 () Int
-    64)
-  (define-fun Basic50 () Bool
-    true)
-  (define-fun Basic139 () Bool
-    true)
-  (define-fun B_main-6_f1-2 () Int
-    40)
-  (define-fun B_main-0_f1-3 () Int
-    1)
-  (define-fun Basic5 () Bool
-    true)
-  (define-fun ASW11 () Bool
-    true)
-  (define-fun ASW47 () Bool
-    true)
-  (define-fun B_f2-1_main-2 () Int
-    0)
-  (define-fun Basic56 () Bool
-    true)
-  (define-fun Basic77 () Bool
-    true)
-  (define-fun Basic75 () Bool
-    true)
-  (define-fun ASW50 () Bool
-    true)
-  (define-fun Basic34 () Bool
-    true)
-  (define-fun ASW4 () Bool
-    true)
-  (define-fun Basic59 () Bool
-    true)
-  (define-fun Basic10 () Bool
-    true)
-  (define-fun B_f2-1_f1-1 () Int
-    7)
-  (define-fun B_main-3_f2-1 () Int
-    1)
-  (define-fun B_main-3_f1-2 () Int
-    1)
-  (define-fun B_f2-3_main-0 () Int
-    73)
-  (define-fun MO0 () Bool
-    true)
-  (define-fun Basic32 () Bool
-    true)
-  (define-fun Basic8 () Bool
-    true)
-  (define-fun B_main-0_f2-0 () Int
-    50)
-  (define-fun B_f1-1_main-0 () Int
-    26)
-  (define-fun Basic13 () Bool
-    true)
-  (define-fun Basic65 () Bool
-    true)
-  (define-fun ASW6 () Bool
-    true)
-  (define-fun Basic91 () Bool
-    true)
-  (define-fun B_f1-2_f1-3 () Int
-    1)
-  (define-fun ASW30 () Bool
-    true)
-  (define-fun Basic57 () Bool
-    true)
-  (define-fun Basic134 () Bool
-    true)
-  (define-fun B_f1-2_main-1 () Int
-    35)
-  (define-fun ASW29 () Bool
-    true)
-  (define-fun Basic2 () Bool
-    true)
-  (define-fun B_main-1_main-7 () Int
-    1)
-  (define-fun ASW31 () Bool
-    true)
-  (define-fun B_f2-1_main-1 () Int
-    59)
-  (define-fun B_main-7_f1-0 () Int
-    25)
-  (define-fun B_main-6_f2-0 () Int
-    56)
-  (define-fun B_f2-0_f1-1 () Int
-    6)
-  (define-fun ASW26 () Bool
-    true)
-  (define-fun B_main-6_f1-3 () Int
-    48)
-  (define-fun B_f2-1_main-3 () Int
-    60)
-  (define-fun B_main-3_f2-3 () Int
-    1)
-  (define-fun Basic26 () Bool
-    true)
-  (define-fun ASW7 () Bool
-    true)
-  (define-fun B_main-0_f2-3 () Int
-    1)
-  (define-fun Basic160 () Bool
-    true)
-  (define-fun B_main-0_f2-1 () Int
-    1)
-  (define-fun B_f1-0_f1-1 () Int
-    1)
-  (define-fun B_f2-3_f1-3 () Int
-    17)
-  (define-fun Basic86 () Bool
-    true)
-  (define-fun ASW1 () Bool
-    true)
-  (define-fun B_f2-1_f1-0 () Int
-    3)
-  (define-fun Basic4 () Bool
-    true)
-  (define-fun COWW () Bool
-    true)
-  (define-fun Basic151 () Bool
-    true)
-  (define-fun ASW12 () Bool
-    true)
-  (define-fun Basic121 () Bool
-    true)
-  (define-fun B_main-6_f2-3 () Int
-    79)
-  (define-fun ASW51 () Bool
-    true)
-  (define-fun ASW19 () Bool
-    true)
-  (define-fun ASW2 () Bool
-    true)
-  (define-fun ASW28 () Bool
-    true)
-  (define-fun B_f2-3_main-3 () Int
-    76)
-  (define-fun Basic114 () Bool
-    true)
-  (define-fun B_f2-0_f1-0 () Int
-    2)
-  (define-fun ASW9 () Bool
-    true)
-  (define-fun B_f1-0_f1-3 () Int
-    1)
-  (define-fun Basic116 () Bool
-    true)
-  (define-fun B_main-4_f2-2 () Int
-    1)
-  (define-fun B_f1-3_main-7 () Int
-    1)
-  (define-fun B_f2-2_main-0 () Int
-    65)
-  (define-fun B_f2-0_f2-2 () Int
-    1)
-  (define-fun Basic52 () Bool
-    true)
-  (define-fun Basic115 () Bool
-    true)
-  (define-fun B_main-0_main-4 () Int
-    1)
-  (define-fun Basic90 () Bool
-    true)
-  (define-fun B_main-5_main-7 () Int
-    1)
-  (define-fun Basic137 () Bool
-    true)
-  (define-fun Basic78 () Bool
-    true)
-  (define-fun ASW35 () Bool
-    true)
-  (define-fun B_main-0_f1-1 () Int
-    1)
-  (define-fun Basic131 () Bool
-    true)
-  (define-fun Basic18 () Bool
-    true)
-  (define-fun B_main-6_f2-2 () Int
-    71)
-  (define-fun Basic119 () Bool
-    true)
-  (define-fun Basic94 () Bool
-    true)
-  (define-fun B_main-3_f2-2 () Int
-    1)
-  (define-fun B_f1-2_f2-1 () Int
-    11)
-  (define-fun Basic157 () Bool
-    true)
-  (define-fun Basic106 () Bool
-    true)
-  (define-fun ASW40 () Bool
-    true)
-  (define-fun B_f2-2_f2-3 () Int
-    1)
-  (define-fun Basic27 () Bool
-    true)
-  (define-fun Basic43 () Bool
-    true)
-  (define-fun Basic98 () Bool
-    true)
-  (define-fun ASW3 () Bool
-    true)
-  (define-fun Basic130 () Bool
-    true)
-  (define-fun B_main-1_f1-0 () Int
-    19)
-  (define-fun RF_f1-1_f2-2 () Int
-    1)
-  (define-fun Basic153 () Bool
-    true)
-  (define-fun Basic61 () Bool
-    true)
-  (define-fun ASW38 () Bool
-    true)
-  (define-fun B_main-1_f1-1 () Int
-    1)
-  (define-fun B_main-0_f1-2 () Int
-    1)
-  (define-fun Basic72 () Bool
-    true)
-  (define-fun B_main-4_f1-0 () Int
-    22)
-  (define-fun B_main-1_main-5 () Int
-    1)
-  (define-fun Basic73 () Bool
-    true)
-  (define-fun B_f1-1_main-2 () Int
-    28)
-  (define-fun Basic45 () Bool
-    true)
-  (define-fun ASW33 () Bool
-    true)
-  (define-fun Basic23 () Bool
-    true)
-  (define-fun Basic20 () Bool
-    true)
-  (define-fun RF_f1-1_main-1 () Int
-    0)
-  (define-fun B_main-5_f2-0 () Int
-    55)
-  (define-fun B_main-7_f1-3 () Int
-    49)
-  (define-fun B_main-7_f1-2 () Int
-    41)
-  (define-fun B_main-4_main-6 () Int
-    1)
-  (define-fun Basic87 () Bool
-    true)
-  (define-fun M_main-1 () Int
-    0)
-  (define-fun Basic108 () Bool
-    true)
-  (define-fun Basic46 () Bool
-    true)
-  (define-fun Basic42 () Bool
-    true)
-  (define-fun B_main-5_main-6 () Int
-    1)
-  (define-fun Basic102 () Bool
-    true)
-  (define-fun Basic126 () Bool
-    true)
-  (define-fun ASW16 () Bool
-    true)
-  (define-fun Basic122 () Bool
-    true)
-  (define-fun Basic14 () Bool
-    true)
-  (define-fun B_f2-1_f1-2 () Int
-    0)
-  (define-fun ASW32 () Bool
-    true)
-  (define-fun Basic118 () Bool
-    true)
-  (define-fun B_f2-2_main-3 () Int
-    68)
-  (define-fun B_main-4_f1-3 () Int
-    46)
-  (define-fun Basic142 () Bool
-    true)
-  (define-fun Basic124 () Bool
-    true)
-  (define-fun B_main-4_main-7 () Int
-    1)
-  (define-fun B_main-2_f2-2 () Int
-    1)
-  (define-fun Basic9 () Bool
-    true)
-  (define-fun B_f2-3_main-7 () Int
-    1)
-  (define-fun B_main-2_f2-3 () Int
-    1)
-  (define-fun ASW46 () Bool
-    true)
-  (define-fun ASW0 () Bool
-    true)
-  (define-fun B_f2-1_f1-3 () Int
-    15)
-  (define-fun B_f2-0_f2-1 () Int
-    1)
-  (define-fun Basic117 () Bool
-    true)
-  (define-fun B_main-0_main-1 () Int
-    1)
-  (define-fun Basic38 () Bool
-    true)
-  (define-fun Basic33 () Bool
-    true)
-)
-(error "line 894 column 15: unsat core is not available")
-end
+Generate a model checker: BeginFunc: 0x0
+0x7fcd3b404cd0
+BeginFunc: 0x0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24937
+Generate a new Executor: 0x7fcd3b404dd0 0x7fcd3b405370
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread Waitting for create thread 0x1015c40000x101647000
+
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+get buffer: 0x1011731c0 get buffer: 0x1011731c4 00
+
+
+expect value: 
+expect value: f1f2  11  00
+
+In atomic checker_preStore: 0x1011731c4 1 In atomic checker_preStore: 2!
+0x1011731c0 1 2!
+update reachabilty!
+update reachabilty!
+end update!
+end update!
+In checker_thread_end
+In checker_thread_end
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+data: 0, 0
+ERROR!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+In checker_thread_end
+Generating: f1-1 f2-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b406690 f1-1 1 
+curSch: 0x7fcd3b405370 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b501bc0
+action: f2 2 AWrite 0x1011731c0 0 1
+
+RF: f1 1 1
+Generating: f2-1 f1-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fcd3b404dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fcd3b404dd0
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b6009c0 f2-1 1 
+curSch: 0x7fcd3b405370 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b40cab0
+action: f1 2 AWrite 0x1011731c4 0 1
+
+RF: f2 1 1
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24938
+Generate a new Executor: 0x7fcd3b404dd0 0x7fcd3b407a40
+Schedule: 0x7fcd3b501bc0 1
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread Waitting for create thread 0x1015c40000x101647000
+
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+
+expect value: f1 1 1
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preStore: 0x1011731c4 1In atomic checker_preLoad:  0x1011731c42 !
+2!
+update reachabilty!
+end update!
+In checker_thread_end
+get buffer: 0x1011731c4 0
+
+expect value: f2 1 0
+In atomic checker_preStore: 0x1011731c0 1 2!
+update reachabilty!
+BeginFunc: 0x7fcd3b404dd0
+end update!
+func begin
+In checker_thread_end
+BeginFunc: 0x7fcd3b404dd0
+func begin
+data: 1, 0
+ERROR!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+In checker_thread_end
+Generating: f2-1 f1-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b700720 f2-1 1 
+curSch: 0x7fcd3b501bc0 1
+enforce11: 0x7fcd3b602480 f1-1 1 
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b706660
+action: f2 2 AWrite 0x1011731c0 0 1
+
+RF: f1 1 1
+action: f1 2 AWrite 0x1011731c4 0 1
+
+RF: f2 1 1
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24939
+Generate a new Executor: 0x7fcd3b705300 0x7fcd3b602800
+Schedule: 0x7fcd3b40cab0 1
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b705300
+func begin
+BeginFunc: 0x7fcd3b705300
+func begin
+BeginFunc: 0x7fcd3b705300
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread 0x101647000Waitting for create thread 
+0x1015c4000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+
+expect value: f2 1 1
+In atomic checker_preStore: 0x1011731c0 1 2!
+In checker_shared_int: 0x1011731b8
+update reachabilty!
+In checker_shared_int: end update!
+0x1011731bc
+In atomic checker_preLoad: In checker_thread_end
+0x1011731c0 2!
+get buffer: 0x1011731c0 0
+
+expect value: f1 1 0
+BeginFunc: 0x7fcd3b705300
+func begin
+In atomic checker_preStore: 0x1011731c4 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b705300
+func begin
+data: 0, 1
+ERROR!
+BeginFunc: 0x7fcd3b705300
+func begin
+In checker_thread_end
+Generating: f1-1 f2-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b705300
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b705300
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b705c20 f1-1 1 
+curSch: 0x7fcd3b40cab0 1
+enforce11: 0x7fcd3b7059e0 f2-1 1 
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b504e40
+action: f2 2 AWrite 0x1011731c0 0 1
+
+RF: f1 1 1
+action: f1 2 AWrite 0x1011731c4 0 1
+
+RF: f2 1 1
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24940
+Generate a new Executor: 0x7fcd3b502df0 0x7fcd3b5032e0
+Schedule: 0x7fcd3b706660 2
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b502df0
+func begin
+BeginFunc: 0x7fcd3b502df0
+func begin
+BeginFunc: 0x7fcd3b502df0
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread 0x1015c4000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+
+expect value: f1 1 1
+In atomic checker_preStore: 0x1011731c4 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b502df0
+func begin
+Waitting for create thread 0x101647000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+
+expect value: f2 1 1
+In atomic checker_preStore: 0x1011731c0 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b502df0
+func begin
+data: 1, 1
+In checker_thread_end
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24941
+Generate a new Executor: 0x7fcd3b605bc0 0x7fcd3b7070f0
+Schedule: 0x7fcd3b504e40 2
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b605bc0
+func begin
+BeginFunc: 0x7fcd3b605bc0
+func begin
+BeginFunc: 0x7fcd3b605bc0
+func begin
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+
+In checker_thread_begin: 0x1015c4000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+
+expect value: f1 1 1
+In atomic checker_preStore: 0x1011731c4 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b605bc0
+func begin
+
+In checker_thread_begin: 0x101647000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+
+expect value: f2 1 1
+In atomic checker_preStore: 0x1011731c0 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b605bc0
+func begin
+data: 1, 1
+In checker_thread_end
+sover return!

@@ -55,21 +55,36 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Three $sw$ relation types involved with fences. }}{5}}
 \newlabel{fig:fence}{{7}{5}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}data-validity constraints $\Phi _{rw}$}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Incorrect reachability constraints may introduce inconsistent executions or miss consistent exectuions.}}{6}}
+\newlabel{fig:inconsistency}{{8}{6}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4}Encode coherence constraints $\Phi _{co}$}{6}}
 \@writefile{toc}{\contentsline {paragraph}{Sequential consistent order $\Phi _{sc}$}{6}}
-\@writefile{toc}{\contentsline {paragraph}{Consistent modification order $\Phi _{mo}$}{6}}
-\@writefile{toc}{\contentsline {paragraph}{Consistent reads from mapping $\Phi _{rf}$}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Four types of coherence restrictions.}}{7}}
-\newlabel{fig:CO}{{8}{7}}
+\@writefile{toc}{\contentsline {paragraph}{Consistent modification order $\Phi _{mo}$}{7}}
+\@writefile{toc}{\contentsline {paragraph}{Consistent reads from mapping $\Phi _{rf}$}{7}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Property Checking}{7}}
 \newlabel{sec:check}{{4.3}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Indeterminate Read}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Unsequenced Race}{7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Data Race}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Identify Unexplored Consistent Executions}{7}}
-\newlabel{sec:identify}{{4.4}{7}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces {\bf  Identify new schedules.}}}{7}}
-\newlabel{alg:gen}{{2}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Four types of coherence restrictions.}}{8}}
+\newlabel{fig:CO}{{9}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Indeterminate Read}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Unsequenced Race}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Data Race}{8}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Identify Unexplored Consistent Executions}{8}}
+\newlabel{sec:identify}{{5}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Two simple examples for describing the soundness and completeness for generating seeding interleavings.}}{8}}
+\newlabel{fig:soundComplete}{{10}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Two simple examples for describing the soundness and completeness for generating seeding interleavings.}}{8}}
+\newlabel{fig:interleavingGen}{{11}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Basic Algorithm}{8}}
+\@writefile{toc}{\contentsline {paragraph}{Completeness}{8}}
+\citation{Musuvathi:2008}
+\citation{Musuvathi:2008}
+\citation{Lattner:2004}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces {\bf  IdentifyNewSch($\tau $)}}}{9}}
+\newlabel{alg:gen}{{2}{9}}
+\@writefile{toc}{\contentsline {paragraph}{Soundness}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Handle Nonterminating Programs}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{9}}
+\citation{Norris:2013}
 \bibstyle{abbrvnat}
 \bibdata{references}
 \bibcite{ISO1}{{1}{}{{ISO}}{{}}}
@@ -77,7 +92,5 @@
 \bibcite{Batty10}{{3}{2010}{{Batty et~al.}}{{Batty, Owens, Sarkar, Sewell, and Weber}}}
 \bibcite{Batty:2011}{{4}{2011}{{Batty et~al.}}{{Batty, Owens, Sarkar, Sewell, and Weber}}}
 \bibcite{Huang:2015}{{5}{2015}{{Huang}}{{}}}
-\bibcite{Lamport:1978}{{6}{1978}{{Lamport}}{{}}}
-\bibcite{Lidbury:2017}{{7}{2017}{{Lidbury and Donaldson}}{{}}}
-\bibcite{Norris:2013}{{8}{2013}{{Norris and Demsky}}{{}}}
-\newlabel{sigplanconf@finalpage}{{4.4}{8}}
+\bibcite{Musuvathi:2008}{{6}{2008}{{Musuvathi and Qadeer}}{{}}}
+\newlabel{sigplanconf@finalpage}{{6}{10}}

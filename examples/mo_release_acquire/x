@@ -1,29 +1,634 @@
-Instrument code: begin!
-add a function: preStore
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify an atomic store!: release
-Identify an atomic load!: acquire
-  %2 = icmp eq i64 %0, 255
-  %newLoad = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8
-  %0 = call i64 @preAtomicLoad_double(i8* %myCast, i32 4)
-  %1 = load atomic i64, i64* bitcast (%"struct.std::__1::atomic"* @ptr to i64*) acquire, align 8, !dbg !2783
-i64
-i64
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-Identify a non-atomic store! 
-%"class.std::__1::__thread_struct"*
-Not handle this type for non-atomic store!
-num: 0x7fc7b8e0aba8
-Instrument code: end!
+BBBBBBBBBBBBBBB
+Generate a model checker11: 0x7fe6fad00000 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 46758
+Generate a new Executor: 0x7fe6fae00000 0x7fe6fae005e0
+
+In checker_thread_begin: 0x7fff7d800300
+In add action: main-0
+End add action! main-0
+checker_addUses: 41 1 40
+In atomic checker_preStore double: 0x100aaf148 0 7!
+In add action: main-1
+End add action! main-1
+loads: 0 1
+111
+222
+
+Write value1: main-1 0x100aaf148 0!
+checker_addUses: 43 1 36
+checker_addUses: 45 1 36
+BeginFunc: 0x7fe6fae00000
+BeginFunc: 0x7fe6fae00000
+checker_addUses: 177 1 176
+checker_addUses: 178 1 177
+checker_addUses: 180 1 176
+checker_addUses: 182 1 179
+checker_addUses: 183 2 180
+checker_addUses: 184 1 179
+checker_addUses: 185 1 184
+checker_addUses: 186 2 181
+checker_addUses: 188 2 187
+checker_addUses: 231 1 230
+checker_addUses: 232 1 229
+checker_addUses: 233 1 228
+checker_addUses: 234 1 233
+checker_addUses: 235 2 234
+checker_addUses: 237 1 236
+checker_addUses: 238 1 237
+checker_addUses: 239 1 238
+
+In checker_thread_begin: 0x100f3d000
+checker_addUses: 189 1 188
+checker_addUses: 190 1 189
+checker_addUses: 46 1 37
+checker_addUses: 48 1 37
+BeginFunc: Waitting for create thread 0x100f3d000
+0x7fe6fae00000
+checker_addUses: 177 1 176
+checker_addUses: 178 1 177
+checker_addUses: 180 1 176
+checker_addUses: 182 1 179
+checker_addUses: 183 2 180
+checker_addUses: 184 1 179
+checker_addUses: 185 1 184
+checker_addUses: 186 2 181
+Waitting for create thread 0x100f3d000
+checker_addUses: 188 2 187
+checker_addUses: 189 1 188
+checker_addUses: 190 1 189
+checker_addUses: 49 1 36
+checker_addUses: 50 1 49
+checker_addUses: 51 1 50
+
+In checker_thread_create: 0x7fff7d800300 0x100f3d000
+In add action: main-2
+End add action! main-2
+checker_addUses: 52 1 37
+checker_addUses: 53 1 52
+checker_addUses: 54 1 53
+
+In checker_thread_create: 0x7fff7d800300 0x100fc0000
+In add action: main-3
+End add action! main-3
+checker_addUses: 55 1 49
+checker_addUses: 56 1 55
+In add action: main-4
+End add action! main-4
+checker_addUses: 57 1 52
+checker_addUses: 58 1 57
+In add action: main-5
+End add action! main-5
+checker_addUses: 59 1 36
+checker_addUses: 231 1 230
+checker_addUses: 232 1 229
+checker_addUses: 233 1 228
+checker_addUses: 234 1 233
+checker_addUses: 235 2 234
+checker_addUses: 237 1 236
+checker_addUses: 238 1 237
+checker_addUses: 239 1 238
+
+In checker_thread_begin: 0x100fc0000
+In add action: consumer-0
+End add action! consumer-0
+checker_addUses: 19 1 18
+In atomic checker_preLoad: 0x100aaf148 4 19!
+In add action: consumer-1
+End add action! consumer-1
+Waitting for create thread 0x100f3d000
+In add action: producer-0
+End add action! producer-0
+BeginFunc: 0x7fe6fae00000
+checker_addUses: 4 1 2
+checker_addUses: 5 1 2
+checker_addUses: 7 1 2
+checker_addUses: 8 1 7
+checker_addUses: 10 1 2
+checker_addUses: 12 2 11
+In atomic checker_preStore double: 0x100aaf148 140630026116704 5!
+In add action: producer-1
+End add action! producer-1
+loads: 0 1
+111
+222
+
+Write value1: producer-1 0x100aaf148 140630026116704!
+checker_addUses: 13 1 10
+In checker_thread_end
+In add action: producer-2
+End add action! producer-2
+checker_addUses: 240 1 229
+checker_addUses: 241 1 229
+checker_addUses: 242 1 240
+checker_addUses: 243 1 242
+BeginFunc: 0x7fe6fae00000
+checker_addUses: 60 1 37
+In pre_read action: consumer-1
+
+Read expect value: consumer-1 0x100aaf148 140630026116704 -88056224 4206911072
+End: consumer-1
+checker_addUses: 21 1 19
+checker_addUses: 22 1 21
+checker_addUses: 30 1 29
+checker_addUses: 31 1 30
+In checker_thread_end
+In add action: consumer-2
+End add action! consumer-2
+checker_addUses: 240 1 229
+checker_addUses: 241 1 229
+checker_addUses: 242 1 240
+checker_addUses: 243 1 242
+BeginFunc: 0x7fe6fae00000
+In checker_thread_end
+In add action: main-6
+End add action! main-6
+Current Trace: 3
+producer-1 140630026116704
+consumer-1 140630026116704
+main-1 0
+In generateModel2!: 3
+curSch: 0x7fe6fae005e0
+prefix: 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe6fae00000
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe6fae00000
+Adding sc constraints: 1
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fe6fae03510
+RF: consumer 1 0
+In generateModel2 End!
+### Solver Time: 13.33
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 46759
+Generate a new Executor: 0x7fe6fae00000 0x7fe6fae04010
+Schedule: 0x7fe6fae03510 1
+For: consumer 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: consumer 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: main 5
+    main 0
+    main 1
+    main 2
+    producer 0
+    producer 1
+    producer 2
+For: main 6
+    consumer 0
+    consumer 1
+    consumer 2
+    main 0
+    main 1
+    main 2
+    producer 0
+    producer 1
+    producer 2
+For: producer 1
+    main 0
+    main 1
+    main 2
+For: producer 2
+    main 0
+    main 1
+    main 2
+Read Map: consumer 1 0
+
+In checker_thread_begin: 0x7fff7d800300
+In add action: main-0
+End add action! main-0
+checker_addUses: 41 1 40
+In atomic checker_preStore double: 0x100aaf148 0 7!
+In add action: main-1
+End add action! main-1
+loads: 0 1
+111
+222
+
+Write value1: main-1 0x100aaf148 0!
+checker_addUses: 43 1 36
+checker_addUses: 45 1 36
+BeginFunc: 0x7fe6fae00000
+BeginFunc: 0x7fe6fae00000
+checker_addUses: 177 1 176
+checker_addUses: 178 1 177
+checker_addUses: 180 1 176
+checker_addUses: 182 1 179
+checker_addUses: 183 2 180
+checker_addUses: 184 1 179
+checker_addUses: 185 1 184
+checker_addUses: 186 2 181
+checker_addUses: 188 2 187
+checker_addUses: 189 1 188
+checker_addUses: 190 1 189
+checker_addUses: 231 1 230
+checker_addUses: 232 1 229
+checker_addUses: 46 1 37
+checker_addUses: 233 1 228
+checker_addUses: 234 1 233
+checker_addUses: 48 1 37
+checker_addUses: 235 2 234
+BeginFunc: 0x7fe6fae00000
+checker_addUses: 237 1 236
+checker_addUses: 177 1 176
+checker_addUses: 238 1 237
+checker_addUses: 178 1 177
+checker_addUses: 239 1 238
+
+In checker_thread_begin: 0x100f3d000
+checker_addUses: 180 1 176
+checker_addUses: 182 1 179
+checker_addUses: 183 2 180
+checker_addUses: 184 1 179
+checker_addUses: 185 1 184
+checker_addUses: 186 2 181
+checker_addUses: 188 2 187
+checker_addUses: 189 1 188
+checker_addUses: 190 1 189
+Waitting for create thread 0x100f3d000
+checker_addUses: 231 1 230
+checker_addUses: 49 1 36
+checker_addUses: 232 1 229
+checker_addUses: 50 1 49
+checker_addUses: 233 1 228
+checker_addUses: 51 1 50
+checker_addUses: 234 1 233
+
+In checker_thread_create: 0x7fff7d800300 0x100f3d000
+checker_addUses: 235 2 234
+In add action: checker_addUses: 237 1 236
+main-2
+End add action! checker_addUses: 238 1 237
+main-2
+checker_addUses: 239 1 238
+checker_addUses: 52 1 37
+
+In checker_thread_begin: 0x100fc0000
+checker_addUses: 53 1 52
+Waitting for create thread 0x100f3d000
+checker_addUses: 54 1 53
+
+In checker_thread_create: 0x7fff7d800300 0x100fc0000
+In add action: producer-0
+End add action! producer-0
+BeginFunc: 0x7fe6fae00000
+checker_addUses: 4 1 2
+checker_addUses: 5 1 2
+checker_addUses: 7 1 2
+Waitting for create thread 0x100fc0000
+checker_addUses: 8 1 7
+In add action: main-3
+End add action! main-3
+checker_addUses: 10 1 2
+checker_addUses: 55 1 49
+checker_addUses: 12 2 11
+In atomic checker_preStore double: 0x100aaf148 140630029238528 5!
+checker_addUses: 56 1 55
+In add action: producer-1
+End add action! producer-1
+loads: 0 1
+111
+222
+
+Write value1: producer-1 0x100aaf148 140630029238528!
+checker_addUses: 13 1 10
+In checker_thread_end
+In add action: producer-2
+End add action! producer-2
+checker_addUses: 240 1 229
+checker_addUses: 241 1 229
+checker_addUses: 242 1 240
+checker_addUses: 243 1 242
+Waitting for create thread 0x100fc0000
+BeginFunc: 0x7fe6fae00000
+In add action: consumer-0
+End add action! consumer-0
+checker_addUses: 19 1 18
+In atomic checker_preLoad: 0x100aaf148 4 19!
+In add action: consumer-1
+End add action! consumer-1
+In pre_read action: consumer-1
+fetch expect value: 0x100aaf148 0
+
+Read expect value: consumer-1 0x100aaf148 0 0 0
+End: consumer-1
+checker_addUses: 21 1 19
+checker_addUses: 22 1 21
+In add action: main-4
+End add action! In thread_yield_action!
+main-4
+checker_addUses: 57 1 52
+In add action: consumer-2
+checker_addUses: 58 1 57
+End add action! consumer-2
+In add action: main-5
+End add action! main-5
+checker_addUses: 59 1 36
+checker_addUses: 60 1 37
+checker_addUses: 19 1 18
+In atomic checker_preLoad: 0x100aaf148 4 19!
+In add action: consumer-3
+End add action! consumer-3
+In pre_read action: consumer-3
+
+Read expect value: consumer-3 0x100aaf148 140630029238528 -84934400 4210032896
+End: consumer-3
+checker_addUses: 21 1 19
+checker_addUses: 22 1 21
+checker_addUses: 30 1 29
+checker_addUses: 31 1 30
+In checker_thread_end
+In add action: consumer-4
+End add action! consumer-4
+checker_addUses: 240 1 229
+checker_addUses: 241 1 229
+checker_addUses: 242 1 240
+checker_addUses: 243 1 242
+BeginFunc: 0x7fe6fae00000
+In checker_thread_end
+In add action: main-6
+End add action! main-6
+Current Trace: 3
+producer-1 140630029238528
+consumer-1 0
+consumer-3 140630029238528
+main-1 0
+In generateModel2!: 3
+curSch: 0x7fe6fae03510
+prefix: 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe6fae00000
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe6fae00000
+Adding sc constraints: 1
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fe6fad03f80
+RF: consumer 1 0
+RF: consumer 3 0
+prefix: 0
+Indentify inconsistency!
+In generateModel2 End!
+### Solver Time: 25.549
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 46760
+Generate a new Executor: 0x7fe6fad035c0 0x7fe6fad03290
+Schedule: 0x7fe6fad03f80 2
+For: consumer 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: consumer 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: consumer 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: consumer 4
+    main 0
+    main 1
+    main 2
+    main 3
+For: main 5
+    main 0
+    main 1
+    main 2
+    producer 0
+    producer 1
+    producer 2
+For: main 6
+    consumer 0
+    consumer 1
+    consumer 2
+    consumer 3
+    consumer 4
+    main 0
+    main 1
+    main 2
+    producer 0
+    producer 1
+    producer 2
+For: producer 1
+    main 0
+    main 1
+    main 2
+For: producer 2
+    main 0
+    main 1
+    main 2
+Read Map: consumer 1 0
+Read Map: consumer 3 0
+
+In checker_thread_begin: 0x7fff7d800300
+In add action: main-0
+End add action! main-0
+checker_addUses: 41 1 40
+In atomic checker_preStore double: 0x100aaf148 0 7!
+In add action: main-1
+End add action! main-1
+loads: 0 1
+111
+222
+
+Write value1: main-1 0x100aaf148 0!
+checker_addUses: 43 1 36
+checker_addUses: 45 1 36
+BeginFunc: 0x7fe6fad035c0
+BeginFunc: 0x7fe6fad035c0
+checker_addUses: 177 1 176
+checker_addUses: 178 1 177
+checker_addUses: 180 1 176
+checker_addUses: 182 1 179
+checker_addUses: 183 2 180
+checker_addUses: 184 1 179
+checker_addUses: 185 1 184
+checker_addUses: 186 2 181
+checker_addUses: 188 2 187
+checker_addUses: 189 1 188
+checker_addUses: 190 1 189
+checker_addUses: 231 1 230
+checker_addUses: 232 1 229
+checker_addUses: 233 1 228
+checker_addUses: 46 1 37
+checker_addUses: 234 1 233
+checker_addUses: 48 1 37
+checker_addUses: 235 2 234
+BeginFunc: 0x7fe6fad035c0
+checker_addUses: 237 1 236
+checker_addUses: 238 1 237
+checker_addUses: 177 1 176
+checker_addUses: 239 1 238
+checker_addUses: 178 1 177
+
+In checker_thread_begin: 0x100f3d000
+checker_addUses: 180 1 176
+checker_addUses: 182 1 179
+checker_addUses: 183 2 180
+checker_addUses: 184 1 179
+checker_addUses: 185 1 184
+checker_addUses: 186 2 181
+checker_addUses: 188 2 187
+checker_addUses: 189 1 188
+checker_addUses: 231 1 230
+checker_addUses: 190 1 189
+checker_addUses: 232 1 229
+checker_addUses: 233 1 228
+checker_addUses: 234 1 233
+Waitting for create thread 0x100f3d000
+checker_addUses: 49 1 36
+checker_addUses: 235 2 234
+checker_addUses: 237 1 236
+checker_addUses: 50 1 49
+checker_addUses: 238 1 237
+checker_addUses: 51 1 50
+checker_addUses: 239 1 238
+
+In checker_thread_begin: 0x100fc0000
+
+In checker_thread_create: 0x7fff7d800300 0x100f3d000
+In add action: main-2
+End add action! main-2
+checker_addUses: 52 1 37
+checker_addUses: 53 1 52
+checker_addUses: 54 1 53
+Waitting for create thread 0x100f3d000
+In add action: producer-0
+End add action! producer-0
+BeginFunc: 0x7fe6fad035c0
+checker_addUses: 4 1 2
+checker_addUses: 5 1 2
+checker_addUses: 7 1 2
+checker_addUses: 8 1 7
+checker_addUses: 10 1 2
+checker_addUses: 12 2 11
+In atomic checker_preStore double: 0x100aaf148 140630027153248 5!
+In add action: producer-1
+End add action! producer-1
+loads: 0 1
+111
+222
+
+Write value1: producer-1 0x100aaf148 140630027153248!
+checker_addUses: 13 1 10
+In checker_thread_end
+In add action: producer-2
+Waitting for create thread 0x100fc0000
+End add action! producer-2
+checker_addUses: 240 1 229
+checker_addUses: 241 1 229
+checker_addUses: 242 1 240
+checker_addUses: 243 1 242
+BeginFunc: 0x7fe6fad035c0
+Waitting for create thread 0x100fc0000
+
+In checker_thread_create: 0x7fff7d800300 0x100fc0000
+In add action: main-3
+End add action! main-3
+checker_addUses: 55 1 49
+checker_addUses: 56 1 55
+In add action: main-4
+End add action! main-4
+checker_addUses: 57 1 52
+Waitting for create thread 0x100fc0000
+In add action: consumer-0
+End add action! consumer-0
+checker_addUses: 19 1 18
+In atomic checker_preLoad: 0x100aaf148 4 19!
+In add action: consumer-1
+End add action! consumer-1
+In pre_read action: consumer-1
+fetch expect value: 0x100aaf148 0
+
+Read expect value: consumer-1 0x100aaf148 0 0 0
+End: consumer-1
+checker_addUses: 21 1 19
+checker_addUses: 22 1 21
+In thread_yield_action!
+In add action: consumer-2
+End add action! consumer-2
+checker_addUses: 58 1 57
+In add action: main-5
+End add action! main-5
+checker_addUses: 59 1 36
+checker_addUses: 60 1 37
+checker_addUses: 19 1 18
+In atomic checker_preLoad: 0x100aaf148 4 19!
+In add action: consumer-3
+End add action! consumer-3
+In pre_read action: consumer-3
+fetch expect value: 0x100aaf148 0
+
+Read expect value: consumer-3 0x100aaf148 0 0 0
+End: consumer-3
+checker_addUses: 21 1 19
+checker_addUses: 22 1 21
+In thread_yield_action!
+In add action: consumer-4
+End add action! consumer-4
+checker_addUses: 19 1 18
+In atomic checker_preLoad: 0x100aaf148 4 19!
+In add action: consumer-5
+End add action! consumer-5
+In pre_read action: consumer-5
+
+Read expect value: consumer-5 0x100aaf148 140630027153248 -87019680 4207947616
+End: consumer-5
+checker_addUses: 21 1 19
+checker_addUses: 22 1 21
+checker_addUses: 30 1 29
+checker_addUses: 31 1 30
+In checker_thread_end
+In add action: consumer-6
+End add action! consumer-6
+checker_addUses: 240 1 229
+checker_addUses: 241 1 229
+checker_addUses: 242 1 240
+checker_addUses: 243 1 242
+BeginFunc: 0x7fe6fad035c0
+In checker_thread_end
+In add action: main-6
+End add action! main-6
+Current Trace: 3
+producer-1 140630027153248
+consumer-1 0
+consumer-3 0
+consumer-5 140630027153248
+main-1 0
+In generateModel2!: 3
+curSch: 0x7fe6fad03f80
+prefix: 2
+xx: consumer 1 0
+xx: consumer 3 0
+Identify an unfair schedule!
+prefix: 0
+Indentify inconsistency!
+prefix: 1
+Indentify inconsistency!
+In generateModel2 End!
+### Solver Time: 25.99

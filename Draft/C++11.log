@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  17 JUN 2017 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 JUL 2017 14:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -893,34 +893,79 @@ File: fence.pdf Graphic file (type pdf)
  <use fence.pdf>
 Package pdftex.def Info: fence.pdf used on input line 699.
 (pdftex.def)             Requested size: 233.46475pt x 64.34184pt.
- [5 <./fence.pdf>]
-Overfull \hbox (2.36678pt too wide) detected at line 771
+ [5 <./fence.pdf>] <inconsistency.pdf, id=4992, 438.78851pt x 169.65935pt>
+File: inconsistency.pdf Graphic file (type pdf)
+
+<use inconsistency.pdf>
+Package pdftex.def Info: inconsistency.pdf used on input line 766.
+(pdftex.def)             Requested size: 219.3937pt x 84.82945pt.
+
+Overfull \hbox (2.36678pt too wide) detected at line 816
 [] []
  []
 
-<CO.pdf, id=4992, 594.86873pt x 89.09064pt>
+[6 <./inconsistency.pdf>] <CO.pdf, id=5012, 594.86873pt x 89.09064pt>
 File: CO.pdf Graphic file (type pdf)
- <use CO.pdf>
-Package pdftex.def Info: CO.pdf used on input line 847.
+
+<use CO.pdf>
+Package pdftex.def Info: CO.pdf used on input line 884.
 (pdftex.def)             Requested size: 386.6601pt x 57.90822pt.
 
-Overfull \hbox (4.31218pt too wide) in paragraph at lines 852--858
+Overfull \hbox (4.31218pt too wide) in paragraph at lines 889--895
  \OT1/ptm/b/it/10 Con-sis-tent reads from map-ping $\OT1/cmr/m/n/10 ^^H[]$[] \O
 T1/ptm/m/n/10 Mem-ory model makes
  []
 
-[6]
-Overfull \hbox (4.69753pt too wide) in paragraph at lines 919--926
+
+Overfull \hbox (4.69753pt too wide) in paragraph at lines 956--963
 []\OT1/ptm/b/n/10 CoWW \OT1/ptm/m/n/10 re-quires mod-i-fi-ca-tion or-der to agr
 ee with happens-
  []
 
+[7]
+Underfull \hbox (badness 1558) in paragraph at lines 1082--1084
+[]\OT1/ptm/m/it/10 (\OT1/ptm/b/it/10 Soundness\OT1/ptm/m/it/10 ) No un-ex-plore
+d in-ter-leav-ing
+ []
 
-Overfull \hbox (12.0pt too wide) detected at line 1013
+<soundnessCompleteness.pdf, id=5017, 509.59503pt x 174.3041pt>
+File: soundnessCompleteness.pdf Graphic file (type pdf)
+
+<use soundnessCompleteness.pdf>
+Package pdftex.def Info: soundnessCompleteness.pdf used on input line 1087.
+(pdftex.def)             Requested size: 229.31564pt x 78.4361pt.
+
+<interleavingGen.pdf, id=5018, 658.32748pt x 207.44803pt>
+File: interleavingGen.pdf Graphic file (type pdf)
+
+<use interleavingGen.pdf>
+Package pdftex.def Info: interleavingGen.pdf used on input line 1099.
+(pdftex.def)             Requested size: 230.41806pt x 72.60788pt.
+
+Overfull \hbox (12.0pt too wide) detected at line 1149
 [][] 
  []
 
-[7 <./CO.pdf>] (./C++11.bbl) [8
+[8 <./CO.pdf> <./soundnessCompleteness.pdf> <./interleavingGen.pdf>]
+Overfull \hbox (19.64958pt too wide) in paragraph at lines 1211--1219
+\OT1/ptm/m/n/10 tion re-sulted from un-fair sched-ules. Sec-ond, \OT1/ptm/m/sc/
+10 Checker$[]$\OT1/ptm/m/n/10 supports
+ []
+
+
+Package natbib Warning: Citation `Lattner:2004' on page 9 undefined on input li
+ne 1224.
+
+[9]
+
+Package natbib Warning: Citation `Norris:2013' on page 10 undefined on input li
+ne 1232.
+
+(./C++11.bbl)
+
+Package natbib Warning: There were undefined citations.
+
+[10
 
 ] (./C++11.aux) )
 (\end occurred inside a group at level 1)
@@ -928,10 +973,10 @@ Overfull \hbox (12.0pt too wide) detected at line 1013
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7282 strings out of 493014
- 97542 string characters out of 6133351
- 198113 words of memory out of 5000000
- 10647 multiletter control sequences out of 15000+600000
+ 7296 strings out of 493014
+ 97879 string characters out of 6133351
+ 199073 words of memory out of 5000000
+ 10658 multiletter control sequences out of 15000+600000
  32471 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,19n,35p,770b,4988s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -953,10 +998,10 @@ mf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist
 e1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on C++11.pdf (8 pages, 4539771 bytes).
+Output written on C++11.pdf (10 pages, 4587982 bytes).
 PDF statistics:
- 6282 PDF objects out of 7423 (max. 8388607)
- 3478 compressed objects within 35 object streams
+ 6358 PDF objects out of 7423 (max. 8388607)
+ 3531 compressed objects within 36 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

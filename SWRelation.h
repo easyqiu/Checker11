@@ -20,11 +20,17 @@ namespace checker {
             toAction = b;
         }
 
-        void setHBList(set<Action*> list) { std::cout << "set hblist: " << this << "\n"; hbList = list; }
-        void setHAList(set<Action*> list) { std::cout << "set halist: " << this << "\n"; haList = list; }
+        void setHBList(set<Action*> list);
 
-        set<Action*> getHBList() { return hbList; }
-        set<Action*> getHAList() { return haList; }
+        void setHAList(set<Action*> list) {
+            //std::cout << "set halist: " << this << "\n";
+            //haList = list;
+            hbList.clear();
+            hbList.insert(list.begin(), list.end());
+        }
+
+        set<Action*> &getHBList() { return hbList; }
+        set<Action*> &getHAList() { return haList; }
 
         Action* getFromAction() { return fromAction; }
         Action* getToAction() { return toAction; }

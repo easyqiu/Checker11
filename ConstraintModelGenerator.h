@@ -54,10 +54,18 @@ namespace  checker {
         void addBasicConstraints();
         void addASWRelation();
         void declareIntVar(std::string name);
+        void declareIntVar(std::string name, int min, int max);
+        void declareIntVarGE(std::string name, int min);
         std::string addRFRelation(RWAction* read, RWAction* write, int val);
-        std::string addRWRelation(RWAction* read, uint64_t val);
-        bool addRWRelations(std::map<RWAction*, uint64_t > pairs);
-        std::string guaranteeReachability(Action* action);
+        std::string addRWRelation(std::map<RWAction*, int64_t> pairs, /*std::set<RWAction*> relatedRWs,*/
+                                  //std::set<std::string> &enforcedRFs,
+                                  RWAction* read, int64_t val);
+        std::string guaranteeReachability(std::map<RWAction*, int64_t> pairs,
+                                          /*std::set<RWAction*> relatedRWs,
+                                          std::set<std::string> &enforcedRFs,*/
+                                          Action* action);
+
+        bool addRWRelations(std::map<RWAction*, int64_t> pairs, std::set<std::string> &enforcedRFs);
         bool addSWConstraints();
         void addMOConstraints();
         void addSCConstraints();

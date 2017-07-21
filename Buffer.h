@@ -18,24 +18,24 @@ namespace checker {
         }
 
         // read the expected value required by the given schedule
-        void fetchExpectVal(uint64_t val);
+        void fetchExpectVal(int64_t val);
 
         // for the reads which are not restricted by the schedule
-        uint64_t getValue();
+        int64_t getValue();
 
         void clear() { values.clear(); }
 
-        void updateBuffer(uint64_t val);
+        void updateBuffer(int64_t val, int order);
 
-        void updateBuffer(std::vector<uint64_t> vals);
+        void updateBuffer(std::vector<int64_t> vals);
 
-        std::vector<uint64_t> getAllValues() { return  values; }
+        std::vector<int64_t> getAllValues() { return  values; }
 
     private:
         void* addr;
-        uint64_t verifyVal;
+        int64_t verifyVal;
         bool verify;
-        std::vector<uint64_t> values; // the buffered values
+        std::vector<int64_t> values; // the buffered values
 
     };
 }

@@ -28,6 +28,8 @@ namespace  checker {
         ~Executor() {
             pthread_mutex_destroy(&lock);
             pthread_mutex_destroy(&lockForThreadMap);
+            pthread_mutex_destroy(&lockForRW);
+            pthread_mutex_destroy(&lockForFair);
         }
 
         void setModelChecker(ModelChecker* checker);
@@ -38,7 +40,10 @@ namespace  checker {
 
         Thread* addThread(std::string tid, std::string name);
         Thread* getThread(std::string tid);
+        Thread* getThreadByName(std::string name);
         Action* getAction(std::string tid, int seq_num);
+
+        void addAction(Thread* thread, Action* action);
 
         void execute_thread_create_action(std::string id1, std::string id2);
 
@@ -46,42 +51,44 @@ namespace  checker {
 
         void execute_thread_end_action(std::string id);
 
+        void execute_thread_yield_action(std::string id);
+
         void execute_thread_join_action(std::string id1, std::string id2);
 
-        int execute_pre_read_action(std::string tid, void *addr, int mo);
+        int64_t execute_pre_read_action(std::string tid, void *addr, int mo, uint64_t clapNum);
 
-        void execute_post_read_action(std::string tid, void *addr, int mo, uint64_t val);
+        void execute_post_read_action(std::string tid, void *addr, int mo, int64_t val);
 
-        void execute_write_action(std::string tid, void *addr, int mo, uint64_t val);
+        void execute_write_action(std::string tid, uint64_t clapNum, void *addr, int mo, int64_t val);
 
+
+        //bool execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
+        //                                    int32_t expectV, int32_t newVal);
 
         bool execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
-                                            int32_t expectV, int32_t newVal);
+                                            int64_t expectV, int64_t newVal, uint64_t clapNum);
 
-        bool execute_pre_cmp_xchg_action(std::string tid, void *addr, int mo1, int mo2,
-                                            int64_t expectV, int64_t newVal);
+        int64_t execute_pre_rmw_xchg_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_xchg_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_add_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_add_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_sub_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_sub_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_and_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_and_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_nand_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_nand_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_or_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_or_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_xor_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_xor_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_max_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_max_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_min_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_min_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_umax_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
-        int64_t execute_pre_rmw_umax_action(std::string tid, void *addr, int mo, int64_t val);
-
-        int64_t execute_pre_rmw_umin_action(std::string tid, void *addr, int mo, int64_t val);
+        int64_t execute_pre_rmw_umin_action(std::string tid, void *addr, int mo, int64_t val, uint64_t clapNum);
 
         void execute_tryLock_action(std::string tid, void *addr);
 
@@ -116,10 +123,16 @@ namespace  checker {
             ss << "_" << this ;
             return formulaFile + ss.str();
         }
-        void addSolutionValue(std::pair<std::string, std::string> p) { solutionValues.insert(p); }
+        void addSolutionValue(std::pair<std::string, std::string> p) {
+            //std::cout << "add solution: " << p.first << " " << p.second << "\n";
+            solutionValues.insert(p);
+        }
+
         void printSolutionValue();
+        void printTrace();
         std::map<std::string,std::string> getSolutionValues() { return solutionValues; }
-        void generateSolutionFile(std::map<RWAction*, uint64_t> enforcePairs);
+        void generateSolutionFile(std::vector<RWAction*> reads,
+                                  std::map<RWAction*, int64_t> enforcePairs, std::set<std::string> enforcedRFs);
         void add_unsat_core(int i) { unsatCore.push_back(i); }
         std::vector<int> get_unsat_core() { return unsatCore; }
         void resetSolver();
@@ -147,11 +160,30 @@ namespace  checker {
 
         std::vector<Schedule*> getSchedules() { return schedules; }
 
-        void updateBuffer(std::string, void* loc, uint64_t val);
+        void updateBuffer(std::string tid, void* loc, int64_t val, int order);
+
+        void updateDefUseList(std::string tid, uint64_t clapNum, std::vector<uint64_t > vec);
+
+        void updateTrackedBID(std::string tid, uint64_t bid);
+        void clearTrackedBID(std::string tid);
+        void setCurrentBid(std::string tid, uint64_t bid);
+
+        void handlePHI(std::string tid, uint64_t clapNum, std::vector<uint64_t> vec1,
+                std::vector<uint64_t> vec2);
+
+        void handleFuncBegin(std::string tid, std::string name);
+        void handleFuncEnd(std::string tid);
+
+        bool checkFairness(std::map <std::pair<std::string, int>, int64_t> valueMap);
+
+        void updatePriority(std::string tid);
 
     protected:
         std::map<std::string, Thread*> threadMap;
+        std::map<std::string, Thread*> threadMapByName;
         pthread_mutex_t lockForThreadMap;
+        pthread_mutex_t lockForRW;
+        pthread_mutex_t lockForFair;
 
         std::map<Action*, Action*> threadCreatePoints;
         std::map<std::string, std::string> threadCreateMap;
@@ -173,7 +205,7 @@ namespace  checker {
         std::map<std::pair<std::string, int>, std::set<std::pair<std::string, int> > > preActions;
 
         /** record the read values each read in the prefix should read: (fName, seq_num)->value*/
-        std::map<std::pair<std::string, int>, uint64_t> readValueMap;
+        std::map<std::pair<std::string, int>, int64_t> readValueMap;
 
 
         /** Parameters */
@@ -186,6 +218,11 @@ namespace  checker {
         bool firstThread;
         std::vector<Schedule*> schedules;
         std::map<std::string, int> threadsName;
+
+        // for fair schedule
+        std::set<std::string> enabledThreads;
+        std::map<std::string, std::set<std::string> > priorityOrder;
+
     };
 }
 

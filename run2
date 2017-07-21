@@ -1,0 +1,4 @@
+clang++ -std=c++11 -I../.. -emit-llvm -c -O3 example.cpp -o example.bc
+nohup opt -load LLVMMyInstr.dylib -codeInstr example.bc -o x.bc > x
+llc -filetype=obj x.bc
+clang++ -L/Users/aser/Dropbox/papers/C++11/Checker11/ -I../.. -linstrument -O3 -o example x.o

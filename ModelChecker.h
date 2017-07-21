@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
+#include <map>
 
 #include "Schedule.h"
 
@@ -16,10 +18,7 @@ namespace checker {
 
     class ModelChecker {
     public:
-        ModelChecker() {
-            test = 3;
-            std::cout << "Generate a model checker: " << this << "\n";
-        }
+        ModelChecker();
 
         void setExecutor(Executor* exe) { this->exe = exe; }
         int getTest() { return test; }
@@ -32,10 +31,40 @@ namespace checker {
         std::vector<Schedule*> getSchList() { return schList; }
         void eraseSch() { schList.erase(schList.begin()); }
 
+        void addToSolverTime(double addedTime) {
+            solverTime += addedTime;
+        }
+
+        double getSolverTime() { return solverTime; }
+
+        void addFailedCheck(std::map<std::pair<std::string, int>, int64_t> newMap) {
+            failedChecks.push_back(newMap);
+            std::cout << "add a failed check2: \n";
+        }
+
+        std::vector<std::map<std::pair<std::string, int>, int64_t> > getFailedChecks() {
+            //std::cout << "Get failed check11: " << failedChecks.size() << "\n";
+            return failedChecks;
+        }
+
+        void addCheckSatFailedSchs(std::map<std::pair<std::string, int>, int64_t > newMap);
+
+        void clearCheckSatFailedSchs() { checkSatFailedSchs.clear(); }
+
+        std::vector<std::map<std::pair<std::string, int>, int64_t> > getCheckSatFailedSchs() {
+            return checkSatFailedSchs;
+        };
+
     private:
         int test;
         std::vector<Schedule*> schList;
         Executor* exe;
+        std::vector<std::map<std::pair<std::string, int>, int64_t> > failedChecks;
+        std::vector<std::map<std::pair<std::string, int>, int64_t> > checkSatFailedSchs;
+
+
+        // for statistics
+        double solverTime;
     };
 
 }

@@ -16,6 +16,7 @@
 #include <set>
 
 #include "llvm/ADT/Statistic.h"
+#include "llvm/ADT/SmallSet.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IR/BasicBlock.h"
@@ -25,14 +26,22 @@
 #include "llvm/IR/InstIterator.h"
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/CFG.h"
+#include "llvm/IR/IntrinsicInst.h"
+#include "llvm/Analysis/AliasAnalysis.h"
+#include "llvm/Analysis/PostDominators.h"
+#include "llvm/IR/Dominators.h"
 #include "llvm/Pass.h"
 #include "llvm/Support/raw_ostream.h"
+#include "llvm/Support/GenericDomTree.h"
 #include "llvm/Transforms/Utils/BasicBlockUtils.h"
 using namespace llvm;
 
 #define DEBUG_TYPE "MyInstrument"
 
 STATISTIC(HelloCounter, "Counts number of functions greeted");
+STATISTIC(ModuleCounter, "Counts number of modules greeted");
+STATISTIC(InstCounter, "Counts number of instructions greeted");
 
 namespace {
   class codeInstr : public ModulePass {
@@ -50,28 +59,29 @@ namespace {
       // add store function "preStore"
       PointerType* pType = Type::getInt8PtrTy(M.getContext());
       paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       FunctionType *FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *storeF_char = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicStore_char", &M);
-      myFunctions["preNonAtomicStore_char"] = storeF_char; 
+      Function *storeF_char = Function::Create(FT, Function::ExternalLinkage, "checker_preNonAtomicStore_char", &M);
+      myFunctions["checker_preNonAtomicStore_char"] = storeF_char; 
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *printF_64 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_64", &M);
-      myFunctions["myPrintf_64"] = printF_64;
+      Function *printF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_myPrintf_64", &M);
+      myFunctions["checker_myPrintf_64"] = printF_64;
       
       paramTypes.clear();
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *printF_32 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_32", &M);
-      myFunctions["myPrintf_32"] = printF_32;
+      Function *printF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_myPrintf_32", &M);
+      myFunctions["checker_myPrintf_32"] = printF_32;
       
       paramTypes.clear();
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *printF_8 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_8", &M);
-      myFunctions["myPrintf_8"] = printF_8;
+      Function *printF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_myPrintf_8", &M);
+      myFunctions["checker_myPrintf_8"] = printF_8;
       
       paramTypes.clear();
       std::vector<Type*> typess;
@@ -80,150 +90,157 @@ namespace {
       StructType* ssType = StructType::get(M.getContext(), typess);
       paramTypes.push_back(ssType);
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *printF_81 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_81", &M);
-      myFunctions["myPrintf_81"] = printF_81;
+      Function *printF_81 = Function::Create(FT, Function::ExternalLinkage, "checker_myPrintf_81", &M);
+      myFunctions["checker_myPrintf_81"] = printF_81;
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt1Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *printF_1 = Function::Create(FT, Function::ExternalLinkage, "myPrintf_1", &M);
-      myFunctions["myPrintf_1"] = printF_1;
-      std::cout << "printfffff: \n";
-      printF_1->dump();
-
-      paramTypes.clear();
-      paramTypes.push_back(pType);
-      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
-      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *storeF_int = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicStore_int", &M);
-      myFunctions["preNonAtomicStore_int"] = storeF_int;
+      Function *printF_1 = Function::Create(FT, Function::ExternalLinkage, "checker_myPrintf_1", &M);
+      myFunctions["checker_myPrintf_1"] = printF_1;
+      //std::cout << "printfffff: \n";
+      //printF_1->dump();
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *storeF_double = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicStore_double", &M);
-      myFunctions["preNonAtomicStore_double"] = storeF_double;
+      Function *storeF_int = Function::Create(FT, Function::ExternalLinkage, "checker_preNonAtomicStore_int", &M);
+      myFunctions["checker_preNonAtomicStore_int"] = storeF_int;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *storeF_double = Function::Create(FT, Function::ExternalLinkage, "checker_preNonAtomicStore_double", &M);
+      myFunctions["checker_preNonAtomicStore_double"] = storeF_double;
+
+      paramTypes.clear();
+      paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *atomicStoreF_char = Function::Create(FT, Function::ExternalLinkage, "preAtomicStore_char", &M);
-      myFunctions["preAtomicStore_char"] = atomicStoreF_char; 
+      Function *atomicStoreF_char = Function::Create(FT, Function::ExternalLinkage, "checker_preAtomicStore_char", &M);
+      myFunctions["checker_preAtomicStore_char"] = atomicStoreF_char; 
 
       paramTypes.clear();
       paramTypes.push_back(pType);
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *atomicStoreF_int = Function::Create(FT, Function::ExternalLinkage, "preAtomicStore_int", &M);
-      myFunctions["preAtomicStore_int"] = atomicStoreF_int; 
+      Function *atomicStoreF_int = Function::Create(FT, Function::ExternalLinkage, "checker_preAtomicStore_int", &M);
+      myFunctions["checker_preAtomicStore_int"] = atomicStoreF_int; 
       std::cerr << "add a function: preStore\n";
       //storeF->dump();
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *atomicStoreF_double = Function::Create(FT, Function::ExternalLinkage, "preAtomicStore_double", &M);
-      myFunctions["preAtomicStore_double"] = atomicStoreF_double;
+      Function *atomicStoreF_double = Function::Create(FT, Function::ExternalLinkage, "checker_preAtomicStore_double", &M);
+      myFunctions["checker_preAtomicStore_double"] = atomicStoreF_double;
 
       // add load function "preLoad"
       paramTypes.clear();
       paramTypes.push_back(pType);
       //paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
-      Function *loadF_char = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicLoad_char", &M);
-      myFunctions["preNonAtomicLoad_char"] = loadF_char;
+      Function *loadF_char = Function::Create(FT, Function::ExternalLinkage, "checker_preNonAtomicLoad_char", &M);
+      myFunctions["checker_preNonAtomicLoad_char"] = loadF_char;
       
       paramTypes.clear();
       paramTypes.push_back(pType);
       //paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
-      Function *loadF_int = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicLoad_int", &M);
-      myFunctions["preNonAtomicLoad_int"] = loadF_int;
+      Function *loadF_int = Function::Create(FT, Function::ExternalLinkage, "checker_preNonAtomicLoad_int", &M);
+      myFunctions["checker_preNonAtomicLoad_int"] = loadF_int;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
-      Function *loadF_double = Function::Create(FT, Function::ExternalLinkage, "preNonAtomicLoad_double", &M);
-      myFunctions["preNonAtomicLoad_double"] = loadF_double;
+      Function *loadF_double = Function::Create(FT, Function::ExternalLinkage, "checker_preNonAtomicLoad_double", &M);
+      myFunctions["checker_preNonAtomicLoad_double"] = loadF_double;
       
       paramTypes.clear();
       paramTypes.push_back(pType);
-      //paramTypes.push_back(Type::getInt8Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext())); // for clap number
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
-      Function *atomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_char", &M);
-      myFunctions["preAtomicLoad_char"] = atomicLoadF_char;
+      Function *atomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "checker_preAtomicLoad_char", &M);
+      myFunctions["checker_preAtomicLoad_char"] = atomicLoadF_char;
       
       paramTypes.clear();
       paramTypes.push_back(pType);
-      //paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
-      Function *atomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_int", &M);
-      myFunctions["preAtomicLoad_int"] = atomicLoadF_int;
+      Function *atomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "checker_preAtomicLoad_int", &M);
+      myFunctions["checker_preAtomicLoad_int"] = atomicLoadF_int;
 
       paramTypes.clear();
+      PointerType* pType_64 = Type::getInt64PtrTy(M.getContext());
       paramTypes.push_back(pType);
-      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(pType_64);
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
-      Function *atomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "preAtomicLoad_double", &M);
-      myFunctions["preAtomicLoad_double"] = atomicLoadF_double;
+      Function *atomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "checker_preAtomicLoad_double", &M);
+      myFunctions["checker_preAtomicLoad_double"] = atomicLoadF_double;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *postAtomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_char", &M);
-      myFunctions["postAtomicLoad_char"] = postAtomicLoadF_char;
+      Function *postAtomicLoadF_char = Function::Create(FT, Function::ExternalLinkage, "checker_postAtomicLoad_char", &M);
+      myFunctions["checker_postAtomicLoad_char"] = postAtomicLoadF_char;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *postAtomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_int", &M);
-      myFunctions["postAtomicLoad_int"] = postAtomicLoadF_int;
+      Function *postAtomicLoadF_int = Function::Create(FT, Function::ExternalLinkage, "checker_postAtomicLoad_int", &M);
+      myFunctions["checker_postAtomicLoad_int"] = postAtomicLoadF_int;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *postAtomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "postAtomicLoad_double", &M);
-      myFunctions["postAtomicLoad_double"] = postAtomicLoadF_double;
+      Function *postAtomicLoadF_double = Function::Create(FT, Function::ExternalLinkage, "checker_postAtomicLoad_double", &M);
+      myFunctions["checker_postAtomicLoad_double"] = postAtomicLoadF_double;
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *fenceF = Function::Create(FT, Function::ExternalLinkage, "preFence", &M);
-      myFunctions["preFence"] = fenceF;
+      Function *fenceF = Function::Create(FT, Function::ExternalLinkage, "checker_preFence", &M);
+      myFunctions["checker_preFence"] = fenceF;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *tryLockF = Function::Create(FT, Function::ExternalLinkage, "preTryLock", &M);
-      myFunctions["preTryLock"] = tryLockF;
+      Function *tryLockF = Function::Create(FT, Function::ExternalLinkage, "checker_preTryLock", &M);
+      myFunctions["checker_preTryLock"] = tryLockF;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *lockF = Function::Create(FT, Function::ExternalLinkage, "preLock", &M);
-      myFunctions["preLock"] = lockF;
+      Function *lockF = Function::Create(FT, Function::ExternalLinkage, "checker_preLock", &M);
+      myFunctions["checker_preLock"] = lockF;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
-      Function *unLockF = Function::Create(FT, Function::ExternalLinkage, "preUnlock", &M);
-      myFunctions["preUnlock"] = unLockF;
+      Function *unLockF = Function::Create(FT, Function::ExternalLinkage, "checker_preUnlock", &M);
+      myFunctions["checker_preUnlock"] = unLockF;
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
@@ -231,17 +248,18 @@ namespace {
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       std::vector<Type*> types;
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
       StructType* sType = StructType::get(M.getContext(), types);
       //FT = FunctionType::get(sType, paramTypes, false);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
-      Function* cmpXchgIntF_8 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_8", &M);
-      myFunctions["preCmpXchg_8"] = cmpXchgIntF_8;
-      std::cout << "yyyyyyyyyyyyyyyyyyyyyyyyyyy\n";
-      cmpXchgIntF_8->dump();
-      cmpXchgIntF_8->getFunctionType()->getReturnType()->dump();
+      Function* cmpXchgIntF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_8", &M);
+      myFunctions["checker_preCmpXchg_8"] = cmpXchgIntF_8;
+      //std::cout << "yyyyyyyyyyyyyyyyyyyyyyyyyyy\n";
+      //cmpXchgIntF_8->dump();
+      //cmpXchgIntF_8->getFunctionType()->getReturnType()->dump();
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
@@ -249,13 +267,14 @@ namespace {
       paramTypes.push_back(Type::getInt16Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       types.clear();
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
       sType = StructType::get(M.getContext(), types);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
-      Function* cmpXchgIntF_16 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_16", &M);
-      myFunctions["preCmpXchg_16"] = cmpXchgIntF_16;
+      Function* cmpXchgIntF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_16", &M);
+      myFunctions["checker_preCmpXchg_16"] = cmpXchgIntF_16;
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
@@ -263,13 +282,14 @@ namespace {
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       types.clear();
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
       sType = StructType::get(M.getContext(), types);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
-      Function* cmpXchgIntF_32 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_32", &M);
-      myFunctions["preCmpXchg_32"] = cmpXchgIntF_32;
+      Function* cmpXchgIntF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_32", &M);
+      myFunctions["checker_preCmpXchg_32"] = cmpXchgIntF_32;
 
       paramTypes.clear();
       paramTypes.push_back(Type::getInt8PtrTy(M.getContext()));
@@ -277,138 +297,336 @@ namespace {
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       types.clear();
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
       sType = StructType::get(M.getContext(), types);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
-      Function* cmpXchgIntF_64 = Function::Create(FT, Function::ExternalLinkage, "preCmpXchg_64", &M);
-      myFunctions["preCmpXchg_64"] = cmpXchgIntF_64;
+      Function* cmpXchgIntF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_64", &M);
+      myFunctions["checker_preCmpXchg_64"] = cmpXchgIntF_64;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt8Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt8Ty(M.getContext()), paramTypes, false);
-      Function *rmwXchgF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_8", &M);
-      myFunctions["preRMW_Xchg_8"] = rmwXchgF_8;
-      Function *rmwAddF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_8", &M);
-      myFunctions["preRMW_Add_8"] = rmwAddF_8;
-      Function *rmwSubF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_8", &M);
-      myFunctions["preRMW_Sub_8"] = rmwSubF_8;
-      Function *rmwAndF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_8", &M);
-      myFunctions["preRMW_And_8"] = rmwAndF_8;
-      Function *rmwNandF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_8", &M);
-      myFunctions["preRMW_Nand_8"] = rmwNandF_8;
-      Function *rmwOrF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_8", &M);
-      myFunctions["preRMW_Or_8"] = rmwOrF_8;
-      Function *rmwXorF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_8", &M);
-      myFunctions["preRMW_Xor_8"] = rmwXorF_8;
-      Function *rmwMaxF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_8", &M);
-      myFunctions["preRMW_Max_8"] = rmwMaxF_8;
-      Function *rmwMinF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_8", &M);
-      myFunctions["preRMW_Min_8"] = rmwMinF_8;
-      Function *rmwUMaxF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_8", &M);
-      myFunctions["preRMW_UMax_8"] = rmwUMaxF_8;
-      Function *rmwUMinF_8 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_8", &M);
-      myFunctions["preRMW_UMin_8"] = rmwUMinF_8;
+      Function *rmwXchgF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xchg_8", &M);
+      myFunctions["checker_preRMW_Xchg_8"] = rmwXchgF_8;
+      Function *rmwAddF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Add_8", &M);
+      myFunctions["checker_preRMW_Add_8"] = rmwAddF_8;
+      Function *rmwSubF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Sub_8", &M);
+      myFunctions["checker_preRMW_Sub_8"] = rmwSubF_8;
+      Function *rmwAndF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_And_8", &M);
+      myFunctions["checker_preRMW_And_8"] = rmwAndF_8;
+      Function *rmwNandF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Nand_8", &M);
+      myFunctions["checker_preRMW_Nand_8"] = rmwNandF_8;
+      Function *rmwOrF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Or_8", &M);
+      myFunctions["checker_preRMW_Or_8"] = rmwOrF_8;
+      Function *rmwXorF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xor_8", &M);
+      myFunctions["checker_preRMW_Xor_8"] = rmwXorF_8;
+      Function *rmwMaxF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Max_8", &M);
+      myFunctions["checker_preRMW_Max_8"] = rmwMaxF_8;
+      Function *rmwMinF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Min_8", &M);
+      myFunctions["checker_preRMW_Min_8"] = rmwMinF_8;
+      Function *rmwUMaxF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMax_8", &M);
+      myFunctions["checker_preRMW_UMax_8"] = rmwUMaxF_8;
+      Function *rmwUMinF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMin_8", &M);
+      myFunctions["checker_preRMW_UMin_8"] = rmwUMinF_8;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt16Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt16Ty(M.getContext()), paramTypes, false);
-      Function *rmwXchgF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_16", &M);
-      myFunctions["preRMW_Xchg_16"] = rmwXchgF_16;
-      Function *rmwAddF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_16", &M);
-      myFunctions["preRMW_Add_16"] = rmwAddF_16;
-      Function *rmwSubF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_16", &M);
-      myFunctions["preRMW_Sub_16"] = rmwSubF_16;
-      Function *rmwAndF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_16", &M);
-      myFunctions["preRMW_And_16"] = rmwAndF_16;
-      Function *rmwNandF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_16", &M);
-      myFunctions["preRMW_Nand_16"] = rmwNandF_16;
-      Function *rmwOrF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_16", &M);
-      myFunctions["preRMW_Or_16"] = rmwOrF_16;
-      Function *rmwXorF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_16", &M);
-      myFunctions["preRMW_Xor_16"] = rmwXorF_16;
-      Function *rmwMaxF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_16", &M);
-      myFunctions["preRMW_Max_16"] = rmwMaxF_16;
-      Function *rmwMinF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_16", &M);
-      myFunctions["preRMW_Min_16"] = rmwMinF_16;
-      Function *rmwUMaxF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_16", &M);
-      myFunctions["preRMW_UMax_16"] = rmwUMaxF_16;
-      Function *rmwUMinF_16 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_16", &M);
-      myFunctions["preRMW_UMin_16"] = rmwUMinF_16;
+      Function *rmwXchgF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xchg_16", &M);
+      myFunctions["checker_preRMW_Xchg_16"] = rmwXchgF_16;
+      Function *rmwAddF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Add_16", &M);
+      myFunctions["checker_preRMW_Add_16"] = rmwAddF_16;
+      Function *rmwSubF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Sub_16", &M);
+      myFunctions["checker_preRMW_Sub_16"] = rmwSubF_16;
+      Function *rmwAndF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_And_16", &M);
+      myFunctions["checker_preRMW_And_16"] = rmwAndF_16;
+      Function *rmwNandF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Nand_16", &M);
+      myFunctions["checker_preRMW_Nand_16"] = rmwNandF_16;
+      Function *rmwOrF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Or_16", &M);
+      myFunctions["checker_preRMW_Or_16"] = rmwOrF_16;
+      Function *rmwXorF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xor_16", &M);
+      myFunctions["checker_preRMW_Xor_16"] = rmwXorF_16;
+      Function *rmwMaxF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Max_16", &M);
+      myFunctions["checker_preRMW_Max_16"] = rmwMaxF_16;
+      Function *rmwMinF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Min_16", &M);
+      myFunctions["checker_preRMW_Min_16"] = rmwMinF_16;
+      Function *rmwUMaxF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMax_16", &M);
+      myFunctions["checker_preRMW_UMax_16"] = rmwUMaxF_16;
+      Function *rmwUMinF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMin_16", &M);
+      myFunctions["checker_preRMW_UMin_16"] = rmwUMinF_16;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt32Ty(M.getContext()), paramTypes, false);
-      Function *rmwXchgF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_32", &M);
-      myFunctions["preRMW_Xchg_32"] = rmwXchgF_32;
-      Function *rmwAddF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_32", &M);
-      myFunctions["preRMW_Add_32"] = rmwAddF_32;
-      Function *rmwSubF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_32", &M);
-      myFunctions["preRMW_Sub_32"] = rmwSubF_32;
-      Function *rmwAndF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_32", &M);
-      myFunctions["preRMW_And_32"] = rmwAndF_32;
-      Function *rmwNandF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_32", &M);
-      myFunctions["preRMW_Nand_32"] = rmwNandF_32;
-      Function *rmwOrF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_32", &M);
-      myFunctions["preRMW_Or_32"] = rmwOrF_32;
-      Function *rmwXorF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_32", &M);
-      myFunctions["preRMW_Xor_32"] = rmwXorF_32;
-      Function *rmwMaxF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_32", &M);
-      myFunctions["preRMW_Max_32"] = rmwMaxF_32;
-      Function *rmwMinF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_32", &M);
-      myFunctions["preRMW_Min_32"] = rmwMinF_32;
-      Function *rmwUMaxF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_32", &M);
-      myFunctions["preRMW_UMax_32"] = rmwUMaxF_32;
-      Function *rmwUMinF_32 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_32", &M);
-      myFunctions["preRMW_UMin_32"] = rmwUMinF_32;
+      Function *rmwXchgF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xchg_32", &M);
+      myFunctions["checker_preRMW_Xchg_32"] = rmwXchgF_32;
+      Function *rmwAddF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Add_32", &M);
+      myFunctions["checker_preRMW_Add_32"] = rmwAddF_32;
+      Function *rmwSubF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Sub_32", &M);
+      myFunctions["checker_preRMW_Sub_32"] = rmwSubF_32;
+      Function *rmwAndF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_And_32", &M);
+      myFunctions["checker_preRMW_And_32"] = rmwAndF_32;
+      Function *rmwNandF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Nand_32", &M);
+      myFunctions["checker_preRMW_Nand_32"] = rmwNandF_32;
+      Function *rmwOrF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Or_32", &M);
+      myFunctions["checker_preRMW_Or_32"] = rmwOrF_32;
+      Function *rmwXorF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xor_32", &M);
+      myFunctions["checker_preRMW_Xor_32"] = rmwXorF_32;
+      Function *rmwMaxF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Max_32", &M);
+      myFunctions["checker_preRMW_Max_32"] = rmwMaxF_32;
+      Function *rmwMinF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Min_32", &M);
+      myFunctions["checker_preRMW_Min_32"] = rmwMinF_32;
+      Function *rmwUMaxF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMax_32", &M);
+      myFunctions["checker_preRMW_UMax_32"] = rmwUMaxF_32;
+      Function *rmwUMinF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMin_32", &M);
+      myFunctions["checker_preRMW_UMin_32"] = rmwUMinF_32;
 
       paramTypes.clear();
       paramTypes.push_back(pType);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       paramTypes.push_back(Type::getInt32Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
       FT = FunctionType::get(Type::getInt64Ty(M.getContext()), paramTypes, false);
-      Function *rmwXchgF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xchg_64", &M);
-      myFunctions["preRMW_Xchg_64"] = rmwXchgF_64;
-      Function *rmwAddF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Add_64", &M);
-      myFunctions["preRMW_Add_64"] = rmwAddF_64;
-      Function *rmwSubF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Sub_64", &M);
-      myFunctions["preRMW_Sub_64"] = rmwSubF_64;
-      Function *rmwAndF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_And_64", &M);
-      myFunctions["preRMW_And_64"] = rmwAndF_64;
-      Function *rmwNandF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Nand_64", &M);
-      myFunctions["preRMW_Nand_64"] = rmwNandF_64;
-      Function *rmwOrF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Or_64", &M);
-      myFunctions["preRMW_Or_64"] = rmwOrF_64;
-      Function *rmwXorF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Xor_64", &M);
-      myFunctions["preRMW_Xor_64"] = rmwXorF_64;
-      Function *rmwMaxF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Max_64", &M);
-      myFunctions["preRMW_Max_64"] = rmwMaxF_64;
-      Function *rmwMinF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_Min_64", &M);
-      myFunctions["preRMW_Min_64"] = rmwMinF_64;
-      Function *rmwUMaxF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMax_64", &M);
-      myFunctions["preRMW_UMax_64"] = rmwUMaxF_64;
-      Function *rmwUMinF_64 = Function::Create(FT, Function::ExternalLinkage, "preRMW_UMin_64", &M);
-      myFunctions["preRMW_UMin_64"] = rmwUMinF_64;
-    }
+      Function *rmwXchgF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xchg_64", &M);
+      myFunctions["checker_preRMW_Xchg_64"] = rmwXchgF_64;
+      Function *rmwAddF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Add_64", &M);
+      myFunctions["checker_preRMW_Add_64"] = rmwAddF_64;
+      Function *rmwSubF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Sub_64", &M);
+      myFunctions["checker_preRMW_Sub_64"] = rmwSubF_64;
+      Function *rmwAndF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_And_64", &M);
+      myFunctions["checker_preRMW_And_64"] = rmwAndF_64;
+      Function *rmwNandF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Nand_64", &M);
+      myFunctions["checker_preRMW_Nand_64"] = rmwNandF_64;
+      Function *rmwOrF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Or_64", &M);
+      myFunctions["checker_preRMW_Or_64"] = rmwOrF_64;
+      Function *rmwXorF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Xor_64", &M);
+      myFunctions["checker_preRMW_Xor_64"] = rmwXorF_64;
+      Function *rmwMaxF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Max_64", &M);
+      myFunctions["checker_preRMW_Max_64"] = rmwMaxF_64;
+      Function *rmwMinF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_Min_64", &M);
+      myFunctions["checker_preRMW_Min_64"] = rmwMinF_64;
+      Function *rmwUMaxF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMax_64", &M);
+      myFunctions["checker_preRMW_UMax_64"] = rmwUMaxF_64;
+      Function *rmwUMinF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preRMW_UMin_64", &M);
+      myFunctions["checker_preRMW_UMin_64"] = rmwUMinF_64;
 
-    
-    void instrInvoke(Instruction* inst) {
-      //inst->dump();
-      InvokeInst* invokeInst;
-      if ((invokeInst = dyn_cast<InvokeInst>(inst)) == NULL)
-          return ;
-      Function* func = invokeInst->getCalledFunction();
-      if (func == NULL)
-          return ;
-      //std::cerr << "ffff: " << func << "\n";
-      //errs() << "Func: " << func->getName().str() << "\n";
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *trackDynInfo = Function::Create(FT, Function::ExternalLinkage, "checker_trackDynInfo", &M);
+      myFunctions["checker_trackDynInfo"] = trackDynInfo;
+      paramTypes.clear();
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *trackDynInfoEnd = Function::Create(FT, Function::ExternalLinkage, "checker_trackDynInfoEnd", &M);
+      myFunctions["checker_trackDynInfoEnd"] = trackDynInfoEnd;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *currentBB = Function::Create(FT, Function::ExternalLinkage, "checker_currentBB", &M);
+      myFunctions["checker_currentBB"] = currentBB;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 2));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 2));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_2 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_2", &M);
+      myFunctions["checker_handlePHI_2"] = handlePHI_2;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 3));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 3));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_3 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_3", &M);
+      myFunctions["checker_handlePHI_3"] = handlePHI_3;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 4));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 4));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_4 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_4", &M);
+      myFunctions["checker_handlePHI_4"] = handlePHI_4;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 5));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 5));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_5 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_5", &M);
+      myFunctions["checker_handlePHI_5"] = handlePHI_5;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 6));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 6));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_6 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_6", &M);
+      myFunctions["checker_handlePHI_6"] = handlePHI_6;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 7));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 7));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_7 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_7", &M);
+      myFunctions["checker_handlePHI_7"] = handlePHI_7;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 8));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 8));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_8 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_8", &M);
+      myFunctions["checker_handlePHI_8"] = handlePHI_8;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 9));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 9));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_9 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_9", &M);
+      myFunctions["checker_handlePHI_9"] = handlePHI_9;
+
+      /*paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 10));
+      paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 10));*/
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *handlePHI_10 = Function::Create(FT, Function::ExternalLinkage, "checker_handlePHI_10", &M);
+      myFunctions["checker_handlePHI_10"] = handlePHI_10;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //SmallSet<Value*, 10> sset;
+      //paramTypes.push_back(sset);
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 1));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_1 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_1", &M);
+      myFunctions["checker_addUses_1"] = addUses_1;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 2));
+      //paramTypes.push_back(Type::getInt64PtrTy(M.getContext()));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_2 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_2", &M);
+      myFunctions["checker_addUses_2"] = addUses_2;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 3));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_3 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_3", &M);
+      myFunctions["checker_addUses_3"] = addUses_3;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 4));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_4 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_4", &M);
+      myFunctions["checker_addUses_4"] = addUses_4;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 5));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_5 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_5", &M);
+      myFunctions["checker_addUses_5"] = addUses_5;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 6));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_6 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_6", &M);
+      myFunctions["checker_addUses_6"] = addUses_6;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 7));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_7 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_7", &M);
+      myFunctions["checker_addUses_7"] = addUses_7;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 8));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_8 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_8", &M);
+      myFunctions["checker_addUses_8"] = addUses_8;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 9));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_9 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_9", &M);
+      myFunctions["checker_addUses_9"] = addUses_9;
+
+      //paramTypes.clear();
+      //paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 10));
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *addUses_10 = Function::Create(FT, Function::ExternalLinkage, "checker_addUses_10", &M);
+      myFunctions["checker_addUses_10"] = addUses_10;
+
+      paramTypes.clear();
+      //paramTypes.push_back(ArrayType::get(Type::getInt8Ty(M.getContext()), 101));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *beginFunc = Function::Create(FT, Function::ExternalLinkage, "checker_beginFunc", &M);
+      myFunctions["checker_beginFunc"] = beginFunc;
+      paramTypes.clear();
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *endFunc = Function::Create(FT, Function::ExternalLinkage, "checker_endFunc", &M);
+      myFunctions["checker_endFunc"] = endFunc;
+
+      paramTypes.clear();
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *preYield = Function::Create(FT, Function::ExternalLinkage, "checker_pre_yield", &M);
+      myFunctions["checker_pre_yield"] = preYield;
     }
 
     void instrLockCalls(CallInst* inst) {
@@ -417,8 +635,8 @@ namespace {
         std::string name = calledFunc->getName().str();
         if (name.find("checker_shared") != std::string::npos) {
             sharedValues.insert(inst->getOperand(0)->stripPointerCasts());
-            std::cout << "shared value: " << dyn_cast<BitCastInst>(inst->getOperand(0)) << "\n";
-            inst->getOperand(0)->stripPointerCasts()->dump();
+            //std::cout << "shared value: " << dyn_cast<BitCastInst>(inst->getOperand(0)) << "\n";
+            //inst->getOperand(0)->stripPointerCasts()->dump();
         }
 
         if (name.find("mutex") == std::string::npos)
@@ -434,24 +652,42 @@ namespace {
 
         Function* func;
         if (name.find("try_lock") != std::string::npos) {
-            func = myFunctions["preTryLock"];
+            func = myFunctions["checker_preTryLock"];
         } else if (name.find("unlock") != std::string::npos) {
-            func = myFunctions["preUnlock"];
-            std::cout << "in unlock!\n";
+            func = myFunctions["checker_preUnlock"];
+            //std::cout << "in unlock!\n";
         } else if (name.find("lock") != std::string::npos) {
-            func = myFunctions["preLock"];
+            func = myFunctions["checker_preLock"];
         } else {
             return ;
         }
 
-        std::cout << "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww: " << func;
-        inst->dump();
-        CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", inst);    
-        callI->dump();
+        CallInst::Create(func->getFunctionType(), func, params, "", inst);    
     }
 
-    void instrCall(Instruction* inst) {
-      //inst->dump();
+    void instrInvoke(Instruction* inst) {
+        if (dyn_cast<InvokeInst>(inst) == NULL) return ;
+
+        InvokeInst* invokeI = dyn_cast<InvokeInst>(inst);
+        Function* func = invokeI->getCalledFunction();
+        if (func == NULL) {
+            errs() << "Not handle indirect calls!\n";
+            return ;
+        }
+        if (func->isIntrinsic()) {
+            errs() << "Is Intrinsic!\n";
+            return ;
+        }
+
+        std::string name = func->getName().str();
+        if (name.find("sched_yield") != std::string::npos) {
+            Function* f = myFunctions["checker_pre_yield"];
+            std::vector<Value*> params;
+            CallInst::Create(f->getFunctionType(), f, params, "", inst);
+        }
+    }
+
+    void instrCall(Instruction* inst, Instruction* nextI) {
       CallInst* cInst;
       if ((cInst = dyn_cast<CallInst>(inst)) == NULL)
           return ;
@@ -468,24 +704,51 @@ namespace {
 
       //errs() << "Func: " << func->getName().str() << "\n";
       instrLockCalls(cInst);
+      std::string name = func->getName().str();
+      if (name.find("checker_") != std::string::npos ||
+              name.find("printf") != std::string::npos ||
+              name.find("puts") != std::string::npos)
+          return ;
+
+      while (name.size() < 100) {
+        name += " ";
+      }
+
+      //Constant* strName = ConstantDataArray::getString(func->getContext(), name);
+      //std::cout << "xxxx: " << name << "\n";
+
+      std::vector<Value*> params;
+      //params.push_back(strName);
+      
+      Function* f = myFunctions["checker_beginFunc"];
+      f->getFunctionType()->dump();
+      CallInst::Create(f->getFunctionType(), f, params, "", inst);
+      f = myFunctions["checker_endFunc"];
+      params.clear();
+      CallInst::Create(f->getFunctionType(), f, params, "", nextI);
+
+      if (name.find("sched_yield") != std::string::npos) {
+          f = myFunctions["checker_pre_yield"];
+          params.clear();
+          CallInst::Create(f->getFunctionType(), f, params, "", inst);
+      }
     }
+
     void instrNonAtomicLoad(LoadInst* loadI) {
       errs() << "Identify a non-atomic load!\n";
       
       Function* func;
       if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) 
-          func = myFunctions["preNonAtomicLoad_char"];
+          func = myFunctions["checker_preNonAtomicLoad_char"];
       else if (loadI->getType() == Type::getInt32Ty(loadI->getContext()))
-          func = myFunctions["preNonAtomicLoad_int"];
+          func = myFunctions["checker_preNonAtomicLoad_int"];
       else if (loadI->getType() == Type::getInt64Ty(loadI->getContext()))
-          func = myFunctions["preNonAtomicLoad_double"];
+          func = myFunctions["checker_preNonAtomicLoad_double"];
       else {
           loadI->getType()->dump();
           errs() << "Not handle this type for non-atomic load!\n";
           return ;
       }
-
-      loadI->dump();
 
       std::vector<Value*> params;
       Value* param = loadI->getOperand(0);
@@ -505,7 +768,7 @@ namespace {
 
       ICmpInst* icmpI = new ICmpInst(loadI, ICmpInst::ICMP_EQ, callI, loadI);
       Instruction* nextI = &*(++BBIt); BBIt--;
-      SelectInst* selectI = SelectInst::Create(icmpI, callI, loadI, "mySelect", nextI);
+      SelectInst::Create(icmpI, callI, loadI, "mySelect", nextI);
 
     }
 
@@ -523,21 +786,21 @@ namespace {
               return ;
       }
       
-      Function* func, *postFunc;// = myFunctions["postAtomicLoad"];
+      Function* func, *postFunc;// = myFunctions["checker_postAtomicLoad"];
       Type* ty;// = Type::getInt64Ty(loadI->getContext());
-      //func = myFunctions["preAtomicLoad"];
+      //func = myFunctions["checker_preAtomicLoad"];
       if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
-          func = myFunctions["preAtomicLoad_char"];
+          func = myFunctions["checker_preAtomicLoad_char"];
           ty = Type::getInt8Ty(loadI->getContext());
-          postFunc = myFunctions["postAtomicLoad_char"];
+          postFunc = myFunctions["checker_postAtomicLoad_char"];
       } else if (loadI->getType() == Type::getInt32Ty(loadI->getContext())) {
-          func = myFunctions["preAtomicLoad_int"];
+          func = myFunctions["checker_preAtomicLoad_int"];
           ty = Type::getInt32Ty(loadI->getContext());
-          postFunc = myFunctions["postAtomicLoad_int"];
+          postFunc = myFunctions["checker_postAtomicLoad_int"];
       } else if (loadI->getType() == Type::getInt64Ty(loadI->getContext())) {
-          func = myFunctions["preAtomicLoad_double"];
+          func = myFunctions["checker_preAtomicLoad_double"];
           ty = Type::getInt64Ty(loadI->getContext());
-          postFunc = myFunctions["postAtomicLoad_double"];
+          postFunc = myFunctions["checker_postAtomicLoad_double"];
       } else {
           loadI->getType()->dump();
           errs() << "Not handle this type for atomic load!\n";
@@ -553,11 +816,33 @@ namespace {
       
       //LoadInst* newLoadI = new LoadInst(loadI->getOperand(0), "myLoad", loadI);
       params.push_back(param);
+      params.push_back(ConstantInt::get(Type::getInt64Ty(loadI->getContext()), 0));
       //params.push_back(loadI);
       params.push_back(o);
       CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", loadI);
+
+      /*for (Module::iterator it = loadI->getParent()->getParent()->getParent()->begin();
+              it != loadI->getParent()->getParent()->getParent()->end(); ++it) {
+          func = &*it;
+          if (func->getName().str().find("test") != std::string::npos)
+              break;
+      }
+      params.clear();
+      CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", loadI);*/
+
+      /*func = myFunctions["checker_myPrintf_64"];
+      params.clear();
+      params.push_back(callI);
+      Instruction* nI = &*(++BBIt); BBIt--;
+      CallInst::Create(func->getFunctionType(), func, params, "", nI)->dump();*/
+      //std::cout << "mmmmmmmm\n";
+      //callI->dump();
+      //param->getType()->dump();
+      //exit(0);
       //callI->insertAfter(loadI);
+      
       loadI->replaceAllUsesWith(callI);
+      
       //loadI->eraseFromParent();
       return ;
 
@@ -579,8 +864,8 @@ namespace {
               loadI->getSynchScope(), loadI);
 
       ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, newI, defaultV);
-      icmpI->dump(), newLoadI->dump(), callI->dump(), loadI->dump();
-      newLoadI->getType()->dump(), newI->getType()->dump();
+      //icmpI->dump(), newLoadI->dump(), callI->dump(), loadI->dump();
+      //newLoadI->getType()->dump(), newI->getType()->dump();
       SelectInst* selectI = SelectInst::Create(icmpI, newLoadI, newI, "mySelect", nextI);
 
       //BitCastInst* castI = new BitCastInst(selectI, Type::getInt64Ty(loadI->getContext()), "myBitCast", nextI);
@@ -591,7 +876,7 @@ namespace {
       params.push_back(param);
       params.push_back(selectI);
       params.push_back(o);
-      std::cout << "num: " << postFunc << "\n";// postFunc->getFunctionType()->getNumParams() << "\n";
+      //std::cout << "num: " << postFunc << "\n";// postFunc->getFunctionType()->getNumParams() << "\n";
       CallInst::Create(postFunc->getFunctionType(), postFunc, params, "", nextI); // add the post call
     }
 
@@ -614,11 +899,11 @@ namespace {
       //    return ;
 
       if (v->getType() == Type::getInt8Ty(storeI->getContext())) 
-          return ;//func = myFunctions["preNonAtomicStore_char"];
+          return ;//func = myFunctions["checker_preNonAtomicStore_char"];
       else if (v->getType() == Type::getInt32Ty(storeI->getContext()))
-          func = myFunctions["preNonAtomicStore_int"];
+          func = myFunctions["checker_preNonAtomicStore_int"];
       else if (v->getType() ==  Type::getInt64Ty(storeI->getContext()))
-          return ;//func = myFunctions["preNonAtomicStore_double"];
+          return ;//func = myFunctions["checker_preNonAtomicStore_double"];
       else {
           v->getType()->dump();
           errs() << "Not handle this type for non-atomic store!\n";
@@ -632,8 +917,9 @@ namespace {
           param = castInst;
       }
       params.push_back(param);
+      params.push_back(ConstantInt::get(Type::getInt64Ty(storeI->getContext()), 0));
       params.push_back(storeI->getOperand(0));
-      CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", storeI);
+      CallInst::Create(func->getFunctionType(), func, params, "", storeI);
       //ReplaceInstWithInst(storeI->getParent()->getInstList(), BBIt, callI);
     }
 
@@ -646,11 +932,11 @@ namespace {
       Function* func;
       Value* v = storeI->getOperand(0);
       if (v->getType() ==  Type::getInt8Ty(storeI->getContext()))
-          func = myFunctions["preAtomicStore_char"];
+          func = myFunctions["checker_preAtomicStore_char"];
       else if (v->getType() == Type::getInt32Ty(storeI->getContext()))
-          func = myFunctions["preAtomicStore_int"];
+          func = myFunctions["checker_preAtomicStore_int"];
       else if (v->getType() == Type::getInt64Ty(storeI->getContext()))
-          func = myFunctions["preAtomicStore_double"];
+          func = myFunctions["checker_preAtomicStore_double"];
       else {
           v->getType()->dump();
           errs() << "Not handle this type for atomic store!\n";
@@ -664,9 +950,10 @@ namespace {
           param = castInst;
       }
       params.push_back(param);
+      params.push_back(ConstantInt::get(Type::getInt64Ty(storeI->getContext()), 0));
       params.push_back(storeI->getOperand(0));
       params.push_back(o);
-      CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "", storeI);
+      CallInst::Create(func->getFunctionType(), func, params, "", storeI);
       //ReplaceInstWithInst(storeI->getParent()->getInstList(), BBIt, callI);
     }
 
@@ -684,7 +971,7 @@ namespace {
         errs() << "Identify a fence!: " << order << "\n";
         Value* o = ConstantInt::get( Type::getInt32Ty(fenceI->getContext()), orderToInt[order]);
 
-        Function* func = myFunctions["preFence"];
+        Function* func = myFunctions["checker_preFence"];
         std::vector<Value*> params;
         
         params.push_back(o);
@@ -700,6 +987,7 @@ namespace {
         Value* o1 = ConstantInt::get( Type::getInt32Ty(cmpXchgI->getContext()), orderToInt[successOrder]);
         Value* o2 = ConstantInt::get( Type::getInt32Ty(cmpXchgI->getContext()), orderToInt[failureOrder]);
 
+        int num = getClapNum(inst);
         std::vector<Value*> params;
         Value* v1 = cmpXchgI->getPointerOperand();
         Value* v2 = cmpXchgI->getCompareOperand();
@@ -711,15 +999,15 @@ namespace {
         //std::cout << "cmppp//ppppppppppppp: \n";
         //inst->getType()->dump();
 
-        //func = myFunctions["preCmpXchg_64"];
+        //func = myFunctions["checker_preCmpXchg_64"];
         if (v1->getType() == Type::getInt8PtrTy(cmpXchgI->getContext())) {
-            func = myFunctions["preCmpXchg_8"];
+            func = myFunctions["checker_preCmpXchg_8"];
         } else if (v1->getType() == Type::getInt16PtrTy(cmpXchgI->getContext())) {
-            func = myFunctions["preCmpXchg_16"];
+            func = myFunctions["checker_preCmpXchg_16"];
         } else if (v1->getType() == Type::getInt32PtrTy(cmpXchgI->getContext())) {
-            func = myFunctions["preCmpXchg_32"];
+            func = myFunctions["checker_preCmpXchg_32"];
         } else if (v1->getType() == Type::getInt64PtrTy(cmpXchgI->getContext())) {
-            func = myFunctions["preCmpXchg_64"];
+            func = myFunctions["checker_preCmpXchg_64"];
         } else {
             assert(false && "Don't handle this type of cmpXchg instruction!\n");
             return ;
@@ -749,6 +1037,7 @@ namespace {
         params.push_back(v3);
         params.push_back(o1);
         params.push_back(o2);
+        params.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num));
         CallInst* callI = CallInst::Create(func->getFunctionType(), func, params, "myCmpXchg", cmpXchgI);
         
         /*params.clear();
@@ -870,157 +1159,159 @@ namespace {
           v1 = castInst;
         }
         
+        int num = getClapNum(inst);
         std::vector<Value*> params;
         params.push_back(v1);
         params.push_back(v2);
         params.push_back(o);
+        params.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num));
 
         Function* func;
-        Type* ty;
+        /*Type* ty;
         if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) {
-            func = myFunctions["preAtomicLoad_char"];
+            func = myFunctions["checker_preAtomicLoad_char"];
             ty = Type::getInt8Ty(rmwI->getContext());
-        }
+        }*/
         switch (op) {
             case AtomicRMWInst::BinOp::Xchg: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Xchg_8"];
+                    func = myFunctions["checker_preRMW_Xchg_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Xchg_16"];
+                    func = myFunctions["checker_preRMW_Xchg_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Xchg_32"];
+                    func = myFunctions["checker_preRMW_Xchg_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Xchg_64"];
+                    func = myFunctions["checker_preRMW_Xchg_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::Add: { 
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Add_8"];
+                    func = myFunctions["checker_preRMW_Add_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Add_16"];
+                    func = myFunctions["checker_preRMW_Add_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Add_32"];
+                    func = myFunctions["checker_preRMW_Add_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Add_64"];
+                    func = myFunctions["checker_preRMW_Add_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break; 
             }
             case AtomicRMWInst::BinOp::Sub: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Sub_8"];
+                    func = myFunctions["checker_preRMW_Sub_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Sub_16"];
+                    func = myFunctions["checker_preRMW_Sub_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Sub_32"];
+                    func = myFunctions["checker_preRMW_Sub_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Sub_64"];
+                    func = myFunctions["checker_preRMW_Sub_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::And: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_And_8"];
+                    func = myFunctions["checker_preRMW_And_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_And_16"];
+                    func = myFunctions["checker_preRMW_And_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_And_32"];
+                    func = myFunctions["checker_preRMW_And_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_And_64"];
+                    func = myFunctions["checker_preRMW_And_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::Nand: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Nand_8"];
+                    func = myFunctions["checker_preRMW_Nand_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Nand_16"];
+                    func = myFunctions["checker_preRMW_Nand_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Nand_32"];
+                    func = myFunctions["checker_preRMW_Nand_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Nand_64"];
+                    func = myFunctions["checker_preRMW_Nand_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::Or: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Or_8"];
+                    func = myFunctions["checker_preRMW_Or_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Or_16"];
+                    func = myFunctions["checker_preRMW_Or_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Or_32"];
+                    func = myFunctions["checker_preRMW_Or_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Or_64"];
+                    func = myFunctions["checker_preRMW_Or_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::Xor: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Xor_8"];
+                    func = myFunctions["checker_preRMW_Xor_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Xor_16"];
+                    func = myFunctions["checker_preRMW_Xor_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Xor_32"];
+                    func = myFunctions["checker_preRMW_Xor_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Xor_64"];
+                    func = myFunctions["checker_preRMW_Xor_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::Max: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Max_8"];
+                    func = myFunctions["checker_preRMW_Max_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Max_16"];
+                    func = myFunctions["checker_preRMW_Max_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Max_32"];
+                    func = myFunctions["checker_preRMW_Max_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Max_64"];
+                    func = myFunctions["checker_preRMW_Max_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;                            
             }
             case AtomicRMWInst::BinOp::Min: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_Min_8"];
+                    func = myFunctions["checker_preRMW_Min_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Min_16"];
+                    func = myFunctions["checker_preRMW_Min_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Min_32"];
+                    func = myFunctions["checker_preRMW_Min_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_Min_64"];
+                    func = myFunctions["checker_preRMW_Min_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::UMax: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_UMax_8"];
+                    func = myFunctions["checker_preRMW_UMax_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_UMax_16"];
+                    func = myFunctions["checker_preRMW_UMax_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_UMax_32"];
+                    func = myFunctions["checker_preRMW_UMax_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_UMax_64"];
+                    func = myFunctions["checker_preRMW_UMax_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
             }
             case AtomicRMWInst::BinOp::UMin: {
                 if (rmwI->getType() == Type::getInt8Ty(rmwI->getContext())) 
-                    func = myFunctions["preRMW_UMin_8"];
+                    func = myFunctions["checker_preRMW_UMin_8"];
                 else if (rmwI->getType() == Type::getInt16Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_UMin_16"];
+                    func = myFunctions["checker_preRMW_UMin_16"];
                 else if (rmwI->getType() == Type::getInt32Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_UMin_32"];
+                    func = myFunctions["checker_preRMW_UMin_32"];
                 else if (rmwI->getType() == Type::getInt64Ty(rmwI->getContext()))
-                    func = myFunctions["preRMW_UMin_64"];
+                    func = myFunctions["checker_preRMW_UMin_64"];
                 else
                     assert(false && "Do not handle this type!\n");
                 break;
@@ -1035,10 +1326,80 @@ namespace {
         rmwI->replaceAllUsesWith(callI);
     }
 
+    uint64_t getClapNum(Instruction* inst) {
+        /*if (CallInst *callI = dyn_cast<CallInst>(inst)) {
+            //skip the LLVM intrisic calls
+            if (dyn_cast<IntrinsicInst>(callI) != NULL)  return 0; 
+
+            //skip the CLAP function calls
+            if (callI->getCalledFunction() == NULL)     return 0;
+
+            if (!strncmp("clap_", callI->getCalledFunction()->getName().data(), 5)) return 0;
+        }*/
+
+        MDNode *node = inst->getMetadata("clap");
+        if (node == NULL)
+            return 0;
+
+        //inst->dump();
+        //assert(node && "No Clap num instrumented!");
+
+        const MDOperand* op = &(node->getOperand(0));
+        Metadata* meta = op->get();
+        ValueAsMetadata* data = dyn_cast<ValueAsMetadata>(meta);
+        Value* v = data->getValue();
+        //std::cout << "node: " << node << "\n";
+        //node->dump();
+        //node->getOperand(0)->dump();
+        //Value* v = node->getOperand(0);
+        ConstantInt* constI = dyn_cast<ConstantInt>(v);
+        const uint64_t* num = constI->getValue().getRawData();
+
+        //std::cout << "num: " << *num << "\n";
+        return *num;
+    }
+
+    void instrBr(Instruction* inst) {
+        BranchInst* brInst = dyn_cast<BranchInst>(inst);
+        Value* cmpV = brInst->getOperand(0);
+        if (dyn_cast<Instruction>(cmpV)) {
+            Instruction* cmpInst = dyn_cast<Instruction>(cmpV);
+            cmpInst->dump();
+            //uint64_t num = 0; //getClapNum(inst);
+            BasicBlock* bb = inst->getParent();
+            SmallVector<BasicBlock*, 8> bList;
+            DT->getDescendants(bb, bList);
+            
+            std::set<BasicBlock*> controlBBs;
+            for (BasicBlock *B : bList) {
+                if (B == bb) continue ;
+
+                SmallVector<BasicBlock*, 8> bList2;
+                PDT->getDescendants(B, bList2);
+
+                bool flag = false;
+                for (BasicBlock *B2 : bList2) {
+                    if (B2 == bb) {
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if (flag) continue ;
+                controlBBs.insert(B);
+                B->dump();
+            }
+            
+            /*std::cout << "descendants: " << inst->getParent()->getParent()->getName().str() 
+                << " " << DT->getNode(bb) << " " << controlBBs.size() << "\n";
+            inst->dump();*/
+        }
+    }
+
     void instrInst(Instruction* inst) {
       switch (inst->getOpcode()) {
         case Instruction::Call:
-            instrCall(inst);
+            //instrCall(inst);
             break ;
         case Instruction::Invoke:
             instrInvoke(inst);
@@ -1058,6 +1419,8 @@ namespace {
         case Instruction::AtomicRMW:
             instrRMW(inst);
             break;
+        //case Instruction::Br:
+        //    instrBr(inst);
         default: 
             break ;
       }
@@ -1065,13 +1428,13 @@ namespace {
 
     void splitBlocks(Function* F) {
         for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I) {
-            if (auto *op = dyn_cast<CallInst>(&*I)) {
+            if (dyn_cast<CallInst>(&*I)) {
                 CallInst* callI = dyn_cast<CallInst>(&*I);
                 if (callI->getCalledFunction() == NULL)
                     continue ;
 
                 //std::cout << "ssss: " << (callI->getCalledFunction()->getName()).str() << "\n";
-                if (callI->getCalledFunction()->getName().find("preAtomicLoad") == std::string::npos) 
+                if (callI->getCalledFunction()->getName().find("checker_preAtomicLoad") == std::string::npos) 
                     continue ;
 
                 I++;
@@ -1089,9 +1452,9 @@ namespace {
 
                 TerminatorInst *ThenTerm , *ElseTerm ;
                 SplitBlockAndInsertIfThenElse(icmp1, nextI, &ThenTerm, &ElseTerm, nullptr);
-                std::cout << "ssss\n";
-                ThenTerm->dump(), ElseTerm->dump();
-                BasicBlock* elseBB = ElseTerm->getParent();
+                //std::cout << "ssss\n";
+                //ThenTerm->dump(), ElseTerm->dump();
+                //BasicBlock* elseBB = ElseTerm->getParent();
                 //auto loadI = nextI->clone();
                 //loadI->dump();
                 LoadInst* loadI = dyn_cast<LoadInst>(nextI);
@@ -1112,13 +1475,13 @@ namespace {
                 Function* postFunc;
                 if (loadI->getType() == Type::getInt8Ty(loadI->getContext())) {
                     //ty = Type::getInt8Ty(loadI->getContext());
-                    postFunc = myFunctions["postAtomicLoad_char"];
+                    postFunc = myFunctions["checker_postAtomicLoad_char"];
                 } else if (loadI->getType() == Type::getInt32Ty(loadI->getContext())) {
                     //ty = Type::getInt32Ty(loadI->getContext());
-                    postFunc = myFunctions["postAtomicLoad_int"];
+                    postFunc = myFunctions["checker_postAtomicLoad_int"];
                 } else if (loadI->getType() == Type::getInt64Ty(loadI->getContext())) {
                     //ty = Type::getInt64Ty(loadI->getContext());
-                    postFunc = myFunctions["postAtomicLoad_double"];
+                    postFunc = myFunctions["checker_postAtomicLoad_double"];
                 } else {
                     loadI->getType()->dump();
                     errs() << "Not handle this type for atomic load!\n";
@@ -1137,7 +1500,7 @@ namespace {
                 branchI->setSuccessor(0, branchI->getSuccessor(0));
                 branchI->setSuccessor(1, branchI->getParent());*/
 
-                BranchInst* newTerm = BranchInst::Create(branchI->getSuccessor(0), branchI->getParent(), icmpI, ElseTerm);
+                BranchInst::Create(branchI->getSuccessor(0), branchI->getParent(), icmpI, ElseTerm);
                 ElseTerm->eraseFromParent();
                 
                 break ;  
@@ -1150,23 +1513,53 @@ namespace {
         while (flag) {
             flag = false;
             for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I) {
-                if (auto *op = dyn_cast<AtomicRMWInst>(&*I)) {
+                if (dyn_cast<AtomicRMWInst>(&*I)) {
                     AtomicRMWInst* inst = dyn_cast<AtomicRMWInst>(&*I);
                     inst->eraseFromParent();
                     flag = true;
                     break;
-                } else if (auto *op = dyn_cast<LoadInst>(&*I)) {
+                } else if (dyn_cast<LoadInst>(&*I)) {
                     LoadInst* inst = dyn_cast<LoadInst>(&*I);
                     if (inst->isAtomic()) {
                         inst->eraseFromParent();
                         flag = true;
                         break;
                     }
-                } else if (auto *op = dyn_cast<AtomicCmpXchgInst>(&*I)) {
+                } else if (dyn_cast<StoreInst>(&*I)) {
+                    StoreInst* inst = dyn_cast<StoreInst>(&*I);
+                    if (inst->isAtomic()) {
+                        /*std::cout << "delete store: \n";
+                        inst->dump();*/
+                        inst->eraseFromParent();
+                        flag = true;
+                        break;
+                    }
+                } else if (dyn_cast<AtomicCmpXchgInst>(&*I)) {
                     AtomicCmpXchgInst* inst = dyn_cast<AtomicCmpXchgInst>(&*I);
                     inst->eraseFromParent();
                     flag = true;
                     break;
+                } else if (dyn_cast<CallInst>(&*I)) {
+                    CallInst* inst = dyn_cast<CallInst>(&*I);
+                    Function* f = inst->getCalledFunction();
+                    Value* v = NULL;
+                    if (f && (f->getName().str().find("checker_preAtomicLoad_") != std::string::npos ||
+                            f->getName().str().find("checker_preAtomicStore_") != std::string::npos)) 
+                        v = inst->getOperand(1);
+                    else if (f && f->getName().str().find("checker_preRMW") != std::string::npos)
+                        v = inst->getOperand(3);
+                    else if (f && f->getName().str().find("checker_preCmpXchg_") != std::string::npos)
+                        v = inst->getOperand(5);
+
+                    if (v != NULL) {
+                        ConstantInt* constI = dyn_cast<ConstantInt>(v);
+                        const uint64_t* num = constI->getValue().getRawData();
+                        if (*num == 0) {
+                            inst->eraseFromParent();
+                            flag = true;
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -1186,28 +1579,410 @@ namespace {
         }
       }
 
-      deleteInsts(func);
-
+      //deleteInsts(func);
       //splitBlocks(func);
     }
 
-    bool runOnModule(Module &M) override {
-      std::cout << "Instrument code: begin!\n";
+    void instrFunc2(Function* func) {
+        
+        //std::cout << "instrFunc2: " << func << "\n";
+        DT = &getAnalysis<DominatorTreeWrapperPass>(*func).getDomTree();
+        PDT = &getAnalysis<PostDominatorTreeWrapperPass>(*func).getPostDomTree();
+        //DT->recalculate(*func);
+        if (func && func->getName().str() == "main")
+            return ;
+
+        for (Function::iterator it = func->begin(); 
+                it != func->end(); ++it) {
+            BasicBlock* b = &*it;
+
+            //std::cout << "bbbbbbb0\n";
+            //b->dump();
+            //for (Basic)
+            for (BasicBlock::iterator bIt = b->begin();
+                    bIt != b->end(); ++bIt) {
+                Instruction* inst = &*bIt;
+                int num1 = getClapNum(inst);
+                if (num1 == 0) continue ;
+                std::vector<Value*> params;
+                params.push_back(ConstantInt::get(func->getContext(), APInt(64, num1)));
+                if (dyn_cast<PHINode>(inst)) {
+                    PHINode* phi = dyn_cast<PHINode>(inst);
+                    std::vector<uint64_t> values, blocks;
+                    for (unsigned i=0; i<phi->getNumOperands(); ++i) {
+                        Value* v = phi->getOperand(i);
+                        BasicBlock* block = phi->getIncomingBlock(i);
+                        Instruction* termI = block->getTerminator();
+                        uint64_t tnum = getClapNum(termI);
+                        if (dyn_cast<Instruction>(v)) {
+                            Instruction* ins = dyn_cast<Instruction>(v);
+                            uint64_t num = getClapNum(ins);
+                            values.push_back(num);
+                            params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
+                        } else { // add a Load inst
+                            values.push_back(0); 
+                            params.push_back(ConstantInt::get(func->getContext(), APInt(64, 0)));
+                        }
+                        blocks.push_back(tnum);
+                        params.push_back(ConstantInt::get(func->getContext(), APInt(64, tnum)));
+                    }
+
+                    Function* func = NULL;
+                    switch(values.size()) {
+                        case 2: func = myFunctions["checker_handlePHI_2"]; break ;
+                        case 3: func = myFunctions["checker_handlePHI_3"]; break ;
+                        case 4: func = myFunctions["checker_handlePHI_4"]; break ;
+                        case 5: func = myFunctions["checker_handlePHI_5"]; break ;
+                        case 6: func = myFunctions["checker_handlePHI_6"]; break ;
+                        case 7: func = myFunctions["checker_handlePHI_7"]; break ;
+                        case 8: func = myFunctions["checker_handlePHI_8"]; break ;
+                        case 9: func = myFunctions["checker_handlePHI_9"]; break ;
+                        case 10: func = myFunctions["checker_handlePHI_10"]; break ;
+                        default: assert(false);
+                                
+                    }
+                    
+                    Instruction* firstI = b->getFirstNonPHIOrDbg();//&*(b->begin());
+                    /*VectorType* vty = VectorType::get(Type::getInt64Ty(func->getContext()), values.size());
+                    UndefValue* undefV = UndefValue::get(vty);
+                    int index = 0;
+                    Value* vs = undefV;
+                    Value* indexes = undefV;
+                    for (unsigned i=0; i<values.size(); ++i) {
+                        Value* ind = ConstantInt::get(func->getContext(), APInt(64, i));
+                        Value* v = ConstantInt::get(func->getContext(), APInt(64, values[i]));
+                        vs = InsertElementInst::Create(vs, v, ind, "myInsert", firstI);
+                        Value* index = ConstantInt::get(func->getContext(), APInt(64, blocks[i]));
+                        indexes = InsertElementInst::Create(indexes, index, ind, "myInsert", firstI);
+                        //sset.insert(indexV);
+                    }
+
+                    params.push_back(vs);
+                    params.push_back(indexes);*/
+                    CallInst::Create(func->getFunctionType(), func, params, "", firstI);
+
+                    continue ;
+                }
+
+                if (InvokeInst* invokeI = dyn_cast<InvokeInst>(inst)) {
+                    BasicBlock* destBB = invokeI->getNormalDest();
+                    std::cout << "11111\n";
+                    if (DT->getNode(inst->getParent())->getIDom() == NULL) continue ;
+
+                    BasicBlock* dBB = DT->getNode(inst->getParent())->getIDom()->getBlock();
+                    Instruction* termI = dBB->getTerminator();
+                    if (termI->getOpcode() != Instruction::Br && termI->getOpcode() != Instruction::Switch)
+                        continue ;
+                    
+                    Function* func = myFunctions["checker_trackDynInfo"];
+                    uint64_t num = getClapNum(termI);
+                    std::cout << "xxxxx\n";
+                    invokeI->dump();
+                    termI->dump();
+                    //exit(0);
+
+                    std::vector<Value*> params;
+                    params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
+                    Instruction* firstI = destBB->getFirstNonPHIOrDbg();//&*(b->begin());
+                    if (dyn_cast<LandingPadInst>(firstI)) continue ;
+
+                    CallInst::Create(func->getFunctionType(), func, params, "", firstI);  
+                }
+
+                if (dyn_cast<CallInst>(inst)) {
+                    CallInst* callI = dyn_cast<CallInst>(inst);
+                    if (dyn_cast<IntrinsicInst>(callI) != NULL)  
+                        continue; 
+                    if (callI->getCalledFunction() == NULL)     
+                        continue;
+
+                    Function* f = callI->getCalledFunction();
+
+                    if (f->getName().str().find("checker_preAtomicLoad") != std::string::npos) {
+                        std::vector<Value*> ps;
+                        ps.push_back(callI->getOperand(0));
+                        ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
+                        ps.push_back(callI->getOperand(2));
+                        CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
+                        
+                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                        llvm::ArrayRef<llvm::Metadata*> elts = {meta};
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
+                        newI->setMetadata("clap", md_node);
+                        inst->replaceAllUsesWith(newI);
+                        inst = newI;
+                        //inst->eraseFromParent();
+                        //continue ;
+                    } else if (f->getName().str().find("checker_preAtomicStore") != std::string::npos) {
+                        std::vector<Value*> ps;
+                        ps.push_back(callI->getOperand(0));
+                        ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
+                        ps.push_back(callI->getOperand(2));
+                        ps.push_back(callI->getOperand(3));
+                        CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
+                        
+                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                        llvm::ArrayRef<llvm::Metadata*> elts = {meta};
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
+                        newI->setMetadata("clap", md_node);
+                        inst->replaceAllUsesWith(newI);
+                        inst = newI;
+                        //inst->eraseFromParent();
+                        //continue ;
+                    } else if (f->getName().str().find("checker_preRMW_") != std::string::npos) {
+                        std::vector<Value*> ps;
+                        ps.push_back(callI->getOperand(0));
+                        ps.push_back(callI->getOperand(1));
+                        ps.push_back(callI->getOperand(2));
+                        ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
+                        CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
+                        
+                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                        llvm::ArrayRef<llvm::Metadata*> elts = {meta};
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
+                        newI->setMetadata("clap", md_node);
+                        inst->replaceAllUsesWith(newI);
+                        inst = newI;
+                    } else if (f->getName().str().find("checker_preCmpXchg_") != std::string::npos) {
+                        std::vector<Value*> ps;
+                        ps.push_back(callI->getOperand(0));
+                        ps.push_back(callI->getOperand(1));
+                        ps.push_back(callI->getOperand(2));
+                        ps.push_back(callI->getOperand(3));
+                        ps.push_back(callI->getOperand(4));
+                        ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
+                        CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
+                        
+                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                        llvm::ArrayRef<llvm::Metadata*> elts = {meta};
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
+                        newI->setMetadata("clap", md_node);
+                        inst->replaceAllUsesWith(newI);
+                        inst = newI;
+                    }
+                    
+                    //instrCall(inst, nextI);
+                }
+
+                unsigned ops = 0;
+                //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 1));
+                std::vector<Value*> vs;
+                //std::cout << "add use: " << num1 << "\n";
+                //inst->dump();
+                for (Use &U : inst->operands()) {
+                    Value *v = U.get();
+                    if (dyn_cast<Instruction>(v)) {
+                        ops++;
+                        Instruction* i = dyn_cast<Instruction>(v);
+                        i->dump();
+                        int num2 = getClapNum(i);
+                        //std::cout << "num: " << num2 << "\n";
+                        if (num2 == 0) continue ;
+                        params.push_back(ConstantInt::get(func->getContext(), APInt(64, num2)));
+                    }
+                }
+
+                //std::cout << "params size: " << params.size() << " " << vs.size() << " " << ops << "\n";
+                if (ops == 0) continue ;
+
+                //VectorType* vty = VectorType::get(Type::getInt64Ty(func->getContext()), ops);
+                //SmallSet<Value*, 10> sset;
+                /*UndefValue* undefV = UndefValue::get(vty);
+                int index = 0;
+                Value* createV = undefV;
+                for (std::vector<Value*>::iterator vit = vs.begin();
+                        vit != vs.end(); ++vit) {
+                    Value* indexV = ConstantInt::get(func->getContext(), APInt(64, index++));
+                    createV = InsertElementInst::Create(createV, *vit, indexV, "myInsert", inst);
+                }
+                params.push_back(createV);*/
+                //params.push_back(sset);
+                Function* addFunc = NULL;
+                switch (ops) {
+                    case 1: addFunc = myFunctions["checker_addUses_1"]; break;
+                    case 2: addFunc = myFunctions["checker_addUses_2"]; break;
+                    case 3: addFunc = myFunctions["checker_addUses_3"]; break;
+                    case 4: addFunc = myFunctions["checker_addUses_4"]; break;
+                    case 5: addFunc = myFunctions["checker_addUses_5"]; break;
+                    case 6: addFunc = myFunctions["checker_addUses_6"]; break;
+                    case 7: addFunc = myFunctions["checker_addUses_7"]; break;
+                    case 8: addFunc = myFunctions["checker_addUses_8"]; break;
+                    case 9: addFunc = myFunctions["checker_addUses_9"]; break;
+                    case 10: addFunc = myFunctions["checker_addUses_10"]; break;
+                    default: assert(false);
+                }
+                
+                addFunc->getFunctionType()->dump();
+                /*if (ops == 2) {
+                    params.erase(params.end()-1);
+                    
+                    UndefValue* uV = UndefValue::get(Type::getInt64PtrTy(inst->getContext())->getPointerTo());
+                    LoadInst* newLoadI = new LoadInst(uV, "", inst);
+                    for (std::vector<Value*>::iterator vit = vs.begin();
+                        vit != vs.end(); ++vit) {
+                        //std::vector<unsigned int> indx;
+                        int i = vit-vs.begin();
+                        llvm::ArrayRef<Value*> indx = {ConstantInt::get(func->getContext(), APInt(64, i))};
+                        //indx.push_back(vit-vs.begin());
+                        std::cout << "getelemntptr:\n";
+                        //uV->dump();
+                        //cast<PointerType>(uV->getType()->getScalarType())->getElementType()->dump();
+                        Type::getInt64Ty(inst->getContext())->dump();
+                        GetElementPtrInst* getInst = GetElementPtrInst::Create(Type::getInt64Ty(inst->getContext()), newLoadI, indx, "", inst);
+                        getInst->dump();
+                        StoreInst* storeI = new StoreInst(*vit, getInst, inst); 
+                    }
+                    newLoadI = new LoadInst(uV, "", inst);
+                    params.push_back(newLoadI);
+                }*/
+                //std::cout << "ssss: " << addFunc->getFunctionType()->getNumParams() << " " << params.size() << "\n";
+                CallInst::Create(addFunc->getFunctionType(), addFunc, params, "", inst);   
+            }
+
+            //std::cout << "mmm: " << DT->getNode(b) << "\n";
+            //if (DT->getNode(b) == NULL)
+            //    b->dump();
+
+            if (DT->getNode(b) && DT->getNode(b)->getIDom() != NULL) {
+                //std::cout << "mmm3\n";
+                BasicBlock* dBB = DT->getNode(b)->getIDom()->getBlock();
+                Instruction* termI = dBB->getTerminator();
+                if (termI->getOpcode() != Instruction::Br && termI->getOpcode() != Instruction::Switch)
+                    continue ;
+                //std::cout << "bbbbbbb1: " << dBB << "\n";
+                //dBB->getTerminator()->dump();
+                Function* func = myFunctions["checker_trackDynInfo"];
+                uint64_t num = getClapNum(dBB->getTerminator());
+
+                std::vector<Value*> params;
+                params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
+                Instruction* firstI = b->getFirstNonPHIOrDbg();//&*(b->begin());
+                if (dyn_cast<LandingPadInst>(firstI)) continue ;
+                firstI->dump();
+
+                CallInst::Create(func->getFunctionType(), func, params, "", firstI);  
+
+                func = myFunctions["checker_trackDynInfoEnd"];
+                params.clear();
+                Instruction* lastI = b->getTerminator();//&*(b->begin());
+                CallInst::Create(func->getFunctionType(), func, params, "", lastI);   
+            }
+
+            //std::cout << "mmm2\n";
+            Instruction* terminate = b->getTerminator();
+            uint64_t n = getClapNum(terminate);
+            Function* func = myFunctions["checker_currentBB"];
+            std::vector<Value*> params;
+            params.push_back(ConstantInt::get(func->getContext(), APInt(64, n)));
+            CallInst::Create(func->getFunctionType(), func, params, "", terminate);  
+
+            for (BBIt = it->begin();
+                    BBIt != it->end(); ++BBIt) {
+                Instruction* inst = &*BBIt;
+                if (dyn_cast<CallInst>(inst)) {
+                    BBIt++;
+                    Instruction* nextI = &*BBIt;
+                    BBIt--;
+                    instrCall(inst, nextI);
+                    //instrInvoke(inst);
+                }
+            }
+        }
+
+        deleteInsts(func);
+    }
+
+    void addIDForInsts(Module &M) {
+        ++ModuleCounter;
+        errs() << "TAP_InstrumentInstNumber : ";
+        errs().write_escaped(M.getModuleIdentifier()) << '\n';
+
+        for (Module::iterator F = M.begin(); F != M.end(); F++) {
+            for (Function::iterator B = F->begin(); B != F->end(); B++) {
+                for (BasicBlock::iterator I = B->begin(); I != B->end(); I++) {
+          
+                    /*if (CallInst *callI = dyn_cast<CallInst>(I)) {
+                        //skip the LLVM intrisic calls
+                        if (dyn_cast<IntrinsicInst>(callI) != NULL)  
+                            continue; 
+
+                        //skip the CLAP function calls
+                        if (callI->getCalledFunction() == NULL)     continue;
+
+                        if (!strncmp("clap_", callI->getCalledFunction()->getName().data(), 5))
+                            continue;
+                    }*/
+
+                    //assign a unique Metadata number to the instruction
+                    LLVMContext &C = B->getParent()->getParent()->getContext();
+                    llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(C, APInt(64,++InstCounter)));
+                    llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                    llvm::ArrayRef<llvm::Metadata*> elts = {meta};
+                    MDNode* md_node = MDNode::get(C, elts);
+                    //md_node->dump();
+                    I->setMetadata("clap", md_node);
+                    //I->dump();
+                    //if (dyn_cast<BranchInst>(&*I)) 
+                    //    instrBr(&*I);
+                }        
+            }
+        }
+
+        //InstCounter += (1<<16);
+    }
+
+    virtual bool runOnModule(Module &M) override {
+      //auto &PDT = AM.getResult<PostDominatorTreeAnalysis>(F);
+
+      //std::cout << "Instrument code: begin!\n";
+      
       addSpecialFunctions(M);
       for (Module::iterator it = M.begin(); 
               it != M.end(); ++it) {
         Function* func = &*it;
+
+        if (func->isDeclaration())
+            continue;
+        //auto &DT = AU.getResult<DominatorTreeAnalysis>(func);
+        //auto *DT = &getAnalysis<DominatorTreeWrapperPass>().getDomTree();
+        //const DominatorTree* DT2;
+
         if (func->getName().str().find("check_") != std::string::npos) {
-            std::cout << "skip fun: " << func->getName().str() << "\n";
+            //std::cout << "skip fun: " << func->getName().str() << "\n";
             continue ;
         }
         instrFunc(func);
       }
+      
+      addIDForInsts(M);
+
+      for (Module::iterator it = M.begin();
+              it != M.end(); ++it) {
+          Function* func = &*it;
+          if (func->isDeclaration())    continue ;
+          
+          instrFunc2(func);
+      }
+      
       std::cout << "Instrument code: end!\n";
       return true;
     }
+
+    virtual void getAnalysisUsage(AnalysisUsage &AU) const {
+        AU.setPreservesCFG();
+        AU.addPreserved<DominatorTreeWrapperPass>();
+        //AU.addRequired<DominatorTreeWrapperPass>();
+        AU.addRequired<DominatorTreeWrapperPass>();
+        AU.addRequired<PostDominatorTreeWrapperPass>();
+    }
   
   private:
+    DominatorTree* DT;
+    PostDominatorTree* PDT;
     std::set<Value*> sharedValues;
 
   public:

@@ -1,0 +1,908 @@
+BBBBBBBBBBBBBBB
+Generate a model checker11: 0x7fda91500000 0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 35645
+Generate a new Executor: 0x7fda91500050 0x7fda915006c0
+Initializing executor: 0x7fda91500050
+nwait: 0, 2, 0
+Set Read Value: 0
+Set write Value: 1
+Waitting for create thread 0x10c1e6000
+nwait: 1, 2, 0
+Set Read Value: 1
+Set write Value: 2
+Set Read Value: 0
+Set write Value: 1
+var = 1
+In generateModel2!: 3
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-1 0
+v: threadB-1 1
+fMap: threadA 1 0
+fMap: threadB 1 1
+prefix: 0
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 113316: model is not available")
+end checksat!
+Generating: 2 2
+v: threadA-1 1
+v: threadB-1 0
+fMap: threadA 1 1
+fMap: threadB 1 0
+prefix: 0
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+Generating: 3 2
+v: threadA-1 1
+v: threadB-1 1
+fMap: threadA 1 1
+fMap: threadB 1 1
+prefix: 0
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-2 0
+v: threadB-2 0
+fMap: threadA 2 0
+fMap: threadB 2 0
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fda91508590
+RF: threadA 1 0
+RF: threadA 2 0
+RF: threadB 1 0
+RF: threadB 2 0
+Generating: 1 2
+v: threadA-2 0
+v: threadB-2 1
+fMap: threadA 2 0
+fMap: threadB 2 1
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+Generating: 2 2
+v: threadA-2 0
+v: threadB-2 2
+fMap: threadA 2 0
+fMap: threadB 2 2
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile5_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile5_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 342545: model is not available")
+end checksat!
+Generating: 4 2
+v: threadA-2 1
+v: threadB-2 1
+fMap: threadA 2 1
+fMap: threadB 2 1
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile6_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile6_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+Generating: 5 2
+v: threadA-2 1
+v: threadB-2 2
+fMap: threadA 2 1
+fMap: threadB 2 2
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile7_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile7_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 466448: model is not available")
+end checksat!
+Generating: 6 2
+v: threadA-2 2
+v: threadB-2 0
+fMap: threadA 2 2
+fMap: threadB 2 0
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile8_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile8_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+Generating: 7 2
+v: threadA-2 2
+v: threadB-2 1
+fMap: threadA 2 2
+fMap: threadB 2 1
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile9_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile9_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+Generating: 8 2
+v: threadA-2 2
+v: threadB-2 2
+fMap: threadA 2 2
+fMap: threadB 2 2
+fMap: threadB 1 0
+fMap: threadA 1 0
+prefix: 2
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile10_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile10_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Identify inconsistency!
+Identify inconsistency!
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-3 0
+v: threadB-3 0
+fMap: threadA 3 0
+fMap: threadB 3 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadA 2 1
+prefix: 4
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile11_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile11_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Inconsistency: threadA-3 0 1
+Identify inconsistency!
+Generating: 1 2
+v: threadA-3 0
+v: threadB-3 2
+fMap: threadA 3 0
+fMap: threadB 3 2
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadA 2 1
+prefix: 4
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile12_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile12_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Inconsistency: threadA-3 0 1
+Identify inconsistency!
+Generating: 3 2
+v: threadA-3 1
+v: threadB-3 2
+fMap: threadA 3 1
+fMap: threadB 3 2
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadA 2 1
+prefix: 4
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile13_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile13_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+Inconsistency: threadB-3 2 0
+Identify inconsistency!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-5 0
+v: threadB-4 1
+fMap: threadA 5 0
+fMap: threadB 4 1
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadB 3 0
+fMap: threadA 1 0
+fMap: threadA 2 1
+fMap: threadA 3 1
+prefix: 6
+curSch: 0x7fda915006c0 0
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile14_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile14_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fda9170be00
+RF: threadA 1 0
+RF: threadA 2 1
+RF: threadA 3 1
+RF: threadA 5 0
+RF: threadB 1 0
+RF: threadB 2 0
+RF: threadB 3 0
+RF: threadB 4 1
+size: 1
+Generating: 0 1
+v: threadB-5 0
+fMap: threadB 5 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadB 3 0
+fMap: threadA 1 0
+fMap: threadA 2 1
+fMap: threadA 3 1
+fMap: threadA 5 0
+fMap: threadB 4 0
+prefix: 8
+curSch: 0x7fda915006c0 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile15_0x7fda91500050
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile15_0x7fda91500050
+Adding sc constraints: 12
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fda91608b10
+RF: threadA 1 0
+RF: threadA 2 1
+RF: threadA 3 1
+RF: threadA 5 0
+RF: threadB 1 0
+RF: threadB 2 0
+RF: threadB 3 0
+RF: threadB 4 0
+RF: threadB 5 0
+In generateModel2 End!
+### Solver Time: 466.487
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 35646
+Generate a new Executor: 0x7fda91604020 0x7fda91601420
+Initializing executor: 0x7fda91604020
+Waitting for create thread 0x10c269000
+Waitting for create thread 0x10c1e6000
+nwait: 0, 2, 0
+nwait: 0, 2, 0
+Set Read Value: 0
+Set write Value: 1
+Set Read Value: 1
+Set write Value: 2
+Set Read Value: 0
+Set write Value: 1
+var = 1
+In generateModel2!: 3
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-3 0
+v: threadB-3 0
+fMap: threadA 3 0
+fMap: threadB 3 0
+fMap: threadA 1 0
+fMap: threadA 2 0
+fMap: threadB 2 0
+fMap: threadB 1 0
+prefix: 4
+curSch: 0x7fda91508590 4
+curSch: 0x7fda91508590 4
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91604020
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91604020
+Adding sc constraints: 11
+In addLockConstraints: 0
+Inconsistency: threadA-3 0 1
+Identify inconsistency!
+Generating: 1 2
+v: threadA-3 0
+v: threadB-3 2
+fMap: threadA 3 0
+fMap: threadB 3 2
+fMap: threadA 1 0
+fMap: threadA 2 0
+fMap: threadB 2 0
+fMap: threadB 1 0
+prefix: 4
+curSch: 0x7fda91508590 4
+curSch: 0x7fda91508590 4
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91604020
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91604020
+Adding sc constraints: 11
+In addLockConstraints: 0
+Inconsistency: threadA-3 0 1
+Identify inconsistency!
+Generating: 3 2
+v: threadA-3 1
+v: threadB-3 2
+fMap: threadA 3 1
+fMap: threadB 3 2
+fMap: threadA 1 0
+fMap: threadA 2 0
+fMap: threadB 2 0
+fMap: threadB 1 0
+prefix: 4
+curSch: 0x7fda91508590 4
+curSch: 0x7fda91508590 4
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91604020
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91604020
+Adding sc constraints: 11
+In addLockConstraints: 0
+Inconsistency: threadB-3 2 0
+Identify inconsistency!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-1 0
+v: threadB-1 1
+fMap: threadA 1 0
+fMap: threadB 1 1
+prefix: 0
+curSch: 0x7fda91508590 4
+Indentify inconsistency!
+Generating: 2 2
+v: threadA-1 1
+v: threadB-1 0
+fMap: threadA 1 1
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 3 2
+v: threadA-1 1
+v: threadB-1 1
+fMap: threadA 1 1
+fMap: threadB 1 1
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-2 0
+v: threadB-2 1
+fMap: threadA 2 0
+fMap: threadB 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 2 2
+v: threadA-2 0
+v: threadB-2 2
+fMap: threadA 2 0
+fMap: threadB 2 2
+fMap: threadA 1 0
+fMap: threadB 1 0
+prefix: 2
+curSch: 0x7fda91508590 4
+Indentify inconsistency!
+Generating: 3 2
+v: threadA-2 1
+v: threadB-2 0
+fMap: threadA 2 1
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadB 1 0
+prefix: 2
+curSch: 0x7fda91508590 4
+Indentify inconsistency!
+Generating: 4 2
+v: threadA-2 1
+v: threadB-2 1
+fMap: threadA 2 1
+fMap: threadB 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 5 2
+v: threadA-2 1
+v: threadB-2 2
+fMap: threadA 2 1
+fMap: threadB 2 2
+fMap: threadA 1 0
+fMap: threadB 1 0
+prefix: 2
+curSch: 0x7fda91508590 4
+Indentify inconsistency!
+Generating: 6 2
+v: threadA-2 2
+v: threadB-2 0
+fMap: threadA 2 2
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 7 2
+v: threadA-2 2
+v: threadB-2 1
+fMap: threadA 2 2
+fMap: threadB 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 8 2
+v: threadA-2 2
+v: threadB-2 2
+fMap: threadA 2 2
+fMap: threadB 2 2
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-5 0
+v: threadB-4 0
+fMap: threadA 5 0
+fMap: threadB 4 0
+fMap: threadA 1 0
+fMap: threadA 2 0
+fMap: threadA 3 1
+fMap: threadB 2 0
+fMap: threadB 3 0
+fMap: threadB 1 0
+prefix: 6
+curSch: 0x7fda91508590 4
+curSch: 0x7fda91508590 4
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91604020
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91604020
+Adding sc constraints: 11
+In addLockConstraints: 0
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fda91506250
+RF: threadA 1 0
+RF: threadA 2 0
+RF: threadA 3 1
+RF: threadA 5 0
+RF: threadB 1 0
+RF: threadB 2 0
+RF: threadB 3 0
+RF: threadB 4 0
+In generateModel2 End!
+### Solver Time: 573.279
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 35647
+Generate a new Executor: 0x7fda9150abe0 0x7fda91711d90
+Initializing executor: 0x7fda9150abe0
+Waitting for create thread 0x10c1e6000
+Waitting for create thread 0x10c269000
+nwait: 0, 2, 0
+Set Read Value: 0
+Set write Value: 1
+nwait: 1, 2, 0
+Set Read Value: 1
+Set write Value: 2
+Set Read Value: 0
+Set write Value: 1
+var = 1
+In generateModel2!: 3
+In generateModel2 End!
+### Solver Time: 573.393
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 35648
+Generate a new Executor: 0x7fda91712dc0 0x7fda91713310
+Initializing executor: 0x7fda91712dc0
+Waitting for create thread 0x10c1e6000
+Waitting for create thread 0x10c269000
+nwait: 0, 2, 0
+Set Read Value: 0
+Set write Value: 1
+nwait: 1, 2, 0
+Set Read Value: 1
+Set write Value: 2
+Set Read Value: 0
+Set write Value: 1
+var = 1
+In generateModel2!: 3
+size: 1
+Generating: 0 1
+v: threadB-6 0
+fMap: threadB 6 0
+fMap: threadA 3 1
+fMap: threadA 5 0
+fMap: threadA 2 1
+fMap: threadB 5 0
+fMap: threadA 1 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadB 3 0
+fMap: threadB 4 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-1 0
+v: threadB-1 1
+fMap: threadA 1 0
+fMap: threadB 1 1
+Skip an inconsistent check!
+Generating: 2 2
+v: threadA-1 1
+v: threadB-1 0
+fMap: threadA 1 1
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 3 2
+v: threadA-1 1
+v: threadB-1 1
+fMap: threadA 1 1
+fMap: threadB 1 1
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-2 0
+v: threadB-2 0
+fMap: threadA 2 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadB 1 0
+prefix: 2
+curSch: 0x7fda91608b10 9
+Indentify inconsistency!
+Generating: 1 2
+v: threadA-2 0
+v: threadB-2 1
+fMap: threadA 2 0
+fMap: threadB 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 2 2
+v: threadA-2 0
+v: threadB-2 2
+fMap: threadA 2 0
+fMap: threadB 2 2
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 4 2
+v: threadA-2 1
+v: threadB-2 1
+fMap: threadA 2 1
+fMap: threadB 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 5 2
+v: threadA-2 1
+v: threadB-2 2
+fMap: threadA 2 1
+fMap: threadB 2 2
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 6 2
+v: threadA-2 2
+v: threadB-2 0
+fMap: threadA 2 2
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 7 2
+v: threadA-2 2
+v: threadB-2 1
+fMap: threadA 2 2
+fMap: threadB 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 8 2
+v: threadA-2 2
+v: threadB-2 2
+fMap: threadA 2 2
+fMap: threadB 2 2
+fMap: threadA 1 0
+fMap: threadB 1 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-3 0
+v: threadB-3 0
+fMap: threadA 3 0
+fMap: threadB 3 0
+fMap: threadA 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+Skip an inconsistent check!
+Generating: 1 2
+v: threadA-3 0
+v: threadB-3 2
+fMap: threadA 3 0
+fMap: threadB 3 2
+fMap: threadA 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+Skip an inconsistent check!
+Generating: 3 2
+v: threadA-3 1
+v: threadB-3 2
+fMap: threadA 3 1
+fMap: threadB 3 2
+fMap: threadA 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-5 0
+v: threadB-4 1
+fMap: threadA 5 0
+fMap: threadB 4 1
+fMap: threadA 3 1
+fMap: threadA 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadB 3 0
+Skip an inconsistent check!
+size: 1
+Generating: 1 1
+v: threadB-5 1
+fMap: threadB 5 1
+fMap: threadA 3 1
+fMap: threadA 5 0
+fMap: threadA 2 1
+fMap: threadA 1 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadB 3 0
+fMap: threadB 4 0
+Skip an inconsistent check!
+In generateModel2 End!
+### Solver Time: 577.553
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 35649
+Generate a new Executor: 0x7fda9150abe0 0x7fda91714a30
+Initializing executor: 0x7fda9150abe0
+Waitting for create thread 0x10c1e6000
+Waitting for create thread 0x10c269000
+nwait: 0, 2, 0
+nwait: 0, 2, 0
+Set Read Value: 1
+Set write Value: 2
+Set Read Value: 0
+Set write Value: 1
+Set Read Value: 0
+Set write Value: 1
+var = 1
+In generateModel2!: 3
+size: 1
+Generating: 0 1
+v: threadB-5 0
+fMap: threadB 5 0
+fMap: threadB 3 0
+fMap: threadA 2 0
+fMap: threadA 3 1
+fMap: threadA 5 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+fMap: threadB 4 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-1 0
+v: threadB-1 1
+fMap: threadA 1 0
+fMap: threadB 1 1
+Skip an inconsistent check!
+Generating: 2 2
+v: threadA-1 1
+v: threadB-1 0
+fMap: threadA 1 1
+fMap: threadB 1 0
+Skip an inconsistent check!
+Generating: 3 2
+v: threadA-1 1
+v: threadB-1 1
+fMap: threadA 1 1
+fMap: threadB 1 1
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-2 0
+v: threadB-2 1
+fMap: threadA 2 0
+fMap: threadB 2 1
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 2 2
+v: threadA-2 0
+v: threadB-2 2
+fMap: threadA 2 0
+fMap: threadB 2 2
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 3 2
+v: threadA-2 1
+v: threadB-2 0
+fMap: threadA 2 1
+fMap: threadB 2 0
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 4 2
+v: threadA-2 1
+v: threadB-2 1
+fMap: threadA 2 1
+fMap: threadB 2 1
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 5 2
+v: threadA-2 1
+v: threadB-2 2
+fMap: threadA 2 1
+fMap: threadB 2 2
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 6 2
+v: threadA-2 2
+v: threadB-2 0
+fMap: threadA 2 2
+fMap: threadB 2 0
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 7 2
+v: threadA-2 2
+v: threadB-2 1
+fMap: threadA 2 2
+fMap: threadB 2 1
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 8 2
+v: threadA-2 2
+v: threadB-2 2
+fMap: threadA 2 2
+fMap: threadB 2 2
+fMap: threadB 1 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 0 2
+v: threadA-3 0
+v: threadB-3 0
+fMap: threadA 3 0
+fMap: threadB 3 0
+fMap: threadA 2 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 1 2
+v: threadA-3 0
+v: threadB-3 2
+fMap: threadA 3 0
+fMap: threadB 3 2
+fMap: threadA 2 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+Generating: 3 2
+v: threadA-3 1
+v: threadB-3 2
+fMap: threadA 3 1
+fMap: threadB 3 2
+fMap: threadA 2 0
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-5 0
+v: threadB-4 1
+fMap: threadA 5 0
+fMap: threadB 4 1
+fMap: threadB 3 0
+fMap: threadA 2 0
+fMap: threadA 3 1
+fMap: threadB 1 0
+fMap: threadB 2 0
+fMap: threadA 1 0
+Skip an inconsistent check!
+In generateModel2 End!
+### Solver Time: 581.318
+        1.32 real         0.51 user         0.09 sys

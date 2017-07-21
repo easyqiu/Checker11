@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -32,23 +32,10 @@ J.~Huang.
   Reduction}.
 \newblock In \emph{Pldi}, pages 165--174, 2015.
 
-\bibitem[Lamport(1978)]{Lamport:1978}
-L.~Lamport.
-\newblock Time, clocks, and the ordering of events in a distributed system.
-\newblock \emph{Commun. ACM}, pages 558--565, 1978.
-
-\bibitem[Lidbury and Donaldson(2017)]{Lidbury:2017}
-C.~Lidbury and A.~F. Donaldson.
-\newblock {Dynamic Race Detection for C++11}.
-\newblock In \emph{Proceedings of the 44th ACM SIGPLAN Symposium on Principles
-  of Programming Languages}, pages 443--457, 2017.
-
-\bibitem[Norris and Demsky(2013)]{Norris:2013}
-B.~Norris and B.~Demsky.
-\newblock {CDSchecker: Checking Concurrent Data Structures Written with C/C++
-  Atomics}.
-\newblock In \emph{Proceedings of the 2013 ACM SIGPLAN International Conference
-  on Object Oriented Programming Systems Languages {\&}{\#}38; Applications},
-  pages 131--150, 2013.
+\bibitem[Musuvathi and Qadeer(2008)]{Musuvathi:2008}
+M.~Musuvathi and S.~Qadeer.
+\newblock {Fair Stateless Model Checking}.
+\newblock In \emph{Proceedings of the 29th ACM SIGPLAN Conference on
+  Programming Language Design and Implementation}, pages 362--371, 2008.
 
 \end{thebibliography}

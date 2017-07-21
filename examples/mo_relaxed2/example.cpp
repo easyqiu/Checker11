@@ -52,7 +52,7 @@ int user_main()
     checker_thread_join(b.get_id());
     
     a.join(); b.join();
-    std::cout << "data: " << data1 << " " << data2 << "\n";
+    printf("data: %d, %d\n", data1, data2);
     if (!(data1 == 1 && data2 == 1)) // may be violated
         std::cout << "ERROR!\n";
     checker_thread_end();

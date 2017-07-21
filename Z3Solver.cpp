@@ -110,7 +110,7 @@ string getOpDefinition(string line)
  */
 bool Z3Solver::checkSat()
 {
-    vector<string> globalOrderTmp (numOps+100); //order of execution of each operation (we add a little extra room to account for errors in the parsing)
+    //vector<string> globalOrderTmp (numOps+10000); //order of execution of each operation (we add a little extra room to account for errors in the parsing)
     string line;
     string opName;                   //indicates the name of the operation
     bool isOrderOp = false;          //indicates that we have parsed an order constraint, thus we need to read its value
@@ -121,7 +121,7 @@ bool Z3Solver::checkSat()
 
     while (line.compare("end") != 0 && line.compare("end") != 1)
     {
-        //cout << "\n\n"<<line << " " << isOrderOp << endl;
+        cout << "\n\n"<<line << " " << isOrderOp << endl;
         if(!line.compare("unsat")) {
             cout << "[Solver] Model Satisfiability: "<< line << endl;
         }
@@ -158,7 +158,7 @@ bool Z3Solver::checkSat()
                 std::stringstream s_str(index);
                 int ind;
                 s_str >> ind;
-                globalOrderTmp[ind] = opName;
+                //globalOrderTmp[ind] = opName;
                 isOrderOp = false;
                 exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
             }
@@ -226,7 +226,7 @@ bool Z3Solver::checkSat()
 
 
 
-bool Z3Solver::solve()
+bool Z3Solver::solve(bool flag)
 {
     writeLineZ3("(check-sat)\n");
     writeLineZ3("(get-model)\n");
@@ -234,15 +234,21 @@ bool Z3Solver::solve()
     writeLineZ3("(echo \"end\")\n(reset)\n");
     z3File.close();
 
+    if (!flag)
+        return false;
+
     //** open input file again to read every line (this is needed because, for some reason.., writing the constraints directly into the pipe stops before reaching the end, for large constraint models)
-    ifstream infile(exe->get_formulaFile());
+    /*ifstream infile(exe->get_formulaFile());
     string line;
     while (getline(infile, line))
     {
         write(procW, line.c_str(), line.length());
     }
+    infile.close();*/
+
+    write(procW, formulaFile.c_str(), formulaFile.length());
+
     exe->set_startTime(time(NULL));
-    infile.close();
 
     std::cout << "begin checksat!\n";
     bool success = checkSat();
@@ -338,7 +344,9 @@ void Z3Solver::writeLineZ3(string content)
 {
     content = content + "\n";
     //write(procW,content.c_str(),content.length());
+
     z3File << content;
+    formulaFile += content;
 }
 
 
@@ -443,7 +451,21 @@ std::string Z3Solver::declareIntVarNE(std::string varname, int val) {
     return ret;
 }
 
+std::string Z3Solver::declareIntVarGE(std::string varname, int val) {
+    if (declaredVars.find(varname) != declaredVars.end())
+        return "";
+
+    declaredVars.insert(varname);
+    string ret;
+    ret.append("(declare-const "+varname+" Int)\n");
+    ret.append("(assert (>= "+varname+" "+util::stringValueOf(val)+"))");
+    return ret;
+}
+
 std::string Z3Solver::declareIntVar(std::string varname, int val) {
+    if (declaredVars.find(varname) != declaredVars.end())
+        return "";
+
     declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");
@@ -452,6 +474,9 @@ std::string Z3Solver::declareIntVar(std::string varname, int val) {
 }
 
 string Z3Solver::declareIntVar(string varname, int min, int max){
+    if (declaredVars.find(varname) != declaredVars.end())
+        return "";
+
     declaredVars.insert(varname);
     string ret;
     ret.append("(declare-const "+varname+" Int)\n");

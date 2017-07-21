@@ -19,6 +19,7 @@ void f1()
     checker_thread_begin("f1");
     //checker_shared((void*)&data1);
     //checker_shared((void*)&data2);
+    //data1 = x.load(std::memory_order_relaxed);
     data1 = x.load(std::memory_order_seq_cst);
     y.store(1, std::memory_order_seq_cst);
     checker_thread_end();
@@ -52,9 +53,7 @@ int user_main()
     checker_thread_join(b.get_id());
     
     a.join(); b.join();
-    std::cout << "data: " << data1 << " " << data2 << "\n";
-    if (!(data1 == 1 && data2 == 1)) // may be violated
-        std::cout << "ERROR!\n";
+    printf("data: %d, %d\n", data1, data2);
     checker_thread_end();
     checker_solver();
     return 0;

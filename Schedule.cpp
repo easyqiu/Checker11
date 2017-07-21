@@ -3,16 +3,17 @@
 //
 
 #include "Schedule.h"
+#include "Action.h"
 
 //using namespace std;
 using namespace checker;
 
-void Schedule::updateReadValueMap(std::pair<std::string, int> fs, uint64_t val) {
+void Schedule::updateReadValueMap(std::pair<std::string, int> fs, int64_t val) {
     readValueMap[fs] = val;
 }
 
 void Schedule::updatePreAction(std::pair<std::string, int> action1, std::pair<std::string, int> action2) {
-    std::cout << "update preAction: " << action1.first << " " << action1.second << " " << action2.first << " " << action2.second << "\n";
+    //std::cout << "update preAction: " << action1.first << " " << action1.second << " " << action2.first << " " << action2.second << "\n";
     preActions[action1].insert(action2);
     if (preActions.find(action2) == preActions.end())
         return ;
@@ -28,11 +29,11 @@ bool Schedule::checkPreAction(std::pair<std::string, int> action) {
         pthread_mutex_unlock(&preActionsLock);
         return true;
     } else {
-        std::cout << "size: " << action.first << " " << action.second << " " << preActions[action].size() << "\n";
+        /*std::cout << "size: " << action.first << " " << action.second << " " << preActions[action].size() << "\n";
         for (std::set<std::pair<std::string, int> >::iterator it = preActions[action].begin();
                 it != preActions[action].end(); ++it) {
             std::cout << "xxxxx: " << action.first << " " << action.second << " " << it->first << " " << it->second << "\n";
-        }
+        }*/
         pthread_mutex_unlock(&preActionsLock);
         return false;
     }
@@ -50,7 +51,7 @@ void Schedule::eraseAction(std::pair<std::string, int> action) {
     pthread_mutex_unlock(&preActionsLock);
 }
 
-uint64_t Schedule::getRFValue(std::pair<std::string, int> action) {
+int64_t Schedule::getRFValue(std::pair<std::string, int> action) {
     if (readValueMap.find(action) == readValueMap.end())
         return 0xff;
     else
@@ -64,10 +65,26 @@ void Schedule::clearData() {
 }
 
 bool Schedule::inPrefix(std::pair<std::string, int> action) {
-    if (readValueMap.find(action) != readValueMap.end())
+    if (prefixMap.find(action.first) == prefixMap.end())
+        return false;
+    if (prefixMap[action.first] >= action.second)
+        return true;
+
+    return false;
+
+    /*if (readValueMap.find(action) != readValueMap.end())
         return true;
     else
-        return false;
+        return false;*/
+}
+
+
+void Schedule::updatePrefix(std::string threadName, int prefix) {
+    prefixMap[threadName] = prefix;
+}
+
+std::map<std::string, int> Schedule::getPrefixMap() {
+    return prefixMap;
 }
 
 void Schedule::print() {
@@ -80,9 +97,15 @@ void Schedule::print() {
             std::cout << "    " << it2->first << " " << it2->second << "\n";
     }
 
-    for (std::map<std::pair<std::string, int>, uint64_t>::iterator it = readValueMap.begin();
+    for (std::map<std::pair<std::string, int>, int64_t>::iterator it = readValueMap.begin();
             it != readValueMap.end(); ++it) {
         std::cout << "Read Map: " << it->first.first << " " << it->first.second << " " << it->second << "\n";
+    }
+
+    std::cout << "\n";
+    for (std::map<std::string, int>::iterator it = prefixMap.begin();
+            it != prefixMap.end(); ++it) {
+        std::cout << "Prefix: " << it->first << " " << it->second << "\n";
     }
 }
 

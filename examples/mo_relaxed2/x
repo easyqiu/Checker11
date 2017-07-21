@@ -1,1032 +1,422 @@
-qqqqqqqqqqqqqqqqqqq: 0x7fdf5a600000 3
-Skip a non-atomic preStore!
-Generate a model checker: 0x7fdf5a600000
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7494
-
-In checker_thread_begin: 0x7fff73110300
-In atomic preStore: 0x10ceb3168 0 7!
-update buffer: 0x10ceb3168 0
-In atomic preStore: 0x10ceb316c 0 7!
-update buffer: 0x10ceb316c 0
-
-In checker_thread_create: 0x7fff73110300 0x10d2ca000
-
-In checker_thread_begin: 0x10d34d000
-
-In checker_thread_create: 0x7fff73110300 0x10d34d000
-
-In checker_thread_begin: 0x10d2ca000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb3168 2!
-get buffer: 0x10ceb3168 0
-
-expect value: f1 1 0
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3160 0
-In non-atomic preStore: 0x10ceb3160 0!
-update buffer: 0x10ceb3160 0
-update buffer: 0x10ceb3160 0
-In atomic preStore: 0x10ceb316c 1 2!
-update buffer: 0x10ceb316c 1
-update buffer: 0x10ceb316c 1
-In checker_thread_end
-Waitting for create thread 0x10d34d000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb316c 2!
-get buffer: 0x10ceb316c 0
-
-expect value: f2 1 0
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3164 0
-In non-atomic preStore: 0x10ceb3164 0!
-update buffer: 0x10ceb3164 0
-update buffer: 0x10ceb3164 0
-update buffer: 0x10ceb3164 0
-In atomic preStore: 0x10ceb3168 1 2!
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-In checker_thread_end
-data: 0 0
-ERROR!
-In checker_thread_end
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a600030
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a600030
-Adding sc constraints: 2
-In addLockConstraints: 0
-
-xxxx read: f1-1 0 0
-
-write: f2-3 1
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7fdf5a500620
-orStr:  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)) (= false (and (= B_main-1_f2-3 1) (= B_f2-3_f1-1 1))))
-xxx: (or  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)) (= false (and (= B_main-1_f2-3 1) (= B_f2-3_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)) (= false (and (= B_main-1_f2-3 1) (= B_f2-3_f1-1 1)))))
-
-xxxx read: f2-1 0 0
-
-write: f1-3 1
-
-write: main-2 0
-
-Fences: 0x0 0x0 0x7fdf5a5006c0
-orStr:  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)) (= false (and (= B_main-2_f1-3 1) (= B_f1-3_f2-1 1))))
-xxx: (or  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)) (= false (and (= B_main-2_f1-3 1) (= B_f1-3_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)) (= false (and (= B_main-2_f1-3 1) (= B_f1-3_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 1s:
-
-end checksat!
-Pass!
-Generating: f1-1 f2-3 0 1
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fdf5a600030
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fdf5a600030
-Adding sc constraints: 2
-In addLockConstraints: 0
-enforce: 0x7fdf5a404fd0 f1-1 1 
-curSch: 0x7fdf5a404c20 0
-
-xxxx read: f1-1 0 1
-
-write: f2-3 1
-
-Fences: 0x0 0x0 0x7fdf5a6007e0
-orStr:  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fdf5a7036d0
-update preAction: main 6 f1 0
-update preAction: main 7 f1 0
-update preAction: main 6 f1 1
-update preAction: main 7 f1 1
-update preAction: main 6 f1 2
-update preAction: main 7 f1 2
-update preAction: main 6 f1 3
-update preAction: main 7 f1 3
-update preAction: main 6 f1 4
-update preAction: main 7 f1 4
-update preAction: main 7 f2 0
-update preAction: main 7 f2 1
-update preAction: main 7 f2 2
-update preAction: main 7 f2 3
-update preAction: main 7 f2 4
-update preAction: f1 1 main 0
-update preAction: f1 2 main 0
-update preAction: f1 3 main 0
-update preAction: f1 4 main 0
-update preAction: f2 1 main 0
-update preAction: f2 2 main 0
-update preAction: f2 3 main 0
-update preAction: f2 4 main 0
-update preAction: f1 1 main 1
-update preAction: f1 2 main 1
-update preAction: f1 3 main 1
-update preAction: f1 4 main 1
-update preAction: f2 1 main 1
-update preAction: f2 2 main 1
-update preAction: f2 3 main 1
-update preAction: f2 4 main 1
-update preAction: f1 1 main 2
-update preAction: f1 2 main 2
-update preAction: f1 3 main 2
-update preAction: f1 4 main 2
-update preAction: f2 1 main 2
-update preAction: f2 2 main 2
-update preAction: f2 3 main 2
-update preAction: f2 4 main 2
-update preAction: f1 1 main 3
-update preAction: f1 2 main 3
-update preAction: f1 3 main 3
-update preAction: f1 4 main 3
-update preAction: f2 1 main 3
-update preAction: f2 2 main 3
-update preAction: f2 3 main 3
-update preAction: f2 4 main 3
-update preAction: f2 1 main 4
-update preAction: f2 2 main 4
-update preAction: f2 3 main 4
-update preAction: f2 4 main 4
-action: f2 3 AWrite 0x10ceb3168 0 1
-
-RF: f1 1 1
-Generating: f2-1 f1-3 0 1
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fdf5a600030
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fdf5a600030
-Adding sc constraints: 2
-In addLockConstraints: 0
-enforce: 0x7fdf5a600710 f2-1 1 
-curSch: 0x7fdf5a404c20 0
-
-xxxx read: f2-1 0 1
-
-write: f1-3 1
-
-Fences: 0x0 0x0 0x7fdf5a4051c0
-orStr:  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1))))
-
-write: main-2 0
-xxx: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fdf5a601ec0
-update preAction: main 6 f1 0
-update preAction: main 7 f1 0
-update preAction: main 6 f1 1
-update preAction: main 7 f1 1
-update preAction: main 6 f1 2
-update preAction: main 7 f1 2
-update preAction: main 6 f1 3
-update preAction: main 7 f1 3
-update preAction: main 6 f1 4
-update preAction: main 7 f1 4
-update preAction: main 7 f2 0
-update preAction: main 7 f2 1
-update preAction: main 7 f2 2
-update preAction: main 7 f2 3
-update preAction: main 7 f2 4
-update preAction: f1 1 main 0
-update preAction: f1 2 main 0
-update preAction: f1 3 main 0
-update preAction: f1 4 main 0
-update preAction: f2 1 main 0
-update preAction: f2 2 main 0
-update preAction: f2 3 main 0
-update preAction: f2 4 main 0
-update preAction: f1 1 main 1
-update preAction: f1 2 main 1
-update preAction: f1 3 main 1
-update preAction: f1 4 main 1
-update preAction: f2 1 main 1
-update preAction: f2 2 main 1
-update preAction: f2 3 main 1
-update preAction: f2 4 main 1
-update preAction: f1 1 main 2
-update preAction: f1 2 main 2
-update preAction: f1 3 main 2
-update preAction: f1 4 main 2
-update preAction: f2 1 main 2
-update preAction: f2 2 main 2
-update preAction: f2 3 main 2
-update preAction: f2 4 main 2
-update preAction: f1 1 main 3
-update preAction: f1 2 main 3
-update preAction: f1 3 main 3
-update preAction: f1 4 main 3
-update preAction: f2 1 main 3
-update preAction: f2 2 main 3
-update preAction: f2 3 main 3
-update preAction: f2 4 main 3
-update preAction: f2 1 main 4
-update preAction: f2 2 main 4
-update preAction: f2 3 main 4
-update preAction: f2 4 main 4
-action: f1 3 AWrite 0x10ceb316c 0 1
-
-RF: f2 1 1
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7495
-Schedule: 0x7fdf5a7036d0 1
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 4
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-    f2 4
-Read Map: f1 1 1
-
-In checker_thread_begin: 0x7fff73110300
-In atomic preStore: 0x10ceb3168 0 7!
-update buffer: 0x10ceb3168 0
-In atomic preStore: 0x10ceb316c 0 7!
-update buffer: 0x10ceb316c 0
-
-In checker_thread_create: 0x7fff73110300 0x10d2ca000
-
-In checker_thread_create: 0x7fff73110300 0x10d34d000
-
-In checker_thread_begin: 0x10d2ca000
-
-In checker_thread_begin: 0x10d34d000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb3168 2!
-Fetch the future value: 1
-
-expect value: f1 1 1
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3160 1
-In non-atomic preStore: 0x10ceb3160 1!
-update buffer: 0x10ceb3160 1
-update buffer: 0x10ceb3160 1
-In atomic preStore: 0x10ceb316c 1 2!
-update buffer: 0x10ceb316c 1
-update buffer: 0x10ceb316c 1
-In checker_thread_end
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb316c 2!
-get buffer: 0x10ceb316c 0
-
-expect value: f2 1 0
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3164 0
-In non-atomic preStore: 0x10ceb3164 0!
-update buffer: 0x10ceb3164 0
-update buffer: 0x10ceb3164 0
-update buffer: 0x10ceb3164 0
-In atomic preStore: 0x10ceb3168 1 2!
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-In checker_thread_end
-data: 1 0
-ERROR!
-In checker_thread_end
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a4055a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a4055a0
-Adding sc constraints: 2
-In addLockConstraints: 0
-
-xxxx read: f1-1 1 1
-
-write: f2-3 1
-
-Fences: 0x0 0x0 0x7fdf5a406170
-orStr:  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))
-
-xxxx read: f2-1 0 0
-
-write: f1-3 1
-
-write: main-2 0
-
-Fences: 0x0 0x0 0x7fdf5a7040c0
-orStr:  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)) (= false (and (= B_main-2_f1-3 1) (= B_f1-3_f2-1 1))))
-xxx: (or  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)) (= false (and (= B_main-2_f1-3 1) (= B_f1-3_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_main-2 1) (not (= B_f2-1_main-2 1)) (= false (and (= B_main-2_f1-3 1) (= B_f1-3_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Pass!
-Generating: f2-1 f1-3 0 1
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fdf5a4055a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fdf5a4055a0
-Adding sc constraints: 2
-In addLockConstraints: 0
-enforce: 0x7fdf5a4060a0 f2-1 1 
-curSch: 0x7fdf5a7036d0 1
-enforce11: 0x7fdf5a405360 f1-1 1 
-
-xxxx read: f1-1 1 1
-
-write: f2-3 1
-
-Fences: 0x0 0x0 0x7fdf5a406170
-orStr:  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))
-
-xxxx read: f2-1 0 1
-
-write: f1-3 1
-
-Fences: 0x0 0x0 0x7fdf5a405b80
-orStr:  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1))))
-
-write: main-2 0
-xxx: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fdf5a4073d0
-update preAction: main 6 f1 0
-update preAction: main 7 f1 0
-update preAction: main 6 f1 1
-update preAction: main 7 f1 1
-update preAction: main 6 f1 2
-update preAction: main 7 f1 2
-update preAction: main 6 f1 3
-update preAction: main 7 f1 3
-update preAction: main 6 f1 4
-update preAction: main 7 f1 4
-update preAction: main 7 f2 0
-update preAction: main 7 f2 1
-update preAction: main 7 f2 2
-update preAction: main 7 f2 3
-update preAction: main 7 f2 4
-update preAction: f1 1 main 0
-update preAction: f1 2 main 0
-update preAction: f1 3 main 0
-update preAction: f1 4 main 0
-update preAction: f2 1 main 0
-update preAction: f2 2 main 0
-update preAction: f2 3 main 0
-update preAction: f2 4 main 0
-update preAction: f1 1 main 1
-update preAction: f1 2 main 1
-update preAction: f1 3 main 1
-update preAction: f1 4 main 1
-update preAction: f2 1 main 1
-update preAction: f2 2 main 1
-update preAction: f2 3 main 1
-update preAction: f2 4 main 1
-update preAction: f1 1 main 2
-update preAction: f1 2 main 2
-update preAction: f1 3 main 2
-update preAction: f1 4 main 2
-update preAction: f2 1 main 2
-update preAction: f2 2 main 2
-update preAction: f2 3 main 2
-update preAction: f2 4 main 2
-update preAction: f1 1 main 3
-update preAction: f1 2 main 3
-update preAction: f1 3 main 3
-update preAction: f1 4 main 3
-update preAction: f2 1 main 3
-update preAction: f2 2 main 3
-update preAction: f2 3 main 3
-update preAction: f2 4 main 3
-update preAction: f2 1 main 4
-update preAction: f2 2 main 4
-update preAction: f2 3 main 4
-update preAction: f2 4 main 4
-action: f2 3 AWrite 0x10ceb3168 0 1
-
-RF: f1 1 1
-action: f1 3 AWrite 0x10ceb316c 0 1
-
-RF: f2 1 1
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7496
-Schedule: 0x7fdf5a601ec0 1
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 4
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-    f2 4
-Read Map: f2 1 1
-
-In checker_thread_begin: 0x7fff73110300
-In atomic preStore: 0x10ceb3168 0 7!
-update buffer: 0x10ceb3168 0
-In atomic preStore: 0x10ceb316c 0 7!
-update buffer: 0x10ceb316c 0
-
-In checker_thread_create: 0x7fff73110300 0x10d2ca000
-
-In checker_thread_begin: 0x10d2ca000
-
-In checker_thread_begin: 0x10d34d000
-
-In checker_thread_create: 0x7fff73110300 0x10d34d000
-Waitting for create thread Waitting for create thread 0x10d2ca0000x10d34d000
-
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb3168 2!
-get buffer: 0x10ceb3168 0
-
-expect value: f1 1 0
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3160 0
-In non-atomic preStore: 0x10ceb3160 0!
-update buffer: 0x10ceb3160 0
-update buffer: 0x10ceb3160 0
-update buffer: 0x10ceb3160 0
-In atomic preStore: 0x10ceb316c 1 2In checker_shared_int: !
-0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb316c 2!
-update buffer: 0x10ceb316c 1
-update buffer: 0x10ceb316c 1
-update buffer: 0x10ceb316c 1
-In checker_thread_end
-catch the expected val!
-
-expect value: f2 1 1
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3164 1
-In non-atomic preStore: 0x10ceb3164 1!
-update buffer: 0x10ceb3164 1
-update buffer: 0x10ceb3164 1
-update buffer: 0x10ceb3164 1
-In atomic preStore: 0x10ceb3168 1 2!
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-In checker_thread_end
-data: 0 1
-ERROR!
-In checker_thread_end
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a4055a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a4055a0
-Adding sc constraints: 2
-In addLockConstraints: 0
-
-xxxx read: f1-1 0 0
-
-write: f2-3 1
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7fdf5a407a20
-orStr:  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)) (= false (and (= B_main-1_f2-3 1) (= B_f2-3_f1-1 1))))
-xxx: (or  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)) (= false (and (= B_main-1_f2-3 1) (= B_f2-3_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_main-1 1) (not (= B_f1-1_main-1 1)) (= false (and (= B_main-1_f2-3 1) (= B_f2-3_f1-1 1)))))
-
-xxxx read: f2-1 1 1
-
-write: f1-3 1
-
-Fences: 0x0 0x0 0x7fdf5a501470
-orStr:  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1))))
-
-write: main-2 0
-xxx: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Pass!
-Generating: f1-1 f2-3 0 1
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fdf5a4055a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fdf5a4055a0
-Adding sc constraints: 2
-In addLockConstraints: 0
-enforce: 0x7fdf5a5013a0 f1-1 1 
-curSch: 0x7fdf5a601ec0 1
-enforce11: 0x7fdf5a709230 f2-1 1 
-
-xxxx read: f1-1 0 1
-
-write: f2-3 1
-
-Fences: 0x0 0x0 0x7fdf5a501600
-orStr:  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))
-
-xxxx read: f2-1 1 1
-
-write: f1-3 1
-
-Fences: 0x0 0x0 0x7fdf5a501470
-orStr:  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1))))
-
-write: main-2 0
-xxx: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fdf5a502510
-update preAction: main 6 f1 0
-update preAction: main 7 f1 0
-update preAction: main 6 f1 1
-update preAction: main 7 f1 1
-update preAction: main 6 f1 2
-update preAction: main 7 f1 2
-update preAction: main 6 f1 3
-update preAction: main 7 f1 3
-update preAction: main 6 f1 4
-update preAction: main 7 f1 4
-update preAction: main 7 f2 0
-update preAction: main 7 f2 1
-update preAction: main 7 f2 2
-update preAction: main 7 f2 3
-update preAction: main 7 f2 4
-update preAction: f1 1 main 0
-update preAction: f1 2 main 0
-update preAction: f1 3 main 0
-update preAction: f1 4 main 0
-update preAction: f2 1 main 0
-update preAction: f2 2 main 0
-update preAction: f2 3 main 0
-update preAction: f2 4 main 0
-update preAction: f1 1 main 1
-update preAction: f1 2 main 1
-update preAction: f1 3 main 1
-update preAction: f1 4 main 1
-update preAction: f2 1 main 1
-update preAction: f2 2 main 1
-update preAction: f2 3 main 1
-update preAction: f2 4 main 1
-update preAction: f1 1 main 2
-update preAction: f1 2 main 2
-update preAction: f1 3 main 2
-update preAction: f1 4 main 2
-update preAction: f2 1 main 2
-update preAction: f2 2 main 2
-update preAction: f2 3 main 2
-update preAction: f2 4 main 2
-update preAction: f1 1 main 3
-update preAction: f1 2 main 3
-update preAction: f1 3 main 3
-update preAction: f1 4 main 3
-update preAction: f2 1 main 3
-update preAction: f2 2 main 3
-update preAction: f2 3 main 3
-update preAction: f2 4 main 3
-update preAction: f2 1 main 4
-update preAction: f2 2 main 4
-update preAction: f2 3 main 4
-update preAction: f2 4 main 4
-action: f2 3 AWrite 0x10ceb3168 0 1
-
-RF: f1 1 1
-action: f1 3 AWrite 0x10ceb316c 0 1
-
-RF: f2 1 1
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7497
-Schedule: 0x7fdf5a4073d0 2
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 4
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-    f2 4
-Read Map: f1 1 1
-Read Map: f2 1 1
-
-In checker_thread_begin: 0x7fff73110300
-In atomic preStore: 0x10ceb3168 0 7!
-update buffer: 0x10ceb3168 0
-In atomic preStore: 0x10ceb316c 0 7!
-update buffer: 0x10ceb316c 0
-
-In checker_thread_create: 0x7fff73110300 0x10d2ca000
-
-In checker_thread_begin: 0x10d2ca000
-
-In checker_thread_begin: 0x10d34d000
-
-In checker_thread_create: 0x7fff73110300 0x10d34d000
-Waitting for create thread 0x10d2ca000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb3168 2!
-Fetch the future value: 1
-
-expect value: f1 1 1
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3160 1
-In non-atomic preStore: 0x10ceb3160 1!
-update buffer: 0x10ceb3160 1
-update buffer: 0x10ceb3160 1
-In atomic preStore: 0x10ceb316c 1 2!
-update buffer: 0x10ceb316c 1
-update buffer: 0x10ceb316c 1
-In checker_thread_end
-Waitting for create thread 0x10d34d000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb316c 2!
-catch the expected val!
-
-expect value: f2 1 1
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3164 1
-In non-atomic preStore: 0x10ceb3164 1!
-update buffer: 0x10ceb3164 1
-update buffer: 0x10ceb3164 1
-update buffer: 0x10ceb3164 1
-In atomic preStore: 0x10ceb3168 1 2!
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-In checker_thread_end
-data: 1 1
-In checker_thread_end
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a405530
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a405530
-Adding sc constraints: 2
-In addLockConstraints: 0
-
-xxxx read: f1-1 1 1
-
-write: f2-3 1
-
-Fences: 0x0 0x0 0x7fdf5a603670
-orStr:  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))
-
-xxxx read: f2-1 1 1
-
-write: f1-3 1
-
-Fences: 0x0 0x0 0x7fdf5a602ff0
-orStr:  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1))))
-
-write: main-2 0
-xxx: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Pass!
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 7498
-Schedule: 0x7fdf5a502510 2
-For: f1 1
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 2
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 3
-    main 0
-    main 1
-    main 2
-    main 3
-For: f1 4
-    main 0
-    main 1
-    main 2
-    main 3
-For: f2 1
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 2
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 3
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: f2 4
-    main 0
-    main 1
-    main 2
-    main 3
-    main 4
-For: main 6
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-For: main 7
-    f1 0
-    f1 1
-    f1 2
-    f1 3
-    f1 4
-    f2 0
-    f2 1
-    f2 2
-    f2 3
-    f2 4
-Read Map: f1 1 1
-Read Map: f2 1 1
-
-In checker_thread_begin: 0x7fff73110300
-In atomic preStore: 0x10ceb3168 0 7!
-update buffer: 0x10ceb3168 0
-In atomic preStore: 0x10ceb316c 0 7!
-update buffer: 0x10ceb316c 0
-
-In checker_thread_create: 0x7fff73110300 0x10d2ca000
-
-In checker_thread_begin: 0x10d34d000
-
-In checker_thread_begin: 0x10d2ca000
-
-In checker_thread_create: 0x7fff73110300 0x10d34d000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb3168 2!
-Fetch the future value: 1
-
-expect value: f1 1 1
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3160 1
-In non-atomic preStore: 0x10ceb3160 1!
-update buffer: 0x10ceb3160 1
-update buffer: 0x10ceb3160 1
-In atomic preStore: 0x10ceb316c 1 2!
-update buffer: 0x10ceb316c 1
-update buffer: 0x10ceb316c 1
-In checker_thread_end
-Waitting for create thread 0x10d34d000
-In checker_shared_int: 0x10ceb3160
-In checker_shared_int: 0x10ceb3164
-In atomic preLoad: 0x10ceb316c 2!
-catch the expected val!
-
-expect value: f2 1 1
-qqqqqqqqqqqqqqqqqqq: 0x10ceb3164 1
-In non-atomic preStore: 0x10ceb3164 1!
-update buffer: 0x10ceb3164 1
-update buffer: 0x10ceb3164 1
-update buffer: 0x10ceb3164 1
-In atomic preStore: 0x10ceb3168 1 2!
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-update buffer: 0x10ceb3168 1
-In checker_thread_end
-data: 1 1
-In checker_thread_end
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a707fc0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fdf5a707fc0
-Adding sc constraints: 2
-In addLockConstraints: 0
-
-xxxx read: f1-1 1 1
-
-write: f2-3 1
-
-Fences: 0x0 0x0 0x7fdf5a70bce0
-orStr:  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))ttt: (or  (and  (= RF_f1-1_f2-3 1) (not (= B_f1-1_f2-3 1)) (= false (and (= B_f2-3_main-1 1) (= B_main-1_f1-1 1)))))
-
-xxxx read: f2-1 1 1
-
-write: f1-3 1
-
-Fences: 0x0 0x0 0x7fdf5a70b6d0
-orStr:  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1))))
-
-write: main-2 0
-xxx: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))ttt: (or  (and  (= RF_f2-1_f1-3 1) (not (= B_f2-1_f1-3 1)) (= false (and (= B_f1-3_main-2 1) (= B_main-2_f2-1 1)))))
-Adding SW Constraints: 0
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Pass!
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_main-0_thread2-1 () Int
+    79)
+  (define-fun B_main-3_main-6 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_main-3_thread2-2 () Int
+    91)
+  (define-fun B_main-2_thread3-1 () Int
+    126)
+  (define-fun B_main-4_thread1-0 () Int
+    32)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_main-8_thread1-2 () Int
+    54)
+  (define-fun B_main-8_thread2-2 () Int
+    96)
+  (define-fun B_thread3-1_thread1-1 () Int
+    23)
+  (define-fun B_main-1_main-8 () Int
+    1)
+  (define-fun B_main-4_thread3-2 () Int
+    137)
+  (define-fun B_main-4_thread2-1 () Int
+    83)
+  (define-fun B_main-5_thread1-2 () Int
+    51)
+  (define-fun B_thread3-0_thread3-1 () Int
+    1)
+  (define-fun B_thread3-0_thread2-1 () Int
+    58)
+  (define-fun B_thread3-0_thread3-2 () Int
+    1)
+  (define-fun B_main-2_thread3-2 () Int
+    135)
+  (define-fun RF_thread2-1_thread1-1 () Int
+    0)
+  (define-fun B_thread3-0_thread2-2 () Int
+    61)
+  (define-fun B_main-0_main-7 () Int
+    1)
+  (define-fun B_thread2-0_thread2-1 () Int
+    1)
+  (define-fun B_main-1_thread1-0 () Int
+    29)
+  (define-fun B_main-7_thread2-2 () Int
+    95)
+  (define-fun B_thread3-2_thread1-0 () Int
+    21)
+  (define-fun B_main-4_thread2-2 () Int
+    92)
+  (define-fun B_thread3-1_thread2-1 () Int
+    59)
+  (define-fun Basic1 () Bool
+    true)
+  (define-fun M_thread2-3 () Int
+    2)
+  (define-fun B_thread1-0_thread1-2 () Int
+    1)
+  (define-fun B_thread3-2_thread1-2 () Int
+    27)
+  (define-fun B_thread3-2_thread2-4 () Int
+    69)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_main-5_thread1-1 () Int
+    42)
+  (define-fun B_thread3-2_thread2-1 () Int
+    60)
+  (define-fun B_main-6_thread1-1 () Int
+    43)
+  (define-fun B_main-3_thread2-1 () Int
+    82)
+  (define-fun B_thread2-2_thread1-1 () Int
+    11)
+  (define-fun B_thread3-1_thread3-2 () Int
+    1)
+  (define-fun B_main-7_thread1-2 () Int
+    53)
+  (define-fun B_main-1_thread2-2 () Int
+    89)
+  (define-fun B_main-5_thread3-0 () Int
+    120)
+  (define-fun B_main-8_thread3-2 () Int
+    141)
+  (define-fun RF_thread3-1_main-1 () Int
+    0)
+  (define-fun B_main-8_thread3-0 () Int
+    123)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_main-6_thread1-2 () Int
+    52)
+  (define-fun B_main-4_main-8 () Int
+    1)
+  (define-fun B_main-7_thread3-1 () Int
+    131)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun B_main-8_thread1-0 () Int
+    36)
+  (define-fun B_main-4_thread1-2 () Int
+    50)
+  (define-fun RF_thread2-3_thread2-1 () Int
+    1)
+  (define-fun B_thread2-0_thread2-3 () Int
+    1)
+  (define-fun B_main-0_thread3-1 () Int
+    124)
+  (define-fun B_main-0_thread2-4 () Int
+    106)
+  (define-fun B_main-3_thread3-0 () Int
+    118)
+  (define-fun RF_thread3-1_thread1-1 () Int
+    1)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun B_main-2_thread2-2 () Int
+    90)
+  (define-fun B_thread2-1_thread2-3 () Int
+    1)
+  (define-fun B_main-7_thread2-3 () Int
+    104)
+  (define-fun B_main-2_thread2-4 () Int
+    108)
+  (define-fun B_main-2_thread2-3 () Int
+    99)
+  (define-fun B_main-7_thread1-0 () Int
+    35)
+  (define-fun MO0 () Bool
+    true)
+  (define-fun B_main-4_thread2-0 () Int
+    74)
+  (define-fun B_main-6_thread2-4 () Int
+    112)
+  (define-fun B_thread2-0_thread1-2 () Int
+    14)
+  (define-fun B_main-3_main-7 () Int
+    1)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun B_main-8_thread2-3 () Int
+    105)
+  (define-fun B_main-4_thread2-4 () Int
+    110)
+  (define-fun B_thread2-2_thread2-4 () Int
+    1)
+  (define-fun B_main-1_thread2-0 () Int
+    71)
+  (define-fun B_main-6_thread2-2 () Int
+    94)
+  (define-fun B_main-1_thread1-1 () Int
+    38)
+  (define-fun B_main-1_main-7 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_main-7_thread3-0 () Int
+    122)
+  (define-fun B_main-0_thread3-0 () Int
+    115)
+  (define-fun B_main-0_thread1-1 () Int
+    37)
+  (define-fun B_main-7_thread3-2 () Int
+    140)
+  (define-fun B_main-4_thread3-0 () Int
+    119)
+  (define-fun B_thread3-1_thread1-2 () Int
+    26)
+  (define-fun B_main-5_thread3-1 () Int
+    129)
+  (define-fun M_thread2-1 () Int
+    1)
+  (define-fun B_main-3_thread3-2 () Int
+    136)
+  (define-fun B_main-1_thread3-2 () Int
+    134)
+  (define-fun B_main-6_thread2-3 () Int
+    103)
+  (define-fun B_main-4_thread1-1 () Int
+    41)
+  (define-fun B_main-2_thread1-0 () Int
+    30)
+  (define-fun B_main-7_thread1-1 () Int
+    44)
+  (define-fun B_main-6_thread2-0 () Int
+    76)
+  (define-fun B_thread2-4_thread1-1 () Int
+    13)
+  (define-fun B_thread2-3_thread1-2 () Int
+    17)
+  (define-fun Basic0 () Bool
+    true)
+  (define-fun B_thread2-0_thread2-4 () Int
+    1)
+  (define-fun B_main-1_thread2-4 () Int
+    107)
+  (define-fun B_main-8_thread2-4 () Int
+    114)
+  (define-fun B_main-3_thread1-2 () Int
+    49)
+  (define-fun B_thread3-2_thread2-0 () Int
+    57)
+  (define-fun B_thread2-2_thread2-3 () Int
+    1)
+  (define-fun B_thread2-0_thread1-0 () Int
+    4)
+  (define-fun B_main-1_thread2-1 () Int
+    80)
+  (define-fun B_thread3-0_thread2-0 () Int
+    55)
+  (define-fun B_main-2_thread3-0 () Int
+    117)
+  (define-fun B_main-6_thread3-0 () Int
+    121)
+  (define-fun B_main-0_thread3-2 () Int
+    133)
+  (define-fun RF_thread2-3_thread1-1 () Int
+    0)
+  (define-fun M_thread1-1 () Int
+    0)
+  (define-fun B_thread3-2_thread1-1 () Int
+    24)
+  (define-fun B_main-1_thread2-3 () Int
+    98)
+  (define-fun B_main-1_thread3-1 () Int
+    125)
+  (define-fun B_main-4_thread2-3 () Int
+    101)
+  (define-fun B_main-7_thread2-4 () Int
+    113)
+  (define-fun B_thread3-1_thread2-2 () Int
+    62)
+  (define-fun B_main-1_thread3-0 () Int
+    116)
+  (define-fun B_thread1-1_thread1-2 () Int
+    1)
+  (define-fun B_thread2-4_thread1-0 () Int
+    8)
+  (define-fun B_thread2-2_thread1-0 () Int
+    6)
+  (define-fun B_thread3-0_thread1-2 () Int
+    25)
+  (define-fun RF_thread3-1_thread2-1 () Int
+    0)
+  (define-fun B_main-3_thread2-4 () Int
+    109)
+  (define-fun B_thread3-0_thread1-1 () Int
+    22)
+  (define-fun B_main-2_thread1-2 () Int
+    48)
+  (define-fun B_main-7_thread2-1 () Int
+    86)
+  (define-fun B_thread3-0_thread2-3 () Int
+    64)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_thread1-0_thread1-1 () Int
+    1)
+  (define-fun B_thread2-0_thread2-2 () Int
+    1)
+  (define-fun B_main-5_main-7 () Int
+    1)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun B_thread2-1_thread1-1 () Int
+    10)
+  (define-fun B_main-0_thread2-2 () Int
+    88)
+  (define-fun B_main-3_thread2-3 () Int
+    100)
+  (define-fun B_main-3_thread3-1 () Int
+    127)
+  (define-fun B_main-5_thread3-2 () Int
+    138)
+  (define-fun B_main-5_thread2-3 () Int
+    102)
+  (define-fun B_main-6_main-8 () Int
+    1)
+  (define-fun B_main-0_thread1-0 () Int
+    28)
+  (define-fun B_main-2_thread1-1 () Int
+    39)
+  (define-fun B_main-1_thread1-2 () Int
+    47)
+  (define-fun RF_thread2-3_main-1 () Int
+    0)
+  (define-fun B_thread3-1_thread1-0 () Int
+    20)
+  (define-fun B_main-2_main-7 () Int
+    1)
+  (define-fun B_main-0_thread1-2 () Int
+    46)
+  (define-fun B_main-2_main-8 () Int
+    1)
+  (define-fun B_main-0_thread2-0 () Int
+    70)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun RF_thread3-1_thread2-3 () Int
+    0)
+  (define-fun B_main-5_thread2-1 () Int
+    84)
+  (define-fun B_thread2-3_thread2-4 () Int
+    1)
+  (define-fun B_main-6_thread2-1 () Int
+    85)
+  (define-fun B_thread3-0_thread1-0 () Int
+    19)
+  (define-fun B_main-2_thread2-1 () Int
+    81)
+  (define-fun B_thread2-3_thread1-1 () Int
+    12)
+  (define-fun B_thread3-1_thread2-0 () Int
+    56)
+  (define-fun B_thread3-0_thread2-4 () Int
+    67)
+  (define-fun B_main-8_thread2-1 () Int
+    87)
+  (define-fun RF_thread2-1_main-1 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_main-5_main-8 () Int
+    1)
+  (define-fun B_thread2-1_thread1-0 () Int
+    5)
+  (define-fun B_main-5_thread1-0 () Int
+    33)
+  (define-fun B_main-3_main-8 () Int
+    1)
+  (define-fun B_main-3_thread1-1 () Int
+    40)
+  (define-fun B_main-2_thread2-0 () Int
+    72)
+  (define-fun RF_thread2-1_thread2-3 () Int
+    0)
+  (define-fun B_main-6_thread1-0 () Int
+    34)
+  (define-fun B_main-3_thread2-0 () Int
+    73)
+  (define-fun B_main-5_thread2-0 () Int
+    75)
+  (define-fun B_main-7_thread2-0 () Int
+    77)
+  (define-fun B_main-3_thread1-0 () Int
+    31)
+  (define-fun B_main-8_thread1-1 () Int
+    45)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_main-8_thread2-0 () Int
+    78)
+  (define-fun B_main-5_thread2-4 () Int
+    111)
+  (define-fun B_thread3-1_thread2-3 () Int
+    65)
+  (define-fun M_main-1 () Int
+    3)
+  (define-fun B_thread3-1_thread2-4 () Int
+    68)
+  (define-fun B_main-0_thread2-3 () Int
+    97)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun B_main-5_thread2-2 () Int
+    93)
+  (define-fun B_thread2-4_thread1-2 () Int
+    18)
+  (define-fun B_thread2-3_thread1-0 () Int
+    7)
+  (define-fun S_main-1 () Int
+    0)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun B_thread2-1_thread2-2 () Int
+    1)
+  (define-fun B_thread3-2_thread2-2 () Int
+    63)
+  (define-fun B_thread2-0_thread1-1 () Int
+    9)
+  (define-fun B_main-0_main-6 () Int
+    1)
+  (define-fun B_thread3-2_thread2-3 () Int
+    66)
+  (define-fun B_main-4_thread3-1 () Int
+    128)
+  (define-fun B_main-8_thread3-1 () Int
+    132)
+  (define-fun B_main-4_main-7 () Int
+    1)
+  (define-fun B_main-6_thread3-2 () Int
+    139)
+  (define-fun B_thread2-2_thread1-2 () Int
+    16)
+  (define-fun B_main-7_main-8 () Int
+    1)
+  (define-fun B_main-6_main-7 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun B_main-6_thread3-1 () Int
+    130)
+  (define-fun B_thread2-1_thread2-4 () Int
+    1)
+  (define-fun B_thread2-1_thread1-2 () Int
+    15)
+  (define-fun B_main-0_main-8 () Int
+    1)
+)
+(error "line 714 column 15: unsat core is not available")
+end

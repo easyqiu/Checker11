@@ -92,7 +92,7 @@ namespace checker {
 		}
 
 
-		memory_order to_mo(int i) {
+		static memory_order to_mo(int i) {
 			switch (i) {
 				case 1:
 					return memory_order_relaxed; // 0
@@ -126,9 +126,9 @@ namespace checker {
 
 		std::string get_location_str() const;
 
-		int get_seq_number() const { return seq_number; }
+		int64_t get_seq_number() const { return seq_number; }
 
-		void set_seq_number(int seq_num) { seq_number = seq_num;}
+		void set_seq_number(int64_t seq_num) { seq_number = seq_num;}
 
 		//uint64_t get_value() const { return value; }
 
@@ -208,7 +208,7 @@ namespace checker {
          * Except for ATOMIC_UNINIT actions, this number should be unique and
          * should represent the action's position in the execution order.
          */
-		int seq_number;
+		int64_t seq_number;
 	};
 
 	class RWAction :  public Action  {
@@ -257,27 +257,31 @@ namespace checker {
     class RMWAction : public RWAction {
     public:
         RMWAction(Executor* exe, Thread* thread, action_type_t type,
-                  int ord, void* loc, int val) : RWAction(exe, thread, type, ord, loc) {
+                  int ord, void* loc, int64_t val) : RWAction(exe, thread, type, ord, loc) {
             //order = to_mo(ord);
             //location = loc;
             value = val;
         }
 
-		void setReadValue(int val) {
+		void setReadValue(int64_t val) {
             readValue = val;
-            std::cout << "Set Read Value: " << val << "\n";
+            //std::cout << "Set Read Value: " << val << "\n";
         }
 
-		int getReadValue() { return readValue; }
+		int64_t getReadValue() { return readValue; }
 
-		void setWriteValue(int val) {
+		void setWriteValue(int64_t val) {
 			writeValue = val;
-			std::cout << "Set write Value: " << val << "\n";
+			//std::cout << "Set write Value: " << val << "\n";
 		}
 
-		int getWriteValue() { return writeValue; }
+		int64_t getWriteValue() { return writeValue; }
+
+		int64_t computeWriteValue(int64_t oldVal);
 
 		std::string get_action_str();
+
+		int64_t getVariableVar() { return value; }
 
     private:
         int64_t value;
@@ -291,19 +295,24 @@ namespace checker {
 	class CmpXchgAction : public RMWAction {
 	public:
 		CmpXchgAction(Executor* exe, Thread* thread, action_type_t type,
-				int order1, int order2, void* loc, int eVal, int val)
+				int order1, int order2, void* loc, int64_t eVal, int64_t val)
 				: RMWAction(exe, thread, type, order1, loc, val) {
 			expectVal = eVal;
+			newVal = val;
 			succOrder = to_mo(order1);
 			failOrder = to_mo(order2);
 		}
 
+		int64_t computeWriteValue(int64_t oldVal);
+
 		memory_order get_mo_succ() { return succOrder; }
 		memory_order get_mo_fail() { return failOrder; }
 		int64_t get_expectVal() { return expectVal; }
+		int64_t get_newVal() { return newVal; }
 
 	private:
 		int64_t expectVal;
+		int64_t newVal;
 		memory_order succOrder;
 		memory_order failOrder;
 	};

@@ -203,6 +203,42 @@ std::string RMWAction::get_action_str() {
     return ss.str();
 }
 
+int64_t RMWAction::computeWriteValue(int64_t oldVal) {
+
+    int64_t val = getVariableVar();
+
+    switch (type) {
+        case ATOMIC_RMW_ADD:
+            return oldVal + val;
+        case ATOMIC_RMW_SUB:
+            return oldVal - val;
+        case ATOMIC_RMW_AND:
+            return oldVal & val;
+        case ATOMIC_RMW_NAND:
+            return ~(oldVal & val);
+        case ATOMIC_RMW_OR:
+            return oldVal | val;
+        case ATOMIC_RMW_XOR:
+            return oldVal ^ val;
+        case ATOMIC_RMW_MAX:
+            return oldVal > val ? oldVal : val;
+        case ATOMIC_RMW_MIN:
+            return oldVal < val ? oldVal : val;
+        case ATOMIC_RMW_UMAX:
+            return oldVal > val ? oldVal : val;
+        case ATOMIC_RMW_UMIN:
+            return oldVal < val ? oldVal : val;
+        default:
+            assert(false && "Not handle this action type!\n");
+            return 0;
+    }
+}
+
+int64_t CmpXchgAction::computeWriteValue(int64_t oldVal) {
+
+    return oldVal == expectVal ? newVal : oldVal;
+}
+
 std::string FenceAction::get_action_str() {
     std::stringstream ss;
     ss << get_type_str(true) << " " << order << "\n";

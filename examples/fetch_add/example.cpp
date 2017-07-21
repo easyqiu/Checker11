@@ -12,7 +12,7 @@
 using namespace checker;
 
 int data1, data2;
-std::atomic<char> x, y;
+std::atomic<int> x, y;
  
 void f1()
 {
@@ -21,7 +21,7 @@ void f1()
     //checker_shared((void*)&data2);
     data1 = x.load(std::memory_order_relaxed);
     //y.store(1, std::memory_order_relaxed);
-    int m = y.fetch_and(0, std::memory_order_relaxed);
+    int m = y.fetch_add(1, std::memory_order_relaxed);
     printf("m = %d\n", &m);
     checker_thread_end();
 }
@@ -33,7 +33,7 @@ void f2()
     //checker_shared((void*)&data2);
     data2 = y.load(std::memory_order_relaxed);
     //x.store(1, std::memory_order_relaxed);
-    x.fetch_and(0, std::memory_order_relaxed);
+    x.fetch_add(1, std::memory_order_relaxed);
     checker_thread_end();
 }
  
@@ -43,7 +43,7 @@ int user_main()
     checker_generateExecutor();
     checker_thread_begin("main");
 
-    x = 1, y = 1;
+    x = 0, y = 0;
 
     std::thread a(f1);
     std::thread b(f2);

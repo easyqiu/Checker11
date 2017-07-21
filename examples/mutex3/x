@@ -1,88 +1,120 @@
-Generate a model checker: 0x7fd7e3404c40
+BeginFunc: 0x0
+Generate a model checker: BeginFunc: 0x0
+0x7fcc99500000
+BeginFunc: 0x0
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 18781
+[Solver] create Z3 pid 25986
+Generate a new Executor: 0x7fcc997000c0 0x7fcc99500040
 
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x10589c1d4 0 7!
-update buffer: 0x10589c1d4 0
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x105ffa22c 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcc997000c0
+func begin
+BeginFunc: 0x7fcc997000c0
+func begin
+BeginFunc: 0x7fcc997000c0
+func begin
 
-In checker_thread_create: 0x7fff7571e300 0x105caa000
+In checker_thread_begin: 0x10645f000
 
-In checker_thread_create: 0x7fff7571e300 0x105d2d000
+In checker_thread_create: 0x7fff7d800300 0x10645f000
 
-In checker_thread_begin: 0x105caa000
+In checker_thread_begin: 0x1064e2000
 
-In checker_thread_begin: 0x105d2d000
-In preLock: 0x10589c190!
-In atomic preStore: 0x10589c1d4 1 2!
-update buffer: 0x10589c1d4 1
-update buffer: 0x10589c1d4 1
-update buffer: 0x10589c1d4 1
-In atomic preStore: 0x10589c1d4 2 2!
-update buffer: 0x10589c1d4 2
-update buffer: 0x10589c1d4 2
-update buffer: 0x10589c1d4 2
-In atomic preStore: 0x10589c1d4 3 2!
-In preLock: update buffer: 0x10589c1900x10589c1d4 !
-3
-update buffer: 0x10589c1d4 3
-update buffer: 0x10589c1d4 3
-In atomic preStore: 0x10589c1d4 4 2!
-update buffer: 0x10589c1d4 4
-update buffer: 0x10589c1d4 4
-update buffer: 0x10589c1d4 4
-In preUnlock: 0x10589c190!
+In checker_thread_create: 0x7fff7d800300 0x1064e2000
+Waitting for create thread Waitting for create thread 0x10645f0000x1064e2000
+
+In checker_preLock: 0x105ffa1e8!
+BeginFunc: 0x7fcc997000c0
+func begin
+In atomic checker_preStore: 0x105ffa22c 1 2!
+In checker_preLock: 0x105ffa1e8!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcc997000c0
+func begin
+In atomic checker_preStore: 0x105ffa22c 2 2!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x105ffa22c 3 2!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x105ffa22c 4 2!
+update reachabilty!
+end update!
+In checker_preUnlock: 0x105ffa1e8!
+BeginFunc: 0x7fcc997000c0
+func begin
 In checker_thread_end
-In atomic preLoad: 0x10589c1d4 2!
-get buffer: 0x10589c1d4 0
+In atomic checker_preLoad: 0x105ffa22c 2!
+BeginFunc: 0x7fcc997000c0
+func begin
+get buffer: 0x105ffa22c 0
 
 expect value: f2 2 0
-In preUnlock: 0x10589c190!
+In checker_preUnlock: 0x105ffa1e8!
+BeginFunc: 0x7fcc997000c0
+func begin
 In checker_thread_end
+BeginFunc: 0x7fcc997000c0
+func begin
 r1=0
 In checker_thread_end
 lock pair: f1-1 f1-6
 lock pair: f2-1 f2-3
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fd7e3404d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fd7e3404d40
+In generateModel2!: 3
+vec: 0 0
+vec: 1 0
+vec: 0 0
+vec: 0 0
+vec: 0 1
+vec: 0 1
+size: 1
+vecset: 1
+valuesVec: 1
+valueSet: 5
+Generating: 1 1
+v: f2-2 1
+prefix: 0
+enforce: 0x7fcc996004b0 f2-2 1 
+curSch: 0x7fcc99500040 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcc997000c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcc997000c0
 Adding sc constraints: 1
 In addLockConstraints: 1
-lock pairs: f1-1 f1-6 f2-1 f2-3
-name: B_f1-6_f2-1 B_f2-3_f1-1
-set hblist: 0x7fd7e340b850
-set halist: 0x7fd7e340b850
-add sw: 0x7fd7e340b850
+set hblist: 0x7fcc99603dd0
+set halist: 0x7fcc99603dd0
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: f1-0
-4: f1-2
-5: f1-1
+4: f1-1
+5: f1-2
 6: f1-3
 7: f1-4
 8: f1-5
 9: f1-6
 Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-set hblist: 0x7fd7e340beb0
-set halist: 0x7fd7e340beb0
-add sw: 0x7fd7e340beb0
+0: f2-2
+1: f2-3
+2: f2-4
+set hblist: 0x7fcc996041d0
+set halist: 0x7fcc996041d0
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: main-3
-4: f2-3
-5: f2-0
+4: f2-0
+5: f2-1
 6: f2-2
-7: f2-1
+7: f2-3
 Print Actions: 
 0: f1-2
 1: f1-3
@@ -90,20 +122,17 @@ Print Actions:
 3: f1-5
 4: f1-6
 5: f1-7
-lock pairs: f2-1 f2-3 f1-1 f1-6
-name: B_f2-3_f1-1 B_f1-6_f2-1
-set hblist: 0x7fd7e340c480
-set halist: 0x7fd7e340c480
-add sw: 0x7fd7e340c480
+set hblist: 0x7fcc99604a70
+set halist: 0x7fcc99604a70
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: main-3
-4: f2-3
-5: f2-0
+4: f2-0
+5: f2-1
 6: f2-2
-7: f2-1
+7: f2-3
 Print Actions: 
 0: f1-2
 1: f1-3
@@ -111,68 +140,50 @@ Print Actions:
 3: f1-5
 4: f1-6
 5: f1-7
-set hblist: 0x7fd7e340c570
-set halist: 0x7fd7e340c570
-add sw: 0x7fd7e340c570
+set hblist: 0x7fcc99604b60
+set halist: 0x7fcc99604b60
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: f1-0
-4: f1-2
-5: f1-1
+4: f1-1
+5: f1-2
 6: f1-3
 7: f1-4
 8: f1-5
 9: f1-6
 Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-qqqqqqqqq
-
-xxxx read: f2-2 0 0
-
-write: f1-2 1
-
-write: f1-3 2
-
-write: f1-4 3
-
-write: f1-5 4
-
-write: main-1 0
-
-Fences: 0x0 0x0 0x7fd7e3405530
-orStr:  (and  (= RF_f2-2_main-1 1) (not (= B_f2-2_main-1 1)) (= false (and (= B_main-1_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_main-1_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_main-1_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_main-1_f1-5 1) (= B_f1-5_f2-2 1))))
-xxx: (or  (and  (= RF_f2-2_main-1 1) (not (= B_f2-2_main-1 1)) (= false (and (= B_main-1_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_main-1_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_main-1_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_main-1_f1-5 1) (= B_f1-5_f2-2 1)))))ttt: (or  (and  (= RF_f2-2_main-1 1) (not (= B_f2-2_main-1 1)) (= false (and (= B_main-1_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_main-1_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_main-1_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_main-1_f1-5 1) (= B_f1-5_f2-2 1)))))
+0: f2-2
+1: f2-3
+2: f2-4
 Adding SW Constraints: 4
-add swrelation: 0x7fd7e340b850
+add swrelation: 0x7fcc99603dd0
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: f1-0
-4: f1-2
-5: f1-1
+4: f1-1
+5: f1-2
 6: f1-3
 7: f1-4
 8: f1-5
 9: f1-6
 Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-add swrelation: 0x7fd7e340beb0
+0: f2-2
+1: f2-3
+2: f2-4
+add swrelation: 0x7fcc996041d0
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: main-3
-4: f2-3
-5: f2-0
+4: f2-0
+5: f2-1
 6: f2-2
-7: f2-1
+7: f2-3
 Print Actions: 
 0: f1-2
 1: f1-3
@@ -180,16 +191,16 @@ Print Actions:
 3: f1-5
 4: f1-6
 5: f1-7
-add swrelation: 0x7fd7e340c480
+add swrelation: 0x7fcc99604a70
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: main-3
-4: f2-3
-5: f2-0
+4: f2-0
+5: f2-1
 6: f2-2
-7: f2-1
+7: f2-3
 Print Actions: 
 0: f1-2
 1: f1-3
@@ -197,824 +208,494 @@ Print Actions:
 3: f1-5
 4: f1-6
 5: f1-7
-add swrelation: 0x7fd7e340c570
+add swrelation: 0x7fcc99604b60
 Print Actions: 
 0: main-0
 1: main-1
 2: main-2
 3: f1-0
-4: f1-2
-5: f1-1
+4: f1-1
+5: f1-2
 6: f1-3
 7: f1-4
 8: f1-5
 9: f1-6
 Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
+0: f2-2
+1: f2-3
+2: f2-4
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 46590: model is not available")
+end checksat!
+Generating: 2 1
+v: f2-2 2
+prefix: 0
+enforce: 0x7fcc996004b0 f2-2 2 
+curSch: 0x7fcc99500040 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fcc997000c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fcc997000c0
+Adding sc constraints: 1
+In addLockConstraints: 1
+set hblist: 0x7fcc99409b10
+set halist: 0x7fcc99409b10
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+set hblist: 0x7fcc99409ee0
+set halist: 0x7fcc99409ee0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+set hblist: 0x7fcc99409d80
+set halist: 0x7fcc99409d80
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+set hblist: 0x7fcc9940a810
+set halist: 0x7fcc9940a810
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+Adding SW Constraints: 4
+add swrelation: 0x7fcc99409b10
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+add swrelation: 0x7fcc99409d80
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+add swrelation: 0x7fcc99409ee0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+add swrelation: 0x7fcc9940a810
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 93215: model is not available")
+end checksat!
+Generating: 3 1
+v: f2-2 3
+prefix: 0
+enforce: 0x7fcc996004b0 f2-2 3 
+curSch: 0x7fcc99500040 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fcc997000c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fcc997000c0
+Adding sc constraints: 1
+In addLockConstraints: 1
+set hblist: 0x7fcc99506a40
+set halist: 0x7fcc99506a40
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+set hblist: 0x7fcc99506e10
+set halist: 0x7fcc99506e10
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+set hblist: 0x7fcc99506cb0
+set halist: 0x7fcc99506cb0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+set hblist: 0x7fcc99507740
+set halist: 0x7fcc99507740
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+Adding SW Constraints: 4
+add swrelation: 0x7fcc99506a40
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+add swrelation: 0x7fcc99506cb0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+add swrelation: 0x7fcc99506e10
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+add swrelation: 0x7fcc99507740
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 1 column 139840: model is not available")
+end checksat!
+Generating: 4 1
+v: f2-2 4
+prefix: 0
+enforce: 0x7fcc996004b0 f2-2 4 
+curSch: 0x7fcc99500040 0
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fcc997000c0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fcc997000c0
+Adding sc constraints: 1
+In addLockConstraints: 1
+set hblist: 0x7fcc99409a90
+set halist: 0x7fcc99409a90
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+set hblist: 0x7fcc9940b1e0
+set halist: 0x7fcc9940b1e0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+set hblist: 0x7fcc9940aeb0
+set halist: 0x7fcc9940aeb0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+set hblist: 0x7fcc9940b540
+set halist: 0x7fcc9940b540
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+Adding SW Constraints: 4
+add swrelation: 0x7fcc99409a90
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
+add swrelation: 0x7fcc9940aeb0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+add swrelation: 0x7fcc9940b1e0
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: main-3
+4: f2-0
+5: f2-1
+6: f2-2
+7: f2-3
+Print Actions: 
+0: f1-2
+1: f1-3
+2: f1-4
+3: f1-5
+4: f1-6
+5: f1-7
+add swrelation: 0x7fcc9940b540
+Print Actions: 
+0: main-0
+1: main-1
+2: main-2
+3: f1-0
+4: f1-1
+5: f1-2
+6: f1-3
+7: f1-4
+8: f1-5
+9: f1-6
+Print Actions: 
+0: f2-2
+1: f2-3
+2: f2-4
 End adding SW Constraints!
 begin checksat!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
 end checksat!
-Pass!
-Generating: 0x7fd7e3600330 0x7fd7e3405b20 ARead 0x10589c1d4 0 0
- AWrite 0x10589c1d4 0 1
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fd7e3404d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fd7e3404d40
-Adding sc constraints: 1
-In addLockConstraints: 1
-lock pairs: f1-1 f1-6 f2-1 f2-3
-name: B_f1-6_f2-1 B_f2-3_f1-1
-set hblist: 0x7fd7e3705790
-set halist: 0x7fd7e3705790
-add sw: 0x7fd7e3705790
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-set hblist: 0x7fd7e3705b30
-set halist: 0x7fd7e3705b30
-add sw: 0x7fd7e3705b30
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-lock pairs: f2-1 f2-3 f1-1 f1-6
-name: B_f2-3_f1-1 B_f1-6_f2-1
-set hblist: 0x7fd7e3705830
-set halist: 0x7fd7e3705830
-add sw: 0x7fd7e3705830
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-set hblist: 0x7fd7e3705e60
-set halist: 0x7fd7e3705e60
-add sw: 0x7fd7e3705e60
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-qqqqqqqqq
-enforce: 0x7fd7e3600330 f2-2 1 
-curSch: 0x7fd7e34052e0 0
-
-xxxx read: f2-2 0 1
-
-write: f1-2 1
-
-Fences: 0x0 0x0 0x7fd7e3405b20
-orStr:  (and  (= RF_f2-2_f1-2 1) (not (= B_f2-2_f1-2 1)) (= false (and (= B_f1-2_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-2_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-2_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-2_main-1 1) (= B_main-1_f2-2 1))))
-
-write: f1-3 2
-
-write: f1-4 3
-
-write: f1-5 4
-
-write: main-1 0
-xxx: (or  (and  (= RF_f2-2_f1-2 1) (not (= B_f2-2_f1-2 1)) (= false (and (= B_f1-2_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-2_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-2_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-2_main-1 1) (= B_main-1_f2-2 1)))))ttt: (or  (and  (= RF_f2-2_f1-2 1) (not (= B_f2-2_f1-2 1)) (= false (and (= B_f1-2_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-2_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-2_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-2_main-1 1) (= B_main-1_f2-2 1)))))
-Adding SW Constraints: 4
-add swrelation: 0x7fd7e3705790
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-add swrelation: 0x7fd7e3705830
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e3705b30
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e3705e60
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 103259: model is not available")
-end checksat!
-Generating: 0x7fd7e3600330 0x7fd7e3405cd0 ARead 0x10589c1d4 0 0
- AWrite 0x10589c1d4 0 2
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fd7e3404d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fd7e3404d40
-Adding sc constraints: 1
-In addLockConstraints: 1
-lock pairs: f1-1 f1-6 f2-1 f2-3
-name: B_f1-6_f2-1 B_f2-3_f1-1
-set hblist: 0x7fd7e340feb0
-set halist: 0x7fd7e340feb0
-add sw: 0x7fd7e340feb0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-set hblist: 0x7fd7e34101c0
-set halist: 0x7fd7e34101c0
-add sw: 0x7fd7e34101c0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-lock pairs: f2-1 f2-3 f1-1 f1-6
-name: B_f2-3_f1-1 B_f1-6_f2-1
-set hblist: 0x7fd7e340ff50
-set halist: 0x7fd7e340ff50
-add sw: 0x7fd7e340ff50
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-set hblist: 0x7fd7e3406720
-set halist: 0x7fd7e3406720
-add sw: 0x7fd7e3406720
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-qqqqqqqqq
-enforce: 0x7fd7e3600330 f2-2 2 
-curSch: 0x7fd7e34052e0 0
-
-xxxx read: f2-2 0 2
-
-write: f1-2 1
-
-write: f1-3 2
-
-Fences: 0x0 0x0 0x7fd7e3405b20
-orStr:  (and  (= RF_f2-2_f1-3 1) (not (= B_f2-2_f1-3 1)) (= false (and (= B_f1-3_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-3_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-3_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-3_main-1 1) (= B_main-1_f2-2 1))))
-
-write: f1-4 3
-
-write: f1-5 4
-
-write: main-1 0
-xxx: (or  (and  (= RF_f2-2_f1-3 1) (not (= B_f2-2_f1-3 1)) (= false (and (= B_f1-3_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-3_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-3_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-3_main-1 1) (= B_main-1_f2-2 1)))))ttt: (or  (and  (= RF_f2-2_f1-3 1) (not (= B_f2-2_f1-3 1)) (= false (and (= B_f1-3_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-3_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-3_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-3_main-1 1) (= B_main-1_f2-2 1)))))
-Adding SW Constraints: 4
-add swrelation: 0x7fd7e3406720
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-add swrelation: 0x7fd7e340feb0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-add swrelation: 0x7fd7e340ff50
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e34101c0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 154902: model is not available")
-end checksat!
-Generating: 0x7fd7e3600330 0x7fd7e3405d90 ARead 0x10589c1d4 0 0
- AWrite 0x10589c1d4 0 3
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fd7e3404d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fd7e3404d40
-Adding sc constraints: 1
-In addLockConstraints: 1
-lock pairs: f1-1 f1-6 f2-1 f2-3
-name: B_f1-6_f2-1 B_f2-3_f1-1
-set hblist: 0x7fd7e3408600
-set halist: 0x7fd7e3408600
-add sw: 0x7fd7e3408600
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-set hblist: 0x7fd7e34089a0
-set halist: 0x7fd7e34089a0
-add sw: 0x7fd7e34089a0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-lock pairs: f2-1 f2-3 f1-1 f1-6
-name: B_f2-3_f1-1 B_f1-6_f2-1
-set hblist: 0x7fd7e34086a0
-set halist: 0x7fd7e34086a0
-add sw: 0x7fd7e34086a0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-set hblist: 0x7fd7e3408cd0
-set halist: 0x7fd7e3408cd0
-add sw: 0x7fd7e3408cd0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-qqqqqqqqq
-enforce: 0x7fd7e3600330 f2-2 3 
-curSch: 0x7fd7e34052e0 0
-
-xxxx read: f2-2 0 3
-
-write: f1-2 1
-
-write: f1-3 2
-
-write: f1-4 3
-
-Fences: 0x0 0x0 0x7fd7e3405b20
-orStr:  (and  (= RF_f2-2_f1-4 1) (not (= B_f2-2_f1-4 1)) (= false (and (= B_f1-4_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-4_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-4_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-4_main-1 1) (= B_main-1_f2-2 1))))
-
-write: f1-5 4
-
-write: main-1 0
-xxx: (or  (and  (= RF_f2-2_f1-4 1) (not (= B_f2-2_f1-4 1)) (= false (and (= B_f1-4_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-4_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-4_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-4_main-1 1) (= B_main-1_f2-2 1)))))ttt: (or  (and  (= RF_f2-2_f1-4 1) (not (= B_f2-2_f1-4 1)) (= false (and (= B_f1-4_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-4_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-4_f1-5 1) (= B_f1-5_f2-2 1))) (= false (and (= B_f1-4_main-1 1) (= B_main-1_f2-2 1)))))
-Adding SW Constraints: 4
-add swrelation: 0x7fd7e3408600
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-add swrelation: 0x7fd7e34086a0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e34089a0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e3408cd0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 206545: model is not available")
-end checksat!
-Generating: 0x7fd7e3600330 0x7fd7e3405e70 ARead 0x10589c1d4 0 0
- AWrite 0x10589c1d4 0 4
-
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fd7e3404d40
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fd7e3404d40
-Adding sc constraints: 1
-In addLockConstraints: 1
-lock pairs: f1-1 f1-6 f2-1 f2-3
-name: B_f1-6_f2-1 B_f2-3_f1-1
-set hblist: 0x7fd7e3407f90
-set halist: 0x7fd7e3407f90
-add sw: 0x7fd7e3407f90
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-set hblist: 0x7fd7e3408300
-set halist: 0x7fd7e3408300
-add sw: 0x7fd7e3408300
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-lock pairs: f2-1 f2-3 f1-1 f1-6
-name: B_f2-3_f1-1 B_f1-6_f2-1
-set hblist: 0x7fd7e3408030
-set halist: 0x7fd7e3408030
-add sw: 0x7fd7e3408030
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-set hblist: 0x7fd7e34099a0
-set halist: 0x7fd7e34099a0
-add sw: 0x7fd7e34099a0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-qqqqqqqqq
-enforce: 0x7fd7e3600330 f2-2 4 
-curSch: 0x7fd7e34052e0 0
-
-xxxx read: f2-2 0 4
-
-write: f1-2 1
-
-write: f1-3 2
-
-write: f1-4 3
-
-write: f1-5 4
-
-Fences: 0x0 0x0 0x7fd7e3405b20
-orStr:  (and  (= RF_f2-2_f1-5 1) (not (= B_f2-2_f1-5 1)) (= false (and (= B_f1-5_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-5_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-5_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-5_main-1 1) (= B_main-1_f2-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f2-2_f1-5 1) (not (= B_f2-2_f1-5 1)) (= false (and (= B_f1-5_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-5_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-5_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-5_main-1 1) (= B_main-1_f2-2 1)))))ttt: (or  (and  (= RF_f2-2_f1-5 1) (not (= B_f2-2_f1-5 1)) (= false (and (= B_f1-5_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-5_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-5_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-5_main-1 1) (= B_main-1_f2-2 1)))))
-Adding SW Constraints: 4
-add swrelation: 0x7fd7e3407f90
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-add swrelation: 0x7fd7e3408030
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e3408300
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: main-3
-4: f2-3
-5: f2-0
-6: f2-2
-7: f2-1
-Print Actions: 
-0: f1-2
-1: f1-3
-2: f1-4
-3: f1-5
-4: f1-6
-5: f1-7
-add swrelation: 0x7fd7e34099a0
-Print Actions: 
-0: main-0
-1: main-1
-2: main-2
-3: f1-0
-4: f1-2
-5: f1-1
-6: f1-3
-7: f1-4
-8: f1-5
-9: f1-6
-Print Actions: 
-0: f2-3
-1: f2-4
-2: f2-2
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fd7e3708d50
-update preAction: f2 2 f1 0
-update preAction: f2 3 f1 0
-update preAction: f2 4 f1 0
-update preAction: main 5 f1 0
-update preAction: main 6 f1 0
-update preAction: f2 2 f1 1
-update preAction: f2 3 f1 1
-update preAction: f2 4 f1 1
-update preAction: main 5 f1 1
-update preAction: main 6 f1 1
-update preAction: f2 2 f1 2
-update preAction: f2 3 f1 2
-update preAction: f2 4 f1 2
-update preAction: main 5 f1 2
-update preAction: main 6 f1 2
-update preAction: f2 2 f1 3
-update preAction: f2 3 f1 3
-update preAction: f2 4 f1 3
-update preAction: main 5 f1 3
-update preAction: main 6 f1 3
-update preAction: f2 2 f1 4
-update preAction: f2 3 f1 4
-update preAction: f2 4 f1 4
-update preAction: main 5 f1 4
-update preAction: main 6 f1 4
-update preAction: f2 2 f1 5
-update preAction: f2 3 f1 5
-update preAction: f2 4 f1 5
-update preAction: main 5 f1 5
-update preAction: main 6 f1 5
-update preAction: f2 1 f1 6
-update preAction: f2 2 f1 6
-update preAction: f2 3 f1 6
-update preAction: f2 4 f1 6
-update preAction: main 5 f1 6
-update preAction: main 6 f1 6
-update preAction: main 5 f1 7
-update preAction: main 6 f1 7
-update preAction: main 6 f2 0
-update preAction: main 6 f2 1
-update preAction: main 6 f2 2
-update preAction: main 6 f2 3
-update preAction: main 6 f2 4
-update preAction: f1 1 main 0
-update preAction: f1 2 main 0
-update preAction: f1 3 main 0
-update preAction: f1 4 main 0
-update preAction: f1 5 main 0
-update preAction: f1 6 main 0
-update preAction: f1 7 main 0
-update preAction: f2 1 main 0
-update preAction: f2 2 main 0
-update preAction: f2 3 main 0
-update preAction: f2 4 main 0
-update preAction: f1 1 main 1
-update preAction: f1 2 main 1
-update preAction: f1 3 main 1
-update preAction: f1 4 main 1
-update preAction: f1 5 main 1
-update preAction: f1 6 main 1
-update preAction: f1 7 main 1
-update preAction: f2 1 main 1
-update preAction: f2 2 main 1
-update preAction: f2 3 main 1
-update preAction: f2 4 main 1
-update preAction: f1 1 main 2
-update preAction: f1 2 main 2
-update preAction: f1 3 main 2
-update preAction: f1 4 main 2
-update preAction: f1 5 main 2
-update preAction: f1 6 main 2
-update preAction: f1 7 main 2
-update preAction: f2 1 main 2
-update preAction: f2 2 main 2
-update preAction: f2 3 main 2
-update preAction: f2 4 main 2
-update preAction: f2 1 main 3
-update preAction: f2 2 main 3
-update preAction: f2 3 main 3
-update preAction: f2 4 main 3
-action: f1 5 AWrite 0x10589c1d4 0 4
+Generate new schedule: 0x7fcc9940db70
+action: f1 5 AWrite 0x105ffa22c 0 4
 
 RF: f2 2 4
+In generateModel2 End!
+sover return!
 Solver path: /usr/local/bin/z3
 Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
 command: /usr/local/bin/z3 -smt2 -in 
 [Solver] Init solver...
-[Solver] create Z3 pid 18782
-Schedule: 0x7fd7e3708d50 1
+[Solver] create Z3 pid 25987
+Generate a new Executor: 0x7fcc9940af20 0x7fcc9940b4c0
+Schedule: 0x7fcc9940db70 1
 For: f1 1
     main 0
     main 1
@@ -1110,223 +791,69 @@ For: main 6
     f2 4
 Read Map: f2 2 4
 
-In checker_thread_begin: 0x7fff7571e300
-In atomic preStore: 0x10589c1d4 0 7!
-update buffer: 0x10589c1d4 0
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x105ffa22c 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcc9940af20
+func begin
+BeginFunc: 0x7fcc9940af20
+func begin
+BeginFunc: 0x7fcc9940af20
+func begin
 
-In checker_thread_create: 0x7fff7571e300 0x105caa000
+In checker_thread_begin: 0x10645f000
 
-In checker_thread_begin: 0x105caa000
+In checker_thread_create: 0x7fff7d800300 0x10645f000
 
-In checker_thread_begin: 0x105d2d000
+In checker_thread_begin: 0x1064e2000
 
-In checker_thread_create: 0x7fff7571e300 0x105d2d000
-Waitting for create thread 0x105d2d000Waitting for create thread 
-0x105caa000
-In preLock: 0x10589c190!
-size: f2 1 1
-xxxxx: f2 1 f1 6
-In preLock: 0x10589c190!
-In atomic preStore: 0x10589c1d4 1 2!
-update buffer: 0x10589c1d4 1
-update buffer: 0x10589c1d4 1
-update buffer: 0x10589c1d4 1
-In atomic preStore: 0x10589c1d4 2 2!
-update buffer: 0x10589c1d4 2
-update buffer: 0x10589c1d4 2
-update buffer: 0x10589c1d4 2
-In atomic preStore: 0x10589c1d4 3 2!
-update buffer: 0x10589c1d4 3
-update buffer: 0x10589c1d4 3
-update buffer: 0x10589c1d4 3
-In atomic preStore: 0x10589c1d4 4 2!
-update buffer: 0x10589c1d4 4
-update buffer: 0x10589c1d4 4
-update buffer: 0x10589c1d4 4
-In preUnlock: 0x10589c190!
+In checker_thread_create: 0x7fff7d800300 0x1064e2000
+Waitting for create thread 0x10645f000
+Waitting for create thread 0x1064e2000
+In checker_preLock: 0x105ffa1e8!
+BeginFunc: 0x7fcc9940af20
+func begin
+In atomic checker_preStore: 0x105ffa22c 1 2!
+In checker_preLock: 0x105ffa1e8!
+update reachabilty!
+end update!
+In atomic checker_preStore: size: 0x105ffa22c f2 1 21 
+2xxxxx: !
+f2 1 f1 6
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x105ffa22c 3 2!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x105ffa22c 4 2!
+update reachabilty!
+end update!
+In checker_preUnlock: 0x105ffa1e8!
+BeginFunc: 0x7fcc9940af20
+func begin
 In checker_thread_end
+BeginFunc: 0x7fcc9940af20
+func begin
 waiting lock!
-In atomic preLoad: 0x10589c1d4 2!
-catch the expected val!
+BeginFunc: 0x7fcc9940af20
+func begin
+In atomic checker_preLoad: 0x105ffa22c 2!
 
 expect value: f2 2 4
-In preUnlock: 0x10589c190!
+In checker_preUnlock: 0x105ffa1e8!
+BeginFunc: 0x7fcc9940af20
+func begin
 In checker_thread_end
+BeginFunc: 0x7fcc9940af20
+func begin
 r1=4
 In checker_thread_end
 lock pair: f1-1 f1-6
 lock pair: f2-1 f2-3
-Checking consistency of the current execution!
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fd7e37058a0
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fd7e37058a0
-Adding sc constraints: 1
-In addLockConstraints: 1
-lock pairs: f1-1 f1-6 f2-1 f2-3
-name: B_f1-6_f2-1 B_f2-3_f1-1
-set hblist: 0x7fd7e3700570
-set halist: 0x7fd7e3700570
-add sw: 0x7fd7e3700570
-Print Actions: 
-0: main-0
-1: f1-1
-2: f1-3
-3: f1-4
-4: f1-5
-5: f1-6
-6: main-1
-7: main-2
-8: f1-2
-9: f1-0
-Print Actions: 
-0: f2-2
-1: f2-4
-2: f2-3
-set hblist: 0x7fd7e3700910
-set halist: 0x7fd7e3700910
-add sw: 0x7fd7e3700910
-Print Actions: 
-0: main-0
-1: f2-2
-2: f2-3
-3: main-1
-4: main-2
-5: main-3
-6: f2-0
-7: f2-1
-Print Actions: 
-0: f1-3
-1: f1-4
-2: f1-5
-3: f1-6
-4: f1-2
-5: f1-7
-lock pairs: f2-1 f2-3 f1-1 f1-6
-name: B_f2-3_f1-1 B_f1-6_f2-1
-set hblist: 0x7fd7e3700610
-set halist: 0x7fd7e3700610
-add sw: 0x7fd7e3700610
-Print Actions: 
-0: main-0
-1: f2-2
-2: f2-3
-3: main-1
-4: main-2
-5: main-3
-6: f2-0
-7: f2-1
-Print Actions: 
-0: f1-3
-1: f1-4
-2: f1-5
-3: f1-6
-4: f1-2
-5: f1-7
-set hblist: 0x7fd7e3700c40
-set halist: 0x7fd7e3700c40
-add sw: 0x7fd7e3700c40
-Print Actions: 
-0: main-0
-1: f1-1
-2: f1-3
-3: f1-4
-4: f1-5
-5: f1-6
-6: main-1
-7: main-2
-8: f1-2
-9: f1-0
-Print Actions: 
-0: f2-2
-1: f2-4
-2: f2-3
-qqqqqqqqq
-
-xxxx read: f2-2 4 4
-
-write: f1-2 1
-
-write: f1-3 2
-
-write: f1-4 3
-
-write: f1-5 4
-
-Fences: 0x0 0x0 0x7fd7e370a490
-orStr:  (and  (= RF_f2-2_f1-5 1) (not (= B_f2-2_f1-5 1)) (= false (and (= B_f1-5_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-5_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-5_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-5_main-1 1) (= B_main-1_f2-2 1))))
-
-write: main-1 0
-xxx: (or  (and  (= RF_f2-2_f1-5 1) (not (= B_f2-2_f1-5 1)) (= false (and (= B_f1-5_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-5_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-5_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-5_main-1 1) (= B_main-1_f2-2 1)))))ttt: (or  (and  (= RF_f2-2_f1-5 1) (not (= B_f2-2_f1-5 1)) (= false (and (= B_f1-5_f1-2 1) (= B_f1-2_f2-2 1))) (= false (and (= B_f1-5_f1-3 1) (= B_f1-3_f2-2 1))) (= false (and (= B_f1-5_f1-4 1) (= B_f1-4_f2-2 1))) (= false (and (= B_f1-5_main-1 1) (= B_main-1_f2-2 1)))))
-Adding SW Constraints: 4
-add swrelation: 0x7fd7e3700570
-Print Actions: 
-0: main-0
-1: f1-1
-2: f1-3
-3: f1-4
-4: f1-5
-5: f1-6
-6: main-1
-7: main-2
-8: f1-2
-9: f1-0
-Print Actions: 
-0: f2-2
-1: f2-4
-2: f2-3
-add swrelation: 0x7fd7e3700610
-Print Actions: 
-0: main-0
-1: f2-2
-2: f2-3
-3: main-1
-4: main-2
-5: main-3
-6: f2-0
-7: f2-1
-Print Actions: 
-0: f1-3
-1: f1-4
-2: f1-5
-3: f1-6
-4: f1-2
-5: f1-7
-add swrelation: 0x7fd7e3700910
-Print Actions: 
-0: main-0
-1: f2-2
-2: f2-3
-3: main-1
-4: main-2
-5: main-3
-6: f2-0
-7: f2-1
-Print Actions: 
-0: f1-3
-1: f1-4
-2: f1-5
-3: f1-6
-4: f1-2
-5: f1-7
-add swrelation: 0x7fd7e3700c40
-Print Actions: 
-0: main-0
-1: f1-1
-2: f1-3
-3: f1-4
-4: f1-5
-5: f1-6
-6: main-1
-7: main-2
-8: f1-2
-9: f1-0
-Print Actions: 
-0: f2-2
-1: f2-4
-2: f2-3
-End adding SW Constraints!
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Pass!
+In generateModel2!: 3
+vec: 0 0
+vec: 0 1
+vec: 0 1
+In generateModel2 End!
+sover return!

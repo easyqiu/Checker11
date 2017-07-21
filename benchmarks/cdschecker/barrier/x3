@@ -1,0 +1,31 @@
+Generate a model checker: 0x7fcfeae00000
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 34139
+Generate a new Executor: 0x7fcfeae00100 0x7fcfead00e10
+Initializing executor: 0x7fcfeae00100
+example(34138,0x7fff7d800300) malloc: *** mach_vm_map(size=140530973429760) failed (error code=3)
+*** error: can't allocate region
+*** set a breakpoint in malloc_error_break to debug
+libc++abi.dylib: terminating with uncaught exception of type std::bad_alloc: std::bad_alloc
+Waitting for create thread 0x104755000
+nwait: 0, 2, 0
+Set Read Value: 0
+Set write Value: 1
+Waitting for create thread 0x1047d8000
+nwait: 1, 2, 0
+Set Read Value: 1
+Set write Value: 2
+Set Read Value: 0
+Set write Value: 1
+var = 1
+In generateModel2!: 3
+size: 2
+size: 1
+Generating: 1 2
+v: threadA-1 0
+v: threadB-1 1
+Command terminated abnormally.
+        1.33 real         0.00 user         0.00 sys

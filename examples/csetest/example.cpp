@@ -7,9 +7,8 @@
 
 std::atomic<int> a;
 std::atomic<int> b;
+std::atomic<int> c;
 //std::atomic<int> r3;
-int r3;
-
 using namespace std;
 
 void r()
@@ -19,10 +18,22 @@ void r()
 	
     int r1=atomic_load_explicit(&a, memory_order_relaxed);
 	int r2=atomic_load_explicit(&a, memory_order_relaxed);
-	if (r1==r2)
-		atomic_store_explicit(&b, 2, memory_order_relaxed);
+    int r3 = 0;
+	//int r3=atomic_load_explicit(&c, memory_order_relaxed);
+    //r1++, r2++;
+	if (r1==r2) {
+        //r3=atomic_load_explicit(&c, memory_order_relaxed);
+		//atomic_store_explicit(&b, 2, memory_order_relaxed);
+        b.fetch_add(1, std::memory_order_relaxed);
+        /*if (r1==1) {
+            atomic_store_explicit(&b, 2, memory_order_relaxed);
+            r2=atomic_load_explicit(&b, memory_order_relaxed);
+            r3 = 5;
+        }*/
+    }
 	printf("r1=%d\n",r1);
 	printf("r2=%d\n",r2);
+	//printf("r3=%d\n",r3);
     
     checker_thread_end();
 }
@@ -32,22 +43,32 @@ void s()
     checker_thread_begin("s");
     //checker_shared((void*)&r3);
 
-    r3=atomic_load_explicit(&b, memory_order_relaxed);
-	atomic_store_explicit(&a, r3, memory_order_relaxed);
-	printf("r3=%d\n",r3);
+    int r4=atomic_load_explicit(&b, memory_order_relaxed);
+	atomic_store_explicit(&a, r4, memory_order_relaxed);
+	//atomic_store_explicit(&c, 1, memory_order_relaxed);
+	printf("r4=%d\n",r4);
     
     //atomic_store_explicit(&a, 1, memory_order_relaxed);
     
     checker_thread_end();
 }
 
+void test(int yy[10]){
+    yy[2] = 1000000;
+}
+
 int user_main(int argc, char **argv)
 {
     checker_generateExecutor();
+    //std::vector<int> xx;
+    /*int* xx;
+    xx[0] = 200000;
+    test(xx);*/
     checker_thread_begin("main");
     //checker_shared((void*)&r3);
 
-    a = 0, b = 1;
+    //a = xx[0];
+    a = 0, b = 1, c = 0;
 	
     printf("Main thread: creating 2 threads\n");
     std::thread t1(r);
@@ -71,6 +92,7 @@ int user_main(int argc, char **argv)
 }
 
 int main(int argc, char **argv) {
+    printf("Begin\n");
     modelChecker = new ModelChecker();
     user_main(argc, argv);
     
