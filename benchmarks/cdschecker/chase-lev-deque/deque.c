@@ -26,6 +26,7 @@ int take(Deque *q) {
 	if (t <= b) {
 		/* Non-empty queue. */
 		x = atomic_load_explicit(&a->buffer[b % atomic_load_explicit(&a->size,memory_order_relaxed)], memory_order_relaxed);
+        printf("x1=%d\n", x);
 		if (t == b) {
 			/* Single last element in queue. */
 			if (!atomic_compare_exchange_strong_explicit(&q->top, &t, t + 1, memory_order_seq_cst, memory_order_relaxed))
@@ -37,6 +38,7 @@ int take(Deque *q) {
 		x = EMPTY;
 		atomic_store_explicit(&q->bottom, b + 1, memory_order_relaxed);
 	}
+    printf("x2=%d\n", x);
 	return x;
 }
 

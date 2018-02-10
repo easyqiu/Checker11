@@ -1,0 +1,158 @@
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun RF_b-1_a-1 () Int
+    0)
+  (define-fun ASW () Bool
+    true)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_b-1_main-3 () Int
+    0)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_a-3_main-5 () Int
+    1)
+  (define-fun COWW () Bool
+    true)
+  (define-fun B_b-0_b-2 () Int
+    1)
+  (define-fun CORW () Bool
+    true)
+  (define-fun M_a-2 () Int
+    2)
+  (define-fun B_b-0_b-1 () Int
+    1)
+  (define-fun B_a-2_main-0 () Int
+    0)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun MOConsistent () Bool
+    true)
+  (define-fun B_a-1_a-2 () Int
+    1)
+  (define-fun B_a-0_a-2 () Int
+    1)
+  (define-fun M_a-1 () Int
+    1)
+  (define-fun B_a-2_main-6 () Int
+    1)
+  (define-fun RF_b-1_main-1 () Int
+    1)
+  (define-fun B_b-2_main-2 () Int
+    0)
+  (define-fun MO0 () Bool
+    true)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_b-1_main-2 () Int
+    0)
+  (define-fun B_a-2_main-2 () Int
+    0)
+  (define-fun CORF () Bool
+    true)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun M_main-1 () Int
+    0)
+  (define-fun Basic1 () Bool
+    true)
+  (define-fun B_b-2_main-0 () Int
+    0)
+  (define-fun B_a-0_main-6 () Int
+    1)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_b-1_b-2 () Int
+    1)
+  (define-fun B_a-3_main-0 () Int
+    0)
+  (define-fun COWR () Bool
+    true)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun B_b-2_main-1 () Int
+    0)
+  (define-fun RW () Bool
+    true)
+  (define-fun B_a-1_main-2 () Int
+    0)
+  (define-fun B_b-1_main-0 () Int
+    0)
+  (define-fun B_b-1_main-6 () Int
+    1)
+  (define-fun B_a-0_main-5 () Int
+    1)
+  (define-fun B_b-2_main-6 () Int
+    1)
+  (define-fun SWRelation0 () Bool
+    true)
+  (define-fun B_a-1_a-3 () Int
+    1)
+  (define-fun B_main-0_main-6 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_a-1_b-1 () Int
+    5)
+  (define-fun B_a-3_main-2 () Int
+    0)
+  (define-fun B_a-3_main-6 () Int
+    1)
+  (define-fun B_b-1_main-1 () Int
+    0)
+  (define-fun B_a-1_main-5 () Int
+    1)
+  (define-fun B_a-0_a-3 () Int
+    1)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun B_a-3_main-1 () Int
+    0)
+  (define-fun B_a-1_main-1 () Int
+    0)
+  (define-fun B_a-2_main-5 () Int
+    1)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_b-0_main-6 () Int
+    1)
+  (define-fun B_a-1_main-6 () Int
+    1)
+  (define-fun B_a-2_b-1 () Int
+    6)
+  (define-fun B_a-0_a-1 () Int
+    1)
+  (define-fun B_a-2_a-3 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun RF_b-1_a-2 () Int
+    0)
+  (define-fun B_a-2_main-1 () Int
+    0)
+  (define-fun B_a-1_main-0 () Int
+    0)
+  (define-fun B_b-2_main-3 () Int
+    0)
+  (define-fun B_main-3_main-6 () Int
+    1)
+)
+(error "line 181 column 15: unsat core is not available")
+end

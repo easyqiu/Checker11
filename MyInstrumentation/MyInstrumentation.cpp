@@ -39,7 +39,7 @@ using namespace llvm;
 
 #define DEBUG_TYPE "MyInstrument"
 
-STATISTIC(HelloCounter, "Counts number of functions greeted");
+//STATISTIC(HelloCounter, "Counts number of functions greeted");
 STATISTIC(ModuleCounter, "Counts number of modules greeted");
 STATISTIC(InstCounter, "Counts number of instructions greeted");
 
@@ -98,7 +98,7 @@ namespace {
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
       Function *printF_1 = Function::Create(FT, Function::ExternalLinkage, "checker_myPrintf_1", &M);
       myFunctions["checker_myPrintf_1"] = printF_1;
-      //std::cout << "printfffff: \n";
+      //std::cerr << "printfffff: \n";
       //printF_1->dump();
 
       paramTypes.clear();
@@ -185,7 +185,7 @@ namespace {
       myFunctions["checker_preAtomicLoad_int"] = atomicLoadF_int;
 
       paramTypes.clear();
-      PointerType* pType_64 = Type::getInt64PtrTy(M.getContext());
+      //PointerType* pType_64 = Type::getInt64PtrTy(M.getContext());
       paramTypes.push_back(pType);
       //paramTypes.push_back(pType_64);
       paramTypes.push_back(Type::getInt64Ty(M.getContext()));
@@ -252,12 +252,12 @@ namespace {
       std::vector<Type*> types;
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
-      StructType* sType = StructType::get(M.getContext(), types);
+      //StructType* sType = StructType::get(M.getContext(), types);
       //FT = FunctionType::get(sType, paramTypes, false);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_8 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_8", &M);
       myFunctions["checker_preCmpXchg_8"] = cmpXchgIntF_8;
-      //std::cout << "yyyyyyyyyyyyyyyyyyyyyyyyyyy\n";
+      //std::cerr << "yyyyyyyyyyyyyyyyyyyyyyyyyyy\n";
       //cmpXchgIntF_8->dump();
       //cmpXchgIntF_8->getFunctionType()->getReturnType()->dump();
 
@@ -271,7 +271,7 @@ namespace {
       types.clear();
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
-      sType = StructType::get(M.getContext(), types);
+      //StructType* sType = StructType::get(M.getContext(), types);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_16 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_16", &M);
       myFunctions["checker_preCmpXchg_16"] = cmpXchgIntF_16;
@@ -286,7 +286,7 @@ namespace {
       types.clear();
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
-      sType = StructType::get(M.getContext(), types);
+      //sType = StructType::get(M.getContext(), types);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_32 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_32", &M);
       myFunctions["checker_preCmpXchg_32"] = cmpXchgIntF_32;
@@ -301,7 +301,7 @@ namespace {
       types.clear();
       types.push_back(Type::getInt64Ty(M.getContext()));
       types.push_back(Type::getInt1Ty(M.getContext()));
-      sType = StructType::get(M.getContext(), types);
+      //sType = StructType::get(M.getContext(), types);
       FT = FunctionType::get(Type::getInt1Ty(M.getContext()), paramTypes, false);
       Function* cmpXchgIntF_64 = Function::Create(FT, Function::ExternalLinkage, "checker_preCmpXchg_64", &M);
       myFunctions["checker_preCmpXchg_64"] = cmpXchgIntF_64;
@@ -427,6 +427,14 @@ namespace {
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
       Function *trackDynInfo = Function::Create(FT, Function::ExternalLinkage, "checker_trackDynInfo", &M);
       myFunctions["checker_trackDynInfo"] = trackDynInfo;
+
+      paramTypes.clear();
+      paramTypes.push_back(Type::getInt64Ty(M.getContext()));
+      FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
+      Function *trackDynInfo_must = Function::Create(FT, Function::ExternalLinkage, "checker_trackDynInfo_must", &M);
+      myFunctions["checker_trackDynInfo_must"] = trackDynInfo_must;
+
+
       paramTypes.clear();
       FT = FunctionType::get(Type::getVoidTy(M.getContext()), paramTypes, false);
       Function *trackDynInfoEnd = Function::Create(FT, Function::ExternalLinkage, "checker_trackDynInfoEnd", &M);
@@ -633,11 +641,13 @@ namespace {
       Function* calledFunc = inst->getCalledFunction();
 
         std::string name = calledFunc->getName().str();
-        if (name.find("checker_shared") != std::string::npos) {
+        /*if (name.find("checker_shared") != std::string::npos) {
             sharedValues.insert(inst->getOperand(0)->stripPointerCasts());
-            //std::cout << "shared value: " << dyn_cast<BitCastInst>(inst->getOperand(0)) << "\n";
+            std::cerr << "shared value: " << dyn_cast<BitCastInst>(inst->getOperand(0)) << "\n";
+            inst->getOperand(0)->dump();
+            inst->getOperand(0)->stripPointerCasts()->dump();
             //inst->getOperand(0)->stripPointerCasts()->dump();
-        }
+        }*/
 
         if (name.find("mutex") == std::string::npos)
             return ;
@@ -655,7 +665,7 @@ namespace {
             func = myFunctions["checker_preTryLock"];
         } else if (name.find("unlock") != std::string::npos) {
             func = myFunctions["checker_preUnlock"];
-            //std::cout << "in unlock!\n";
+            //std::cerr << "in unlock!\n";
         } else if (name.find("lock") != std::string::npos) {
             func = myFunctions["checker_preLock"];
         } else {
@@ -675,7 +685,7 @@ namespace {
             return ;
         }
         if (func->isIntrinsic()) {
-            errs() << "Is Intrinsic!\n";
+            //errs() << "Is Intrinsic!\n";
             return ;
         }
 
@@ -698,7 +708,7 @@ namespace {
          return ;
       }
       if (func->isIntrinsic()) {
-        errs() << "Is Intrinsic!\n";
+        //errs() << "Is Intrinsic!\n";
         return ;
       }
 
@@ -715,13 +725,12 @@ namespace {
       }
 
       //Constant* strName = ConstantDataArray::getString(func->getContext(), name);
-      //std::cout << "xxxx: " << name << "\n";
+      //std::cerr << "xxxx: " << name << "\n";
 
       std::vector<Value*> params;
       //params.push_back(strName);
       
       Function* f = myFunctions["checker_beginFunc"];
-      f->getFunctionType()->dump();
       CallInst::Create(f->getFunctionType(), f, params, "", inst);
       f = myFunctions["checker_endFunc"];
       params.clear();
@@ -766,6 +775,7 @@ namespace {
       
       //ReplaceInstWithInst(loadI->getParent()->getInstList(), BBIt, callI);
 
+      std::cerr << "1111\n";
       ICmpInst* icmpI = new ICmpInst(loadI, ICmpInst::ICMP_EQ, callI, loadI);
       Instruction* nextI = &*(++BBIt); BBIt--;
       SelectInst::Create(icmpI, callI, loadI, "mySelect", nextI);
@@ -777,13 +787,21 @@ namespace {
       
       if (flag) {
           std::string order = toIRString(loadI->getOrdering());
-          errs() << "Identify an atomic load!: " << order << "\n";
+          errs() << "Identify an atomic load@@@!: " << order << "\n";
           o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), orderToInt[order]);
       } else {
           errs() << "Identify an non-atomic load!\n";
+          std::cerr << "sssshared: " << sharedValues.size() << "\n";
+          for (std::set<Value*>::iterator it = sharedValues.begin();
+                  it != sharedValues.end(); ++it) 
+              (*it)->dump();
+
+          loadI->getOperand(0)->dump();
+          loadI->getOperand(0)->stripPointerCasts()->dump();
           o = ConstantInt::get( Type::getInt32Ty(loadI->getContext()), 2);
           if (sharedValues.find(loadI->getOperand(0)) == sharedValues.end())
               return ;
+          std::cerr << "handle non atomic load!\n";
       }
       
       Function* func, *postFunc;// = myFunctions["checker_postAtomicLoad"];
@@ -835,7 +853,7 @@ namespace {
       params.push_back(callI);
       Instruction* nI = &*(++BBIt); BBIt--;
       CallInst::Create(func->getFunctionType(), func, params, "", nI)->dump();*/
-      //std::cout << "mmmmmmmm\n";
+      //std::cerr << "mmmmmmmm\n";
       //callI->dump();
       //param->getType()->dump();
       //exit(0);
@@ -847,11 +865,11 @@ namespace {
       return ;
 
 
-      /*std::cout << "111111\n";
+      /*std::cerr << "111111\n";
       /////////////////
       SplitBlock(loadI->getParent(), callI);
       /////////////////
-      std::cout << "2222222\n";*/
+      std::cerr << "2222222\n";*/
 
       Instruction* nextI = &*(++BBIt); BBIt--;
       Instruction* newI = callI;
@@ -863,6 +881,7 @@ namespace {
       LoadInst* newLoadI = new LoadInst(loadI->getPointerOperand(), "newLoad", loadI->isVolatile(), loadI->getAlignment(), loadI->getOrdering(), 
               loadI->getSynchScope(), loadI);
 
+      std::cerr << "2222\n";
       ICmpInst* icmpI = new ICmpInst(nextI, ICmpInst::ICMP_EQ, newI, defaultV);
       //icmpI->dump(), newLoadI->dump(), callI->dump(), loadI->dump();
       //newLoadI->getType()->dump(), newI->getType()->dump();
@@ -876,7 +895,7 @@ namespace {
       params.push_back(param);
       params.push_back(selectI);
       params.push_back(o);
-      //std::cout << "num: " << postFunc << "\n";// postFunc->getFunctionType()->getNumParams() << "\n";
+      //std::cerr << "num: " << postFunc << "\n";// postFunc->getFunctionType()->getNumParams() << "\n";
       CallInst::Create(postFunc->getFunctionType(), postFunc, params, "", nextI); // add the post call
     }
 
@@ -923,11 +942,21 @@ namespace {
       //ReplaceInstWithInst(storeI->getParent()->getInstList(), BBIt, callI);
     }
 
-    void instrAtomicStore(StoreInst* storeI) {
+    void instrAtomicStore(StoreInst* storeI, bool flag) {
       //errs() << toIRString(storeI->getOrdering()) << "\n";
       std::string order = toIRString(storeI->getOrdering());
-      errs() << "Identify an atomic store!: " << order << "\n";
-      Value* o = ConstantInt::get( Type::getInt32Ty(storeI->getContext()), orderToInt[order]);
+      Value* o;
+      if (flag) {
+          errs() << "Identify an atomic store!: " << order << "\n";
+          o = ConstantInt::get( Type::getInt32Ty(storeI->getContext()), orderToInt[order]);
+      } else {
+          storeI->getOperand(1)->dump();
+          if (sharedValues.find(storeI->getOperand(1)) == sharedValues.end())
+              return ;
+          errs() << "Identify an non-atomic store!: " << order << "\n";
+          o = ConstantInt::get( Type::getInt32Ty(storeI->getContext()), 2);
+      }
+
 
       Function* func;
       Value* v = storeI->getOperand(0);
@@ -960,9 +989,9 @@ namespace {
     void instrStore(Instruction* inst) {
       StoreInst* storeI = dyn_cast<StoreInst>(inst);
       if (storeI->isAtomic() == false)
-          ;//instrNonAtomicStore(storeI);
+          instrAtomicStore(storeI, false);
       else 
-          instrAtomicStore(storeI);
+          instrAtomicStore(storeI, true);
     }
 
     void instrFence(Instruction* inst) {
@@ -996,7 +1025,7 @@ namespace {
         //v1->dump(), v2->dump(), v3->dump();
 
         Function* func;
-        //std::cout << "cmppp//ppppppppppppp: \n";
+        //std::cerr << "cmppp//ppppppppppppp: \n";
         //inst->getType()->dump();
 
         //func = myFunctions["checker_preCmpXchg_64"];
@@ -1019,15 +1048,15 @@ namespace {
         } 
 
         /*if (v2->getType() != Type::getInt64Ty(cmpXchgI->getContext())) {
-            std::cout << "22233\n";
+            std::cerr << "22233\n";
             v2->dump();
             BitCastInst* castInst = new BitCastInst(v2, Type::getInt64Ty(cmpXchgI->getContext()), "myCast", cmpXchgI);
-            std::cout << "333\n";
+            std::cerr << "333\n";
             v2 = castInst;
         }
 
         if (v3->getType() != Type::getInt64Ty(cmpXchgI->getContext())) {
-            std::cout << "333\n";
+            std::cerr << "333\n";
             BitCastInst* castInst = new BitCastInst(v3, Type::getInt64Ty(cmpXchgI->getContext()), "myCast", cmpXchgI);
             v3 = castInst;
         }*/
@@ -1086,7 +1115,7 @@ namespace {
         
         /*Value* retV = callI;
         if (callI->getType() != sType) {
-            std::cout << "types: \n";
+            std::cerr << "types: \n";
             callI->getType()->dump(), sType->dump();
             BitCastInst* castInst = new BitCastInst(callI, sType, "myCast", cmpXchgI);
             retV = castInst;
@@ -1102,7 +1131,7 @@ namespace {
         func = myFunctions["myPrintf_1"];
         CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
 
-        std::cout << "types: \n";
+        std::cerr << "types: \n";
         callI->getType()->dump();
         cmpXchgI->getType()->dump();
         inst->getType()->dump();*/
@@ -1126,7 +1155,7 @@ namespace {
         func->dump();
         eI1->getType()->dump();
         CallInst* c1 = CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
-        std::cout << "2222\n";
+        std::cerr << "2222\n";
         c1->dump();
         indexes.clear();
         indexes.push_back(1);
@@ -1135,7 +1164,7 @@ namespace {
         params.clear();
         params.push_back(eI2);
         func = myFunctions["myPrintf_1"];
-        std::cout << "1111: " << func << "\n";
+        std::cerr << "1111: " << func << "\n";
         func->dump();
         CallInst::Create(func->getFunctionType(), func, params, "", cmpXchgI);
         
@@ -1327,6 +1356,7 @@ namespace {
     }
 
     uint64_t getClapNum(Instruction* inst) {
+        //std::cerr << "In getClapNum!\n";
         /*if (CallInst *callI = dyn_cast<CallInst>(inst)) {
             //skip the LLVM intrisic calls
             if (dyn_cast<IntrinsicInst>(callI) != NULL)  return 0; 
@@ -1337,25 +1367,37 @@ namespace {
             if (!strncmp("clap_", callI->getCalledFunction()->getName().data(), 5)) return 0;
         }*/
 
+		
         MDNode *node = inst->getMetadata("clap");
-        if (node == NULL)
+        if (node == NULL) {
             return 0;
+		}
 
         //inst->dump();
         //assert(node && "No Clap num instrumented!");
 
-        const MDOperand* op = &(node->getOperand(0));
-        Metadata* meta = op->get();
-        ValueAsMetadata* data = dyn_cast<ValueAsMetadata>(meta);
+        //const MDOperand* op = &(node->getOperand(0));
+        //const Metadata* meta = op->get();
+        //std::cerr << "node: " << node << " " << node->getNumOperands() << " " << node->getOperand(0) << " " << op << " " << meta << " " << dyn_cast<ValueAsMetadata>(meta) << " " << dyn_cast<ConstantAsMetadata>(meta) << "\n" ;
+		const Metadata* meta = node->getOperand(0);
+        const ValueAsMetadata* data = dyn_cast<ValueAsMetadata>(meta);
+        //auto* data = dyn_cast<ValueAsMetadata>(meta);
+		/*if (data == 0) {
+			return 0;
+		}*/
+
+		//std::cerr << "yyyy222: " << meta << " " << isa<ValueAsMetadata>(meta) << " " 
+        //    << dynamic_cast<ValueAsMetadata*>(meta) << " " << data << "\n";
+		//inst->dump();
         Value* v = data->getValue();
-        //std::cout << "node: " << node << "\n";
+        //std::cerr << "node: " << node << "\n";
         //node->dump();
         //node->getOperand(0)->dump();
         //Value* v = node->getOperand(0);
         ConstantInt* constI = dyn_cast<ConstantInt>(v);
         const uint64_t* num = constI->getValue().getRawData();
 
-        //std::cout << "num: " << *num << "\n";
+        //std::cerr << "num: " << *num << "\n";
         return *num;
     }
 
@@ -1363,8 +1405,7 @@ namespace {
         BranchInst* brInst = dyn_cast<BranchInst>(inst);
         Value* cmpV = brInst->getOperand(0);
         if (dyn_cast<Instruction>(cmpV)) {
-            Instruction* cmpInst = dyn_cast<Instruction>(cmpV);
-            cmpInst->dump();
+            //Instruction* cmpInst = dyn_cast<Instruction>(cmpV);
             //uint64_t num = 0; //getClapNum(inst);
             BasicBlock* bb = inst->getParent();
             SmallVector<BasicBlock*, 8> bList;
@@ -1387,16 +1428,17 @@ namespace {
 
                 if (flag) continue ;
                 controlBBs.insert(B);
-                B->dump();
             }
             
-            /*std::cout << "descendants: " << inst->getParent()->getParent()->getName().str() 
+            /*std::cerr << "descendants: " << inst->getParent()->getParent()->getName().str() 
                 << " " << DT->getNode(bb) << " " << controlBBs.size() << "\n";
             inst->dump();*/
         }
     }
 
     void instrInst(Instruction* inst) {
+      std::cerr << "handling!\n";
+      inst->dump();
       switch (inst->getOpcode()) {
         case Instruction::Call:
             //instrCall(inst);
@@ -1433,7 +1475,7 @@ namespace {
                 if (callI->getCalledFunction() == NULL)
                     continue ;
 
-                //std::cout << "ssss: " << (callI->getCalledFunction()->getName()).str() << "\n";
+                //std::cerr << "ssss: " << (callI->getCalledFunction()->getName()).str() << "\n";
                 if (callI->getCalledFunction()->getName().find("checker_preAtomicLoad") == std::string::npos) 
                     continue ;
 
@@ -1452,7 +1494,7 @@ namespace {
 
                 TerminatorInst *ThenTerm , *ElseTerm ;
                 SplitBlockAndInsertIfThenElse(icmp1, nextI, &ThenTerm, &ElseTerm, nullptr);
-                //std::cout << "ssss\n";
+                //std::cerr << "ssss\n";
                 //ThenTerm->dump(), ElseTerm->dump();
                 //BasicBlock* elseBB = ElseTerm->getParent();
                 //auto loadI = nextI->clone();
@@ -1493,6 +1535,7 @@ namespace {
                         loadI->getAlignment(), loadI->getOrdering(), 
                         loadI->getSynchScope(), ElseTerm);
 
+                std::cerr << "3333\n";
                 ICmpInst* icmpI = new ICmpInst(ElseTerm, ICmpInst::ICMP_EQ, callI, newLoadI);
 
                 BranchInst* branchI = dyn_cast<BranchInst>(ElseTerm);
@@ -1515,27 +1558,43 @@ namespace {
             for (inst_iterator I = inst_begin(F), E = inst_end(F); I != E; ++I) {
                 if (dyn_cast<AtomicRMWInst>(&*I)) {
                     AtomicRMWInst* inst = dyn_cast<AtomicRMWInst>(&*I);
+                    std::cerr << "erase1\n";
                     inst->eraseFromParent();
                     flag = true;
                     break;
                 } else if (dyn_cast<LoadInst>(&*I)) {
                     LoadInst* inst = dyn_cast<LoadInst>(&*I);
                     if (inst->isAtomic()) {
+                        std::cerr << "erase2\n";
                         inst->eraseFromParent();
                         flag = true;
                         break;
+                    } else {
+                        if (sharedValues.find(inst->getOperand(0)) != sharedValues.end())  {
+                            inst->eraseFromParent();
+                            flag = true;
+                            break;
+                        }
                     }
                 } else if (dyn_cast<StoreInst>(&*I)) {
                     StoreInst* inst = dyn_cast<StoreInst>(&*I);
                     if (inst->isAtomic()) {
-                        /*std::cout << "delete store: \n";
+                        /*std::cerr << "delete store: \n";
                         inst->dump();*/
+                        std::cerr << "erase3\n";
                         inst->eraseFromParent();
                         flag = true;
                         break;
+                    } else {
+                        if (sharedValues.find(inst->getOperand(1)) != sharedValues.end())  {
+                            inst->eraseFromParent();
+                            flag = true;
+                            break;
+                        }
                     }
                 } else if (dyn_cast<AtomicCmpXchgInst>(&*I)) {
                     AtomicCmpXchgInst* inst = dyn_cast<AtomicCmpXchgInst>(&*I);
+                    std::cerr << "erase4\n";
                     inst->eraseFromParent();
                     flag = true;
                     break;
@@ -1555,6 +1614,8 @@ namespace {
                         ConstantInt* constI = dyn_cast<ConstantInt>(v);
                         const uint64_t* num = constI->getValue().getRawData();
                         if (*num == 0) {
+                            std::cerr << "erase5\n";
+                            inst->dump();
                             inst->eraseFromParent();
                             flag = true;
                             break;
@@ -1566,16 +1627,21 @@ namespace {
     }
     
     void instrFunc(Function* func) {
+      if (func->hasInternalLinkage())
+          return ;
+
+      std::cerr << "begin func: " << func->getName().str() << " " << func->hasInternalLinkage() << "\n";
       for (Function::iterator it = func->begin(); 
               it != func->end(); ++it) {
+        if (func->getName().str().find("_DpOT0_") != std::string::npos) continue ;
         //BasicBlock bb = *it;
         for (BBIt = it->begin();
                 BBIt != it->end(); ++BBIt) {
-            //std::cout << "ssss: \n";
+            //std::cerr << "ssss: \n";
             Instruction* inst = &*BBIt;
             //inst->dump();
             instrInst(inst);
-            //std::cout << "sss2:\n";
+            //std::cerr << "sss2:\n";
         }
       }
 
@@ -1583,24 +1649,63 @@ namespace {
       //splitBlocks(func);
     }
 
+    bool mayControl(BasicBlock* predB, BasicBlock* b) {
+        Instruction* termI = predB->getTerminator();
+        if (dyn_cast<BranchInst>(termI)) {
+            BranchInst* br = dyn_cast<BranchInst>(termI);
+            if (br->isUnconditional()) return false;
+            
+            for (unsigned i=0; i<br->getNumSuccessors(); i++) {
+                BasicBlock* nb = br->getSuccessor(i);
+                if (nb == b) continue ;
+                
+                if (PDT->dominates(b, nb))
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        if (dyn_cast<SwitchInst>(termI)) {
+            SwitchInst* sw = dyn_cast<SwitchInst>(termI);
+            for (unsigned i=0; i<sw->getNumSuccessors(); i++) {
+                BasicBlock* nb = sw->getSuccessor(i);
+                if (nb == b) continue ;
+                
+                if (PDT->dominates(b, nb))
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
     void instrFunc2(Function* func) {
+
+		if (func == NULL) return ;
         
-        //std::cout << "instrFunc2: " << func << "\n";
+		//std::cerr << "instrFunc2: " << func << "\n";
+		//std::cerr << "xxx: " << func->getName().str() << "\n";
+        //func->dump();
+        //return ;
+        
         DT = &getAnalysis<DominatorTreeWrapperPass>(*func).getDomTree();
         PDT = &getAnalysis<PostDominatorTreeWrapperPass>(*func).getPostDomTree();
         //DT->recalculate(*func);
-        if (func && func->getName().str() == "main")
+        if (func && (func->getName().str() == "main" || func->getName().str().find("_DpOT0_") != std::string::npos))
             return ;
 
         for (Function::iterator it = func->begin(); 
                 it != func->end(); ++it) {
             BasicBlock* b = &*it;
 
-            //std::cout << "bbbbbbb0\n";
-            //b->dump();
-            //for (Basic)
+            //std::cerr << "bbbbbbb0000: " << func->getName().str() << "\n";
+            bool containCheckerLoop = false;
             for (BasicBlock::iterator bIt = b->begin();
                     bIt != b->end(); ++bIt) {
+				
                 Instruction* inst = &*bIt;
                 int num1 = getClapNum(inst);
                 if (num1 == 0) continue ;
@@ -1666,27 +1771,29 @@ namespace {
 
                 if (InvokeInst* invokeI = dyn_cast<InvokeInst>(inst)) {
                     BasicBlock* destBB = invokeI->getNormalDest();
-                    std::cout << "11111\n";
-                    if (DT->getNode(inst->getParent())->getIDom() == NULL) continue ;
+                    bool flag = true;
+                    Instruction* termI;
+                    if (DT->getNode(inst->getParent())->getIDom() != NULL) { 
+                        BasicBlock* dBB = DT->getNode(inst->getParent())->getIDom()->getBlock();
+                        termI = dBB->getTerminator();
+                        if (termI->getOpcode() != Instruction::Br && termI->getOpcode() != Instruction::Switch)
+                            //continue ;
+                            flag = false;
+                    } else 
+                        flag = false;
+                   
+                    if (flag) {
+                        Function* func = myFunctions["checker_trackDynInfo"];
+                        uint64_t num = getClapNum(termI);
+                        //exit(0);
 
-                    BasicBlock* dBB = DT->getNode(inst->getParent())->getIDom()->getBlock();
-                    Instruction* termI = dBB->getTerminator();
-                    if (termI->getOpcode() != Instruction::Br && termI->getOpcode() != Instruction::Switch)
-                        continue ;
-                    
-                    Function* func = myFunctions["checker_trackDynInfo"];
-                    uint64_t num = getClapNum(termI);
-                    std::cout << "xxxxx\n";
-                    invokeI->dump();
-                    termI->dump();
-                    //exit(0);
+                        std::vector<Value*> params;
+                        params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
+                        Instruction* firstI = destBB->getFirstNonPHIOrDbg();//&*(b->begin());
+                        if (dyn_cast<LandingPadInst>(firstI)) continue ;
 
-                    std::vector<Value*> params;
-                    params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
-                    Instruction* firstI = destBB->getFirstNonPHIOrDbg();//&*(b->begin());
-                    if (dyn_cast<LandingPadInst>(firstI)) continue ;
-
-                    CallInst::Create(func->getFunctionType(), func, params, "", firstI);  
+                        CallInst::Create(func->getFunctionType(), func, params, "", firstI);  
+                    }
                 }
 
                 if (dyn_cast<CallInst>(inst)) {
@@ -1698,23 +1805,27 @@ namespace {
 
                     Function* f = callI->getCalledFunction();
 
-                    if (f->getName().str().find("checker_preAtomicLoad") != std::string::npos) {
+					//std::cerr << "yyy555: " << f << "\n";
+                    MDNode* temp_N = MDNode::get(inst->getContext(), ConstantAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1))));
+                    std::cerr << "setting clap2: " << num1 << "\n";
+                    if (f && f->getName().str().find("checker_preAtomicLoad") != std::string::npos) {
                         std::vector<Value*> ps;
                         ps.push_back(callI->getOperand(0));
                         ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
                         ps.push_back(callI->getOperand(2));
                         CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
                         
-                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        /*llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
                         llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
                         llvm::ArrayRef<llvm::Metadata*> elts = {meta};
-                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
-                        newI->setMetadata("clap", md_node);
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);*/
+                    
+                        newI->setMetadata("clap", temp_N);
                         inst->replaceAllUsesWith(newI);
                         inst = newI;
                         //inst->eraseFromParent();
                         //continue ;
-                    } else if (f->getName().str().find("checker_preAtomicStore") != std::string::npos) {
+                    } else if (f && f->getName().str().find("checker_preAtomicStore") != std::string::npos) {
                         std::vector<Value*> ps;
                         ps.push_back(callI->getOperand(0));
                         ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
@@ -1722,16 +1833,16 @@ namespace {
                         ps.push_back(callI->getOperand(3));
                         CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
                         
-                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        /*llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
                         llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
                         llvm::ArrayRef<llvm::Metadata*> elts = {meta};
-                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
-                        newI->setMetadata("clap", md_node);
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);*/
+                        newI->setMetadata("clap", temp_N);
                         inst->replaceAllUsesWith(newI);
                         inst = newI;
                         //inst->eraseFromParent();
                         //continue ;
-                    } else if (f->getName().str().find("checker_preRMW_") != std::string::npos) {
+                    } else if (f && f->getName().str().find("checker_preRMW_") != std::string::npos) {
                         std::vector<Value*> ps;
                         ps.push_back(callI->getOperand(0));
                         ps.push_back(callI->getOperand(1));
@@ -1739,14 +1850,15 @@ namespace {
                         ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
                         CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
                         
-                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        /*llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
                         llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                        std::cerr << "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy: " << data << " " << meta << "\n";
                         llvm::ArrayRef<llvm::Metadata*> elts = {meta};
-                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
-                        newI->setMetadata("clap", md_node);
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);*/
+                        newI->setMetadata("clap", temp_N);
                         inst->replaceAllUsesWith(newI);
                         inst = newI;
-                    } else if (f->getName().str().find("checker_preCmpXchg_") != std::string::npos) {
+                    } else if (f && f->getName().str().find("checker_preCmpXchg_") != std::string::npos) {
                         std::vector<Value*> ps;
                         ps.push_back(callI->getOperand(0));
                         ps.push_back(callI->getOperand(1));
@@ -1756,37 +1868,40 @@ namespace {
                         ps.push_back(ConstantInt::get(Type::getInt64Ty(inst->getContext()), num1));
                         CallInst* newI = CallInst::Create(f->getFunctionType(), f, ps, "", inst); 
                         
-                        llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
+                        /*llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(inst->getContext(), APInt(64, num1)));
                         llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
                         llvm::ArrayRef<llvm::Metadata*> elts = {meta};
-                        MDNode* md_node = MDNode::get(inst->getContext(), elts);
-                        newI->setMetadata("clap", md_node);
+                        MDNode* md_node = MDNode::get(inst->getContext(), elts);*/
+                        newI->setMetadata("clap", temp_N);
                         inst->replaceAllUsesWith(newI);
                         inst = newI;
+                    } else if (f && f->getName().str().find("checker_loop") != std::string::npos) {
+                        containCheckerLoop = true;
                     }
                     
                     //instrCall(inst, nextI);
                 }
 
+                //std::cerr << "hhhhere!\n";
+
                 unsigned ops = 0;
                 //paramTypes.push_back(VectorType::get(Type::getInt64Ty(M.getContext()), 1));
                 std::vector<Value*> vs;
-                //std::cout << "add use: " << num1 << "\n";
+                //std::cerr << "add use: " << num1 << "\n";
                 //inst->dump();
                 for (Use &U : inst->operands()) {
                     Value *v = U.get();
                     if (dyn_cast<Instruction>(v)) {
                         ops++;
                         Instruction* i = dyn_cast<Instruction>(v);
-                        i->dump();
                         int num2 = getClapNum(i);
-                        //std::cout << "num: " << num2 << "\n";
+                        //std::cerr << "num: " << num2 << "\n";
                         if (num2 == 0) continue ;
                         params.push_back(ConstantInt::get(func->getContext(), APInt(64, num2)));
                     }
                 }
 
-                //std::cout << "params size: " << params.size() << " " << vs.size() << " " << ops << "\n";
+                //std::cerr << "params size: " << params.size() << " " << vs.size() << " " << ops << "\n";
                 if (ops == 0) continue ;
 
                 //VectorType* vty = VectorType::get(Type::getInt64Ty(func->getContext()), ops);
@@ -1816,7 +1931,6 @@ namespace {
                     default: assert(false);
                 }
                 
-                addFunc->getFunctionType()->dump();
                 /*if (ops == 2) {
                     params.erase(params.end()-1);
                     
@@ -1828,7 +1942,7 @@ namespace {
                         int i = vit-vs.begin();
                         llvm::ArrayRef<Value*> indx = {ConstantInt::get(func->getContext(), APInt(64, i))};
                         //indx.push_back(vit-vs.begin());
-                        std::cout << "getelemntptr:\n";
+                        std::cerr << "getelemntptr:\n";
                         //uV->dump();
                         //cast<PointerType>(uV->getType()->getScalarType())->getElementType()->dump();
                         Type::getInt64Ty(inst->getContext())->dump();
@@ -1839,46 +1953,136 @@ namespace {
                     newLoadI = new LoadInst(uV, "", inst);
                     params.push_back(newLoadI);
                 }*/
-                //std::cout << "ssss: " << addFunc->getFunctionType()->getNumParams() << " " << params.size() << "\n";
+                //std::cerr << "ssss: " << addFunc->getFunctionType()->getNumParams() << " " << params.size() << "\n";
                 CallInst::Create(addFunc->getFunctionType(), addFunc, params, "", inst);   
             }
 
-            //std::cout << "mmm: " << DT->getNode(b) << "\n";
+            //std::cerr << "mmm: " << DT->getNode(b) << "\n";
             //if (DT->getNode(b) == NULL)
             //    b->dump();
 
+            std::vector<uint64_t> nums;
+            for (auto it = pred_begin(b), et = pred_end(b); it != et; ++it) {
+                BasicBlock* predecessor = *it;
+                if (mayControl(predecessor, b)) {
+                    uint64_t num = getClapNum(predecessor->getTerminator());
+                    nums.push_back(num);
+                }
+
+                /*for (BasicBlock::iterator dBBIt = predecessor->begin();
+                        dBBIt != predecessor->end(); ++dBBIt) {
+                    Instruction* i = &*dBBIt;
+                    if (CallInst* c = dyn_cast<CallInst>(i)) {
+                        if (c->getCalledFunction() != NULL &&
+                                c->getCalledFunction()->getName().str() == "checker_trackDynInfo") {
+                            ConstantInt* constI = dyn_cast<ConstantInt>(c->getOperand(0));
+                            const uint64_t* num = constI->getValue().getRawData();
+                            if (*num > 10000000000 && std::find(nums.begin(), nums.end(), *num) == nums.end())
+                                nums.push_back(*num);
+                        }
+                    }
+                }*/
+            }
+                    
+
             if (DT->getNode(b) && DT->getNode(b)->getIDom() != NULL) {
-                //std::cout << "mmm3\n";
+                //std::cerr << "mmm3\n";
+                bool flag = true;
                 BasicBlock* dBB = DT->getNode(b)->getIDom()->getBlock();
+                if (PDT->getNode(dBB) && PDT->getNode(dBB)->getIDom() != NULL) {
+                    BasicBlock* pdBB = PDT->getNode(dBB)->getIDom()->getBlock();
+                    //std::cerr << "ttttttt: " << b << " " << dBB << " " << " " << PDT->getNode(dBB)->getIDom() << " " << pdBB << "\n";
+                    //b->dump();
+                    //dBB->dump();
+                    //if (pdBB != NULL)
+                    //    pdBB->dump();
+                    
+                    if (pdBB == b) {
+                        flag = false;
+                        //continue ;
+                    }
+                }
+
                 Instruction* termI = dBB->getTerminator();
                 if (termI->getOpcode() != Instruction::Br && termI->getOpcode() != Instruction::Switch)
-                    continue ;
-                //std::cout << "bbbbbbb1: " << dBB << "\n";
+                    flag = false;
+
+                if (flag == false) {
+                    for (BasicBlock::iterator dBBIt = dBB->begin();
+                            dBBIt != dBB->end(); ++dBBIt) {
+                        Instruction* i = &*dBBIt;
+                        if (CallInst* c = dyn_cast<CallInst>(i)) {
+							Function* f = c->getCalledFunction();
+                            if ( f && f->getName().str() == "checker_trackDynInfo") {
+                                ConstantInt* constI = dyn_cast<ConstantInt>(c->getOperand(0));
+                                const uint64_t* num = constI->getValue().getRawData();
+                                if (std::find(nums.begin(), nums.end(), *num) == nums.end())
+                                    nums.push_back(*num);
+                            }
+                        }
+                    }
+                } else {
+                    uint64_t num = getClapNum(dBB->getTerminator());
+                    if (std::find(nums.begin(), nums.end(), num) == nums.end())
+                        nums.push_back(num);
+                }
+
+                //std::cerr << "checkerloop: " << containCheckerLoop << "\n"; 
+                if (containCheckerLoop) {
+                    for (auto it = pred_begin(b), et = pred_end(b); it != et; ++it) {
+                        BasicBlock* predecessor = *it;
+                        //predecessor->dump();
+                        for (BasicBlock::iterator bIt = predecessor->begin();
+                                bIt != predecessor->end(); ++bIt) {
+                            Instruction* inst = &*bIt;
+                            if (CallInst* c = dyn_cast<CallInst>(inst)) {
+								Function* f = c->getCalledFunction();
+                                if (f->getName().str() == "checker_trackDynInfo") {
+                                    ConstantInt* constI = dyn_cast<ConstantInt>(c->getOperand(0));
+                                    const uint64_t* num = constI->getValue().getRawData();
+                                    if (std::find(nums.begin(), nums.end(), *num) == nums.end())
+                                        nums.push_back(*num);
+                                    //std::cerr << "vvvvv22\n";
+                                }
+                            }
+                        }
+            
+                    }
+                }
+
+                //continue ;
+                //std::cerr << "bbbbbbb1: " << dBB << "\n";
                 //dBB->getTerminator()->dump();
-                Function* func = myFunctions["checker_trackDynInfo"];
-                uint64_t num = getClapNum(dBB->getTerminator());
+                //if (flag) {
+                for (std::vector<uint64_t>::iterator nIt = nums.begin();
+                        nIt != nums.end(); ++nIt) {
+                    Function* func = myFunctions["checker_trackDynInfo"];
+                    uint64_t num = *nIt;// getClapNum(dBB->getTerminator());
 
-                std::vector<Value*> params;
-                params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
-                Instruction* firstI = b->getFirstNonPHIOrDbg();//&*(b->begin());
-                if (dyn_cast<LandingPadInst>(firstI)) continue ;
-                firstI->dump();
+                    std::vector<Value*> params;
+                    params.push_back(ConstantInt::get(func->getContext(), APInt(64, num)));
+                    Instruction* firstI = b->getFirstNonPHIOrDbg();//&*(b->begin());
+                    if (dyn_cast<LandingPadInst>(firstI)) continue ;
 
-                CallInst::Create(func->getFunctionType(), func, params, "", firstI);  
+                    CallInst::Create(func->getFunctionType(), func, params, "", firstI);  
 
-                func = myFunctions["checker_trackDynInfoEnd"];
-                params.clear();
-                Instruction* lastI = b->getTerminator();//&*(b->begin());
-                CallInst::Create(func->getFunctionType(), func, params, "", lastI);   
+                    func = myFunctions["checker_trackDynInfoEnd"];
+                    params.clear();
+                    Instruction* lastI = b->getTerminator();//&*(b->begin());
+                    CallInst::Create(func->getFunctionType(), func, params, "", lastI);
+                }
             }
 
-            //std::cout << "mmm2\n";
+            Instruction* insert = b->getFirstNonPHIOrDbg();
+            while (dyn_cast<LandingPadInst>(insert) != NULL)
+                insert = insert->getNextNode();
+
             Instruction* terminate = b->getTerminator();
             uint64_t n = getClapNum(terminate);
             Function* func = myFunctions["checker_currentBB"];
             std::vector<Value*> params;
             params.push_back(ConstantInt::get(func->getContext(), APInt(64, n)));
-            CallInst::Create(func->getFunctionType(), func, params, "", terminate);  
+            CallInst::Create(func->getFunctionType(), func, params, "", insert);  
 
             for (BBIt = it->begin();
                     BBIt != it->end(); ++BBIt) {
@@ -1896,15 +2100,23 @@ namespace {
         deleteInsts(func);
     }
 
+    int instNum = 0;
     void addIDForInsts(Module &M) {
         ++ModuleCounter;
+        //uint64_t clapNum = 0;
         errs() << "TAP_InstrumentInstNumber : ";
         errs().write_escaped(M.getModuleIdentifier()) << '\n';
 
+        LLVMContext &C = M.getContext();
         for (Module::iterator F = M.begin(); F != M.end(); F++) {
+            if (F->getName().str().find("_DpOT0_") != std::string::npos) continue ;
+            
+            if (F->getName().str().find("thread") != std::string::npos || 
+                    F->getName().str().length() >= 20) continue ;
+
             for (Function::iterator B = F->begin(); B != F->end(); B++) {
                 for (BasicBlock::iterator I = B->begin(); I != B->end(); I++) {
-          
+                    Instruction* inst = &*I; 
                     /*if (CallInst *callI = dyn_cast<CallInst>(I)) {
                         //skip the LLVM intrisic calls
                         if (dyn_cast<IntrinsicInst>(callI) != NULL)  
@@ -1918,14 +2130,26 @@ namespace {
                     }*/
 
                     //assign a unique Metadata number to the instruction
-                    LLVMContext &C = B->getParent()->getParent()->getContext();
-                    llvm::ValueAsMetadata* data = ValueAsMetadata::get(ConstantInt::get(C, APInt(64,++InstCounter)));
-                    llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
-                    llvm::ArrayRef<llvm::Metadata*> elts = {meta};
-                    MDNode* md_node = MDNode::get(C, elts);
+                    //Type *type = IntegerType::get(C, 64);
+                    //clapNum = clapNum+1;
+                    //ConstantInt *cInt1 = ConstantInt::get(IntegerType::get(C, 64), clapNum);
+                    //ConstantInt *cInt = ConstantInt::get(IntegerType::get(C, 64), ++InstCounter);
+                    //llvm::ValueAsMetadata* data = ValueAsMetadata::get(cInt1);
+                    //llvm::Metadata* meta = dyn_cast<ValueAsMetadata>(data);
+                    //llvm::ArrayRef<llvm::Metadata*> elts = {meta};
+                    //MDNode* md_node = MDNode::get(C, elts);
+
+                    InstCounter++;
+                    instNum++;
+                    MDNode* temp_N = MDNode::get(C, ConstantAsMetadata::get(ConstantInt::get(C, APInt(64, instNum))));
+                    //MDNode* md_node1 = MDNode::get(C, temp_N);
+
+                    //std::cerr << "MDDDDDDDDDDDDDDDDDDD: " << isa<MDNode>(md_node) << "\n";
                     //md_node->dump();
-                    I->setMetadata("clap", md_node);
-                    //I->dump();
+
+                    inst->setMetadata("clap", temp_N);
+
+                    std::cerr << "setting clap: " << InstCounter << " " << instNum << "\n";
                     //if (dyn_cast<BranchInst>(&*I)) 
                     //    instrBr(&*I);
                 }        
@@ -1935,40 +2159,73 @@ namespace {
         //InstCounter += (1<<16);
     }
 
+    void identifySharedVars(Module &M) {
+        for (Module::iterator it = M.begin(); it != M.end(); ++it) {
+            Function* func = &*it;
+            for (Function::iterator it1 = func->begin(); it1 != func->end(); ++it1) {
+                BasicBlock* BB = &*it1;
+                for (BasicBlock::iterator it2 = BB->begin(); it2 != BB->end(); ++it2) {
+                    Instruction* inst = &*it2;
+                    if (inst->getOpcode() == Instruction::Call) {
+                        Function* calledFunc = dyn_cast<CallInst>(inst)->getCalledFunction();
+                        if (calledFunc && calledFunc->getName().str().find("checker_shared") != std::string::npos) {
+                            std::cerr << "shared:\n";
+                            inst->getOperand(0)->stripPointerCasts()->dump();
+                            sharedValues.insert(inst->getOperand(0)->stripPointerCasts());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     virtual bool runOnModule(Module &M) override {
       //auto &PDT = AM.getResult<PostDominatorTreeAnalysis>(F);
 
-      //std::cout << "Instrument code: begin!\n";
-      
+      std::cerr << "Instrument code: begin!\n";
+   
+      identifySharedVars(M);
       addSpecialFunctions(M);
+      std::cerr << "ssssssssssssssss\n";
       for (Module::iterator it = M.begin(); 
               it != M.end(); ++it) {
         Function* func = &*it;
 
-        if (func->isDeclaration())
-            continue;
+        if (func->isDeclaration()) continue;
+        if (func->getName().str().find("thread") != std::string::npos ||
+                func->getName().str().size() >= 20) continue ;
         //auto &DT = AU.getResult<DominatorTreeAnalysis>(func);
         //auto *DT = &getAnalysis<DominatorTreeWrapperPass>().getDomTree();
         //const DominatorTree* DT2;
 
         if (func->getName().str().find("check_") != std::string::npos) {
-            //std::cout << "skip fun: " << func->getName().str() << "\n";
+            //std::cerr << "skip fun: " << func->getName().str() << "\n";
             continue ;
         }
         instrFunc(func);
       }
-      
+     
+      std::cerr << "ccccccccccccccccccccccccccccccccccccccccccccccccccccc\n";
       addIDForInsts(M);
+      std::cerr << "ccccccccccccccccccccccccccccccccccccccccccccccccccccc\n";
 
       for (Module::iterator it = M.begin();
               it != M.end(); ++it) {
           Function* func = &*it;
           if (func->isDeclaration())    continue ;
           
+          if (func->hasInternalLinkage()) continue ;
+          
+          if (func->getName().str().find("thread") != std::string::npos ||
+                  func->getName().str().size() >= 20) continue ;
+
+          //if (func->getName().str().find("f2v") != std::string::npos) continue ;
+          std::cerr << "begin func2: " << func->getName().str() << "\n";
           instrFunc2(func);
+          std::cerr << "end func2: " << func->getName().str() << "\n";
       }
       
-      std::cout << "Instrument code: end!\n";
+      std::cerr << "Instrument code: end!\n";
       return true;
     }
 

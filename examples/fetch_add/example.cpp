@@ -17,23 +17,22 @@ std::atomic<int> x, y;
 void f1()
 {
     checker_thread_begin("f1");
-    //checker_shared((void*)&data1);
-    //checker_shared((void*)&data2);
+    
     data1 = x.load(std::memory_order_relaxed);
-    //y.store(1, std::memory_order_relaxed);
-    int m = y.fetch_add(1, std::memory_order_relaxed);
-    printf("m = %d\n", &m);
+    if (data1 == 1) {
+        data1 = 10;
+        x.store(2, std::memory_order_relaxed);
+    } data2 = y.load(std::memory_order_relaxed);
+    if (data2 == 1)
+        data2 = 10;
     checker_thread_end();
 }
 
 void f2()
 {
     checker_thread_begin("f2");
-    //checker_shared((void*)&data1);
-    //checker_shared((void*)&data2);
-    data2 = y.load(std::memory_order_relaxed);
-    //x.store(1, std::memory_order_relaxed);
-    x.fetch_add(1, std::memory_order_relaxed);
+    x.store(1, std::memory_order_relaxed);
+    y.store(1, std::memory_order_relaxed);
     checker_thread_end();
 }
  

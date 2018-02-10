@@ -1,0 +1,4 @@
+/home/easyqiu/installed/llvm-4.0.0/build/bin/clang++ -std=c++11 -pthread -I../.. -emit-llvm -c -g -O3 example.cpp -o example.bc
+nohup /home/easyqiu/installed/llvm-4.0.0/build/bin/opt -load LLVMMyInstr.so -codeInstr example.bc -o x.bc > x
+/home/easyqiu/installed/llvm-4.0.0/build/bin/llc -filetype=obj x.bc
+/home/easyqiu/installed/llvm-4.0.0/build/bin/clang++ -pthread -L$MY_HOME/Dropbox/papers/C++11/Checker11/ -I../.. -lChecker11 -g -O3 -o example x.o

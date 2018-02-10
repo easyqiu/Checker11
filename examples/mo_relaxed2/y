@@ -1,5 +1,0 @@
-MEMORY-ORDER CONSTRAINTS -----
-unsat
-(error "line 870 column 10: model is not available")
-()
-end

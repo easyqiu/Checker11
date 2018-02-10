@@ -73,5 +73,6 @@ int main() {
     while (modelChecker->getSchList().size()) 
         user_main();
 
+    delete modelChecker;
     return 0;
 }

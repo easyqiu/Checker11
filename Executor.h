@@ -25,12 +25,7 @@ namespace  checker {
     public:
 
         Executor();
-        ~Executor() {
-            pthread_mutex_destroy(&lock);
-            pthread_mutex_destroy(&lockForThreadMap);
-            pthread_mutex_destroy(&lockForRW);
-            pthread_mutex_destroy(&lockForFair);
-        }
+        ~Executor();
 
         void setModelChecker(ModelChecker* checker);
 
@@ -43,7 +38,7 @@ namespace  checker {
         Thread* getThreadByName(std::string name);
         Action* getAction(std::string tid, int seq_num);
 
-        void addAction(Thread* thread, Action* action);
+        void addAction(Thread* thread, Action* action, uint64_t clapNum = 0);
 
         void execute_thread_create_action(std::string id1, std::string id2);
 
@@ -98,9 +93,9 @@ namespace  checker {
 
         void execute_fence_action(std::string tid, int mo);
 
-        std::map<std::string, Thread *> getThreadMap();
+        std::map<std::string, Thread *>& getThreadMap();
 
-        std::map<std::string, std::string> getThreadCreateMap() { return threadCreateMap; };
+        std::map<std::string, std::string>& getThreadCreateMap() { return threadCreateMap; };
 
         void begin_solver();
 
@@ -130,11 +125,13 @@ namespace  checker {
 
         void printSolutionValue();
         void printTrace();
-        std::map<std::string,std::string> getSolutionValues() { return solutionValues; }
-        void generateSolutionFile(std::vector<RWAction*> reads,
-                                  std::map<RWAction*, int64_t> enforcePairs, std::set<std::string> enforcedRFs);
+        std::map<std::string,std::string>& getSolutionValues() { return solutionValues; }
+        Schedule* generateSolutionFile(std::vector<RWAction*> reads,
+                                  std::map<RWAction*, int64_t> enforcePairs,
+                                       std::set<std::string> enforcedRFs);
+                                        //std::set<std::string> binaryRelations);
         void add_unsat_core(int i) { unsatCore.push_back(i); }
-        std::vector<int> get_unsat_core() { return unsatCore; }
+        std::vector<int>& get_unsat_core() { return unsatCore; }
         void resetSolver();
         void scheduleNewExe();
         void setCurSch(Schedule* sch) {
@@ -154,13 +151,14 @@ namespace  checker {
             threadJoinPoints[a] = b;
         }
 
-        std::map<Action*, Action*> getJoinPoints() { return threadJoinPoints; }
+        std::map<Action*, Action*>& getJoinPoints() { return threadJoinPoints; }
 
-        std::map<Action*, Action*> getCreatePoints() { return threadCreatePoints; }
+        std::map<Action*, Action*>& getCreatePoints() { return threadCreatePoints; }
 
-        std::vector<Schedule*> getSchedules() { return schedules; }
+        //std::vector<Schedule*> getSchedules() { return schedules; }
 
-        void updateBuffer(std::string tid, void* loc, int64_t val, int order);
+        void updateBuffer(std::string tid, void* loc, int64_t val, std::string context, int order);
+        void updateLocalBuffer(std::string tid, void* loc, int64_t val, std::string context, int order);
 
         void updateDefUseList(std::string tid, uint64_t clapNum, std::vector<uint64_t > vec);
 
@@ -174,9 +172,14 @@ namespace  checker {
         void handleFuncBegin(std::string tid, std::string name);
         void handleFuncEnd(std::string tid);
 
-        bool checkFairness(std::map <std::pair<std::string, int>, int64_t> valueMap);
+        bool checkFairness(std::map<std::pair<std::string, int>, int64_t> valueMap);
 
         void updatePriority(std::string tid);
+
+        void handleLoopDep(int bid, std::string name);
+
+        std::map<int, std::set<int> > &getLoopDepArray() { return loopDepArray; }
+        std::map<int, std::vector<Action*> > &getLoopDepActionMap() { return loopDepActionMap; }
 
     protected:
         std::map<std::string, Thread*> threadMap;
@@ -184,6 +187,7 @@ namespace  checker {
         pthread_mutex_t lockForThreadMap;
         pthread_mutex_t lockForRW;
         pthread_mutex_t lockForFair;
+        pthread_mutex_t lockForBuffer;
 
         std::map<Action*, Action*> threadCreatePoints;
         std::map<std::string, std::string> threadCreateMap;
@@ -212,16 +216,20 @@ namespace  checker {
         std::string solverPath;
         std::string formulaFile;
         time_t startTime, endTime;
-        std::map<std::string,std::string> solutionValues;
+        std::map<std::string, std::string> solutionValues;
         std::vector<int> unsatCore;
         bool bugFixMode;
         bool firstThread;
-        std::vector<Schedule*> schedules;
+        //std::vector<Schedule*> schedules;
         std::map<std::string, int> threadsName;
 
         // for fair schedule
         std::set<std::string> enabledThreads;
         std::map<std::string, std::set<std::string> > priorityOrder;
+
+        std::map<int, std::set<int> > loopDepArray;
+        std::map<int, std::vector<Action*> > loopDepActionMap;
+
 
     };
 }

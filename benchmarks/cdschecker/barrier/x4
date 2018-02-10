@@ -1,0 +1,7206 @@
+Generate a model checker11: 0x7fe259600000 0
+Load schedule from file: 
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe259500940
+Generate a new Executor: 0x7fe2595001a0 0x7fe259500940
+
+In checker_thread_begin: 0x7fff72793000
+before enter lock: thread create 0x7fff72793000
+in thread_begin_action: 0x7fe2595001a0 0x7fff72793000 main ~0~~
+before addAction lock: 0x7fe259500b60 0x7fe259600140
+thread: 0x7fe259500b60 0x7fe259600140
+thread add end: 0x7fe259500b60 0x7fe259600140 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe2595001a0 0x7fe259500330 0x7fff72793000
+
+bbbb0: 0x7fff72793000 0x7fe259500b60
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+checker_addUses: 84 1 83
+
+update load: 84 0
+83 0 
+
+checker_addUses: 85 1 82
+
+update load: 85 0
+82 0 
+
+checker_addUses: 86 1 85
+
+update load: 86 0
+85 0 
+
+checker_addUses: 87 1 86
+
+update load: 87 0
+86 0 
+
+checker_addUses: 88 1 87
+
+update load: 88 0
+87 0 
+
+In atomic checker_preStore: 0x7fe2596002d4 0 7!
+In write: 0x7fff72793000 0x7fe259500b60 0x7fe259600570
+Before add action: 0x7fe259500b60 0x7fe259600570
+before addAction lock: 0x7fe259500b60 0x7fe259600570
+thread: 0x7fe259500b60 0x7fe259600570
+thread add end: 0x7fe259500b60 0x7fe259600570 8 1
+enabled threads: 1
+0x7fff72793000
+In add action: main-1
+End add action! main-1
+action: main-1
+loads: 0 1
+
+set load:  main-1 0
+
+update buf1: 0x7fe259500b60 0x7fe2596002d4 0
+update buf1 end: 0x7fe259500b60
+
+Write value1: main-1 0x7fe2596002d4 0!
+checker_addUses: 89 1 86
+
+update load: 89 0
+86 0 
+
+checker_addUses: 90 1 82
+
+update load: 90 0
+82 0 
+
+checker_addUses: 91 1 90
+
+update load: 91 0
+90 0 
+
+checker_addUses: 92 1 91
+
+update load: 92 0
+91 0 
+
+checker_addUses: 93 1 92
+
+update load: 93 0
+92 0 
+
+In atomic checker_preStore: 0x7fe2596002d8 0 7!
+In write: 0x7fff72793000 0x7fe259500b60 0x7fe259600890
+Before add action: 0x7fe259500b60 0x7fe259600890
+before addAction lock: 0x7fe259500b60 0x7fe259600890
+thread: 0x7fe259500b60 0x7fe259600890
+thread add end: 0x7fe259500b60 0x7fe259600890 8 2
+enabled threads: 1
+0x7fff72793000
+In add action: main-2
+End add action! main-2
+action: main-2
+loads: 0 2
+
+set load:  main-2 0
+
+update buf1: 0x7fe259500b60 0x7fe2596002d8 0
+update buf1 end: 0x7fe259500b60
+
+Write value1: main-2 0x7fe2596002d8 0!
+checker_addUses: 94 1 91
+
+update load: 94 0
+91 0 
+
+checker_addUses: 95 1 82
+
+update load: 95 0
+82 0 
+
+checker_addUses: 96 1 78
+
+update load: 96 0
+78 0 
+
+checker_addUses: 98 1 78
+
+update load: 98 0
+78 0 
+
+BeginFunc: 0x7fe2595001a0
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+
+update load: 192 0
+191 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 234 1 231
+checker_addUses: 99 1 79
+checker_addUses: 235 1 230
+
+update load: 99 0
+79 0 
+
+checker_addUses: 236 1 235
+checker_addUses: 101 1 79
+checker_addUses: 237 2 236
+
+update load: 101 0
+79 0 
+
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 239 1 238
+checker_addUses: 240 1 239
+checker_addUses: 179 1 178
+checker_addUses: 241 1 240
+
+update load: 179 0
+178 0 
+
+
+In checker_thread_begin: 0x700000081000
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 192 1 191
+checker_addUses: 234 1 231
+
+update load: 192 0
+191 0 
+
+checker_addUses: 235 1 230
+checker_addUses: 102 1 78
+Waitting for create thread checker_addUses: 236 1 235
+0x700000081000
+update load: 102 0
+78 0 
+
+checker_addUses: 237 2 236
+
+checker_addUses: 103 1 102
+checker_addUses: 239 1 238
+
+update load: 103 0
+102 0 
+
+checker_addUses: 240 1 239
+checker_addUses: 104 1 103
+checker_addUses: 241 1 240
+
+update load: 104 0
+103 0 
+
+
+In checker_thread_begin: 0x700000104000
+Waitting for create thread 
+In checker_thread_create: 0x7fff72793000 0x700000081000
+0x700000081000before addAction lock: 
+0x7fe259500b60 0x7fe2594031f0
+thread: 0x7fe259500b60 0x7fe2594031f0
+thread add end: 0x7fe259500b60 0x7fe2594031f0 1 3
+enabled threads: 1
+0x7fff72793000
+In add action: main-3
+End add action! main-3
+checker_addUses: 105 1 79
+
+update load: 105 0
+79 0 
+
+checker_addUses: 106 1 105
+
+update load: 106 0
+105 0 
+
+checker_addUses: 107 1 106
+
+update load: 107 0
+106 0 
+
+
+In checker_thread_create: 0x7fff72793000 0x700000104000
+before addAction lock: 0x7fe259500b60 0x7fe259403400
+thread: 0x7fe259500b60 0x7fe259403400
+thread add end: 0x7fe259500b60 0x7fe259403400 1 4
+enabled threads: 1
+0x7fff72793000
+In add action: main-4
+End add action! main-4
+checker_addUses: 108 1 102
+
+update load: 108 0
+102 0 
+
+checker_addUses: 109 1 108
+
+update load: 109 0
+108 0 
+
+before addAction lock: 0x7fe259500b60 0x7fe2595010b0
+thread: 0x7fe259500b60 0x7fe2595010b0
+thread add end: 0x7fe259500b60 0x7fe2595010b0 4 5
+enabled threads: 1
+0x7fff72793000
+In add action: main-5
+End add action! main-5
+checker_addUses: 110 1 105
+
+update load: 110 0
+105 0 
+
+checker_addUses: 111 1 110
+Waitting for create thread 0x700000104000
+
+update load: 111 0
+110 0 
+
+before enter lock: thread create 0x700000104000
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+in thread_begin_action: 0x7fe2595001a0 0x700000104000 threadB ~1~~
+update buf2: 0x7fe2597000d0 2
+before addAction lock: 0x7fe2597000d0 0x7fe2597004f0
+thread: 0x7fe2597000d0 0x7fe2597004f0
+thread add end: 0x7fe2597000d0 0x7fe2597004f0 2 0
+enabled threads: 1
+0x7fff72793000
+In add action: threadB-0
+End add action! threadB-0
+BBB: 0x7fe2595001a0 0x7fe259500330 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe2597000d0
+0x7fff72793000 0x700000081000
+0x7fff72793000 0x700000104000
+bbb: 0x7fe259403400 0x7fe2597004f0
+before addAction lock: 0x7fe259500b60 checker_addUses: 41 1 40
+0x7fe259501260
+thread: 0x7fe259500b60 0x7fe259501260
+thread add end: 0x7fe259500b60 0x7fe259501260 4 6
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+
+update load: 41 0
+40 0 
+
+In add action: main-6
+checker_addUses: 42 1 41
+End add action! main-6
+
+update load: 42 0
+41 0 
+
+checker_addUses: 43 1 42
+checker_addUses: 112 1 79
+
+update load: 43 0
+42 0 
+
+
+update load: 112 0
+79 0 
+
+In atomic checker_preLoad: 0x7fe2596002d8 7 43!
+In read action: 0x700000104000
+before addAction lock: 0x7fe2597000d0 0x7fe2597007e0
+thread: 0x7fe2597000d0 0x7fe2597007e0
+thread add end: 0x7fe2597000d0 0x7fe2597007e0 7 1
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+in thread_begin_action: 0x7fe2595001a0 0x700000081000 threadA ~2~~
+update buf2: 0x7fe259501450 2
+before addAction lock: 0x7fe259501450 0x7fe259501830
+In add action: threadB-1
+Tset: 2 2 0x700000104000
+0x700000104000 0x7fff72793000 
+End add action! threadB-1
+loads: 0 1
+
+set load:  threadB-1 0
+
+
+add load: 43 threadB-1 1
+In pre_read action: threadB-1
+get value: 0x7fe259700460 0x7fe2596002d8 0
+current values for: 0x7fe2596002d8
+0 
+
+Read expect value: threadB-1 0x7fe2596002d8 0 0 0
+End: 0x700000104000 threadB-1
+checker_addUses: 44 1 41
+
+update load: 44 0
+41 0 
+
+checker_addUses: 45 1 40
+
+update load: 45 0
+40 0 
+
+checker_addUses: 46 1 45
+
+update load: 46 0
+45 0 
+
+checker_addUses: 47 1 46
+
+update load: 47 0
+46 0 
+
+In rmw_add: 0x7fe2596002d4 1 7
+before addAction lock: 0x7fe2597000d0 0x7fe259501b30
+thread: 0x7fe259501450 0x7fe259501830
+thread add end: 0x7fe259501450 0x7fe259501830 2 0
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+In add action: threadA-0
+End add action! threadA-0
+BBB: 0x7fe2595001a0 0x7fe259500330 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe259501450
+0x7fff72793000 0x700000081000
+bbb: 0x7fe2594031f0 0x7fe259501830
+checker_addUses: 4 1 3
+thread: 0x7fe2597000d0 0x7fe259501b30
+thread add end: 0x7fe2597000d0 0x7fe259501b30 
+update load: 4 0
+3 0 
+
+11 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+checker_addUses: 5 1 4
+In add action: threadB-2
+
+update load: 5 0
+4 0 
+
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+checker_addUses: 6 1 5
+End add action! threadB-2
+
+update load: 6 0
+5 0 
+
+
+add load: 47 threadB-2 1
+In atomic checker_preLoad: 0x7fe2596002d8 loads: 71  62!
+
+In read action: 0x700000081000
+
+set load:  threadB-2 1
+threadB-2 
+get value: 0x7fe2597003c0 0x7fe2596002d4 0
+current values for: 0x7fe2596002d4
+0 
+
+expect value rmw_add: threadB 2 0 !1! 47
+
+update buf1: 0x7fe259501450 0x7fe2596002d4 1
+update buf1 end: 0x7fe259501450
+update buf1: 0x7fe2597000d0 0x7fe2596002d4 1
+update buf1 end: 0x7fe2597000d0
+update buf1: 0x7fe259500b60 0x7fe2596002d4 1
+update buf1 end: 0x7fe259500b60
+before addAction lock: checker_addUses: 48 1 45
+0x7fe259501450 0x7fe259403620
+thread: 0x7fe259501450 0x7fe259403620
+
+update load: 48 0
+45 0 
+
+thread add end: 0x7fe259501450 0x7fe259403620 7 1
+enabled threads: 3
+checker_addUses: 49 1 40
+0x700000081000
+0x700000104000
+0x7fff72793000
+
+update load: 49 0
+40 0 
+
+In add action: threadA-1
+checker_addUses: 50 1 49
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+
+update load: 50 0
+49 0 
+
+End add action! threadA-1
+loads: 0 checker_addUses: 51 1 50
+1
+
+set load:  threadA-1 0
+
+
+update load: 51 0
+50 0 
+
+
+add load: 6 threadA-1 1
+checker_addUses: 52 2 47
+In pre_read action: threadA-1
+
+update load: 52 1
+47 51 0 
+threadB-2 
+get value: 0x7fe2595017b0 0x7fe2596002d8 0
+current values for: 0x7fe2596002d8
+0 
+checker_addUses: 53 1 52
+
+Read expect value: threadA-1 0x7fe2596002d8 0 0 0
+End: 0x700000081000 threadA-1
+
+update load: 53 1
+52 0 
+threadB-2 
+checker_addUses: 7 1 4
+
+update load: 7 0
+4 0 
+
+checker_addUses: 8 1 3
+
+update load: 8 0
+3 0 
+
+checker_addUses: 9 1 8
+
+update load: 9 0
+8 0 
+
+checker_addUses: 62 1 41
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+
+update load: 62 1
+41 0 53 66 
+threadB-2 
+In rmw_add: 0x7fe2596002d4 1 7
+before addAction lock: checker_addUses: 63 1 62
+0x7fe259501450 0x7fe259700ab0
+thread: 0x7fe259501450 
+update load: 63 1
+62 0 53 66 
+threadB-2 
+0x7fe259700ab0
+thread add end: 0x7fe259501450 In atomic checker_preLoad: 0x7fe259700ab0 0x7fe2596002d8 11 72 
+63enabled threads: !
+3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In read action: 0x700000104000
+In add action: threadA-2
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadA-2
+
+add load: 10 threadA-2 1
+loads: 1 2
+
+set load:  threadA-2 1
+threadA-2 
+get value: 0x7fe259501730 0x7fe2596002d4 1
+current values for: 0x7fe2596002d4
+0 1 
+
+expect value rmw_add: threadA 2 1 !1! 10
+
+update buf1: 0x7fe259501450 0x7fe2596002d4 2
+update buf1 end: 0x7fe259501450
+update buf1: 0x7fe2597000d0 0x7fe2596002d4 2
+update buf1 end: 0x7fe2597000d0
+update buf1: 0x7fe259500b60 0x7fe2596002d4 2
+update buf1 end: 0x7fe259500b60
+before addAction lock: 0x7fe2597000d0 checker_addUses: 11 1 8
+0x7fe259502110
+thread: 0x7fe2597000d0 0x7fe259502110
+thread add end: 0x7fe2597000d0 0x7fe259502110 7 3
+enabled threads: 
+update load: 11 0
+8 0 
+
+3
+0x700000081000
+0x700000104000
+0x7fff72793000
+checker_addUses: 12 1 3
+In add action: threadB-3
+
+update load: 12 0
+3 0 
+
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+checker_addUses: 13 1 12
+End add action! threadB-3
+loads: 1 3
+update load: 13 0
+12 0 
+
+
+checker_addUses: 14 1 13
+
+set load:  threadB-3 1
+threadB-2 
+
+update load: 14 0
+13 0 
+
+
+add load: 63 threadB-3 1
+In pre_read action: checker_addUses: 15 2 10
+threadB-3
+
+update load: 15 1
+10 14 0 
+threadA-2 
+get value: 0x7fe259700460 0x7fe2596002d8 0
+current values for: 0x7fe2596002d8
+0 
+checker_addUses: 16 1 15
+
+Read expect value: threadB-3 0x7fe2596002d8 0 0 0
+
+update load: 16 1
+15 0 
+threadA-2 
+End: 0x700000104000 threadB-3
+checker_addUses: 64 1 41
+checker_addUses: 18 1 8
+
+update load: 64 1
+41 0 53 66 
+threadB-2 
+
+update load: 18 1
+8 0 16 
+threadA-2 
+checker_addUses: 65 2 63
+checker_addUses: 19 1 18
+
+update load: 19 1
+18 0 16 
+threadA-2 
+In atomic checker_preStore: 0x7fe2596002d4 0 7!
+
+update load: 65 3
+63 43 0 53 66 
+threadB-2 threadB-3 threadB-1 
+In write: 0x700000081000 0x7fe259501450 0x7fe259700fb0
+Before add action: 0x7fe259501450 0x7fe259700fb0
+before addAction lock: 0x7fe259501450 checker_addUses: 66 1 65
+0x7fe259700fb0
+thread: 0x7fe259501450 0x7fe259700fb0
+thread add end: 0x7fe259501450 0x7fe259700fb0 8 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-3
+
+update load: 66 3
+65 0 53 66 
+threadB-2 threadB-3 threadB-1 
+End add action! threadA-3
+action: threadA-3
+loads: 1 3
+
+set load:  threadA-3 1
+threadA-2 
+In thread_yield_action!
+update buf1: 0x7fe259501450 0x7fe2596002d4 0
+update buf1 end: 0x7fe259501450
+update buf1: Begin thread yield!
+In thread yield!
+0x7fe2597000d0 0x7fe2596002d4 0
+update buf1 end: 0x7fe2597000d0
+update buf1: before addAction lock: 0x7fe259500b60 0x7fe2597000d0 0x7fe2596002d4 0x7fe259600fd0
+thread: 00x7fe2597000d0
+ update buf1 end: 0x7fe259600fd00x7fe259500b60
+
+thread add end: 0x7fe2597000d0 0x7fe259600fd0 3 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+Write value1: threadA-3 0x7fe2596002d4 0!
+
+In add action: threadB-4
+checker_addUses: 20 1 8
+End add action! threadB-4
+
+update load: 20 1
+8 0 16 
+threadA-2 
+End thread yield!
+checker_addUses: 21 1 4
+
+update load: 21 1
+4 0 16 
+threadA-2 
+checker_addUses: 22 1 21
+
+update load: 22 1
+21 0 16 
+threadA-2 
+In rmw_add: 0x7fe2596002d8 1 7
+before addAction lock: 0x7fe259501450 0x7fe259701280
+thread: 0x7fe259501450 0x7fe259701280
+thread add end: 0x7fe259501450 0x7fe259701280 11 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-4
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadA-4
+
+add load: 22 threadA-4 1
+loads: 2 4
+
+set load:  threadA-4 2
+threadA-2 threadA-4 
+get value: 0x7fe2595017b0 0x7fe2596002d8 0
+current values for: 0x7fe2596002d8
+0 
+
+expect value rmw_add: threadA 4 0 !1! 22
+
+update buf1: 0x7fe259501450 0x7fe2596002d8 1
+update buf1 end: 0x7fe259501450
+update buf1: 0x7fe2597000d0 0x7fe2596002d8 1
+update buf1 end: 0x7fe2597000d0
+update buf1: 0x7fe259500b60 0x7fe2596002d8 1
+update buf1 end: 0x7fe259500b60
+checker_addUses: 23 1 4
+
+update load: 23 1
+4 0 16 
+threadA-2 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe259501450 0x7fe2597015d0
+thread: 0x7fe259501450 0x7fe2597015d0
+thread add end: 0x7fe259501450 0x7fe2597015d0 5 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadA-5
+In add action: threadA-5
+End add action! threadA-5
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 62 1 41
+
+update load: 62 3
+41 0 53 66 
+threadB-2 threadB-3 threadB-1 
+checker_addUses: 63 1 62
+
+update load: 63 3
+62 0 53 66 
+threadB-2 threadB-3 threadB-1 
+In atomic checker_preLoad: 0x7fe2596002d8 7 63!
+In read action: 0x700000104000
+before addAction lock: 0x7fe2597000d0 0x7fe259701170
+thread: 0x7fe2597000d0 0x7fe259701170
+thread add end: 0x7fe2597000d0 0x7fe259701170 7 5
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+In add action: threadB-5
+Tset: 2 2 0x700000104000
+0x700000104000 0x7fff72793000 
+End add action! threadB-5
+loads: 3 5
+
+set load:  threadB-5 3
+threadB-2 threadB-3 threadB-1 
+
+add load: 63 threadB-5 1
+In pre_read action: threadB-5
+get value: 0x7fe259700460 0x7fe2596002d8 1
+current values for: 0x7fe2596002d8
+0 1 
+
+Read expect value: threadB-5 0x7fe2596002d8 1 1 1
+End: 0x700000104000 threadB-5
+checker_addUses: 64 1 41
+
+update load: 64 3
+41 0 53 66 
+threadB-2 threadB-3 threadB-1 
+checker_addUses: 65 2 63
+
+update load: 65 4
+63 43 0 53 66 
+threadB-2 threadB-3 threadB-1 threadB-5 
+checker_addUses: 66 1 65
+
+update load: 66 4
+65 0 53 66 
+threadB-2 threadB-3 threadB-1 threadB-5 
+checker_addUses: 75 1 74
+
+update load: 75 1
+74 0 53 
+threadB-2 
+var = 1
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe2597000d0 0x7fe259700cf0
+thread: 0x7fe2597000d0 0x7fe259700cf0
+thread add end: 0x7fe2597000d0 0x7fe259700cf0 5 6
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadB-6
+In add action: threadB-6
+End add action! threadB-6
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 113 1 78
+
+update load: 113 0
+78 0 
+
+In checker_thread_end
+Thread_end_action: 0x7fff72793000
+before addAction lock: 0x7fe259500b60 0x7fe259600df0
+thread: 0x7fe259500b60 0x7fe259600df0
+thread add end: 0x7fe259500b60 0x7fe259600df0 5 7
+enabled threads: 1
+0x7fff72793000
+erase enabledThreads: main-7
+In add action: main-7
+End add action! main-7
+### Execute Time: 0.00664 0.00662 0.00662
+Current Trace: 3
+threadA*threadA|6|1 threadA-1 r 0 6
+threadA*threadA|10|1 threadA-2 rmw 1 2 10
+threadA*threadA|19|1 threadA-3 w 0 19
+threadA*threadA|22|1 threadA-4 rmw 0 1 22
+iiiii: 0x7fe259501450 3
+xx: 2 1
+yy: threadA-2
+xx: 3 1
+yy: threadA-2
+xx: 4 2
+yy: threadA-2
+yy: threadA-4
+threadB*threadB|43|1 threadB-1 r 0 43
+threadB*threadB|47|1 threadB-2 rmw 0 1 47
+threadB*threadB|63|1 threadB-3 r 0 63
+threadB*threadB|63|2 threadB-5 r 1 63
+iiiii: 0x7fe2597000d0 3
+xx: 2 1
+yy: threadB-2
+xx: 3 1
+yy: threadB-2
+xx: 5 3
+yy: threadB-2
+yy: threadB-3
+yy: threadB-1
+main*main|88|1 main-1 w 0 88
+main*main|93|1 main-2 w 0 93
+iiiii: 0x7fe259500b60 0
+Generating: threadA-2 threadA-3 1 0
+checking: read:val threadA-2 0
+mhbList: 1
+enforce: 0x7fe259700ab0 threadA-2 0 
+enforcePairs: 1
+checking fairness: 1
+threadA 2 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe2595001a0
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe2595001a0
+### Basic Prepare Time: 0.001304 0.001316
+### MO Prepare Time: 0.000314 0.000324
+Adding sc constraints: 10
+### SC Prepare Time: 0.001866 0.001879
+In addLockConstraints: 0
+prefix size: 0
+### Part1 Time: 0.001965 0.001978
+reads & writes: 2 4
+reads & writes: 5 2
+### Part2 Time: 0.001091 0.001106
+### Consistent Prepare Time: 0.003115 0.00312
+### Prepare Time: 0.007 0.007007
+AddRWRelations: 1
+Add RW: threadA-2 0
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 1 0
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+skip: threadA-3
+InputVal2: threadB-2 0
+values: threadB-2 1 0
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr: 
+For write: main-1
+skip write1: threadA-2
+skip write3: threadA-3
+consider write: threadB-2
+skip write1: main-1
+xxx: threadA-2 0 (or  (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0)))))
+ttt: (or  (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0)))))
+Adding SW Constraints: 1
+End adding SW Constraints!
+### RWConstraint construct Time: 0.001596 0.001611
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.002735 0.002742
+Create a Schedule: 0x7fe259408f50
+Generate new schedule: 0x7fe259408f50
+### P1 time: 3.7e-05 4.3e-05
+aaa: 1 main*main|0|1 threadA*threadA|6|1
+aaa: 1 main*main|0|1 threadA*threadA|10|1
+aaa: 1 main*main|0|1 threadA*threadA|19|1
+aaa: 1 main*main|0|1 threadA*threadA|22|1
+aaa: 1 main*main|0|1 threadA*threadA|0|2
+aaa: 1 main*main|0|1 threadB*threadB|43|1
+aaa: 1 main*main|0|1 threadB*threadB|47|1
+aaa: 1 main*main|0|1 threadB*threadB|63|1
+aaa: 1 main*main|0|1 threadB*threadB|0|2
+aaa: 1 main*main|0|1 threadB*threadB|63|2
+aaa: 1 main*main|0|1 threadB*threadB|0|3
+aaa: 1 main*main|88|1 threadA*threadA|6|1
+aaa: 1 main*main|88|1 threadA*threadA|10|1
+aaa: 1 main*main|88|1 threadA*threadA|19|1
+aaa: 1 main*main|88|1 threadA*threadA|22|1
+aaa: 1 main*main|88|1 threadA*threadA|0|2
+aaa: 1 main*main|88|1 threadB*threadB|43|1
+aaa: 1 main*main|88|1 threadB*threadB|47|1
+aaa: 1 main*main|88|1 threadB*threadB|63|1
+aaa: 1 main*main|88|1 threadB*threadB|0|2
+aaa: 1 main*main|88|1 threadB*threadB|63|2
+aaa: 1 main*main|88|1 threadB*threadB|0|3
+aaa: 1 main*main|93|1 threadA*threadA|6|1
+aaa: 1 main*main|93|1 threadA*threadA|10|1
+aaa: 1 main*main|93|1 threadA*threadA|19|1
+aaa: 1 main*main|93|1 threadA*threadA|22|1
+aaa: 1 main*main|93|1 threadA*threadA|0|2
+aaa: 1 main*main|93|1 threadB*threadB|43|1
+aaa: 1 main*main|93|1 threadB*threadB|47|1
+aaa: 1 main*main|93|1 threadB*threadB|63|1
+aaa: 1 main*main|93|1 threadB*threadB|0|2
+aaa: 1 main*main|93|1 threadB*threadB|63|2
+aaa: 1 main*main|93|1 threadB*threadB|0|3
+aaa: 1 main*main|0|2 threadA*threadA|6|1
+aaa: 1 main*main|0|2 threadA*threadA|10|1
+aaa: 1 main*main|0|2 threadA*threadA|19|1
+aaa: 1 main*main|0|2 threadA*threadA|22|1
+aaa: 1 main*main|0|2 threadA*threadA|0|2
+aaa: 1 main*main|0|2 threadB*threadB|43|1
+aaa: 1 main*main|0|2 threadB*threadB|47|1
+aaa: 1 main*main|0|2 threadB*threadB|63|1
+aaa: 1 main*main|0|2 threadB*threadB|0|2
+aaa: 1 main*main|0|2 threadB*threadB|63|2
+aaa: 1 main*main|0|2 threadB*threadB|0|3
+aaa: 1 main*main|0|3 threadB*threadB|43|1
+aaa: 1 main*main|0|3 threadB*threadB|47|1
+aaa: 1 main*main|0|3 threadB*threadB|63|1
+aaa: 1 main*main|0|3 threadB*threadB|0|2
+aaa: 1 main*main|0|3 threadB*threadB|63|2
+aaa: 1 main*main|0|3 threadB*threadB|0|3
+aaa: 0 main*main|0|5 threadA*threadA|0|1
+aaa: 0 main*main|0|5 threadA*threadA|6|1
+aaa: 0 main*main|0|5 threadA*threadA|10|1
+aaa: 0 main*main|0|5 threadA*threadA|19|1
+aaa: 0 main*main|0|5 threadA*threadA|22|1
+aaa: 0 main*main|0|5 threadA*threadA|0|2
+aaa: 0 main*main|0|6 threadA*threadA|0|1
+aaa: 0 main*main|0|6 threadA*threadA|6|1
+aaa: 0 main*main|0|6 threadA*threadA|10|1
+aaa: 0 main*main|0|6 threadA*threadA|19|1
+aaa: 0 main*main|0|6 threadA*threadA|22|1
+aaa: 0 main*main|0|6 threadA*threadA|0|2
+aaa: 0 main*main|0|6 threadB*threadB|0|1
+aaa: 0 main*main|0|6 threadB*threadB|43|1
+aaa: 0 main*main|0|6 threadB*threadB|47|1
+aaa: 0 main*main|0|6 threadB*threadB|63|1
+aaa: 0 main*main|0|6 threadB*threadB|0|2
+aaa: 0 main*main|0|6 threadB*threadB|63|2
+aaa: 0 main*main|0|6 threadB*threadB|0|3
+aaa: 1 threadA*threadA|6|1 threadB*threadB|43|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|63|2
+aaa: 1 threadA*threadA|10|1 threadB*threadB|43|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|63|2
+aaa: 1 threadA*threadA|19|1 threadB*threadB|43|1
+aaa: 1 threadA*threadA|19|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|19|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|19|1 threadB*threadB|63|2
+aaa: 1 threadA*threadA|22|1 threadB*threadB|43|1
+aaa: 1 threadA*threadA|22|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|22|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|22|1 threadB*threadB|63|2
+write: main-2
+reachbility list2: 0
+RF1: threadA 1 0
+write: main-1
+reachbility list2: 0
+RF: threadA 2 0
+write: main-2
+reachbility list2: 0
+RF1: threadA 4 65535
+write: threadA-4
+reachbility list1: 2
+RF1: threadB 1 0
+write: threadA-3
+reachbility list2: 1
+RF1: threadB 2 65535
+write: threadA-4
+reachbility list1: 2
+RF1: threadB 3 0
+write: threadA-4
+reachbility list1: 2
+RF1: threadB 5 1
+write: main-2
+reachbility list2: 0
+RF1: threadA 1 0
+write: main-1
+reachbility list2: 0
+RF: threadA 2 0
+write: main-2
+reachbility list2: 0
+RF: threadA 4 0
+write: threadA-4
+reachbility list1: 2
+RF1: threadB 1 0
+write: threadA-3
+reachbility list2: 1
+RF1: threadB 2 65535
+write: threadA-4
+reachbility list1: 2
+RF1: threadB 3 0
+write: threadA-4
+reachbility list1: 2
+RF1: threadB 5 1
+### P2 time: 0.00522 0.005231
+### P3 time: 7e-06 9e-06
+### Generate Solution time: 0.005306 0.00531
+### Check redundancy time: 1.9e-05 2.3e-05
+### Last Part time: 0.008239 0.008241
+### Generate Schedule Time: 0.01788 0.017883
+Generating: threadB-2 threadA-2 0 2
+checking: read:val threadB-2 2
+mhbList: 1
+enforce: 0x7fe259501b30 threadB-2 2 
+enforcePairs: 1
+checking fairness: 1
+threadB 2 2
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fe2595001a0
+### Prepare Time: 0.007409 0.000433
+AddRWRelations: 1
+Add RW: threadB-2 2
+444
+555
+In addRWRelation: threadB-2 2
+
+xxxx read: threadB-2 0 2
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 1
+values: threadA-2 2 2
+
+write: threadA-2 2
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 1
+111
+222: 1 1
+444
+555
+In addRWRelation: threadA-2 1
+
+xxxx read: threadA-2 1 1
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+skip: threadA-3
+InputVal1: threadB-2 2
+values: threadB-2 3 1
+values: main-1 0 1
+xxx: threadA-2 1 (or )
+Identify inconsistency1!
+333
+Gurantee end: threadA-2 (= 1 0)
+values: threadA-3 0 2
+skip: threadB-2
+values: main-1 0 2
+xxx: threadB-2 2 (or  (and (= 1 0)))
+ttt: (or  (and (= 1 0)))
+Adding SW Constraints: 0
+End adding SW Constraints!
+### RWConstraint construct Time: 0.003427 0.001841
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 471 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.0032 0.000476
+### Generate Solution time: 0.005312 1.1e-05
+### Last Part time: 0.0089 0.000664
+### Generate Schedule Time: 0.021845 0.003968
+Generating: threadA-1 threadA-4 0 1
+checking: read:val threadA-1 1
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+threadA 1 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fe2595001a0
+### Prepare Time: 0.007694 0.000295
+AddRWRelations: 1
+Add RW: threadA-1 1
+444
+555
+In addRWRelation: threadA-1 1
+
+xxxx read: threadA-1 0 1
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+skip: threadA-4
+values: main-2 0 1
+xxx: threadA-1 1 (or )
+Identify inconsistency1!
+ttt: 
+Inconsistency2!
+### RWConstraint construct Time: 0.003492 6.9e-05
+Identify inconsistency2!
+close z3File!!!!!!!!!!!!!!: 0
+### Generate Schedule Time: 0.022772 0.00094
+Generating: threadB-1 threadA-4 0 1
+checking: read:val threadB-1 1
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+threadB 1 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fe2595001a0
+### Prepare Time: 0.007964 0.000279
+AddRWRelations: 1
+Add RW: threadB-1 1
+444
+555
+In addRWRelation: threadB-1 1
+
+xxxx read: threadB-1 0 1
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadA-4 0
+values: threadA-4 1 1
+
+write: threadA-4 1
+current orStr: 
+For write: threadA-4
+Guarantee begin: threadA-4 2 0
+list: threadA-2
+list: threadA-4
+guarantee: threadA-2 1
+111
+222: 1 1
+444
+555
+In addRWRelation: threadA-2 1
+
+xxxx read: threadA-2 1 1
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+skip: threadA-3
+InputVal2: threadB-2 0
+values: threadB-2 1 1
+
+write: threadB-2 1
+For read: threadA-2
+current orStr: 
+For write: threadB-2
+Guarantee begin: threadB-2 1 0
+list: threadB-2
+guarantee: threadB-2 0
+111
+222: 1 2
+444
+555
+In addRWRelation: threadB-2 0
+
+xxxx read: threadB-2 0 0
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 1
+values: threadA-2 2 0
+values: threadA-3 0 0
+
+write: threadA-3 0
+For read: threadB-2
+current orStr: 
+For write: threadA-3
+Guarantee begin: threadA-3 1 0
+list: threadA-2
+guarantee: threadA-2 1
+111
+Loop depednecy from guarantee: threadA-2
+skip: threadB-2
+values: main-1 0 0
+
+write: main-1 0
+For read: threadB-2
+current orStr:  (and (= 1 0))
+For write: main-1
+consider write: threadA-2
+consider write: threadA-3
+skip write1: threadB-2
+skip write1: main-1
+xxx: threadB-2 0 (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+333
+Gurantee end: threadB-2 (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+skip write1: threadA-2
+skip write3: threadA-3
+skip write1: threadB-2
+consider write: main-1
+values: main-1 0 1
+xxx: threadA-2 1 (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1)))))
+333
+guarantee: threadA-4 0
+111
+222: 1 1
+444
+555
+In addRWRelation: threadA-4 0
+
+xxxx read: threadA-4 0 0
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-4 1 1
+list: threadA-2
+guarantee: threadA-2 1
+111
+222: 1 2
+444
+Hit Cache2: threadA-2 1
+333
+Gurantee end: threadA-4 (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1)))))
+skip: threadA-4
+values: main-2 0 0
+
+write: main-2 0
+For read: threadA-4
+current orStr: 
+For write: main-2
+skip write1: threadA-4
+skip write1: main-2
+xxx: threadA-4 0 (or  (and  (and (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1)))))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))
+333
+Gurantee end: threadA-4 (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1))))) (or  (and  (and (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1)))))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))
+skip write1: threadA-4
+consider write: main-2
+values: main-2 0 1
+xxx: threadB-1 1 (or  (and  (and (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1))))) (or  (and  (and (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1)))))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))) (= RF_threadB-1_threadA-4 1) (= B_threadA-4_threadB-1 1) (= false (and (= B_main-2_threadA-4 0) (= B_main-2_threadB-1 1)))))
+ttt: (or  (and  (and (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1))))) (or  (and  (and (or  (and  (and (or  (and (= 1 0)) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))) (= RF_threadA-2_threadB-2 1) (= B_threadA-2_threadB-2 0) (= false (and (= B_main-1_threadB-2 0) (= B_main-1_threadA-2 1)))))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))) (= RF_threadB-1_threadA-4 1) (= B_threadA-4_threadB-1 1) (= false (and (= B_main-2_threadA-4 0) (= B_main-2_threadB-1 1)))))
+Adding SW Constraints: 4
+End adding SW Constraints!
+### RWConstraint construct Time: 0.00688 0.003401
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 521 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.003626 0.000436
+### Generate Solution time: 0.005322 1.3e-05
+### Last Part time: 0.009503 0.000606
+### Generate Schedule Time: 0.02734 0.00457
+Generating: threadB-3 threadA-4 0 1
+checking: read:val threadB-3 1
+mhbList: 1
+enforce: 0x7fe259501b30 threadB-2 0 
+enforcePairs: 2
+checking fairness: 2
+threadB 2 0
+threadB 3 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fe2595001a0
+### Prepare Time: 0.008246 0.000294
+AddRWRelations: 2
+Add RW: threadB-2 0
+444
+555
+In addRWRelation: threadB-2 0
+
+xxxx read: threadB-2 0 0
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 1
+values: threadA-2 2 0
+values: threadA-3 0 0
+
+write: threadA-3 0
+For read: threadB-2
+current orStr: 
+For write: threadA-3
+Guarantee begin: threadA-3 1 0
+list: threadA-2
+guarantee: threadA-2 1
+111
+222: 2 1
+444
+555
+In addRWRelation: threadA-2 1
+
+xxxx read: threadA-2 1 1
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+skip: threadA-3
+InputVal1: threadB-2 0
+values: threadB-2 1 1
+
+write: threadB-2 1
+For read: threadA-2
+current orStr: 
+For write: threadB-2
+Guarantee begin: threadB-2 1 0
+list: threadB-2
+guarantee: threadB-2 0
+111
+Loop depednecy from guarantee: threadB-2
+values: main-1 0 1
+xxx: threadA-2 1 (or  (and (= 1 0)))
+333
+Gurantee end: threadA-3 (or  (and (= 1 0)))
+skip write2: threadA-2
+skip write1: threadA-3
+skip write1: threadB-2
+consider write: main-1
+skip: threadB-2
+values: main-1 0 0
+
+write: main-1 0
+For read: threadB-2
+current orStr:  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1))))
+For write: main-1
+consider write: threadA-2
+consider write: threadA-3
+skip write1: threadB-2
+skip write1: main-1
+xxx: threadB-2 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+ttt: (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+Add RW: threadB-3 1
+444
+555
+In addRWRelation: threadB-3 1
+
+xxxx read: threadB-3 0 1
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadB-3 1 1
+list: threadB-2
+guarantee: threadB-2 0
+111
+222: 2 1
+444
+Hit Cache2: threadB-2 0
+333
+Gurantee end: threadB-3 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+InputVal2: threadA-4 0
+values: threadA-4 1 1
+
+write: threadA-4 1
+current orStr: 
+For write: threadA-4
+Guarantee begin: threadA-4 2 0
+list: threadA-2
+list: threadA-4
+guarantee: threadA-2 1
+111
+222: 2 1
+444
+Hit Cache2: threadA-2 1
+333
+guarantee: threadA-4 0
+111
+222: 2 1
+444
+555
+In addRWRelation: threadA-4 0
+
+xxxx read: threadA-4 0 0
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-4 1 1
+list: threadA-2
+guarantee: threadA-2 1
+111
+222: 2 2
+444
+Hit Cache2: threadA-2 1
+333
+Gurantee end: threadA-4 (or  (and (= 1 0)))
+skip: threadA-4
+values: main-2 0 0
+
+write: main-2 0
+For read: threadA-4
+current orStr: 
+For write: main-2
+skip write1: threadA-4
+skip write1: main-2
+xxx: threadA-4 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))
+333
+Gurantee end: threadA-4 (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))
+skip write1: threadA-4
+consider write: main-2
+values: main-2 0 1
+xxx: threadB-3 1 (or  (and  (and (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))) (= RF_threadB-3_threadA-4 1) (= B_threadA-4_threadB-3 1) (= false (and (= B_main-2_threadA-4 0) (= B_main-2_threadB-3 1)))))
+ttt: (or  (and  (and (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-4_main-2 1) (= B_main-2_threadA-4 1)))) (= RF_threadB-3_threadA-4 1) (= B_threadA-4_threadB-3 1) (= false (and (= B_main-2_threadA-4 0) (= B_main-2_threadB-3 1)))))
+Adding SW Constraints: 4
+End adding SW Constraints!
+### RWConstraint construct Time: 0.010116 0.003246
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 503 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.004035 0.000421
+### Generate Solution time: 0.005333 1.4e-05
+### Last Part time: 0.01008 0.000579
+### Generate Schedule Time: 0.032536 0.0052
+Generating: threadB-5 main-2 1 0
+checking: read:val threadB-5 0
+mhbList: 3
+enforce: 0x7fe259501b30 threadB-2 0 
+enforce: 0x7fe259502110 threadB-3 0 
+enforce: 0x7fe2597007e0 threadB-1 0 
+enforcePairs: 4
+checking fairness: 4
+threadB 1 0
+threadB 2 0
+threadB 3 0
+threadB 5 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile5_0x7fe2595001a0
+### Prepare Time: 0.008489 0.000251
+AddRWRelations: 4
+Add RW: threadB-2 0
+444
+555
+In addRWRelation: threadB-2 0
+
+xxxx read: threadB-2 0 0
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 1
+values: threadA-2 2 0
+values: threadA-3 0 0
+
+write: threadA-3 0
+For read: threadB-2
+current orStr: 
+For write: threadA-3
+Guarantee begin: threadA-3 1 0
+list: threadA-2
+guarantee: threadA-2 1
+111
+222: 4 1
+444
+555
+In addRWRelation: threadA-2 1
+
+xxxx read: threadA-2 1 1
+
+write: threadA-2 2
+
+write: threadA-3 0
+
+write: threadB-2 1
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+skip: threadA-3
+InputVal1: threadB-2 0
+values: threadB-2 1 1
+
+write: threadB-2 1
+For read: threadA-2
+current orStr: 
+For write: threadB-2
+Guarantee begin: threadB-2 1 0
+list: threadB-2
+guarantee: threadB-2 0
+111
+Loop depednecy from guarantee: threadB-2
+values: main-1 0 1
+xxx: threadA-2 1 (or  (and (= 1 0)))
+333
+Gurantee end: threadA-3 (or  (and (= 1 0)))
+skip write2: threadA-2
+skip write1: threadA-3
+skip write1: threadB-2
+consider write: main-1
+skip: threadB-2
+values: main-1 0 0
+
+write: main-1 0
+For read: threadB-2
+current orStr:  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1))))
+For write: main-1
+consider write: threadA-2
+consider write: threadA-3
+skip write1: threadB-2
+skip write1: main-1
+xxx: threadB-2 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+ttt: (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+Add RW: threadB-3 0
+444
+555
+In addRWRelation: threadB-3 0
+
+xxxx read: threadB-3 0 0
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadB-3 1 1
+list: threadB-2
+guarantee: threadB-2 0
+111
+222: 4 1
+444
+Hit Cache2: threadB-2 0
+333
+Gurantee end: threadB-3 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1)))))
+InputVal2: threadA-4 0
+values: threadA-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadA-4
+skip write1: main-2
+xxx: threadB-3 0 (or  (and  (= RF_threadB-3_main-2 1) (= B_main-2_threadB-3 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-3 1)))))
+ttt: (or  (and  (= RF_threadB-3_main-2 1) (= B_main-2_threadB-3 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-3 1)))))
+Add RW: threadB-1 0
+444
+555
+In addRWRelation: threadB-1 0
+
+xxxx read: threadB-1 0 0
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadA-4 0
+values: threadA-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadA-4
+skip write1: main-2
+xxx: threadB-1 0 (or  (and  (= RF_threadB-1_main-2 1) (= B_main-2_threadB-1 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-1 1)))))
+ttt: (or  (and  (= RF_threadB-1_main-2 1) (= B_main-2_threadB-1 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-1 1)))))
+Add RW: threadB-5 0
+444
+555
+In addRWRelation: threadB-5 0
+
+xxxx read: threadB-5 1 0
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadB-5 3 1
+list: threadB-2
+list: threadB-3
+list: threadB-1
+guarantee: threadB-2 0
+111
+222: 4 1
+444
+Hit Cache2: threadB-2 0
+333
+guarantee: threadB-3 0
+111
+222: 4 1
+444
+Hit Cache2: threadB-3 0
+333
+guarantee: threadB-1 0
+111
+222: 4 1
+444
+Hit Cache2: threadB-1 0
+333
+Gurantee end: threadB-5 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-2_threadA-3 1) (= B_threadA-3_threadB-2 1) (= false (and (= B_main-1_threadA-3 0) (= B_main-1_threadB-2 1)))) (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1))) (= false (and (= B_main-1_threadA-3 1) (= B_threadA-3_threadB-2 1))))) (or  (and  (= RF_threadB-3_main-2 1) (= B_main-2_threadB-3 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-3 1))))) (or  (and  (= RF_threadB-1_main-2 1) (= B_main-2_threadB-1 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-1 1)))))
+InputVal2: threadA-4 0
+values: threadA-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadA-4
+skip write1: main-2
+xxx: threadB-5 0 (or  (and  (= RF_threadB-5_main-2 1) (= B_main-2_threadB-5 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-5 1)))))
+ttt: (or  (and  (= RF_threadB-5_main-2 1) (= B_main-2_threadB-5 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-5 1)))))
+Adding SW Constraints: 5
+End adding SW Constraints!
+### RWConstraint construct Time: 0.013576 0.003469
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.006431 0.002403
+Create a Schedule: 0x7fe259703230
+Generate new schedule: 0x7fe259703230
+### P1 time: 8.3e-05 4.9e-05
+aaa: 1 main*main|0|1 threadA*threadA|6|1
+aaa: 1 main*main|0|1 threadA*threadA|10|1
+aaa: 1 main*main|0|1 threadA*threadA|19|1
+aaa: 1 main*main|0|1 threadA*threadA|22|1
+aaa: 1 main*main|0|1 threadA*threadA|0|2
+aaa: 1 main*main|0|1 threadB*threadB|43|1
+aaa: 1 main*main|0|1 threadB*threadB|47|1
+aaa: 1 main*main|0|1 threadB*threadB|63|1
+aaa: 1 main*main|0|1 threadB*threadB|0|2
+aaa: 1 main*main|0|1 threadB*threadB|63|2
+aaa: 1 main*main|0|1 threadB*threadB|0|3
+aaa: 1 main*main|88|1 threadA*threadA|6|1
+aaa: 1 main*main|88|1 threadA*threadA|10|1
+aaa: 1 main*main|88|1 threadA*threadA|19|1
+aaa: 1 main*main|88|1 threadA*threadA|22|1
+aaa: 1 main*main|88|1 threadA*threadA|0|2
+aaa: 1 main*main|88|1 threadB*threadB|43|1
+aaa: 1 main*main|88|1 threadB*threadB|47|1
+aaa: 1 main*main|88|1 threadB*threadB|63|1
+aaa: 1 main*main|88|1 threadB*threadB|0|2
+aaa: 1 main*main|88|1 threadB*threadB|63|2
+aaa: 1 main*main|88|1 threadB*threadB|0|3
+aaa: 1 main*main|93|1 threadA*threadA|6|1
+aaa: 1 main*main|93|1 threadA*threadA|10|1
+aaa: 1 main*main|93|1 threadA*threadA|19|1
+aaa: 1 main*main|93|1 threadA*threadA|22|1
+aaa: 1 main*main|93|1 threadA*threadA|0|2
+aaa: 1 main*main|93|1 threadB*threadB|43|1
+aaa: 1 main*main|93|1 threadB*threadB|47|1
+aaa: 1 main*main|93|1 threadB*threadB|63|1
+aaa: 1 main*main|93|1 threadB*threadB|0|2
+aaa: 1 main*main|93|1 threadB*threadB|63|2
+aaa: 1 main*main|93|1 threadB*threadB|0|3
+aaa: 1 main*main|0|2 threadA*threadA|6|1
+aaa: 1 main*main|0|2 threadA*threadA|10|1
+aaa: 1 main*main|0|2 threadA*threadA|19|1
+aaa: 1 main*main|0|2 threadA*threadA|22|1
+aaa: 1 main*main|0|2 threadA*threadA|0|2
+aaa: 1 main*main|0|2 threadB*threadB|43|1
+aaa: 1 main*main|0|2 threadB*threadB|47|1
+aaa: 1 main*main|0|2 threadB*threadB|63|1
+aaa: 1 main*main|0|2 threadB*threadB|0|2
+aaa: 1 main*main|0|2 threadB*threadB|63|2
+aaa: 1 main*main|0|2 threadB*threadB|0|3
+aaa: 1 main*main|0|3 threadB*threadB|43|1
+aaa: 1 main*main|0|3 threadB*threadB|47|1
+aaa: 1 main*main|0|3 threadB*threadB|63|1
+aaa: 1 main*main|0|3 threadB*threadB|0|2
+aaa: 1 main*main|0|3 threadB*threadB|63|2
+aaa: 1 main*main|0|3 threadB*threadB|0|3
+aaa: 0 main*main|0|5 threadA*threadA|0|1
+aaa: 0 main*main|0|5 threadA*threadA|6|1
+aaa: 0 main*main|0|5 threadA*threadA|10|1
+aaa: 0 main*main|0|5 threadA*threadA|19|1
+aaa: 0 main*main|0|5 threadA*threadA|22|1
+aaa: 0 main*main|0|5 threadA*threadA|0|2
+aaa: 0 main*main|0|6 threadA*threadA|0|1
+aaa: 0 main*main|0|6 threadA*threadA|6|1
+aaa: 0 main*main|0|6 threadA*threadA|10|1
+aaa: 0 main*main|0|6 threadA*threadA|19|1
+aaa: 0 main*main|0|6 threadA*threadA|22|1
+aaa: 0 main*main|0|6 threadA*threadA|0|2
+aaa: 0 main*main|0|6 threadB*threadB|0|1
+aaa: 0 main*main|0|6 threadB*threadB|43|1
+aaa: 0 main*main|0|6 threadB*threadB|47|1
+aaa: 0 main*main|0|6 threadB*threadB|63|1
+aaa: 0 main*main|0|6 threadB*threadB|0|2
+aaa: 0 main*main|0|6 threadB*threadB|63|2
+aaa: 0 main*main|0|6 threadB*threadB|0|3
+aaa: 0 threadA*threadA|6|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|6|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|63|2
+aaa: 0 threadA*threadA|10|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|10|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|63|2
+aaa: 0 threadA*threadA|19|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|19|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|19|1 threadB*threadB|63|1
+aaa: 1 threadA*threadA|19|1 threadB*threadB|63|2
+aaa: 0 threadA*threadA|22|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|22|1 threadB*threadB|47|1
+aaa: 0 threadA*threadA|22|1 threadB*threadB|63|1
+aaa: 0 threadA*threadA|22|1 threadB*threadB|63|2
+write: main-2
+reachbility list2: 0
+RF1: threadA 1 0
+write: threadB-2
+reachbility list1: 1
+RF1: threadA 2 65535
+write: main-2
+reachbility list2: 0
+RF1: threadA 4 65535
+write: main-2
+reachbility list2: 0
+RF: threadB 1 0
+write: main-1
+reachbility list2: 0
+RF: threadB 2 0
+write: main-2
+reachbility list2: 0
+RF: threadB 3 0
+write: main-2
+reachbility list2: 0
+RF: threadB 5 0
+write: main-2
+reachbility list2: 0
+RF1: threadA 1 0
+write: threadB-2
+reachbility list1: 1
+RF1: threadA 2 65535
+write: main-2
+reachbility list2: 0
+RF1: threadA 4 65535
+write: main-2
+reachbility list2: 0
+RF: threadB 1 0
+write: main-1
+reachbility list2: 0
+RF: threadB 2 0
+write: main-2
+reachbility list2: 0
+RF: threadB 3 0
+write: main-2
+reachbility list2: 0
+RF: threadB 5 0
+### P2 time: 0.01033 0.005118
+### P3 time: 1.5e-05 1.2e-05
+### Generate Solution time: 0.010535 0.005205
+### Check redundancy time: 3.2e-05 1.6e-05
+### Last Part time: 0.017826 0.007749
+### Generate Schedule Time: 0.044303 0.01177
+End solver!
+### Solver Time: 0.044604 0.04464
+buffers: 0x7fe259501450 2
+delete Buffer: 0x7fe259501730
+suc!
+delete Buffer: 0x7fe2595017b0
+suc!
+buffers: 0x7fe2597000d0 2
+delete Buffer: 0x7fe2597003c0
+suc!
+delete Buffer: 0x7fe259700460
+suc!
+buffers: 0x7fe259500b60 2
+delete Buffer: 0x7fe259600630
+suc!
+delete Buffer: 0x7fe259600950
+suc!
+delete curSch1: 0x7fe259500940
+delete curSch2!
+### Total Time: 0.051867
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe259406130
+Generate a new Executor: 0x7fe259405e20 0x7fe259406130
+Schedule: 0x7fe259408f50 0 -1 2 20 20
+For: main 6 main*main|0|5
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    threadA 0 threadA*threadA|0|1
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+    threadA 5 threadA*threadA|0|2
+For: main 7 main*main|0|6
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 0 threadA*threadA|0|1
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+    threadA 5 threadA*threadA|0|2
+    threadB 0 threadB*threadB|0|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|63|1
+    threadB 4 threadB*threadB|0|2
+    threadB 5 threadB*threadB|63|2
+    threadB 6 threadB*threadB|0|3
+For: threadA 1 threadA*threadA|6|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 2 threadA*threadA|10|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 3 threadA*threadA|19|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 4 threadA*threadA|22|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 5 threadA*threadA|0|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadB 1 threadB*threadB|43|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+For: threadB 2 threadB*threadB|47|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+For: threadB 3 threadB*threadB|63|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+For: threadB 4 threadB*threadB|0|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: threadB 5 threadB*threadB|63|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+For: threadB 6 threadB*threadB|0|3
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: threadA 2 threadA*threadA|10|1 0
+Read Map: threadA 4 threadA*threadA|22|1 0
+Read Map2: threadA 1 threadA*threadA|6|1 0
+Read Map2: threadA 4 threadA*threadA|22|1 65535
+Read Map2: threadB 1 threadB*threadB|43|1 0
+Read Map2: threadB 2 threadB*threadB|47|1 65535
+Read Map2: threadB 3 threadB*threadB|63|1 0
+Read Map2: threadB 5 threadB*threadB|63|2 1
+
+Prefix: threadA 2
+Prefix Context: threadA*threadA|10|1 0
+
+In checker_thread_begin: 0x7fff72793000
+before enter lock: thread create 0x7fff72793000
+in thread_begin_action: 0x7fe259405e20 0x7fff72793000 main ~0~~
+before addAction lock: 0x7fe259407d40 0x7fe2594062a0
+thread: 0x7fe259407d40 0x7fe2594062a0
+thread add end: 0x7fe259407d40 0x7fe2594062a0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe259405e20 0x7fe259405fb0 0x7fff72793000
+
+bbbb0: 0x7fff72793000 0x7fe259407d40
+BeginFunc: 0x7fe259405e20
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+checker_addUses: 84 1 83
+
+update load: 84 0
+83 0 
+
+checker_addUses: 85 1 82
+
+update load: 85 0
+82 0 
+
+checker_addUses: 86 1 85
+
+update load: 86 0
+85 0 
+
+checker_addUses: 87 1 86
+
+update load: 87 0
+86 0 
+
+checker_addUses: 88 1 87
+
+update load: 88 0
+87 0 
+
+In atomic checker_preStore: 0x7fe25940b644 0 7!
+In write: 0x7fff72793000 0x7fe259407d40 0x7fe2594082e0
+Before add action: 0x7fe259407d40 0x7fe2594082e0
+before addAction lock: 0x7fe259407d40 0x7fe2594082e0
+thread: 0x7fe259407d40 0x7fe2594082e0
+thread add end: 0x7fe259407d40 0x7fe2594082e0 8 1
+enabled threads: 1
+0x7fff72793000
+In add action: main-1
+End add action! main-1
+action: main-1
+loads: 0 1
+
+set load:  main-1 0
+
+update buf1: 0x7fe259407d40 0x7fe25940b644 0
+update buf1 end: 0x7fe259407d40
+
+Write value1: main-1 0x7fe25940b644 0!
+checker_addUses: 89 1 86
+
+update load: 89 0
+86 0 
+
+checker_addUses: 90 1 82
+
+update load: 90 0
+82 0 
+
+checker_addUses: 91 1 90
+
+update load: 91 0
+90 0 
+
+checker_addUses: 92 1 91
+
+update load: 92 0
+91 0 
+
+checker_addUses: 93 1 92
+
+update load: 93 0
+92 0 
+
+In atomic checker_preStore: 0x7fe25940b648 0 7!
+In write: 0x7fff72793000 0x7fe259407d40 0x7fe25940a850
+Before add action: 0x7fe259407d40 0x7fe25940a850
+before addAction lock: 0x7fe259407d40 0x7fe25940a850
+thread: 0x7fe259407d40 0x7fe25940a850
+thread add end: 0x7fe259407d40 0x7fe25940a850 8 2
+enabled threads: 1
+0x7fff72793000
+In add action: main-2
+End add action! main-2
+action: main-2
+loads: 0 2
+
+set load:  main-2 0
+
+update buf1: 0x7fe259407d40 0x7fe25940b648 0
+update buf1 end: 0x7fe259407d40
+
+Write value1: main-2 0x7fe25940b648 0!
+checker_addUses: 94 1 91
+
+update load: 94 0
+91 0 
+
+checker_addUses: 95 1 82
+
+update load: 95 0
+82 0 
+
+checker_addUses: 96 1 78
+
+update load: 96 0
+78 0 
+
+checker_addUses: 98 1 78
+
+update load: 98 0
+78 0 
+
+BeginFunc: 0x7fe259405e20
+BeginFunc: 0x7fe259405e20
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+checker_addUses: 233 1 232
+
+update load: 192 0
+191 0 
+
+checker_addUses: 234 1 231
+checker_addUses: 235 1 230
+checker_addUses: 236 1 235
+checker_addUses: 99 1 79
+checker_addUses: 237 2 236
+
+update load: 99 0
+79 0 
+
+checker_addUses: 239 1 238
+checker_addUses: 101 1 79
+checker_addUses: 240 1 239
+
+update load: 101 0
+79 0 
+
+BeginFunc: 0x7fe259405e20
+checker_addUses: 241 1 240
+
+In checker_thread_begin: 0x700000081000
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+Waitting for create thread 0x700000081000
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 192 1 191
+checker_addUses: 234 1 231
+Waitting for create thread 0x700000081000
+
+update load: 192 0
+191 0 
+
+checker_addUses: 235 1 230
+checker_addUses: 236 1 235
+checker_addUses: 237 2 236
+checker_addUses: 102 1 78
+checker_addUses: 239 1 238
+
+update load: 102 0
+78 0 
+
+checker_addUses: 240 1 239
+checker_addUses: 103 1 102
+checker_addUses: 241 1 240
+
+update load: 103 0
+102 0 
+
+
+In checker_thread_begin: 0x700000104000
+checker_addUses: 104 1 103
+Waitting for create thread 0x700000081000
+
+update load: 104 0
+103 0 
+
+
+In checker_thread_create: 0x7fff72793000 0x700000081000
+before addAction lock: 0x7fe259407d40 0x7fe25940b090
+thread: 0x7fe259407d40 0x7fe25940b090
+thread add end: 0x7fe259407d40 0x7fe25940b090 1 3
+enabled threads: 1
+0x7fff72793000
+In add action: main-3
+End add action! main-3
+Waitting for create thread 0x700000104000
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+Waitting for create thread 0x700000104000
+checker_addUses: 105 1 79
+in thread_begin_action: 0x7fe259405e20 0x700000081000 threadA ~1~~
+
+update load: 105 0
+79 0 
+
+checker_addUses: 106 1 105
+update buf2: 0x7fe259700000 2
+
+update load: 106 0
+105 0 
+
+before addAction lock: 0x7fe259700000 0x7fe259700360checker_addUses: 107 1 106
+
+thread: 0x7fe259700000 0x7fe259700360
+thread add end: 0x7fe259700000 0x7fe259700360 2 0
+enabled threads: 1
+
+update load: 107 0
+106 0 
+
+0x7fff72793000
+In add action: threadA-0
+
+In checker_thread_create: 0x7fff72793000 0x700000104000
+End add action! threadA-0
+BBB: 0x7fe259405e20 0x7fe259405fb0 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe259700000
+0x7fff72793000 0x700000081000
+bbb: 0x7fe25940b090 0x7fe259700360
+Waitting for create thread 0x700000104000
+checker_addUses: 4 1 3
+
+update load: 4 0
+3 0 
+
+checker_addUses: 5 1 4
+
+update load: 5 0
+4 0 
+
+checker_addUses: 6 1 5
+
+update load: 6 0
+5 0 
+
+In atomic checker_preLoad: 0x7fe25940b648 7 6!
+In read action: 0x700000081000
+before addAction lock: 0x7fe259700000 0x7fe2597005f0
+thread: 0x7fe259700000 0x7fe2597005f0
+thread add end: 0x7fe259700000 0x7fe2597005f0 7 1
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-1
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-1
+loads: 0 1
+
+set load:  threadA-1 0
+
+
+add load: 6 threadA-1 1
+In pre_read action: threadA-1
+get value: 0x7fe2597002d0 0x7fe25940b648 0
+current values for: 0x7fe25940b648
+0 
+
+Read expect value: threadA-1 0x7fe25940b648 0 0 0
+End: 0x700000081000 threadA-1
+checker_addUses: 7 1 4
+
+update load: 7 0
+4 0 
+
+checker_addUses: 8 1 3
+Waitting for create thread 0x700000104000
+
+update load: 8 0
+3 0 
+
+before addAction lock: checker_addUses: 9 1 8
+0x7fe259407d40 0x7fe259409190
+thread: 0x7fe259407d40 0x7fe259409190
+thread add end: 0x7fe259407d40 0x7fe259409190 1 
+update load: 9 0
+8 0 
+
+4
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+checker_addUses: 10 1 9
+In add action: main-4
+End add action! main-4
+
+update load: 10 0
+9 0 
+
+In rmw_add: 0x7fe25940b644 1 7
+before addAction lock: 0x7fe259700000 0x7fe259606780
+thread: 0x7fe259700000 0x7fe259606780
+thread add end: 0x7fe259700000 0x7fe259606780 11 2
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-2
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-2
+
+add load: 10 threadA-2 1
+loads: 1 2
+
+set load:  threadA-2 1
+threadA-2 
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+checker_addUses: 108 1 102
+in thread_begin_action: 0x7fe259405e20 0x700000104000 threadB ~2~~
+
+update load: 108 0
+102 0 
+
+before fetch: 0x7fe25940b644 0
+0 
+after fetch: 0x7fe25940b644
+0 
+update buf2: checker_addUses: 109 1 108
+
+expect value rmw_add: threadA 2 0 !1! 10
+0x7fe259604210
+ 
+update load: 109 0
+108 0 
+
+2
+before addAction lock: update buf1: 0x7fe2596042100x7fe259700000  0x7fe25940b3100x7fe25940b644
+ thread: 10x7fe259604210
+ update buf1 end: 0x7fe25940b310
+0x7fe259700000
+update buf1: 0x7fe259604210 0x7fe25940b644thread add end:  0x7fe2596042101 
+0x7fe25940b310 update buf1 end: 20x7fe259604210 
+0update buf1: 
+0x7fe259407d40enabled threads:  20x7fe25940b644
+ 10x700000081000
+
+0x7fff72793000
+update buf1 end: 0x7fe259407d40
+In add action: threadB-0
+End add action! threadB-0
+BBB: 0x7fe259405e20 0x7fe259405fb0 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe259604210
+0x7fff72793000 0x700000104000
+bbb: 0x7fe259409190 0x7fe25940b310
+checker_addUses: 11 1 8
+
+update load: 11 0
+8 0 
+
+checker_addUses: 12 1 3
+
+update load: 12 0
+3 0 
+
+checker_addUses: 13 1 12
+checker_addUses: 41 1 40
+
+update load: 13 0
+12 0 
+
+
+update load: 41 0
+40 0 
+
+checker_addUses: 14 1 13
+checker_addUses: 42 1 41
+
+update load: 14 0
+13 0 
+
+
+update load: 42 0
+41 0 
+
+checker_addUses: 15 2 10
+before addAction lock: checker_addUses: 43 1 42
+0x7fe259407d40
+update load: 15 1
+10 14 0 
+threadA-2 
+
+update load: 43 0
+42 0 
+
+ In atomic checker_preLoad: checker_addUses: 16 1 15
+0x7fe25940ae900x7fe25940b648
+update load: 16 1
+15 0 
+threadA-2 
+
+ checker_addUses: 25 1 4
+thread: 7
+update load: 25 1
+4 0 16 29 
+threadA-2 
+0x7fe259407d40 checker_addUses: 26 1 25
+ 43
+update load: 26 1
+25 0 16 29 
+threadA-2 
+0x7fe25940ae90!
+In atomic checker_preLoad: 
+0x7fe25940b648In read action: thread add end:  0x7000001040000x7fe259407d407
+  before addAction lock: 0x7fe25940ae90260x7fe259604210 !
+ 40x7fe25940b130In read action:  
+0x7000000810005
+
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: main-5
+End add action! main-5
+thread: 0x7fe259604210 0x7fe25940b130
+thread add end: 0x7fe259604210 0x7fe25940b130 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-1
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-1
+loads: 0 1
+
+set load:  threadB-1 0
+
+
+add load: 43 threadB-1 1
+remain: checker_addUses: 110 1 105
+threadA*threadA|19|1
+remain: threadA*threadA|22|1
+before addAction lock: 0x7fe259700000 0x7fe2597008c0
+thread: 0x7fe259700000 0x7fe2597008c0
+
+update load: 110 0
+105 0 
+
+thread add end: 0x7fe259700000 0x7fe2597008c0 7 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+checker_addUses: 111 1 110
+In add action: threadA-3
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+
+update load: 111 0
+110 0 
+
+before addAction lock: 0x7fe259407d40 0x7fe2595029a0
+End add action! threadA-3
+loads: 1 3
+
+set load:  threadA-3 1
+threadA-2 
+
+add load: 26 threadA-3 1
+In pre_read action: threadA-3
+get value: 0x7fe2597002d0 0x7fe25940b648 0
+current values for: 0x7fe25940b648
+0 
+
+Read expect value: threadA-3 0x7fe25940b648 0 0 0
+waiting read: 0x700000104000 threadB-1
+in update priority: 0x700000104000
+thread: 0x7fe259407d40 0x7fe2595029a0
+thread add end: 0x7fe259407d40 0x7fe2595029a0 4 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: main-6
+End add action! main-6
+End: 0x700000081000 threadA-3
+checker_addUses: 27 1 4
+remain: threadA*threadA|19|1
+remain: threadA*threadA|22|1
+
+update load: 27 1
+4 0 16 29 
+threadA-2 
+checker_addUses: 28 2 26
+
+update load: 28 3
+26 6 0 16 29 
+threadA-2 threadA-1 threadA-3 
+checker_addUses: 112 1 79
+checker_addUses: 29 1 28
+
+update load: 112 0
+79 0 
+
+
+update load: 29 3
+28 0 16 29 
+threadA-2 threadA-1 threadA-3 
+In thread_yield_action!
+Begin thread yield!
+In thread yield!
+before addAction lock: 0x7fe259700000 0x7fe2594084e0
+thread: 0x7fe259700000 0x7fe2594084e0
+thread add end: 0x7fe259700000 0x7fe2594084e0 3 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-4
+waiting read: 0x700000104000 threadB-1
+in update priority: 0x700000104000
+End add action! threadA-4
+remain: threadA*threadA|19|1
+remain: threadA*threadA|22|1
+End thread yield!
+waiting read: 0x700000104000 threadB-1
+in update priority: 0x700000104000
+In pre_read action: threadB-1
+get value: 0x7fe25940a5c0 0x7fe25940b648 0
+current values for: 0x7fe25940b648
+0 
+
+Read expect value: threadB-1 0x7fe25940b648 0 0 0
+End: 0x700000104000 threadB-1
+checker_addUses: 44 1 41
+
+update load: 44 0
+41 0 
+
+checker_addUses: 45 1 40
+
+update load: 45 0
+40 0 
+
+checker_addUses: 46 1 45
+
+update load: 46 0
+45 0 
+
+checker_addUses: 47 1 46
+
+update load: 47 0
+46 0 
+
+In rmw_add: 0x7fe25940b644 1 7
+before addAction lock: 0x7fe259604210 0x7fe2596000b0
+thread: 0x7fe259604210 0x7fe2596000b0
+thread add end: 0x7fe259604210 0x7fe2596000b0 11 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-2
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-2
+
+add load: 47 threadB-2 1
+loads: 1 2
+
+set load:  threadB-2 1
+threadB-2 
+get value: 0x7fe25940b4d0 0x7fe25940b644 1
+current values for: 0x7fe25940b644
+0 1 
+
+expect value rmw_add: threadB 2 1 !1! 47
+
+update buf1: 0x7fe259700000 0x7fe25940b644 2
+update buf1 end: 0x7fe259700000
+update buf1: 0x7fe259604210 0x7fe25940b644 2
+update buf1 end: 0x7fe259604210
+update buf1: 0x7fe259407d40 0x7fe25940b644 2
+update buf1 end: 0x7fe259407d40
+checker_addUses: 48 1 45
+
+update load: 48 0
+45 0 
+
+checker_addUses: 49 1 40
+
+update load: 49 0
+40 0 
+
+checker_addUses: 50 1 49
+
+update load: 50 0
+49 0 
+
+checker_addUses: 51 1 50
+
+update load: 51 0
+50 0 
+
+checker_addUses: 52 2 47
+
+update load: 52 1
+47 51 0 
+threadB-2 
+checker_addUses: 53 1 52
+
+update load: 53 1
+52 0 
+threadB-2 
+checker_addUses: 55 1 45
+
+update load: 55 1
+45 0 53 
+threadB-2 
+checker_addUses: 56 1 55
+
+update load: 56 1
+55 0 53 
+threadB-2 
+In atomic checker_preStore: 0x7fe25940b644 0 7!
+In write: 0x700000104000 0x7fe259604210 0x7fe259600620
+Before add action: 0x7fe259604210 0x7fe259600620
+before addAction lock: 0x7fe259604210 0x7fe259600620
+thread: 0x7fe259604210 0x7fe259600620
+thread add end: 0x7fe259604210 0x7fe259600620 8 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-3
+End add action! threadB-3
+action: threadB-3
+loads: 1 3
+
+set load:  threadB-3 1
+threadB-2 
+update buf1: 0x7fe259700000 0x7fe25940b644 0
+update buf1 end: 0x7fe259700000
+update buf1: 0x7fe259604210 0x7fe25940b644 0
+update buf1 end: 0x7fe259604210
+update buf1: 0x7fe259407d40 0x7fe25940b644 0
+update buf1 end: 0x7fe259407d40
+
+Write value1: threadB-3 0x7fe25940b644 0!
+checker_addUses: 57 1 45
+
+update load: 57 1
+45 0 53 
+threadB-2 
+checker_addUses: 58 1 41
+
+update load: 58 1
+41 0 53 
+threadB-2 
+checker_addUses: 59 1 58
+
+update load: 59 1
+58 0 53 
+threadB-2 
+In rmw_add: 0x7fe25940b648 1 7
+before addAction lock: 0x7fe259604210 0x7fe259606cb0
+thread: 0x7fe259604210 0x7fe259606cb0
+thread add end: 0x7fe259604210 0x7fe259606cb0 11 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-4
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-4
+
+add load: 59 threadB-4 1
+loads: 2 4
+
+set load:  threadB-4 2
+threadB-2 threadB-4 
+get value: 0x7fe25940a5c0 0x7fe25940b648 0
+current values for: 0x7fe25940b648
+0 
+
+expect value rmw_add: threadB 4 0 !1! 59
+
+update buf1: 0x7fe259700000 0x7fe25940b648 1
+update buf1 end: 0x7fe259700000
+update buf1: 0x7fe259604210 0x7fe25940b648 1
+update buf1 end: 0x7fe259604210
+update buf1: 0x7fe259407d40 0x7fe25940b648 1
+update buf1 end: 0x7fe259407d40
+checker_addUses: 60 1 41
+
+update load: 60 1
+41 0 53 
+threadB-2 
+checker_addUses: 75 1 74
+
+update load: 75 1
+74 0 53 
+threadB-2 
+var = 1
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe259604210 0x7fe259607040
+thread: 0x7fe259604210 0x7fe259607040
+thread add end: 0x7fe259604210 0x7fe259607040 5 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadB-5
+In add action: threadB-5
+End add action! threadB-5
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe259405e20
+checker_addUses: 113 1 78
+
+update load: 113 0
+78 0 
+
+checker_addUses: 25 1 4
+
+update load: 25 3
+4 0 16 29 
+threadA-2 threadA-1 threadA-3 
+checker_addUses: 26 1 25
+
+update load: 26 3
+25 0 16 29 
+threadA-2 threadA-1 threadA-3 
+In atomic checker_preLoad: 0x7fe25940b648 7 26!
+In read action: 0x700000081000
+before addAction lock: 0x7fe259700000 0x7fe2596070e0
+thread: 0x7fe259700000 0x7fe2596070e0
+thread add end: 0x7fe259700000 0x7fe2596070e0 7 5
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-5
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-5
+loads: 3 5
+
+set load:  threadA-5 3
+threadA-2 threadA-1 threadA-3 
+
+add load: 26 threadA-5 1
+In pre_read action: threadA-5
+get value: 0x7fe2597002d0 0x7fe25940b648 1
+current values for: 0x7fe25940b648
+0 1 
+
+Read expect value: threadA-5 0x7fe25940b648 1 1 1
+End: 0x700000081000 threadA-5
+checker_addUses: 27 1 4
+
+update load: 27 3
+4 0 16 29 
+threadA-2 threadA-1 threadA-3 
+checker_addUses: 28 2 26
+
+update load: 28 4
+26 6 0 16 29 
+threadA-2 threadA-5 threadA-1 threadA-3 
+checker_addUses: 29 1 28
+
+update load: 29 4
+28 0 16 29 
+threadA-2 threadA-5 threadA-1 threadA-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe259700000 0x7fe259604790
+thread: 0x7fe259700000 0x7fe259604790
+thread add end: 0x7fe259700000 0x7fe259604790 5 6
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+erase enabledThreads: threadA-6
+In add action: threadA-6
+End add action! threadA-6
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe259405e20
+In checker_thread_end
+Thread_end_action: 0x7fff72793000
+before addAction lock: 0x7fe259407d40 0x7fe259604120
+thread: 0x7fe259407d40 0x7fe259604120
+thread add end: 0x7fe259407d40 0x7fe259604120 5 7
+enabled threads: 1
+0x7fff72793000
+erase enabledThreads: main-7
+In add action: main-7
+End add action! main-7
+### Execute Time: 0.060722 0.015427 0.008807
+Current Trace: 3
+threadA*threadA|6|1 threadA-1 r 0 6
+threadA*threadA|10|1 threadA-2 rmw 0 1 10
+threadA*threadA|26|1 threadA-3 r 0 26
+threadA*threadA|26|2 threadA-5 r 1 26
+iiiii: 0x7fe259700000 3
+xx: 2 1
+yy: threadA-2
+xx: 3 1
+yy: threadA-2
+xx: 5 3
+yy: threadA-2
+yy: threadA-1
+yy: threadA-3
+threadB*threadB|43|1 threadB-1 r 0 43
+threadB*threadB|47|1 threadB-2 rmw 1 2 47
+threadB*threadB|56|1 threadB-3 w 0 56
+threadB*threadB|59|1 threadB-4 rmw 0 1 59
+iiiii: 0x7fe259604210 3
+xx: 2 1
+yy: threadB-2
+xx: 3 1
+yy: threadB-2
+xx: 4 2
+yy: threadB-2
+yy: threadB-4
+main*main|88|1 main-1 w 0 88
+main*main|93|1 main-2 w 0 93
+iiiii: 0x7fe259407d40 0
+Generating: threadB-2 threadB-3 1 0
+checking: read:val threadB-2 0
+mhbList: 1
+enforce: 0x7fe2596000b0 threadB-2 0 
+enforce4: 0x7fe259606780 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe259606780 threadA-2 0 
+enforcePairs: 2
+checking fairness: 2
+threadA 2 0
+threadB 2 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe259405e20
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe259405e20
+### Basic Prepare Time: 0.002882 0.001592
+### MO Prepare Time: 0.000598 0.000291
+Adding sc constraints: 10
+### SC Prepare Time: 0.003696 0.001839
+In addLockConstraints: 0
+prefix size: 0
+### Part1 Time: 0.003909 0.001957
+reads & writes: 2 4
+reads & writes: 5 2
+### Part2 Time: 0.002243 0.001164
+### Consistent Prepare Time: 0.006267 0.003155
+### Prepare Time: 0.015718 0.007234
+AddRWRelations: 2
+Add RW: threadB-2 0
+444
+555
+In addRWRelation: threadB-2 0
+
+xxxx read: threadB-2 1 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 0
+values: threadA-2 1 0
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 0
+
+write: main-1 0
+For read: threadB-2
+current orStr: 
+For write: main-1
+consider write: threadA-2
+skip write1: threadB-2
+skip write3: threadB-3
+skip write1: main-1
+xxx: threadB-2 0 (or  (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1)))))
+ttt: (or  (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1)))))
+Add RW: threadA-2 0
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal1: threadB-2 0
+values: threadB-2 1 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+Inconsistency from guarantee1!
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr:  (and (= 1 0))
+For write: main-1
+skip write1: threadA-2
+consider write: threadB-2
+consider write: threadB-3
+skip write1: main-1
+xxx: threadA-2 0 (or  (and (= 1 0)) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+ttt: (or  (and (= 1 0)) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+Adding SW Constraints: 2
+End adding SW Constraints!
+### RWConstraint construct Time: 0.015652 0.002099
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 475 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.006886 0.000468
+### Generate Solution time: 0.010545 1.4e-05
+### Last Part time: 0.018716 0.000892
+### Generate Schedule Time: 0.054931 0.01063
+Generating: threadA-1 threadB-4 0 1
+checking: read:val threadA-1 1
+mhbList: 0
+enforce4: 0x7fe259606780 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe259606780 threadA-2 0 
+enforcePairs: 2
+checking fairness: 2
+threadA 1 1
+threadA 2 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fe259405e20
+### Prepare Time: 0.016013 0.000306
+AddRWRelations: 2
+Add RW: threadA-2 0
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 2 1
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+Loop depednecy from guarantee: threadA-2
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 1
+xxx: threadB-2 1 (or  (and (= 1 0)))
+333
+Gurantee end: threadB-3 (or  (and (= 1 0)))
+skip write1: threadA-2
+skip write2: threadB-2
+skip write1: threadB-3
+consider write: main-1
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr:  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1))))
+For write: main-1
+skip write1: threadA-2
+consider write: threadB-2
+consider write: threadB-3
+skip write1: main-1
+xxx: threadA-2 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+ttt: (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+Add RW: threadA-1 1
+444
+555
+In addRWRelation: threadA-1 1
+
+xxxx read: threadA-1 0 1
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadB-4 0
+values: threadB-4 1 1
+
+write: threadB-4 1
+current orStr: 
+For write: threadB-4
+Guarantee begin: threadB-4 2 0
+list: threadB-2
+list: threadB-4
+guarantee: threadB-2 1
+111
+222: 2 1
+444
+Hit Cache2: threadB-2 1
+333
+guarantee: threadB-4 0
+111
+222: 2 1
+444
+555
+In addRWRelation: threadB-4 0
+
+xxxx read: threadB-4 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadB-4 1 1
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 2 2
+444
+Hit Cache2: threadB-2 1
+333
+Gurantee end: threadB-4 (or  (and (= 1 0)))
+skip: threadB-4
+values: main-2 0 0
+
+write: main-2 0
+For read: threadB-4
+current orStr: 
+For write: main-2
+skip write1: threadB-4
+skip write1: main-2
+xxx: threadB-4 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))
+333
+Gurantee end: threadB-4 (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))
+skip write1: threadB-4
+consider write: main-2
+values: main-2 0 1
+xxx: threadA-1 1 (or  (and  (and (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))) (= RF_threadA-1_threadB-4 1) (= B_threadA-1_threadB-4 0) (= false (and (= B_main-2_threadB-4 0) (= B_main-2_threadA-1 1)))))
+ttt: (or  (and  (and (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))) (= RF_threadA-1_threadB-4 1) (= B_threadA-1_threadB-4 0) (= false (and (= B_main-2_threadB-4 0) (= B_main-2_threadA-1 1)))))
+Adding SW Constraints: 4
+End adding SW Constraints!
+### RWConstraint construct Time: 0.019333 0.003692
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 515 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.007387 0.000511
+### Generate Solution time: 0.010555 1.4e-05
+### Last Part time: 0.019602 0.000889
+### Generate Schedule Time: 0.06018 0.005253
+Generating: threadA-3 threadB-4 0 1
+checking: read:val threadA-3 1
+mhbList: 1
+enforce: 0x7fe259606780 threadA-2 0 
+enforce4: 0x7fe259606780 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe259606780 threadA-2 0 
+enforcePairs: 2
+checking fairness: 2
+threadA 2 0
+threadA 3 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fe259405e20
+### Prepare Time: 0.016284 0.000281
+AddRWRelations: 2
+Add RW: threadA-2 0
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 2 1
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+Loop depednecy from guarantee: threadA-2
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 1
+xxx: threadB-2 1 (or  (and (= 1 0)))
+333
+Gurantee end: threadB-3 (or  (and (= 1 0)))
+skip write1: threadA-2
+skip write2: threadB-2
+skip write1: threadB-3
+consider write: main-1
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr:  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1))))
+For write: main-1
+skip write1: threadA-2
+consider write: threadB-2
+consider write: threadB-3
+skip write1: main-1
+xxx: threadA-2 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+ttt: (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+Add RW: threadA-3 1
+444
+555
+In addRWRelation: threadA-3 1
+
+xxxx read: threadA-3 0 1
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-3 1 1
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 2 1
+444
+Hit Cache2: threadA-2 0
+333
+Gurantee end: threadA-3 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+InputVal2: threadB-4 0
+values: threadB-4 1 1
+
+write: threadB-4 1
+current orStr: 
+For write: threadB-4
+Guarantee begin: threadB-4 2 0
+list: threadB-2
+list: threadB-4
+guarantee: threadB-2 1
+111
+222: 2 1
+444
+Hit Cache2: threadB-2 1
+333
+guarantee: threadB-4 0
+111
+222: 2 1
+444
+555
+In addRWRelation: threadB-4 0
+
+xxxx read: threadB-4 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadB-4 1 1
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 2 2
+444
+Hit Cache2: threadB-2 1
+333
+Gurantee end: threadB-4 (or  (and (= 1 0)))
+skip: threadB-4
+values: main-2 0 0
+
+write: main-2 0
+For read: threadB-4
+current orStr: 
+For write: main-2
+skip write1: threadB-4
+skip write1: main-2
+xxx: threadB-4 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))
+333
+Gurantee end: threadB-4 (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))
+skip write1: threadB-4
+consider write: main-2
+values: main-2 0 1
+xxx: threadA-3 1 (or  (and  (and (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))) (= RF_threadA-3_threadB-4 1) (= B_threadA-3_threadB-4 0) (= false (and (= B_main-2_threadB-4 0) (= B_main-2_threadA-3 1)))))
+ttt: (or  (and  (and (or  (and (= 1 0))) (or  (and  (and (or  (and (= 1 0)))) (= RF_threadB-4_main-2 1) (= B_main-2_threadB-4 1)))) (= RF_threadA-3_threadB-4 1) (= B_threadA-3_threadB-4 0) (= false (and (= B_main-2_threadB-4 0) (= B_main-2_threadA-3 1)))))
+Adding SW Constraints: 4
+End adding SW Constraints!
+### RWConstraint construct Time: 0.022582 0.003259
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 511 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.007875 0.000501
+### Generate Solution time: 0.010567 1.5e-05
+### Last Part time: 0.02029 0.000691
+### Generate Schedule Time: 0.064762 0.004585
+Generating: threadA-5 main-2 1 0
+checking: read:val threadA-5 0
+mhbList: 3
+enforce: 0x7fe259606780 threadA-2 0 
+enforce: 0x7fe2597005f0 threadA-1 0 
+enforce: 0x7fe2597008c0 threadA-3 0 
+enforce4: 0x7fe259606780 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe259606780 threadA-2 0 
+enforcePairs: 4
+checking fairness: 4
+threadA 1 0
+threadA 2 0
+threadA 3 0
+threadA 5 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fe259405e20
+### Prepare Time: 0.016604 0.000334
+AddRWRelations: 4
+Add RW: threadA-2 0
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 4 1
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+Loop depednecy from guarantee: threadA-2
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 1
+xxx: threadB-2 1 (or  (and (= 1 0)))
+333
+Gurantee end: threadB-3 (or  (and (= 1 0)))
+skip write1: threadA-2
+skip write2: threadB-2
+skip write1: threadB-3
+consider write: main-1
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr:  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1))))
+For write: main-1
+skip write1: threadA-2
+consider write: threadB-2
+consider write: threadB-3
+skip write1: main-1
+xxx: threadA-2 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+ttt: (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+Add RW: threadA-5 0
+444
+555
+In addRWRelation: threadA-5 0
+
+xxxx read: threadA-5 1 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-5 3 1
+list: threadA-2
+list: threadA-1
+list: threadA-3
+guarantee: threadA-2 0
+111
+222: 4 1
+444
+Hit Cache2: threadA-2 0
+333
+guarantee: threadA-1 0
+111
+222: 4 1
+444
+555
+In addRWRelation: threadA-1 0
+
+xxxx read: threadA-1 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-1 0 (or  (and  (= RF_threadA-1_main-2 1) (= B_main-2_threadA-1 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-1_threadB-4 0)))))
+333
+guarantee: threadA-3 0
+111
+222: 4 1
+444
+555
+In addRWRelation: threadA-3 0
+
+xxxx read: threadA-3 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-3 1 1
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 4 2
+444
+Hit Cache2: threadA-2 0
+333
+Gurantee end: threadA-3 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-3 0 (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+333
+Gurantee end: threadA-5 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0))))) (or  (and  (= RF_threadA-1_main-2 1) (= B_main-2_threadA-1 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-1_threadB-4 0))))) (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-5 0 (or  (and  (= RF_threadA-5_main-2 1) (= B_main-2_threadA-5 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-5_threadB-4 0)))))
+ttt: (or  (and  (= RF_threadA-5_main-2 1) (= B_main-2_threadA-5 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-5_threadB-4 0)))))
+Add RW: threadA-1 0
+444
+Hit Cache2: threadA-1 0
+ttt: (or  (and  (= RF_threadA-1_main-2 1) (= B_main-2_threadA-1 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-1_threadB-4 0)))))
+Add RW: threadA-3 0
+444
+Hit Cache2: threadA-3 0
+ttt: (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+Adding SW Constraints: 5
+End adding SW Constraints!
+### RWConstraint construct Time: 0.025972 0.003407
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.010375 0.002507
+Create a Schedule: 0x7fe2597089a0
+Generate new schedule: 0x7fe2597089a0
+### P1 time: 0.00013 5.2e-05
+aaa: 1 main*main|0|1 threadA*threadA|6|1
+aaa: 1 main*main|0|1 threadA*threadA|10|1
+aaa: 1 main*main|0|1 threadA*threadA|26|1
+aaa: 1 main*main|0|1 threadA*threadA|0|2
+aaa: 1 main*main|0|1 threadA*threadA|26|2
+aaa: 1 main*main|0|1 threadA*threadA|0|3
+aaa: 1 main*main|0|1 threadB*threadB|43|1
+aaa: 1 main*main|0|1 threadB*threadB|47|1
+aaa: 1 main*main|0|1 threadB*threadB|56|1
+aaa: 1 main*main|0|1 threadB*threadB|59|1
+aaa: 1 main*main|0|1 threadB*threadB|0|2
+aaa: 1 main*main|88|1 threadA*threadA|6|1
+aaa: 1 main*main|88|1 threadA*threadA|10|1
+aaa: 1 main*main|88|1 threadA*threadA|26|1
+aaa: 1 main*main|88|1 threadA*threadA|0|2
+aaa: 1 main*main|88|1 threadA*threadA|26|2
+aaa: 1 main*main|88|1 threadA*threadA|0|3
+aaa: 1 main*main|88|1 threadB*threadB|43|1
+aaa: 1 main*main|88|1 threadB*threadB|47|1
+aaa: 1 main*main|88|1 threadB*threadB|56|1
+aaa: 1 main*main|88|1 threadB*threadB|59|1
+aaa: 1 main*main|88|1 threadB*threadB|0|2
+aaa: 1 main*main|93|1 threadA*threadA|6|1
+aaa: 1 main*main|93|1 threadA*threadA|10|1
+aaa: 1 main*main|93|1 threadA*threadA|26|1
+aaa: 1 main*main|93|1 threadA*threadA|0|2
+aaa: 1 main*main|93|1 threadA*threadA|26|2
+aaa: 1 main*main|93|1 threadA*threadA|0|3
+aaa: 1 main*main|93|1 threadB*threadB|43|1
+aaa: 1 main*main|93|1 threadB*threadB|47|1
+aaa: 1 main*main|93|1 threadB*threadB|56|1
+aaa: 1 main*main|93|1 threadB*threadB|59|1
+aaa: 1 main*main|93|1 threadB*threadB|0|2
+aaa: 1 main*main|0|2 threadA*threadA|6|1
+aaa: 1 main*main|0|2 threadA*threadA|10|1
+aaa: 1 main*main|0|2 threadA*threadA|26|1
+aaa: 1 main*main|0|2 threadA*threadA|0|2
+aaa: 1 main*main|0|2 threadA*threadA|26|2
+aaa: 1 main*main|0|2 threadA*threadA|0|3
+aaa: 1 main*main|0|2 threadB*threadB|43|1
+aaa: 1 main*main|0|2 threadB*threadB|47|1
+aaa: 1 main*main|0|2 threadB*threadB|56|1
+aaa: 1 main*main|0|2 threadB*threadB|59|1
+aaa: 1 main*main|0|2 threadB*threadB|0|2
+aaa: 1 main*main|0|3 threadB*threadB|43|1
+aaa: 1 main*main|0|3 threadB*threadB|47|1
+aaa: 1 main*main|0|3 threadB*threadB|56|1
+aaa: 1 main*main|0|3 threadB*threadB|59|1
+aaa: 1 main*main|0|3 threadB*threadB|0|2
+aaa: 0 main*main|0|5 threadA*threadA|0|1
+aaa: 0 main*main|0|5 threadA*threadA|6|1
+aaa: 0 main*main|0|5 threadA*threadA|10|1
+aaa: 0 main*main|0|5 threadA*threadA|26|1
+aaa: 0 main*main|0|5 threadA*threadA|0|2
+aaa: 0 main*main|0|5 threadA*threadA|26|2
+aaa: 0 main*main|0|5 threadA*threadA|0|3
+aaa: 0 main*main|0|6 threadA*threadA|0|1
+aaa: 0 main*main|0|6 threadA*threadA|6|1
+aaa: 0 main*main|0|6 threadA*threadA|10|1
+aaa: 0 main*main|0|6 threadA*threadA|26|1
+aaa: 0 main*main|0|6 threadA*threadA|0|2
+aaa: 0 main*main|0|6 threadA*threadA|26|2
+aaa: 0 main*main|0|6 threadA*threadA|0|3
+aaa: 0 main*main|0|6 threadB*threadB|0|1
+aaa: 0 main*main|0|6 threadB*threadB|43|1
+aaa: 0 main*main|0|6 threadB*threadB|47|1
+aaa: 0 main*main|0|6 threadB*threadB|56|1
+aaa: 0 main*main|0|6 threadB*threadB|59|1
+aaa: 0 main*main|0|6 threadB*threadB|0|2
+aaa: 1 threadA*threadA|6|1 threadB*threadB|43|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|56|1
+aaa: 1 threadA*threadA|6|1 threadB*threadB|59|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|43|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|47|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|56|1
+aaa: 1 threadA*threadA|10|1 threadB*threadB|59|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|47|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|56|1
+aaa: 1 threadA*threadA|26|1 threadB*threadB|59|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|43|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|47|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|56|1
+aaa: 1 threadA*threadA|26|2 threadB*threadB|59|1
+write: main-2
+reachbility list2: 0
+RF: threadA 1 0
+write: main-1
+reachbility list2: 0
+RF: threadA 2 0
+write: main-2
+reachbility list2: 0
+RF: threadA 3 0
+write: main-2
+reachbility list2: 0
+RF: threadA 5 0
+write: main-2
+reachbility list2: 0
+RF1: threadB 1 0
+write: threadA-2
+reachbility list1: 1
+RF1: threadB 2 65535
+write: main-2
+reachbility list2: 0
+RF1: threadB 4 65535
+write: main-2
+reachbility list2: 0
+RF: threadA 1 0
+write: main-1
+reachbility list2: 0
+RF: threadA 2 0
+write: main-2
+reachbility list2: 0
+RF: threadA 3 0
+write: main-2
+reachbility list2: 0
+RF: threadA 5 0
+write: main-2
+reachbility list2: 0
+RF1: threadB 1 0
+write: threadA-2
+reachbility list1: 1
+RF1: threadB 2 65535
+write: main-2
+reachbility list2: 0
+RF1: threadB 4 65535
+### P2 time: 0.015618 0.005299
+### P3 time: 4.5e-05 3.5e-05
+### Generate Solution time: 0.015978 0.005414
+### Check redundancy time: 4.8e-05 1.9e-05
+### Last Part time: 0.02844 0.008154
+### Generate Schedule Time: 0.077105 0.012346
+Generating: threadB-1 threadB-4 0 1
+checking: read:val threadB-1 1
+mhbList: 0
+enforce4: 0x7fe259606780 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe259606780 threadA-2 0 
+enforcePairs: 2
+checking fairness: 2
+threadA 2 0
+threadB 1 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fe259405e20
+### Prepare Time: 0.01688 0.000284
+AddRWRelations: 2
+Add RW: threadB-1 1
+444
+555
+In addRWRelation: threadB-1 1
+
+xxxx read: threadB-1 0 1
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+skip: threadB-4
+values: main-2 0 1
+xxx: threadB-1 1 (or )
+Identify inconsistency1!
+ttt: 
+Inconsistency2!
+### RWConstraint construct Time: 0.026045 7.8e-05
+Identify inconsistency2!
+close z3File!!!!!!!!!!!!!!: 0
+### Generate Schedule Time: 0.07804 0.00094
+End solver!
+### Solver Time: 0.078595 0.034032
+buffers: 0x7fe259700000 2
+delete Buffer: 0x7fe259700250
+suc!
+delete Buffer: 0x7fe2597002d0
+suc!
+buffers: 0x7fe259604210 2
+delete Buffer: 0x7fe25940b4d0
+suc!
+delete Buffer: 0x7fe25940a5c0
+suc!
+buffers: 0x7fe259407d40 2
+delete Buffer: 0x7fe25940a750
+suc!
+delete Buffer: 0x7fe259409bd0
+suc!
+delete curSch1: 0x7fe259408f50
+delete curSch2!
+### Total Time: 0.095237
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe25940a240
+Generate a new Executor: 0x7fe259407f50 0x7fe25940a240
+Schedule: 0x7fe259703230 1 -1 4 20 20
+For: main 6 main*main|0|5
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    threadA 0 threadA*threadA|0|1
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+    threadA 5 threadA*threadA|0|2
+For: main 7 main*main|0|6
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 0 threadA*threadA|0|1
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadA 4 threadA*threadA|22|1
+    threadA 5 threadA*threadA|0|2
+    threadB 0 threadB*threadB|0|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|63|1
+    threadB 4 threadB*threadB|0|2
+    threadB 5 threadB*threadB|63|2
+    threadB 6 threadB*threadB|0|3
+For: threadA 1 threadA*threadA|6|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+For: threadA 2 threadA*threadA|10|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+For: threadA 3 threadA*threadA|19|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+For: threadA 4 threadA*threadA|22|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|63|1
+    threadB 5 threadB*threadB|63|2
+For: threadA 5 threadA*threadA|0|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadB 1 threadB*threadB|43|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: threadB 2 threadB*threadB|47|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: threadB 3 threadB*threadB|63|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+For: threadB 4 threadB*threadB|0|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: threadB 5 threadB*threadB|63|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|19|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+For: threadB 6 threadB*threadB|0|3
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: threadB 1 threadB*threadB|43|1 0
+Read Map: threadB 2 threadB*threadB|47|1 0
+Read Map: threadB 3 threadB*threadB|63|1 0
+Read Map: threadB 5 threadB*threadB|63|2 0
+Read Map2: threadA 1 threadA*threadA|6|1 0
+Read Map2: threadA 2 threadA*threadA|10|1 65535
+Read Map2: threadA 4 threadA*threadA|22|1 65535
+
+Prefix: threadB 5
+Prefix Context: threadB*threadB|43|1 0
+Prefix Context: threadB*threadB|47|1 0
+Prefix Context: threadB*threadB|63|1 0
+Prefix Context: threadB*threadB|63|2 0
+
+In checker_thread_begin: 0x7fff72793000
+before enter lock: thread create 0x7fff72793000
+in thread_begin_action: 0x7fe259407f50 0x7fff72793000 main ~0~~
+before addAction lock: 0x7fe259406220 0x7fe25940a650
+thread: 0x7fe259406220 0x7fe25940a650
+thread add end: 0x7fe259406220 0x7fe25940a650 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe259407f50 0x7fe2594080e0 0x7fff72793000
+
+bbbb0: 0x7fff72793000 0x7fe259406220
+BeginFunc: 0x7fe259407f50
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+checker_addUses: 84 1 83
+
+update load: 84 0
+83 0 
+
+checker_addUses: 85 1 82
+
+update load: 85 0
+82 0 
+
+checker_addUses: 86 1 85
+
+update load: 86 0
+85 0 
+
+checker_addUses: 87 1 86
+
+update load: 87 0
+86 0 
+
+checker_addUses: 88 1 87
+
+update load: 88 0
+87 0 
+
+In atomic checker_preStore: 0x7fe25940b044 0 7!
+In write: 0x7fff72793000 0x7fe259406220 0x7fe2594096c0
+Before add action: 0x7fe259406220 0x7fe2594096c0
+before addAction lock: 0x7fe259406220 0x7fe2594096c0
+thread: 0x7fe259406220 0x7fe2594096c0
+thread add end: 0x7fe259406220 0x7fe2594096c0 8 1
+enabled threads: 1
+0x7fff72793000
+In add action: main-1
+End add action! main-1
+action: main-1
+loads: 0 1
+
+set load:  main-1 0
+
+update buf1: 0x7fe259406220 0x7fe25940b044 0
+update buf1 end: 0x7fe259406220
+
+Write value1: main-1 0x7fe25940b044 0!
+checker_addUses: 89 1 86
+
+update load: 89 0
+86 0 
+
+checker_addUses: 90 1 82
+
+update load: 90 0
+82 0 
+
+checker_addUses: 91 1 90
+
+update load: 91 0
+90 0 
+
+checker_addUses: 92 1 91
+
+update load: 92 0
+91 0 
+
+checker_addUses: 93 1 92
+
+update load: 93 0
+92 0 
+
+In atomic checker_preStore: 0x7fe25940b048 0 7!
+In write: 0x7fff72793000 0x7fe259406220 0x7fe259603260
+Before add action: 0x7fe259406220 0x7fe259603260
+before addAction lock: 0x7fe259406220 0x7fe259603260
+thread: 0x7fe259406220 0x7fe259603260
+thread add end: 0x7fe259406220 0x7fe259603260 8 2
+enabled threads: 1
+0x7fff72793000
+In add action: main-2
+End add action! main-2
+action: main-2
+loads: 0 2
+
+set load:  main-2 0
+
+update buf1: 0x7fe259406220 0x7fe25940b048 0
+update buf1 end: 0x7fe259406220
+
+Write value1: main-2 0x7fe25940b048 0!
+checker_addUses: 94 1 91
+
+update load: 94 0
+91 0 
+
+checker_addUses: 95 1 82
+
+update load: 95 0
+82 0 
+
+checker_addUses: 96 1 78
+
+update load: 96 0
+78 0 
+
+checker_addUses: 98 1 78
+
+update load: 98 0
+78 0 
+
+BeginFunc: 0x7fe259407f50
+BeginFunc: 0x7fe259407f50
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+
+update load: 192 0
+191 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 234 1 231
+checker_addUses: 235 1 230
+checker_addUses: 236 1 235
+checker_addUses: 99 1 79
+checker_addUses: 237 2 236
+
+update load: 99 0
+79 0 
+
+checker_addUses: 101 1 79
+checker_addUses: 239 1 238
+
+update load: 101 0
+79 0 
+
+checker_addUses: 240 1 239
+BeginFunc: 0x7fe259407f50
+checker_addUses: 241 1 240
+checker_addUses: 179 1 178
+
+In checker_thread_begin: 0x700000081000
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 192 1 191
+checker_addUses: 234 1 231
+
+update load: 192 0
+191 0 
+
+checker_addUses: 235 1 230
+checker_addUses: 236 1 235
+checker_addUses: 102 1 78
+Waitting for create thread checker_addUses: 237 2 236
+
+update load: 102 0
+78 0 
+
+0x700000081000checker_addUses: 239 1 238
+
+checker_addUses: 103 1 102
+checker_addUses: 240 1 239
+
+update load: 103 0
+102 0 
+
+checker_addUses: 241 1 240
+checker_addUses: 104 1 103
+
+In checker_thread_begin: 0x700000104000
+
+update load: 104 0
+103 0 
+
+
+In checker_thread_create: 0x7fff72793000 0x700000081000
+before addAction lock: 0x7fe259406220 0x7fe259605300
+thread: 0x7fe259406220 0x7fe259605300
+thread add end: 0x7fe259406220 0x7fe259605300 1 3
+enabled threads: 1
+0x7fff72793000
+In add action: main-3
+End add action! main-3
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+Waitting for create thread 0x700000104000
+Waitting for create thread 0x700000104000
+checker_addUses: 105 1 79
+in thread_begin_action: 0x7fe259407f50 0x700000081000 threadA ~
+update load: 105 0
+79 0 
+
+1~~
+checker_addUses: 106 1 105
+update buf2: 0x7fe2594094d0
+update load: 106 0
+105 0 
+
+ 2
+before addAction lock: 0x7fe2594094d0 0x7fe2596036e0
+thread: 0x7fe2594094d0 0x7fe2596036e0
+thread add end: 0x7fe2594094d0 0x7fe2596036e0 2 0
+enabled threads: 1
+0x7fff72793000
+checker_addUses: 107 1 106
+In add action: threadA-0
+
+update load: 107 0
+106 0 
+
+End add action! threadA-0
+
+In checker_thread_create: 0x7fff72793000 0x700000104000
+BBB: 0x7fe259407f50 0x7fe2594080e0 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe2594094d0
+0x7fff72793000 0x700000081000
+bbb: 0x7fe259605300 0x7fe2596036e0
+Waitting for create thread 0x700000104000
+Waitting for create thread 0x700000104000
+checker_addUses: 4 1 3
+
+update load: 4 0
+3 0 
+
+checker_addUses: 5 1 4
+
+update load: 5 0
+4 0 
+
+checker_addUses: 6 1 5
+
+update load: 6 0
+5 0 
+
+In atomic checker_preLoad: 0x7fe25940b048 7 6!
+In read action: 0x700000081000
+before addAction lock: 0x7fe2594094d0 0x7fe259604590
+thread: 0x7fe2594094d0 0x7fe259604590
+Waitting for create thread 0x700000104000
+thread add end: 0x7fe2594094d0 0x7fe259604590 7 1
+enabled threads: before addAction lock: 20x7fe259406220
+ 0x7000000810000x7fe2596053a0
+
+0x7fff72793000
+In add action: threadA-1
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-1
+loads: 0 1
+
+set load:  threadA-1 0
+
+
+add load: 6 threadA-1 1
+remain: main*main|0|3
+remain: threadB*threadB|43|1
+remain: threadB*threadB|47|1
+thread: 0x7fe259406220 0x7fe2596053a0
+thread add end: 0x7fe259406220 0x7fe2596053a0 1Waitting for create thread  0x7000001040004
+
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: main-4
+End add action! main-4
+waiting read: 0x700000081000 threadA-1
+in update priority: 0x700000081000
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+remain: threadB*threadB|43|1
+remain: threadB*threadB|47|1
+in thread_begin_action: 0x7fe259407f50 0x700000104000 threadB ~2~~
+update buf2: 0x7fe259604750 2
+checker_addUses: 108 1 102
+before addAction lock: 0x7fe259604750 0x7fe259606300
+thread: 0x7fe259604750 0x7fe259606300
+thread add end: 0x7fe259604750 0x7fe259606300 2 0
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+
+update load: 108 0
+102 0 
+
+In add action: threadB-0
+checker_addUses: 109 1 108
+End add action! threadB-0
+
+update load: 109 0
+108 0 
+
+BBB: 0x7fe259407f50 0x7fe2594080e0 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe259604750
+0x7fff72793000 0x700000081000
+0x7fff72793000 0x700000104000
+bbb: 0x7fe2596053a0 0x7fe259606300
+waiting read: 0x700000081000 threadA-1
+in update priority: 0x700000081000
+remain: threadB*threadB|43|1
+remain: threadB*threadB|47|1
+checker_addUses: 41 1 40
+
+update load: 41 0
+40 0 
+
+checker_addUses: 42 1 41
+before addAction lock: 0x7fe259406220 0x7fe259606780
+thread: 0x7fe259406220 0x7fe259606780
+thread add end: 0x7fe259406220 0x7fe259606780 4 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: main-5
+
+update load: 42 0
+41 0 
+
+End add action! main-5
+checker_addUses: 43 1 42
+
+update load: 43 0
+42 0 
+
+In atomic checker_preLoad: 0x7fe25940b048 7 43!
+In read action: 0x700000104000
+before addAction lock: 0x7fe259604750 0x7fe259500300
+thread: 0x7fe259604750 0x7fe259500300
+thread add end: waiting read: 0x7fe2596047500x700000081000  0x7fe259500300threadA-1
+in update priority: 0x700000081000 
+7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-1
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-1
+loads: 0 1
+
+set load:  threadB-1 0
+
+
+add load: 43 threadB-1 1
+In pre_read action: threadB-1
+fetch expect value: 0x7fe25940b048 0
+before fetch: 0x7fe25940b048 0
+0 
+after fetch: 0x7fe25940b048
+0 
+checker_addUses: 110 1 105
+
+Read expect value: threadB-1 0x7fe25940b048 0 0 0
+
+update load: 110 0
+105 0 
+
+End: 0x700000104000 threadB-1
+checker_addUses: 44 1 41
+
+update load: 44 0
+41 0 
+
+remain: threadB*threadB|47|1
+checker_addUses: 45 1 40
+checker_addUses: 111 1 110
+
+update load: 45 0
+40 0 
+
+checker_addUses: 46 1 45
+
+update load: 46 0
+45 0 
+
+checker_addUses: 47 1 46
+
+update load: 47 0
+46 0 
+
+In rmw_add: 0x7fe25940b044 1 7
+before addAction lock: 0x7fe259604750 0x7fe259606cb0
+thread: 0x7fe259604750 0x7fe259606cb0
+thread add end: 0x7fe259604750 0x7fe259606cb0 11 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-2
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-2
+
+add load: 47 threadB-2 1
+loads: 1 2
+
+set load:  threadB-2 1
+threadB-2 
+waiting read: 0x700000081000 threadA-1
+in update priority: 0x700000081000
+before fetch: 0x7fe25940b044 0
+0 
+after fetch: 0x7fe25940b044
+0 
+
+expect value rmw_add: threadB 2 0 !1! 47
+
+update buf1: 0x7fe2594094d0 0x7fe25940b044 1
+update buf1 end: 0x7fe2594094d0
+update buf1: 0x7fe259604750 0x7fe25940b044 1
+update buf1 end: 0x7fe259604750
+update buf1: 0x7fe259406220 0x7fe25940b044 1
+update buf1 end: 0x7fe259406220
+
+update load: 111 0
+110 0 
+
+checker_addUses: 48 1 45
+In pre_read action: threadA-1
+get value: 0x7fe259603aa0 0x7fe25940b048 0
+current values for: 0x7fe25940b048
+0 
+
+Read expect value: threadA-1 0x7fe25940b048 0 0 0
+
+update load: 48 0
+45 0 
+
+checker_addUses: 49 1 40
+
+update load: 49 0
+40 0 
+
+End: 0x700000081000 threadA-1
+checker_addUses: 7 1 4
+
+update load: 7 0
+4 0 
+
+checker_addUses: 8 1 3
+
+update load: 8 0
+3 0 
+
+checker_addUses: 9 1 8
+
+update load: 9 0
+8 0 
+
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+In rmw_add: 0x7fe25940b044 1 7
+before addAction lock: 0x7fe2594094d0 0x7fe259703130
+thread: 0x7fe2594094d0 0x7fe259703130
+thread add end: 0x7fe2594094d0 0x7fe259703130 11 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-2
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadA-2
+
+add load: 10 threadA-2 1
+loads: 1 2
+
+set load:  threadA-2 1
+threadA-2 
+get value: 0x7fe259606280 0x7fe25940b044 1
+current values for: 0x7fe25940b044
+0 1 
+
+expect value rmw_add: threadA 2 1 !1! 10
+
+update buf1: 0x7fe2594094d0 0x7fe25940b044 2
+update buf1 end: 0x7fe2594094d0
+update buf1: 0x7fe259604750 0x7fe25940b044 2
+update buf1 end: 0x7fe259604750
+update buf1: 0x7fe259406220 0x7fe25940b044 2
+update buf1 end: 0x7fe259406220
+checker_addUses: 11 1 8
+
+update load: 11 0
+8 0 
+
+checker_addUses: 12 1 3
+
+update load: 12 0
+3 0 
+
+checker_addUses: 13 1 12
+
+update load: 13 0
+12 0 
+
+checker_addUses: 14 1 13
+
+update load: 14 0
+13 0 
+
+checker_addUses: 15 2 10
+
+update load: 15 1
+10 14 0 
+threadA-2 
+checker_addUses: 16 1 15
+
+update load: 16 1
+15 0 
+threadA-2 
+checker_addUses: 18 1 8
+
+update load: 18 1
+8 0 16 
+threadA-2 
+before addAction lock: 0x7fe259406220 0x7fe259703e40
+thread: 0x7fe259406220 0x7fe259703e40
+thread add end: 0x7fe259406220 0x7fe259703e40 4 checker_addUses: 19 1 18
+6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: main-6
+
+update load: 19 1
+18 0 16 
+threadA-2 
+In atomic checker_preStore: 0x7fe25940b044 0 End add action! main-6
+7!
+In write: 0x700000081000 0x7fe2594094d0 0x7fe259409c70
+Before add action: 0x7fe2594094d0 0x7fe259409c70
+before addAction lock: 0x7fe2594094d0 0x7fe259409c70
+thread: 0x7fe2594094d0 0x7fe259409c70
+thread add end: 0x7fe2594094d0 0x7fe259409c70 8 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-3
+End add action! threadA-3
+action: threadA-3
+loads: 1 3
+
+set load:  threadA-3 1
+threadA-2 
+checker_addUses: 112 1 79
+update buf1: 0x7fe2594094d0 0x7fe25940b044 0
+update buf1 end: 0x7fe2594094d0
+update buf1: 0x7fe259604750 0x7fe25940b044 0
+update buf1 end: 0x7fe259604750
+update buf1: 0x7fe259406220 0x7fe25940b044 0
+update buf1 end: 0x7fe259406220
+
+Write value1: threadA-3 0x7fe25940b044 0!
+
+update load: 112 0
+79 0 
+
+checker_addUses: 20 1 8
+
+update load: 20 1
+8 0 16 
+threadA-2 
+checker_addUses: 21 1 4
+
+update load: 21 1
+4 0 16 
+threadA-2 
+checker_addUses: 22 1 21
+
+update load: 22 1
+21 0 16 
+threadA-2 
+In rmw_add: 0x7fe25940b048 1 7
+before addAction lock: 0x7fe2594094d0 0x7fe259409ec0
+thread: 0x7fe2594094d0 0x7fe259409ec0
+thread add end: 0x7fe2594094d0 0x7fe259409ec0 11 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-4
+checker_addUses: 50 1 49
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+
+update load: 50 0
+49 0 
+
+End add action! threadA-4
+checker_addUses: 51 1 50
+
+add load: 22 threadA-4 1
+loads: 2 4
+
+update load: 51 0
+50 0 
+
+
+set load:  threadA-4 2
+threadA-4 threadA-2 
+checker_addUses: 52 2 47
+
+update load: 52 1
+47 51 0 
+threadB-2 
+checker_addUses: 53 1 52
+
+update load: 53 1
+52 0 
+threadB-2 
+remain: threadB*threadB|63|1
+remain: threadB*threadB|63|2
+checker_addUses: 62 1 41
+
+update load: 62 1
+41 0 53 66 
+threadB-2 
+checker_addUses: 63 1 62
+
+update load: 63 1
+62 0 53 66 
+threadB-2 
+In atomic checker_preLoad: 0x7fe25940b048 7 63!
+In read action: 0x700000104000
+before addAction lock: 0x7fe259604750 0x7fe259700180
+thread: 0x7fe259604750 0x7fe259700180
+thread add end: 0x7fe259604750 0x7fe259700180 7 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-3
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-3
+loads: 1 3
+waiting rmw_add!
+in update priority: 0x700000081000
+
+set load:  threadB-3 1
+threadB-2 
+
+add load: 63 threadB-3 1
+In pre_read action: threadB-3
+fetch expect value: 0x7fe25940b048 0
+before fetch: 0x7fe25940b048 0
+0 
+after fetch: 0x7fe25940b048
+0 
+
+Read expect value: threadB-3 0x7fe25940b048 0 0 0
+remain: threadB*threadB|63|2
+End: 0x700000104000 threadB-3
+checker_addUses: 64 1 41
+
+update load: 64 1
+41 0 53 66 
+threadB-2 
+checker_addUses: 65 2 63
+
+update load: 65 3
+63 43 0 53 66 
+threadB-1 threadB-2 threadB-3 
+checker_addUses: 66 1 65
+
+update load: 66 3
+65 0 53 66 
+threadB-1 threadB-2 threadB-3 
+In thread_yield_action!
+Begin thread yield!
+In thread yield!
+before addAction lock: 0x7fe259604750 0x7fe2597005f0
+thread: 0x7fe259604750 0x7fe2597005f0
+thread add end: 0x7fe259604750 0x7fe2597005f0 waiting rmw_add!
+3in update priority:  0x7000000810004
+
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-4
+End add action! threadB-4
+remain: threadB*threadB|63|2
+End thread yield!
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+waiting rmw_add!
+in update priority: 0x700000081000
+remain: threadB*threadB|63|2
+checker_addUses: 62 1 41
+
+update load: 62 3
+41 0 53 66 
+threadB-1 threadB-2 threadB-3 
+checker_addUses: 63 1 62
+
+update load: 63 3
+62 0 53 66 
+threadB-1 threadB-2 threadB-3 
+In atomic checker_preLoad: 0x7fe25940b048 7 63!
+In read action: 0x700000104000waiting rmw_add!
+
+in update priority: before addAction lock: 0x7000000810000x7fe259604750 
+0x7fe259606000
+thread: 0x7fe259604750 0x7fe259606000
+thread add end: 0x7fe259604750 0x7fe259606000 7 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-5
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-5
+loads: 3 5
+
+set load:  threadB-5 3
+threadB-1 threadB-2 threadB-3 
+
+add load: 63 threadB-5 1
+In pre_read action: threadB-5
+fetch expect value: 0x7fe25940b048 0
+before fetch: 0x7fe25940b048 0
+0 
+after fetch: 0x7fe25940b048
+0 
+
+Read expect value: threadB-5 0x7fe25940b048 0 0 0
+End: 0x700000104000 threadB-5
+checker_addUses: 64 1 41
+get value: 0x7fe259603aa0 0x7fe25940b048 0
+current values for: 0x7fe25940b048
+0 
+
+update load: 64 3
+41 0 53 66 
+threadB-1 threadB-2 threadB-3 
+
+expect value rmw_add: threadA 4 0 !1! 22
+
+update buf1: 0x7fe2594094d0 0x7fe25940b048 1
+update buf1 end: 0x7fe2594094d0
+checker_addUses: 65 2 63
+update buf1: 0x7fe259604750 0x7fe25940b048 1
+update buf1 end: 0x7fe259604750
+update buf1: 0x7fe259406220 0x7fe25940b048 1
+update buf1 end: 0x7fe259406220
+
+update load: 65 4
+63 43 0 53 66 
+threadB-1 threadB-5 threadB-2 threadB-3 
+checker_addUses: 66 1 65
+checker_addUses: 23 1 4
+
+update load: 66 4
+65 0 53 66 
+threadB-1 threadB-5 threadB-2 threadB-3 
+
+update load: 23 1
+4 0 16 
+threadA-2 
+In thread_yield_action!
+In checker_thread_end
+Begin thread yield!
+In thread yield!
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe259604750 0x7fe259605540
+thread: 0x7fe259604750 0x7fe259605540
+thread add end: 0x7fe259604750 0x7fe259605540 3 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-6
+add prio: 0x700000104000 0x700000081000
+add prio: 0x700000104000 0x7fff72793000
+End add action! threadB-6
+End thread yield!
+before addAction lock: 0x7fe2594094d0 0x7fe259500530
+thread: 0x7fe2594094d0 0x7fe259500530
+thread add end: 0x7fe2594094d0 0x7fe259500530 5 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadA-5
+erase prio: 0x700000104000 0x700000081000
+In add action: threadA-5
+End add action! threadA-5
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe259407f50
+checker_addUses: 62 1 41
+
+update load: 62 4
+41 0 53 66 
+threadB-1 threadB-5 threadB-2 threadB-3 
+checker_addUses: 63 1 62
+
+update load: 63 4
+62 0 53 66 
+threadB-1 threadB-5 threadB-2 threadB-3 
+In atomic checker_preLoad: 0x7fe25940b048 7 63!
+In read action: 0x700000104000
+before addAction lock: 0x7fe259604750 0x7fe259500410
+thread: 0x7fe259604750 0x7fe259500410
+thread add end: 0x7fe259604750 0x7fe259500410 7 7
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+In add action: threadB-7
+0x700000104000
+0x7fff72793000 
+Tset: 1 2 0x700000104000
+0x7fff72793000 
+End add action! threadB-7
+loads: 4 7
+
+set load:  threadB-7 4
+threadB-1 threadB-5 threadB-2 threadB-3 
+
+add load: 63 threadB-7 1
+In pre_read action: threadB-7
+get value: 0x7fe2596039a0 0x7fe25940b048 1
+current values for: 0x7fe25940b048
+0 1 
+
+Read expect value: threadB-7 0x7fe25940b048 1 1 1
+End: 0x700000104000 threadB-7
+checker_addUses: 64 1 41
+
+update load: 64 4
+41 0 53 66 
+threadB-1 threadB-5 threadB-2 threadB-3 
+checker_addUses: 65 2 63
+
+update load: 65 5
+63 43 0 53 66 
+threadB-1 threadB-7 threadB-5 threadB-2 threadB-3 
+checker_addUses: 66 1 65
+
+update load: 66 5
+65 0 53 66 
+threadB-1 threadB-7 threadB-5 threadB-2 threadB-3 
+checker_addUses: 75 1 74
+
+update load: 75 1
+74 0 53 
+threadB-2 
+var = 1
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe259604750 0x7fe25940a7c0
+thread: 0x7fe259604750 0x7fe25940a7c0
+thread add end: 0x7fe259604750 0x7fe25940a7c0 5 8
+enabled threads: 2
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadB-8
+In add action: threadB-8
+End add action! threadB-8
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe259407f50
+checker_addUses: 113 1 78
+
+update load: 113 0
+78 0 
+
+In checker_thread_end
+Thread_end_action: 0x7fff72793000
+before addAction lock: 0x7fe259406220 0x7fe2595001f0
+thread: 0x7fe259406220 0x7fe2595001f0
+thread add end: 0x7fe259406220 0x7fe2595001f0 5 7
+enabled threads: 1
+0x7fff72793000
+erase enabledThreads: main-7
+erase prio: 0x700000104000 0x7fff72793000
+In add action: main-7
+End add action! main-7
+### Execute Time: 0.106721 0.026855 0.011428
+Current Trace: 3
+threadA*threadA|6|1 threadA-1 r 0 6
+threadA*threadA|10|1 threadA-2 rmw 1 2 10
+threadA*threadA|19|1 threadA-3 w 0 19
+threadA*threadA|22|1 threadA-4 rmw 0 1 22
+iiiii: 0x7fe2594094d0 3
+xx: 2 1
+yy: threadA-2
+xx: 3 1
+yy: threadA-2
+xx: 4 2
+yy: threadA-4
+yy: threadA-2
+threadB*threadB|43|1 threadB-1 r 0 43
+threadB*threadB|47|1 threadB-2 rmw 0 1 47
+threadB*threadB|63|1 threadB-3 r 0 63
+threadB*threadB|63|2 threadB-5 r 0 63
+threadB*threadB|63|3 threadB-7 r 1 63
+iiiii: 0x7fe259604750 4
+xx: 2 1
+yy: threadB-2
+xx: 3 1
+yy: threadB-2
+xx: 5 3
+yy: threadB-1
+yy: threadB-2
+yy: threadB-3
+xx: 7 4
+yy: threadB-1
+yy: threadB-5
+yy: threadB-2
+yy: threadB-3
+main*main|88|1 main-1 w 0 88
+main*main|93|1 main-2 w 0 93
+iiiii: 0x7fe259406220 0
+Generating: threadA-2 threadA-3 1 0
+checking: read:val threadA-2 0
+mhbList: 1
+enforce: 0x7fe259703130 threadA-2 0 
+enforce4: 0x7fe259500300 threadB-1 0 
+mhbList: 0
+enforce4: 0x7fe259606cb0 threadB-2 0 
+mhbList: 1
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce4: 0x7fe259700180 threadB-3 0 
+mhbList: 1
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce4: 0x7fe259606000 threadB-5 0 
+mhbList: 3
+enforce44: 0x7fe259500300 threadB-1 0 
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce44: 0x7fe259700180 threadB-3 0 
+enforcePairs: 5
+checking fairness: 5
+threadA 2 0
+threadB 1 0
+threadB 2 0
+threadB 3 0
+threadB 5 0
+SKIP: 0
+### Generate Schedule Time: 0.078295 0.00026
+Generating: threadA-1 threadA-4 0 1
+checking: read:val threadA-1 1
+mhbList: 0
+enforce4: 0x7fe259500300 threadB-1 0 
+mhbList: 0
+enforce4: 0x7fe259606cb0 threadB-2 0 
+mhbList: 1
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce4: 0x7fe259700180 threadB-3 0 
+mhbList: 1
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce4: 0x7fe259606000 threadB-5 0 
+mhbList: 3
+enforce44: 0x7fe259500300 threadB-1 0 
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce44: 0x7fe259700180 threadB-3 0 
+enforcePairs: 5
+checking fairness: 5
+threadA 1 1
+threadB 1 0
+threadB 2 0
+threadB 3 0
+threadB 5 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe259407f50
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe259407f50
+### Basic Prepare Time: 0.004342 0.001471
+### MO Prepare Time: 0.000885 0.000293
+Adding sc constraints: 11
+### SC Prepare Time: 0.005938 0.002257
+In addLockConstraints: 0
+prefix size: 0
+### Part1 Time: 0.006089 0.002197
+reads & writes: 2 4
+reads & writes: 6 2
+### Part2 Time: 0.003758 0.001529
+### Consistent Prepare Time: 0.010009 0.003745
+### Prepare Time: 0.025047 0.008181
+AddRWRelations: 5
+Add RW: threadB-1 0
+444
+555
+In addRWRelation: threadB-1 0
+
+xxxx read: threadB-1 0 0
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadA-4 0
+values: threadA-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadA-4
+skip write1: main-2
+xxx: threadB-1 0 (or  (and  (= RF_threadB-1_main-2 1) (= B_main-2_threadB-1 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-1 1)))))
+ttt: (or  (and  (= RF_threadB-1_main-2 1) (= B_main-2_threadB-1 1) (= false (and (= B_main-2_threadA-4 1) (= B_threadA-4_threadB-1 1)))))
+Add RW: threadA-1 1
+444
+555
+In addRWRelation: threadA-1 1
+
+xxxx read: threadA-1 0 1
+
+write: threadA-4 1
+
+write: main-2 0
+writeset: 2
+skip: threadA-4
+values: main-2 0 1
+xxx: threadA-1 1 (or )
+Identify inconsistency1!
+ttt: 
+Inconsistency2!
+### RWConstraint construct Time: 0.026361 0.000321
+Identify inconsistency2!
+close z3File!!!!!!!!!!!!!!: 0
+### Generate Schedule Time: 0.087407 0.009117
+Generating: threadB-7 main-2 1 0
+checking: read:val threadB-7 0
+mhbList: 4
+enforce: 0x7fe259500300 threadB-1 0 
+enforce: 0x7fe259606000 threadB-5 0 
+enforce: 0x7fe259606cb0 threadB-2 0 
+enforce: 0x7fe259700180 threadB-3 0 
+enforce4: 0x7fe259500300 threadB-1 0 
+mhbList: 0
+enforce4: 0x7fe259606cb0 threadB-2 0 
+mhbList: 1
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce4: 0x7fe259700180 threadB-3 0 
+mhbList: 1
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce4: 0x7fe259606000 threadB-5 0 
+mhbList: 3
+enforce44: 0x7fe259500300 threadB-1 0 
+enforce44: 0x7fe259606cb0 threadB-2 0 
+enforce44: 0x7fe259700180 threadB-3 0 
+enforcePairs: 5
+checking fairness: 5
+threadB 1 0
+threadB 2 0
+threadB 3 0
+threadB 5 0
+threadB 7 0
+Identify an unfair schedule!
+### Generate Schedule Time: 0.087646 0.000244
+End solver!
+### Solver Time: 0.088385 0.00984
+buffers: 0x7fe2594094d0 2
+delete Buffer: 0x7fe259606280
+suc!
+delete Buffer: 0x7fe259603aa0
+suc!
+buffers: 0x7fe259604750 2
+delete Buffer: 0x7fe259605c80
+suc!
+delete Buffer: 0x7fe2596039a0
+suc!
+buffers: 0x7fe259406220 2
+delete Buffer: 0x7fe259409780
+suc!
+delete Buffer: 0x7fe259606400
+suc!
+delete curSch1: 0x7fe259703230
+delete curSch2!
+### Total Time: 0.117046
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe2595008e0
+Generate a new Executor: 0x7fe2595001a0 0x7fe2595008e0
+Schedule: 0x7fe2597089a0 2 0 5 20 20
+For: main 6 main*main|0|5
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    threadA 0 threadA*threadA|0|1
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|26|1
+    threadA 4 threadA*threadA|0|2
+    threadA 5 threadA*threadA|26|2
+    threadA 6 threadA*threadA|0|3
+For: main 7 main*main|0|6
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 0 threadA*threadA|0|1
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|26|1
+    threadA 4 threadA*threadA|0|2
+    threadA 5 threadA*threadA|26|2
+    threadA 6 threadA*threadA|0|3
+    threadB 0 threadB*threadB|0|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|56|1
+    threadB 4 threadB*threadB|59|1
+    threadB 5 threadB*threadB|0|2
+For: threadA 1 threadA*threadA|6|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 2 threadA*threadA|10|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 3 threadA*threadA|26|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|56|1
+For: threadA 4 threadA*threadA|0|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadA 5 threadA*threadA|26|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|56|1
+For: threadA 6 threadA*threadA|0|3
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+For: threadB 1 threadB*threadB|43|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+For: threadB 2 threadB*threadB|47|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+For: threadB 3 threadB*threadB|56|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+For: threadB 4 threadB*threadB|59|1
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+    threadA 1 threadA*threadA|6|1
+    threadA 2 threadA*threadA|10|1
+    threadA 3 threadA*threadA|26|1
+    threadA 5 threadA*threadA|26|2
+    threadB 1 threadB*threadB|43|1
+    threadB 2 threadB*threadB|47|1
+    threadB 3 threadB*threadB|56|1
+For: threadB 5 threadB*threadB|0|2
+    main 0 main*main|0|1
+    main 1 main*main|88|1
+    main 2 main*main|93|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: threadA 1 threadA*threadA|6|1 0
+Read Map: threadA 2 threadA*threadA|10|1 0
+Read Map: threadA 3 threadA*threadA|26|1 0
+Read Map: threadA 4 threadA*threadA|22|1 0
+Read Map: threadA 5 threadA*threadA|26|2 0
+Read Map2: threadB 1 threadB*threadB|43|1 0
+Read Map2: threadB 2 threadB*threadB|47|1 65535
+Read Map2: threadB 4 threadB*threadB|59|1 65535
+
+Prefix: threadA 5
+Prefix Context: threadA*threadA|10|1 0
+Prefix Context: threadA*threadA|26|1 0
+Prefix Context: threadA*threadA|26|2 0
+Prefix Context: threadA*threadA|6|1 0
+
+In checker_thread_begin: 0x7fff72793000
+before enter lock: thread create 0x7fff72793000
+in thread_begin_action: 0x7fe2595001a0 0x7fff72793000 main ~0~~
+before addAction lock: 0x7fe25940b410 0x7fe25940a650
+thread: 0x7fe25940b410 0x7fe25940a650
+thread add end: 0x7fe25940b410 0x7fe25940a650 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe2595001a0 0x7fe259500330 0x7fff72793000
+
+bbbb0: 0x7fff72793000 0x7fe25940b410
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+checker_addUses: 84 1 83
+
+update load: 84 0
+83 0 
+
+checker_addUses: 85 1 82
+
+update load: 85 0
+82 0 
+
+checker_addUses: 86 1 85
+
+update load: 86 0
+85 0 
+
+checker_addUses: 87 1 86
+
+update load: 87 0
+86 0 
+
+checker_addUses: 88 1 87
+
+update load: 88 0
+87 0 
+
+In atomic checker_preStore: 0x7fe25940b504 0 7!
+In write: 0x7fff72793000 0x7fe25940b410 0x7fe259708860
+Before add action: 0x7fe25940b410 0x7fe259708860
+before addAction lock: 0x7fe25940b410 0x7fe259708860
+thread: 0x7fe25940b410 0x7fe259708860
+thread add end: 0x7fe25940b410 0x7fe259708860 8 1
+enabled threads: 1
+0x7fff72793000
+In add action: main-1
+End add action! main-1
+action: main-1
+loads: 0 1
+
+set load:  main-1 0
+
+update buf1: 0x7fe25940b410 0x7fe25940b504 0
+update buf1 end: 0x7fe25940b410
+
+Write value1: main-1 0x7fe25940b504 0!
+checker_addUses: 89 1 86
+
+update load: 89 0
+86 0 
+
+checker_addUses: 90 1 82
+
+update load: 90 0
+82 0 
+
+checker_addUses: 91 1 90
+
+update load: 91 0
+90 0 
+
+checker_addUses: 92 1 91
+
+update load: 92 0
+91 0 
+
+checker_addUses: 93 1 92
+
+update load: 93 0
+92 0 
+
+In atomic checker_preStore: 0x7fe25940b508 0 7!
+In write: 0x7fff72793000 0x7fe25940b410 0x7fe25940ac50
+Before add action: 0x7fe25940b410 0x7fe25940ac50
+before addAction lock: 0x7fe25940b410 0x7fe25940ac50
+thread: 0x7fe25940b410 0x7fe25940ac50
+thread add end: 0x7fe25940b410 0x7fe25940ac50 8 2
+enabled threads: 1
+0x7fff72793000
+In add action: main-2
+End add action! main-2
+action: main-2
+loads: 0 2
+
+set load:  main-2 0
+
+update buf1: 0x7fe25940b410 0x7fe25940b508 0
+update buf1 end: 0x7fe25940b410
+
+Write value1: main-2 0x7fe25940b508 0!
+checker_addUses: 94 1 91
+
+update load: 94 0
+91 0 
+
+checker_addUses: 95 1 82
+
+update load: 95 0
+82 0 
+
+checker_addUses: 96 1 78
+
+update load: 96 0
+78 0 
+
+checker_addUses: 98 1 78
+
+update load: 98 0
+78 0 
+
+BeginFunc: 0x7fe2595001a0
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 234 1 231
+checker_addUses: 235 1 230
+checker_addUses: 236 1 235
+checker_addUses: 191 1 190
+checker_addUses: 237 2 236
+checker_addUses: 239 1 238
+checker_addUses: 240 1 239
+checker_addUses: 241 1 240
+
+In checker_thread_begin: 0x700000081000
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+
+update load: 192 0
+191 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 99 1 79
+
+update load: 99 0
+79 0 
+
+checker_addUses: 101 1 79
+
+update load: 101 0
+79 0 
+
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 234 1 231
+checker_addUses: 235 1 230
+Waitting for create thread 0x700000081000checker_addUses: 236 1 235
+
+checker_addUses: 191 1 190
+checker_addUses: 237 2 236
+checker_addUses: 239 1 238
+checker_addUses: 240 1 239
+checker_addUses: 241 1 240
+
+In checker_thread_begin: 0x700000104000
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+Waitting for create thread 0x700000081000
+
+update load: 192 0
+191 0 
+
+checker_addUses: 102 1 78
+Waitting for create thread 0x700000104000
+
+update load: 102 0
+78 0 
+
+checker_addUses: 103 1 102
+Waitting for create thread 0x700000081000
+
+update load: 103 0
+102 0 
+
+checker_addUses: 104 1 103
+
+update load: 104 0
+103 0 
+
+
+In checker_thread_create: 0x7fff72793000 0x700000081000
+before addAction lock: 0x7fe25940b410 0x7fe259406220
+thread: 0x7fe25940b410 0x7fe259406220
+thread add end: 0x7fe25940b410 0x7fe259406220 1 3
+enabled threads: 1
+0x7fff72793000
+In add action: main-3
+Waitting for create thread 0x700000104000
+Waitting for create thread 0x700000081000
+End add action! main-3
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+Waitting for create thread 0x700000104000
+Waitting for create thread 0x700000104000
+checker_addUses: 105 1 79
+in thread_begin_action: 0x7fe2595001a0 0x700000081000 threadA ~1~~
+
+update load: 105 0
+79 0 
+
+checker_addUses: 106 1 105
+update buf2: 0x7fe25970aea0 2
+
+update load: 106 0
+105 0 
+
+before addAction lock: 0x7fe25970aea0 0x7fe25970a860
+thread: 0x7fe25970aea0 0x7fe25970a860
+checker_addUses: 107 1 106
+thread add end: 0x7fe25970aea0 0x7fe25970a860 2 0
+enabled threads: 1
+0x7fff72793000
+update load: 107 0
+106 0 
+
+
+Waitting for create thread 0x700000104000
+In add action: threadA-0
+End add action! threadA-0
+BBB: 0x7fe2595001a0 0x7fe259500330 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe25970aea0
+0x7fff72793000 0x700000081000
+bbb: 0x7fe259406220 0x7fe25970a860
+Waitting for create thread 0x700000104000
+
+In checker_thread_create: 0x7fff72793000 0x700000104000
+checker_addUses: 4 1 3
+
+update load: 4 0
+3 0 
+
+checker_addUses: 5 1 4
+
+update load: 5 0
+4 0 
+
+checker_addUses: 6 1 5
+
+update load: 6 0
+5 0 
+
+In atomic checker_preLoad: 0x7fe25940b508 7 6!
+In read action: 0x700000081000
+before addAction lock: 0x7fe25970aea0 0x7fe25970a4e0
+thread: 0x7fe25970aea0 0x7fe25970a4e0
+thread add end: 0x7fe25970aea0 0x7fe25970a4e0 7 1
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-1
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-1
+loads: Waitting for create thread 0x7000001040000
+ before addAction lock: 10x7fe25940b410
+ 
+set load:  threadA-1 0
+
+0x7fe259409900
+add load: 6 threadA-1 1
+
+In pre_read action: thread: threadA-10x7fe25940b410
+ Waitting for create thread fetch expect value: 0x7000001040000x7fe2594099000x7fe25940b508
+
+ thread add end: 00x7fe25940b410
+ before fetch: 0x7fe25940b508 0
+0 
+after fetch: 0x7fe25940b508
+0 0x7fe259409900
+ 
+Read expect value: threadA-1 0x7fe25940b508 0 0 0
+Waitting for create thread 0x700000104000
+1 4
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: main-4
+End add action! main-4
+End: 0x700000081000 threadA-1
+checker_addUses: 7 1 4
+
+update load: 7 0
+4 0 
+
+checker_addUses: 8 1 3
+
+update load: 8 0
+3 0 
+
+checker_addUses: 9 1 8
+
+update load: 9 0
+8 0 
+
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+In rmw_add: 0x7fe25940b504 1 7
+before addAction lock: 0x7fe25970aea0 0x7fe25970b2e0
+thread: 0x7fe25970aea0 0x7fe25970b2e0
+thread add end: 0x7fe25970aea0 0x7fe25970b2e0 11 2
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-2
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-2
+
+add load: 10 threadA-2 1
+loads: 1 2
+
+set load:  threadA-2 1
+threadA-2 
+before fetch: 0x7fe25940b504 0
+0 
+after fetch: 0x7fe25940b504
+0 
+
+expect value rmw_add: threadA 2 0 !1! 10
+
+update buf1: 0x7fe25970aea0 0x7fe25940b504 1
+update buf1 end: 0x7fe25970aea0
+update buf1: 0x7fe25940b410 0x7fe25940b504 1
+update buf1 end: 0x7fe25940b410
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+checker_addUses: 11 1 8
+
+update load: 11 0
+8 0 
+
+checker_addUses: 12 1 3
+
+update load: 12 0
+3 0 
+
+checker_addUses: 13 1 12
+
+update load: 13 0
+12 0 
+
+checker_addUses: 14 1 13
+
+update load: 14 0
+13 0 
+
+checker_addUses: 15 2 10
+
+update load: 15 1
+10 14 0 
+threadA-2 
+checker_addUses: 16 1 15
+
+update load: 16 1
+15 0 
+threadA-2 
+checker_addUses: 25 1 4
+
+update load: 25 1
+4 0 16 29 
+threadA-2 
+checker_addUses: 26 1 25
+
+update load: 26 1
+25 0 16 29 
+threadA-2 
+In atomic checker_preLoad: 0x7fe25940b508 7 26!
+In read action: 0x700000081000
+before addAction lock: 0x7fe25970aea0 0x7fe259409490
+thread: 0x7fe25970aea0 0x7fe259409490
+thread add end: 0x7fe25970aea0 0x7fe259409490 7 3
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-3
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-3
+loads: 1 3
+
+set load:  threadA-3 1
+threadA-2 
+
+add load: 26 threadA-3 1
+remain: threadB*threadB|43|1
+remain: threadB*threadB|47|1
+remain: threadB*threadB|56|1
+in thread_begin_action: 0x7fe2595001a0 0x700000104000 threadB ~checker_addUses: 108 1 102
+2~~
+update buf2: 0x7fe2596005d0 2
+before addAction lock: 0x7fe2596005d0 0x7fe259600a60
+thread: 0x7fe2596005d0 0x7fe259600a60
+thread add end: 0x7fe2596005d0 0x7fe259600a60 2 0
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadB-0
+End add action! threadB-0
+BBB: 0x7fe2595001a0 0x7fe259500330 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe2596005d0
+0x7fff72793000 0x700000081000
+0x7fff72793000 0x700000104000
+bbb: 0x7fe259409900 0x7fe259600a60
+waiting read: 0x700000081000 threadA-3
+in update priority: 0x700000081000
+remain: threadB*threadB|43|1
+remain: threadB*threadB|47|1
+remain: threadB*threadB|56|1
+checker_addUses: 41 1 40
+
+update load: 41 0
+40 0 
+
+checker_addUses: 42 1 41
+
+update load: 42 0
+41 0 
+
+checker_addUses: 43 1 42
+
+update load: 43 0
+42 0 
+
+In atomic checker_preLoad: 0x7fe25940b508 7 43!
+In read action: 0x700000104000
+before addAction lock: 0x7fe2596005d0 0x7fe259600d40
+thread: 0x7fe2596005d0 0x7fe259600d40
+thread add end: 0x7fe2596005d0 0x7fe259600d40 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-1
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-1
+loads: 0 1
+
+set load:  threadB-1 0
+
+
+add load: 43 threadB-1 1
+In pre_read action: threadB-1
+get value: 0x7fe259600970 0x7fe25940b508 0
+current values for: 0x7fe25940b508
+0 
+
+Read expect value: threadB-1 0x7fe25940b508 0 0 0
+End: 0x700000104000 threadB-1
+checker_addUses: 44 1 41
+
+update load: 44 0
+41 0 
+
+checker_addUses: 45 1 40
+
+update load: 45 0
+40 0 
+
+checker_addUses: 46 1 45
+
+update load: 46 0
+45 0 
+
+checker_addUses: 47 1 46
+
+update load: 47 0
+46 0 
+
+In rmw_add: 0x7fe25940b504 1 7
+before addAction lock: 0x7fe2596005d0 0x7fe259600fb0
+thread: 0x7fe2596005d0 0x7fe259600fb0
+thread add end: 0x7fe2596005d0 0x7fe259600fb0 11 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-2
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+waiting read: 0x700000081000 End add action! threadB-2
+threadA-3
+in update priority: 0x700000081000
+
+add load: 47 threadB-2 1
+loads: 1 2
+
+update load: 108 0
+102 0 
+
+
+set load:  threadB-2 1
+threadB-2 
+checker_addUses: 109 1 108
+
+update load: 109 0
+108 0 
+
+get value: 0x7fe2596008f0 0x7fe25940b504 1
+current values for: 0x7fe25940b504
+0 1 
+
+expect value rmw_add: threadB 2 1 !1! 47
+
+update buf1: 0x7fe25970aea0 0x7fe25940b504 2
+update buf1 end: 0x7fe25970aea0
+update buf1: 0x7fe2596005d0 0x7fe25940b504 2
+update buf1 end: 0x7fe2596005d0
+update buf1: 0x7fe25940b410 0x7fe25940b504 2
+update buf1 end: 0x7fe25940b410
+checker_addUses: 48 1 45
+
+update load: 48 0
+45 0 
+
+checker_addUses: 49 1 40
+
+update load: 49 0
+40 0 
+
+checker_addUses: 50 1 49
+
+update load: 50 0
+49 0 
+
+checker_addUses: 51 1 50
+
+update load: 51 0
+50 0 
+
+checker_addUses: 52 2 47
+
+update load: 52 1
+47 51 0 
+threadB-2 
+checker_addUses: 53 1 52
+
+update load: 53 1
+52 0 
+threadB-2 
+checker_addUses: 55 1 45
+
+update load: 55 1
+45 0 53 
+threadB-2 
+checker_addUses: 56 1 55
+
+update load: 56 1
+55 0 53 
+threadB-2 
+In atomic checker_preStore: 0x7fe25940b504 0 7!
+In write: 0x700000104000 0x7fe2596005d0 0x7fe259601580
+remain: threadB*threadB|56|1
+Before add action: 0x7fe2596005d0 0x7fe259601580
+before addAction lock: 0x7fe2596005d0 0x7fe259601580
+thread: 0x7fe2596005d0 0x7fe259601580
+thread add end: 0x7fe2596005d0 0x7fe259601580 8 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-3
+End add action! threadB-3
+action: threadB-3
+loads: 1 3
+
+set load:  threadB-3 1
+threadB-2 
+update buf1: 0x7fe25970aea0 0x7fe25940b504 0
+update buf1 end: 0x7fe25970aea0
+update buf1: 0x7fe2596005d0 0x7fe25940b504 0
+update buf1 end: 0x7fe2596005d0
+update buf1: 0x7fe25940b410 0x7fe25940b504 0
+update buf1 end: 0x7fe25940b410
+
+Write value1: threadB-3 0x7fe25940b504 0!
+checker_addUses: 57 1 45
+waiting read: 0x700000081000 threadA-3
+in update priority: 0x700000081000
+
+update load: 57 1
+45 0 53 
+threadB-2 
+In pre_read action: threadA-3
+fetch expect value: 0x7fe25940b508checker_addUses: 58 1 41
+ 0
+
+update load: 58 1
+41 0 53 
+threadB-2 
+before fetch: 0x7fe25940b508 0
+0 
+after fetch: 0x7fe25940b508
+0 
+checker_addUses: 59 1 58
+
+Read expect value: threadA-3 0x7fe25940b508 0 0 0
+
+update load: 59 1
+58 0 53 
+threadB-2 
+In rmw_add: 0x7fe25940b508 1 7
+before addAction lock: 0x7fe25940b410 0x7fe259601980
+thread: 0x7fe25940b410 0x7fe259601980
+thread add end: 0x7fe25940b410 0x7fe259601980 4 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: main-5
+before addAction lock: End: 0x700000081000 threadA-3
+0x7fe2596005d0 0x7fe2596018a0
+End add action! main-5
+checker_addUses: 27 1 4
+thread: 0x7fe2596005d0 0x7fe2596018a0
+thread add end: 0x7fe2596005d0 0x7fe2596018a0 11 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-4
+
+update load: 27 1
+4 0 16 29 
+threadA-2 
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+checker_addUses: 28 2 26
+End add action! threadB-4
+
+add load: 59 threadB-4 1
+loads: 2 
+update load: 28 3
+26 6 0 16 29 
+threadA-3 threadA-1 threadA-2 
+4
+checker_addUses: 29 1 28
+
+set load:  threadB-4 2
+threadB-2 threadB-4 
+remain: threadA*threadA|26|2
+
+update load: 29 3
+28 0 16 29 
+threadA-3 threadA-1 threadA-2 
+In thread_yield_action!
+Begin thread yield!
+waiting rmw_add!
+in update priority: 0x700000104000
+In thread yield!
+remain: threadA*threadA|26|2
+before addAction lock: 0x7fe25970aea0 0x7fe259601cf0
+thread: 0x7fe25970aea0 0x7fe259601cf0
+thread add end: 0x7fe25970aea0 0x7fe259601cf0 3 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+checker_addUses: 110 1 105
+In add action: threadA-4
+
+update load: 110 0
+105 0 
+
+End add action! threadA-4
+checker_addUses: 111 1 110
+
+update load: 111 0
+110 0 
+
+End thread yield!
+before addAction lock: 0x7fe25940b410 0x7fe259601dd0
+thread: 0x7fe25940b410 0x7fe259601dd0
+thread add end: 0x7fe25940b410 0x7fe259601dd0 4 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: main-6
+waiting rmw_add!
+End add action! main-6
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+checker_addUses: 112 1 79
+
+update load: 112 0
+79 0 
+
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+waiting rmw_add!
+in update priority: 0x700000104000
+remain: threadA*threadA|26|2
+checker_addUses: 25 1 4
+
+update load: 25 3
+4 0 16 29 
+threadA-3 threadA-1 threadA-2 
+waiting rmw_add!
+in update priority: 0x700000104000
+checker_addUses: 26 1 25
+remain: threadA*threadA|26|2
+
+update load: 26 3
+25 0 16 29 
+threadA-3 threadA-1 threadA-2 
+In atomic checker_preLoad: 0x7fe25940b508 7 26!
+In read action: 0x700000081000
+before addAction lock: 0x7fe25970aea0 0x7fe259602180
+thread: 0x7fe25970aea0 0x7fe259602180
+thread add end: 0x7fe25970aea0 0x7fe259602180 7 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-5
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadA-5
+loads: 3 5
+
+set load:  threadA-5 3
+threadA-3 threadA-1 threadA-2 
+
+add load: 26 threadA-5 1
+In pre_read action: waiting rmw_add!
+in update priority: 0x700000104000threadA-5
+
+fetch expect value: 0x7fe25940b508 0
+before fetch: 0x7fe25940b508 0
+0 
+after fetch: 0x7fe25940b508
+0 
+
+Read expect value: threadA-5 0x7fe25940b508 0 0 0
+End: 0x700000081000 threadA-5
+checker_addUses: 27 1 4
+get value: 0x7fe259600970 0x7fe25940b508 0
+current values for: 0x7fe25940b508
+0 
+
+update load: 27 3
+4 0 16 29 
+threadA-3 threadA-1 threadA-2 
+
+expect value rmw_add: threadB 4 0 !1! 59
+
+update buf1: 0x7fe25970aea0 0x7fe25940b508 1
+checker_addUses: 28 2 26
+update buf1 end: 0x7fe25970aea0
+update buf1: 0x7fe2596005d0 0x7fe25940b508 1
+update buf1 end: 0x7fe2596005d0
+update buf1: 0x7fe25940b410 0x7fe25940b508 1
+update buf1 end: 0x7fe25940b410
+
+update load: 28 4
+26 6 0 16 29 
+threadA-3 threadA-5 threadA-1 threadA-2 
+checker_addUses: 29 1 28
+checker_addUses: 60 1 41
+
+update load: 29 4
+28 0 16 29 
+threadA-3 threadA-5 threadA-1 threadA-2 
+
+update load: 60 1
+41 0 53 
+threadB-2 
+In thread_yield_action!
+Begin thread yield!
+In thread yield!
+checker_addUses: 75 1 74
+before addAction lock: 0x7fe25970aea0 0x7fe259406f90
+thread: 0x7fe25970aea0 0x7fe259406f90
+thread add end: 0x7fe25970aea0 0x7fe259406f90 3 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+
+update load: 75 1
+74 0 53 
+threadB-2 
+var = 1
+In add action: threadA-6
+In checker_thread_end
+Thread_end_action: 0x700000104000
+add prio: 0x700000081000 0x700000104000
+add prio: 0x700000081000 0x7fff72793000
+End add action! threadA-6
+End thread yield!
+before addAction lock: 0x7fe2596005d0 0x7fe259500b80
+thread: 0x7fe2596005d0 0x7fe259500b80
+thread add end: 0x7fe2596005d0 0x7fe259500b80 5 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadB-5
+erase prio: 0x700000081000 0x700000104000
+In add action: threadB-5
+End add action! threadB-5
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe2595001a0
+checker_addUses: 113 1 78
+
+update load: 113 0
+78 0 
+
+checker_addUses: 25 1 4
+
+update load: 25 4
+4 0 16 29 
+threadA-3 threadA-5 threadA-1 threadA-2 
+checker_addUses: 26 1 25
+
+update load: 26 4
+25 0 16 29 
+threadA-3 threadA-5 threadA-1 threadA-2 
+In atomic checker_preLoad: 0x7fe25940b508 7 26!
+In read action: 0x700000081000
+before addAction lock: 0x7fe25970aea0 0x7fe259601220
+thread: 0x7fe25970aea0 0x7fe259601220
+thread add end: 0x7fe25970aea0 0x7fe259601220 7 7
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-7
+0x700000081000
+0x7fff72793000 
+Tset: 1 2 0x700000081000
+0x7fff72793000 
+End add action! threadA-7
+loads: 4 7
+
+set load:  threadA-7 4
+threadA-3 threadA-5 threadA-1 threadA-2 
+
+add load: 26 threadA-7 1
+In pre_read action: threadA-7
+get value: 0x7fe25970a320 0x7fe25940b508 1
+current values for: 0x7fe25940b508
+0 1 
+
+Read expect value: threadA-7 0x7fe25940b508 1 1 1
+End: 0x700000081000 threadA-7
+checker_addUses: 27 1 4
+
+update load: 27 4
+4 0 16 29 
+threadA-3 threadA-5 threadA-1 threadA-2 
+checker_addUses: 28 2 26
+
+update load: 28 5
+26 6 0 16 29 
+threadA-3 threadA-7 threadA-5 threadA-1 threadA-2 
+checker_addUses: 29 1 28
+
+update load: 29 5
+28 0 16 29 
+threadA-3 threadA-7 threadA-5 threadA-1 threadA-2 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe25970aea0 0x7fe259600790
+thread: 0x7fe25970aea0 0x7fe259600790
+thread add end: 0x7fe25970aea0 0x7fe259600790 5 8
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+erase enabledThreads: threadA-8
+In add action: threadA-8
+End add action! threadA-8
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe2595001a0
+In checker_thread_end
+Thread_end_action: 0x7fff72793000
+before addAction lock: 0x7fe25940b410 0x7fe2596022e0
+thread: 0x7fe25940b410 0x7fe2596022e0
+thread add end: 0x7fe25940b410 0x7fe2596022e0 5 7
+enabled threads: 1
+0x7fff72793000
+erase enabledThreads: main-7
+erase prio: 0x700000081000 0x7fff72793000
+In add action: main-7
+End add action! main-7
+### Execute Time: 0.128736 0.03849 0.011635
+Current Trace: 3
+threadA*threadA|6|1 threadA-1 r 0 6
+threadA*threadA|10|1 threadA-2 rmw 0 1 10
+threadA*threadA|26|1 threadA-3 r 0 26
+threadA*threadA|26|2 threadA-5 r 0 26
+threadA*threadA|26|3 threadA-7 r 1 26
+iiiii: 0x7fe25970aea0 4
+xx: 2 1
+yy: threadA-2
+xx: 3 1
+yy: threadA-2
+xx: 5 3
+yy: threadA-3
+yy: threadA-1
+yy: threadA-2
+xx: 7 4
+yy: threadA-3
+yy: threadA-5
+yy: threadA-1
+yy: threadA-2
+threadB*threadB|43|1 threadB-1 r 0 43
+threadB*threadB|47|1 threadB-2 rmw 1 2 47
+threadB*threadB|56|1 threadB-3 w 0 56
+threadB*threadB|59|1 threadB-4 rmw 0 1 59
+iiiii: 0x7fe2596005d0 3
+xx: 2 1
+yy: threadB-2
+xx: 3 1
+yy: threadB-2
+xx: 4 2
+yy: threadB-2
+yy: threadB-4
+main*main|88|1 main-1 w 0 88
+main*main|93|1 main-2 w 0 93
+iiiii: 0x7fe25940b410 0
+Generating: threadB-2 threadB-3 1 0
+checking: read:val threadB-2 0
+mhbList: 1
+enforce: 0x7fe259600fb0 threadB-2 0 
+enforce4: 0x7fe25970b2e0 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe259409490 threadA-3 0 
+mhbList: 1
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe259602180 threadA-5 0 
+mhbList: 3
+enforce44: 0x7fe259409490 threadA-3 0 
+enforce44: 0x7fe25970a4e0 threadA-1 0 
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe25970a4e0 threadA-1 0 
+mhbList: 0
+enforcePairs: 5
+checking fairness: 5
+threadA 1 0
+threadA 2 0
+threadA 3 0
+threadA 5 0
+threadB 2 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe2595001a0
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe2595001a0
+### Basic Prepare Time: 0.006358 0.002053
+### MO Prepare Time: 0.001897 0.001026
+Adding sc constraints: 11
+### SC Prepare Time: 0.008587 0.002668
+In addLockConstraints: 0
+prefix size: 0
+### Part1 Time: 0.008696 0.002619
+reads & writes: 2 4
+reads & writes: 6 2
+### Part2 Time: 0.005173 0.001425
+### Consistent Prepare Time: 0.01407 0.004065
+### Prepare Time: 0.035395 0.010364
+AddRWRelations: 5
+Add RW: threadA-3 0
+444
+555
+In addRWRelation: threadA-3 0
+
+xxxx read: threadA-3 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-3 1 1
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 5 1
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal1: threadB-2 0
+values: threadB-2 1 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+Inconsistency from guarantee1!
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr:  (and (= 1 0))
+For write: main-1
+skip write1: threadA-2
+consider write: threadB-2
+consider write: threadB-3
+skip write1: main-1
+xxx: threadA-2 0 (or  (and (= 1 0)) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+333
+Gurantee end: threadA-3 (or  (and (= 1 0)) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-3 0 (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+ttt: (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+Add RW: threadB-2 0
+444
+555
+In addRWRelation: threadB-2 0
+
+xxxx read: threadB-2 1 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 0
+values: threadA-2 1 0
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 0
+
+write: main-1 0
+For read: threadB-2
+current orStr: 
+For write: main-1
+consider write: threadA-2
+skip write1: threadB-2
+skip write3: threadB-3
+skip write1: main-1
+xxx: threadB-2 0 (or  (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1)))))
+ttt: (or  (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1)))))
+Add RW: threadA-5 0
+444
+555
+In addRWRelation: threadA-5 0
+
+xxxx read: threadA-5 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-5 3 1
+list: threadA-3
+list: threadA-1
+list: threadA-2
+guarantee: threadA-3 0
+111
+222: 5 1
+444
+Hit Cache2: threadA-3 0
+333
+guarantee: threadA-1 0
+111
+222: 5 1
+444
+555
+In addRWRelation: threadA-1 0
+
+xxxx read: threadA-1 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-1 0 (or  (and  (= RF_threadA-1_main-2 1) (= B_main-2_threadA-1 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-1_threadB-4 0)))))
+333
+guarantee: threadA-2 0
+111
+222: 5 1
+444
+Hit Cache2: threadA-2 0
+333
+Gurantee end: threadA-5 (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0))))) (or  (and  (= RF_threadA-1_main-2 1) (= B_main-2_threadA-1 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-1_threadB-4 0))))) (or  (and (= 1 0)) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-5 0 (or  (and  (= RF_threadA-5_main-2 1) (= B_main-2_threadA-5 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-5_threadB-4 0)))))
+ttt: (or  (and  (= RF_threadA-5_main-2 1) (= B_main-2_threadA-5 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-5_threadB-4 0)))))
+Add RW: threadA-1 0
+444
+Hit Cache2: threadA-1 0
+ttt: (or  (and  (= RF_threadA-1_main-2 1) (= B_main-2_threadA-1 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-1_threadB-4 0)))))
+Add RW: threadA-2 0
+444
+Hit Cache2: threadA-2 0
+ttt: (or  (and (= 1 0)) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+Adding SW Constraints: 5
+End adding SW Constraints!
+### RWConstraint construct Time: 0.03149 0.00514
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 555 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.010861 0.0005
+### Generate Solution time: 0.015995 2.2e-05
+### Last Part time: 0.029165 0.000728
+### Generate Schedule Time: 0.104581 0.016937
+Generating: threadA-7 main-2 1 0
+checking: read:val threadA-7 0
+mhbList: 4
+enforce: 0x7fe259409490 threadA-3 0 
+enforce: 0x7fe259602180 threadA-5 0 
+enforce: 0x7fe25970a4e0 threadA-1 0 
+enforce: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe25970b2e0 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe259409490 threadA-3 0 
+mhbList: 1
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe259602180 threadA-5 0 
+mhbList: 3
+enforce44: 0x7fe259409490 threadA-3 0 
+enforce44: 0x7fe25970a4e0 threadA-1 0 
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe25970a4e0 threadA-1 0 
+mhbList: 0
+enforcePairs: 5
+checking fairness: 5
+threadA 1 0
+threadA 2 0
+threadA 3 0
+threadA 5 0
+threadA 7 0
+Identify an unfair schedule!
+### Generate Schedule Time: 0.104825 0.000249
+Generating: threadB-1 threadB-4 0 1
+checking: read:val threadB-1 1
+mhbList: 0
+enforce4: 0x7fe25970b2e0 threadA-2 0 
+mhbList: 1
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe259409490 threadA-3 0 
+mhbList: 1
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe259602180 threadA-5 0 
+mhbList: 3
+enforce44: 0x7fe259409490 threadA-3 0 
+enforce44: 0x7fe25970a4e0 threadA-1 0 
+enforce44: 0x7fe25970b2e0 threadA-2 0 
+enforce4: 0x7fe25970a4e0 threadA-1 0 
+mhbList: 0
+enforcePairs: 5
+checking fairness: 5
+threadA 1 0
+threadA 2 0
+threadA 3 0
+threadA 5 0
+threadB 1 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fe2595001a0
+### Prepare Time: 0.035784 0.000417
+AddRWRelations: 5
+Add RW: threadA-3 0
+444
+555
+In addRWRelation: threadA-3 0
+
+xxxx read: threadA-3 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadA-3 1 1
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 5 1
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 5 2
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+Loop depednecy from guarantee: threadA-2
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 1
+xxx: threadB-2 1 (or  (and (= 1 0)))
+333
+Gurantee end: threadB-3 (or  (and (= 1 0)))
+skip write1: threadA-2
+skip write2: threadB-2
+skip write1: threadB-3
+consider write: main-1
+values: main-1 0 0
+
+write: main-1 0
+For read: threadA-2
+current orStr:  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1))))
+For write: main-1
+skip write1: threadA-2
+consider write: threadB-2
+consider write: threadB-3
+skip write1: main-1
+xxx: threadA-2 0 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+333
+Gurantee end: threadA-3 (or  (and  (and (or  (and (= 1 0)))) (= RF_threadA-2_threadB-3 1) (= B_threadA-2_threadB-3 0) (= false (and (= B_main-1_threadB-3 0) (= B_main-1_threadA-2 1)))) (and  (= RF_threadA-2_main-1 1) (= B_main-1_threadA-2 1) (= false (and (= B_main-1_threadB-2 1) (= B_threadA-2_threadB-2 0))) (= false (and (= B_main-1_threadB-3 1) (= B_threadA-2_threadB-3 0)))))
+InputVal2: threadB-4 0
+values: threadB-4 1 0
+values: main-2 0 0
+
+write: main-2 0
+current orStr: 
+For write: main-2
+consider write: threadB-4
+skip write1: main-2
+xxx: threadA-3 0 (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+ttt: (or  (and  (= RF_threadA-3_main-2 1) (= B_main-2_threadA-3 1) (= false (and (= B_main-2_threadB-4 1) (= B_threadA-3_threadB-4 0)))))
+Add RW: threadB-1 1
+444
+555
+In addRWRelation: threadB-1 1
+
+xxxx read: threadB-1 0 1
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+skip: threadB-4
+values: main-2 0 1
+xxx: threadB-1 1 (or )
+Identify inconsistency1!
+ttt: 
+Inconsistency2!
+### RWConstraint construct Time: 0.03231 0.000827
+Identify inconsistency2!
+close z3File!!!!!!!!!!!!!!: 0
+### Generate Schedule Time: 0.10663 0.001811
+End solver!
+### Solver Time: 0.107624 0.019288
+buffers: 0x7fe25970aea0 2
+delete Buffer: 0x7fe25970a460
+suc!
+delete Buffer: 0x7fe25970a320
+suc!
+buffers: 0x7fe2596005d0 2
+delete Buffer: 0x7fe2596008f0
+suc!
+delete Buffer: 0x7fe259600970
+suc!
+buffers: 0x7fe25940b410 2
+delete Buffer: 0x7fe25970a820
+suc!
+delete Buffer: 0x7fe2594079d0
+suc!
+delete curSch1: 0x7fe2597089a0
+delete curSch2!
+### Total Time: 0.1487
+BeginFunc: 0x0
+BeginFunc: 0x0
+In ~ModelChecker!

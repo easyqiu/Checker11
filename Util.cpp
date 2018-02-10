@@ -8,7 +8,7 @@
 #include <map>
 #include <iostream>
 #include <fstream>
-
+#include <unistd.h>
 
 #define READ 0
 #define WRITE 1
@@ -32,7 +32,9 @@ void util::saveVarValues2File(std::string filename, std::map<std::string, std::s
     {
         outFile << it->first << endl;
         outFile << it->second << endl;
-    }    outFile.close();
+    }
+
+    outFile.close();
 
 }
 
@@ -75,7 +77,7 @@ string util::threadTabsPP(int tab)
 }
 
 //transforms a int into a string
-string util::stringValueOf(int i)
+string util::stringValueOf(int64_t i)
 {
     stringstream ss;
     ss << i;
@@ -128,8 +130,14 @@ pid_t util::popen2(const char *command, int *infp, int *outfp)
         close(p_stdout[READ]);
         close(p_stdin[WRITE]);
 
+        close(p_stdin[READ]);
+        close(p_stdout[WRITE]);
+
+        std::cerr << "In child thread: " << p_stdin[WRITE] << " " << p_stdin[READ] << " " << p_stdout[WRITE] << " " << p_stdout[READ] << "\n";
+
         execl("/bin/sh", "sh", "-c", command, NULL);
         perror("execl");
+
         exit(1);
     }
 
@@ -145,6 +153,8 @@ pid_t util::popen2(const char *command, int *infp, int *outfp)
 
     close(p_stdin[READ]);
     close(p_stdout[WRITE]);
+
+    std::cerr << "In parent thread: " << p_stdin[WRITE] << " " << p_stdin[READ] << " " << p_stdout[WRITE] << " " << p_stdout[READ] << "\n";
 
     return pid;
 

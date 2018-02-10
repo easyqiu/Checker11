@@ -76,7 +76,7 @@ std::string Action::get_action_str() {
             return  ss.str();
 
         case THREAD_YIELD:
-            assert(false && "not handle"); return "";
+            return ss.str();
 
         case THREAD_JOIN:
             ss << " " << exe->getThreadMap()[id1]->getName() << " " << exe->getThreadMap()[id2]->getName() << "\n";
@@ -135,7 +135,7 @@ std::string Action::get_action_str() {
 }
 
 void Action::print() {
-    //std::cout << get_mo_str() << "\n";
+    std::cout << get_uniq_name() << "\n";
 }
 
 std::string Action::get_location_str() const {
@@ -152,9 +152,14 @@ std::string Action::get_rf_rel_name(Action *action) {
     return "RF_" + this->get_uniq_name() + "_" + action->get_uniq_name();
 }
 
-std::string Action::get_binary_rel_name(Action *action) {
-    std::string str =  "B_" + this->get_uniq_name() + "_" + action->get_uniq_name();
-    return str;
+std::string Action::get_binary_rel_name(Action *action, bool &flag) {
+    if (this->get_uniq_name() < action->get_uniq_name()) {
+        flag = false;
+        return "B_" + this->get_uniq_name() + "_" + action->get_uniq_name();
+    } else {
+        flag = true;
+        return "B_" + action->get_uniq_name() + "_" + this->get_uniq_name();
+    }
 }
 
 std::string Action::get_SC_name() {
@@ -164,6 +169,11 @@ std::string Action::get_SC_name() {
 
 std::string Action::get_uniq_name() {
     return thread->getName() + "-" + util::stringValueOf(get_seq_number());
+}
+
+std::string Action::getContextName() {
+    //std::cout << "in getContextName: " << context << " " << clapNum << " " << times << "\n";
+    return context + "|" + util::stringValueOf(clapNum) + "|" + util::stringValueOf(times);
 }
 
 std::string RWAction::get_action_str() {
@@ -228,7 +238,10 @@ int64_t RMWAction::computeWriteValue(int64_t oldVal) {
             return oldVal > val ? oldVal : val;
         case ATOMIC_RMW_UMIN:
             return oldVal < val ? oldVal : val;
+        case ATOMIC_CMP_XCHG:
+            return dynamic_cast<CmpXchgAction*>(this)->computeWriteValue(oldVal);
         default:
+            std::cout << "type: " << type << " " << "\n";
             assert(false && "Not handle this action type!\n");
             return 0;
     }

@@ -1,0 +1,210 @@
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_main-3_main-6 () Int
+    1)
+  (define-fun M_f1-2 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_f1-2_main-2 () Int
+    0)
+  (define-fun B_f1-3_main-3 () Int
+    0)
+  (define-fun B_f1-1_f1-2 () Int
+    1)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_f2-0_main-7 () Int
+    1)
+  (define-fun COWW () Bool
+    true)
+  (define-fun B_f2-3_main-1 () Int
+    0)
+  (define-fun B_f2-2_main-7 () Int
+    1)
+  (define-fun CORW () Bool
+    true)
+  (define-fun B_f1-0_main-7 () Int
+    1)
+  (define-fun MOConsistent () Bool
+    true)
+  (define-fun B_f2-3_main-3 () Int
+    0)
+  (define-fun B_main-0_main-7 () Int
+    1)
+  (define-fun B_f1-3_main-1 () Int
+    0)
+  (define-fun B_f1-0_f1-3 () Int
+    1)
+  (define-fun B_f1-0_f1-2 () Int
+    1)
+  (define-fun SCConsistent () Bool
+    true)
+  (define-fun RF_f2-1_f1-2 () Int
+    0)
+  (define-fun M_main-2 () Int
+    0)
+  (define-fun B_f2-2_main-0 () Int
+    0)
+  (define-fun B_f2-0_f2-2 () Int
+    1)
+  (define-fun B_f1-3_main-7 () Int
+    1)
+  (define-fun B_f1-1_main-7 () Int
+    1)
+  (define-fun Basic1 () Bool
+    true)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_main-5_main-7 () Int
+    1)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun B_f1-1_main-3 () Int
+    0)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_f1-1_main-6 () Int
+    1)
+  (define-fun RW () Bool
+    true)
+  (define-fun B_f1-1_f1-3 () Int
+    1)
+  (define-fun B_f2-1_f2-3 () Int
+    1)
+  (define-fun B_f1-1_main-1 () Int
+    0)
+  (define-fun B_f2-2_main-2 () Int
+    0)
+  (define-fun B_main-2_main-7 () Int
+    1)
+  (define-fun B_f1-2_f2-1 () Int
+    6)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun B_f2-2_f2-3 () Int
+    1)
+  (define-fun RF_f2-1_main-2 () Int
+    1)
+  (define-fun M_f2-2 () Int
+    1)
+  (define-fun B_f1-3_main-6 () Int
+    1)
+  (define-fun B_f1-2_main-3 () Int
+    0)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_f1-0_main-6 () Int
+    1)
+  (define-fun B_f1-3_main-2 () Int
+    0)
+  (define-fun RF_f1-1_f2-2 () Int
+    1)
+  (define-fun B_f2-3_main-4 () Int
+    0)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun B_f2-1_main-0 () Int
+    0)
+  (define-fun ASW () Bool
+    true)
+  (define-fun B_f2-0_f2-3 () Int
+    1)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_f2-1_main-2 () Int
+    0)
+  (define-fun B_f1-1_main-2 () Int
+    0)
+  (define-fun B_f2-3_main-2 () Int
+    0)
+  (define-fun B_f1-2_main-7 () Int
+    1)
+  (define-fun B_f1-2_main-6 () Int
+    1)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun RF_f1-1_main-1 () Int
+    0)
+  (define-fun B_f2-2_main-4 () Int
+    0)
+  (define-fun B_f2-3_main-0 () Int
+    0)
+  (define-fun B_f1-3_main-0 () Int
+    0)
+  (define-fun MO0 () Bool
+    true)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_f2-2_main-1 () Int
+    0)
+  (define-fun B_f1-1_main-0 () Int
+    0)
+  (define-fun B_main-3_main-7 () Int
+    1)
+  (define-fun CORF () Bool
+    true)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun M_main-1 () Int
+    0)
+  (define-fun B_f1-2_f1-3 () Int
+    1)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun S_main-1 () Int
+    0)
+  (define-fun COWR () Bool
+    true)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun MO1 () Bool
+    true)
+  (define-fun B_f2-2_main-3 () Int
+    0)
+  (define-fun B_f1-2_main-1 () Int
+    0)
+  (define-fun B_f1-1_f2-2 () Int
+    5)
+  (define-fun B_main-0_main-6 () Int
+    1)
+  (define-fun B_main-1_main-7 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_f2-1_main-1 () Int
+    0)
+  (define-fun B_main-4_main-7 () Int
+    1)
+  (define-fun B_f2-1_main-4 () Int
+    0)
+  (define-fun B_f2-3_main-7 () Int
+    1)
+  (define-fun B_f2-1_main-3 () Int
+    0)
+  (define-fun B_f2-1_main-7 () Int
+    1)
+  (define-fun B_f2-1_f2-2 () Int
+    1)
+  (define-fun B_f2-0_f2-1 () Int
+    1)
+  (define-fun B_main-6_main-7 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun S_main-2 () Int
+    1)
+  (define-fun B_f1-0_f1-1 () Int
+    1)
+  (define-fun B_f1-2_main-0 () Int
+    0)
+)
+(error "line 231 column 15: unsat core is not available")
+end

@@ -11,13 +11,17 @@ using namespace checker;
 using namespace std;
 
 void SWRelation::setHBList(set<Action*> list) {
-    std::cout << "set hblist: " << this << "\n";
     //hbList = list;
     hbList.clear();
-    std::cout << "111: " << list.size() << "\n";
-    for (set<Action*>::iterator it = list.begin();
+    /*for (set<Action*>::iterator it = list.begin();
          it != list.end(); ++it)
-        std::cout << "xx: " << (*it)->get_uniq_name() << "\n";
+        std::cout << "xx: " << (*it)->get_uniq_name() << "\n";*/
     hbList.insert(list.begin(), list.end());
-    std::cout << "222\n";
+    //std::cout << "set hblist: " << this << " " << hbList.size() << " " << getHBList().size() << "\n";
+}
+
+void SWRelation::setHAList(set<Action*> list) {
+    haList.clear();
+    haList.insert(list.begin(), list.end());
+    //std::cout << "set haList: " << this << " " << haList.size() << " " << getHAList().size() << "\n";
 }

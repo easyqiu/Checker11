@@ -11,11 +11,19 @@
 #include "Thread.h"
 #include "Action.h"
 #include "Util.h"
+#include "checker.hpp"
+#include "Schedule.h"
 
 using namespace std;
 using namespace checker;
 
-#define DEBUG
+//#define DEBUG
+
+ConstModelGen::~ConstModelGen() {
+    for (std::set<SWRelation*>::iterator it = swRelations.begin();
+            it != swRelations.end(); ++it)
+        delete *it;
+}
 
 bool ConstModelGen::overlap(std::set<Action*> set1, std::set<Action*> set2)
 {
@@ -35,15 +43,17 @@ void ConstModelGen::initialize() {
     numUnkownVars = 0;
 }
 
-void ConstModelGen::addBasicConstraints() {
+std::string ConstModelGen::addBasicConstraints() {
 
+    std::string constraint = "";
     std::cout << "Adding Binary HB constraints: " << exe->get_formulaFile() << "\n";
-    z3solver->writeLineZ3("(echo \"MEMORY-ORDER CONSTRAINTS -----\")\n");
+    //z3solver->writeLineZ3("(echo \"MEMORY-ORDER CONSTRAINTS -----\")\n");
+    constraint = "(echo \"MEMORY-ORDER CONSTRAINTS -----\")\n\n";
 
     //count the total number of operations
-    map<string, Thread*> tMap = exe->getThreadMap();
+    map<string, Thread*>& tMap = exe->getThreadMap();
     for (map<string, Thread*>::iterator it = tMap.begin(); it != tMap.end(); it++) {
-        vector<Action*> actionVec = it->second->getActionList();
+        vector<Action*>& actionVec = it->second->getActionList();
 
         //if the list of operations has size > 1 then we must generate order constraints
         //for all the operations
@@ -53,9 +63,16 @@ void ConstModelGen::addBasicConstraints() {
                 for(vector<Action*>::iterator opit2 = opit+1; opit2 != actionVec.end(); ++opit2) {
                     Action* a1 = *opit;
                     Action* a2 = *opit2;
-                    string bRelName = a1->get_binary_rel_name(a2);
-                    string declareVar = z3solver->declareIntOrderVarAndStore(bRelName, 1);
-                    z3solver->writeLineZ3(declareVar);
+                    bool flag;
+                    string bRelName = a1->get_binary_rel_name(a2, flag);
+                    string declareVar;
+                    if (flag)
+                        declareVar = z3solver->declareIntOrderVarAndStore(bRelName, 0);
+                    else
+                        declareVar = z3solver->declareIntOrderVarAndStore(bRelName, 1);
+
+                    //z3solver->writeLineZ3(declareVar);
+                    constraint += declareVar + "\n";
                     numB++;
                 }
             }
@@ -67,7 +84,7 @@ void ConstModelGen::addBasicConstraints() {
 
     int num = 0;
     std::string andStr = "";
-    for (map<string, Thread*>::iterator it1 = tMap.begin(); it1 != tMap.end(); it1++) {
+    /*for (map<string, Thread*>::iterator it1 = tMap.begin(); it1 != tMap.end(); it1++) {
         Thread* thread1 = it1->second;
         for (map<string, Thread*>::iterator it2 = it1; it2 != tMap.end(); it2++) {
             Thread* thread2 = it2->second;
@@ -79,8 +96,10 @@ void ConstModelGen::addBasicConstraints() {
                 for (vector<Action*>::iterator aIt2 = list2.begin(); aIt2 != list2.end(); ++aIt2) {
                     Action* action1 = *aIt1;
                     Action* action2 = *aIt2;
-                    string name1 = action1->get_binary_rel_name(action2);
-                    string name2 = action2->get_binary_rel_name(action1);
+
+                    bool flag1, flag2;
+                    string name1 = action1->get_binary_rel_name(action2, flag1);
+                    string name2 = action2->get_binary_rel_name(action1, flag2);
 
                     declareIntVar(name1);
                     declareIntVar(name2);
@@ -103,10 +122,10 @@ void ConstModelGen::addBasicConstraints() {
     }
     z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "Basic0"));
 
-    andStr = "";
+    andStr = "";*/
 
-    std::map<string, vector<RWAction*> > readset = solver->getReadSet();
-    std::map<string, vector<RWAction*> > writeset = solver->getWriteSet();
+    std::map<string, vector<RWAction*> >& readset = solver->getReadSet();
+    std::map<string, vector<RWAction*> >& writeset = solver->getWriteSet();
     for (std::map<string, vector<RWAction*> >::iterator it = readset.begin();
             it != readset.end(); ++it) {
         vector<RWAction*> reads = it->second;
@@ -122,8 +141,15 @@ void ConstModelGen::addBasicConstraints() {
                 RWAction* write = *wIt;
                 if (read == write) continue;
 
+                // for optimization
+                if (read->get_thread() == write->get_thread() &&
+                        read->get_seq_number() < write->get_seq_number())
+                    continue ;
+
                 string rfName = read->get_rf_rel_name(write);
-                declareIntVar(rfName, 0, 1);
+                std::string dec = declareIntVar2(rfName, 0, 1);
+                if (dec != "")
+                    constraint += dec + "\n";
                 //string tmpStr = z3solver->cEq(rfName, "1");
 
                 if (plusStr == "")
@@ -142,13 +168,16 @@ void ConstModelGen::addBasicConstraints() {
         }
     }
 
-    z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "Basic1"));
+    //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "Basic1"));
+    constraint += z3solver->postNamedAssert(z3solver->cAnd(andStr), "Basic1") + "\n";
+
+    return constraint;
 }
 
 // add asw relations
 void ConstModelGen::addASWRelation() {
     int num = 0;
-    std::map<Action*, Action*> createPoints = exe->getCreatePoints();
+    std::map<Action*, Action*>& createPoints = exe->getCreatePoints();
     std::string andStr = "";
     for (std::map<Action*, Action*>::iterator it = createPoints.begin();
          it != createPoints.end(); ++it) {
@@ -167,20 +196,25 @@ void ConstModelGen::addASWRelation() {
             for (set<Action*>::iterator it2 = haList.begin();
                     it2 != haList.end(); ++it2) {
                 Action* a2 = *it2;
-                string bRelName = a1->get_binary_rel_name(a2);
+                bool flag;
+                string bRelName = a1->get_binary_rel_name(a2, flag);
                 declareIntVar(bRelName);
                 //string label = "ASW" + util::stringValueOf(num++);
+                std::string cond = z3solver->cEq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cEq(bRelName, "0");
+
                 if (andStr == "")
-                    andStr = z3solver->cEq(bRelName, "1");
+                    andStr = cond;
                 else
-                    andStr += " " + z3solver->cEq(bRelName, "1");
+                    andStr += " " + cond;
 
                 //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cEq(bRelName, "1"), label));
             }
         }
     }
 
-    std::map<Action*, Action*> joinPoints = exe->getJoinPoints();
+    std::map<Action*, Action*>& joinPoints = exe->getJoinPoints();
     for (std::map<Action*, Action*>::iterator it = joinPoints.begin();
             it != joinPoints.end(); ++it) {
         Action* a1 = it->first;
@@ -198,13 +232,20 @@ void ConstModelGen::addASWRelation() {
             for (set<Action*>::iterator it2 = haList.begin();
                     it2 != haList.end(); ++it2) {
                 Action* a2 = *it2;
-                string bRelName = a1->get_binary_rel_name(a2);
+
+                bool flag;
+                string bRelName = a1->get_binary_rel_name(a2, flag);
                 declareIntVar(bRelName);
                 string label = "ASW" + util::stringValueOf(num++);
+
+                std::string cond = z3solver->cEq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cEq(bRelName, "0");
+
                 if (andStr == "")
-                    andStr = z3solver->cEq(bRelName, "1");
+                    andStr = cond;
                 else
-                    andStr += " " + z3solver->cEq(bRelName, "1");
+                    andStr += " " + cond;
 
                 //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cEq(bRelName, "1"), label));
             }
@@ -222,6 +263,28 @@ void ConstModelGen::printActionSet(set<Action*> list) {
         Action* action = *it;
         std::cout << (i++) << ": " << action->get_uniq_name() << "\n";
     }
+}
+
+set<Action*> ConstModelGen::filterActions(set<Action*> list) {
+    set<Action*> newList;
+    map<string, int64_t > maxIndex;
+    for (set<Action*>::iterator it = list.begin(); it != list.end(); ++it) {
+        string threadName = (*it)->get_thread()->getName();
+        int64_t seqNum = (*it)->get_seq_number();
+        if (maxIndex.find(threadName) == maxIndex.end())
+            maxIndex[threadName] = seqNum;
+        else if (maxIndex[threadName] < seqNum)
+            maxIndex[threadName] = seqNum;
+    }
+
+    for (set<Action*>::iterator it = list.begin(); it != list.end(); ++it) {
+        string threadName = (*it)->get_thread()->getName();
+        int64_t seqNum = (*it)->get_seq_number();
+        if (seqNum < maxIndex[threadName]) continue ;
+        newList.insert(*it);
+    }
+
+    return newList;
 }
 
 bool ConstModelGen::addSWConstraints() {
@@ -262,10 +325,10 @@ bool ConstModelGen::addSWConstraints() {
 
                 checkedPairs.insert(std::make_pair(rel1, rel2));
 
-                std::set<Action *> &list1 = rel1->getHBList();
-                std::set<Action *> &list2 = rel1->getHAList();
-                std::set<Action *> &list3 = rel2->getHBList();
-                std::set<Action *> &list4 = rel2->getHAList();
+                std::set<Action *>& list1 = rel1->getHBList();
+                std::set<Action *>& list2 = rel1->getHAList();
+                std::set<Action *>& list3 = rel2->getHBList();
+                std::set<Action *>& list4 = rel2->getHAList();
 
                 if (rel1->getFromAction()->get_thread() == rel2->getToAction()->get_thread())
                     continue ;
@@ -275,11 +338,12 @@ bool ConstModelGen::addSWConstraints() {
                     if (rel1->getFromAction() == rel2->getFromAction())
                         continue ;
 
+#ifdef DEBUG
                     std::cout << "from & to: " << rel1->getFromAction()->get_uniq_name() << " " <<
                               rel1->getToAction()->get_uniq_name() << " " <<
                               rel2->getFromAction()->get_uniq_name() << " " <<
                               rel2->getToAction()->get_uniq_name() << "\n";
-
+#endif
                     /*printActionSet(list1);
                     printActionSet(list2);
                     printActionSet(list3);
@@ -310,7 +374,9 @@ bool ConstModelGen::addSWConstraints() {
                     //swRelations.insert(swRelation);
                     tmpSet.insert(swRelation);
                     flag = true;
+#ifdef DEBUG
                     std::cout << "rels1: " << rel1 << " " << rel2 << " " << swRelation << "\n";
+#endif
 
                 } /*else if (overlap(list2, list3)) {
                     SWRelation *swRelation = new SWRelation(rel1->getFromAction(), rel2->getToAction());
@@ -367,32 +433,56 @@ bool ConstModelGen::addSWConstraints() {
         SWRelation* swRelation = *it;
         Action* from = swRelation->getFromAction();
         Action* to = swRelation->getToAction();
-        set<Action*> &hbList = swRelation->getHBList();
-        set<Action*> &haList = swRelation->getHAList();
-        vector<string> andStr;
-        /*std::cout << "add swrelation: " << swRelation << "\n";
-        printActionSet(hbList);
-        printActionSet(haList);*/
+        set<Action*>& hbList = swRelation->getHBList();
+        set<Action*>& haList = swRelation->getHAList();
+
+        /*std::cout << "111111\n";
+        set<Action*> hbList, haList;
+        hbList.insert(from), haList.insert(to);
+        std::cout << "22222\n";*/
+        //vector<string> andStr;
+        //std::cout << "add swrelation: " << swRelation << " " << hbList.size() << " " << haList.size() << "\n";
+        //printActionSet(hbList);
+        //printActionSet(haList);
+
+        //set<Action*> newHBList = filterActions(hbList);
+        //set<Action*> newHAList = filterActions(haList);
+
+        string andCond = "";
         for (set<Action*>::iterator it1 = hbList.begin();
                 it1 != hbList.end(); ++it1) {
             Action* a1 = *it1;
             for (set<Action*>::iterator it2 = haList.begin();
                     it2 != haList.end(); ++it2) {
                 Action* a2 = *it2;
-                string bRelName = a1->get_binary_rel_name(a2);
-                declareIntVar(bRelName);
-                andStr.push_back(z3solver->cEq(bRelName, "1"));
-                //std::cout << "precond: " << swRelation->getPrecond() << "\n";
-                string ite = z3solver->cIte(swRelation->getPrecond(), " 1", " 0");
-                string label = "SWRelation" + util::stringValueOf(num++);
 
-                z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cOr(
-                        z3solver->invertBugCondition(swRelation->getPrecond()), z3solver->cEq(bRelName, "1")), label));
+                bool flag;
+                string bRelName = a1->get_binary_rel_name(a2, flag);
+                declareIntVar(bRelName);
+
+                std::string cond = z3solver->cEq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cEq(bRelName, "0");
+                //andStr.push_back(cond);
+                if (andCond == "")
+                    andCond = cond;
+                else
+                    andCond += " " + cond;
+
+                //std::cout << "precond: " << swRelation->getPrecond() << "\n";
+                //string ite = z3solver->cIte(swRelation->getPrecond(), " 1", " 0");
+
+                //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cOr(
+                //        z3solver->invertBugCondition(swRelation->getPrecond()), cond), label));
 
                 //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cEq(bRelName, ite), label));
                 //std::cout << z3solver->postNamedAssert(z3solver->cEq(bRelName, ite), label) << "\n";
             }
         }
+
+        string label = "SWRelation" + util::stringValueOf(num++);
+        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cOr(
+                z3solver->invertBugCondition(swRelation->getPrecond()), z3solver->cAnd(andCond)), label));
 
         /*string name = from->get_binary_rel_name(to);
         declareIntVar(name);
@@ -425,8 +515,10 @@ bool ConstModelGen::addSWConstraints() {
     return true;
 }
 
-void ConstModelGen::addMOConstraints() {
-    std::map<std::string, std::vector<RWAction*> > writeset = solver->getWriteSet();
+std::string ConstModelGen::addMOConstraints() {
+    std::string constraint = "";
+    std::string bConstraint = "";
+    std::map<std::string, std::vector<RWAction*> >& writeset = solver->getWriteSet();
     int num = 0;
     for (std::map<std::string, std::vector<RWAction*> >::iterator it = writeset.begin();
             it != writeset.end(); ++it) {
@@ -440,45 +532,87 @@ void ConstModelGen::addMOConstraints() {
             RWAction* write = *wIt;
             string name = write->get_mo_constraint();
             string declareVar = z3solver->declareIntOrderVarAndStore(name, 0, max);
-            z3solver->writeLineZ3(declareVar);
+            //z3solver->writeLineZ3(declareVar);
+            constraint += declareVar + "\n";
             distinct.append(" "+name);
+            for (std::vector<RWAction*>::iterator wIt2 = writeList.begin();
+                    wIt2 != writeList.end(); ++wIt2) {
+                RWAction* write2 = *wIt2;
+                if (write == write2) continue ;
+                bool flag;
+                std::string bName = write->get_binary_rel_name(write2, flag);
+                std::string dec = declareIntVar2(bName);
+                if (dec != "")
+                    constraint += dec;
+                if (bConstraint == "")
+                    bConstraint = z3solver->cOr(z3solver->cEq(bName, "0"), z3solver->cEq(bName, "1"));
+                else
+                    bConstraint += " " + z3solver->cOr(z3solver->cEq(bName, "0"), z3solver->cEq(bName, "1"));
+            }
         }
         distinct.append(")");
         //indicate that we want that each operation has its own global order
         string label = "MO" + util::stringValueOf(num++);
-        z3solver->writeLineZ3(z3solver->postNamedAssert(distinct, label));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(distinct, label));
+        constraint += z3solver->postNamedAssert(distinct, label) + "\n";
     }
+
+    return constraint + z3solver->postAssert(z3solver->cAnd(bConstraint));
 }
 
+std::map<std::pair<RWAction*, int64_t>, std::string> rwConstraints;
 std::set<RWAction*> addedReads;
 std::set<std::string> enforcedRFs;
 std::string ConstModelGen::guaranteeReachability(std::map<RWAction*, int64_t> pairs,
-                                                 /*std::set<std::string> &enforcedRFs,*/
-                                                 /*std::set<RWAction*> relatedRWs,*/ Action* action) {
+        /*std::set<std::string> &enforcedRFs,*/
+                                                 std::map<RWAction*, int64_t> parents, Action* action,
+                                                 bool forRead) {
 
-    std::cout << "ssfdfsfd!\n";
+    //std::cout << "in guarante2222!\n";
     assert(dynamic_cast<RWAction*>(action));
+
+    /*if (guaranteeStore.find(action) != guaranteeStore.end()) {
+        //std::cout << "Hit guarantee cache: " << action->get_uniq_name() << " " << guaranteeStore[action] << "\n";
+        return guaranteeStore[action];
+    }*/
     /*RWAction* rwAction = dynamic_cast<RWAction*>(action);
     int64_t val = rwAction->get_value();
     if (dynamic_cast<RMWAction*>(rwAction))
         val = dynamic_cast<RMWAction*>(rwAction)->getReadValue();
     pairs[rwAction] = val;*/
 
-    std::cout << "ssfdfsfd1!\n";
     string retStr = "";
+
+    std::vector<Action*> &loopDepActons = action->getLoopDepActions();
+
     Thread* thread = action->get_thread();
-    std::cout << "ssfdfsfd2: " << thread << " " << action->get_seq_number() << "\n";
     //std::cout << "map: " << thread->getReachabilityMap().size() << " " << action->get_seq_number() << "\n";
     std::set<Action*> list = thread->getReachabilityMap(action->get_seq_number());
-    if (list.size() == 0)
-        return "";
+    //parents.clear();
+    if (loopDepActons.size() == 0 && list.size() == 0) {
+        guaranteeStore[action] = retStr;
+        return retStr;
+    }
 
-    std::cout << "ssfdfsfd3!\n";
-    if (dynamic_cast<RMWAction*>(action))
-        list.erase(action);
+    /*for (std::vector<Action*>::iterator it = loopDepActons.begin();
+         it != loopDepActons.end(); ++it) {
+        if (list.find(*it) == list.end()) {
+            list.insert(*it);
+            std::cout << "Add: " << action->get_uniq_name() << " " << (*it)->get_uniq_name() << "\n";
+        }
+    }*/
+
+    if (dynamic_cast<RMWAction*>(action)) {
+        if (forRead) {
+        //if (pairs.find(dynamic_cast<RWAction*>(action)) != pairs.end()) {
+            list.erase(action);
+            //parents.erase(dynamic_cast<RWAction*>(action));
+            //std::cout << "erase: " << action->get_uniq_name() << "\n";
+        }
+    }
 
 #ifdef DEBUG
-    std::cout << "Guarantee begin: " << action->get_uniq_name() << " " << list.size() << "\n";
+    std::cout << "Guarantee begin: " << action->get_uniq_name() << " " << list.size() << " " << forRead << "\n";
     for (std::set<Action*>::iterator it = list.begin(); it != list.end(); ++it)
         std::cout << "list: " << (*it)->get_uniq_name() << "\n";
 
@@ -488,10 +622,14 @@ std::string ConstModelGen::guaranteeReachability(std::map<RWAction*, int64_t> pa
         Action* a = *it;
         RWAction* r = dynamic_cast<RWAction*>(a);
         if (r == NULL) {
+#ifdef DEBUG
             std::cout << "skip1: " << a->get_uniq_name() << "\n";
+#endif
             continue;
         } else if (r->is_write() && dynamic_cast<RMWAction*>(r) == NULL) {
+#ifdef DEBUG
             std::cout << "skip2: " << a->get_uniq_name() << "\n";
+#endif
             continue;
         }
 
@@ -500,90 +638,107 @@ std::string ConstModelGen::guaranteeReachability(std::map<RWAction*, int64_t> pa
             if (pairs.find(r) != pairs.end()) {
                 if (rmwAction->getReadValue() != pairs[r] && action != r) {
                     //consistency = false ;
-                    std::cout << "Inconsistency from guarantee!\n";
+#ifdef DEBUG
+                    std::cout << "Guarantee end: " << action->get_uniq_name() << " " << r->get_uniq_name() << " Inconsistency from guarantee1!\n";
+#endif
+                    guaranteeStore[action] = z3solver->cEq("1", "0");
                     return z3solver->cEq("1", "0"); // return false
                 }
 
                 readVal = pairs[r];
             } else
                 readVal = rmwAction->getReadValue();
+        } else if (pairs.find(r) != pairs.end()) {
+            if (readVal != pairs[r]) {
+#ifdef DEBUG
+                std::cout << "Guarantee end: " << action->get_uniq_name() << " " << r->get_uniq_name() << " Inconsistency from guarantee2!\n";
+#endif
+                guaranteeStore[action] = z3solver->cEq("1", "0");
+                return z3solver->cEq("1", "0"); // return false
+            }
         }
 
 #ifdef DEBUG
         std::cout << "guarantee: " << r->get_uniq_name() << " " << readVal << "\n";
 #endif
 
-        /*if (//relatedRWs.find(r) != relatedRWs.end() || // recursive dependency
-                pairs.find(r) != pairs.end() && pairs[r] != readVal) {
-            consistency = false;
-            std::cout << "Inconsistency: " << r->get_uniq_name() << " " << pairs[r] << " " << readVal << "\n";
-            return "";
-        }*/
+        if (parents.find(r) != parents.end() /*&& parents[r] != readVal*/) { // loop dependency
+            std::cout << "EEEEEEEEEE!\n";
+            if (parents[r] != readVal) {
+                //std::cout << "Inconsistency from guarantee3: " << r->get_uniq_name() << "\n";
+#ifdef DEBUG
+                std::cout << "Guarantee end: " << action->get_uniq_name() << "Loop dependency from guarantee false: " << r->get_uniq_name() << "\n";
+#endif
+                guaranteeStore[action] = z3solver->cEq("1", "0");
+                return z3solver->cEq("1", "0"); // return false
+            } else {
+                //guaranteeStore[action] = z3solver->cEq("1", "1");
+#ifdef DEBUG
+                std::cout << "Guarantee end: " << action->get_uniq_name() << "Loop dependency from guarantee true: " << r->get_uniq_name() << "\n";
+#endif
+                std:string tmpStr = z3solver->cEq("1", "1");
+                if (retStr == "")
+                    retStr = tmpStr;
+                else
+                    retStr += " " + tmpStr;
 
-        /*if (addedReads.find(r) != addedReads.end()) {
-            //if (relatedRWs.find(r) != relatedRWs.end()) {
-            //    consistency = false;
-            //    std::cout << "Inconsistency2: " << r->get_uniq_name() << " " << pairs[r] << " " << readVal << "\n";
-            //    return "";
-            //}
-            std::cout << "skip3: " << r->get_uniq_name() << "\n";
-            continue;
-        }*/
-
-        //relatedRWs.insert(r);
-        std::cout << "just before!\n";
-        std::cout << "size: " << pairs.size() << " " << enforcedRFs.size() << " " << r << "\n";
-        for (std::map<RWAction*, int64_t>::iterator it1 = pairs.begin();
-                it1 != pairs.end(); ++it1) {
-            std::cout << it1->first << " " << it1->second << "\n";
+                continue ;
+                //return z3solver->cEq("1", "1"); // return true
+            }
         }
-
-        for (std::set<std::string>::iterator it1 = enforcedRFs.begin();
-                it1 != enforcedRFs.end(); ++it1)
-            std::cout << *it1 << "\n";
-
-        std::string tmpStr = addRWRelation(pairs, /*enforcedRFs, relatedRWs,*/ r, readVal);
+        //std::map<RWAction*, int64_t> newParents;
+        std::string tmpStr = addRWRelation(pairs, parents, r, readVal);
         //pairs[r] = readVal;
 
-        if (retStr == "")
+        if (tmpStr == "") {
+            retStr = z3solver->cEq("1", "0");
+            break;
+        }
+
+        if (retStr == "") {
             retStr = tmpStr;
-        else
+            /*retStr = z3solver->cEq("1", "0");
+            break;*/
+        } else
             retStr += " " + tmpStr;
     }
-    /*set<Action*> mhbList = solver->identifyMHBRelation(action);
-    for (set<Action*>::iterator it = mhbList.begin();
-            it != mhbList.end(); ++it) {
-        Action* a = *it;
-        RWAction* r = dynamic_cast<RWAction*>(a);
-        if (r == NULL || r->is_write()) continue ;
-
-        int64_t readVal = r->get_value();
-        if (dynamic_cast<RMWAction*>(r))
-            readVal = dynamic_cast<RMWAction*>(r)->getReadValue();
-        std::string tmpStr = addRWRelation(r, readVal);
-
-        if (retStr == "")
-            retStr = tmpStr;
-        else
-            retStr += " " + tmpStr;
-    }*/
 
 #ifdef DEBUG
-    std::cout << "Gurantee end: " << action->get_uniq_name() << " " << retStr << "\n";
+    std::cout << "Guarantee end: " << action->get_uniq_name() << " " << retStr << "\n";
 #endif
     //return z3solver->cAnd(retStr);
+    guaranteeStore[action] = retStr;
+    if (guaranteeStore.find(action) != guaranteeStore.end())
+        assert(retStr == guaranteeStore[action]);
     return retStr;
 }
 
 std::string ConstModelGen::addRWRelation(std::map<RWAction*, int64_t> pairs,
-                                         //std::set<std::string> &enforcedRFs,
-                                         /*std::set<RWAction*> relatedRWs,*/ RWAction *read, int64_t val) {
+                                         std::map<RWAction*, int64_t > parents, RWAction *read, int64_t val) {
     //addedReads.insert(read);
 
-    std::cout << "In addRWRelation: \n";
+    //std::cout << "In addRWRelation: " << read->get_uniq_name() << "\n";
+    std::pair<RWAction*, int64_t > p = std::make_pair(read, val);
+    if (prefix.find(read) != prefix.end() &&
+            rwConstraints.find(p) != rwConstraints.end()) {
+        //std::cout << "Hit Cache1: " << read->get_uniq_name() << " " << val << "\n";
+        return rwConstraints[p];
+    } else if (tmpRWConstraint.find(p) != tmpRWConstraint.end()) {
+        //std::cout << "Hit Cache2: " << read->get_uniq_name() << " " << val << "\n";
+        return tmpRWConstraint[p];
+    }
+
+    //std::cout << "Not hit cache: " << read->get_uniq_name() << " " << val << "\n";
+    assert(read->is_write() == false || dynamic_cast<RMWAction*>(read));
+    parents[read] = val;
+
+#ifdef DEBUG
+    std::cout << "In addRWRelation: " << read->get_uniq_name() << " " << val << "\n";
+#endif
+
     std::string retStr = "";
     //std::map<std::string, std::vector<RWAction*> > writeMap = solver->getWriteSet();
-    std::vector<RWAction*> writeSet = solver->getWriteSet(read->get_location_str());//writeMap[read->get_location_str()];
+    std::vector<RWAction*>& writeSet = solver->getWriteSet(read->get_location_str());//writeMap[read->get_location_str()];
 
 #ifdef DEBUG
     int64_t readVal = read->get_value();
@@ -607,25 +762,33 @@ std::string ConstModelGen::addRWRelation(std::map<RWAction*, int64_t> pairs,
 #endif
     }
 
-    return "";
+#ifdef DEBUG
     std::cout << "writeset: " << writeSet.size() << "\n";
+#endif
+
+    string reachRead = guaranteeReachability(pairs, parents, read, true);
     for (std::vector<RWAction*>::iterator it = writeSet.begin();
             it != writeSet.end(); ++it) {
         RWAction* write = *it;
         if ((write->get_thread() == read->get_thread() &&
                 write->get_seq_number() > read->get_seq_number()) ||
-                write == read)
-            continue ;
+                write == read) {
+            //std::cout << "skip: " << write->get_uniq_name() << "\n";
+            continue;
+        }
 
         string andStr = "";
         int64_t writeVal = write->get_value();
         if (RMWAction* rmwAction = dynamic_cast<RMWAction*>(write)) {
             //writeVal = (dynamic_cast<RMWAction*>(write))->getWriteValue();
             int64_t inputVal;
-            if (pairs.find(write) != pairs.end())
+            if (pairs.find(write) != pairs.end()) {
                 inputVal = pairs[write];
-            else
+                //std::cout << "InputVal1: " << write->get_uniq_name() << " " << inputVal << "\n";
+            } else {
                 inputVal = rmwAction->getReadValue();
+                //std::cout << "InputVal2: " << write->get_uniq_name() << " " << inputVal << "\n";
+            }
 
             if (CmpXchgAction* cmpAction = dynamic_cast<CmpXchgAction*>(rmwAction))
                 writeVal = cmpAction->computeWriteValue(inputVal);
@@ -633,82 +796,138 @@ std::string ConstModelGen::addRWRelation(std::map<RWAction*, int64_t> pairs,
                 writeVal = rmwAction->computeWriteValue(inputVal);
         }
 
+        //std::cout << "values: " << write->get_uniq_name() << " " << writeVal << " " << val << "\n";
         if (writeVal == val) {
 #ifdef DEBUG
             std::cout << "\nwrite: " << write->get_uniq_name() << " " << writeVal << "\n";
 #endif
             string tmp;
             if (dynamic_cast<RMWAction*>(read)) {
-                std::cout << "eeeee1\n";
-                tmp = guaranteeReachability(pairs/*, enforcedRFs*/, read);
-                std::cout << "eeeee2\n";
+                std::cout << "For read: " << read->get_uniq_name() << "\n";
+                tmp = reachRead;//guaranteeReachability(pairs, parents, read);
                 if (!consistency) {
                     //consistency = false;
                     //std::cout << "Inconsistency!\n";
+                    if (prefix.find(read) != prefix.end())
+                        rwConstraints[p] = "";
+                    else
+                        tmpRWConstraint[p] = "";
                     return "";
                 }
 
                 if (tmp != "")
                     andStr += " " + z3solver->cAnd(tmp);
+                if (tmp == "(= 1 0)") {
+                    andStr = tmp;
+                    orStr += " " + z3solver->cAnd(andStr);
+                    continue ;
+                }
+
             }
 
-
-            std::cout << "begin guarantee!\n";
-            std::cout << "size: " << pairs.size() << " " << enforcedRFs.size() << " " << read << "\n";
-            for (std::map<RWAction*, int64_t>::iterator it1 = pairs.begin();
-                 it1 != pairs.end(); ++it1) {
-                std::cout << it1->first << " " << it1->second << "\n";
-            }
-
-            for (std::set<std::string>::iterator it1 = enforcedRFs.begin();
-                 it1 != enforcedRFs.end(); ++it1)
-                std::cout << *it1 << "\n";
-            tmp = guaranteeReachability(pairs, /*enforcedRFs, relatedRWs,*/ write);
-            std::cout << "end guarantee!\n";
+#ifdef DEBUG
+            std::cout << "current orStr: " << orStr << "\n";
+            std::cout << "For write: " << write->get_uniq_name() << "\n";
+#endif
+            tmp = guaranteeReachability(pairs, parents, write, false);
+            //std::cout << "end guarantee!\n";
 
             if (!consistency) {
                 //consistency = false;
                 //std::cout << "Inconsistency!\n";
+                if (prefix.find(read) != prefix.end())
+                    rwConstraints[p] = "";
+                else
+                    tmpRWConstraint[p] = "";
                 return "";
             }
 
             if (tmp != "")
                 andStr += " " + z3solver->cAnd(tmp);
+            if (tmp == "(= 1 0)") {
+                    andStr = tmp;
+                    orStr += " " + z3solver->cAnd(andStr);
+                    continue ;
+            }
 
             string rfRelName = read->get_rf_rel_name(write);
             declareIntVar(rfRelName, 0, 1);
             andStr += " " + z3solver->cEq(rfRelName, "1");
             enforcedRFs.insert(rfRelName);
 
-            string bRelName = read->get_binary_rel_name(write);
+            bool flag;
+            string bRelName = read->get_binary_rel_name(write, flag);
             declareIntVar(bRelName);
+
             //if (read->get_mo() == memory_order_acquire && write->get_mo() == memory_order_release)
-            if (isEnforceSWRelation(read, write)) {
-                andStr += " " + z3solver->cEq(bRelName, "0");
+            std::cout << "before enforce!\n";
+            bool swRel = isEnforceSWRelation(read, write);
+            std::cout << "isEnforceSWRelation: " << read->get_uniq_name() << " " << write->get_uniq_name() << " " << swRel << "\n";
+
+            if (false && swRel) {
+                std::string cond = z3solver->cEq(bRelName, "0");
+                if (flag)
+                    cond = z3solver->cEq(bRelName, "1");
+
+                andStr += " " + cond;
                 //solver->addSWPair(write, read);
-            } else
-                andStr += " " + z3solver->cNeq(bRelName, "1");
+            } else {
+                std::string cond = z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                andStr += " " + cond;
+            }
 
             for (std::vector<RWAction*>::iterator it2 = writeSet.begin();
                     it2 != writeSet.end(); ++it2) {
                 RWAction* write2 = *it2;
                 assert(read->get_location_str() == write->get_location_str() &&
                 read->get_location_str() == write2->get_location_str());
-                if (write == write2)
-                    continue ;
+                if (write == write2 || read == write2) {
+                    //std::cout << "skip write1: " << write2->get_uniq_name() << "\n";
+                    continue;
+                }
 
+                if (write->get_thread() == write2->get_thread() && write->get_seq_number() > write2->get_seq_number()) {
+                    //std::cout << "skip write2: " << write2->get_uniq_name() << "\n";
+                    continue;
+                }
+
+                if (read->get_thread() == write2->get_thread() && read->get_seq_number() < write2->get_seq_number()) {
+                    //std::cout << "skip write3: " << write2->get_uniq_name() << "\n";
+                    continue;
+                }
+
+                if (read->get_thread() == write->get_thread() && read->get_thread() == write2->get_thread() &&
+                        write2->get_seq_number() > write->get_seq_number() && write2->get_seq_number() < read->get_seq_number()) {
+                    andStr = z3solver->cEq("1", "0");
+                    break ;
+                }
+
+                //std::cout << "consider write: " << write2->get_uniq_name() << "\n";
                 /*std::cout << "location: " << read->get_location_str() << " " << write->get_location_str() << " " << write2->get_location_str() << "\n";
-                std::cout << "read: " << read->get_action_str() << "\n";
-                std::cout << "write: " << write->get_action_str() << "\n";
-                std::cout << "write2: " << write2->get_action_str() << "\n";*/
+                std::cout << "read: " << read->get_uniq_name() << "\n";
+                std::cout << "write: " << write->get_uniq_name() << "\n";
+                std::cout << "write2: " << write2->get_uniq_name() << "\n";*/
                 string tmpStr = "";
-                string bName1 = write->get_binary_rel_name(write2);
+
+                bool flag1;
+                string bName1 = write->get_binary_rel_name(write2, flag1);
                 declareIntVar(bName1);
                 tmpStr = z3solver->cEq(bName1, "1");
+                if (flag1)
+                    tmpStr = z3solver->cEq(bName1, "0");
 
-                string bName2 = write2->get_binary_rel_name(read);
+                bool flag2;
+                string bName2 = write2->get_binary_rel_name(read, flag2);
                 declareIntVar(bName2);
-                tmpStr += " " + z3solver->cEq(bName2, "1");
+
+                string cond = z3solver->cEq(bName2, "1");
+                if (flag2)
+                    cond = z3solver->cEq(bName2, "0");
+
+                tmpStr += " " + cond;
                 tmpStr = z3solver->invertBugCondition(z3solver->cAnd(tmpStr));
                 andStr += tmpStr;
             }
@@ -717,23 +936,54 @@ std::string ConstModelGen::addRWRelation(std::map<RWAction*, int64_t> pairs,
         }
     }
 
-    std::cout << "xxx: " << read->get_uniq_name() << " " << z3solver->cOr((orStr)) << "\n";
+#ifdef DEBUG
+    std::cout << "xxx: " << read->get_uniq_name() << " " << val << " " << z3solver->cOr((orStr)) << "\n";
+#endif
+
     if (orStr == "") {
         //std::cout << "ssss: " << read->get_uniq_name() << " " << val << " " << writeSet.size() << "\n";
+#ifdef DEBUG
         std::cout << "Identify inconsistency1!\n";
+#endif
         //consistency = false;
+        if (prefix.find(read) != prefix.end())
+            rwConstraints[p] = "";
+        else
+            tmpRWConstraint[p] = "";
         return "";
     }
 
-    return z3solver->cOr(orStr);
+    retStr = z3solver->cOr(orStr);
+    if (prefix.find(read) != prefix.end()) {
+        /*if (rwConstraints.find(p) != rwConstraints.end()) {
+            if (rwConstraints[p] != retStr) {
+                std::cout << "xx0: " << read->get_uniq_name() << " " << val << "\n";
+                std::cout << "xx1: " << rwConstraints[p] << "\n";
+                std::cout << "xx2: " << retStr << "\n";
+                assert(false);
+            }
+        }*/
+        rwConstraints[p] = retStr;
+    } else
+        tmpRWConstraint[p] = retStr;
+    return retStr;
 }
 
- bool ConstModelGen::addRWRelations(std::map<RWAction*, int64_t> pairs, std::set<std::string> &enforcedRFSet) {
+ bool ConstModelGen::addRWRelations(std::map<RWAction*, int64_t> pairs,
+                                    std::set<std::string> &enforcedRFSet) {
+                                    //std::set<std::string> &binaryRelations) {
     string andStr = "";
+
+     if (isFirst)
+         rwConstraints.clear();
 
     enforcedRFs.clear();
     //addedReads.clear();
+
+#ifdef DEBUG
      std::cout << "AddRWRelations: " << pairs.size() << "\n";
+#endif
+
      for (std::map<RWAction*, int64_t >::iterator it = pairs.begin();
           it != pairs.end(); ++it) {
          RWAction* read = it->first;
@@ -750,15 +1000,26 @@ std::string ConstModelGen::addRWRelation(std::map<RWAction*, int64_t> pairs,
          std::cout << "Add RW: " << read->get_uniq_name() << " " << val << "\n";
 #endif
          //addedReads.clear();
-         std::string tmpAndStr = addRWRelation(pairs, /*enforcedRFs, relatedRWs,*/ read, val);
+         std::map<RWAction*, int64_t > parents;
+
+         //tmpRWConstraint.clear();
+         std::string tmpAndStr = addRWRelation(pairs, /*enforcedRFs,*/ parents, read, val);
          if (consistency == false) {
+#ifdef DEBUG
              std::cout << "Inconsistency1!\n";
+#endif
              return false;
          }
 
+#ifdef DEBUG
          std::cout << "ttt: " << tmpAndStr << "\n";
+#endif
          if (tmpAndStr == "") {
-             std::cout << "eeeeeee: " << read->get_uniq_name() << " " << val << "\n";
+#ifdef DEBUG
+             std::cout << "Inconsistency2!\n";
+#endif
+
+             //std::cout << "eeeeeee: " << read->get_uniq_name() << " " << val << "\n";
              //assert(false && "Identify an inconsistency");
              return false;
          }
@@ -767,9 +1028,18 @@ std::string ConstModelGen::addRWRelation(std::map<RWAction*, int64_t> pairs,
 
      if (andStr != "") {
          z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "RW"));
-         std::cout << "RW: " << z3solver->postNamedAssert(z3solver->cAnd(andStr), "RW") << "\n";
+         /*while (andStr.find("B_") != std::string::npos) {
+             andStr = andStr.substr(andStr.find("B_"));
+             string str = andStr.substr(0, andStr.find(" "));
+             binaryRelations.insert(str);
+             andStr = andStr.substr(andStr.find(" ")+1);
+         }*/
+
+         //std::cout << "RW: " << z3solver->postNamedAssert(z3solver->cAnd(andStr), "RW") << "\n";
      } else {
-         std::cout << "Inconsistency2!\n";
+#ifdef DEBUG
+         std::cout << "Inconsistency3!\n";
+#endif
          return false;
      }
      //assert(false);
@@ -791,6 +1061,12 @@ void ConstModelGen::declareIntVar(std::string name) {
         z3solver->writeLineZ3(retStr);
 }
 
+std::string ConstModelGen::declareIntVar2(std::string name) {
+    string retStr = z3solver->declareIntVar(name);
+    //std::cout << "declare: " << name << " " << retStr << "\n";
+    return retStr;
+}
+
 void ConstModelGen::declareIntVar(std::string name, int min, int max) {
     string retStr = z3solver->declareIntVar(name, min, max);
     //std::cout << "declare: " << name << " " << retStr << "\n";
@@ -798,11 +1074,23 @@ void ConstModelGen::declareIntVar(std::string name, int min, int max) {
         z3solver->writeLineZ3(retStr);
 }
 
+std::string ConstModelGen::declareIntVar2(std::string name, int min, int max) {
+    string retStr = z3solver->declareIntVar(name, min, max);
+    //std::cout << "declare: " << name << " " << retStr << "\n";
+    return retStr;
+}
+
 void ConstModelGen::declareIntVarGE(std::string name, int min) {
     string retStr = z3solver->declareIntVarGE(name, min);
     //std::cout << "declare: " << name << " " << retStr << "\n";
     if (retStr != "")
         z3solver->writeLineZ3(retStr);
+}
+
+std::string ConstModelGen::declareIntVarGE2(std::string name, int min) {
+    string retStr = z3solver->declareIntVarGE(name, min);
+    //std::cout << "declare: " << name << " " << retStr << "\n";
+    return retStr;
 }
 
 bool ConstModelGen::isAcquireFence(FenceAction* fence) {
@@ -837,6 +1125,7 @@ void ConstModelGen::enforceFenceAcquire(FenceAction* releaseF, RWAction* write,
     SWRelation* sw = new SWRelation(releaseF, read);
     set<Action*> mhbList = solver->identifyMHBRelation(releaseF);
     set<Action*> mhaList = solver->identifyMHARelation(read);
+    mhaList.insert(read);
     sw->setHBList(mhbList);
     sw->setHAList(mhaList);
     string rfRelName = read->get_rf_rel_name(write);
@@ -855,33 +1144,30 @@ void ConstModelGen::enforceFenceAcquire(FenceAction* releaseF, RWAction* write,
 
     sw->setPreCond(cond);
     swRelations.insert(sw);
+
+    std::cout << "gggg: " << read->get_uniq_name() << " " << write->get_uniq_name() << "\n";
+    printActionSet(mhbList), printActionSet(mhaList);
 }
 
 void ConstModelGen::enforceReleaseFence(FenceAction *acquireF, RWAction* write,
                                        RWAction* read, RWAction* firstW, int writeNum) {
 
-    std::cout << "\nIdentify a ReleaseFence!\n";
+    //std::cout << "\nIdentify a ReleaseFence!\n";
     SWRelation* sw = new SWRelation(firstW, acquireF);
-    std::cout << "rrrr0: " << solver << " " << firstW << " " << firstW->get_uniq_name() << "\n";
     set<Action*> mhbList = solver->identifyMHBRelation(firstW);
-    std::cout << "rrrr00\n";
+    mhbList.insert(firstW);
     set<Action*> mhaList = solver->identifyMHARelation(acquireF);
-    std::cout << "rrrr000: " << sw << "\n";
     sw->setHBList(mhbList);
-    std::cout << "rrrr0000\n";
     sw->setHAList(mhaList);
-    std::cout << "rrrr2\n";
     string rfRelName = read->get_rf_rel_name(write);
     string cond = " " + z3solver->cEq(rfRelName, "1");
 
     if (writeNum != 0) {
-        std::cout << "rrrr3\n";
         string MO1 = read->get_mo_constraint();
         string MO2 = firstW->get_mo_constraint();
         declareIntVar(MO1);
         declareIntVar(MO2);
 
-        std::cout << "rrrr4\n";
         string tmpCond = z3solver->cMinus(MO1, MO2);
         tmpCond = z3solver->cEq(tmpCond, util::stringValueOf(writeNum));
         cond = z3solver->cAnd(cond, tmpCond);
@@ -915,6 +1201,28 @@ void ConstModelGen::enforceFenceFence(FenceAction* releaseF, FenceAction* acquir
 
     sw->setPreCond(cond);
     swRelations.insert(sw);
+
+    std::cout << "gggg: " << read->get_uniq_name() << " " << write->get_uniq_name() << "\n";
+    printActionSet(mhbList), printActionSet(mhaList);
+}
+
+void ConstModelGen::enforceReleaseAcquire(RWAction* write, RWAction* read) {
+    SWRelation* sw = new SWRelation(write, read);
+
+    set<Action*> mhbList = solver->identifyMHBRelation(write);
+    mhbList.insert(write);
+    set<Action*> mhaList = solver->identifyMHARelation(read);
+    mhaList.insert(read);
+    sw->setHBList(mhbList);
+    sw->setHAList(mhaList);
+    string rfRelName = read->get_rf_rel_name(write);
+    string cond = " " + z3solver->cEq(rfRelName, "1");
+
+    sw->setPreCond(cond);
+    swRelations.insert(sw);
+
+    std::cout << "gggg: " << read->get_uniq_name() << " " << write->get_uniq_name() << "\n";
+    printActionSet(mhbList), printActionSet(mhaList);
 }
 
 void ConstModelGen::enforceLockSW(std::pair<LockAction*, LockAction*> pair1,
@@ -929,9 +1237,15 @@ void ConstModelGen::enforceLockSW(std::pair<LockAction*, LockAction*> pair1,
     set<Action*> mhaList = solver->identifyMHARelation(lock2);
     sw1->setHBList(mhbList);
     sw1->setHAList(mhaList);
-    string rfRelName1 = unlock1->get_binary_rel_name(lock2);
+
+    bool flag1;
+    string rfRelName1 = unlock1->get_binary_rel_name(lock2, flag1);
     declareIntVar(rfRelName1);
+
     string cond1 = " " + z3solver->cEq(rfRelName1, "1");
+    if (flag1)
+        cond1 = " " + z3solver->cEq(rfRelName1, "0");
+
     sw1->setPreCond(cond1);
     swRelations.insert(sw1);
 
@@ -944,9 +1258,15 @@ void ConstModelGen::enforceLockSW(std::pair<LockAction*, LockAction*> pair1,
     set<Action*> mhaList2 = solver->identifyMHARelation(lock1);
     sw2->setHBList(mhbList2);
     sw2->setHAList(mhaList2);
-    string rfRelName2 = unlock2->get_binary_rel_name(lock1);
+
+    bool flag2;
+    string rfRelName2 = unlock2->get_binary_rel_name(lock1, flag2);
     declareIntVar(rfRelName2);
+
     string cond2 = " " + z3solver->cEq(rfRelName2, "1");
+    if (flag2)
+        cond2 = " " + z3solver->cEq(rfRelName2, "0");
+
     sw2->setPreCond(cond2);
     swRelations.insert(sw2);
 
@@ -955,15 +1275,20 @@ void ConstModelGen::enforceLockSW(std::pair<LockAction*, LockAction*> pair1,
     //printActionSet(mhaList2);
 }
 
-void ConstModelGen::identifySWFence(RWAction* read, RWAction* write) {
+bool ConstModelGen::identifySWFence(RWAction* read, RWAction* write) {
 
-    std::cout << "fence1\n";
+    if (read->get_thread() == write->get_thread()) return false;
+
+    if (isAcquire(read) && isRelease(write)) {
+        enforceReleaseAcquire(write, read);
+        return true;
+    }
+
     Thread* thr1 = write->get_thread();
-    vector<Action*> list1 = thr1->getActionList();
+    vector<Action*>& list1 = thr1->getActionList();
     FenceAction* releaseF = NULL;
     FenceAction* acquireF = NULL;
 
-    std::cout << "fence2\n";
     int writeNum = 0;
     RWAction* firstW = NULL;
     bool flag = false;
@@ -989,34 +1314,35 @@ void ConstModelGen::identifySWFence(RWAction* read, RWAction* write) {
         }
     }
 
-    std::cout << "fence3\n";
     Thread* thr2 = read->get_thread();
-    vector<Action*> list2 = thr2->getActionList();
+    vector<Action*>& list2 = thr2->getActionList();
+    std::cout << "sx: " << read->get_uniq_name() << " " << write->get_uniq_name() << " " << list1.size() << " " << list2.size() << "\n";
     for (int i=read->get_seq_number(); i<list2.size(); ++i) {
         Action* a = list2[i];
-        if (dynamic_cast<FenceAction*>(a) == NULL)
-            continue;
         FenceAction* fenceAction = dynamic_cast<FenceAction*>(a);
+        if (fenceAction == NULL) {
+            continue;
+        }
         if (isAcquireFence(fenceAction)) {
             acquireF = fenceAction;
             break;
         }
     }
 
-    std::cout << "fence4\n";
-    //std::cout << "\nFences: " << releaseF << " " << acquireF << " " << firstW << "\n";
+    std::cout << "\nFences: " << releaseF << " " << acquireF << " " << firstW << "\n";
 
     if (releaseF == NULL && acquireF == NULL)
-        return ;
+        return false;
     else if (releaseF != NULL && acquireF == NULL && isAcquire(read)) {
-        std::cout << "fence5\n";
+        std::cout << "enforceFenceAcquire!\n";
         enforceFenceAcquire(releaseF, write, read, firstW, writeNum);
+        return true;
     } else if (releaseF == NULL && acquireF != NULL && firstW != NULL && isRelease(firstW)) {
-        std::cout << "fence6\n";
         enforceReleaseFence(acquireF, write, read, firstW, writeNum);
+        return true;
     } else if (releaseF != NULL && acquireF != NULL) {
-        std::cout << "fence7\n";
         enforceFenceFence(releaseF, acquireF, write, read, firstW, writeNum);
+        return true;
     }
 
     /*SWRelation* sw = new SWRelation(releaseF, acquireF);
@@ -1044,34 +1370,26 @@ void ConstModelGen::identifySWFence(RWAction* read, RWAction* write) {
 
 // FIXME
 bool ConstModelGen::isEnforceSWRelation(Action* a, Action* b) {
-    std::cout << "In isEnforcesSWRelation: " << a->get_uniq_name() << " " << b->get_uniq_name() << "\n";
+    //std::cout << "In isEnforcesSWRelation: " << a->get_uniq_name() << " " << b->get_uniq_name() << "\n";
     if (dynamic_cast<RWAction*>(a) && dynamic_cast<RWAction*>(b)) {
-        std::cout << "xxxx\n";
         RWAction* read = dynamic_cast<RWAction*>(a);
         RWAction* write = dynamic_cast<RWAction*>(b);
 
-        std::cout << "xxxx1\n";
         if (a->get_thread() == b->get_thread())
             return false;
 
-        std::cout << "xxxx2\n";
-        identifySWFence(read, write);
-
-        std::cout << "xxxx3\n";
         memory_order rMO = read->get_mo();
-        if (rMO != memory_order_acq_rel &&  rMO != memory_order_acquire
+        /*if (rMO != memory_order_acq_rel &&  rMO != memory_order_acquire
                 && rMO != memory_order_seq_cst)
-            return false;
+            return false;*/
 
+        return identifySWFence(read, write);
         //bool isWrite1 = read->is_write();
         //bool isWrite2 = write->is_write();
         //assert(!isWrite1 && isWrite2);
 
-        std::cout << "xxxx4\n";
         Thread* thread = write->get_thread();
-        std::cout << "xxxx5\n";
-        vector<Action*> list = thread->getActionList();
-        std::cout << "xxxx6\n";
+        vector<Action*>& list = thread->getActionList();
         for (int i=write->get_seq_number(); i>=0; --i) {
             Action* tmp = list[i];
             if (dynamic_cast<RWAction*>(tmp) == NULL)
@@ -1093,7 +1411,7 @@ bool ConstModelGen::isEnforceSWRelation(Action* a, Action* b) {
                 string cond = " " + z3solver->cEq(rfRelName, "1");
                 sw->setPreCond(cond);
                 swRelations.insert(sw);
-                std::cout << "Add swRelation: " << sw << " " << w->get_uniq_name() << " " << read->get_uniq_name() << "\n";
+                //std::cout << "Add swRelation: " << sw << " " << w->get_uniq_name() << " " << read->get_uniq_name() << "\n";
                 //printActionSet(mhbList);
                 //printActionSet(mhaList);
                 return true;
@@ -1116,10 +1434,11 @@ Action* ConstModelGen::getRelSeqHead(RWAction* write) {
     return NULL;
 }
 
-void ConstModelGen::enforceMOConsistent() {
-    std::map<std::string, std::vector<RWAction*> > writeset = solver->getWriteSet();
+std::string ConstModelGen::enforceMOConsistent() {
+    std::map<std::string, std::vector<RWAction*> >& writeset = solver->getWriteSet();
 
     string andStr = "";
+    string retStr = "";
     for (std::map<std::string, std::vector<RWAction*> >::iterator it = writeset.begin();
             it != writeset.end(); ++it) {
         std::vector<RWAction*> writes = it->second;
@@ -1132,15 +1451,25 @@ void ConstModelGen::enforceMOConsistent() {
 
                 if (w1 == w2) continue ;
 
-                string bRelName = w1->get_binary_rel_name(w2);
+                bool flag;
+                string bRelName = w1->get_binary_rel_name(w2, flag);
                 string moName1 = w1->get_mo_constraint();
                 string moName2 = w2->get_mo_constraint();
 
-                declareIntVar(bRelName);
-                declareIntVar(moName1);
-                declareIntVar(moName2);
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
 
                 string cond =  z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
                 string result = z3solver->cLt(moName1, moName2);
 
                 if (andStr == "")
@@ -1152,15 +1481,78 @@ void ConstModelGen::enforceMOConsistent() {
     }
 
     if (andStr != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        return retStr + z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent");
+    else
+        return "";
 }
 
-void ConstModelGen::enforceRFConsistent() {
-    std::map<std::string, std::vector<RWAction *> > readset = solver->getReadSet();
-    std::map<std::string, std::vector<RWAction *> > writeset = solver->getWriteSet();
+double partTime1 = 0, partTime2 = 0;
+std::string ConstModelGen::enforceRFConsistent() {
+    std::map<std::string, std::vector<RWAction *> >& readset = solver->getReadSet();
+    std::map<std::string, std::vector<RWAction *> >& writeset = solver->getWriteSet();
 
+    string andStr = "", andStr2 = "";
+    string retStr = "";
+    /*for (std::map<std::string, std::vector<RWAction*> >::iterator it = writeset.begin();
+            it != writeset.end(); ++it) {
+        std::vector<RWAction*> writes = it->second;
+        for (std::vector<RWAction*>::iterator wIt1 = writes.begin();
+                wIt1 != writes.end(); ++wIt1) {
+            RWAction *write1 = *wIt1;
+            for (std::vector<RWAction*>::iterator wIt2 = writes.begin();
+                    wIt2 != writes.end(); ++wIt2) {
+                RWAction* write2 = *wIt2;
+
+                if (write1 == write2) continue ;
+
+                bool flag;
+                string bRelName = write1->get_binary_rel_name(write2, flag);
+                string moName1 = write1->get_mo_constraint();
+                string moName2 = write2->get_mo_constraint();
+
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string cond =  z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                string result = z3solver->cLt(moName1, moName2);
+
+                if (andStr == "")
+                    andStr = z3solver->cOr(cond, result);
+                else
+                    andStr += " " + z3solver->cOr(cond, result);
+
+                // for coww
+                string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                if (andStr2 == "")
+                    andStr2 = tmpAndStr;
+                else
+                    andStr2 = " " + tmpAndStr;
+
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWW") + "\n";*/
+
+
+    double bTime = clock();
     // corf
-    string andStr = "";
+    andStr = "";
     for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
          it != readset.end(); ++it) {
         for (std::vector<RWAction *>::iterator rIt = it->second.begin();
@@ -1169,13 +1561,23 @@ void ConstModelGen::enforceRFConsistent() {
             for (std::vector<RWAction *>::iterator wIt = writeset[it->first].begin();
                  wIt != writeset[it->first].end(); ++wIt) {
                 RWAction *write = *wIt;
-                string bRelName = read->get_binary_rel_name(write);
+
+                bool flag;
+                string bRelName = read->get_binary_rel_name(write, flag);
                 string rfRelName = read->get_rf_rel_name(write);
 
-                declareIntVar(bRelName);
-                declareIntVar(rfRelName, 0, 1);
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(rfRelName, 0, 1);
+                if (dec != "")
+                    retStr += dec + "\n";
 
-                string constraint = z3solver->cOr(z3solver->cNeq(rfRelName, "1"), z3solver->cNeq(bRelName, "1"));
+                string cond = z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                string constraint = z3solver->cOr(z3solver->cNeq(rfRelName, "1"), cond);
                 if (andStr == "")
                     andStr = constraint;
                 else
@@ -1184,17 +1586,30 @@ void ConstModelGen::enforceRFConsistent() {
         }
     }
     if (andStr != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF") + "\n";
 
+    partTime1 += clock() - bTime;
+    std::cout << "### Part1 Time: " << partTime1 / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
+
+    bTime = clock();
     // corr
     andStr = "";
+    string andStr1 = "";
+    andStr2 = "";
+    string andStr3 = "", andStr4 = "";
+    bool forWW, forRWW;
     for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
          it != readset.end(); ++it) {
         std::vector<RWAction *> readVec = it->second;
         std::vector<RWAction *> writeVec = writeset[it->first];
+
+        forWW = true;
         for (std::vector<RWAction *>::iterator rIt1 = readVec.begin();
              rIt1 != readVec.end(); rIt1++) {
             RWAction *read1 = *rIt1;
+
+            forRWW = true;
             for (std::vector<RWAction *>::iterator rIt2 = readVec.begin();
                  rIt2 != readVec.end(); ++rIt2) {
                 RWAction *read2 = *rIt2;
@@ -1208,21 +1623,129 @@ void ConstModelGen::enforceRFConsistent() {
                         RWAction *write2 = *wIt2;
                         if (write1 == write2) continue;
 
+                        if (forWW) {
+                            bool flag;
+                            string bRelName = write1->get_binary_rel_name(write2, flag);
+                            string moName1 = write1->get_mo_constraint();
+                            string moName2 = write2->get_mo_constraint();
+
+                            string dec = declareIntVar2(bRelName);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName1);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName2);
+                            if (dec != "")
+                                retStr += dec + "\n";
+
+                            string cond =  z3solver->cNeq(bRelName, "1");
+                            if (flag)
+                                cond = z3solver->cNeq(bRelName, "0");
+
+                            string result = z3solver->cLt(moName1, moName2);
+
+                            if (andStr1 == "")
+                                andStr1 = z3solver->cOr(cond, result);
+                            else
+                                andStr1 += " " + z3solver->cOr(cond, result);
+
+                            // for coww
+                            string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                            if (andStr2 == "")
+                                andStr2 = tmpAndStr;
+                            else
+                                andStr2 = " " + tmpAndStr;
+                        }
+
+                        if (forRWW) {
+                            // corw
+                            string rfName = read1->get_rf_rel_name(write1);
+
+                            bool flag2;
+                            string bName = read1->get_binary_rel_name(write2, flag2);
+                            string cond = z3solver->cEq(bName, "1");
+                            if (flag2)
+                                cond = z3solver->cEq(bName, "0");
+
+                            string moName1 = write1->get_mo_constraint();
+                            string moName2 = write2->get_mo_constraint();
+
+                            string dec = declareIntVar2(rfName, 0, 1);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(bName);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName1);
+                            if (dec != "\n")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName2);
+                            if (dec != "\n")
+                                retStr += dec + "\n";
+
+                            string tmpAndStr = "";
+                            tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName1, moName2));
+
+                            if (andStr3 == "")
+                                andStr3 = tmpAndStr;
+                            else
+                                andStr3 += " " + tmpAndStr;
+
+                            // cowr
+                            bName = write2->get_binary_rel_name(read1, flag2);
+                            cond = z3solver->cEq(bName, "1");
+                            if (flag2)
+                                cond = z3solver->cEq(bName, "0");
+
+                            dec = declareIntVar2(bName);
+                            if (dec != "")
+                                retStr += dec + "\n";
+
+                            tmpAndStr = "";
+                            tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName2, moName1));
+
+                            if (andStr4 == "")
+                                andStr4 = tmpAndStr;
+                            else
+                                andStr4 += " " + tmpAndStr;
+                        }
+
                         string rfName1 = read1->get_rf_rel_name(write1);
                         string rfName2 = read2->get_rf_rel_name(write2);
-                        string bfName = read1->get_binary_rel_name(read2);
+
+                        bool flag2;
+                        string bfName = read1->get_binary_rel_name(read2, flag2);
+                        string cond = z3solver->cEq(bfName, "1");
+                        if (flag2)
+                            cond = z3solver->cEq(bfName, "0");
+
                         string moName1 = write1->get_mo_constraint();
                         string moName2 = write2->get_mo_constraint();
 
-                        declareIntVar(rfName1, 0, 1);
-                        declareIntVar(rfName2, 0, 1);
-                        declareIntVar(bfName);
-                        declareIntVar(moName1);
-                        declareIntVar(moName2);
+                        string dec = declareIntVar2(rfName1, 0, 1);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(rfName2, 0, 1);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(bfName);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(moName1);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(moName2);
+                        if (dec != "")
+                            retStr += dec + "\n";
 
                         string tmpAndStr = "";
                         tmpAndStr = z3solver->cEq(rfName1, "1") + " " + z3solver->cEq(rfName2, "1")
-                                    + " " + z3solver->cEq(bfName, "1");
+                                    + " " + cond;
                         tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
                                                   z3solver->cLt(moName1, moName2));
                         if (andStr == "")
@@ -1231,15 +1754,34 @@ void ConstModelGen::enforceRFConsistent() {
                             andStr += " " + tmpAndStr;
                     }
                 }
+
+                forWW = false;
             }
+            forRWW = false;
         }
     }
+    if (andStr1 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr1), "MOConsistent") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWW") + "\n";
     if (andStr != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR") + "\n";
+    if (andStr3 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr3), "CORW") + "\n";
+    if (andStr4 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr4), "COWR") + "\n";
+
+    partTime2 += clock() - bTime;
+    std::cout << "### Part2 Time: " << partTime2 / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
 
     // corw & cowr
-    andStr = "";          // for corw
-    string andStr2 = ""; // for cowr
+    /*andStr = "";          // for corw
+    andStr2 = ""; // for cowr
     for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
          it != readset.end(); ++it) {
         std::vector<RWAction *> readVec = it->second;
@@ -1258,17 +1800,31 @@ void ConstModelGen::enforceRFConsistent() {
 
                     // corw
                     string rfName = read1->get_rf_rel_name(write1);
-                    string bName = read1->get_binary_rel_name(write2);
+
+                    bool flag2;
+                    string bName = read1->get_binary_rel_name(write2, flag2);
+                    string cond = z3solver->cEq(bName, "1");
+                    if (flag2)
+                        cond = z3solver->cEq(bName, "0");
+
                     string moName1 = write1->get_mo_constraint();
                     string moName2 = write2->get_mo_constraint();
 
-                    declareIntVar(rfName, 0, 1);
-                    declareIntVar(bName);
-                    declareIntVar(moName1);
-                    declareIntVar(moName2);
+                    string dec = declareIntVar2(rfName, 0, 1);
+                    if (dec != "")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(bName);
+                    if (dec != "")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(moName1);
+                    if (dec != "\n")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(moName2);
+                    if (dec != "\n")
+                        retStr += dec + "\n";
 
                     string tmpAndStr = "";
-                    tmpAndStr = z3solver->cEq(rfName, "1") + " " + z3solver->cEq(bName, "1");
+                    tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
                     tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
                                               z3solver->cLt(moName1, moName2));
 
@@ -1278,11 +1834,17 @@ void ConstModelGen::enforceRFConsistent() {
                         andStr += " " + tmpAndStr;
 
                     // cowr
-                    bName = write2->get_binary_rel_name(read1);
-                    declareIntVar(bName);
+                    bName = write2->get_binary_rel_name(read1, flag2);
+                    cond = z3solver->cEq(bName, "1");
+                    if (flag2)
+                        cond = z3solver->cEq(bName, "0");
+
+                    dec = declareIntVar2(bName);
+                    if (dec != "")
+                        retStr += dec + "\n";
 
                     tmpAndStr = "";
-                    tmpAndStr = z3solver->cEq(rfName, "1") + " " + z3solver->cEq(bName, "1");
+                    tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
                     tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
                                               z3solver->cLt(moName2, moName1));
 
@@ -1295,10 +1857,13 @@ void ConstModelGen::enforceRFConsistent() {
         }
     }
     if (andStr != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW") + "\n";
     if (andStr2 != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR") + "\n";*/
 
+    /*
     // coww
     andStr = "";
     for (std::map<std::string, std::vector<RWAction *> >::iterator it = writeset.begin();
@@ -1313,15 +1878,26 @@ void ConstModelGen::enforceRFConsistent() {
                 RWAction *write2 = *wIt2;
                 if (write1 == write2) continue;
 
-                string bName = write1->get_binary_rel_name(write2);
+                bool flag2;
+                string bName = write1->get_binary_rel_name(write2, flag2);
+                string cond = z3solver->cNeq(bName, "1");
+                if (flag2)
+                    cond = z3solver->cNeq(bName, "0");
+
                 string moName1 = write1->get_mo_constraint();
                 string moName2 = write2->get_mo_constraint();
 
-                declareIntVar(bName);
-                declareIntVar(moName1);
-                declareIntVar(moName2);
+                string dec = declareIntVar2(bName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
 
-                string tmpAndStr = z3solver->cOr(z3solver->cNeq(bName, "1"), z3solver->cLt(moName1, moName2));
+                string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
                 if (andStr == "")
                     andStr = tmpAndStr;
                 else
@@ -1331,12 +1907,1009 @@ void ConstModelGen::enforceRFConsistent() {
         }
     }
     if (andStr != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW") + "\n";*/
+
+    return retStr;
 }
 
-void ConstModelGen::addLockConstraints() {
+std::string ConstModelGen::enforceRFConsistent_optimized() {
+    std::map<std::string, std::vector<RWAction *> >& readset = solver->getReadSet();
+    std::map<std::string, std::vector<RWAction *> >& writeset = solver->getWriteSet();
+
+    double bTime = clock();
+    string andStr = "", andStr2 = "";
+    string retStr = "";
+    for (std::map<std::string, std::vector<RWAction*> >::iterator it = writeset.begin();
+            it != writeset.end(); ++it) {
+        std::vector<RWAction*> writes = it->second;
+        for (std::vector<RWAction*>::iterator wIt1 = writes.begin();
+                wIt1 != writes.end(); ++wIt1) {
+            RWAction *write1 = *wIt1;
+            for (std::vector<RWAction*>::iterator wIt2 = writes.begin();
+                    wIt2 != writes.end(); ++wIt2) {
+                RWAction* write2 = *wIt2;
+
+                if (write1 == write2) continue ;
+
+                bool flag;
+                string bRelName = write1->get_binary_rel_name(write2, flag);
+                string moName1 = write1->get_mo_constraint();
+                string moName2 = write2->get_mo_constraint();
+
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string cond =  z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                string result = z3solver->cLt(moName1, moName2);
+
+                if (andStr == "")
+                    andStr = z3solver->cOr(cond, result);
+                else
+                    andStr += " " + z3solver->cOr(cond, result);
+
+                // for coww
+                string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                if (andStr2 == "")
+                    andStr2 = tmpAndStr;
+                else
+                    andStr2 = " " + tmpAndStr;
+
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWW") + "\n";
+
+
+    // corf
+    andStr = "";
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
+         it != readset.end(); ++it) {
+        for (std::vector<RWAction *>::iterator rIt = it->second.begin();
+             rIt != it->second.end(); ++rIt) {
+            RWAction *read = *rIt;
+            for (std::vector<RWAction *>::iterator wIt = writeset[it->first].begin();
+                 wIt != writeset[it->first].end(); ++wIt) {
+                RWAction *write = *wIt;
+
+                bool flag;
+                string bRelName = read->get_binary_rel_name(write, flag);
+                string rfRelName = read->get_rf_rel_name(write);
+
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(rfRelName, 0, 1);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string cond = z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                string constraint = z3solver->cOr(z3solver->cNeq(rfRelName, "1"), cond);
+                if (andStr == "")
+                    andStr = constraint;
+                else
+                    andStr += " " + constraint;
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF") + "\n";
+
+    // corw & cowr
+    andStr = "";          // for corw
+    andStr2 = ""; // for cowr
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
+         it != readset.end(); ++it) {
+        std::vector<RWAction *> readVec = it->second;
+        std::vector<RWAction *> writeVec = writeset[it->first];
+        for (std::vector<RWAction *>::iterator rIt1 = readVec.begin();
+             rIt1 != readVec.end(); rIt1++) {
+            RWAction *read1 = *rIt1;
+
+            for (std::vector<RWAction *>::iterator wIt1 = writeVec.begin();
+                 wIt1 != writeVec.end(); ++wIt1) {
+                RWAction *write1 = *wIt1;
+
+                if (read1->get_thread() == write1->get_thread() &&
+                        read1->get_seq_number() <= write1->get_seq_number())
+                    continue ;
+
+                for (std::vector<RWAction *>::iterator wIt2 = writeVec.begin();
+                     wIt2 != writeVec.end(); ++wIt2) {
+                    RWAction *write2 = *wIt2;
+                    if (write1 == write2) continue;
+
+                    // corw
+                    string rfName = read1->get_rf_rel_name(write1);
+
+                    bool flag2;
+                    string bName = read1->get_binary_rel_name(write2, flag2);
+                    string cond = z3solver->cEq(bName, "1");
+                    if (flag2)
+                        cond = z3solver->cEq(bName, "0");
+
+                    string moName1 = write1->get_mo_constraint();
+                    string moName2 = write2->get_mo_constraint();
+
+                    string dec = declareIntVar2(rfName, 0, 1);
+                    if (dec != "")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(bName);
+                    if (dec != "")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(moName1);
+                    if (dec != "\n")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(moName2);
+                    if (dec != "\n")
+                        retStr += dec + "\n";
+
+                    string tmpAndStr = "";
+                    tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+                    tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                              z3solver->cLt(moName1, moName2));
+
+                    if (andStr == "")
+                        andStr = tmpAndStr;
+                    else
+                        andStr += " " + tmpAndStr;
+
+                    // cowr
+                    bName = write2->get_binary_rel_name(read1, flag2);
+                    cond = z3solver->cEq(bName, "1");
+                    if (flag2)
+                        cond = z3solver->cEq(bName, "0");
+
+                    dec = declareIntVar2(bName);
+                    if (dec != "")
+                        retStr += dec + "\n";
+
+                    tmpAndStr = "";
+                    tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+                    tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                              z3solver->cLt(moName2, moName1));
+
+                    if (andStr2 == "")
+                        andStr2 = tmpAndStr;
+                    else
+                        andStr2 += " " + tmpAndStr;
+                }
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR") + "\n";
+
+    partTime1 += clock() - bTime;
+    std::cout << "### Part1 Time: " << partTime1 / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
+
+    bTime = clock();
+    // corr
+    andStr = "";
+    string andStr1 = "";
+    andStr2 = "";
+    string andStr3 = "", andStr4 = "";
+    bool forWW, forRWW;
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
+         it != readset.end(); ++it) {
+        std::vector<RWAction *> readVec = it->second;
+        std::vector<RWAction *> writeVec = writeset[it->first];
+
+        forWW = true;
+        for (std::vector<RWAction *>::iterator rIt1 = readVec.begin();
+             rIt1 != readVec.end(); rIt1++) {
+            RWAction *read1 = *rIt1;
+
+            forRWW = true;
+
+            for (std::vector<RWAction *>::iterator wIt1 = writeVec.begin();
+                 wIt1 != writeVec.end(); ++wIt1) {
+                RWAction *write1 = *wIt1;
+
+                if (read1->get_thread() == write1->get_thread() &&
+                        read1->get_seq_number() <= write1->get_seq_number())
+                    continue ;
+
+                for (std::vector<RWAction *>::iterator rIt2 = readVec.begin();
+                     rIt2 != readVec.end(); ++rIt2) {
+                    RWAction *read2 = *rIt2;
+                    if (read1 == read2) continue;
+                    if (read1->get_thread() == read2->get_thread() &&
+                            read1->get_seq_number() > read2->get_seq_number())
+                        continue ;
+
+                    for (std::vector<RWAction *>::iterator wIt2 = writeVec.begin();
+                         wIt2 != writeVec.end(); ++wIt2) {
+                        RWAction *write2 = *wIt2;
+
+                        if (read2->get_thread() == write2->get_thread() &&
+                                read2->get_seq_number() <= write2->get_seq_number())
+                            continue ;
+
+                        if (write1 == write2) continue;
+
+                        /*if (forWW) {
+                            bool flag;
+                            string bRelName = write1->get_binary_rel_name(write2, flag);
+                            string moName1 = write1->get_mo_constraint();
+                            string moName2 = write2->get_mo_constraint();
+
+                            string dec = declareIntVar2(bRelName);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName1);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName2);
+                            if (dec != "")
+                                retStr += dec + "\n";
+
+                            string cond =  z3solver->cNeq(bRelName, "1");
+                            if (flag)
+                                cond = z3solver->cNeq(bRelName, "0");
+
+                            string result = z3solver->cLt(moName1, moName2);
+
+                            if (andStr1 == "")
+                                andStr1 = z3solver->cOr(cond, result);
+                            else
+                                andStr1 += " " + z3solver->cOr(cond, result);
+
+                            // for coww
+                            string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                            if (andStr2 == "")
+                                andStr2 = tmpAndStr;
+                            else
+                                andStr2 = " " + tmpAndStr;
+                        }
+
+                        if (forRWW) {
+                            // corw
+                            string rfName = read1->get_rf_rel_name(write1);
+
+                            bool flag2;
+                            string bName = read1->get_binary_rel_name(write2, flag2);
+                            string cond = z3solver->cEq(bName, "1");
+                            if (flag2)
+                                cond = z3solver->cEq(bName, "0");
+
+                            string moName1 = write1->get_mo_constraint();
+                            string moName2 = write2->get_mo_constraint();
+
+                            string dec = declareIntVar2(rfName, 0, 1);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(bName);
+                            if (dec != "")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName1);
+                            if (dec != "\n")
+                                retStr += dec + "\n";
+                            dec = declareIntVar2(moName2);
+                            if (dec != "\n")
+                                retStr += dec + "\n";
+
+                            string tmpAndStr = "";
+                            tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName1, moName2));
+
+                            if (andStr3 == "")
+                                andStr3 = tmpAndStr;
+                            else
+                                andStr3 += " " + tmpAndStr;
+
+                            // cowr
+                            bName = write2->get_binary_rel_name(read1, flag2);
+                            cond = z3solver->cEq(bName, "1");
+                            if (flag2)
+                                cond = z3solver->cEq(bName, "0");
+
+                            dec = declareIntVar2(bName);
+                            if (dec != "")
+                                retStr += dec + "\n";
+
+                            tmpAndStr = "";
+                            tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName2, moName1));
+
+                            if (andStr4 == "")
+                                andStr4 = tmpAndStr;
+                            else
+                                andStr4 += " " + tmpAndStr;
+                        }*/
+
+                        string rfName1 = read1->get_rf_rel_name(write1);
+                        string rfName2 = read2->get_rf_rel_name(write2);
+
+                        bool flag2;
+                        string bfName = read1->get_binary_rel_name(read2, flag2);
+                        string cond = z3solver->cEq(bfName, "1");
+                        if (flag2)
+                            cond = z3solver->cEq(bfName, "0");
+
+                        string moName1 = write1->get_mo_constraint();
+                        string moName2 = write2->get_mo_constraint();
+
+                        string dec = declareIntVar2(rfName1, 0, 1);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(rfName2, 0, 1);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(bfName);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(moName1);
+                        if (dec != "")
+                            retStr += dec + "\n";
+                        dec = declareIntVar2(moName2);
+                        if (dec != "")
+                            retStr += dec + "\n";
+
+                        string tmpAndStr = "";
+                        tmpAndStr = z3solver->cEq(rfName1, "1") + " " + z3solver->cEq(rfName2, "1")
+                                    + " " + cond;
+                        tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                  z3solver->cLt(moName1, moName2));
+                        if (andStr == "")
+                            andStr = tmpAndStr;
+                        else
+                            andStr += " " + tmpAndStr;
+                    }
+                }
+
+                forWW = false;
+            }
+            forRWW = false;
+        }
+    }
+    /*if (andStr1 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr1), "MOConsistent") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWW") + "\n";*/
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR") + "\n";
+    /*if (andStr3 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr3), "CORW") + "\n";
+    if (andStr4 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr4), "COWR") + "\n";*/
+
+    partTime2 += clock() - bTime;
+    std::cout << "### Part2 Time: " << partTime2 / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
+
+
+    // coww
+    /*andStr = "";
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = writeset.begin();
+         it != writeset.end(); ++it) {
+        std::vector<RWAction *> writeVec = it->second;
+
+        for (std::vector<RWAction *>::iterator wIt1 = writeVec.begin();
+             wIt1 != writeVec.end(); ++wIt1) {
+            RWAction *write1 = *wIt1;
+            for (std::vector<RWAction *>::iterator wIt2 = writeVec.begin();
+                 wIt2 != writeVec.end(); ++wIt2) {
+                RWAction *write2 = *wIt2;
+                if (write1 == write2) continue;
+
+                bool flag2;
+                string bName = write1->get_binary_rel_name(write2, flag2);
+                string cond = z3solver->cNeq(bName, "1");
+                if (flag2)
+                    cond = z3solver->cNeq(bName, "0");
+
+                string moName1 = write1->get_mo_constraint();
+                string moName2 = write2->get_mo_constraint();
+
+                string dec = declareIntVar2(bName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                if (andStr == "")
+                    andStr = tmpAndStr;
+                else
+                    andStr = " " + tmpAndStr;
+
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW") + "\n";*/
+
+    return retStr;
+}
+
+std::string ConstModelGen::enforceRFConsistent_optimized_and_shareWithPrefix(std::set<RWAction*> prefix) {
+    std::map<std::string, std::vector<RWAction *> >& readset = solver->getReadSet();
+    std::map<std::string, std::vector<RWAction *> >& writeset = solver->getWriteSet();
+
+    std::cout << "prefix size: " << prefix.size() << "\n";
+    double bTime = clock();
+    string andStr = "", andStr2 = "";
+    string retStr = "";
+    for (std::map<std::string, std::vector<RWAction*> >::iterator it = writeset.begin();
+            it != writeset.end(); ++it) {
+        std::vector<RWAction*> writes = it->second;
+        for (std::vector<RWAction*>::iterator wIt1 = writes.begin();
+                wIt1 != writes.end(); ++wIt1) {
+            RWAction *write1 = *wIt1;
+            for (std::vector<RWAction*>::iterator wIt2 = writes.begin();
+                    wIt2 != writes.end(); ++wIt2) {
+                RWAction* write2 = *wIt2;
+
+                if (write1 == write2) continue ;
+
+                bool flag;
+                string bRelName = write1->get_binary_rel_name(write2, flag);
+                string moName1 = write1->get_mo_constraint();
+                string moName2 = write2->get_mo_constraint();
+
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string cond =  z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                string result = z3solver->cLt(moName1, moName2);
+                string ifCond = z3solver->cOr(cond, result);
+
+                // for opt
+                if (write1->get_thread() == write2->get_thread()) {
+                    if (write1->get_seq_number() < write2->get_seq_number())
+                        ifCond = result;
+                    else
+                        ifCond = z3solver->cLt(moName2, moName1);
+                }
+
+                if (andStr == "")
+                    andStr = ifCond;
+                else
+                    andStr += " " + ifCond;
+
+                // for opt
+                //if (write1->get_thread() == write2->get_thread())
+                //    continue ;
+
+                // for coww
+                string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                if (andStr2 == "")
+                    andStr2 = tmpAndStr;
+                else
+                    andStr2 += " " + tmpAndStr;
+                std::cout << "cowww: " << andStr2 << "\n";
+
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWW") + "\n";
+
+
+    // corf
+    andStr = "";
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
+         it != readset.end(); ++it) {
+        for (std::vector<RWAction *>::iterator rIt = it->second.begin();
+             rIt != it->second.end(); ++rIt) {
+            RWAction *read = *rIt;
+            for (std::vector<RWAction *>::iterator wIt = writeset[it->first].begin();
+                 wIt != writeset[it->first].end(); ++wIt) {
+                RWAction *write = *wIt;
+
+                // for opt
+                if (read->get_thread() == write->get_thread())
+                    continue ;
+
+                bool flag;
+                string bRelName = read->get_binary_rel_name(write, flag);
+                string rfRelName = read->get_rf_rel_name(write);
+
+                string dec = declareIntVar2(bRelName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(rfRelName, 0, 1);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string cond = z3solver->cNeq(bRelName, "1");
+                if (flag)
+                    cond = z3solver->cNeq(bRelName, "0");
+
+                string constraint = z3solver->cOr(z3solver->cNeq(rfRelName, "1"), cond);
+
+                if (andStr == "")
+                    andStr = constraint;
+                else
+                    andStr += " " + constraint;
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORF") + "\n";
+
+    // corw & cowr
+    andStr = "";          // for corw
+    andStr2 = ""; // for cowr
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
+         it != readset.end(); ++it) {
+        std::vector<RWAction *> readVec = it->second;
+        std::vector<RWAction *> writeVec = writeset[it->first];
+        for (std::vector<RWAction *>::iterator rIt1 = readVec.begin();
+             rIt1 != readVec.end(); rIt1++) {
+            RWAction *read1 = *rIt1;
+
+            // for opt
+            RWAction* nearestW = nearestPreviousWrite(read1); // the previous nearest write from read1
+
+            for (std::vector<RWAction *>::iterator wIt1 = writeVec.begin();
+                 wIt1 != writeVec.end(); ++wIt1) {
+                RWAction *write1 = *wIt1;
+
+                if (read1->get_thread() == write1->get_thread() &&
+                        read1->get_seq_number() <= write1->get_seq_number())
+                    continue ;
+
+                // for opt
+                std::set<RWAction*> wSetForCOWR, wSetForCORW;
+                int i, j;
+                i = j = -1;
+                for (std::vector<RWAction*>::iterator wIt2 = writeVec.begin();
+                        wIt2 != writeVec.end(); ++wIt2) {
+                    RWAction* rwAction = *wIt2;
+                    if (rwAction->get_thread() != read1->get_thread()) {
+                        wSetForCOWR.insert(rwAction);
+                        wSetForCORW.insert(rwAction);
+                    } else if (rwAction->get_seq_number() < read1->get_seq_number()
+                            && (rwAction->get_seq_number() > i || i == -1))
+                        i = rwAction->get_seq_number();
+                    else if (rwAction->get_seq_number() > read1->get_seq_number()
+                            && (rwAction->get_seq_number() < j || j == -1))
+                        j = rwAction->get_seq_number();
+                }
+                if (i != -1) wSetForCOWR.insert(dynamic_cast<RWAction*>(read1->get_thread()->getActionList()[i]));
+                if (j != -1) wSetForCORW.insert(dynamic_cast<RWAction*>(read1->get_thread()->getActionList()[j]));
+
+                for (std::vector<RWAction *>::iterator wIt2 = writeVec.begin();
+                     wIt2 != writeVec.end(); ++wIt2) {
+                    RWAction *write2 = *wIt2;
+                    if (write1 == write2) continue;
+
+                    // for opt
+                    if (write1->get_thread() == write2->get_thread()) continue;
+                    if (write1->get_thread() == read1->get_thread() &&
+                            write1 != nearestW) {
+                        continue;
+                    }
+
+                    // corw
+                    string rfName = read1->get_rf_rel_name(write1);
+
+                    bool flag2;
+                    string bName = read1->get_binary_rel_name(write2, flag2);
+                    string cond = z3solver->cEq(bName, "1");
+                    if (flag2)
+                        cond = z3solver->cEq(bName, "0");
+
+                    // for opt
+                    if (solver->checkMHB(read1, write2) == 1)
+                        cond = z3solver->cEq("1", "1");
+                    else if (solver->checkMHB(read1, write2) == 0)
+                        cond = z3solver->cEq("1", "0");
+
+                    string moName1 = write1->get_mo_constraint();
+                    string moName2 = write2->get_mo_constraint();
+
+                    string dec = declareIntVar2(rfName, 0, 1);
+                    if (dec != "")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(bName);
+                    if (dec != "")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(moName1);
+                    if (dec != "\n")
+                        retStr += dec + "\n";
+                    dec = declareIntVar2(moName2);
+                    if (dec != "\n")
+                        retStr += dec + "\n";
+
+                    string tmpAndStr = "";
+
+                    if (wSetForCORW.find(write2) != wSetForCORW.end()) { // for opt
+                        tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+
+                        // for opt
+                        if (solver->checkMHB(write1, write2) == 0)
+                            tmpAndStr = z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr));
+                        else
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName1, moName2));
+
+                        if (andStr == "")
+                            andStr = tmpAndStr;
+                        else
+                            andStr += " " + tmpAndStr;
+                    }
+
+                    // cowr
+                    bName = write2->get_binary_rel_name(read1, flag2);
+                    cond = z3solver->cEq(bName, "1");
+                    // for opt
+                    if (flag2)
+                        cond = z3solver->cEq(bName, "0");// for opt
+
+                    if (solver->checkMHB(write2, read1) == 1)
+                        cond = z3solver->cEq("1", "1");
+                    else if (solver->checkMHB(write2, read1) == 0)
+                        cond = z3solver->cEq("1", "0");
+
+                    dec = declareIntVar2(bName);
+                    if (dec != "")
+                        retStr += dec + "\n";
+
+                    if (wSetForCOWR.find(write2) != wSetForCOWR.end()) { // for opt
+                        tmpAndStr = "";
+                        tmpAndStr = z3solver->cEq(rfName, "1") + " " + cond;
+
+                        // for opt
+                        if (solver->checkMHB(write2, write1) == 0)
+                            tmpAndStr = z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr));
+                        else
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName2, moName1));
+
+                        if (andStr2 == "")
+                            andStr2 = tmpAndStr;
+                        else
+                            andStr2 += " " + tmpAndStr;
+                    }
+                }
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR") + "\n";
+
+    partTime1 += clock() - bTime;
+    std::cout << "### Part1 Time: " << partTime1 / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
+
+    bTime = clock();
+
+    // corr
+    //std::cout << "getting: " << andStr << "\n";
+    string andStr1 = "";
+    andStr2 = "";
+    string andStr3 = "", andStr4 = "";
+
+    andStr = exe->getCurSch()->getConsistentConstraint();
+    string declares = exe->getCurSch()->getCommonDeclare();
+    string newAndStr = andStr;
+    retStr += declares;
+
+    map<string, int> maxIndex;
+    for (std::set<RWAction*>::iterator it = prefix.begin();
+            it != prefix.end(); ++it) {
+        string name = (*it)->get_thread()->getName();
+        if (maxIndex.find(name) == maxIndex.end() ||
+                maxIndex[name] < (*it)->get_seq_number()) {
+            maxIndex[name] = (*it)->get_seq_number();
+            //std::cout << "maxindex: " << name << " " << (*it)->get_seq_number() << "\n";
+        }
+    }
+
+    bool forWW, forRWW;
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = readset.begin();
+         it != readset.end(); ++it) {
+        std::vector<RWAction *> readVec = it->second;
+        std::vector<RWAction *> writeVec = writeset[it->first];
+
+#ifdef DEBUG
+        std::cout << "reads & writes: " << readVec.size() << " " << writeVec.size() << "\n";
+#endif
+        forWW = true;
+        for (std::vector<RWAction *>::iterator rIt1 = readVec.begin();
+             rIt1 != readVec.end(); rIt1++) {
+            RWAction *read1 = *rIt1;
+            bool storeFlag1 = (maxIndex.find(read1->get_thread()->getName()) == maxIndex.end() ||
+                    read1->get_seq_number() < maxIndex[read1->get_thread()->getName()]);
+            //std::cout << "storeFlag1: " << storeFlag1 << " " << read1->get_uniq_name() << "\n";
+
+            forRWW = true;
+
+            // for opt
+            RWAction* nearestW1 = nearestPreviousWrite(read1); // the previous nearest write from read1
+            RWAction* nearestR1 = nearestPostRead(read1);
+
+            for (std::vector<RWAction *>::iterator wIt1 = writeVec.begin();
+                 wIt1 != writeVec.end(); ++wIt1) {
+                RWAction *write1 = *wIt1;
+
+                if (read1->get_thread() == write1->get_thread() &&
+                        read1->get_seq_number() <= write1->get_seq_number())
+                    continue ;
+
+                // for opt
+                if (read1->get_thread() == write1->get_thread() &&
+                        write1 != nearestW1)
+                    continue ;
+
+                bool storeFlag2 = (maxIndex.find(write1->get_thread()->getName()) == maxIndex.end() ||
+                        write1->get_seq_number() < maxIndex[write1->get_thread()->getName()]);
+                //std::cout << "storeFlag2: " << storeFlag2 << " " << write1->get_uniq_name() << "\n";
+
+                for (std::vector<RWAction *>::iterator rIt2 = readVec.begin();
+                     rIt2 != readVec.end(); ++rIt2) {
+                    RWAction *read2 = *rIt2;
+
+                    if (read1 == read2) continue;
+                    if (read1->get_thread() == read2->get_thread() &&
+                            read1->get_seq_number() > read2->get_seq_number())
+                        continue ;
+
+                    // for opt
+                    if (read1->get_thread() == read2->get_thread() &&
+                            read2 != nearestR1) {
+                        std::cout << "vvv111\n";
+                        continue;
+                    }
+
+                    // for opt
+                    RWAction* nearestW2 = nearestPreviousWrite(read2); // the previous nearest write from read1
+
+                    bool storeFlag3 = (maxIndex.find(read2->get_thread()->getName()) == maxIndex.end() ||
+                            read2->get_seq_number() < maxIndex[read2->get_thread()->getName()]);
+                    //std::cout << "storeFlag3: " << storeFlag3 << " " << read2->get_uniq_name() << "\n";
+
+                    for (std::vector<RWAction *>::iterator wIt2 = writeVec.begin();
+                         wIt2 != writeVec.end(); ++wIt2) {
+                        RWAction *write2 = *wIt2;
+
+                        if (read2->get_thread() == write2->get_thread() &&
+                                read2->get_seq_number() <= write2->get_seq_number())
+                            continue ;
+
+                        if (write1 == write2) continue;
+
+                        // for opt
+                        if (read2->get_thread() == write2->get_thread() &&
+                            write2 != nearestW2)
+                            continue ;
+                        if (solver->checkMHB(write1, write2) == 1)
+                            continue ;
+
+                        /*if (exe->getCurSch()->inPrefix(std::make_pair(read1->get_thread()->getName(), read1->get_seq_number())) &&
+                            exe->getCurSch()->inPrefix(std::make_pair(read2->get_thread()->getName(), read2->get_seq_number())) &&
+                            exe->getCurSch()->inPrefix(std::make_pair(write1->get_thread()->getName(), write1->get_seq_number())) &&
+                            exe->getCurSch()->inPrefix(std::make_pair(write2->get_thread()->getName(), write2->get_seq_number())))*/
+                        if (exe->getCurSch()->inPrefix2(read1->getContextName()) &&
+                                exe->getCurSch()->inPrefix2(read2->getContextName()) &&
+                                exe->getCurSch()->inPrefix2(write1->getContextName()) &&
+                                exe->getCurSch()->inPrefix2(write2->getContextName()))
+                            continue ;
+
+                        // for opt
+                        if (write1->get_thread() == write2->get_thread())
+                            continue;
+
+                        bool storeFlag4 = (maxIndex.find(write2->get_thread()->getName()) == maxIndex.end() ||
+                                write2->get_seq_number() < maxIndex[write2->get_thread()->getName()]);
+                        //std::cout << "storeFlag4: " << storeFlag4 << " " << write2->get_uniq_name() << "\n";
+
+                        bool storeFlag = (maxIndex.size() != 0) && storeFlag1 && storeFlag2 && storeFlag3 && storeFlag4;
+
+                        string rfName1 = read1->get_rf_rel_name(write1);
+                        string rfName2 = read2->get_rf_rel_name(write2);
+
+                        bool flag2;
+                        string bfName = read1->get_binary_rel_name(read2, flag2);
+                        string cond = z3solver->cEq(bfName, "1");
+                        if (flag2)
+                            cond = z3solver->cEq(bfName, "0");
+                        // for opt
+                        if (solver->checkMHB(read1, read2) == 1)
+                            cond = z3solver->cEq("1", "1");
+                        else if (solver->checkMHB(read1, read2) == 0)
+                            cond = z3solver->cEq("1", "0");
+
+                        string moName1 = write1->get_mo_constraint();
+                        string moName2 = write2->get_mo_constraint();
+
+                        string dec = declareIntVar2(rfName1, 0, 1);
+                        if (dec != "") {
+                            retStr += dec + "\n";
+                            if (storeFlag)
+                                declares += dec + "\n";
+                        }
+                        dec = declareIntVar2(rfName2, 0, 1);
+                        if (dec != "") {
+                            retStr += dec + "\n";
+                            if (storeFlag)
+                                declares += dec + "\n";
+                        }
+                        dec = declareIntVar2(bfName);
+                        if (dec != "") {
+                            retStr += dec + "\n";
+                            if (storeFlag)
+                                declares += dec + "\n";
+                        }
+                        dec = declareIntVar2(moName1);
+                        if (dec != "") {
+                            retStr += dec + "\n";
+                            if (storeFlag)
+                                declares += dec + "\n";
+                        }
+                        dec = declareIntVar2(moName2);
+                        if (dec != "") {
+                            retStr += dec + "\n";
+                            if (storeFlag)
+                                declares += dec + "\n";
+                        }
+
+                        string tmpAndStr = "";
+                        if (read1->get_thread() == read2->get_thread()) // for opt: now cond = true;
+                            tmpAndStr = z3solver->cEq(rfName1, "1") + " " + z3solver->cEq(rfName2, "1");
+                        else
+                            tmpAndStr = z3solver->cEq(rfName1, "1") + " " + z3solver->cEq(rfName2, "1")
+                                                                            + " " + cond;
+                        // for opt
+                        if (solver->checkMHB(write1, write2) == 0)
+                            tmpAndStr = z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr));
+                        else
+                            tmpAndStr = z3solver->cOr(z3solver->invertBugCondition(z3solver->cAnd(tmpAndStr)),
+                                                      z3solver->cLt(moName1, moName2));
+
+                        if (andStr == "")
+                            andStr = tmpAndStr;
+                        else
+                            andStr += " " + tmpAndStr;
+
+                        if (storeFlag) {
+                            //std::cout << "RRRR: " << tmpAndStr << "\n";
+                            if (newAndStr == "")
+                                newAndStr = tmpAndStr;
+                            else
+                                newAndStr += " " + tmpAndStr;
+                        }
+                    }
+                }
+
+                forWW = false;
+            }
+            forRWW = false;
+        }
+    }
+    /*if (andStr1 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "MOConsistent"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr1), "MOConsistent") + "\n";
+    if (andStr2 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWW") + "\n";*/
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORR") + "\n";
+    /*if (andStr3 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "CORW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr3), "CORW") + "\n";
+    if (andStr4 != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr2), "COWR"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr4), "COWR") + "\n";*/
+
+    solver->setConsistentConstraint(newAndStr);
+    solver->setCommonDeclare(declares);
+    //std::cout << "setting: " << andStr << "\n";
+
+    partTime2 += clock() - bTime;
+    std::cout << "### Part2 Time: " << partTime2 / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
+
+
+    // coww
+    /*andStr = "";
+    for (std::map<std::string, std::vector<RWAction *> >::iterator it = writeset.begin();
+         it != writeset.end(); ++it) {
+        std::vector<RWAction *> writeVec = it->second;
+
+        for (std::vector<RWAction *>::iterator wIt1 = writeVec.begin();
+             wIt1 != writeVec.end(); ++wIt1) {
+            RWAction *write1 = *wIt1;
+            for (std::vector<RWAction *>::iterator wIt2 = writeVec.begin();
+                 wIt2 != writeVec.end(); ++wIt2) {
+                RWAction *write2 = *wIt2;
+                if (write1 == write2) continue;
+
+                bool flag2;
+                string bName = write1->get_binary_rel_name(write2, flag2);
+                string cond = z3solver->cNeq(bName, "1");
+                if (flag2)
+                    cond = z3solver->cNeq(bName, "0");
+
+                string moName1 = write1->get_mo_constraint();
+                string moName2 = write2->get_mo_constraint();
+
+                string dec = declareIntVar2(bName);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(moName2);
+                if (dec != "")
+                    retStr += dec + "\n";
+
+                string tmpAndStr = z3solver->cOr(cond, z3solver->cLt(moName1, moName2));
+                if (andStr == "")
+                    andStr = tmpAndStr;
+                else
+                    andStr = " " + tmpAndStr;
+
+            }
+        }
+    }
+    if (andStr != "")
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "COWW") + "\n";*/
+
+    return retStr;
+}
+
+
+std::string ConstModelGen::addLockConstraints() {
     string andStr = "";
-    std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > > lockset = solver->getLockset();
+    std::string retStr = "(echo \"Lock CONSTRAINTS -----\")\n\n";
+    std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > >& lockset = solver->getLockset();
     std::cout << "In addLockConstraints: " << lockset.size() << "\n";
     for (std::map<std::string, std::vector<std::pair<LockAction*, LockAction*> > >::iterator
             it = lockset.begin(); it != lockset.end(); ++it) {
@@ -1354,17 +2927,28 @@ void ConstModelGen::addLockConstraints() {
                 if (lock1->get_thread() == lock2->get_thread()) continue ;
 
                 // for each two lock-unlock pairs (a, b) a < b || b < a
-                string bName1 = unlock1->get_binary_rel_name(lock2);
-                string bName2 = unlock2->get_binary_rel_name(lock1);
-                declareIntVar(bName1);
-                declareIntVar(bName2);
+                bool flag1, flag2;
+                string bName1 = unlock1->get_binary_rel_name(lock2, flag1);
+                string bName2 = unlock2->get_binary_rel_name(lock1, flag2);
+                string dec = declareIntVar2(bName1);
+                if (dec != "")
+                    retStr += dec + "\n";
+                dec = declareIntVar2(bName2);
+                if (dec != "")
+                    retStr += dec + "\n";
 
                 /*std::cout << "lock pairs: " << lock1->get_uniq_name() << " " <<
                           unlock1->get_uniq_name() << " " << lock2->get_uniq_name() << " " << unlock2->get_uniq_name() << "\n";
                 std::cout << "name: " << bName1 << " " << bName2 << "\n";*/
 
                 string cond1 = z3solver->cEq(bName1, "1");
+                if (flag1)
+                    cond1 = z3solver->cEq(bName1, "0");
+
                 string cond2 = z3solver->cEq(bName2, "1");
+                if (flag2)
+                    cond2 = z3solver->cEq(bName2, "0");
+
                 if (andStr == "")
                     andStr = z3solver->cOr(cond1, cond2);
                 else
@@ -1376,41 +2960,108 @@ void ConstModelGen::addLockConstraints() {
     }
 
     if (andStr != "") {
-        z3solver->writeLineZ3("(echo \"Lock CONSTRAINTS -----\")\n");
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "Lock"));
+        //z3solver->writeLineZ3("(echo \"Lock CONSTRAINTS -----\")\n");
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "Lock"));
+        retStr += z3solver->postNamedAssert(z3solver->cAnd(andStr), "Lock") + "\n";
+        return retStr;
+    } else
+        return "";
+}
+
+string ConstModelGen::enforceConsistentConstraint(std::set<RWAction*> prefix) {
+    std::string constraint;// = enforceMOConsistent() + "\n";
+    constraint += enforceRFConsistent_optimized_and_shareWithPrefix(prefix) + "\n";
+    return constraint;
+}
+
+void ConstModelGen::addFenceConstraints() {
+
+    std::set<FenceAction*>& fences = solver->getFenceSet();
+    for (std::set<FenceAction*>::iterator it = fences.begin();
+            it != fences.end(); ++it) {
+        FenceAction* releaseF = *it;
+        if (isReleaseFence(releaseF) == false) continue ;
+
+        for (std::set<FenceAction*>::iterator it2 = fences.begin();
+                it2 != fences.end(); ++it2) {
+            FenceAction* acquireF = *it2;
+            if (releaseF == acquireF) continue ;
+            if (isAcquireFence(acquireF) == false) continue;
+
+            SWRelation* sw = new SWRelation(releaseF, acquireF);
+
+            set<Action*> mhbList = solver->identifyMHBRelation(releaseF);
+            set<Action*> mhaList = solver->identifyMHARelation(acquireF);
+            sw->setHBList(mhbList);
+            sw->setHAList(mhaList);
+
+            bool flag;
+            string bName = releaseF->get_binary_rel_name(acquireF, flag);
+            declareIntVar(bName);
+            string cond = " " + z3solver->cEq(bName, "1");
+            if (flag)
+                cond = " " + z3solver->cEq(bName, "0");
+
+            sw->setPreCond(cond);
+            swRelations.insert(sw);
+            //std::cout << "Enforce fence-fence constraint: " << sw << " " << mhbList.size() << " " << mhaList.size() << "\n";
+            //std::cout << "sw: " << sw << " " << sw->getHBList().size() << " " << sw->getHAList().size() << "\n";
+        }
     }
 }
 
-void ConstModelGen::enforceConsistentConstraint() {
-    enforceMOConsistent();
-    enforceRFConsistent();
-}
-
-void ConstModelGen::addSCConstraints() {
-    std::set<Action*> scActions = solver->getSCActions();
+std::string ConstModelGen::addSCConstraints() {
+    std::set<Action*>& scActions = solver->getSCActions();
     std::cout << "Adding sc constraints: " << scActions.size() << "\n";
     string andStr = "";
+    string constraint = "";
     for (set<Action*>::iterator it1 = scActions.begin();
             it1 != scActions.end(); ++it1) {
         Action* action1 = *it1;
         string scName1 = action1->get_SC_name();
-        declareIntVarGE(scName1, 0);
+        string dec = declareIntVarGE2(scName1, 0);
+        if (dec != "")
+            constraint += dec + "\n";
         for (set<Action*>::iterator it2 = it1;
                 it2 != scActions.end(); ++it2) {
             Action* action2 = *it2;
             if (action1 == action2) continue ;
 
             string scName2 = action2->get_SC_name();
-            declareIntVarGE(scName2, 0);
-            string rbName = action1->get_binary_rel_name(action2);
-            string rbName2 = action2->get_binary_rel_name(action1);
-            declareIntVar(rbName);
-            declareIntVar(rbName2);
-            string tmpStr = z3solver->cOr(z3solver->cNeq(rbName, "1"), z3solver->cLt(scName1, scName2));
-            tmpStr += " " + z3solver->cOr(z3solver->cNeq(rbName2, "1"), z3solver->cLt(scName2, scName1));
+            dec = declareIntVarGE2(scName2, 0);
+            if (dec != "")
+                constraint += dec + "\n";
+
+            bool flag, flag2;
+            string rbName = action1->get_binary_rel_name(action2, flag);
+            string rbName2 = action2->get_binary_rel_name(action1, flag2);
+            dec = declareIntVar2(rbName);
+            if (dec != "")
+                constraint += dec + "\n";
+            dec = declareIntVar2(rbName2);
+            if (dec != "")
+                constraint += dec + "\n";
+
+            string cond = z3solver->cNeq(rbName, "1");
+            if (flag)
+                cond = z3solver->cNeq(rbName, "0");
+            string cond2 = z3solver->cNeq(rbName2, "1");
+            if (flag2)
+                cond2 = z3solver->cNeq(rbName2, "0");
+
+            string tmpStr = z3solver->cOr(cond, z3solver->cLt(scName1, scName2));
+            tmpStr += " " + z3solver->cOr(cond2, z3solver->cLt(scName2, scName1));
             //z3solver->writeLineZ3(z3solver->postNamedAssert(
             //        z3solver->cOr(z3solver->cEq(rbName, "1"), z3solver->cEq(rbName2, "1")), "SCConsistent"));
-            tmpStr += " " + z3solver->cOr(z3solver->cEq(rbName, "1"), z3solver->cEq(rbName2, "1"));
+
+            cond = z3solver->cEq(rbName, "1");
+            if (flag)
+                cond = z3solver->cEq(rbName, "0");
+            cond2 = z3solver->cEq(rbName2, "1");
+            if (flag2)
+                cond2 = z3solver->cEq(rbName2, "0");
+
+            tmpStr += " " + z3solver->cOr(cond, cond2);
             if (andStr == "")
                 andStr = tmpStr;
             else
@@ -1419,5 +3070,38 @@ void ConstModelGen::addSCConstraints() {
     }
 
     if (andStr != "")
-        z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "SCConsistent"));
+        //z3solver->writeLineZ3(z3solver->postNamedAssert(z3solver->cAnd(andStr), "SCConsistent"));
+        return constraint + z3solver->postNamedAssert(z3solver->cAnd(andStr), "SCConsistent");
+    else
+        return "";
+}
+
+RWAction* ConstModelGen::nearestPreviousWrite(Action* action) {
+    for (int i = action->get_seq_number() - 1; i >= 0; --i) {
+        if (RWAction *tmp = dynamic_cast<RWAction*>(action->get_thread()->getActionList()[i])) {
+            if (tmp->is_write()) {
+                return tmp;
+            } else if (RMWAction* tmp2 = dynamic_cast<RMWAction*>(tmp)) {
+                if (CmpXchgAction* tmp3 = dynamic_cast<CmpXchgAction*>(tmp2)) {
+                    if (tmp3->getFlag())
+                        return tmp;
+                } else
+                    return tmp;
+            }
+        }
+    }
+
+    return NULL;
+}
+
+RWAction* ConstModelGen::nearestPostRead(Action* action) {
+    int size = action->get_thread()->getActionList().size();
+    for (int i = action->get_seq_number() + 1; i < size; ++i) {
+        if (RWAction *tmp = dynamic_cast<RWAction*>(action->get_thread()->getActionList()[i])) {
+            if (tmp->is_write()) continue ;
+            else                 return tmp;
+        }
+    }
+
+    return NULL;
 }

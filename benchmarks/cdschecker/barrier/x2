@@ -1,908 +1,8735 @@
-BBBBBBBBBBBBBBB
-Generate a model checker11: 0x7fda91500000 0
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 35645
-Generate a new Executor: 0x7fda91500050 0x7fda915006c0
-Initializing executor: 0x7fda91500050
-nwait: 0, 2, 0
-Set Read Value: 0
-Set write Value: 1
-Waitting for create thread 0x10c1e6000
-nwait: 1, 2, 0
-Set Read Value: 1
-Set write Value: 2
-Set Read Value: 0
-Set write Value: 1
-var = 1
-In generateModel2!: 3
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-1 0
-v: threadB-1 1
-fMap: threadA 1 0
-fMap: threadB 1 1
-prefix: 0
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91500050
-Adding sc constraints: 12
+Generate a model checker11: 0x7fe67bc03160 0
+Load schedule from file: 
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe67bc039d0
+Generate a new Executor: 0x7fe67bc03260 0x7fe67bc039d0
+
+In checker_thread_begin: 0x7fff72793000
+before enter lock: thread create 0x7fff72793000
+in thread_begin_action: 0x7fe67bc03260 0x7fff72793000 main ~0~~
+before addAction lock: 0x7fe67bd00040 0x7fe67bd002e0
+thread: 0x7fe67bd00040 0x7fe67bd002e0
+thread add end: 0x7fe67bd00040 0x7fe67bd002e0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe67bc03260 0x7fe67bc033f0 0x7fff72793000
+
+bbbb0: 0x7fff72793000 0x7fe67bd00040
+BeginFunc: 0x7fe67bc03260
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+checker_addUses: 84 1 83
+
+update load: 84 0
+83 0 
+
+checker_addUses: 85 1 82
+
+update load: 85 0
+82 0 
+
+checker_addUses: 86 1 85
+
+update load: 86 0
+85 0 
+
+checker_addUses: 87 1 86
+
+update load: 87 0
+86 0 
+
+checker_addUses: 88 1 87
+
+update load: 88 0
+87 0 
+
+In atomic checker_preStore: 0x7fe67be00144 0 7!
+In write: 0x7fff72793000 0x7fe67bd00040 0x7fe67be002e0
+Before add action: 0x7fe67bd00040 0x7fe67be002e0
+before addAction lock: 0x7fe67bd00040 0x7fe67be002e0
+thread: 0x7fe67bd00040 0x7fe67be002e0
+thread add end: 0x7fe67bd00040 0x7fe67be002e0 8 1
+enabled threads: 1
+0x7fff72793000
+In add action: main-1
+End add action! main-1
+action: main-1
+loads: 0 1
+
+set load:  main-1 0
+
+update buf1: 0x7fe67bd00040 0x7fe67be00144 0
+update buf1 end: 0x7fe67bd00040
+
+Write value1: main-1 0x7fe67be00144 0!
+checker_addUses: 89 1 86
+
+update load: 89 0
+86 0 
+
+checker_addUses: 90 1 82
+
+update load: 90 0
+82 0 
+
+checker_addUses: 91 1 90
+
+update load: 91 0
+90 0 
+
+checker_addUses: 92 1 91
+
+update load: 92 0
+91 0 
+
+checker_addUses: 93 1 92
+
+update load: 93 0
+92 0 
+
+In atomic checker_preStore: 0x7fe67be00148 0 7!
+In write: 0x7fff72793000 0x7fe67bd00040 0x7fe67be00610
+Before add action: 0x7fe67bd00040 0x7fe67be00610
+before addAction lock: 0x7fe67bd00040 0x7fe67be00610
+thread: 0x7fe67bd00040 0x7fe67be00610
+thread add end: 0x7fe67bd00040 0x7fe67be00610 8 2
+enabled threads: 1
+0x7fff72793000
+In add action: main-2
+End add action! main-2
+action: main-2
+loads: 0 2
+
+set load:  main-2 0
+
+update buf1: 0x7fe67bd00040 0x7fe67be00148 0
+update buf1 end: 0x7fe67bd00040
+
+Write value1: main-2 0x7fe67be00148 0!
+checker_addUses: 94 1 91
+
+update load: 94 0
+91 0 
+
+checker_addUses: 95 1 82
+
+update load: 95 0
+82 0 
+
+checker_addUses: 96 1 78
+
+update load: 96 0
+78 0 
+
+checker_addUses: 98 1 78
+
+update load: 98 0
+78 0 
+
+BeginFunc: 0x7fe67bc03260
+BeginFunc: 0x7fe67bc03260
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 184 1 181
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+
+update load: 192 0
+191 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 99 1 79
+
+update load: 99 0
+79 0 
+
+checker_addUses: 234 1 231
+checker_addUses: 101 1 79
+
+update load: 101 0
+79 0 
+
+checker_addUses: 235 1 230
+BeginFunc: 0x7fe67bc03260
+checker_addUses: 236 1 235
+checker_addUses: 179 1 178
+
+update load: 179 0
+178 0 
+
+checker_addUses: 237 2 236
+checker_addUses: 180 1 179
+
+update load: 180 0
+179 0 
+
+checker_addUses: 239 1 238
+checker_addUses: 182 1 178
+
+update load: 182 0
+178 0 
+
+checker_addUses: 240 1 239
+checker_addUses: 184 1 181
+checker_addUses: 241 1 240
+
+update load: 184 0
+181 0 
+
+checker_addUses: 185 2 182
+
+update load: 185 0
+182 184 0 
+
+
+In checker_thread_begin: 0x700000081000
+checker_addUses: 186 1 181
+
+update load: 186 0
+181 0 
+
+checker_addUses: 187 1 186
+
+update load: 187 0
+186 0 
+
+checker_addUses: 188 2 183
+
+update load: 188 0
+183 187 0 
+
+checker_addUses: 190 2 189
+
+update load: 190 0
+189 181 0 
+
+checker_addUses: 191 1 190
+
+update load: 191 0
+190 0 
+
+checker_addUses: 192 1 191
+
+update load: 192 0
+191 0 
+
+checker_addUses: 233 1 232
+checker_addUses: 234 1 231
+checker_addUses: 102 1 78
+
+update load: 102 0
+78 0 
+
+checker_addUses: 235 1 230
+checker_addUses: 103 1 102
+Waitting for create thread checker_addUses: 236 1 235
+0x700000081000
+update load: 103 0
+102 0 
+
+checker_addUses: 237 2 236
+
+checker_addUses: 104 1 103
+checker_addUses: 239 1 238
+
+update load: 104 0
+103 0 
+
+checker_addUses: 240 1 239
+
+In checker_thread_create: 0x7fff72793000 0x700000081000
+checker_addUses: 241 1 240
+before addAction lock: 0x7fe67bd00040 0x7fe67be00e80
+thread: 0x7fe67bd00040 0x7fe67be00e80
+thread add end: 0x7fe67bd00040 0x7fe67be00e80 1 3
+enabled threads: 
+In checker_thread_begin: 0x700000104000
+1
+0x7fff72793000
+In add action: main-3
+End add action! main-3
+checker_addUses: 105 1 79
+
+update load: 105 0
+79 0 
+
+checker_addUses: 106 1 105
+
+update load: 106 0
+105 0 
+
+checker_addUses: 107 1 106
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+
+update load: 107 0
+106 0 
+
+in thread_begin_action: 0x7fe67bc03260 
+In checker_thread_create: 0x7fff72793000 0x700000104000
+0x700000081000 threadA ~1~~
+update buf2: 0x7fe67bd00550 2
+Waitting for create thread 0x700000104000
+before addAction lock: 0x7fe67bd00550 0x7fe67bd00940
+thread: 0x7fe67bd00550 0x7fe67bd00940
+thread add end: 0x7fe67bd00550 0x7fe67bd00940 2 0
+enabled threads: 1
+0x7fff72793000
+In add action: threadA-0
+End add action! threadA-0
+BBB: 0x7fe67bc03260 0x7fe67bc033f0 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe67bd00550
+0x7fff72793000 0x700000081000
+bbb: 0x7fe67be00e80 0x7fe67bd00940
+checker_addUses: 4 1 3
+
+update load: 4 0
+3 0 
+
+checker_addUses: 5 1 4
+
+update load: 5 0
+4 0 
+
+checker_addUses: 6 1 5
+
+update load: 6 0
+5 0 
+
+In atomic checker_preLoad: 0x7fe67be00148 7 6!
+In read action: 0x700000081000
+before addAction lock: 0x7fe67bd00550 0x7fe67bd00c10
+thread: 0x7fe67bd00550 0x7fe67bd00c10
+thread add end: 0x7fe67bd00550 0x7fe67bd00c10 7 1
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-1
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-1
+loads: 0 1
+
+set load:  threadA-1 0
+
+
+add load: 6 threadA-1 1
+In pre_read action: threadA-1
+get value: 0x7fe67bd008b0 0x7fe67be00148 0
+current values for: 0x7fe67be00148
+0 
+
+Read expect value: threadA-1 0x7fe67be00148 0 0 0
+End: 0x700000081000 threadA-1
+checker_addUses: 7 1 4
+
+update load: 7 0
+4 0 
+
+checker_addUses: 8 1 3
+
+update load: 8 0
+3 0 
+
+checker_addUses: 9 1 8
+
+update load: 9 0
+8 0 
+
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+In rmw_add: 0x7fe67be00144 1 7
+before addAction lock: 0x7fe67bd00550 0x7fe67bf002a0
+thread: 0x7fe67bd00550 0x7fe67bf002a0
+thread add end: 0x7fe67bd00550 0x7fe67bf002a0 11 2
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadA-2
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-2
+
+add load: 10 threadA-2 1
+loads: 1 2
+
+set load:  threadA-2 1
+threadA-2 
+get value: 0x7fe67bd00830 0x7fe67be00144 0
+current values for: 0x7fe67be00144
+0 
+
+expect value rmw_add: threadA 2 0 !1! 10
+
+update buf1: 0x7fe67bd00550 0x7fe67be00144 1
+update buf1 end: 0x7fe67bd00550
+update buf1: 0x7fe67bd00040 0x7fe67be00144 1
+update buf1 end: 0x7fe67bd00040
+checker_addUses: 11 1 8
+
+update load: 11 0
+8 0 
+
+checker_addUses: 12 1 3
+
+update load: 12 0
+3 0 
+
+checker_addUses: 13 1 12
+
+update load: 13 0
+12 0 
+
+checker_addUses: 14 1 13
+
+update load: 14 0
+13 0 
+
+checker_addUses: 15 2 10
+
+update load: 15 1
+10 14 0 
+threadA-2 
+checker_addUses: 16 1 15
+
+update load: 16 1
+15 0 
+threadA-2 
+checker_addUses: 25 1 4
+before addAction lock: 0x7fe67bd00040 0x7fe67be010f0
+thread: 0x7fe67bd00040 0x7fe67be010f0
+thread add end: 0x7fe67bd00040 0x7fe67be010f0 1 4
+enabled threads: 2
+
+update load: 25 1
+4 0 16 29 
+threadA-2 
+0x700000081000
+0x7fff72793000
+In add action: main-4
+checker_addUses: 26 1 25
+End add action! main-4
+
+update load: 26 1
+25 0 16 29 
+threadA-2 
+In atomic checker_preLoad: 0x7fe67be00148 7 checker_addUses: 108 1 102
+26!
+In read action: 0x700000081000
+before addAction lock: 0x7fe67bd00550 0x7fe67bf00890
+thread: 0x7fe67bd00550 0x7fe67bf00890
+
+update load: 108 0
+102 0 
+
+thread add end: 0x7fe67bd00550 0x7fe67bf00890 7 3
+enabled threads: 2
+0x700000081000
+0x7fff72793000checker_addUses: 109 1 108
+Waitting for create thread 
+
+update load: 109 0
+108 0 
+
+0x700000104000In add action: threadA-3
+before addAction lock: 
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+0x7fe67bd00040before enter lock: thread create End add action! threadA-3
+ 0x700000104000loads: 0x7fe67bf00990
+1
+ thread: 30x7fe67bd00040
+ 0x7fe67bf00990
+thread add end: 0x7fe67bd00040 0x7fe67bf00990 4 5
+enabled threads: 
+set load:  threadA-3 1
+threadA-2 
+2
+0x700000081000
+0x7fff72793000
+In add action: main-5
+
+add load: 26 threadA-3 1
+End add action! main-5
+In pre_read action: threadA-3
+checker_addUses: 110 1 105
+get value: 0x7fe67bd008b0 0x7fe67be00148 0
+current values for: 0x7fe67be00148
+0 
+
+update load: 110 0
+105 0 
+
+
+Read expect value: threadA-3 0x7fe67be00148 0 0 0
+checker_addUses: 111 1 110
+End: 0x700000081000 threadA-3
+
+update load: 111 0
+110 0 
+
+checker_addUses: 27 1 4
+
+update load: 27 1
+4 0 16 29 
+threadA-2 
+in thread_begin_action: 0x7fe67bc03260 0x700000104000 threadB ~2~~
+checker_addUses: 28 2 26
+update buf2: 0x7fe67be01400 2
+before addAction lock: 
+update load: 28 3
+26 6 0 16 29 
+threadA-1 threadA-2 threadA-3 
+0x7fe67be01400 0x7fe67be017e0
+thread: 0x7fe67be01400 0x7fe67be017e0
+thread add end: 0x7fe67be01400 0x7fe67be017e0 2checker_addUses: 29 1 28
+ 0
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+In add action: threadB-0
+
+update load: 29 3
+28 0 16 29 
+threadA-1 threadA-2 threadA-3 
+End add action! threadB-0
+BBB: 0x7fe67bc03260 0x7fe67bc033f0 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe67be01400
+0x7fff72793000 0x700000081000
+0x7fff72793000 0x700000104000
+bbb: 0x7fe67be010f0 0x7fe67be017e0
+In thread_yield_action!
+Begin thread yield!
+checker_addUses: 41 1 40
+before addAction lock: 0x7fe67bd00040 0x7fe67be019e0
+thread: 
+update load: 41 0
+40 0 
+
+0x7fe67bd00040 0x7fe67be019e0
+thread add end: 0x7fe67bd00040 0x7fe67be019e0 4 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+checker_addUses: 42 1 41
+In add action: main-6
+
+update load: 42 0
+41 0 
+
+End add action! main-6
+checker_addUses: 43 1 42
+checker_addUses: 112 1 79
+
+update load: 43 0
+42 0 
+
+In atomic checker_preLoad: 0x7fe67be00148 7 43!
+
+update load: 112 0
+79 0 
+
+In read action: 0x700000104000
+before addAction lock: 0x7fe67be01400 0x7fe67bf00e90
+thread: 0x7fe67be01400 0x7fe67bf00e90
+thread add end: 0x7fe67be01400 0x7fe67bf00e90 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-1
+In thread yield!
+before addAction lock: 0x7fe67bd00550 0x7fe67be01b00
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-1
+loads: 0 1
+thread: 0x7fe67bd00550 0x7fe67be01b00
+thread add end: 0x7fe67bd00550
+set load:  threadB-1 0
+
+ 0x7fe67be01b00 3 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+
+add load: 43 threadB-1 1
+In add action: threadA-4
+In pre_read action: threadB-1
+End add action! threadA-4
+get value: 0x7fe67be01760 0x7fe67be00148 0
+current values for: 0x7fe67be00148
+0 
+End thread yield!
+
+Read expect value: threadB-1 0x7fe67be00148 0 0 0
+End: 0x700000104000 threadB-1
+checker_addUses: 44 1 41
+checker_addUses: 25 1 4
+
+update load: 44 0
+41 0 
+
+checker_addUses: 45 1 40
+
+update load: 45 0
+40 0 
+
+
+update load: 25 3
+4 0 16 29 
+threadA-1 threadA-2 threadA-3 
+checker_addUses: 46 1 45
+checker_addUses: 26 1 25
+
+update load: 46 0
+45 0 
+
+checker_addUses: 47 1 46
+
+update load: 26 3
+25 0 16 29 
+threadA-1 threadA-2 threadA-3 
+
+update load: 47 0
+46 0 
+
+In atomic checker_preLoad: 0x7fe67be00148 7 In rmw_add: 26!
+0x7fe67be00144 1 7
+In read action: 0x700000081000
+before addAction lock: 0x7fe67be01400 0x7fe67bf01120
+thread: 0x7fe67be01400 0x7fe67bf01120
+thread add end: 0x7fe67be01400 0x7fe67bf01120 11 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-2
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-2
+
+add load: 47 threadB-2 1
+loads: 1 2
+
+set load:  threadB-2 1
+threadB-2 
+get value: 0x7fe67be016e0 0x7fe67be00144 1
+current values for: 0x7fe67be00144
+0 1 
+
+expect value rmw_add: threadB 2 1 !1! 47
+
+update buf1: 0x7fe67bd00550 0x7fe67be00144 2
+update buf1 end: 0x7fe67bd00550
+update buf1: 0x7fe67be01400 0x7fe67be00144 2
+update buf1 end: 0x7fe67be01400
+update buf1: 0x7fe67bd00040 0x7fe67be00144 2
+update buf1 end: 0x7fe67bd00040
+before addAction lock: 0x7fe67bd00550 0x7fe67be01f00
+thread: 0x7fe67bd00550 checker_addUses: 48 1 45
+0x7fe67be01f00
+thread add end: 0x7fe67bd00550 0x7fe67be01f00 7 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+
+update load: 48 0
+45 0 
+
+In add action: threadA-5
+checker_addUses: 49 1 40
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff72793000 
+
+update load: 49 0
+40 0 
+
+checker_addUses: 50 1 49
+End add action! threadA-5
+
+update load: 50 0
+49 0 
+
+loads: 3 5
+checker_addUses: 51 1 50
+
+set load:  threadA-5 3
+threadA-1 threadA-2 threadA-3 
+
+update load: 51 0
+50 0 
+
+checker_addUses: 52 2 47
+
+add load: 26 threadA-5 1
+In pre_read action: threadA-5
+
+update load: 52 1
+47 51 0 
+threadB-2 
+checker_addUses: 53 1 52
+get value: 0x7fe67bd008b0 0x7fe67be00148 0
+current values for: 0x7fe67be00148
+0 
+
+update load: 53 1
+52 0 
+threadB-2 
+
+Read expect value: threadA-5 0x7fe67be00148 0 0 0
+End: 0x700000081000 threadA-5
+checker_addUses: 55 1 45
+checker_addUses: 27 1 4
+
+update load: 55 1
+45 0 53 
+threadB-2 
+checker_addUses: 56 1 55
+
+update load: 27 3
+4 0 16 29 
+threadA-1 threadA-2 threadA-3 
+checker_addUses: 28 2 26
+
+update load: 56 1
+55 0 53 
+threadB-2 
+In atomic checker_preStore: 0x7fe67be00144 0 7!
+In write: 0x700000104000 0x7fe67be01400 0x7fe67bf01650
+Before add action: 0x7fe67be01400 0x7fe67bf01650
+before addAction lock: 0x7fe67be01400 0x7fe67bf01650
+thread: 0x7fe67be01400 0x7fe67bf01650
+thread add end: 0x7fe67be01400 0x7fe67bf01650 8 3
+enabled threads: 
+update load: 28 4
+26 6 0 16 29 
+threadA-1 threadA-5 threadA-2 threadA-3 
+3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadB-3
+checker_addUses: 29 1 28
+End add action! threadB-3
+action: threadB-3
+loads: 1 3
+
+update load: 29 4
+28 0 16 29 
+threadA-1 threadA-5 threadA-2 threadA-3 
+
+set load:  threadB-3 1
+threadB-2 
+update buf1: 0x7fe67bd00550 0x7fe67be00144 0
+update buf1 end: 0x7fe67bd00550
+update buf1: 0x7fe67be01400 0x7fe67be00144 0
+In thread_yield_action!
+update buf1 end: 0x7fe67be01400
+Begin thread yield!
+In thread yield!
+update buf1: 0x7fe67bd00040 before addAction lock: 0x7fe67be00144 0x7fe67bd005500 
+0x7fe67be02180
+thread: update buf1 end: 0x7fe67bd005500x7fe67bd00040 
+0x7fe67be02180
+thread add end: 0x7fe67bd00550 0x7fe67be02180 3 6
+enabled threads: 3
+
+Write value1: threadB-3 0x7fe67be00144 0!
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-6
+checker_addUses: 57 1 45
+
+update load: 57 1
+45 0 53 
+threadB-2 
+checker_addUses: 58 1 41
+
+update load: 58 1
+41 0 53 
+threadB-2 
+checker_addUses: 59 1 58
+
+update load: 59 1
+58 0 53 
+threadB-2 
+In rmw_add: 0x7fe67be00148 1 7
+before addAction lock: 0x7fe67be01400 0x7fe67be022d0
+add prio: 0x700000081000 0x700000104000
+add prio: 0x700000081000 0x7fff72793000
+End add action! threadA-6
+thread: 0x7fe67be01400 0x7fe67be022d0
+End thread yield!
+thread add end: 0x7fe67be01400 0x7fe67be022d0 11 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+erase prio: 0x700000081000 0x700000104000
+In add action: threadB-4
+0x700000081000
+0x7fff72793000 
+Tset: 3 3 0x700000104000
+0x700000081000 0x700000104000 0x7fff72793000 
+End add action! threadB-4
+
+add load: 59 threadB-4 1
+loads: 2 4
+
+set load:  threadB-4 2
+threadB-4 threadB-2 
+checker_addUses: 25 1 4
+get value: 0x7fe67be01760 0x7fe67be00148 0
+current values for: 0x7fe67be00148
+0 
+
+update load: 25 4
+4 0 16 29 
+threadA-1 threadA-5 threadA-2 threadA-3 
+
+expect value rmw_add: threadB 4 0 !1! 59
+
+update buf1: 0x7fe67bd00550 0x7fe67be00148 1
+update buf1 end: 0x7fe67bd00550
+checker_addUses: 26 1 25
+update buf1: 0x7fe67be01400 0x7fe67be00148 1
+update buf1 end: 0x7fe67be01400
+update buf1: 0x7fe67bd00040 0x7fe67be00148 1
+update buf1 end: 0x7fe67bd00040
+
+update load: 26 4
+25 0 16 29 
+threadA-1 threadA-5 threadA-2 threadA-3 
+In atomic checker_preLoad: checker_addUses: 60 1 41
+0x7fe67be00148 7 26!
+In read action: 0x700000081000
+update load: 60 1
+41 0 53 
+threadB-2 
+
+checker_addUses: 75 1 74
+before addAction lock: 
+update load: 75 1
+74 0 53 
+threadB-2 
+0x7fe67bd00550var = 1
+ In checker_thread_end
+0x7fe67be02440Thread_end_action: 
+0x700000104000thread: 
+0x7fe67bd00550before addAction lock:  0x7fe67be014000x7fe67be02440 
+0x7fe67bf01820thread add end: 
+0x7fe67bd00550 0x7fe67be02440 7 7
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+In add action: threadA-7
+0x700000081000
+0x7fff72793000 
+Tset: 2 3 0x700000081000
+0x700000104000 0x7fff72793000 
+pre sleep: 0x700000081000
+Release lockForRW: threadA-7
+thread: 0x7fe67be01400 0x7fe67bf01820
+thread add end: 0x7fe67be01400 0x7fe67bf01820 5 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff72793000
+erase enabledThreads: threadB-5
+In add action: threadB-5
+End add action! threadB-5
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe67bc03260
+Waiting enable: 0x700000081000 threadA-7
+Acquire lockForRW B: threadA-7
+Acquire lockForRW E: threadA-7
+Acquire lockForFailr B: threadA-7
+Acquire lockForFailr E: threadA-7
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff72793000 
+End add action! threadA-7
+loads: 4 7
+checker_addUses: 113 1 78
+
+update load: 113 0
+78 0 
+
+
+set load:  threadA-7 4
+threadA-1 threadA-5 threadA-2 threadA-3 
+
+add load: 26 threadA-7 1
+In pre_read action: threadA-7
+get value: 0x7fe67bd008b0 0x7fe67be00148 1
+current values for: 0x7fe67be00148
+0 1 
+
+Read expect value: threadA-7 0x7fe67be00148 1 1 1
+End: 0x700000081000 threadA-7
+checker_addUses: 27 1 4
+
+update load: 27 4
+4 0 16 29 
+threadA-1 threadA-5 threadA-2 threadA-3 
+checker_addUses: 28 2 26
+
+update load: 28 5
+26 6 0 16 29 
+threadA-1 threadA-5 threadA-7 threadA-2 threadA-3 
+checker_addUses: 29 1 28
+
+update load: 29 5
+28 0 16 29 
+threadA-1 threadA-5 threadA-7 threadA-2 threadA-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe67bd00550 0x7fe67bf00dd0
+thread: 0x7fe67bd00550 0x7fe67bf00dd0
+thread add end: 0x7fe67bd00550 0x7fe67bf00dd0 5 8
+enabled threads: 2
+0x700000081000
+0x7fff72793000
+erase enabledThreads: threadA-8
+In add action: threadA-8
+End add action! threadA-8
+checker_addUses: 242 1 231
+checker_addUses: 243 1 231
+checker_addUses: 244 1 242
+checker_addUses: 245 1 244
+BeginFunc: 0x7fe67bc03260
+In checker_thread_end
+Thread_end_action: 0x7fff72793000
+before addAction lock: 0x7fe67bd00040 0x7fe67bd00690
+thread: 0x7fe67bd00040 0x7fe67bd00690
+thread add end: 0x7fe67bd00040 0x7fe67bd00690 5 7
+enabled threads: 1
+0x7fff72793000
+erase enabledThreads: main-7
+In add action: main-7
+End add action! main-7
+### Execute Time: 0.006309 0.006293 0.006293
+Current Trace: 3
+threadA*threadA|6|1 threadA-1 r 0 6
+threadA*threadA|10|1 threadA-2 rmw 0 1 10
+threadA*threadA|26|1 threadA-3 r 0 26
+threadA*threadA|26|2 threadA-5 r 0 26
+threadA*threadA|26|3 threadA-7 r 1 26
+iiiii: 0x7fe67bd00550 4
+xx: 2 1
+yy: threadA-2
+xx: 3 1
+yy: threadA-2
+xx: 5 3
+yy: threadA-1
+yy: threadA-2
+yy: threadA-3
+xx: 7 4
+yy: threadA-1
+yy: threadA-5
+yy: threadA-2
+yy: threadA-3
+threadB*threadB|43|1 threadB-1 r 0 43
+threadB*threadB|47|1 threadB-2 rmw 1 2 47
+threadB*threadB|56|1 threadB-3 w 0 56
+threadB*threadB|59|1 threadB-4 rmw 0 1 59
+iiiii: 0x7fe67be01400 3
+xx: 2 1
+yy: threadB-2
+xx: 3 1
+yy: threadB-2
+xx: 4 2
+yy: threadB-4
+yy: threadB-2
+main*main|88|1 main-1 w 0 88
+main*main|93|1 main-2 w 0 93
+iiiii: 0x7fe67bd00040 0
+Generating: threadA-2 threadB-2 0 2
+checking: read:val threadA-2 2
+mhbList: 1
+enforce: 0x7fe67bf002a0 threadA-2 2 
+enforcePairs: 1
+checking fairness: 1
+threadA 2 2
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe67bc03260
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe67bc03260
+### Basic Prepare Time: 0.0015 0.001511
+### MO Prepare Time: 0.000347 0.000357
+Adding sc constraints: 11
+### SC Prepare Time: 0.002439 0.002451
 In addLockConstraints: 0
+prefix size: 0
+### Part1 Time: 0.002349 0.00236
+reads & writes: 2 4
+reads & writes: 6 2
+### Part2 Time: 0.001069 0.001076
+### Consistent Prepare Time: 0.003466 0.003468
+### Prepare Time: 0.008135 0.00814
+AddRWRelations: 1
+Add RW: threadA-2 2
+444
+555
+In addRWRelation: threadA-2 2
+
+xxxx read: threadA-2 0 2
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 2
+
+write: threadB-2 2
+For read: threadA-2
+current orStr: 
+For write: threadB-2
+Guarantee begin: threadB-2 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 1
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal1: threadA-2 2
+values: threadA-2 3 1
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 1
+xxx: threadB-2 1 (or )
+Identify inconsistency1!
+333
+Gurantee end: threadB-2 (= 1 0)
+values: threadB-3 0 2
+values: main-1 0 2
+xxx: threadA-2 2 (or  (and (= 1 0)))
+ttt: (or  (and (= 1 0)))
+Adding SW Constraints: 0
+End adding SW Constraints!
+### RWConstraint construct Time: 0.00169 0.001714
+close z3File!!!!!!!!!!!!!!: 1
 begin checksat!
 [Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 113316: model is not available")
+[Solver] (error "line 545 column 10: model is not available")
 end checksat!
-Generating: 2 2
-v: threadA-1 1
-v: threadB-1 0
-fMap: threadA 1 1
-fMap: threadB 1 0
-prefix: 0
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-Generating: 3 2
-v: threadA-1 1
-v: threadB-1 1
-fMap: threadA 1 1
-fMap: threadB 1 1
-prefix: 0
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-2 0
-v: threadB-2 0
-fMap: threadA 2 0
-fMap: threadB 2 0
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
+### Solver Time2: 0.000633 0.000662
+### Generate Solution time: 2e-05 2.6e-05
+### Last Part time: 0.00086 0.000865
+### Generate Schedule Time: 0.012254 0.012261
+Generating: threadB-2 threadB-3 1 0
+checking: read:val threadB-2 0
+mhbList: 1
+enforce: 0x7fe67bf01120 threadB-2 0 
+enforcePairs: 1
+checking fairness: 1
+threadB 2 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fe67bc03260
+### Prepare Time: 0.008739 0.000648
+AddRWRelations: 1
+Add RW: threadB-2 0
+444
+555
+In addRWRelation: threadB-2 0
+
+xxxx read: threadB-2 1 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 0
+skip: threadB-2
+skip: threadB-3
+values: main-1 0 0
+
+write: main-1 0
+For read: threadB-2
+current orStr: 
+For write: main-1
+consider write: threadA-2
+skip write1: threadB-2
+skip write3: threadB-3
+skip write1: main-1
+xxx: threadB-2 0 (or  (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1)))))
+ttt: (or  (and  (= RF_threadB-2_main-1 1) (= B_main-1_threadB-2 1) (= false (and (= B_main-1_threadA-2 1) (= B_threadA-2_threadB-2 1)))))
+Adding SW Constraints: 1
+End adding SW Constraints!
+### RWConstraint construct Time: 0.004609 0.002931
+close z3File!!!!!!!!!!!!!!: 1
 begin checksat!
 [Solver] Model Satisfiability: sat
 [Solver] Solution found in 0s:
 
 end checksat!
-Generate new schedule: 0x7fda91508590
-RF: threadA 1 0
-RF: threadA 2 0
-RF: threadB 1 0
+### Solver Time2: 0.003505 0.002878
+Create a Schedule: 0x7fe67be04190
+Generate new schedule: 0x7fe67be04190
+### P1 time: 3e-05 3.6e-05
+aaa: 1 main*main|0|1 threadA*threadA|6|1
+aaa: 1 main*main|0|1 threadA*threadA|10|1
+aaa: 1 main*main|0|1 threadA*threadA|26|1
+aaa: 1 main*main|0|1 threadA*threadA|0|2
+aaa: 1 main*main|0|1 threadA*threadA|26|2
+aaa: 1 main*main|0|1 threadA*threadA|0|3
+aaa: 1 main*main|0|1 threadA*threadA|26|3
+aaa: 1 main*main|0|1 threadA*threadA|0|4
+aaa: 1 main*main|0|1 threadB*threadB|43|1
+aaa: 1 main*main|0|1 threadB*threadB|47|1
+aaa: 1 main*main|0|1 threadB*threadB|56|1
+aaa: 1 main*main|0|1 threadB*threadB|59|1
+aaa: 1 main*main|0|1 threadB*threadB|0|2
+aaa: 1 main*main|88|1 threadA*threadA|6|1
+aaa: 1 main*main|88|1 threadA*threadA|10|1
+aaa: 1 main*main|88|1 threadA*threadA|26|1
+aaa: 1 main*main|88|1 threadA*threadA|0|2
+aaa: 1 main*main|88|1 threadA*threadA|26|2
+aaa: 1 main*main|88|1 threadA*threadA|0|3
+aaa: 1 main*main|88|1 threadA*threadA|26|3
+aaa: 1 main*main|88|1 threadA*threadA|0|4
+aaa: 1 main*main|88|1 threadB*threadB|43|1
+aaa: 1 main*main|88|1 threadB*threadB|47|1
+aaa: 1 main*main|88|1 threadB*threadB|56|1
+aaa: 1 main*main|88|1 threadB*threadB|59|1
+aaa: 1 main*main|88|1 threadB*threadB|0|2
+aaa: 1 main*main|93|1 threadA*threadA|6|1
+aaa: 1 main*main|93|1 threadA*threadA|10|1
+aaa: 1 main*main|93|1 threadA*threadA|26|1
+aaa: 1 main*main|93|1 threadA*threadA|0|2
+aaa: 1 main*main|93|1 threadA*threadA|26|2
+aaa: 1 main*main|93|1 threadA*threadA|0|3
+aaa: 1 main*main|93|1 threadA*threadA|26|3
+aaa: 1 main*main|93|1 threadA*threadA|0|4
+aaa: 1 main*main|93|1 threadB*threadB|43|1
+aaa: 1 main*main|93|1 threadB*threadB|47|1
+aaa: 1 main*main|93|1 threadB*threadB|56|1
+aaa: 1 main*main|93|1 threadB*threadB|59|1
+aaa: 1 main*main|93|1 threadB*threadB|0|2
+aaa: 1 main*main|0|2 threadA*threadA|6|1
+aaa: 1 main*main|0|2 threadA*threadA|10|1
+aaa: 1 main*main|0|2 threadA*threadA|26|1
+aaa: 1 main*main|0|2 threadA*threadA|0|2
+aaa: 1 main*main|0|2 threadA*threadA|26|2
+aaa: 1 main*main|0|2 threadA*threadA|0|3
+aaa: 1 main*main|0|2 threadA*threadA|26|3
+aaa: 1 main*main|0|2 threadA*threadA|0|4
+aaa: 1 main*main|0|2 threadB*threadB|43|1
+aaa: 1 main*main|0|2 threadB*threadB|47|1
+aaa: 1 main*main|0|2 threadB*threadB|56|1
+aaa: 1 main*main|0|2 threadB*threadB|59|1
+aaa: 1 main*main|0|2 threadB*threadB|0|2
+aaa: 1 main*main|0|3 threadB*threadB|43|1
+aaa: 1 main*main|0|3 threadB*threadB|47|1
+aaa: 1 main*main|0|3 threadB*threadB|56|1
+aaa: 1 main*main|0|3 threadB*threadB|59|1
+aaa: 1 main*main|0|3 threadB*threadB|0|2
+aaa: 0 main*main|0|5 threadA*threadA|0|1
+aaa: 0 main*main|0|5 threadA*threadA|6|1
+aaa: 0 main*main|0|5 threadA*threadA|10|1
+aaa: 0 main*main|0|5 threadA*threadA|26|1
+aaa: 0 main*main|0|5 threadA*threadA|0|2
+aaa: 0 main*main|0|5 threadA*threadA|26|2
+aaa: 0 main*main|0|5 threadA*threadA|0|3
+aaa: 0 main*main|0|5 threadA*threadA|26|3
+aaa: 0 main*main|0|5 threadA*threadA|0|4
+aaa: 0 main*main|0|6 threadA*threadA|0|1
+aaa: 0 main*main|0|6 threadA*threadA|6|1
+aaa: 0 main*main|0|6 threadA*threadA|10|1
+aaa: 0 main*main|0|6 threadA*threadA|26|1
+aaa: 0 main*main|0|6 threadA*threadA|0|2
+aaa: 0 main*main|0|6 threadA*threadA|26|2
+aaa: 0 main*main|0|6 threadA*threadA|0|3
+aaa: 0 main*main|0|6 threadA*threadA|26|3
+aaa: 0 main*main|0|6 threadA*threadA|0|4
+aaa: 0 main*main|0|6 threadB*threadB|0|1
+aaa: 0 main*main|0|6 threadB*threadB|43|1
+aaa: 0 main*main|0|6 threadB*threadB|47|1
+aaa: 0 main*main|0|6 threadB*threadB|56|1
+aaa: 0 main*main|0|6 threadB*threadB|59|1
+aaa: 0 main*main|0|6 threadB*threadB|0|2
+aaa: 0 threadA*threadA|6|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|6|1 threadB*threadB|47|1
+aaa: 0 threadA*threadA|6|1 threadB*threadB|56|1
+aaa: 0 threadA*threadA|6|1 threadB*threadB|59|1
+aaa: 0 threadA*threadA|10|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|10|1 threadB*threadB|47|1
+aaa: 0 threadA*threadA|10|1 threadB*threadB|56|1
+aaa: 0 threadA*threadA|10|1 threadB*threadB|59|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|43|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|47|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|56|1
+aaa: 0 threadA*threadA|26|1 threadB*threadB|59|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|43|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|47|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|56|1
+aaa: 0 threadA*threadA|26|2 threadB*threadB|59|1
+aaa: 0 threadA*threadA|26|3 threadB*threadB|43|1
+aaa: 0 threadA*threadA|26|3 threadB*threadB|47|1
+aaa: 0 threadA*threadA|26|3 threadB*threadB|56|1
+aaa: 0 threadA*threadA|26|3 threadB*threadB|59|1
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 1 0
+write: threadB-3
+reachbility list2: 1
+RF1: threadA 2 65535
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 3 0
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 5 0
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 7 1
+write: main-2
+reachbility list2: 0
+RF1: threadB 1 0
+write: main-1
+reachbility list2: 0
 RF: threadB 2 0
-Generating: 1 2
-v: threadA-2 0
-v: threadB-2 1
-fMap: threadA 2 0
-fMap: threadB 2 1
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile4_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-Generating: 2 2
-v: threadA-2 0
-v: threadB-2 2
-fMap: threadA 2 0
-fMap: threadB 2 2
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile5_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile5_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-begin checksat!
-[Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 342545: model is not available")
-end checksat!
-Generating: 4 2
-v: threadA-2 1
-v: threadB-2 1
-fMap: threadA 2 1
-fMap: threadB 2 1
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile6_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile6_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-Generating: 5 2
-v: threadA-2 1
-v: threadB-2 2
-fMap: threadA 2 1
-fMap: threadB 2 2
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile7_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile7_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-begin checksat!
-[Solver] Model Satisfiability: unsat
-[Solver] (error "line 1 column 466448: model is not available")
-end checksat!
-Generating: 6 2
-v: threadA-2 2
-v: threadB-2 0
-fMap: threadA 2 2
-fMap: threadB 2 0
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile8_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile8_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-Generating: 7 2
-v: threadA-2 2
-v: threadB-2 1
-fMap: threadA 2 2
-fMap: threadB 2 1
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile9_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile9_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-Generating: 8 2
-v: threadA-2 2
-v: threadB-2 2
-fMap: threadA 2 2
-fMap: threadB 2 2
-fMap: threadB 1 0
-fMap: threadA 1 0
-prefix: 2
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile10_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile10_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Identify inconsistency!
-Identify inconsistency!
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-3 0
-v: threadB-3 0
-fMap: threadA 3 0
-fMap: threadB 3 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadA 2 1
-prefix: 4
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile11_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile11_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Inconsistency: threadA-3 0 1
-Identify inconsistency!
-Generating: 1 2
-v: threadA-3 0
-v: threadB-3 2
-fMap: threadA 3 0
-fMap: threadB 3 2
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadA 2 1
-prefix: 4
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile12_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile12_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Inconsistency: threadA-3 0 1
-Identify inconsistency!
-Generating: 3 2
-v: threadA-3 1
-v: threadB-3 2
-fMap: threadA 3 1
-fMap: threadB 3 2
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadA 2 1
-prefix: 4
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile13_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile13_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-Inconsistency: threadB-3 2 0
-Identify inconsistency!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-5 0
-v: threadB-4 1
-fMap: threadA 5 0
-fMap: threadB 4 1
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadB 3 0
-fMap: threadA 1 0
-fMap: threadA 2 1
-fMap: threadA 3 1
-prefix: 6
-curSch: 0x7fda915006c0 0
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile14_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile14_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fda9170be00
-RF: threadA 1 0
-RF: threadA 2 1
-RF: threadA 3 1
-RF: threadA 5 0
-RF: threadB 1 0
-RF: threadB 2 0
-RF: threadB 3 0
-RF: threadB 4 1
-size: 1
-Generating: 0 1
-v: threadB-5 0
-fMap: threadB 5 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadB 3 0
-fMap: threadA 1 0
-fMap: threadA 2 1
-fMap: threadA 3 1
-fMap: threadA 5 0
-fMap: threadB 4 0
-prefix: 8
-curSch: 0x7fda915006c0 0
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile15_0x7fda91500050
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile15_0x7fda91500050
-Adding sc constraints: 12
-In addLockConstraints: 0
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fda91608b10
-RF: threadA 1 0
-RF: threadA 2 1
-RF: threadA 3 1
-RF: threadA 5 0
-RF: threadB 1 0
-RF: threadB 2 0
-RF: threadB 3 0
+write: main-2
+reachbility list2: 0
 RF: threadB 4 0
-RF: threadB 5 0
-In generateModel2 End!
-### Solver Time: 466.487
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 35646
-Generate a new Executor: 0x7fda91604020 0x7fda91601420
-Initializing executor: 0x7fda91604020
-Waitting for create thread 0x10c269000
-Waitting for create thread 0x10c1e6000
-nwait: 0, 2, 0
-nwait: 0, 2, 0
-Set Read Value: 0
-Set write Value: 1
-Set Read Value: 1
-Set write Value: 2
-Set Read Value: 0
-Set write Value: 1
-var = 1
-In generateModel2!: 3
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-3 0
-v: threadB-3 0
-fMap: threadA 3 0
-fMap: threadB 3 0
-fMap: threadA 1 0
-fMap: threadA 2 0
-fMap: threadB 2 0
-fMap: threadB 1 0
-prefix: 4
-curSch: 0x7fda91508590 4
-curSch: 0x7fda91508590 4
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91604020
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fda91604020
-Adding sc constraints: 11
-In addLockConstraints: 0
-Inconsistency: threadA-3 0 1
-Identify inconsistency!
-Generating: 1 2
-v: threadA-3 0
-v: threadB-3 2
-fMap: threadA 3 0
-fMap: threadB 3 2
-fMap: threadA 1 0
-fMap: threadA 2 0
-fMap: threadB 2 0
-fMap: threadB 1 0
-prefix: 4
-curSch: 0x7fda91508590 4
-curSch: 0x7fda91508590 4
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91604020
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fda91604020
-Adding sc constraints: 11
-In addLockConstraints: 0
-Inconsistency: threadA-3 0 1
-Identify inconsistency!
-Generating: 3 2
-v: threadA-3 1
-v: threadB-3 2
-fMap: threadA 3 1
-fMap: threadB 3 2
-fMap: threadA 1 0
-fMap: threadA 2 0
-fMap: threadB 2 0
-fMap: threadB 1 0
-prefix: 4
-curSch: 0x7fda91508590 4
-curSch: 0x7fda91508590 4
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91604020
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fda91604020
-Adding sc constraints: 11
-In addLockConstraints: 0
-Inconsistency: threadB-3 2 0
-Identify inconsistency!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-1 0
-v: threadB-1 1
-fMap: threadA 1 0
-fMap: threadB 1 1
-prefix: 0
-curSch: 0x7fda91508590 4
-Indentify inconsistency!
-Generating: 2 2
-v: threadA-1 1
-v: threadB-1 0
-fMap: threadA 1 1
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 3 2
-v: threadA-1 1
-v: threadB-1 1
-fMap: threadA 1 1
-fMap: threadB 1 1
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-2 0
-v: threadB-2 1
-fMap: threadA 2 0
-fMap: threadB 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 2 2
-v: threadA-2 0
-v: threadB-2 2
-fMap: threadA 2 0
-fMap: threadB 2 2
-fMap: threadA 1 0
-fMap: threadB 1 0
-prefix: 2
-curSch: 0x7fda91508590 4
-Indentify inconsistency!
-Generating: 3 2
-v: threadA-2 1
-v: threadB-2 0
-fMap: threadA 2 1
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadB 1 0
-prefix: 2
-curSch: 0x7fda91508590 4
-Indentify inconsistency!
-Generating: 4 2
-v: threadA-2 1
-v: threadB-2 1
-fMap: threadA 2 1
-fMap: threadB 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 5 2
-v: threadA-2 1
-v: threadB-2 2
-fMap: threadA 2 1
-fMap: threadB 2 2
-fMap: threadA 1 0
-fMap: threadB 1 0
-prefix: 2
-curSch: 0x7fda91508590 4
-Indentify inconsistency!
-Generating: 6 2
-v: threadA-2 2
-v: threadB-2 0
-fMap: threadA 2 2
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 7 2
-v: threadA-2 2
-v: threadB-2 1
-fMap: threadA 2 2
-fMap: threadB 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 8 2
-v: threadA-2 2
-v: threadB-2 2
-fMap: threadA 2 2
-fMap: threadB 2 2
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-5 0
-v: threadB-4 0
-fMap: threadA 5 0
-fMap: threadB 4 0
-fMap: threadA 1 0
-fMap: threadA 2 0
-fMap: threadA 3 1
-fMap: threadB 2 0
-fMap: threadB 3 0
-fMap: threadB 1 0
-prefix: 6
-curSch: 0x7fda91508590 4
-curSch: 0x7fda91508590 4
-Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91604020
-Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fda91604020
-Adding sc constraints: 11
-In addLockConstraints: 0
-begin checksat!
-[Solver] Model Satisfiability: sat
-[Solver] Solution found in 0s:
-
-end checksat!
-Generate new schedule: 0x7fda91506250
-RF: threadA 1 0
-RF: threadA 2 0
-RF: threadA 3 1
-RF: threadA 5 0
-RF: threadB 1 0
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 1 0
+write: threadB-3
+reachbility list2: 1
+RF1: threadA 2 65535
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 3 0
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 5 0
+write: threadB-4
+reachbility list1: 2
+RF1: threadA 7 1
+write: main-2
+reachbility list2: 0
+RF1: threadB 1 0
+write: main-1
+reachbility list2: 0
 RF: threadB 2 0
-RF: threadB 3 0
+write: main-2
+reachbility list2: 0
 RF: threadB 4 0
-In generateModel2 End!
-### Solver Time: 573.279
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 35647
-Generate a new Executor: 0x7fda9150abe0 0x7fda91711d90
-Initializing executor: 0x7fda9150abe0
-Waitting for create thread 0x10c1e6000
-Waitting for create thread 0x10c269000
-nwait: 0, 2, 0
-Set Read Value: 0
-Set write Value: 1
-nwait: 1, 2, 0
-Set Read Value: 1
-Set write Value: 2
-Set Read Value: 0
-Set write Value: 1
-var = 1
-In generateModel2!: 3
-In generateModel2 End!
-### Solver Time: 573.393
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 35648
-Generate a new Executor: 0x7fda91712dc0 0x7fda91713310
-Initializing executor: 0x7fda91712dc0
-Waitting for create thread 0x10c1e6000
-Waitting for create thread 0x10c269000
-nwait: 0, 2, 0
-Set Read Value: 0
-Set write Value: 1
-nwait: 1, 2, 0
-Set Read Value: 1
-Set write Value: 2
-Set Read Value: 0
-Set write Value: 1
-var = 1
-In generateModel2!: 3
-size: 1
-Generating: 0 1
-v: threadB-6 0
-fMap: threadB 6 0
-fMap: threadA 3 1
-fMap: threadA 5 0
-fMap: threadA 2 1
-fMap: threadB 5 0
-fMap: threadA 1 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadB 3 0
-fMap: threadB 4 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-1 0
-v: threadB-1 1
-fMap: threadA 1 0
-fMap: threadB 1 1
-Skip an inconsistent check!
-Generating: 2 2
-v: threadA-1 1
-v: threadB-1 0
-fMap: threadA 1 1
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 3 2
-v: threadA-1 1
-v: threadB-1 1
-fMap: threadA 1 1
-fMap: threadB 1 1
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-2 0
-v: threadB-2 0
-fMap: threadA 2 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadB 1 0
-prefix: 2
-curSch: 0x7fda91608b10 9
-Indentify inconsistency!
-Generating: 1 2
-v: threadA-2 0
-v: threadB-2 1
-fMap: threadA 2 0
-fMap: threadB 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 2 2
-v: threadA-2 0
-v: threadB-2 2
-fMap: threadA 2 0
-fMap: threadB 2 2
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 4 2
-v: threadA-2 1
-v: threadB-2 1
-fMap: threadA 2 1
-fMap: threadB 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 5 2
-v: threadA-2 1
-v: threadB-2 2
-fMap: threadA 2 1
-fMap: threadB 2 2
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 6 2
-v: threadA-2 2
-v: threadB-2 0
-fMap: threadA 2 2
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 7 2
-v: threadA-2 2
-v: threadB-2 1
-fMap: threadA 2 2
-fMap: threadB 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 8 2
-v: threadA-2 2
-v: threadB-2 2
-fMap: threadA 2 2
-fMap: threadB 2 2
-fMap: threadA 1 0
-fMap: threadB 1 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-3 0
-v: threadB-3 0
-fMap: threadA 3 0
-fMap: threadB 3 0
-fMap: threadA 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-Skip an inconsistent check!
-Generating: 1 2
-v: threadA-3 0
-v: threadB-3 2
-fMap: threadA 3 0
-fMap: threadB 3 2
-fMap: threadA 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-Skip an inconsistent check!
-Generating: 3 2
-v: threadA-3 1
-v: threadB-3 2
-fMap: threadA 3 1
-fMap: threadB 3 2
-fMap: threadA 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-5 0
-v: threadB-4 1
-fMap: threadA 5 0
-fMap: threadB 4 1
-fMap: threadA 3 1
-fMap: threadA 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadB 3 0
-Skip an inconsistent check!
-size: 1
-Generating: 1 1
-v: threadB-5 1
-fMap: threadB 5 1
-fMap: threadA 3 1
-fMap: threadA 5 0
-fMap: threadA 2 1
-fMap: threadA 1 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadB 3 0
-fMap: threadB 4 0
-Skip an inconsistent check!
-In generateModel2 End!
-### Solver Time: 577.553
-Solver path: /usr/local/bin/z3
-Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
-command: /usr/local/bin/z3 -smt2 -in 
-[Solver] Init solver...
-[Solver] create Z3 pid 35649
-Generate a new Executor: 0x7fda9150abe0 0x7fda91714a30
-Initializing executor: 0x7fda9150abe0
-Waitting for create thread 0x10c1e6000
-Waitting for create thread 0x10c269000
-nwait: 0, 2, 0
-nwait: 0, 2, 0
-Set Read Value: 1
-Set write Value: 2
-Set Read Value: 0
-Set write Value: 1
-Set Read Value: 0
-Set write Value: 1
-var = 1
-In generateModel2!: 3
-size: 1
-Generating: 0 1
-v: threadB-5 0
-fMap: threadB 5 0
-fMap: threadB 3 0
-fMap: threadA 2 0
-fMap: threadA 3 1
-fMap: threadA 5 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-fMap: threadB 4 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-1 0
-v: threadB-1 1
-fMap: threadA 1 0
-fMap: threadB 1 1
-Skip an inconsistent check!
-Generating: 2 2
-v: threadA-1 1
-v: threadB-1 0
-fMap: threadA 1 1
-fMap: threadB 1 0
-Skip an inconsistent check!
-Generating: 3 2
-v: threadA-1 1
-v: threadB-1 1
-fMap: threadA 1 1
-fMap: threadB 1 1
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-2 0
-v: threadB-2 1
-fMap: threadA 2 0
-fMap: threadB 2 1
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 2 2
-v: threadA-2 0
-v: threadB-2 2
-fMap: threadA 2 0
-fMap: threadB 2 2
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 3 2
-v: threadA-2 1
-v: threadB-2 0
-fMap: threadA 2 1
-fMap: threadB 2 0
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 4 2
-v: threadA-2 1
-v: threadB-2 1
-fMap: threadA 2 1
-fMap: threadB 2 1
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 5 2
-v: threadA-2 1
-v: threadB-2 2
-fMap: threadA 2 1
-fMap: threadB 2 2
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 6 2
-v: threadA-2 2
-v: threadB-2 0
-fMap: threadA 2 2
-fMap: threadB 2 0
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 7 2
-v: threadA-2 2
-v: threadB-2 1
-fMap: threadA 2 2
-fMap: threadB 2 1
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 8 2
-v: threadA-2 2
-v: threadB-2 2
-fMap: threadA 2 2
-fMap: threadB 2 2
-fMap: threadB 1 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 0 2
-v: threadA-3 0
-v: threadB-3 0
-fMap: threadA 3 0
-fMap: threadB 3 0
-fMap: threadA 2 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 1 2
-v: threadA-3 0
-v: threadB-3 2
-fMap: threadA 3 0
-fMap: threadB 3 2
-fMap: threadA 2 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-Generating: 3 2
-v: threadA-3 1
-v: threadB-3 2
-fMap: threadA 3 1
-fMap: threadB 3 2
-fMap: threadA 2 0
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-size: 2
-size: 1
-Generating: 1 2
-v: threadA-5 0
-v: threadB-4 1
-fMap: threadA 5 0
-fMap: threadB 4 1
-fMap: threadB 3 0
-fMap: threadA 2 0
-fMap: threadA 3 1
-fMap: threadB 1 0
-fMap: threadB 2 0
-fMap: threadA 1 0
-Skip an inconsistent check!
-In generateModel2 End!
-### Solver Time: 581.318
-        1.32 real         0.51 user         0.09 sys
+### P2 time: 0.006378 0.006385
+### P3 time: 6e-06 9e-06
+### Generate Solution time: 0.006465 0.006447
+### Check redundancy time: 2.1e-05 2.8e-05
+### Last Part time: 0.010489 0.009632
+### Generate Schedule Time: 0.026688 0.014438
+Generating: threadA-1 threadB-4 0 1
+checking: read:val threadA-1 1
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+threadA 1 1
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fe67bc03260
+### Prepare Time: 0.009015 0.000285
+AddRWRelations: 1
+Add RW: threadA-1 1
+444
+555
+In addRWRelation: threadA-1 1
+
+xxxx read: threadA-1 0 1
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+InputVal2: threadB-4 0
+values: threadB-4 1 1
+
+write: threadB-4 1
+current orStr: 
+For write: threadB-4
+Guarantee begin: threadB-4 2 0
+list: threadB-4
+list: threadB-2
+guarantee: threadB-4 0
+111
+222: 1 1
+444
+555
+In addRWRelation: threadB-4 0
+
+xxxx read: threadB-4 0 0
+
+write: threadB-4 1
+
+write: main-2 0
+writeset: 2
+Guarantee begin: threadB-4 1 1
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 2
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 3
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: threadB-2 1
+
+xxxx read: threadB-2 1 1
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadB-2 0 1
+Gurantee end: threadB-2 
+InputVal2: threadA-2 0
+values: threadA-2 1 1
+
+write: threadA-2 1
+For read: threadB-2
+current orStr: 
+For write: threadA-2
+Guarantee begin: threadA-2 1 0
+list: threadA-2
+guarantee: threadA-2 0
+111
+222: 1 4
+444
+555
+In addRWRelation: threadA-2 0
+
+xxxx read: threadA-2 0 0
+
+write: threadA-2 1
+
+write: threadB-2 2
+
+write: threadB-3 0
+
+write: main-1 0
+writeset: 4
+Guarantee begin: threadA-2 0 1
+Gurantee end: threadA-2 
+skip: threadA-2
+InputVal2: threadB-2 1
+values: threadB-2 2 0
+values: threadB-3 0 0
+
+write: threadB-3 0
+For read: threadA-2
+current orStr: 
+For write: threadB-3
+Guarantee begin: threadB-3 1 0
+list: threadB-2
+guarantee: threadB-2 1
+111
+222: 1 4
+444
+555
+In addRWRelation: 

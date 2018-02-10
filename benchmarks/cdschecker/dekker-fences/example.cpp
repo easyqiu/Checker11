@@ -9,6 +9,7 @@
 
 #include <atomic>
 #include <thread>
+#include <execinfo.h>
 
 //#include "librace.h"
 
@@ -16,6 +17,7 @@ std::atomic<bool> flag0, flag1;
 std::atomic<int> turn;
 
 uint32_t var = 0;
+int data1, data2;
 
 void p0()
 {
@@ -23,21 +25,31 @@ void p0()
 	
     flag0.store(true,std::memory_order_relaxed);
 	std::atomic_thread_fence(std::memory_order_seq_cst);
+    //data1 = flag1.load(std::memory_order_relaxed);
 
 	while (flag1.load(std::memory_order_relaxed))
 	{
+        //checker_loop();
+        checker_loopDep(17);
 		if (turn.load(std::memory_order_relaxed) != 0)
 		{
 			flag0.store(false,std::memory_order_relaxed);
 			while (turn.load(std::memory_order_relaxed) != 0)
 			{
                 std::this_thread::yield();
+                //if (data1 == 1000) return ;
 			}
+            
+            checker_loopDep(37);
 			flag0.store(true,std::memory_order_relaxed);
 			std::atomic_thread_fence(std::memory_order_seq_cst);
 		} else
 			std::this_thread::yield();
-	}
+
+        //if (data1 == 1000) return ;
+    }
+    
+    checker_loopDep(62);
 	std::atomic_thread_fence(std::memory_order_acquire);
 
 	// critical section
@@ -57,21 +69,33 @@ void p1()
 	
     flag1.store(true,std::memory_order_relaxed);
 	std::atomic_thread_fence(std::memory_order_seq_cst);
-
-	while (flag0.load(std::memory_order_relaxed))
+    //data2 = flag0.load(std::memory_order_relaxed);
+	
+    while (flag0.load(std::memory_order_relaxed))
 	{
+        //checker_loop();
+        checker_loopDep(79);
 		if (turn.load(std::memory_order_relaxed) != 1)
 		{
 			flag1.store(false,std::memory_order_relaxed);
 			while (turn.load(std::memory_order_relaxed) != 1)
 			{
                 std::this_thread::yield();
+                //if (data1 == 1000) return ;
 			}
+    
+            //checker_loop();
+            checker_loopDep(99);
 			flag1.store(true,std::memory_order_relaxed);
 			std::atomic_thread_fence(std::memory_order_seq_cst);
 		} else
             std::this_thread::yield();
+
+        //if (data1 == 1000) return ;
 	}
+    
+    //checker_loop();
+    checker_loopDep(124);
 	std::atomic_thread_fence(std::memory_order_acquire);
 
 	// critical section
@@ -87,6 +111,7 @@ void p1()
 
 int user_main()
 {
+    double bTime = clock();
     checker_generateExecutor();
     checker_thread_begin("main");
 
@@ -106,18 +131,38 @@ int user_main()
     a.join();
     b.join();
 
+    printf("data: %d, %d\n", data1, data2);
+
     checker_thread_end();
     checker_solver();
+    std::cerr << "TTTTime: " << clock() - bTime << "\n";
+    //exit(1);
 
 	return 0;
 }
 
+void handler(int sig) {
+    void *array[10];
+    size_t size;
+
+    // get void*'s for all entries on the stack
+    size = backtrace(array, 10);
+
+    // print out all the frames to stderr
+    fprintf(stderr, "Error: signal %d:\n", sig);
+    backtrace_symbols_fd(array, size, STDERR_FILENO);
+    exit(1);
+}
+
+
 int main() {
+    signal(SIGSEGV, handler);
     modelChecker = new ModelChecker();
     user_main();
     
     while (modelChecker->getSchList().size()) 
         user_main();
 
+    delete modelChecker;
     return 0;
 }

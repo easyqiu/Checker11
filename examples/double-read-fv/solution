@@ -1,0 +1,5 @@
+MEMORY-ORDER CONSTRAINTS -----
+unsat
+(error "line 231 column 10: model is not available")
+(COWR CORR RW ASW)
+end

@@ -1,59 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/Schedule.cpp" line="189" />
+    <bookmark url="file://$PROJECT_DIR$/ModelChecker.h" line="63" />
+    <bookmark url="file://$PROJECT_DIR$/ModelChecker.h" line="87" />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="Instrument" targetName="Instrument" />
+      <config projectName="Checker11" targetName="Checker11" />
+      <config projectName="Checker11" targetName="Instrument" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4db9b1d-2f27-46ec-8ca3-01ed55035e85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FairState.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ModelChecker.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/StackFrame.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/StackFrame.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/csetest/example.cpp_back2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/csetest/example.ll" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/csetest/x2" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/Executor.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/Instrument.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/Thread.cpp.o" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/cmp_xchg/.example.cpp.swp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/cmp_xchg/example.bc-b4bdddca" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/fetch_add/0x101e63000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/fetch_add/0x101ee6000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/fetch_add/0x10bdbd000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/fetch_add/0x10be40000" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/example.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/example.c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/libuser.dylib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main.dSYM/Contents/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main.dSYM/Contents/Resources/DWARF/main" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.dvi" afterPath="$PROJECT_DIR$/Draft/C++11.dvi" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/p0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/p1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeCCompiler.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeCXXCompiler.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_C.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeDetermineCompilerABI_CXX.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CMakeSystem.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdC/CMakeCCompilerId.c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdC/a.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.2/CompilerIdCXX/a.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/CXX.includecache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/DependInfo.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/build.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/cmake_clean.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/depend.internal" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/depend.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/flags.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/link.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/progress.make" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/Instrument.cbp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/CorrectOuput" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/f1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/f2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/x2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/x.bc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/main" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/thread1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/thread2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/thread3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/x1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/redundancy1/Input0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/redundancy1/Input1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/redundancy1/Input2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/examples/redundancy1/Input3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libinstrument.dylib" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.pdf" afterPath="$PROJECT_DIR$/Draft/C++11.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.synctex.gz" afterPath="$PROJECT_DIR$/Draft/C++11.synctex.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/Figures.pdf" afterPath="$PROJECT_DIR$/Draft/Figures.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/Figures.pptx" afterPath="$PROJECT_DIR$/Draft/Figures.pptx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyInstrumentation/.MyInstrumentation.cpp.swp" afterPath="$PROJECT_DIR$/MyInstrumentation/.MyInstrumentation.cpp.swp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example.dSYM/Contents/Resources/DWARF/example" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example.dSYM/Contents/Resources/DWARF/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x.o" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/deque.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/deque.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x.o" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example.dSYM/Contents/Resources/DWARF/example" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example.dSYM/Contents/Resources/DWARF/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x.bc" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x.o" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/example" afterPath="$PROJECT_DIR$/examples/csetest/example" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/example.bc" afterPath="$PROJECT_DIR$/examples/csetest/example.bc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/example.dSYM/Contents/Resources/DWARF/example" afterPath="$PROJECT_DIR$/examples/csetest/example.dSYM/Contents/Resources/DWARF/example" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/x.bc" afterPath="$PROJECT_DIR$/examples/csetest/x.bc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/x.o" afterPath="$PROJECT_DIR$/examples/csetest/x.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fence/example" afterPath="$PROJECT_DIR$/examples/fence/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fence/example.bc" afterPath="$PROJECT_DIR$/examples/fence/example.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fence/x.bc" afterPath="$PROJECT_DIR$/examples/fence/x.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fence/x.o" afterPath="$PROJECT_DIR$/examples/fence/x.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/example" afterPath="$PROJECT_DIR$/examples/fetch_add/example" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/example.bc" afterPath="$PROJECT_DIR$/examples/fetch_add/example.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/x" afterPath="$PROJECT_DIR$/examples/fetch_add/x" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/x.bc" afterPath="$PROJECT_DIR$/examples/fetch_add/x.bc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/x.o" afterPath="$PROJECT_DIR$/examples/fetch_add/x.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/example" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/example" />
@@ -61,29 +93,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/example.dSYM/Contents/Resources/DWARF/example" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/example.dSYM/Contents/Resources/DWARF/example" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/x.bc" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/x.bc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/x.o" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/x.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/example" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/example.bc" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/example.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/example.dSYM/Contents/Resources/DWARF/example" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/example.dSYM/Contents/Resources/DWARF/example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/x" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/x.bc" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/x.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/x.o" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/x.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire3/example" afterPath="$PROJECT_DIR$/examples/mo_release_acquire3/example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire3/example.bc" afterPath="$PROJECT_DIR$/examples/mo_release_acquire3/example.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire3/x.bc" afterPath="$PROJECT_DIR$/examples/mo_release_acquire3/x.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire3/x.o" afterPath="$PROJECT_DIR$/examples/mo_release_acquire3/x.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/example" afterPath="$PROJECT_DIR$/examples/mo_seq_cst2/example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/example.bc" afterPath="$PROJECT_DIR$/examples/mo_seq_cst2/example.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/x.bc" afterPath="$PROJECT_DIR$/examples/mo_seq_cst2/x.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/x.o" afterPath="$PROJECT_DIR$/examples/mo_seq_cst2/x.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst3/example" afterPath="$PROJECT_DIR$/examples/mo_seq_cst3/example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst3/example.bc" afterPath="$PROJECT_DIR$/examples/mo_seq_cst3/example.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst3/x.bc" afterPath="$PROJECT_DIR$/examples/mo_seq_cst3/x.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst3/x.o" afterPath="$PROJECT_DIR$/examples/mo_seq_cst3/x.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mutex3/example" afterPath="$PROJECT_DIR$/examples/mutex3/example" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mutex3/example.bc" afterPath="$PROJECT_DIR$/examples/mutex3/example.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mutex3/x.bc" afterPath="$PROJECT_DIR$/examples/mutex3/x.bc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mutex3/x.o" afterPath="$PROJECT_DIR$/examples/mutex3/x.o" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libinstrument.dylib" afterPath="$PROJECT_DIR$/libinstrument.dylib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/example" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/example.bc" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/example.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/example.dSYM/Contents/Resources/DWARF/example" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/example.dSYM/Contents/Resources/DWARF/example" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/x.bc" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/x.bc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/x.o" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/x.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libinstrument.dylib.dSYM/Contents/Resources/DWARF/libinstrument.dylib" afterPath="$PROJECT_DIR$/libinstrument.dylib.dSYM/Contents/Resources/DWARF/libinstrument.dylib" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Action.cpp" afterPath="$PROJECT_DIR$/Action.cpp" />
@@ -94,52 +108,82 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConstraintModelGenerator.cpp" afterPath="$PROJECT_DIR$/ConstraintModelGenerator.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConstraintModelGenerator.h" afterPath="$PROJECT_DIR$/ConstraintModelGenerator.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.aux" afterPath="$PROJECT_DIR$/Draft/C++11.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.bbl" afterPath="$PROJECT_DIR$/Draft/C++11.bbl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.blg" afterPath="$PROJECT_DIR$/Draft/C++11.blg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.log" afterPath="$PROJECT_DIR$/Draft/C++11.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/C++11.tex" afterPath="$PROJECT_DIR$/Draft/C++11.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Draft/references.bib" afterPath="$PROJECT_DIR$/Draft/references.bib" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Executor.cpp" afterPath="$PROJECT_DIR$/Executor.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Executor.h" afterPath="$PROJECT_DIR$/Executor.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FairState.h" afterPath="$PROJECT_DIR$/FairState.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Instrument.cpp" afterPath="$PROJECT_DIR$/Instrument.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Instrument.h" afterPath="$PROJECT_DIR$/Instrument.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ModelChecker.cpp" afterPath="$PROJECT_DIR$/ModelChecker.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ModelChecker.h" afterPath="$PROJECT_DIR$/ModelChecker.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyInstrumentation/MyInstrumentation.cpp" afterPath="$PROJECT_DIR$/MyInstrumentation/MyInstrumentation.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SWRelation.cpp" afterPath="$PROJECT_DIR$/SWRelation.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SWRelation.h" afterPath="$PROJECT_DIR$/SWRelation.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Schedule.cpp" afterPath="$PROJECT_DIR$/Schedule.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Schedule.h" afterPath="$PROJECT_DIR$/Schedule.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Solver.cpp" afterPath="$PROJECT_DIR$/Solver.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Solver.h" afterPath="$PROJECT_DIR$/Solver.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StackFrame.cpp" afterPath="$PROJECT_DIR$/StackFrame.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StackFrame.h" afterPath="$PROJECT_DIR$/StackFrame.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Thread.cpp" afterPath="$PROJECT_DIR$/Thread.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Thread.h" afterPath="$PROJECT_DIR$/Thread.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util.cpp" afterPath="$PROJECT_DIR$/Util.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Util.h" afterPath="$PROJECT_DIR$/Util.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Z3Solver.cpp" afterPath="$PROJECT_DIR$/Z3Solver.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Z3Solver.h" afterPath="$PROJECT_DIR$/Z3Solver.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/depend.internal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Instrument.dir/depend.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/CorrectOutput" afterPath="$PROJECT_DIR$/examples/csetest/CorrectOutput" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/barrier.h" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/barrier.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example.cpp" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/run2" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/run2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x.ll" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x1" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x2" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x3" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/barrier/x3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/deque.c" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/deque.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example.cpp" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example.ll" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/example.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/run2" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/run2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x.ll" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/chase-lev-deque/x.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example.cpp" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/run2" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/run2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x.ll" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/dekker-fences/x.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/spsc-queue/example.cpp" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/spsc-queue/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/benchmarks/cdschecker/spsc-queue/run2" afterPath="$PROJECT_DIR$/benchmarks/cdschecker/spsc-queue/run2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/checker.hpp" afterPath="$PROJECT_DIR$/checker.hpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/example.cpp" afterPath="$PROJECT_DIR$/examples/csetest/example.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/test.cpp" afterPath="$PROJECT_DIR$/examples/csetest/test.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/x" afterPath="$PROJECT_DIR$/examples/csetest/x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/x.ll" afterPath="$PROJECT_DIR$/examples/csetest/x.ll" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/x_old.ll" afterPath="$PROJECT_DIR$/examples/csetest/x_old.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/csetest/x1" afterPath="$PROJECT_DIR$/examples/csetest/x1" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fence/example.cpp" afterPath="$PROJECT_DIR$/examples/fence/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fence/x" afterPath="$PROJECT_DIR$/examples/fence/x" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/example.cpp" afterPath="$PROJECT_DIR$/examples/fetch_add/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/fetch_add/x" afterPath="$PROJECT_DIR$/examples/fetch_add/x" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/example.cpp" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/example.ll" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/example.ll" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/x" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/x" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/x.ll" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/x.ll" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/x2" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/x2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/example.cpp" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/example.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/example.ll" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/example.ll" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire/x.ll" afterPath="$PROJECT_DIR$/examples/mo_release_acquire/x.ll" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire3/example.cpp" afterPath="$PROJECT_DIR$/examples/mo_release_acquire3/example.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire3/x" afterPath="$PROJECT_DIR$/examples/mo_release_acquire3/x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/example.cpp" afterPath="$PROJECT_DIR$/examples/mo_seq_cst2/example.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst2/x" afterPath="$PROJECT_DIR$/examples/mo_seq_cst2/x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst3/example.cpp" afterPath="$PROJECT_DIR$/examples/mo_seq_cst3/example.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_seq_cst3/x" afterPath="$PROJECT_DIR$/examples/mo_seq_cst3/x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mutex3/x" afterPath="$PROJECT_DIR$/examples/mutex3/x" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mutex3/x.ll" afterPath="$PROJECT_DIR$/examples/mutex3/x.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/xx" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/xx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_relaxed2/y" afterPath="$PROJECT_DIR$/examples/mo_relaxed2/y" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/example.cpp" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/example.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/example.ll" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/example.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/x" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/x" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/x.ll" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/x.ll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/mo_release_acquire2/y" afterPath="$PROJECT_DIR$/examples/mo_release_acquire2/y" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/run2" afterPath="$PROJECT_DIR$/examples/run2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run2" afterPath="$PROJECT_DIR$/run2" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/x" afterPath="$PROJECT_DIR$/x" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -150,36 +194,25 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Executor.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Executor.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Executor.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="1344" column="95" lean-forward="false" selection-start-line="1344" selection-start-column="95" selection-end-line="1344" selection-end-column="95" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Solver.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Solver.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="1081" column="21" lean-forward="false" selection-start-line="1081" selection-start-column="21" selection-end-line="1081" selection-end-column="21" />
+            <state relative-caret-position="870">
+              <caret line="1781" column="38" lean-forward="false" selection-start-line="1781" selection-start-column="34" selection-end-line="1781" selection-end-column="38" />
               <folding>
-                <element signature="e#37#55#0" expanded="true" />
+                <element signature="e#37#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Schedule.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Schedule.cpp">
+      <file leaf-file-name="Instrument.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Instrument.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+            <state relative-caret-position="232">
+              <caret line="772" column="19" lean-forward="false" selection-start-line="772" selection-start-column="5" selection-end-line="772" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -188,74 +221,110 @@
       <file leaf-file-name="Thread.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Thread.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="164" column="62" lean-forward="false" selection-start-line="164" selection-start-column="62" selection-end-line="164" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Thread.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Thread.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="80" column="48" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
+            <state relative-caret-position="262">
+              <caret line="323" column="31" lean-forward="false" selection-start-line="323" selection-start-column="31" selection-end-line="323" selection-end-column="31" />
               <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#36#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Solver.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Solver.h">
+      <file leaf-file-name="StackFrame.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StackFrame.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+            <state relative-caret-position="194">
+              <caret line="77" column="60" lean-forward="false" selection-start-line="77" selection-start-column="60" selection-end-line="77" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstraintModelGenerator.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StackFrame.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StackFrame.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelChecker.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ModelChecker.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+              <folding>
+                <marker date="1517793320000" expanded="true" signature="448:539" ph="..." />
+                <marker date="1517793320000" expanded="true" signature="1997:2068" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelChecker.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ModelChecker.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="64" column="33" lean-forward="false" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Schedule.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Schedule.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="92" column="70" lean-forward="false" selection-start-line="92" selection-start-column="70" selection-end-line="92" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Schedule.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Schedule.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConstraintModelGenerator.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConstraintModelGenerator.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="597">
-              <caret line="609" column="4" lean-forward="false" selection-start-line="609" selection-start-column="4" selection-end-line="609" selection-end-column="4" />
+            <state relative-caret-position="117">
+              <caret line="588" column="56" lean-forward="false" selection-start-line="588" selection-start-column="56" selection-end-line="588" selection-end-column="56" />
               <folding>
-                <element signature="e#37#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SWRelation.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SWRelation.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConstraintModelGenerator.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConstraintModelGenerator.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SWRelation.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SWRelation.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding>
-                <element signature="e#38#52#0" expanded="true" />
+                <marker date="1507217302000" expanded="true" signature="11336:11405" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="12671:12981" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="14362:14437" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="19894:19938" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="24250:24503" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="24720:24773" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="24903:24956" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="25306:25432" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="26134:26209" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="26522:26654" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="27822:27905" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="29100:29181" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="29447:29691" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="30080:30158" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="30190:30243" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="31765:31843" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="32755:32877" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="37498:37599" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="37758:37800" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="38928:38984" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="39427:39498" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="39777:39810" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="39879:39921" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="39987:40020" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="40800:40833" ph="..." />
+                <marker date="1507217302000" expanded="true" signature="107542:107626" ph="..." />
               </folding>
             </state>
           </provider>
@@ -265,36 +334,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>rrr0</find>
-      <find>&amp;</find>
-      <find>getHBList</find>
-      <find>rrrr0</find>
-      <find>setHBList</find>
-      <find>mhb5</find>
-      <find>identifyMHBRelation</find>
-      <find>pairs</find>
+      <find>addPrefixContext</find>
+      <find>prefixContexts</find>
+      <find>deletePreAction2</find>
+      <find>importantActions</find>
+      <find>readValueMap2</find>
+      <find>updateReadValueMap2</find>
+      <find>Load schedule from file</find>
+      <find>waiting for</find>
+      <find>waitting for create thread</find>
+      <find>open</find>
+      <find>loadScheduleFromFile</find>
       <find>guaranteeReachability</find>
-      <find>reachabilityMap</find>
-      <find>rrrr000</find>
-      <find>updateReachabilityMap</find>
-      <find>get</find>
-      <find>xx:</find>
-      <find>rMap</find>
+      <find>mhb</find>
+      <find>dep</find>
+      <find>waitt</find>
+      <find>threadCreateMap</find>
+      <find>precheck</find>
+      <find>clapToLoads</find>
+      <find>reachability</find>
       <find>getReachabilityMap</find>
-      <find>addRWRelations</find>
-      <find>In addRWRelation</find>
-      <find>getWriteSet</find>
-      <find>writeMap</find>
-      <find>begin guarantee</find>
-      <find>addRWRelation</find>
-      <find>begin gu</find>
-      <find>enforcedRFs</find>
-      <find>addSWConstraints</find>
-      <find>ssfdfsfd2</find>
-      <find>lock</find>
-      <find>rrr000</find>
-      <find>mhb0</find>
-      <find>just before</find>
+      <find>list</find>
+      <find>reachabilityMap</find>
+      <find>checker_adduse</find>
+      <find>trackd</find>
+      <find>trackdyninfo</find>
+      <find>updateReachabilityMap</find>
+      <find>addReachabilityMap</find>
+      <find>trackedBID</find>
+      <find>checker_shared</find>
+      <find>RF:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -303,44 +372,44 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/Parameters.cpp" />
         <option value="$PROJECT_DIR$/Parameters.h" />
-        <option value="$PROJECT_DIR$/Util.cpp" />
         <option value="$PROJECT_DIR$/Schedule.h.h" />
         <option value="$PROJECT_DIR$/libinstrument.dylib.dSYM/ModelChecker.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/main.dSYM/SWRelation.h" />
-        <option value="$PROJECT_DIR$/Util.h" />
         <option value="$PROJECT_DIR$/DynChecker.h" />
         <option value="$PROJECT_DIR$/Types.h" />
-        <option value="$PROJECT_DIR$/FairState.h" />
-        <option value="$PROJECT_DIR$/Z3Solver.h" />
-        <option value="$PROJECT_DIR$/checker.hpp" />
-        <option value="$PROJECT_DIR$/Instrument.h" />
-        <option value="$PROJECT_DIR$/Instrument.cpp" />
-        <option value="$PROJECT_DIR$/StackFrame.h" />
-        <option value="$PROJECT_DIR$/Buffer.h" />
-        <option value="$PROJECT_DIR$/Action.h" />
-        <option value="$PROJECT_DIR$/Action.cpp" />
-        <option value="$PROJECT_DIR$/Buffer.cpp" />
-        <option value="$PROJECT_DIR$/ModelChecker.cpp" />
-        <option value="$PROJECT_DIR$/Z3Solver.cpp" />
-        <option value="$PROJECT_DIR$/Schedule.h" />
-        <option value="$PROJECT_DIR$/Executor.h" />
-        <option value="$PROJECT_DIR$/Schedule.cpp" />
-        <option value="$PROJECT_DIR$/ModelChecker.h" />
-        <option value="$PROJECT_DIR$/StackFrame.cpp" />
         <option value="$PROJECT_DIR$/SWRelation.cpp.cpp" />
         <option value="$PROJECT_DIR$/SWRelation.cpp" />
+        <option value="$PROJECT_DIR$/FairState.h" />
         <option value="$PROJECT_DIR$/SWRelation.h" />
-        <option value="$PROJECT_DIR$/Thread.h" />
-        <option value="$PROJECT_DIR$/Executor.cpp" />
+        <option value="$PROJECT_DIR$/Util.h" />
+        <option value="$PROJECT_DIR$/Z3Solver.h" />
+        <option value="$PROJECT_DIR$/Util.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/checker.hpp" />
+        <option value="$PROJECT_DIR$/Schedule.h" />
+        <option value="$PROJECT_DIR$/Instrument.h" />
+        <option value="$PROJECT_DIR$/Executor.h" />
+        <option value="$PROJECT_DIR$/Action.h" />
+        <option value="$PROJECT_DIR$/Action.cpp" />
         <option value="$PROJECT_DIR$/Solver.h" />
         <option value="$PROJECT_DIR$/Solver.cpp" />
         <option value="$PROJECT_DIR$/ConstraintModelGenerator.h" />
-        <option value="$PROJECT_DIR$/Thread.cpp" />
         <option value="$PROJECT_DIR$/ConstraintModelGenerator.cpp" />
+        <option value="$PROJECT_DIR$/Buffer.h" />
+        <option value="$PROJECT_DIR$/Thread.h" />
+        <option value="$PROJECT_DIR$/Buffer.cpp" />
+        <option value="$PROJECT_DIR$/Instrument.cpp" />
+        <option value="$PROJECT_DIR$/StackFrame.h" />
+        <option value="$PROJECT_DIR$/Thread.cpp" />
+        <option value="$PROJECT_DIR$/Z3Solver.cpp" />
+        <option value="$PROJECT_DIR$/Schedule.cpp" />
+        <option value="$PROJECT_DIR$/Executor.cpp" />
+        <option value="$PROJECT_DIR$/ModelChecker.h" />
+        <option value="$PROJECT_DIR$/ModelChecker.cpp" />
+        <option value="$PROJECT_DIR$/StackFrame.cpp" />
       </list>
     </option>
   </component>
@@ -351,7 +420,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1280" />
     <option name="height" value="800" />
   </component>
@@ -373,7 +442,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -387,7 +455,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Instrument">
+  <component name="RunManager" selected="Application.Checker11">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+    </configuration>
+    <configuration name="Checker11" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Checker11" TARGET_NAME="Checker11" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Checker11" RUN_TARGET_NAME="Checker11">
+      <envs />
+    </configuration>
+    <configuration name="Instrument" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Checker11" RUN_TARGET_NAME="Instrument" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <configuration default="true" type="CLion_Remote" factoryName="GDB Remote Debug" remoteCommand="" symbolFile="" sysroot="">
       <method />
     </configuration>
@@ -483,20 +572,6 @@
       <JdkChoice value="FROM_MODULE" />
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
       <command value="run" />
       <scripts />
@@ -570,21 +645,17 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Instrument" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Instrument" TARGET_NAME="Instrument" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Instrument" RUN_TARGET_NAME="Instrument">
-      <envs />
-      <method />
-    </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
       <item index="1" class="java.lang.String" itemvalue="Application.Instrument" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Checker11" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -607,82 +678,99 @@
       <workItem from="1498613600715" duration="571000" />
       <workItem from="1498851569326" duration="19907000" />
       <workItem from="1499268955981" duration="17580000" />
-      <workItem from="1499371276006" duration="168784000" />
+      <workItem from="1499371276006" duration="181420000" />
+      <workItem from="1500686171734" duration="56358000" />
+      <workItem from="1501014469869" duration="678000" />
+      <workItem from="1501015838735" duration="12828000" />
+      <workItem from="1501037879790" duration="2742000" />
+      <workItem from="1501044139734" duration="1165000" />
+      <workItem from="1501076545223" duration="455000" />
+      <workItem from="1501078151591" duration="2933000" />
+      <workItem from="1501084316574" duration="6905000" />
+      <workItem from="1501107371482" duration="3018000" />
+      <workItem from="1501117287099" duration="30409000" />
+      <workItem from="1501271133780" duration="21000" />
+      <workItem from="1501271159635" duration="43942000" />
+      <workItem from="1503004618254" duration="371000" />
+      <workItem from="1503091314907" duration="1050000" />
+      <workItem from="1503093227977" duration="4000" />
+      <workItem from="1503093268634" duration="7000" />
+      <workItem from="1503093305704" duration="9390000" />
+      <workItem from="1503504273642" duration="1000" />
+      <workItem from="1503504328311" duration="16325000" />
+      <workItem from="1503715374862" duration="27000" />
+      <workItem from="1503715437742" duration="13000" />
+      <workItem from="1503715495715" duration="26671000" />
+      <workItem from="1503961450304" duration="57641000" />
+      <workItem from="1504639689076" duration="104908000" />
+      <workItem from="1506608828589" duration="24239000" />
+      <workItem from="1513271363325" duration="12673000" />
+      <workItem from="1515597137843" duration="20911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="487977000" />
+    <option name="totallyTimeSpent" value="936441000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28818062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07968128" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.007968128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17424242" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26666668" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19066666" sideWeight="0.496875" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.006666667" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28818062" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.078666665" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.007968128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="processedProjectFiles" value="true" />
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="25" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Parameters.cpp" />
-    <entry file="file://$PROJECT_DIR$/Parameters.h" />
-    <entry file="file://$PROJECT_DIR$/x">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/string">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="2032" column="14" lean-forward="false" selection-start-line="2032" selection-start-column="14" selection-end-line="2032" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/map">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6614">
-          <caret line="837" column="4" lean-forward="false" selection-start-line="837" selection-start-column="4" selection-end-line="837" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Schedule.cpp_bacl" />
-    <entry file="file://$PROJECT_DIR$/Schedule.h_back">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libinstrument.dylib.dSYM/ModelChecker.h" />
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
@@ -696,13 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
           <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Util.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -750,268 +831,332 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/unistd.h">
+    <entry file="file:///usr/include/_types/_uint64_t.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="465" column="9" lean-forward="false" selection-start-line="465" selection-start-column="9" selection-end-line="465" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="450">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FairState.h">
+    <entry file="file://$PROJECT_DIR$/SWRelation.cpp.cpp" />
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="638">
+          <caret line="837" column="4" lean-forward="false" selection-start-line="837" selection-start-column="4" selection-end-line="837" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file:///usr/include/tic.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="130" column="52" lean-forward="true" selection-start-line="130" selection-start-column="52" selection-end-line="130" selection-end-column="52" />
-          <folding>
-            <element signature="e#5551#5615#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/_types/_uint64_t.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checker.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Util.cpp">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="77" column="13" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
-          <folding />
+          <caret line="126" column="8" lean-forward="false" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buffer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Z3Solver.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="55" column="40" lean-forward="false" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Buffer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="47" column="30" lean-forward="false" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="e#38#57#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Action.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="128" column="16" lean-forward="false" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Action.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="165" column="66" lean-forward="false" selection-start-line="165" selection-start-column="66" selection-end-line="165" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModelChecker.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Z3Solver.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="123" column="7" lean-forward="false" selection-start-line="123" selection-start-column="7" selection-end-line="123" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Schedule.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Executor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="133" column="62" lean-forward="false" selection-start-line="133" selection-start-column="62" selection-end-line="133" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ModelChecker.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="39" column="26" lean-forward="false" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-          <folding>
-            <element signature="e#38#57#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Instrument.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11220">
-          <caret line="748" column="24" lean-forward="false" selection-start-line="748" selection-start-column="9" selection-end-line="748" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#14#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Instrument.h">
+    <entry file="file://$PROJECT_DIR$/examples/mo_relaxed2/x.ll">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding />
+          <caret line="8959" column="29" lean-forward="false" selection-start-line="8959" selection-start-column="29" selection-end-line="8959" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrame.h">
+    <entry file="file://$PROJECT_DIR$/FairState.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="43" column="33" lean-forward="false" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SWRelation.cpp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StackFrame.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="916">
-          <caret line="74" column="25" lean-forward="false" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Schedule.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="24" column="51" lean-forward="false" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Executor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="1344" column="95" lean-forward="false" selection-start-line="1344" selection-start-column="95" selection-end-line="1344" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Solver.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="56" column="59" lean-forward="false" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConstraintModelGenerator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Thread.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="164" column="62" lean-forward="false" selection-start-line="164" selection-start-column="62" selection-end-line="164" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Thread.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="80" column="48" lean-forward="false" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SWRelation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="22" column="21" lean-forward="false" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="844">
+          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SWRelation.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SWRelation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/mo_release_acquire/example.ll">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="247" column="62" lean-forward="false" selection-start-line="247" selection-start-column="62" selection-end-line="247" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/unistd.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="430" column="39" lean-forward="false" selection-start-line="430" selection-start-column="39" selection-end-line="430" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Util.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="58" lean-forward="false" selection-start-line="18" selection-start-column="58" selection-end-line="18" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Z3Solver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="21" column="22" lean-forward="false" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists copy.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="41" column="45" lean-forward="false" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/sys/_types/_int64_t.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checker.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Instrument.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="175" column="27" lean-forward="false" selection-start-line="175" selection-start-column="27" selection-end-line="175" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Executor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2235">
+          <caret line="149" column="24" lean-forward="false" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Action.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2115">
+          <caret line="141" column="22" lean-forward="false" selection-start-line="141" selection-start-column="22" selection-end-line="141" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Solver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="84" column="16" lean-forward="false" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Developer/CommandLineTools/usr/include/c++/v1/ostream">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="892" column="0" lean-forward="false" selection-start-line="892" selection-start-column="0" selection-end-line="892" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConstraintModelGenerator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Action.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="353" column="10" lean-forward="false" selection-start-line="353" selection-start-column="10" selection-end-line="353" selection-end-column="10" />
           <folding>
-            <element signature="e#38#52#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buffer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="e#38#57#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Thread.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buffer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding>
+            <element signature="e#38#57#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Solver.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="1081" column="21" lean-forward="false" selection-start-line="1081" selection-start-column="21" selection-end-line="1081" selection-end-column="21" />
+        <state relative-caret-position="427">
+          <caret line="319" column="23" lean-forward="false" selection-start-line="319" selection-start-column="23" selection-end-line="319" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Z3Solver.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="390" column="0" lean-forward="false" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Schedule.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="48" column="28" lean-forward="false" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Schedule.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="92" column="70" lean-forward="false" selection-start-line="92" selection-start-column="70" selection-end-line="92" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModelChecker.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="64" column="33" lean-forward="false" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ModelChecker.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="106" column="9" lean-forward="false" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
           <folding>
-            <element signature="e#37#55#0" expanded="true" />
+            <marker date="1517793320000" expanded="true" signature="448:539" ph="..." />
+            <marker date="1517793320000" expanded="true" signature="1997:2068" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConstraintModelGenerator.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="609" column="4" lean-forward="false" selection-start-line="609" selection-start-column="4" selection-end-line="609" selection-end-column="4" />
+        <state relative-caret-position="117">
+          <caret line="588" column="56" lean-forward="false" selection-start-line="588" selection-start-column="56" selection-end-line="588" selection-end-column="56" />
           <folding>
-            <element signature="e#37#55#0" expanded="true" />
+            <marker date="1507217302000" expanded="true" signature="11336:11405" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="12671:12981" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="14362:14437" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="19894:19938" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="24250:24503" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="24720:24773" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="24903:24956" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="25306:25432" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="26134:26209" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="26522:26654" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="27822:27905" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="29100:29181" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="29447:29691" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="30080:30158" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="30190:30243" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="31765:31843" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="32755:32877" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="37498:37599" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="37758:37800" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="38928:38984" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="39427:39498" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="39777:39810" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="39879:39921" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="39987:40020" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="40800:40833" ph="..." />
+            <marker date="1507217302000" expanded="true" signature="107542:107626" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Thread.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="323" column="31" lean-forward="false" selection-start-line="323" selection-start-column="31" selection-end-line="323" selection-end-column="31" />
+          <folding>
+            <element signature="e#36#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrame.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StackFrame.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="77" column="60" lean-forward="false" selection-start-line="77" selection-start-column="60" selection-end-line="77" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Instrument.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="772" column="19" lean-forward="false" selection-start-line="772" selection-start-column="5" selection-end-line="772" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Executor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="1781" column="38" lean-forward="false" selection-start-line="1781" selection-start-column="34" selection-end-line="1781" selection-end-column="38" />
+          <folding>
+            <element signature="e#37#56#0" expanded="true" />
           </folding>
         </state>
       </provider>

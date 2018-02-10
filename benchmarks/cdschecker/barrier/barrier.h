@@ -10,7 +10,7 @@ class spinning_barrier {
 	bool wait() {
 		unsigned int step = step_.load ();
 
-        printf("nwait: %d, %d, %d\n", nwait_.load(), n_, step);
+        //printf("nwait: %d, %d, %d\n", nwait_.load(), n_, step);
 		if (nwait_.fetch_add (1) == n_ - 1) {
 			/* OK, last thread to come.  */
 			nwait_.store (0); // XXX: maybe can use relaxed ordering here ??

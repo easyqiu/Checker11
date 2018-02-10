@@ -1,0 +1,516 @@
+MEMORY-ORDER CONSTRAINTS -----
+sat
+(model 
+  (define-fun B_main-3_main-6 () Int
+    1)
+  (define-fun B_main-1_main-3 () Int
+    1)
+  (define-fun B_f1-1_f1-2 () Int
+    1)
+  (define-fun B_f3-1_f4-1 () Int
+    1)
+  (define-fun B_main-1_main-2 () Int
+    1)
+  (define-fun B_f3-3_main-5 () Int
+    0)
+  (define-fun B_f4-3_main-0 () Int
+    0)
+  (define-fun CORW () Bool
+    true)
+  (define-fun B_main-1_main-8 () Int
+    1)
+  (define-fun B_f3-3_main-4 () Int
+    0)
+  (define-fun B_f3-2_main-0 () Int
+    0)
+  (define-fun RF_f3-2_main-1 () Int
+    0)
+  (define-fun B_f1-1_f3-1 () Int
+    0)
+  (define-fun B_f1-0_main-9 () Int
+    1)
+  (define-fun MOConsistent () Bool
+    true)
+  (define-fun B_main-12_main-8 () Int
+    0)
+  (define-fun RF_f3-1_f1-1 () Int
+    0)
+  (define-fun B_f4-3_main-3 () Int
+    0)
+  (define-fun B_main-11_main-2 () Int
+    0)
+  (define-fun B_main-7_main-9 () Int
+    1)
+  (define-fun S_f4-1 () Int
+    4)
+  (define-fun B_f2-0_f3-2 () Int
+    1)
+  (define-fun B_main-0_main-7 () Int
+    1)
+  (define-fun B_main-12_main-3 () Int
+    0)
+  (define-fun B_f1-0_f1-2 () Int
+    1)
+  (define-fun SCConsistent () Bool
+    true)
+  (define-fun M_main-2 () Int
+    0)
+  (define-fun B_main-12_main-6 () Int
+    0)
+  (define-fun B_f2-0_f3-3 () Int
+    1)
+  (define-fun Basic1 () Bool
+    true)
+  (define-fun B_f1-0_main-11 () Int
+    1)
+  (define-fun B_f4-2_main-6 () Int
+    0)
+  (define-fun B_main-11_main-3 () Int
+    0)
+  (define-fun B_f3-2_f4-2 () Int
+    0)
+  (define-fun B_f1-1_main-3 () Int
+    0)
+  (define-fun B_main-0_main-3 () Int
+    1)
+  (define-fun B_main-3_main-5 () Int
+    1)
+  (define-fun B_main-10_main-8 () Int
+    0)
+  (define-fun B_f4-2_main-4 () Int
+    0)
+  (define-fun S_f3-2 () Int
+    8)
+  (define-fun B_f2-2_main-12 () Int
+    1)
+  (define-fun RW () Bool
+    true)
+  (define-fun B_f3-1_f3-2 () Int
+    1)
+  (define-fun SWRelation0 () Bool
+    true)
+  (define-fun B_f3-0_main-11 () Int
+    1)
+  (define-fun B_f1-1_main-1 () Int
+    0)
+  (define-fun B_f2-2_main-2 () Int
+    0)
+  (define-fun B_main-12_main-5 () Int
+    0)
+  (define-fun RF_f3-1_f2-1 () Int
+    0)
+  (define-fun B_main-10_main-5 () Int
+    0)
+  (define-fun B_f3-3_main-1 () Int
+    0)
+  (define-fun B_f4-1_main-0 () Int
+    0)
+  (define-fun B_f2-2_main-5 () Int
+    0)
+  (define-fun B_f4-0_f4-3 () Int
+    1)
+  (define-fun RF_f4-1_f2-1 () Int
+    0)
+  (define-fun B_f3-1_main-1 () Int
+    0)
+  (define-fun B_main-11_main-4 () Int
+    0)
+  (define-fun B_main-1_main-10 () Int
+    1)
+  (define-fun B_main-2_main-3 () Int
+    1)
+  (define-fun B_main-11_main-7 () Int
+    0)
+  (define-fun B_f1-2_main-3 () Int
+    0)
+  (define-fun B_f3-2_main-3 () Int
+    0)
+  (define-fun B_main-1_main-9 () Int
+    1)
+  (define-fun B_f3-1_main-0 () Int
+    0)
+  (define-fun B_main-4_main-8 () Int
+    1)
+  (define-fun CORR () Bool
+    true)
+  (define-fun B_f2-1_f4-2 () Int
+    0)
+  (define-fun B_f4-1_main-5 () Int
+    0)
+  (define-fun B_main-11_main-12 () Int
+    1)
+  (define-fun B_main-0_main-12 () Int
+    1)
+  (define-fun B_main-3_main-4 () Int
+    1)
+  (define-fun ASW () Bool
+    true)
+  (define-fun B_main-11_main-5 () Int
+    0)
+  (define-fun B_f1-1_main-4 () Int
+    0)
+  (define-fun B_f3-3_main-12 () Int
+    1)
+  (define-fun B_f2-1_main-2 () Int
+    0)
+  (define-fun B_f2-1_f4-1 () Int
+    0)
+  (define-fun B_main-10_main-11 () Int
+    1)
+  (define-fun B_f3-3_main-0 () Int
+    0)
+  (define-fun B_f4-2_main-2 () Int
+    0)
+  (define-fun S_f1-1 () Int
+    6)
+  (define-fun B_main-11_main-6 () Int
+    0)
+  (define-fun B_main-8_main-9 () Int
+    1)
+  (define-fun B_f1-2_main-4 () Int
+    0)
+  (define-fun B_main-2_main-4 () Int
+    1)
+  (define-fun RF_f4-2_main-1 () Int
+    1)
+  (define-fun B_f2-1_f3-3 () Int
+    1)
+  (define-fun B_f3-2_main-11 () Int
+    1)
+  (define-fun MO0 () Bool
+    true)
+  (define-fun B_main-0_main-10 () Int
+    1)
+  (define-fun S_main-3 () Int
+    2)
+  (define-fun B_f2-2_main-11 () Int
+    1)
+  (define-fun B_f2-2_main-1 () Int
+    0)
+  (define-fun B_f3-1_main-11 () Int
+    1)
+  (define-fun B_f1-1_main-0 () Int
+    0)
+  (define-fun B_main-3_main-7 () Int
+    1)
+  (define-fun B_main-1_main-4 () Int
+    1)
+  (define-fun B_main-2_main-6 () Int
+    1)
+  (define-fun B_f1-1_f2-1 () Int
+    1)
+  (define-fun B_f4-3_main-6 () Int
+    0)
+  (define-fun B_f4-1_main-3 () Int
+    0)
+  (define-fun B_main-3_main-9 () Int
+    1)
+  (define-fun RF_f4-1_f1-1 () Int
+    0)
+  (define-fun B_f3-3_main-11 () Int
+    1)
+  (define-fun B_f1-1_f3-2 () Int
+    1)
+  (define-fun COWR () Bool
+    true)
+  (define-fun B_f2-1_main-5 () Int
+    0)
+  (define-fun B_f3-1_main-3 () Int
+    0)
+  (define-fun B_f1-2_main-1 () Int
+    0)
+  (define-fun B_f1-2_main-11 () Int
+    1)
+  (define-fun S_f4-2 () Int
+    5)
+  (define-fun B_main-10_main-3 () Int
+    0)
+  (define-fun B_main-1_main-7 () Int
+    1)
+  (define-fun B_main-2_main-5 () Int
+    1)
+  (define-fun B_main-4_main-5 () Int
+    1)
+  (define-fun B_main-4_main-9 () Int
+    1)
+  (define-fun B_f3-0_f3-1 () Int
+    1)
+  (define-fun B_f2-1_main-1 () Int
+    0)
+  (define-fun RF_f4-1_main-1 () Int
+    1)
+  (define-fun B_f2-1_main-4 () Int
+    0)
+  (define-fun B_main-12_main-4 () Int
+    0)
+  (define-fun B_f2-1_main-3 () Int
+    0)
+  (define-fun RF_f3-1_main-1 () Int
+    1)
+  (define-fun B_f2-1_f2-2 () Int
+    1)
+  (define-fun B_main-5_main-9 () Int
+    1)
+  (define-fun S_main-2 () Int
+    1)
+  (define-fun B_f1-0_f1-1 () Int
+    1)
+  (define-fun B_main-1_main-12 () Int
+    1)
+  (define-fun B_f3-1_main-12 () Int
+    1)
+  (define-fun B_f1-2_main-0 () Int
+    0)
+  (define-fun B_f1-2_main-2 () Int
+    0)
+  (define-fun B_f4-3_main-4 () Int
+    0)
+  (define-fun B_f4-2_main-7 () Int
+    0)
+  (define-fun B_f3-2_main-1 () Int
+    0)
+  (define-fun COWW () Bool
+    true)
+  (define-fun B_main-10_main-9 () Int
+    0)
+  (define-fun B_f1-1_main-12 () Int
+    1)
+  (define-fun S_f2-1 () Int
+    7)
+  (define-fun B_main-2_main-9 () Int
+    1)
+  (define-fun B_f2-1_f3-1 () Int
+    0)
+  (define-fun B_f3-2_main-2 () Int
+    0)
+  (define-fun RF_f3-2_f1-1 () Int
+    0)
+  (define-fun SWRelation1 () Bool
+    true)
+  (define-fun B_f3-1_main-5 () Int
+    0)
+  (define-fun S_f3-1 () Int
+    3)
+  (define-fun B_f4-1_main-12 () Int
+    1)
+  (define-fun B_f4-1_main-4 () Int
+    0)
+  (define-fun RF_f4-2_f2-1 () Int
+    0)
+  (define-fun B_f2-2_main-0 () Int
+    0)
+  (define-fun B_f2-0_f2-2 () Int
+    1)
+  (define-fun B_main-1_main-11 () Int
+    1)
+  (define-fun B_main-0_main-4 () Int
+    1)
+  (define-fun B_main-5_main-7 () Int
+    1)
+  (define-fun B_f2-1_main-12 () Int
+    1)
+  (define-fun MO2 () Bool
+    true)
+  (define-fun B_main-0_main-5 () Int
+    1)
+  (define-fun M_f1-1 () Int
+    1)
+  (define-fun B_f4-1_main-1 () Int
+    0)
+  (define-fun B_f4-3_main-7 () Int
+    0)
+  (define-fun B_f3-1_f3-3 () Int
+    1)
+  (define-fun B_f2-1_main-11 () Int
+    1)
+  (define-fun B_f4-2_f4-3 () Int
+    1)
+  (define-fun B_f2-1_main-10 () Int
+    1)
+  (define-fun B_main-6_main-8 () Int
+    1)
+  (define-fun B_f4-2_main-5 () Int
+    0)
+  (define-fun B_f3-0_f3-2 () Int
+    1)
+  (define-fun B_main-10_main-12 () Int
+    1)
+  (define-fun B_main-2_main-7 () Int
+    1)
+  (define-fun B_main-10_main-7 () Int
+    0)
+  (define-fun B_main-10_main-6 () Int
+    0)
+  (define-fun B_f4-3_main-1 () Int
+    0)
+  (define-fun B_f1-2_main-12 () Int
+    1)
+  (define-fun B_main-2_main-8 () Int
+    1)
+  (define-fun B_f3-2_main-4 () Int
+    0)
+  (define-fun B_f1-1_main-10 () Int
+    1)
+  (define-fun B_main-0_main-2 () Int
+    1)
+  (define-fun B_f4-0_f4-1 () Int
+    1)
+  (define-fun B_f3-3_main-2 () Int
+    0)
+  (define-fun B_f4-0_main-12 () Int
+    1)
+  (define-fun B_f3-1_main-6 () Int
+    0)
+  (define-fun B_f2-0_main-10 () Int
+    1)
+  (define-fun B_f3-1_main-2 () Int
+    0)
+  (define-fun B_f2-2_main-10 () Int
+    1)
+  (define-fun B_main-12_main-9 () Int
+    0)
+  (define-fun B_f4-2_main-0 () Int
+    0)
+  (define-fun B_f2-1_main-0 () Int
+    0)
+  (define-fun B_f1-2_main-10 () Int
+    1)
+  (define-fun B_f3-3_main-3 () Int
+    0)
+  (define-fun B_main-1_main-5 () Int
+    1)
+  (define-fun B_f1-1_main-2 () Int
+    0)
+  (define-fun B_main-5_main-8 () Int
+    1)
+  (define-fun B_f3-1_f4-2 () Int
+    1)
+  (define-fun B_f1-1_f4-1 () Int
+    0)
+  (define-fun B_main-3_main-8 () Int
+    1)
+  (define-fun B_f1-2_main-9 () Int
+    1)
+  (define-fun B_f2-0_main-11 () Int
+    1)
+  (define-fun B_f4-3_main-2 () Int
+    0)
+  (define-fun B_f4-2_main-3 () Int
+    0)
+  (define-fun B_f4-2_main-12 () Int
+    1)
+  (define-fun RF_f3-2_f2-1 () Int
+    1)
+  (define-fun B_f4-1_main-7 () Int
+    0)
+  (define-fun B_f1-1_f4-2 () Int
+    0)
+  (define-fun B_f4-1_f4-2 () Int
+    1)
+  (define-fun B_f1-0_main-10 () Int
+    1)
+  (define-fun B_f2-2_main-4 () Int
+    0)
+  (define-fun RF_f4-2_f1-1 () Int
+    0)
+  (define-fun B_main-6_main-9 () Int
+    1)
+  (define-fun B_main-10_main-4 () Int
+    0)
+  (define-fun B_f3-2_f4-1 () Int
+    0)
+  (define-fun B_main-4_main-6 () Int
+    1)
+  (define-fun B_f3-2_main-5 () Int
+    0)
+  (define-fun B_f3-0_main-12 () Int
+    1)
+  (define-fun B_f1-1_main-11 () Int
+    1)
+  (define-fun CORF () Bool
+    true)
+  (define-fun B_f4-2_main-1 () Int
+    0)
+  (define-fun SWRelation3 () Bool
+    true)
+  (define-fun M_main-1 () Int
+    0)
+  (define-fun B_main-12_main-7 () Int
+    0)
+  (define-fun B_f2-0_main-12 () Int
+    1)
+  (define-fun B_f4-1_main-2 () Int
+    0)
+  (define-fun B_main-5_main-6 () Int
+    1)
+  (define-fun B_main-11_main-9 () Int
+    0)
+  (define-fun B_main-10_main-2 () Int
+    0)
+  (define-fun B_main-11_main-8 () Int
+    0)
+  (define-fun SWRelation2 () Bool
+    true)
+  (define-fun B_main-1_main-6 () Int
+    1)
+  (define-fun B_f4-0_f4-2 () Int
+    1)
+  (define-fun MO1 () Bool
+    true)
+  (define-fun S_main-1 () Int
+    0)
+  (define-fun B_f2-1_f3-2 () Int
+    1)
+  (define-fun B_f4-3_main-5 () Int
+    0)
+  (define-fun B_f4-1_f4-3 () Int
+    1)
+  (define-fun B_f2-2_main-3 () Int
+    0)
+  (define-fun B_f3-1_main-4 () Int
+    0)
+  (define-fun B_f3-3_main-6 () Int
+    0)
+  (define-fun B_main-12_main-2 () Int
+    0)
+  (define-fun B_f3-2_main-6 () Int
+    0)
+  (define-fun B_main-0_main-6 () Int
+    1)
+  (define-fun B_main-0_main-11 () Int
+    1)
+  (define-fun B_main-4_main-7 () Int
+    1)
+  (define-fun B_f4-1_main-6 () Int
+    0)
+  (define-fun B_main-7_main-8 () Int
+    1)
+  (define-fun B_f3-2_f3-3 () Int
+    1)
+  (define-fun M_f2-1 () Int
+    2)
+  (define-fun B_f3-2_main-12 () Int
+    1)
+  (define-fun B_f4-3_main-12 () Int
+    1)
+  (define-fun B_f2-0_f2-1 () Int
+    1)
+  (define-fun M_main-3 () Int
+    0)
+  (define-fun B_main-6_main-7 () Int
+    1)
+  (define-fun B_main-0_main-1 () Int
+    1)
+  (define-fun B_f3-0_f3-3 () Int
+    1)
+  (define-fun B_main-0_main-9 () Int
+    1)
+  (define-fun B_f1-0_main-12 () Int
+    1)
+  (define-fun B_f1-1_main-9 () Int
+    1)
+  (define-fun B_main-0_main-8 () Int
+    1)
+)
+(error "line 400 column 15: unsat core is not available")
+end

@@ -17,19 +17,22 @@ namespace checker {
     public:
         Thread(Executor* exe, std::string tid, std::string n);
 
-        ~Thread(){}
+        ~Thread();
 
         bool pause(Action *h) {
             return false;
         }
 
-        int getValue(Action *action) {
+        void setInConsistency(bool flag) { inConsistency = flag; }
+        bool getInconsistency() { return inConsistency; }
+
+        /*int getValue(Action *action) {
             return -1;//preFix
-        }
+        }*/
 
-        void addAction(Action *action);
+        void addAction(Action *action, uint64_t clapNum);
 
-        std::vector<Action *> getActionList();
+        std::vector<Action *>& getActionList();
 
         std::string getName();
 
@@ -38,13 +41,14 @@ namespace checker {
         Executor* getExe() { return exe; }
 
         void clearBuffer(void* loc);
-        void updateBuffer(void* loc, int64_t val, int order);
-        void updateBuffer(std::map<void*, Buffer*> buffers);
+        void updateBuffer(void* loc, int64_t val, std::string context, int order);
+        void updateBuffer(std::map<std::string, Buffer*> buffers);
 
-        void fetchExpectVal(void* loc, int64_t val);
-        int64_t getValue(void* loc);
+        void fetchExpectVal(std::string context, void* loc, std::pair<int64_t, std::string> item);
+        std::pair<int64_t, std::string> getValue(std::string context, void* loc);
+        std::pair<int64_t, std::string> getValue2(std::string context, std::string expectContext, void* loc);
 
-        std::map<void*, Buffer*> getBuffers() { return buffers; }
+        std::map<std::string, Buffer*> getBuffers() { return buffers; }
 
         void addNewLoad(uint64_t clapNum, Action* action);
         //std::vector<std::pair<uint64_t, int> >  getClapNumMap() { return clapNumToSeqNum; }
@@ -53,7 +57,7 @@ namespace checker {
 
         void setTrackedBID(uint64_t bid);
         void clearBID();
-        std::set<uint64_t> getBID();
+        std::set<uint64_t>& getBID();
 
         void setCurrentBid(uint64_t bid);
         uint64_t getCurrentBid();
@@ -62,23 +66,30 @@ namespace checker {
 
         void updateReachabilityMap(uint64_t clapNum, Action* action);
         void setReachabilityMap(int seqNum, std::set<Action*> vec);
-        std::map<int, std::set<Action*> > &getReachabilityMap();
+        void addReachabilityMap(int seqNum, std::set<Action*> vec);
+        //std::map<int, std::set<Action*> > &getReachabilityMap();
         std::set<Action*> getReachabilityMap(int seqNum);
+
+        void setContext();
+        std::string getContext();
 
         void handleFuncBegin(std::string name);
         void handleFuncEnd();
 
         FairState* getFairState() { return fairState; }
 
-        void printTrace();
+        std::string printTrace();
+        void printReachabilityMap();
 
     private:
         std::string id;
         std::string name;
         Executor *exe;
+        std::string context;
         std::vector<Action *> actionList;
         std::vector<Action *> preFix;
-        std::map<void*, Buffer*> buffers; // loc -> buffer
+        std::map<std::string, Buffer*> buffers; // loc -> buffer
+        bool inConsistency;
 
         /*uint64_t trackedBID; // the bid that current inst dependents on
         uint64_t currentBID; // the previous bid
@@ -88,6 +99,8 @@ namespace checker {
         std::map<int, std::set<Action*> > reachabilityMap; // store seq num ->load seq num list
         std::vector<StackFrame*> stack;
         FairState* fairState;
+
+        std::map<std::string, std::pair<int64_t, int> > clapTimes; // for generating fair states
 
     };
 }

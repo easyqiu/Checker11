@@ -1,0 +1,1303 @@
+(set-option :produce-unsat-cores true)
+(echo "MEMORY-ORDER CONSTRAINTS -----")
+
+(declare-const B_p0-0_p1-0 Int)
+
+(declare-const B_p1-0_p0-0 Int)
+
+(declare-const B_p0-0_p1-1 Int)
+
+(declare-const B_p1-1_p0-0 Int)
+
+(declare-const B_p0-0_p1-2 Int)
+
+(declare-const B_p1-2_p0-0 Int)
+
+(declare-const B_p0-0_p1-3 Int)
+
+(declare-const B_p1-3_p0-0 Int)
+
+(declare-const B_p0-0_p1-4 Int)
+
+(declare-const B_p1-4_p0-0 Int)
+
+(declare-const B_p0-0_p1-5 Int)
+
+(declare-const B_p1-5_p0-0 Int)
+
+(declare-const B_p0-0_p1-6 Int)
+
+(declare-const B_p1-6_p0-0 Int)
+
+(declare-const B_p0-0_p1-7 Int)
+
+(declare-const B_p1-7_p0-0 Int)
+
+(declare-const B_p0-0_p1-8 Int)
+
+(declare-const B_p1-8_p0-0 Int)
+
+(declare-const B_p0-1_p1-0 Int)
+
+(declare-const B_p1-0_p0-1 Int)
+
+(declare-const B_p0-1_p1-1 Int)
+
+(declare-const B_p1-1_p0-1 Int)
+
+(declare-const B_p0-1_p1-2 Int)
+
+(declare-const B_p1-2_p0-1 Int)
+
+(declare-const B_p0-1_p1-3 Int)
+
+(declare-const B_p1-3_p0-1 Int)
+
+(declare-const B_p0-1_p1-4 Int)
+
+(declare-const B_p1-4_p0-1 Int)
+
+(declare-const B_p0-1_p1-5 Int)
+
+(declare-const B_p1-5_p0-1 Int)
+
+(declare-const B_p0-1_p1-6 Int)
+
+(declare-const B_p1-6_p0-1 Int)
+
+(declare-const B_p0-1_p1-7 Int)
+
+(declare-const B_p1-7_p0-1 Int)
+
+(declare-const B_p0-1_p1-8 Int)
+
+(declare-const B_p1-8_p0-1 Int)
+
+(declare-const B_p0-2_p1-0 Int)
+
+(declare-const B_p1-0_p0-2 Int)
+
+(declare-const B_p0-2_p1-1 Int)
+
+(declare-const B_p1-1_p0-2 Int)
+
+(declare-const B_p0-2_p1-2 Int)
+
+(declare-const B_p1-2_p0-2 Int)
+
+(declare-const B_p0-2_p1-3 Int)
+
+(declare-const B_p1-3_p0-2 Int)
+
+(declare-const B_p0-2_p1-4 Int)
+
+(declare-const B_p1-4_p0-2 Int)
+
+(declare-const B_p0-2_p1-5 Int)
+
+(declare-const B_p1-5_p0-2 Int)
+
+(declare-const B_p0-2_p1-6 Int)
+
+(declare-const B_p1-6_p0-2 Int)
+
+(declare-const B_p0-2_p1-7 Int)
+
+(declare-const B_p1-7_p0-2 Int)
+
+(declare-const B_p0-2_p1-8 Int)
+
+(declare-const B_p1-8_p0-2 Int)
+
+(declare-const B_p0-3_p1-0 Int)
+
+(declare-const B_p1-0_p0-3 Int)
+
+(declare-const B_p0-3_p1-1 Int)
+
+(declare-const B_p1-1_p0-3 Int)
+
+(declare-const B_p0-3_p1-2 Int)
+
+(declare-const B_p1-2_p0-3 Int)
+
+(declare-const B_p0-3_p1-3 Int)
+
+(declare-const B_p1-3_p0-3 Int)
+
+(declare-const B_p0-3_p1-4 Int)
+
+(declare-const B_p1-4_p0-3 Int)
+
+(declare-const B_p0-3_p1-5 Int)
+
+(declare-const B_p1-5_p0-3 Int)
+
+(declare-const B_p0-3_p1-6 Int)
+
+(declare-const B_p1-6_p0-3 Int)
+
+(declare-const B_p0-3_p1-7 Int)
+
+(declare-const B_p1-7_p0-3 Int)
+
+(declare-const B_p0-3_p1-8 Int)
+
+(declare-const B_p1-8_p0-3 Int)
+
+(declare-const B_p0-4_p1-0 Int)
+
+(declare-const B_p1-0_p0-4 Int)
+
+(declare-const B_p0-4_p1-1 Int)
+
+(declare-const B_p1-1_p0-4 Int)
+
+(declare-const B_p0-4_p1-2 Int)
+
+(declare-const B_p1-2_p0-4 Int)
+
+(declare-const B_p0-4_p1-3 Int)
+
+(declare-const B_p1-3_p0-4 Int)
+
+(declare-const B_p0-4_p1-4 Int)
+
+(declare-const B_p1-4_p0-4 Int)
+
+(declare-const B_p0-4_p1-5 Int)
+
+(declare-const B_p1-5_p0-4 Int)
+
+(declare-const B_p0-4_p1-6 Int)
+
+(declare-const B_p1-6_p0-4 Int)
+
+(declare-const B_p0-4_p1-7 Int)
+
+(declare-const B_p1-7_p0-4 Int)
+
+(declare-const B_p0-4_p1-8 Int)
+
+(declare-const B_p1-8_p0-4 Int)
+
+(declare-const B_p0-5_p1-0 Int)
+
+(declare-const B_p1-0_p0-5 Int)
+
+(declare-const B_p0-5_p1-1 Int)
+
+(declare-const B_p1-1_p0-5 Int)
+
+(declare-const B_p0-5_p1-2 Int)
+
+(declare-const B_p1-2_p0-5 Int)
+
+(declare-const B_p0-5_p1-3 Int)
+
+(declare-const B_p1-3_p0-5 Int)
+
+(declare-const B_p0-5_p1-4 Int)
+
+(declare-const B_p1-4_p0-5 Int)
+
+(declare-const B_p0-5_p1-5 Int)
+
+(declare-const B_p1-5_p0-5 Int)
+
+(declare-const B_p0-5_p1-6 Int)
+
+(declare-const B_p1-6_p0-5 Int)
+
+(declare-const B_p0-5_p1-7 Int)
+
+(declare-const B_p1-7_p0-5 Int)
+
+(declare-const B_p0-5_p1-8 Int)
+
+(declare-const B_p1-8_p0-5 Int)
+
+(declare-const B_p0-6_p1-0 Int)
+
+(declare-const B_p1-0_p0-6 Int)
+
+(declare-const B_p0-6_p1-1 Int)
+
+(declare-const B_p1-1_p0-6 Int)
+
+(declare-const B_p0-6_p1-2 Int)
+
+(declare-const B_p1-2_p0-6 Int)
+
+(declare-const B_p0-6_p1-3 Int)
+
+(declare-const B_p1-3_p0-6 Int)
+
+(declare-const B_p0-6_p1-4 Int)
+
+(declare-const B_p1-4_p0-6 Int)
+
+(declare-const B_p0-6_p1-5 Int)
+
+(declare-const B_p1-5_p0-6 Int)
+
+(declare-const B_p0-6_p1-6 Int)
+
+(declare-const B_p1-6_p0-6 Int)
+
+(declare-const B_p0-6_p1-7 Int)
+
+(declare-const B_p1-7_p0-6 Int)
+
+(declare-const B_p0-6_p1-8 Int)
+
+(declare-const B_p1-8_p0-6 Int)
+
+(declare-const B_p0-7_p1-0 Int)
+
+(declare-const B_p1-0_p0-7 Int)
+
+(declare-const B_p0-7_p1-1 Int)
+
+(declare-const B_p1-1_p0-7 Int)
+
+(declare-const B_p0-7_p1-2 Int)
+
+(declare-const B_p1-2_p0-7 Int)
+
+(declare-const B_p0-7_p1-3 Int)
+
+(declare-const B_p1-3_p0-7 Int)
+
+(declare-const B_p0-7_p1-4 Int)
+
+(declare-const B_p1-4_p0-7 Int)
+
+(declare-const B_p0-7_p1-5 Int)
+
+(declare-const B_p1-5_p0-7 Int)
+
+(declare-const B_p0-7_p1-6 Int)
+
+(declare-const B_p1-6_p0-7 Int)
+
+(declare-const B_p0-7_p1-7 Int)
+
+(declare-const B_p1-7_p0-7 Int)
+
+(declare-const B_p0-7_p1-8 Int)
+
+(declare-const B_p1-8_p0-7 Int)
+
+(declare-const B_p0-8_p1-0 Int)
+
+(declare-const B_p1-0_p0-8 Int)
+
+(declare-const B_p0-8_p1-1 Int)
+
+(declare-const B_p1-1_p0-8 Int)
+
+(declare-const B_p0-8_p1-2 Int)
+
+(declare-const B_p1-2_p0-8 Int)
+
+(declare-const B_p0-8_p1-3 Int)
+
+(declare-const B_p1-3_p0-8 Int)
+
+(declare-const B_p0-8_p1-4 Int)
+
+(declare-const B_p1-4_p0-8 Int)
+
+(declare-const B_p0-8_p1-5 Int)
+
+(declare-const B_p1-5_p0-8 Int)
+
+(declare-const B_p0-8_p1-6 Int)
+
+(declare-const B_p1-6_p0-8 Int)
+
+(declare-const B_p0-8_p1-7 Int)
+
+(declare-const B_p1-7_p0-8 Int)
+
+(declare-const B_p0-8_p1-8 Int)
+
+(declare-const B_p1-8_p0-8 Int)
+
+(declare-const B_p0-9_p1-0 Int)
+
+(declare-const B_p1-0_p0-9 Int)
+
+(declare-const B_p0-9_p1-1 Int)
+
+(declare-const B_p1-1_p0-9 Int)
+
+(declare-const B_p0-9_p1-2 Int)
+
+(declare-const B_p1-2_p0-9 Int)
+
+(declare-const B_p0-9_p1-3 Int)
+
+(declare-const B_p1-3_p0-9 Int)
+
+(declare-const B_p0-9_p1-4 Int)
+
+(declare-const B_p1-4_p0-9 Int)
+
+(declare-const B_p0-9_p1-5 Int)
+
+(declare-const B_p1-5_p0-9 Int)
+
+(declare-const B_p0-9_p1-6 Int)
+
+(declare-const B_p1-6_p0-9 Int)
+
+(declare-const B_p0-9_p1-7 Int)
+
+(declare-const B_p1-7_p0-9 Int)
+
+(declare-const B_p0-9_p1-8 Int)
+
+(declare-const B_p1-8_p0-9 Int)
+
+(declare-const B_p0-10_p1-0 Int)
+
+(declare-const B_p1-0_p0-10 Int)
+
+(declare-const B_p0-10_p1-1 Int)
+
+(declare-const B_p1-1_p0-10 Int)
+
+(declare-const B_p0-10_p1-2 Int)
+
+(declare-const B_p1-2_p0-10 Int)
+
+(declare-const B_p0-10_p1-3 Int)
+
+(declare-const B_p1-3_p0-10 Int)
+
+(declare-const B_p0-10_p1-4 Int)
+
+(declare-const B_p1-4_p0-10 Int)
+
+(declare-const B_p0-10_p1-5 Int)
+
+(declare-const B_p1-5_p0-10 Int)
+
+(declare-const B_p0-10_p1-6 Int)
+
+(declare-const B_p1-6_p0-10 Int)
+
+(declare-const B_p0-10_p1-7 Int)
+
+(declare-const B_p1-7_p0-10 Int)
+
+(declare-const B_p0-10_p1-8 Int)
+
+(declare-const B_p1-8_p0-10 Int)
+
+(declare-const B_p0-11_p1-0 Int)
+
+(declare-const B_p1-0_p0-11 Int)
+
+(declare-const B_p0-11_p1-1 Int)
+
+(declare-const B_p1-1_p0-11 Int)
+
+(declare-const B_p0-11_p1-2 Int)
+
+(declare-const B_p1-2_p0-11 Int)
+
+(declare-const B_p0-11_p1-3 Int)
+
+(declare-const B_p1-3_p0-11 Int)
+
+(declare-const B_p0-11_p1-4 Int)
+
+(declare-const B_p1-4_p0-11 Int)
+
+(declare-const B_p0-11_p1-5 Int)
+
+(declare-const B_p1-5_p0-11 Int)
+
+(declare-const B_p0-11_p1-6 Int)
+
+(declare-const B_p1-6_p0-11 Int)
+
+(declare-const B_p0-11_p1-7 Int)
+
+(declare-const B_p1-7_p0-11 Int)
+
+(declare-const B_p0-11_p1-8 Int)
+
+(declare-const B_p1-8_p0-11 Int)
+
+(declare-const B_p0-0_main-0 Int)
+
+(declare-const B_main-0_p0-0 Int)
+
+(declare-const B_p0-0_main-1 Int)
+
+(declare-const B_main-1_p0-0 Int)
+
+(declare-const B_p0-0_main-2 Int)
+
+(declare-const B_main-2_p0-0 Int)
+
+(declare-const B_p0-0_main-3 Int)
+
+(declare-const B_main-3_p0-0 Int)
+
+(declare-const B_p0-0_main-4 Int)
+
+(declare-const B_main-4_p0-0 Int)
+
+(declare-const B_p0-0_main-5 Int)
+
+(declare-const B_main-5_p0-0 Int)
+
+(declare-const B_p0-0_main-6 Int)
+
+(declare-const B_main-6_p0-0 Int)
+
+(declare-const B_p0-0_main-7 Int)
+
+(declare-const B_main-7_p0-0 Int)
+
+(declare-const B_p0-0_main-8 Int)
+
+(declare-const B_main-8_p0-0 Int)
+
+(declare-const B_p0-1_main-0 Int)
+
+(declare-const B_main-0_p0-1 Int)
+
+(declare-const B_p0-1_main-1 Int)
+
+(declare-const B_main-1_p0-1 Int)
+
+(declare-const B_p0-1_main-2 Int)
+
+(declare-const B_main-2_p0-1 Int)
+
+(declare-const B_p0-1_main-3 Int)
+
+(declare-const B_main-3_p0-1 Int)
+
+(declare-const B_p0-1_main-4 Int)
+
+(declare-const B_main-4_p0-1 Int)
+
+(declare-const B_p0-1_main-5 Int)
+
+(declare-const B_main-5_p0-1 Int)
+
+(declare-const B_p0-1_main-6 Int)
+
+(declare-const B_main-6_p0-1 Int)
+
+(declare-const B_p0-1_main-7 Int)
+
+(declare-const B_main-7_p0-1 Int)
+
+(declare-const B_p0-1_main-8 Int)
+
+(declare-const B_main-8_p0-1 Int)
+
+(declare-const B_p0-2_main-0 Int)
+
+(declare-const B_main-0_p0-2 Int)
+
+(declare-const B_p0-2_main-1 Int)
+
+(declare-const B_main-1_p0-2 Int)
+
+(declare-const B_p0-2_main-2 Int)
+
+(declare-const B_main-2_p0-2 Int)
+
+(declare-const B_p0-2_main-3 Int)
+
+(declare-const B_main-3_p0-2 Int)
+
+(declare-const B_p0-2_main-4 Int)
+
+(declare-const B_main-4_p0-2 Int)
+
+(declare-const B_p0-2_main-5 Int)
+
+(declare-const B_main-5_p0-2 Int)
+
+(declare-const B_p0-2_main-6 Int)
+
+(declare-const B_main-6_p0-2 Int)
+
+(declare-const B_p0-2_main-7 Int)
+
+(declare-const B_main-7_p0-2 Int)
+
+(declare-const B_p0-2_main-8 Int)
+
+(declare-const B_main-8_p0-2 Int)
+
+(declare-const B_p0-3_main-0 Int)
+
+(declare-const B_main-0_p0-3 Int)
+
+(declare-const B_p0-3_main-1 Int)
+
+(declare-const B_main-1_p0-3 Int)
+
+(declare-const B_p0-3_main-2 Int)
+
+(declare-const B_main-2_p0-3 Int)
+
+(declare-const B_p0-3_main-3 Int)
+
+(declare-const B_main-3_p0-3 Int)
+
+(declare-const B_p0-3_main-4 Int)
+
+(declare-const B_main-4_p0-3 Int)
+
+(declare-const B_p0-3_main-5 Int)
+
+(declare-const B_main-5_p0-3 Int)
+
+(declare-const B_p0-3_main-6 Int)
+
+(declare-const B_main-6_p0-3 Int)
+
+(declare-const B_p0-3_main-7 Int)
+
+(declare-const B_main-7_p0-3 Int)
+
+(declare-const B_p0-3_main-8 Int)
+
+(declare-const B_main-8_p0-3 Int)
+
+(declare-const B_p0-4_main-0 Int)
+
+(declare-const B_main-0_p0-4 Int)
+
+(declare-const B_p0-4_main-1 Int)
+
+(declare-const B_main-1_p0-4 Int)
+
+(declare-const B_p0-4_main-2 Int)
+
+(declare-const B_main-2_p0-4 Int)
+
+(declare-const B_p0-4_main-3 Int)
+
+(declare-const B_main-3_p0-4 Int)
+
+(declare-const B_p0-4_main-4 Int)
+
+(declare-const B_main-4_p0-4 Int)
+
+(declare-const B_p0-4_main-5 Int)
+
+(declare-const B_main-5_p0-4 Int)
+
+(declare-const B_p0-4_main-6 Int)
+
+(declare-const B_main-6_p0-4 Int)
+
+(declare-const B_p0-4_main-7 Int)
+
+(declare-const B_main-7_p0-4 Int)
+
+(declare-const B_p0-4_main-8 Int)
+
+(declare-const B_main-8_p0-4 Int)
+
+(declare-const B_p0-5_main-0 Int)
+
+(declare-const B_main-0_p0-5 Int)
+
+(declare-const B_p0-5_main-1 Int)
+
+(declare-const B_main-1_p0-5 Int)
+
+(declare-const B_p0-5_main-2 Int)
+
+(declare-const B_main-2_p0-5 Int)
+
+(declare-const B_p0-5_main-3 Int)
+
+(declare-const B_main-3_p0-5 Int)
+
+(declare-const B_p0-5_main-4 Int)
+
+(declare-const B_main-4_p0-5 Int)
+
+(declare-const B_p0-5_main-5 Int)
+
+(declare-const B_main-5_p0-5 Int)
+
+(declare-const B_p0-5_main-6 Int)
+
+(declare-const B_main-6_p0-5 Int)
+
+(declare-const B_p0-5_main-7 Int)
+
+(declare-const B_main-7_p0-5 Int)
+
+(declare-const B_p0-5_main-8 Int)
+
+(declare-const B_main-8_p0-5 Int)
+
+(declare-const B_p0-6_main-0 Int)
+
+(declare-const B_main-0_p0-6 Int)
+
+(declare-const B_p0-6_main-1 Int)
+
+(declare-const B_main-1_p0-6 Int)
+
+(declare-const B_p0-6_main-2 Int)
+
+(declare-const B_main-2_p0-6 Int)
+
+(declare-const B_p0-6_main-3 Int)
+
+(declare-const B_main-3_p0-6 Int)
+
+(declare-const B_p0-6_main-4 Int)
+
+(declare-const B_main-4_p0-6 Int)
+
+(declare-const B_p0-6_main-5 Int)
+
+(declare-const B_main-5_p0-6 Int)
+
+(declare-const B_p0-6_main-6 Int)
+
+(declare-const B_main-6_p0-6 Int)
+
+(declare-const B_p0-6_main-7 Int)
+
+(declare-const B_main-7_p0-6 Int)
+
+(declare-const B_p0-6_main-8 Int)
+
+(declare-const B_main-8_p0-6 Int)
+
+(declare-const B_p0-7_main-0 Int)
+
+(declare-const B_main-0_p0-7 Int)
+
+(declare-const B_p0-7_main-1 Int)
+
+(declare-const B_main-1_p0-7 Int)
+
+(declare-const B_p0-7_main-2 Int)
+
+(declare-const B_main-2_p0-7 Int)
+
+(declare-const B_p0-7_main-3 Int)
+
+(declare-const B_main-3_p0-7 Int)
+
+(declare-const B_p0-7_main-4 Int)
+
+(declare-const B_main-4_p0-7 Int)
+
+(declare-const B_p0-7_main-5 Int)
+
+(declare-const B_main-5_p0-7 Int)
+
+(declare-const B_p0-7_main-6 Int)
+
+(declare-const B_main-6_p0-7 Int)
+
+(declare-const B_p0-7_main-7 Int)
+
+(declare-const B_main-7_p0-7 Int)
+
+(declare-const B_p0-7_main-8 Int)
+
+(declare-const B_main-8_p0-7 Int)
+
+(declare-const B_p0-8_main-0 Int)
+
+(declare-const B_main-0_p0-8 Int)
+
+(declare-const B_p0-8_main-1 Int)
+
+(declare-const B_main-1_p0-8 Int)
+
+(declare-const B_p0-8_main-2 Int)
+
+(declare-const B_main-2_p0-8 Int)
+
+(declare-const B_p0-8_main-3 Int)
+
+(declare-const B_main-3_p0-8 Int)
+
+(declare-const B_p0-8_main-4 Int)
+
+(declare-const B_main-4_p0-8 Int)
+
+(declare-const B_p0-8_main-5 Int)
+
+(declare-const B_main-5_p0-8 Int)
+
+(declare-const B_p0-8_main-6 Int)
+
+(declare-const B_main-6_p0-8 Int)
+
+(declare-const B_p0-8_main-7 Int)
+
+(declare-const B_main-7_p0-8 Int)
+
+(declare-const B_p0-8_main-8 Int)
+
+(declare-const B_main-8_p0-8 Int)
+
+(declare-const B_p0-9_main-0 Int)
+
+(declare-const B_main-0_p0-9 Int)
+
+(declare-const B_p0-9_main-1 Int)
+
+(declare-const B_main-1_p0-9 Int)
+
+(declare-const B_p0-9_main-2 Int)
+
+(declare-const B_main-2_p0-9 Int)
+
+(declare-const B_p0-9_main-3 Int)
+
+(declare-const B_main-3_p0-9 Int)
+
+(declare-const B_p0-9_main-4 Int)
+
+(declare-const B_main-4_p0-9 Int)
+
+(declare-const B_p0-9_main-5 Int)
+
+(declare-const B_main-5_p0-9 Int)
+
+(declare-const B_p0-9_main-6 Int)
+
+(declare-const B_main-6_p0-9 Int)
+
+(declare-const B_p0-9_main-7 Int)
+
+(declare-const B_main-7_p0-9 Int)
+
+(declare-const B_p0-9_main-8 Int)
+
+(declare-const B_main-8_p0-9 Int)
+
+(declare-const B_p0-10_main-0 Int)
+
+(declare-const B_main-0_p0-10 Int)
+
+(declare-const B_p0-10_main-1 Int)
+
+(declare-const B_main-1_p0-10 Int)
+
+(declare-const B_p0-10_main-2 Int)
+
+(declare-const B_main-2_p0-10 Int)
+
+(declare-const B_p0-10_main-3 Int)
+
+(declare-const B_main-3_p0-10 Int)
+
+(declare-const B_p0-10_main-4 Int)
+
+(declare-const B_main-4_p0-10 Int)
+
+(declare-const B_p0-10_main-5 Int)
+
+(declare-const B_main-5_p0-10 Int)
+
+(declare-const B_p0-10_main-6 Int)
+
+(declare-const B_main-6_p0-10 Int)
+
+(declare-const B_p0-10_main-7 Int)
+
+(declare-const B_main-7_p0-10 Int)
+
+(declare-const B_p0-10_main-8 Int)
+
+(declare-const B_main-8_p0-10 Int)
+
+(declare-const B_p0-11_main-0 Int)
+
+(declare-const B_main-0_p0-11 Int)
+
+(declare-const B_p0-11_main-1 Int)
+
+(declare-const B_main-1_p0-11 Int)
+
+(declare-const B_p0-11_main-2 Int)
+
+(declare-const B_main-2_p0-11 Int)
+
+(declare-const B_p0-11_main-3 Int)
+
+(declare-const B_main-3_p0-11 Int)
+
+(declare-const B_p0-11_main-4 Int)
+
+(declare-const B_main-4_p0-11 Int)
+
+(declare-const B_p0-11_main-5 Int)
+
+(declare-const B_main-5_p0-11 Int)
+
+(declare-const B_p0-11_main-6 Int)
+
+(declare-const B_main-6_p0-11 Int)
+
+(declare-const B_p0-11_main-7 Int)
+
+(declare-const B_main-7_p0-11 Int)
+
+(declare-const B_p0-11_main-8 Int)
+
+(declare-const B_main-8_p0-11 Int)
+
+(declare-const B_p1-0_main-0 Int)
+
+(declare-const B_main-0_p1-0 Int)
+
+(declare-const B_p1-0_main-1 Int)
+
+(declare-const B_main-1_p1-0 Int)
+
+(declare-const B_p1-0_main-2 Int)
+
+(declare-const B_main-2_p1-0 Int)
+
+(declare-const B_p1-0_main-3 Int)
+
+(declare-const B_main-3_p1-0 Int)
+
+(declare-const B_p1-0_main-4 Int)
+
+(declare-const B_main-4_p1-0 Int)
+
+(declare-const B_p1-0_main-5 Int)
+
+(declare-const B_main-5_p1-0 Int)
+
+(declare-const B_p1-0_main-6 Int)
+
+(declare-const B_main-6_p1-0 Int)
+
+(declare-const B_p1-0_main-7 Int)
+
+(declare-const B_main-7_p1-0 Int)
+
+(declare-const B_p1-0_main-8 Int)
+
+(declare-const B_main-8_p1-0 Int)
+
+(declare-const B_p1-1_main-0 Int)
+
+(declare-const B_main-0_p1-1 Int)
+
+(declare-const B_p1-1_main-1 Int)
+
+(declare-const B_main-1_p1-1 Int)
+
+(declare-const B_p1-1_main-2 Int)
+
+(declare-const B_main-2_p1-1 Int)
+
+(declare-const B_p1-1_main-3 Int)
+
+(declare-const B_main-3_p1-1 Int)
+
+(declare-const B_p1-1_main-4 Int)
+
+(declare-const B_main-4_p1-1 Int)
+
+(declare-const B_p1-1_main-5 Int)
+
+(declare-const B_main-5_p1-1 Int)
+
+(declare-const B_p1-1_main-6 Int)
+
+(declare-const B_main-6_p1-1 Int)
+
+(declare-const B_p1-1_main-7 Int)
+
+(declare-const B_main-7_p1-1 Int)
+
+(declare-const B_p1-1_main-8 Int)
+
+(declare-const B_main-8_p1-1 Int)
+
+(declare-const B_p1-2_main-0 Int)
+
+(declare-const B_main-0_p1-2 Int)
+
+(declare-const B_p1-2_main-1 Int)
+
+(declare-const B_main-1_p1-2 Int)
+
+(declare-const B_p1-2_main-2 Int)
+
+(declare-const B_main-2_p1-2 Int)
+
+(declare-const B_p1-2_main-3 Int)
+
+(declare-const B_main-3_p1-2 Int)
+
+(declare-const B_p1-2_main-4 Int)
+
+(declare-const B_main-4_p1-2 Int)
+
+(declare-const B_p1-2_main-5 Int)
+
+(declare-const B_main-5_p1-2 Int)
+
+(declare-const B_p1-2_main-6 Int)
+
+(declare-const B_main-6_p1-2 Int)
+
+(declare-const B_p1-2_main-7 Int)
+
+(declare-const B_main-7_p1-2 Int)
+
+(declare-const B_p1-2_main-8 Int)
+
+(declare-const B_main-8_p1-2 Int)
+
+(declare-const B_p1-3_main-0 Int)
+
+(declare-const B_main-0_p1-3 Int)
+
+(declare-const B_p1-3_main-1 Int)
+
+(declare-const B_main-1_p1-3 Int)
+
+(declare-const B_p1-3_main-2 Int)
+
+(declare-const B_main-2_p1-3 Int)
+
+(declare-const B_p1-3_main-3 Int)
+
+(declare-const B_main-3_p1-3 Int)
+
+(declare-const B_p1-3_main-4 Int)
+
+(declare-const B_main-4_p1-3 Int)
+
+(declare-const B_p1-3_main-5 Int)
+
+(declare-const B_main-5_p1-3 Int)
+
+(declare-const B_p1-3_main-6 Int)
+
+(declare-const B_main-6_p1-3 Int)
+
+(declare-const B_p1-3_main-7 Int)
+
+(declare-const B_main-7_p1-3 Int)
+
+(declare-const B_p1-3_main-8 Int)
+
+(declare-const B_main-8_p1-3 Int)
+
+(declare-const B_p1-4_main-0 Int)
+
+(declare-const B_main-0_p1-4 Int)
+
+(declare-const B_p1-4_main-1 Int)
+
+(declare-const B_main-1_p1-4 Int)
+
+(declare-const B_p1-4_main-2 Int)
+
+(declare-const B_main-2_p1-4 Int)
+
+(declare-const B_p1-4_main-3 Int)
+
+(declare-const B_main-3_p1-4 Int)
+
+(declare-const B_p1-4_main-4 Int)
+
+(declare-const B_main-4_p1-4 Int)
+
+(declare-const B_p1-4_main-5 Int)
+
+(declare-const B_main-5_p1-4 Int)
+
+(declare-const B_p1-4_main-6 Int)
+
+(declare-const B_main-6_p1-4 Int)
+
+(declare-const B_p1-4_main-7 Int)
+
+(declare-const B_main-7_p1-4 Int)
+
+(declare-const B_p1-4_main-8 Int)
+
+(declare-const B_main-8_p1-4 Int)
+
+(declare-const B_p1-5_main-0 Int)
+
+(declare-const B_main-0_p1-5 Int)
+
+(declare-const B_p1-5_main-1 Int)
+
+(declare-const B_main-1_p1-5 Int)
+
+(declare-const B_p1-5_main-2 Int)
+
+(declare-const B_main-2_p1-5 Int)
+
+(declare-const B_p1-5_main-3 Int)
+
+(declare-const B_main-3_p1-5 Int)
+
+(declare-const B_p1-5_main-4 Int)
+
+(declare-const B_main-4_p1-5 Int)
+
+(declare-const B_p1-5_main-5 Int)
+
+(declare-const B_main-5_p1-5 Int)
+
+(declare-const B_p1-5_main-6 Int)
+
+(declare-const B_main-6_p1-5 Int)
+
+(declare-const B_p1-5_main-7 Int)
+
+(declare-const B_main-7_p1-5 Int)
+
+(declare-const B_p1-5_main-8 Int)
+
+(declare-const B_main-8_p1-5 Int)
+
+(declare-const B_p1-6_main-0 Int)
+
+(declare-const B_main-0_p1-6 Int)
+
+(declare-const B_p1-6_main-1 Int)
+
+(declare-const B_main-1_p1-6 Int)
+
+(declare-const B_p1-6_main-2 Int)
+
+(declare-const B_main-2_p1-6 Int)
+
+(declare-const B_p1-6_main-3 Int)
+
+(declare-const B_main-3_p1-6 Int)
+
+(declare-const B_p1-6_main-4 Int)
+
+(declare-const B_main-4_p1-6 Int)
+
+(declare-const B_p1-6_main-5 Int)
+
+(declare-const B_main-5_p1-6 Int)
+
+(declare-const B_p1-6_main-6 Int)
+
+(declare-const B_main-6_p1-6 Int)
+
+(declare-const B_p1-6_main-7 Int)
+
+(declare-const B_main-7_p1-6 Int)
+
+(declare-const B_p1-6_main-8 Int)
+
+(declare-const B_main-8_p1-6 Int)
+
+(declare-const B_p1-7_main-0 Int)
+
+(declare-const B_main-0_p1-7 Int)
+
+(declare-const B_p1-7_main-1 Int)
+
+(declare-const B_main-1_p1-7 Int)
+
+(declare-const B_p1-7_main-2 Int)
+
+(declare-const B_main-2_p1-7 Int)
+
+(declare-const B_p1-7_main-3 Int)
+
+(declare-const B_main-3_p1-7 Int)
+
+(declare-const B_p1-7_main-4 Int)
+
+(declare-const B_main-4_p1-7 Int)
+
+(declare-const B_p1-7_main-5 Int)
+
+(declare-const B_main-5_p1-7 Int)
+
+(declare-const B_p1-7_main-6 Int)
+
+(declare-const B_main-6_p1-7 Int)
+
+(declare-const B_p1-7_main-7 Int)
+
+(declare-const B_main-7_p1-7 Int)
+
+(declare-const B_p1-7_main-8 Int)
+
+(declare-const B_main-8_p1-7 Int)
+
+(declare-const B_p1-8_main-0 Int)
+
+(declare-const B_main-0_p1-8 Int)
+
+(declare-const B_p1-8_main-1 Int)
+
+(declare-const B_main-1_p1-8 Int)
+
+(declare-const B_p1-8_main-2 Int)
+
+(declare-const B_main-2_p1-8 Int)
+
+(declare-const B_p1-8_main-3 Int)
+
+(declare-const B_main-3_p1-8 Int)
+
+(declare-const B_p1-8_main-4 Int)
+
+(declare-const B_main-4_p1-8 Int)
+
+(declare-const B_p1-8_main-5 Int)
+
+(declare-const B_main-5_p1-8 Int)
+
+(declare-const B_p1-8_main-6 Int)
+
+(declare-const B_main-6_p1-8 Int)
+
+(declare-const B_p1-8_main-7 Int)
+
+(declare-const B_main-7_p1-8 Int)
+
+(declare-const B_p1-8_main-8 Int)
+
+(declare-const B_main-8_p1-8 Int)
+
+(assert (! (and  (= false (or (and (= B_p0-0_p1-0 1) (= B_p1-0_p0-0 1)) (and (= B_p0-0_p1-0 0) (= B_p1-0_p0-0 0))))  (= false (or (and (= B_p0-0_p1-1 1) (= B_p1-1_p0-0 1)) (and (= B_p0-0_p1-1 0) (= B_p1-1_p0-0 0))))  (= false (or (and (= B_p0-0_p1-2 1) (= B_p1-2_p0-0 1)) (and (= B_p0-0_p1-2 0) (= B_p1-2_p0-0 0))))  (= false (or (and (= B_p0-0_p1-3 1) (= B_p1-3_p0-0 1)) (and (= B_p0-0_p1-3 0) (= B_p1-3_p0-0 0))))  (= false (or (and (= B_p0-0_p1-4 1) (= B_p1-4_p0-0 1)) (and (= B_p0-0_p1-4 0) (= B_p1-4_p0-0 0))))  (= false (or (and (= B_p0-0_p1-5 1) (= B_p1-5_p0-0 1)) (and (= B_p0-0_p1-5 0) (= B_p1-5_p0-0 0))))  (= false (or (and (= B_p0-0_p1-6 1) (= B_p1-6_p0-0 1)) (and (= B_p0-0_p1-6 0) (= B_p1-6_p0-0 0))))  (= false (or (and (= B_p0-0_p1-7 1) (= B_p1-7_p0-0 1)) (and (= B_p0-0_p1-7 0) (= B_p1-7_p0-0 0))))  (= false (or (and (= B_p0-0_p1-8 1) (= B_p1-8_p0-0 1)) (and (= B_p0-0_p1-8 0) (= B_p1-8_p0-0 0))))  (= false (or (and (= B_p0-1_p1-0 1) (= B_p1-0_p0-1 1)) (and (= B_p0-1_p1-0 0) (= B_p1-0_p0-1 0))))  (= false (or (and (= B_p0-1_p1-1 1) (= B_p1-1_p0-1 1)) (and (= B_p0-1_p1-1 0) (= B_p1-1_p0-1 0))))  (= false (or (and (= B_p0-1_p1-2 1) (= B_p1-2_p0-1 1)) (and (= B_p0-1_p1-2 0) (= B_p1-2_p0-1 0))))  (= false (or (and (= B_p0-1_p1-3 1) (= B_p1-3_p0-1 1)) (and (= B_p0-1_p1-3 0) (= B_p1-3_p0-1 0))))  (= false (or (and (= B_p0-1_p1-4 1) (= B_p1-4_p0-1 1)) (and (= B_p0-1_p1-4 0) (= B_p1-4_p0-1 0))))  (= false (or (and (= B_p0-1_p1-5 1) (= B_p1-5_p0-1 1)) (and (= B_p0-1_p1-5 0) (= B_p1-5_p0-1 0))))  (= false (or (and (= B_p0-1_p1-6 1) (= B_p1-6_p0-1 1)) (and (= B_p0-1_p1-6 0) (= B_p1-6_p0-1 0))))  (= false (or (and (= B_p0-1_p1-7 1) (= B_p1-7_p0-1 1)) (and (= B_p0-1_p1-7 0) (= B_p1-7_p0-1 0))))  (= false (or (and (= B_p0-1_p1-8 1) (= B_p1-8_p0-1 1)) (and (= B_p0-1_p1-8 0) (= B_p1-8_p0-1 0))))  (= false (or (and (= B_p0-2_p1-0 1) (= B_p1-0_p0-2 1)) (and (= B_p0-2_p1-0 0) (= B_p1-0_p0-2 0))))  (= false (or (and (= B_p0-2_p1-1 1) (= B_p1-1_p0-2 1)) (and (= B_p0-2_p1-1 0) (= B_p1-1_p0-2 0))))  (= false (or (and (= B_p0-2_p1-2 1) (= B_p1-2_p0-2 1)) (and (= B_p0-2_p1-2 0) (= B_p1-2_p0-2 0))))  (= false (or (and (= B_p0-2_p1-3 1) (= B_p1-3_p0-2 1)) (and (= B_p0-2_p1-3 0) (= B_p1-3_p0-2 0))))  (= false (or (and (= B_p0-2_p1-4 1) (= B_p1-4_p0-2 1)) (and (= B_p0-2_p1-4 0) (= B_p1-4_p0-2 0))))  (= false (or (and (= B_p0-2_p1-5 1) (= B_p1-5_p0-2 1)) (and (= B_p0-2_p1-5 0) (= B_p1-5_p0-2 0))))  (= false (or (and (= B_p0-2_p1-6 1) (= B_p1-6_p0-2 1)) (and (= B_p0-2_p1-6 0) (= B_p1-6_p0-2 0))))  (= false (or (and (= B_p0-2_p1-7 1) (= B_p1-7_p0-2 1)) (and (= B_p0-2_p1-7 0) (= B_p1-7_p0-2 0))))  (= false (or (and (= B_p0-2_p1-8 1) (= B_p1-8_p0-2 1)) (and (= B_p0-2_p1-8 0) (= B_p1-8_p0-2 0))))  (= false (or (and (= B_p0-3_p1-0 1) (= B_p1-0_p0-3 1)) (and (= B_p0-3_p1-0 0) (= B_p1-0_p0-3 0))))  (= false (or (and (= B_p0-3_p1-1 1) (= B_p1-1_p0-3 1)) (and (= B_p0-3_p1-1 0) (= B_p1-1_p0-3 0))))  (= false (or (and (= B_p0-3_p1-2 1) (= B_p1-2_p0-3 1)) (and (= B_p0-3_p1-2 0) (= B_p1-2_p0-3 0))))  (= false (or (and (= B_p0-3_p1-3 1) (= B_p1-3_p0-3 1)) (and (= B_p0-3_p1-3 0) (= B_p1-3_p0-3 0))))  (= false (or (and (= B_p0-3_p1-4 1) (= B_p1-4_p0-3 1)) (and (= B_p0-3_p1-4 0) (= B_p1-4_p0-3 0))))  (= false (or (and (= B_p0-3_p1-5 1) (= B_p1-5_p0-3 1)) (and (= B_p0-3_p1-5 0) (= B_p1-5_p0-3 0))))  (= false (or (and (= B_p0-3_p1-6 1) (= B_p1-6_p0-3 1)) (and (= B_p0-3_p1-6 0) (= B_p1-6_p0-3 0))))  (= false (or (and (= B_p0-3_p1-7 1) (= B_p1-7_p0-3 1)) (and (= B_p0-3_p1-7 0) (= B_p1-7_p0-3 0))))  (= false (or (and (= B_p0-3_p1-8 1) (= B_p1-8_p0-3 1)) (and (= B_p0-3_p1-8 0) (= B_p1-8_p0-3 0))))  (= false (or (and (= B_p0-4_p1-0 1) (= B_p1-0_p0-4 1)) (and (= B_p0-4_p1-0 0) (= B_p1-0_p0-4 0))))  (= false (or (and (= B_p0-4_p1-1 1) (= B_p1-1_p0-4 1)) (and (= B_p0-4_p1-1 0) (= B_p1-1_p0-4 0))))  (= false (or (and (= B_p0-4_p1-2 1) (= B_p1-2_p0-4 1)) (and (= B_p0-4_p1-2 0) (= B_p1-2_p0-4 0))))  (= false (or (and (= B_p0-4_p1-3 1) (= B_p1-3_p0-4 1)) (and (= B_p0-4_p1-3 0) (= B_p1-3_p0-4 0))))  (= false (or (and (= B_p0-4_p1-4 1) (= B_p1-4_p0-4 1)) (and (= B_p0-4_p1-4 0) (= B_p1-4_p0-4 0))))  (= false (or (and (= B_p0-4_p1-5 1) (= B_p1-5_p0-4 1)) (and (= B_p0-4_p1-5 0) (= B_p1-5_p0-4 0))))  (= false (or (and (= B_p0-4_p1-6 1) (= B_p1-6_p0-4 1)) (and (= B_p0-4_p1-6 0) (= B_p1-6_p0-4 0))))  (= false (or (and (= B_p0-4_p1-7 1) (= B_p1-7_p0-4 1)) (and (= B_p0-4_p1-7 0) (= B_p1-7_p0-4 0))))  (= false (or (and (= B_p0-4_p1-8 1) (= B_p1-8_p0-4 1)) (and (= B_p0-4_p1-8 0) (= B_p1-8_p0-4 0))))  (= false (or (and (= B_p0-5_p1-0 1) (= B_p1-0_p0-5 1)) (and (= B_p0-5_p1-0 0) (= B_p1-0_p0-5 0))))  (= false (or (and (= B_p0-5_p1-1 1) (= B_p1-1_p0-5 1)) (and (= B_p0-5_p1-1 0) (= B_p1-1_p0-5 0))))  (= false (or (and (= B_p0-5_p1-2 1) (= B_p1-2_p0-5 1)) (and (= B_p0-5_p1-2 0) (= B_p1-2_p0-5 0))))  (= false (or (and (= B_p0-5_p1-3 1) (= B_p1-3_p0-5 1)) (and (= B_p0-5_p1-3 0) (= B_p1-3_p0-5 0))))  (= false (or (and (= B_p0-5_p1-4 1) (= B_p1-4_p0-5 1)) (and (= B_p0-5_p1-4 0) (= B_p1-4_p0-5 0))))  (= false (or (and (= B_p0-5_p1-5 1) (= B_p1-5_p0-5 1)) (and (= B_p0-5_p1-5 0) (= B_p1-5_p0-5 0))))  (= false (or (and (= B_p0-5_p1-6 1) (= B_p1-6_p0-5 1)) (and (= B_p0-5_p1-6 0) (= B_p1-6_p0-5 0))))  (= false (or (and (= B_p0-5_p1-7 1) (= B_p1-7_p0-5 1)) (and (= B_p0-5_p1-7 0) (= B_p1-7_p0-5 0))))  (= false (or (and (= B_p0-5_p1-8 1) (= B_p1-8_p0-5 1)) (and (= B_p0-5_p1-8 0) (= B_p1-8_p0-5 0))))  (= false (or (and (= B_p0-6_p1-0 1) (= B_p1-0_p0-6 1)) (and (= B_p0-6_p1-0 0) (= B_p1-0_p0-6 0))))  (= false (or (and (= B_p0-6_p1-1 1) (= B_p1-1_p0-6 1)) (and (= B_p0-6_p1-1 0) (= B_p1-1_p0-6 0))))  (= false (or (and (= B_p0-6_p1-2 1) (= B_p1-2_p0-6 1)) (and (= B_p0-6_p1-2 0) (= B_p1-2_p0-6 0))))  (= false (or (and (= B_p0-6_p1-3 1) (= B_p1-3_p0-6 1)) (and (= B_p0-6_p1-3 0) (= B_p1-3_p0-6 0))))  (= false (or (and (= B_p0-6_p1-4 1) (= B_p1-4_p0-6 1)) (and (= B_p0-6_p1-4 0) (= B_p1-4_p0-6 0))))  (= false (or (and (= B_p0-6_p1-5 1) (= B_p1-5_p0-6 1)) (and (= B_p0-6_p1-5 0) (= B_p1-5_p0-6 0))))  (= false (or (and (= B_p0-6_p1-6 1) (= B_p1-6_p0-6 1)) (and (= B_p0-6_p1-6 0) (= B_p1-6_p0-6 0))))  (= false (or (and (= B_p0-6_p1-7 1) (= B_p1-7_p0-6 1)) (and (= B_p0-6_p1-7 0) (= B_p1-7_p0-6 0))))  (= false (or (and (= B_p0-6_p1-8 1) (= B_p1-8_p0-6 1)) (and (= B_p0-6_p1-8 0) (= B_p1-8_p0-6 0))))  (= false (or (and (= B_p0-7_p1-0 1) (= B_p1-0_p0-7 1)) (and (= B_p0-7_p1-0 0) (= B_p1-0_p0-7 0))))  (= false (or (and (= B_p0-7_p1-1 1) (= B_p1-1_p0-7 1)) (and (= B_p0-7_p1-1 0) (= B_p1-1_p0-7 0))))  (= false (or (and (= B_p0-7_p1-2 1) (= B_p1-2_p0-7 1)) (and (= B_p0-7_p1-2 0) (= B_p1-2_p0-7 0))))  (= false (or (and (= B_p0-7_p1-3 1) (= B_p1-3_p0-7 1)) (and (= B_p0-7_p1-3 0) (= B_p1-3_p0-7 0))))  (= false (or (and (= B_p0-7_p1-4 1) (= B_p1-4_p0-7 1)) (and (= B_p0-7_p1-4 0) (= B_p1-4_p0-7 0))))  (= false (or (and (= B_p0-7_p1-5 1) (= B_p1-5_p0-7 1)) (and (= B_p0-7_p1-5 0) (= B_p1-5_p0-7 0))))  (= false (or (and (= B_p0-7_p1-6 1) (= B_p1-6_p0-7 1)) (and (= B_p0-7_p1-6 0) (= B_p1-6_p0-7 0))))  (= false (or (and (= B_p0-7_p1-7 1) (= B_p1-7_p0-7 1)) (and (= B_p0-7_p1-7 0) (= B_p1-7_p0-7 0))))  (= false (or (and (= B_p0-7_p1-8 1) (= B_p1-8_p0-7 1)) (and (= B_p0-7_p1-8 0) (= B_p1-8_p0-7 0))))  (= false (or (and (= B_p0-8_p1-0 1) (= B_p1-0_p0-8 1)) (and (= B_p0-8_p1-0 0) (= B_p1-0_p0-8 0))))  (= false (or (and (= B_p0-8_p1-1 1) (= B_p1-1_p0-8 1)) (and (= B_p0-8_p1-1 0) (= B_p1-1_p0-8 0))))  (= false (or (and (= B_p0-8_p1-2 1) (= B_p1-2_p0-8 1)) (and (= B_p0-8_p1-2 0) (= B_p1-2_p0-8 0))))  (= false (or (and (= B_p0-8_p1-3 1) (= B_p1-3_p0-8 1)) (and (= B_p0-8_p1-3 0) (= B_p1-3_p0-8 0))))  (= false (or (and (= B_p0-8_p1-4 1) (= B_p1-4_p0-8 1)) (and (= B_p0-8_p1-4 0) (= B_p1-4_p0-8 0))))  (= false (or (and (= B_p0-8_p1-5 1) (= B_p1-5_p0-8 1)) (and (= B_p0-8_p1-5 0) (= B_p1-5_p0-8 0))))  (= false (or (and (= B_p0-8_p1-6 1) (= B_p1-6_p0-8 1)) (and (= B_p0-8_p1-6 0) (= B_p1-6_p0-8 0))))  (= false (or (and (= B_p0-8_p1-7 1) (= B_p1-7_p0-8 1)) (and (= B_p0-8_p1-7 0) (= B_p1-7_p0-8 0))))  (= false (or (and (= B_p0-8_p1-8 1) (= B_p1-8_p0-8 1)) (and (= B_p0-8_p1-8 0) (= B_p1-8_p0-8 0))))  (= false (or (and (= B_p0-9_p1-0 1) (= B_p1-0_p0-9 1)) (and (= B_p0-9_p1-0 0) (= B_p1-0_p0-9 0))))  (= false (or (and (= B_p0-9_p1-1 1) (= B_p1-1_p0-9 1)) (and (= B_p0-9_p1-1 0) (= B_p1-1_p0-9 0))))  (= false (or (and (= B_p0-9_p1-2 1) (= B_p1-2_p0-9 1)) (and (= B_p0-9_p1-2 0) (= B_p1-2_p0-9 0))))  (= false (or (and (= B_p0-9_p1-3 1) (= B_p1-3_p0-9 1)) (and (= B_p0-9_p1-3 0) (= B_p1-3_p0-9 0))))  (= false (or (and (= B_p0-9_p1-4 1) (= B_p1-4_p0-9 1)) (and (= B_p0-9_p1-4 0) (= B_p1-4_p0-9 0))))  (= false (or (and (= B_p0-9_p1-5 1) (= B_p1-5_p0-9 1)) (and (= B_p0-9_p1-5 0) (= B_p1-5_p0-9 0))))  (= false (or (and (= B_p0-9_p1-6 1) (= B_p1-6_p0-9 1)) (and (= B_p0-9_p1-6 0) (= B_p1-6_p0-9 0))))  (= false (or (and (= B_p0-9_p1-7 1) (= B_p1-7_p0-9 1)) (and (= B_p0-9_p1-7 0) (= B_p1-7_p0-9 0))))  (= false (or (and (= B_p0-9_p1-8 1) (= B_p1-8_p0-9 1)) (and (= B_p0-9_p1-8 0) (= B_p1-8_p0-9 0))))  (= false (or (and (= B_p0-10_p1-0 1) (= B_p1-0_p0-10 1)) (and (= B_p0-10_p1-0 0) (= B_p1-0_p0-10 0))))  (= false (or (and (= B_p0-10_p1-1 1) (= B_p1-1_p0-10 1)) (and (= B_p0-10_p1-1 0) (= B_p1-1_p0-10 0))))  (= false (or (and (= B_p0-10_p1-2 1) (= B_p1-2_p0-10 1)) (and (= B_p0-10_p1-2 0) (= B_p1-2_p0-10 0))))  (= false (or (and (= B_p0-10_p1-3 1) (= B_p1-3_p0-10 1)) (and (= B_p0-10_p1-3 0) (= B_p1-3_p0-10 0))))  (= false (or (and (= B_p0-10_p1-4 1) (= B_p1-4_p0-10 1)) (and (= B_p0-10_p1-4 0) (= B_p1-4_p0-10 0))))  (= false (or (and (= B_p0-10_p1-5 1) (= B_p1-5_p0-10 1)) (and (= B_p0-10_p1-5 0) (= B_p1-5_p0-10 0))))  (= false (or (and (= B_p0-10_p1-6 1) (= B_p1-6_p0-10 1)) (and (= B_p0-10_p1-6 0) (= B_p1-6_p0-10 0))))  (= false (or (and (= B_p0-10_p1-7 1) (= B_p1-7_p0-10 1)) (and (= B_p0-10_p1-7 0) (= B_p1-7_p0-10 0))))  (= false (or (and (= B_p0-10_p1-8 1) (= B_p1-8_p0-10 1)) (and (= B_p0-10_p1-8 0) (= B_p1-8_p0-10 0))))  (= false (or (and (= B_p0-11_p1-0 1) (= B_p1-0_p0-11 1)) (and (= B_p0-11_p1-0 0) (= B_p1-0_p0-11 0))))  (= false (or (and (= B_p0-11_p1-1 1) (= B_p1-1_p0-11 1)) (and (= B_p0-11_p1-1 0) (= B_p1-1_p0-11 0))))  (= false (or (and (= B_p0-11_p1-2 1) (= B_p1-2_p0-11 1)) (and (= B_p0-11_p1-2 0) (= B_p1-2_p0-11 0))))  (= false (or (and (= B_p0-11_p1-3 1) (= B_p1-3_p0-11 1)) (and (= B_p0-11_p1-3 0) (= B_p1-3_p0-11 0))))  (= false (or (and (= B_p0-11_p1-4 1) (= B_p1-4_p0-11 1)) (and (= B_p0-11_p1-4 0) (= B_p1-4_p0-11 0))))  (= false (or (and (= B_p0-11_p1-5 1) (= B_p1-5_p0-11 1)) (and (= B_p0-11_p1-5 0) (= B_p1-5_p0-11 0))))  (= false (or (and (= B_p0-11_p1-6 1) (= B_p1-6_p0-11 1)) (and (= B_p0-11_p1-6 0) (= B_p1-6_p0-11 0))))  (= false (or (and (= B_p0-11_p1-7 1) (= B_p1-7_p0-11 1)) (and (= B_p0-11_p1-7 0) (= B_p1-7_p0-11 0))))  (= false (or (and (= B_p0-11_p1-8 1) (= B_p1-8_p0-11 1)) (and (= B_p0-11_p1-8 0) (= B_p1-8_p0-11 0))))  (= false (or (and (= B_p0-0_main-0 1) (= B_main-0_p0-0 1)) (and (= B_p0-0_main-0 0) (= B_main-0_p0-0 0))))  (= false (or (and (= B_p0-0_main-1 1) (= B_main-1_p0-0 1)) (and (= B_p0-0_main-1 0) (= B_main-1_p0-0 0))))  (= false (or (and (= B_p0-0_main-2 1) (= B_main-2_p0-0 1)) (and (= B_p0-0_main-2 0) (= B_main-2_p0-0 0))))  (= false (or (and (= B_p0-0_main-3 1) (= B_main-3_p0-0 1)) (and (= B_p0-0_main-3 0) (= B_main-3_p0-0 0))))  (= false (or (and (= B_p0-0_main-4 1) (= B_main-4_p0-0 1)) (and (= B_p0-0_main-4 0) (= B_main-4_p0-0 0))))  (= false (or (and (= B_p0-0_main-5 1) (= B_main-5_p0-0 1)) (and (= B_p0-0_main-5 0) (= B_main-5_p0-0 0))))  (= false (or (and (= B_p0-0_main-6 1) (= B_main-6_p0-0 1)) (and (= B_p0-0_main-6 0) (= B_main-6_p0-0 0))))  (= false (or (and (= B_p0-0_main-7 1) (= B_main-7_p0-0 1)) (and (= B_p0-0_main-7 0) (= B_main-7_p0-0 0))))  (= false (or (and (= B_p0-0_main-8 1) (= B_main-8_p0-0 1)) (and (= B_p0-0_main-8 0) (= B_main-8_p0-0 0))))  (= false (or (and (= B_p0-1_main-0 1) (= B_main-0_p0-1 1)) (and (= B_p0-1_main-0 0) (= B_main-0_p0-1 0))))  (= false (or (and (= B_p0-1_main-1 1) (= B_main-1_p0-1 1)) (and (= B_p0-1_main-1 0) (= B_main-1_p0-1 0))))  (= false (or (and (= B_p0-1_main-2 1) (= B_main-2_p0-1 1)) (and (= B_p0-1_main-2 0) (= B_main-2_p0-1 0))))  (= false (or (and (= B_p0-1_main-3 1) (= B_main-3_p0-1 1)) (and (= B_p0-1_main-3 0) (= B_main-3_p0-1 0))))  (= false (or (and (= B_p0-1_main-4 1) (= B_main-4_p0-1 1)) (and (= B_p0-1_main-4 0) (= B_main-4_p0-1 0))))  (= false (or (and (= B_p0-1_main-5 1) (= B_main-5_p0-1 1)) (and (= B_p0-1_main-5 0) (= B_main-5_p0-1 0))))  (= false (or (and (= B_p0-1_main-6 1) (= B_main-6_p0-1 1)) (and (= B_p0-1_main-6 0) (= B_main-6_p0-1 0))))  (= false (or (and (= B_p0-1_main-7 1) (= B_main-7_p0-1 1)) (and (= B_p0-1_main-7 0) (= B_main-7_p0-1 0))))  (= false (or (and (= B_p0-1_main-8 1) (= B_main-8_p0-1 1)) (and (= B_p0-1_main-8 0) (= B_main-8_p0-1 0))))  (= false (or (and (= B_p0-2_main-0 1) (= B_main-0_p0-2 1)) (and (= B_p0-2_main-0 0) (= B_main-0_p0-2 0))))  (= false (or (and (= B_p0-2_main-1 1) (= B_main-1_p0-2 1)) (and (= B_p0-2_main-1 0) (= B_main-1_p0-2 0))))  (= false (or (and (= B_p0-2_main-2 1) (= B_main-2_p0-2 1)) (and (= B_p0-2_main-2 0) (= B_main-2_p0-2 0))))  (= false (or (and (= B_p0-2_main-3 1) (= B_main-3_p0-2 1)) (and (= B_p0-2_main-3 0) (= B_main-3_p0-2 0))))  (= false (or (and (= B_p0-2_main-4 1) (= B_main-4_p0-2 1)) (and (= B_p0-2_main-4 0) (= B_main-4_p0-2 0))))  (= false (or (and (= B_p0-2_main-5 1) (= B_main-5_p0-2 1)) (and (= B_p0-2_main-5 0) (= B_main-5_p0-2 0))))  (= false (or (and (= B_p0-2_main-6 1) (= B_main-6_p0-2 1)) (and (= B_p0-2_main-6 0) (= B_main-6_p0-2 0))))  (= false (or (and (= B_p0-2_main-7 1) (= B_main-7_p0-2 1)) (and (= B_p0-2_main-7 0) (= B_main-7_p0-2 0))))  (= false (or (and (= B_p0-2_main-8 1) (= B_main-8_p0-2 1)) (and (= B_p0-2_main-8 0) (= B_main-8_p0-2 0))))  (= false (or (and (= B_p0-3_main-0 1) (= B_main-0_p0-3 1)) (and (= B_p0-3_main-0 0) (= B_main-0_p0-3 0))))  (= false (or (and (= B_p0-3_main-1 1) (= B_main-1_p0-3 1)) (and (= B_p0-3_main-1 0) (= B_main-1_p0-3 0))))  (= false (or (and (= B_p0-3_main-2 1) (= B_main-2_p0-3 1)) (and (= B_p0-3_main-2 0) (= B_main-2_p0-3 0))))  (= false (or (and (= B_p0-3_main-3 1) (= B_main-3_p0-3 1)) (and (= B_p0-3_main-3 0) (= B_main-3_p0-3 0))))  (= false (or (and (= B_p0-3_main-4 1) (= B_main-4_p0-3 1)) (and (= B_p0-3_main-4 0) (= B_main-4_p0-3 0))))  (= false (or (and (= B_p0-3_main-5 1) (= B_main-5_p0-3 1)) (and (= B_p0-3_main-5 0) (= B_main-5_p0-3 0))))  (= false (or (and (= B_p0-3_main-6 1) (= B_main-6_p0-3 1)) (and (= B_p0-3_main-6 0) (= B_main-6_p0-3 0))))  (= false (or (and (= B_p0-3_main-7 1) (= B_main-7_p0-3 1)) (and (= B_p0-3_main-7 0) (= B_main-7_p0-3 0))))  (= false (or (and (= B_p0-3_main-8 1) (= B_main-8_p0-3 1)) (and (= B_p0-3_main-8 0) (= B_main-8_p0-3 0))))  (= false (or (and (= B_p0-4_main-0 1) (= B_main-0_p0-4 1)) (and (= B_p0-4_main-0 0) (= B_main-0_p0-4 0))))  (= false (or (and (= B_p0-4_main-1 1) (= B_main-1_p0-4 1)) (and (= B_p0-4_main-1 0) (= B_main-1_p0-4 0))))  (= false (or (and (= B_p0-4_main-2 1) (= B_main-2_p0-4 1)) (and (= B_p0-4_main-2 0) (= B_main-2_p0-4 0))))  (= false (or (and (= B_p0-4_main-3 1) (= B_main-3_p0-4 1)) (and (= B_p0-4_main-3 0) (= B_main-3_p0-4 0))))  (= false (or (and (= B_p0-4_main-4 1) (= B_main-4_p0-4 1)) (and (= B_p0-4_main-4 0) (= B_main-4_p0-4 0))))  (= false (or (and (= B_p0-4_main-5 1) (= B_main-5_p0-4 1)) (and (= B_p0-4_main-5 0) (= B_main-5_p0-4 0))))  (= false (or (and (= B_p0-4_main-6 1) (= B_main-6_p0-4 1)) (and (= B_p0-4_main-6 0) (= B_main-6_p0-4 0))))  (= false (or (and (= B_p0-4_main-7 1) (= B_main-7_p0-4 1)) (and (= B_p0-4_main-7 0) (= B_main-7_p0-4 0))))  (= false (or (and (= B_p0-4_main-8 1) (= B_main-8_p0-4 1)) (and (= B_p0-4_main-8 0) (= B_main-8_p0-4 0))))  (= false (or (and (= B_p0-5_main-0 1) (= B_main-0_p0-5 1)) (and (= B_p0-5_main-0 0) (= B_main-0_p0-5 0))))  (= false (or (and (= B_p0-5_main-1 1) (= B_main-1_p0-5 1)) (and (= B_p0-5_main-1 0) (= B_main-1_p0-5 0))))  (= false (or (and (= B_p0-5_main-2 1) (= B_main-2_p0-5 1)) (and (= B_p0-5_main-2 0) (= B_main-2_p0-5 0))))  (= false (or (and (= B_p0-5_main-3 1) (= B_main-3_p0-5 1)) (and (= B_p0-5_main-3 0) (= B_main-3_p0-5 0))))  (= false (or (and (= B_p0-5_main-4 1) (= B_main-4_p0-5 1)) (and (= B_p0-5_main-4 0) (= B_main-4_p0-5 0))))  (= false (or (and (= B_p0-5_main-5 1) (= B_main-5_p0-5 1)) (and (= B_p0-5_main-5 0) (= B_main-5_p0-5 0))))  (= false (or (and (= B_p0-5_main-6 1) (= B_main-6_p0-5 1)) (and (= B_p0-5_main-6 0) (= B_main-6_p0-5 0))))  (= false (or (and (= B_p0-5_main-7 1) (= B_main-7_p0-5 1)) (and (= B_p0-5_main-7 0) (= B_main-7_p0-5 0))))  (= false (or (and (= B_p0-5_main-8 1) (= B_main-8_p0-5 1)) (and (= B_p0-5_main-8 0) (= B_main-8_p0-5 0))))  (= false (or (and (= B_p0-6_main-0 1) (= B_main-0_p0-6 1)) (and (= B_p0-6_main-0 0) (= B_main-0_p0-6 0))))  (= false (or (and (= B_p0-6_main-1 1) (= B_main-1_p0-6 1)) (and (= B_p0-6_main-1 0) (= B_main-1_p0-6 0))))  (= false (or (and (= B_p0-6_main-2 1) (= B_main-2_p0-6 1)) (and (= B_p0-6_main-2 0) (= B_main-2_p0-6 0))))  (= false (or (and (= B_p0-6_main-3 1) (= B_main-3_p0-6 1)) (and (= B_p0-6_main-3 0) (= B_main-3_p0-6 0))))  (= false (or (and (= B_p0-6_main-4 1) (= B_main-4_p0-6 1)) (and (= B_p0-6_main-4 0) (= B_main-4_p0-6 0))))  (= false (or (and (= B_p0-6_main-5 1) (= B_main-5_p0-6 1)) (and (= B_p0-6_main-5 0) (= B_main-5_p0-6 0))))  (= false (or (and (= B_p0-6_main-6 1) (= B_main-6_p0-6 1)) (and (= B_p0-6_main-6 0) (= B_main-6_p0-6 0))))  (= false (or (and (= B_p0-6_main-7 1) (= B_main-7_p0-6 1)) (and (= B_p0-6_main-7 0) (= B_main-7_p0-6 0))))  (= false (or (and (= B_p0-6_main-8 1) (= B_main-8_p0-6 1)) (and (= B_p0-6_main-8 0) (= B_main-8_p0-6 0))))  (= false (or (and (= B_p0-7_main-0 1) (= B_main-0_p0-7 1)) (and (= B_p0-7_main-0 0) (= B_main-0_p0-7 0))))  (= false (or (and (= B_p0-7_main-1 1) (= B_main-1_p0-7 1)) (and (= B_p0-7_main-1 0) (= B_main-1_p0-7 0))))  (= false (or (and (= B_p0-7_main-2 1) (= B_main-2_p0-7 1)) (and (= B_p0-7_main-2 0) (= B_main-2_p0-7 0))))  (= false (or (and (= B_p0-7_main-3 1) (= B_main-3_p0-7 1)) (and (= B_p0-7_main-3 0) (= B_main-3_p0-7 0))))  (= false (or (and (= B_p0-7_main-4 1) (= B_main-4_p0-7 1)) (and (= B_p0-7_main-4 0) (= B_main-4_p0-7 0))))  (= false (or (and (= B_p0-7_main-5 1) (= B_main-5_p0-7 1)) (and (= B_p0-7_main-5 0) (= B_main-5_p0-7 0))))  (= false (or (and (= B_p0-7_main-6 1) (= B_main-6_p0-7 1)) (and (= B_p0-7_main-6 0) (= B_main-6_p0-7 0))))  (= false (or (and (= B_p0-7_main-7 1) (= B_main-7_p0-7 1)) (and (= B_p0-7_main-7 0) (= B_main-7_p0-7 0))))  (= false (or (and (= B_p0-7_main-8 1) (= B_main-8_p0-7 1)) (and (= B_p0-7_main-8 0) (= B_main-8_p0-7 0))))  (= false (or (and (= B_p0-8_main-0 1) (= B_main-0_p0-8 1)) (and (= B_p0-8_main-0 0) (= B_main-0_p0-8 0))))  (= false (or (and (= B_p0-8_main-1 1) (= B_main-1_p0-8 1)) (and (= B_p0-8_main-1 0) (= B_main-1_p0-8 0))))  (= false (or (and (= B_p0-8_main-2 1) (= B_main-2_p0-8 1)) (and (= B_p0-8_main-2 0) (= B_main-2_p0-8 0))))  (= false (or (and (= B_p0-8_main-3 1) (= B_main-3_p0-8 1)) (and (= B_p0-8_main-3 0) (= B_main-3_p0-8 0))))  (= false (or (and (= B_p0-8_main-4 1) (= B_main-4_p0-8 1)) (and (= B_p0-8_main-4 0) (= B_main-4_p0-8 0))))  (= false (or (and (= B_p0-8_main-5 1) (= B_main-5_p0-8 1)) (and (= B_p0-8_main-5 0) (= B_main-5_p0-8 0))))  (= false (or (and (= B_p0-8_main-6 1) (= B_main-6_p0-8 1)) (and (= B_p0-8_main-6 0) (= B_main-6_p0-8 0))))  (= false (or (and (= B_p0-8_main-7 1) (= B_main-7_p0-8 1)) (and (= B_p0-8_main-7 0) (= B_main-7_p0-8 0))))  (= false (or (and (= B_p0-8_main-8 1) (= B_main-8_p0-8 1)) (and (= B_p0-8_main-8 0) (= B_main-8_p0-8 0))))  (= false (or (and (= B_p0-9_main-0 1) (= B_main-0_p0-9 1)) (and (= B_p0-9_main-0 0) (= B_main-0_p0-9 0))))  (= false (or (and (= B_p0-9_main-1 1) (= B_main-1_p0-9 1)) (and (= B_p0-9_main-1 0) (= B_main-1_p0-9 0))))  (= false (or (and (= B_p0-9_main-2 1) (= B_main-2_p0-9 1)) (and (= B_p0-9_main-2 0) (= B_main-2_p0-9 0))))  (= false (or (and (= B_p0-9_main-3 1) (= B_main-3_p0-9 1)) (and (= B_p0-9_main-3 0) (= B_main-3_p0-9 0))))  (= false (or (and (= B_p0-9_main-4 1) (= B_main-4_p0-9 1)) (and (= B_p0-9_main-4 0) (= B_main-4_p0-9 0))))  (= false (or (and (= B_p0-9_main-5 1) (= B_main-5_p0-9 1)) (and (= B_p0-9_main-5 0) (= B_main-5_p0-9 0))))  (= false (or (and (= B_p0-9_main-6 1) (= B_main-6_p0-9 1)) (and (= B_p0-9_main-6 0) (= B_main-6_p0-9 0))))  (= false (or (and (= B_p0-9_main-7 1) (= B_main-7_p0-9 1)) (and (= B_p0-9_main-7 0) (= B_main-7_p0-9 0))))  (= false (or (and (= B_p0-9_main-8 1) (= B_main-8_p0-9 1)) (and (= B_p0-9_main-8 0) (= B_main-8_p0-9 0))))  (= false (or (and (= B_p0-10_main-0 1) (= B_main-0_p0-10 1)) (and (= B_p0-10_main-0 0) (= B_main-0_p0-10 0))))  (= false (or (and (= B_p0-10_main-1 1) (= B_main-1_p0-10 1)) (and (= B_p0-10_main-1 0) (= B_main-1_p0-10 0))))  (= false (or (and (= B_p0-10_main-2 1) (= B_main-2_p0-10 1)) (and (= B_p0-10_main-2 0) (= B_main-2_p0-10 0))))  (= false (or (and (= B_p0-10_main-3 1) (= B_main-3_p0-10 1)) (and (= B_p0-10_main-3 0) (= B_main-3_p0-10 0))))  (= false (or (and (= B_p0-10_main-4 1) (= B_main-4_p0-10 1)) (and (= B_p0-10_main-4 0) (= B_main-4_p0-10 0))))  (= false (or (and (= B_p0-10_main-5 1) (= B_main-5_p0-10 1)) (and (= B_p0-10_main-5 0) (= B_main-5_p0-10 0))))  (= false (or (and (= B_p0-10_main-6 1) (= B_main-6_p0-10 1)) (and (= B_p0-10_main-6 0) (= B_main-6_p0-10 0))))  (= false (or (and (= B_p0-10_main-7 1) (= B_main-7_p0-10 1)) (and (= B_p0-10_main-7 0) (= B_main-7_p0-10 0))))  (= false (or (and (= B_p0-10_main-8 1) (= B_main-8_p0-10 1)) (and (= B_p0-10_main-8 0) (= B_main-8_p0-10 0))))  (= false (or (and (= B_p0-11_main-0 1) (= B_main-0_p0-11 1)) (and (= B_p0-11_main-0 0) (= B_main-0_p0-11 0))))  (= false (or (and (= B_p0-11_main-1 1) (= B_main-1_p0-11 1)) (and (= B_p0-11_main-1 0) (= B_main-1_p0-11 0))))  (= false (or (and (= B_p0-11_main-2 1) (= B_main-2_p0-11 1)) (and (= B_p0-11_main-2 0) (= B_main-2_p0-11 0))))  (= false (or (and (= B_p0-11_main-3 1) (= B_main-3_p0-11 1)) (and (= B_p0-11_main-3 0) (= B_main-3_p0-11 0))))  (= false (or (and (= B_p0-11_main-4 1) (= B_main-4_p0-11 1)) (and (= B_p0-11_main-4 0) (= B_main-4_p0-11 0))))  (= false (or (and (= B_p0-11_main-5 1) (= B_main-5_p0-11 1)) (and (= B_p0-11_main-5 0) (= B_main-5_p0-11 0))))  (= false (or (and (= B_p0-11_main-6 1) (= B_main-6_p0-11 1)) (and (= B_p0-11_main-6 0) (= B_main-6_p0-11 0))))  (= false (or (and (= B_p0-11_main-7 1) (= B_main-7_p0-11 1)) (and (= B_p0-11_main-7 0) (= B_main-7_p0-11 0))))  (= false (or (and (= B_p0-11_main-8 1) (= B_main-8_p0-11 1)) (and (= B_p0-11_main-8 0) (= B_main-8_p0-11 0))))  (= false (or (and (= B_p1-0_main-0 1) (= B_main-0_p1-0 1)) (and (= B_p1-0_main-0 0) (= B_main-0_p1-0 0))))  (= false (or (and (= B_p1-0_main-1 1) (= B_main-1_p1-0 1)) (and (= B_p1-0_main-1 0) (= B_main-1_p1-0 0))))  (= false (or (and (= B_p1-0_main-2 1) (= B_main-2_p1-0 1)) (and (= B_p1-0_main-2 0) (= B_main-2_p1-0 0))))  (= false (or (and (= B_p1-0_main-3 1) (= B_main-3_p1-0 1)) (and (= B_p1-0_main-3 0) (= B_main-3_p1-0 0))))  (= false (or (and (= B_p1-0_main-4 1) (= B_main-4_p1-0 1)) (and (= B_p1-0_main-4 0) (= B_main-4_p1-0 0))))  (= false (or (and (= B_p1-0_main-5 1) (= B_main-5_p1-0 1)) (and (= B_p1-0_main-5 0) (= B_main-5_p1-0 0))))  (= false (or (and (= B_p1-0_main-6 1) (= B_main-6_p1-0 1)) (and (= B_p1-0_main-6 0) (= B_main-6_p1-0 0))))  (= false (or (and (= B_p1-0_main-7 1) (= B_main-7_p1-0 1)) (and (= B_p1-0_main-7 0) (= B_main-7_p1-0 0))))  (= false (or (and (= B_p1-0_main-8 1) (= B_main-8_p1-0 1)) (and (= B_p1-0_main-8 0) (= B_main-8_p1-0 0))))  (= false (or (and (= B_p1-1_main-0 1) (= B_main-0_p1-1 1)) (and (= B_p1-1_main-0 0) (= B_main-0_p1-1 0))))  (= false (or (and (= B_p1-1_main-1 1) (= B_main-1_p1-1 1)) (and (= B_p1-1_main-1 0) (= B_main-1_p1-1 0))))  (= false (or (and (= B_p1-1_main-2 1) (= B_main-2_p1-1 1)) (and (= B_p1-1_main-2 0) (= B_main-2_p1-1 0))))  (= false (or (and (= B_p1-1_main-3 1) (= B_main-3_p1-1 1)) (and (= B_p1-1_main-3 0) (= B_main-3_p1-1 0))))  (= false (or (and (= B_p1-1_main-4 1) (= B_main-4_p1-1 1)) (and (= B_p1-1_main-4 0) (= B_main-4_p1-1 0))))  (= false (or (and (= B_p1-1_main-5 1) (= B_main-5_p1-1 1)) (and (= B_p1-1_main-5 0) (= B_main-5_p1-1 0))))  (= false (or (and (= B_p1-1_main-6 1) (= B_main-6_p1-1 1)) (and (= B_p1-1_main-6 0) (= B_main-6_p1-1 0))))  (= false (or (and (= B_p1-1_main-7 1) (= B_main-7_p1-1 1)) (and (= B_p1-1_main-7 0) (= B_main-7_p1-1 0))))  (= false (or (and (= B_p1-1_main-8 1) (= B_main-8_p1-1 1)) (and (= B_p1-1_main-8 0) (= B_main-8_p1-1 0))))  (= false (or (and (= B_p1-2_main-0 1) (= B_main-0_p1-2 1)) (and (= B_p1-2_main-0 0) (= B_main-0_p1-2 0))))  (= false (or (and (= B_p1-2_main-1 1) (= B_main-1_p1-2 1)) (and (= B_p1-2_main-1 0) (= B_main-1_p1-2 0))))  (= false (or (and (= B_p1-2_main-2 1) (= B_main-2_p1-2 1)) (and (= B_p1-2_main-2 0) (= B_main-2_p1-2 0))))  (= false (or (and (= B_p1-2_main-3 1) (= B_main-3_p1-2 1)) (and (= B_p1-2_main-3 0) (= B_main-3_p1-2 0))))  (= false (or (and (= B_p1-2_main-4 1) (= B_main-4_p1-2 1)) (and (= B_p1-2_main-4 0) (= B_main-4_p1-2 0))))  (= false (or (and (= B_p1-2_main-5 1) (= B_main-5_p1-2 1)) (and (= B_p1-2_main-5 0) (= B_main-5_p1-2 0))))  (= false (or (and (= B_p1-2_main-6 1) (= B_main-6_p1-2 1)) (and (= B_p1-2_main-6 0) (= B_main-6_p1-2 0))))  (= false (or (and (= B_p1-2_main-7 1) (= B_main-7_p1-2 1)) (and (= B_p1-2_main-7 0) (= B_main-7_p1-2 0))))  (= false (or (and (= B_p1-2_main-8 1) (= B_main-8_p1-2 1)) (and (= B_p1-2_main-8 0) (= B_main-8_p1-2 0))))  (= false (or (and (= B_p1-3_main-0 1) (= B_main-0_p1-3 1)) (and (= B_p1-3_main-0 0) (= B_main-0_p1-3 0))))  (= false (or (and (= B_p1-3_main-1 1) (= B_main-1_p1-3 1)) (and (= B_p1-3_main-1 0) (= B_main-1_p1-3 0))))  (= false (or (and (= B_p1-3_main-2 1) (= B_main-2_p1-3 1)) (and (= B_p1-3_main-2 0) (= B_main-2_p1-3 0))))  (= false (or (and (= B_p1-3_main-3 1) (= B_main-3_p1-3 1)) (and (= B_p1-3_main-3 0) (= B_main-3_p1-3 0))))  (= false (or (and (= B_p1-3_main-4 1) (= B_main-4_p1-3 1)) (and (= B_p1-3_main-4 0) (= B_main-4_p1-3 0))))  (= false (or (and (= B_p1-3_main-5 1) (= B_main-5_p1-3 1)) (and (= B_p1-3_main-5 0) (= B_main-5_p1-3 0))))  (= false (or (and (= B_p1-3_main-6 1) (= B_main-6_p1-3 1)) (and (= B_p1-3_main-6 0) (= B_main-6_p1-3 0))))  (= false (or (and (= B_p1-3_main-7 1) (= B_main-7_p1-3 1)) (and (= B_p1-3_main-7 0) (= B_main-7_p1-3 0))))  (= false (or (and (= B_p1-3_main-8 1) (= B_main-8_p1-3 1)) (and (= B_p1-3_main-8 0) (= B_main-8_p1-3 0))))  (= false (or (and (= B_p1-4_main-0 1) (= B_main-0_p1-4 1)) (and (= B_p1-4_main-0 0) (= B_main-0_p1-4 0))))  (= false (or (and (= B_p1-4_main-1 1) (= B_main-1_p1-4 1)) (and (= B_p1-4_main-1 0) (= B_main-1_p1-4 0))))  (= false (or (and (= B_p1-4_main-2 1) (= B_main-2_p1-4 1)) (and (= B_p1-4_main-2 0) (= B_main-2_p1-4 0))))  (= false (or (and (= B_p1-4_main-3 1) (= B_main-3_p1-4 1)) (and (= B_p1-4_main-3 0) (= B_main-3_p1-4 0))))  (= false (or (and (= B_p1-4_main-4 1) (= B_main-4_p1-4 1)) (and (= B_p1-4_main-4 0) (= B_main-4_p1-4 0))))  (= false (or (and (= B_p1-4_main-5 1) (= B_main-5_p1-4 1)) (and (= B_p1-4_main-5 0) (= B_main-5_p1-4 0))))  (= false (or (and (= B_p1-4_main-6 1) (= B_main-6_p1-4 1)) (and (= B_p1-4_main-6 0) (= B_main-6_p1-4 0))))  (= false (or (and (= B_p1-4_main-7 1) (= B_main-7_p1-4 1)) (and (= B_p1-4_main-7 0) (= B_main-7_p1-4 0))))  (= false (or (and (= B_p1-4_main-8 1) (= B_main-8_p1-4 1)) (and (= B_p1-4_main-8 0) (= B_main-8_p1-4 0))))  (= false (or (and (= B_p1-5_main-0 1) (= B_main-0_p1-5 1)) (and (= B_p1-5_main-0 0) (= B_main-0_p1-5 0))))  (= false (or (and (= B_p1-5_main-1 1) (= B_main-1_p1-5 1)) (and (= B_p1-5_main-1 0) (= B_main-1_p1-5 0))))  (= false (or (and (= B_p1-5_main-2 1) (= B_main-2_p1-5 1)) (and (= B_p1-5_main-2 0) (= B_main-2_p1-5 0))))  (= false (or (and (= B_p1-5_main-3 1) (= B_main-3_p1-5 1)) (and (= B_p1-5_main-3 0) (= B_main-3_p1-5 0))))  (= false (or (and (= B_p1-5_main-4 1) (= B_main-4_p1-5 1)) (and (= B_p1-5_main-4 0) (= B_main-4_p1-5 0))))  (= false (or (and (= B_p1-5_main-5 1) (= B_main-5_p1-5 1)) (and (= B_p1-5_main-5 0) (= B_main-5_p1-5 0))))  (= false (or (and (= B_p1-5_main-6 1) (= B_main-6_p1-5 1)) (and (= B_p1-5_main-6 0) (= B_main-6_p1-5 0))))  (= false (or (and (= B_p1-5_main-7 1) (= B_main-7_p1-5 1)) (and (= B_p1-5_main-7 0) (= B_main-7_p1-5 0))))  (= false (or (and (= B_p1-5_main-8 1) (= B_main-8_p1-5 1)) (and (= B_p1-5_main-8 0) (= B_main-8_p1-5 0))))  (= false (or (and (= B_p1-6_main-0 1) (= B_main-0_p1-6 1)) (and (= B_p1-6_main-0 0) (= B_main-0_p1-6 0))))  (= false (or (and (= B_p1-6_main-1 1) (= B_main-1_p1-6 1)) (and (= B_p1-6_main-1 0) (= B_main-1_p1-6 0))))  (= false (or (and (= B_p1-6_main-2 1) (= B_main-2_p1-6 1)) (and (= B_p1-6_main-2 0) (= B_main-2_p1-6 0))))  (= false (or (and (= B_p1-6_main-3 1) (= B_main-3_p1-6 1)) (and (= B_p1-6_main-3 0) (= B_main-3_p1-6 0))))  (= false (or (and (= B_p1-6_main-4 1) (= B_main-4_p1-6 1)) (and (= B_p1-6_main-4 0) (= B_main-4_p1-6 0))))  (= false (or (and (= B_p1-6_main-5 1) (= B_main-5_p1-6 1)) (and (= B_p1-6_main-5 0) (= B_main-5_p1-6 0))))  (= false (or (and (= B_p1-6_main-6 1) (= B_main-6_p1-6 1)) (and (= B_p1-6_main-6 0) (= B_main-6_p1-6 0))))  (= false (or (and (= B_p1-6_main-7 1) (= B_main-7_p1-6 1)) (and (= B_p1-6_main-7 0) (= B_main-7_p1-6 0))))  (= false (or (and (= B_p1-6_main-8 1) (= B_main-8_p1-6 1)) (and (= B_p1-6_main-8 0) (= B_main-8_p1-6 0))))  (= false (or (and (= B_p1-7_main-0 1) (= B_main-0_p1-7 1)) (and (= B_p1-7_main-0 0) (= B_main-0_p1-7 0))))  (= false (or (and (= B_p1-7_main-1 1) (= B_main-1_p1-7 1)) (and (= B_p1-7_main-1 0) (= B_main-1_p1-7 0))))  (= false (or (and (= B_p1-7_main-2 1) (= B_main-2_p1-7 1)) (and (= B_p1-7_main-2 0) (= B_main-2_p1-7 0))))  (= false (or (and (= B_p1-7_main-3 1) (= B_main-3_p1-7 1)) (and (= B_p1-7_main-3 0) (= B_main-3_p1-7 0))))  (= false (or (and (= B_p1-7_main-4 1) (= B_main-4_p1-7 1)) (and (= B_p1-7_main-4 0) (= B_main-4_p1-7 0))))  (= false (or (and (= B_p1-7_main-5 1) (= B_main-5_p1-7 1)) (and (= B_p1-7_main-5 0) (= B_main-5_p1-7 0))))  (= false (or (and (= B_p1-7_main-6 1) (= B_main-6_p1-7 1)) (and (= B_p1-7_main-6 0) (= B_main-6_p1-7 0))))  (= false (or (and (= B_p1-7_main-7 1) (= B_main-7_p1-7 1)) (and (= B_p1-7_main-7 0) (= B_main-7_p1-7 0))))  (= false (or (and (= B_p1-7_main-8 1) (= B_main-8_p1-7 1)) (and (= B_p1-7_main-8 0) (= B_main-8_p1-7 0))))  (= false (or (and (= B_p1-8_main-0 1) (= B_main-0_p1-8 1)) (and (= B_p1-8_main-0 0) (= B_main-0_p1-8 0))))  (= false (or (and (= B_p1-8_main-1 1) (= B_main-1_p1-8 1)) (and (= B_p1-8_main-1 0) (= B_main-1_p1-8 0))))  (= false (or (and (= B_p1-8_main-2 1) (= B_main-2_p1-8 1)) (and (= B_p1-8_main-2 0) (= B_main-2_p1-8 0))))  (= false (or (and (= B_p1-8_main-3 1) (= B_main-3_p1-8 1)) (and (= B_p1-8_main-3 0) (= B_main-3_p1-8 0))))  (= false (or (and (= B_p1-8_main-4 1) (= B_main-4_p1-8 1)) (and (= B_p1-8_main-4 0) (= B_main-4_p1-8 0))))  (= false (or (and (= B_p1-8_main-5 1) (= B_main-5_p1-8 1)) (and (= B_p1-8_main-5 0) (= B_main-5_p1-8 0))))  (= false (or (and (= B_p1-8_main-6 1) (= B_main-6_p1-8 1)) (and (= B_p1-8_main-6 0) (= B_main-6_p1-8 0))))  (= false (or (and (= B_p1-8_main-7 1) (= B_main-7_p1-8 1)) (and (= B_p1-8_main-7 0) (= B_main-7_p1-8 0))))  (= false (or (and (= B_p1-8_main-8 1) (= B_main-8_p1-8 1)) (and (= B_p1-8_main-8 0) (= B_main-8_p1-8 0))))):named Basic0))
+
+(declare-const RF_p1-3_p0-1 Int)
+(assert (>= RF_p1-3_p0-1 0))
+(assert (<= RF_p1-3_p0-1 1))
+(declare-const RF_p1-3_p0-10 Int)
+(assert (>= RF_p1-3_p0-10 0))
+(assert (<= RF_p1-3_p0-10 1))
+(declare-const RF_p1-3_main-1 Int)
+(assert (>= RF_p1-3_main-1 0))
+(assert (<= RF_p1-3_main-1 1))
+(declare-const RF_p0-3_p1-1 Int)
+(assert (>= RF_p0-3_p1-1 0))
+(assert (<= RF_p0-3_p1-1 1))
+(declare-const RF_p0-3_p1-7 Int)
+(assert (>= RF_p0-3_p1-7 0))
+(assert (<= RF_p0-3_p1-7 1))
+(declare-const RF_p0-3_main-2 Int)
+(assert (>= RF_p0-3_main-2 0))
+(assert (<= RF_p0-3_main-2 1))
+(declare-const RF_p0-6_p1-1 Int)
+(assert (>= RF_p0-6_p1-1 0))
+(assert (<= RF_p0-6_p1-1 1))
+(declare-const RF_p0-6_p1-7 Int)
+(assert (>= RF_p0-6_p1-7 0))
+(assert (<= RF_p0-6_p1-7 1))
+(declare-const RF_p0-6_main-2 Int)
+(assert (>= RF_p0-6_main-2 0))
+(assert (<= RF_p0-6_main-2 1))
+(declare-const RF_p0-4_p0-8 Int)
+(assert (>= RF_p0-4_p0-8 0))
+(assert (<= RF_p0-4_p0-8 1))
+(declare-const RF_p0-4_p1-5 Int)
+(assert (>= RF_p0-4_p1-5 0))
+(assert (<= RF_p0-4_p1-5 1))
+(declare-const RF_p0-4_main-3 Int)
+(assert (>= RF_p0-4_main-3 0))
+(assert (<= RF_p0-4_main-3 1))
+(assert (! (and (= (+ (+ RF_p1-3_p0-1 RF_p1-3_p0-10) RF_p1-3_main-1) 1) (= (+ (+ RF_p0-3_p1-1 RF_p0-3_p1-7) RF_p0-3_main-2) 1) (= (+ (+ RF_p0-6_p1-1 RF_p0-6_p1-7) RF_p0-6_main-2) 1) (= (+ (+ RF_p0-4_p0-8 RF_p0-4_p1-5) RF_p0-4_main-3) 1)):named Basic1))
+
+(declare-const M_p0-1 Int)
+(assert (>= M_p0-1 0))
+(assert (<= M_p0-1 3))
+(declare-const M_p0-10 Int)
+(assert (>= M_p0-10 0))
+(assert (<= M_p0-10 3))
+(declare-const M_main-1 Int)
+(assert (>= M_main-1 0))
+(assert (<= M_main-1 3))
+(assert (! (distinct  M_p0-1 M_p0-10 M_main-1):named MO0))
+
+(declare-const M_p1-1 Int)
+(assert (>= M_p1-1 0))
+(assert (<= M_p1-1 3))
+(declare-const M_p1-7 Int)
+(assert (>= M_p1-7 0))
+(assert (<= M_p1-7 3))
+(declare-const M_main-2 Int)
+(assert (>= M_main-2 0))
+(assert (<= M_main-2 3))
+(assert (! (distinct  M_p1-1 M_p1-7 M_main-2):named MO1))
+
+(declare-const M_p0-8 Int)
+(assert (>= M_p0-8 0))
+(assert (<= M_p0-8 3))
+(declare-const M_p1-5 Int)
+(assert (>= M_p1-5 0))
+(assert (<= M_p1-5 3))
+(declare-const M_main-3 Int)
+(assert (>= M_main-3 0))
+(assert (<= M_main-3 3))
+(assert (! (distinct  M_p0-8 M_p1-5 M_main-3):named MO2))
+
+(declare-const S_main-1 Int)
+(assert (>= S_main-1 0))
+(declare-const S_main-2 Int)
+(assert (>= S_main-2 0))
+(declare-const B_main-2_main-1 Int)
+
+(declare-const S_main-3 Int)
+(assert (>= S_main-3 0))
+(declare-const B_main-3_main-1 Int)
+
+(declare-const S_p0-2 Int)
+(assert (>= S_p0-2 0))
+(declare-const S_p1-2 Int)
+(assert (>= S_p1-2 0))
+(declare-const B_main-3_main-2 Int)
+
+(assert (! (and (or (not (= B_main-1_main-2 1)) (< S_main-1 S_main-2)) (or (not (= B_main-2_main-1 1)) (< S_main-2 S_main-1)) (or (= B_main-1_main-2 1) (= B_main-2_main-1 1)) (or (not (= B_main-1_main-3 1)) (< S_main-1 S_main-3)) (or (not (= B_main-3_main-1 1)) (< S_main-3 S_main-1)) (or (= B_main-1_main-3 1) (= B_main-3_main-1 1)) (or (not (= B_main-1_p0-2 1)) (< S_main-1 S_p0-2)) (or (not (= B_p0-2_main-1 1)) (< S_p0-2 S_main-1)) (or (= B_main-1_p0-2 1) (= B_p0-2_main-1 1)) (or (not (= B_main-1_p1-2 1)) (< S_main-1 S_p1-2)) (or (not (= B_p1-2_main-1 1)) (< S_p1-2 S_main-1)) (or (= B_main-1_p1-2 1) (= B_p1-2_main-1 1)) (or (not (= B_main-2_main-3 1)) (< S_main-2 S_main-3)) (or (not (= B_main-3_main-2 1)) (< S_main-3 S_main-2)) (or (= B_main-2_main-3 1) (= B_main-3_main-2 1)) (or (not (= B_main-2_p0-2 1)) (< S_main-2 S_p0-2)) (or (not (= B_p0-2_main-2 1)) (< S_p0-2 S_main-2)) (or (= B_main-2_p0-2 1) (= B_p0-2_main-2 1)) (or (not (= B_main-2_p1-2 1)) (< S_main-2 S_p1-2)) (or (not (= B_p1-2_main-2 1)) (< S_p1-2 S_main-2)) (or (= B_main-2_p1-2 1) (= B_p1-2_main-2 1)) (or (not (= B_main-3_p0-2 1)) (< S_main-3 S_p0-2)) (or (not (= B_p0-2_main-3 1)) (< S_p0-2 S_main-3)) (or (= B_main-3_p0-2 1) (= B_p0-2_main-3 1)) (or (not (= B_main-3_p1-2 1)) (< S_main-3 S_p1-2)) (or (not (= B_p1-2_main-3 1)) (< S_p1-2 S_main-3)) (or (= B_main-3_p1-2 1) (= B_p1-2_main-3 1)) (or (not (= B_p0-2_p1-2 1)) (< S_p0-2 S_p1-2)) (or (not (= B_p1-2_p0-2 1)) (< S_p1-2 S_p0-2)) (or (= B_p0-2_p1-2 1) (= B_p1-2_p0-2 1))):named SCConsistent))
+
+(declare-const B_p1-6_p1-2 Int)
+
+(declare-const B_p1-6_p1-4 Int)
+
+(declare-const B_p0-9_p0-2 Int)
+
+(declare-const B_p0-9_p0-7 Int)
+
+(declare-const B_p0-10_p0-1 Int)
+
+(declare-const M_p1-3 Int)
+
+(check-sat)
+
+(get-model)
+
+(get-unsat-core)
+
+(echo "end")
+(reset)
+

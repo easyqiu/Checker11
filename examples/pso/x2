@@ -1,0 +1,567 @@
+Generate a model checker: BeginFunc: 0x0
+0x7fcd3b404cd0
+BeginFunc: 0x0
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24937
+Generate a new Executor: 0x7fcd3b404dd0 0x7fcd3b405370
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread Waitting for create thread 0x1015c40000x101647000
+
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+get buffer: 0x1011731c0 get buffer: 0x1011731c4 00
+
+
+expect value: 
+expect value: f1f2  11  00
+
+In atomic checker_preStore: 0x1011731c4 1 In atomic checker_preStore: 2!
+0x1011731c0 1 2!
+update reachabilty!
+update reachabilty!
+end update!
+end update!
+In checker_thread_end
+In checker_thread_end
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+data: 0, 0
+ERROR!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+In checker_thread_end
+Generating: f1-1 f2-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b406690 f1-1 1 
+curSch: 0x7fcd3b405370 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b501bc0
+action: f2 2 AWrite 0x1011731c0 0 1
+
+RF: f1 1 1
+Generating: f2-1 f1-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fcd3b404dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fcd3b404dd0
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b6009c0 f2-1 1 
+curSch: 0x7fcd3b405370 0
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b40cab0
+action: f1 2 AWrite 0x1011731c4 0 1
+
+RF: f2 1 1
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24938
+Generate a new Executor: 0x7fcd3b404dd0 0x7fcd3b407a40
+Schedule: 0x7fcd3b501bc0 1
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+BeginFunc: 0x7fcd3b404dd0
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread Waitting for create thread 0x1015c40000x101647000
+
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+
+expect value: f1 1 1
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preStore: 0x1011731c4 1In atomic checker_preLoad:  0x1011731c42 !
+2!
+update reachabilty!
+end update!
+In checker_thread_end
+get buffer: 0x1011731c4 0
+
+expect value: f2 1 0
+In atomic checker_preStore: 0x1011731c0 1 2!
+update reachabilty!
+BeginFunc: 0x7fcd3b404dd0
+end update!
+func begin
+In checker_thread_end
+BeginFunc: 0x7fcd3b404dd0
+func begin
+data: 1, 0
+ERROR!
+BeginFunc: 0x7fcd3b404dd0
+func begin
+In checker_thread_end
+Generating: f2-1 f1-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b404dd0
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b700720 f2-1 1 
+curSch: 0x7fcd3b501bc0 1
+enforce11: 0x7fcd3b602480 f1-1 1 
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b706660
+action: f2 2 AWrite 0x1011731c0 0 1
+
+RF: f1 1 1
+action: f1 2 AWrite 0x1011731c4 0 1
+
+RF: f2 1 1
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24939
+Generate a new Executor: 0x7fcd3b705300 0x7fcd3b602800
+Schedule: 0x7fcd3b40cab0 1
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b705300
+func begin
+BeginFunc: 0x7fcd3b705300
+func begin
+BeginFunc: 0x7fcd3b705300
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread 0x101647000Waitting for create thread 
+0x1015c4000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+
+expect value: f2 1 1
+In atomic checker_preStore: 0x1011731c0 1 2!
+In checker_shared_int: 0x1011731b8
+update reachabilty!
+In checker_shared_int: end update!
+0x1011731bc
+In atomic checker_preLoad: In checker_thread_end
+0x1011731c0 2!
+get buffer: 0x1011731c0 0
+
+expect value: f1 1 0
+BeginFunc: 0x7fcd3b705300
+func begin
+In atomic checker_preStore: 0x1011731c4 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b705300
+func begin
+data: 0, 1
+ERROR!
+BeginFunc: 0x7fcd3b705300
+func begin
+In checker_thread_end
+Generating: f1-1 f2-2 0 1
+Opening file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b705300
+Adding Binary HB constraints: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fcd3b705300
+Adding sc constraints: 2
+In addLockConstraints: 0
+enforce: 0x7fcd3b705c20 f1-1 1 
+curSch: 0x7fcd3b40cab0 1
+enforce11: 0x7fcd3b7059e0 f2-1 1 
+Adding SW Constraints: 0
+End adding SW Constraints!
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+Generate new schedule: 0x7fcd3b504e40
+action: f2 2 AWrite 0x1011731c0 0 1
+
+RF: f1 1 1
+action: f1 2 AWrite 0x1011731c4 0 1
+
+RF: f2 1 1
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24940
+Generate a new Executor: 0x7fcd3b502df0 0x7fcd3b5032e0
+Schedule: 0x7fcd3b706660 2
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b502df0
+func begin
+BeginFunc: 0x7fcd3b502df0
+func begin
+BeginFunc: 0x7fcd3b502df0
+func begin
+
+In checker_thread_begin: 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_begin: 0x101647000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+Waitting for create thread 0x1015c4000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+
+expect value: f1 1 1
+In atomic checker_preStore: 0x1011731c4 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b502df0
+func begin
+Waitting for create thread 0x101647000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+
+expect value: f2 1 1
+In atomic checker_preStore: 0x1011731c0 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b502df0
+func begin
+data: 1, 1
+In checker_thread_end
+sover return!
+Solver path: /usr/local/bin/z3
+Formula file: /Users/aser/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+command: /usr/local/bin/z3 -smt2 -in 
+[Solver] Init solver...
+[Solver] create Z3 pid 24941
+Generate a new Executor: 0x7fcd3b605bc0 0x7fcd3b7070f0
+Schedule: 0x7fcd3b504e40 2
+For: f1 1
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 2
+    main 0
+    main 1
+    main 2
+    main 3
+For: f1 3
+    main 0
+    main 1
+    main 2
+    main 3
+For: f2 1
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 2
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: f2 3
+    main 0
+    main 1
+    main 2
+    main 3
+    main 4
+For: main 6
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+For: main 7
+    f1 0
+    f1 1
+    f1 2
+    f1 3
+    f2 0
+    f2 1
+    f2 2
+    f2 3
+Read Map: f1 1 1
+Read Map: f2 1 1
+
+In checker_thread_begin: 0x7fff7d800300
+In atomic checker_preStore: 0x1011731c0 0 7!
+update reachabilty!
+end update!
+In atomic checker_preStore: 0x1011731c4 0 7!
+update reachabilty!
+end update!
+BeginFunc: 0x7fcd3b605bc0
+func begin
+BeginFunc: 0x7fcd3b605bc0
+func begin
+BeginFunc: 0x7fcd3b605bc0
+func begin
+
+In checker_thread_create: 0x7fff7d800300 0x1015c4000
+
+In checker_thread_create: 0x7fff7d800300 0x101647000
+
+In checker_thread_begin: 0x1015c4000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c0 2!
+
+expect value: f1 1 1
+In atomic checker_preStore: 0x1011731c4 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b605bc0
+func begin
+
+In checker_thread_begin: 0x101647000
+In checker_shared_int: 0x1011731b8
+In checker_shared_int: 0x1011731bc
+In atomic checker_preLoad: 0x1011731c4 2!
+
+expect value: f2 1 1
+In atomic checker_preStore: 0x1011731c0 1 2!
+update reachabilty!
+end update!
+In checker_thread_end
+BeginFunc: 0x7fcd3b605bc0
+func begin
+data: 1, 1
+In checker_thread_end
+sover return!

@@ -3,12 +3,9 @@
 #include <fstream>
 #include <sstream>
 #include <thread>
-#include <sys/types.h>
-#include <unistd.h>
 
 #include "Executor.h"
 #include "checker.hpp"
-#include "Instrument.h"
 
 //using namespace checker;
 
@@ -19,6 +16,15 @@ Executor* exe;
 ModelChecker* modelChecker;
 
 extern "C" {
+
+double fence_time = 0;
+double trackDynInfo_time = 0;
+double trackDynInfoEnd_time = 0;
+double currentBB_time = 0;
+double addUses_time = 0;
+double beginFunc_time = 0;
+double endFunc_time = 0;
+double yield_time = 0;
 
 std::string getThreadName(std::thread::id id) {
     std::stringstream ss;
@@ -249,6 +255,7 @@ extern void checker_preUnlock(void* addr) {
 }
 
 void checker_preFence(int order) {
+    double bTime = clock();
 # ifdef DEBUG
     std::cout << "In atomic checker_preFence: " << order << "!\n";
 # endif
@@ -257,6 +264,8 @@ void checker_preFence(int order) {
     ss << "fence: " << order << "\n";
     updateTrace(ss.str());*/
     exe->execute_fence_action(getThreadName(std::this_thread::get_id()), order);
+    double tmp = clock() - bTime;
+    fence_time += tmp;
 }
 
 
@@ -350,12 +359,18 @@ int16_t checker_preRMW_Sub_16(void* addr, int16_t val, int order, uint64_t clapN
 }
 
 int32_t checker_preRMW_Sub_32(void* addr, int32_t val, int order, uint64_t clapNum) {
+    std::stringstream ss;
+    ss << "In rmw_sub 32: " << addr << " " << val << " " << order << " " << clapNum << "\n";
+    std::cout << ss.str();
+
     return checker_preRMW_Sub_64(addr, val, order, clapNum);
 }
 
 int64_t checker_preRMW_Sub_64(void* addr, int64_t val, int order, uint64_t clapNum) {
 # ifdef DEBUG
-    std::cout << "In rmw_sub: " << addr << " " << val << " " << order << "\n";
+    std::stringstream ss;
+    ss << "In rmw_sub: " << addr << " " << val << " " << order << "\n";
+    std::cout << ss.str();
 # endif
 
     return exe->execute_pre_rmw_sub_action(getThreadName(std::this_thread::get_id()), addr, order, val, clapNum);
@@ -521,20 +536,36 @@ int64_t checker_preRMW_UMin_64(void* addr, int64_t val, int order, uint64_t clap
     return exe->execute_pre_rmw_umin_action(getThreadName(std::this_thread::get_id()), addr, order, val, clapNum);
 }
 
-
 void checker_trackDynInfo(uint64_t bID) {
+    std::cout << "track dyn info: " << bID << "\n";
+    if (bID > 10000000000)
+        bID -= 10000000000;
+    double bTime = clock();
     if (exe)
         exe->updateTrackedBID(getThreadName(std::this_thread::get_id()), bID);
+    double tmp = clock() - bTime;
+    trackDynInfo_time += tmp;
 }
 
 void checker_trackDynInfoEnd() {
+    double bTime = clock();
     if (exe)
         exe->clearTrackedBID(getThreadName(std::this_thread::get_id()));
+    double tmp = clock() - bTime;
+    trackDynInfoEnd_time += tmp;
 }
 
 void checker_currentBB(uint64_t bid) {
-    if (exe)
-        exe->setCurrentBid(getThreadName(std::this_thread::get_id()), bid);
+    std::cout << "checker_currentBB: " << bid << " " << exe << "\n";
+    double bTime = clock();
+    if (exe) {
+        std::string name = getThreadName(std::this_thread::get_id());
+        //std::cerr << "name: " << name << "\n";
+        //exe->clearTrackedBID(name);
+        exe->setCurrentBid(name, bid);
+    }
+    double tmp = clock() - bTime;
+    currentBB_time += tmp;
 }
 
 void checker_handlePHI(uint64_t instID, std::vector<uint64_t> vec1, std::vector<uint64_t> vec2) {
@@ -641,6 +672,7 @@ void checker_handlePHI_10(uint64_t instID, uint64_t v1, uint64_t id1, uint64_t v
 }
 
 void checker_addUses(uint64_t instID, std::vector<uint64_t> vec) {
+    double bTime = clock();
     if (exe) {
         std::stringstream ss;
 #ifdef DEBUG
@@ -649,6 +681,9 @@ void checker_addUses(uint64_t instID, std::vector<uint64_t> vec) {
 #endif
         exe->updateDefUseList(getThreadName(std::this_thread::get_id()), instID, vec);
     }
+
+    double tmp = clock() - bTime;
+    addUses_time += tmp;
 }
 
 void checker_addUses_1(uint64_t instID, uint64_t use1) {
@@ -742,15 +777,30 @@ void checker_shared(void* addr) {
     sharedAddresses.insert(addr);
 }
 
+uint64_t exe_number = 0;
+double beginTime = 0;
+double startTime = 0;
+double totalTime = 0;
+bool firstExe = true;
 void checker_generateExecutor() {
+    if (firstExe) {
+        startTime = clock();
+        firstExe = false;
+    }
+
+    fence_time = trackDynInfoEnd_time = trackDynInfo_time = currentBB_time
+    = addUses_time = beginFunc_time = endFunc_time = yield_time = 0;
+
+    beginTime = clock();
     exe = new Executor();
-    std::cerr << "Initializing executor: " << exe << "\n";
+    std::cerr << "Initializing executor: " << exe << " " << exe_number++ << "\n";
     modelChecker->setExecutor(exe);
     exe->setModelChecker(modelChecker);
     //std::cerr << "end initialize\n";
 }
 
 void checker_beginFunc(/*std::string name*/) {
+    double bTime = clock();
     std::string name = "";
 # ifdef DEBUG
     std::cout << "BeginFunc: " << exe<< "\n";
@@ -758,11 +808,16 @@ void checker_beginFunc(/*std::string name*/) {
 
     if (exe)
         exe->handleFuncBegin(getThreadName(std::this_thread::get_id()), name);
+    double tmp = clock() - bTime;
+    beginFunc_time += tmp;
 }
 
 void checker_endFunc() {
+    double bTime = clock();
     if (exe)
         exe->handleFuncEnd(getThreadName(std::this_thread::get_id()));
+    double tmp = clock() - bTime;
+    endFunc_time += tmp;
 }
 
 
@@ -807,20 +862,45 @@ void checker_thread_end() {
 }
 
 void checker_pre_yield() {
+    double bTime = clock();
 # ifdef DEBUG
     std::cout << "In thread_yield_action!\n";
 # endif
 
     exe->execute_thread_yield_action(getThreadName(std::this_thread::get_id()));
+    double tmp = clock() - bTime;
+    yield_time += tmp;
 }
 
+double exeTime = 0;
 void checker_solver() {
+
+    std::cerr << "### Fence Time: " << fence_time / double(CLOCKS_PER_SEC) << " " << CLOCKS_PER_SEC << "\n";
+    std::cerr << "### TrackDynInfo Time: " << trackDynInfo_time / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### TrackDynInfoEnd Time: " << trackDynInfoEnd_time / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### CurrentBB Time: " << currentBB_time / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### BeginFunc Time: " << beginFunc_time / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### EndFunc Time: " << endFunc_time / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### AddUses Time: " << addUses_time / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### Yield Time: " << yield_time / double(CLOCKS_PER_SEC) << "\n";
+
+    double tmp = clock() - beginTime;
+    exeTime += tmp;
+    std::cerr << "### Execute Time: " << (clock()-startTime) / double(CLOCKS_PER_SEC) << " " <<
+              exeTime / double(CLOCKS_PER_SEC) << " " << tmp / double(CLOCKS_PER_SEC) << "\n";
+    std::cout << "### Execute Time: " << (clock()-startTime) / double(CLOCKS_PER_SEC) << " " <<
+              exeTime / double(CLOCKS_PER_SEC) << " " << tmp / double(CLOCKS_PER_SEC) << "\n";
     //std::cout << "begin checker_solver\n";
     exe->begin_solver();
     //std::cout << "delete exe: " << exe << "\n";
     delete exe;
     exe = nullptr;
     //std::cout << "end checker_solver! " << exe << "\n";
+    //modelChecker->addToExeTime(clock()-beginTime);
+    std::cout << "### Total Time: " << (clock() - startTime) / double(CLOCKS_PER_SEC) << "\n";
+    std::cerr << "### Total Time: " << (clock() - startTime) / double(CLOCKS_PER_SEC) << "\n";
+
+    return ;
 }
 
 void checker_myPrintf_64(int64_t x) {
@@ -845,5 +925,17 @@ void checker_myPrintf_1(bool x) {
     printf("myPrintf_1: %u\n", x);
 }
 
+void checker_loop() {
+    return ;
+}
+
+void checker_loopDep(int bid) {
+    if (exe) {
+        std::cout << "111: " << exe << "\n";
+        exe->handleLoopDep(bid, getThreadName(std::this_thread::get_id()));
+        std::cout << "222\n";
+    }
+    return ;
+}
 
 }

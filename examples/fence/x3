@@ -1,0 +1,6739 @@
+Generate a model checker11: 0x7fe789c03030 0
+Load schedule from file: 
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789e003f0
+Generate a new Executor: 0x7fe789c030e0 0x7fe789e003f0
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789c030e0 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789c03670 0x7fe789e007d0
+thread: 0x7fe789c03670 0x7fe789e007d0
+thread add end: 0x7fe789c03670 0x7fe789e007d0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789c030e0 0x7fe789c03270 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789c03670
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789c03670 0x7fe789c03850
+Before add action: 0x7fe789c03670 0x7fe789c03850
+before addAction lock: 0x7fe789c03670 0x7fe789c03850
+thread: 0x7fe789c03670 0x7fe789c03850
+thread add end: 0x7fe789c03670 0x7fe789c03850 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 0 52
+Tracked BID: 0 
+loads: 0 1 0 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789c03670 0x105077154 0
+update buf1 end: 0x7fe789c03670
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789c03670 0x7fe789c03a60
+Before add action: 0x7fe789c03670 0x7fe789c03a60
+before addAction lock: 0x7fe789c03670 0x7fe789c03a60
+thread: 0x7fe789c03670 0x7fe789c03a60
+thread add end: 0x7fe789c03670 0x7fe789c03a60 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 0 59
+Tracked BID: 0 
+loads: 0 2 0 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789c03670 0x105077148 0
+update buf1 end: 0x7fe789c03670
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789c030e0
+BeginFunc: 0x7fe789c030e0
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+
+update load: 201 0
+200 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 280 1 277
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 289 1 288
+checker_addUses: 291 1 289
+checker_addUses: 292 1 291
+
+In checker_thread_begin: 0x700000081000
+Waitting for create thread 0x700000081000
+checker_addUses: 67 1 44
+
+update load: 67 0
+44 0 
+
+checker_addUses: 71 1 44
+
+update load: 71 0
+44 0 
+
+BeginFunc: 0x7fe789c030e0
+Waitting for create thread 0x700000081000
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 201 1 200
+checker_addUses: 280 1 277
+
+update load: 201 0
+200 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 74 1 44
+checker_addUses: 289 1 288
+
+update load: 74 0
+44 0 
+
+checker_addUses: 291 1 289
+checker_addUses: 76 1 74
+checker_addUses: 292 1 291
+
+update load: 76 0
+74 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 77 1 76
+
+In checker_thread_begin: 0x700000104000
+
+update load: 77 0
+76 0 
+
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789c03670 0x7fe789c04280
+thread: 0x7fe789c03670 0x7fe789c04280
+thread add end: 0x7fe789c03670 0x7fe789c04280 1 3
+enabled threads: 1
+0x7fff76ded000
+In add action: main-3
+End add action! main-3
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+checker_addUses: 82 1 80
+
+update load: 82 0
+80 0 
+
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+Waitting for create thread 0x700000081000
+Waitting for create thread 0x700000104000before addAction lock: 
+0x7fe789c03670before enter lock: thread create  0x7000001040000x7fe789c044c0
+
+thread: 0x7fe789c03670 0x7fe789c044c0
+thread add end: 0x7fe789c03670 0x7fe789c044c0 1 4
+enabled threads: 1
+0x7fff76ded000
+In add action: main-4
+End add action! main-4
+checker_addUses: 84 1 44
+in thread_begin_action: 0x7fe789c030e0 0x700000104000 f1 ~1~~
+
+update load: 84 0
+44 0 
+
+update buf2: 0x7fe789f00150 2
+before addAction lock: 0x7fe789f00150 0x7fe789f005b0
+thread: 0x7fe789f00150 0x7fe789f005b0
+thread add end: 0x7fe789f00150 0x7fe789f005b0Waitting for create thread  0x7000000810002
+ before enter lock: thread create 00x700000081000
+
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789c030e0 0x7fe789c03270 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789f00150
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789c04280 0x7fe789f005b0
+checker_addUses: 5 1 4
+in thread_begin_action: 0x7fe789c030e0 0x700000081000 f2 ~2~~
+
+update load: 5 0
+4 0 
+
+In atomic checker_preStore: 0x105077148 27 2update buf2: !
+0x7fe789c046e0 2
+In write: 0x700000104000 0x7fe789f00150 0x7fe789f00850
+Before add action: 0x7fe789f00150 0x7fe789f00850
+before addAction lock: 0x7fe789f00150 0x7fe789f00850
+thread: 0x7fe789f00150 0x7fe789f00850
+thread add end: before addAction lock: 0x7fe789f001500x7fe789c046e0  0x7fe789f008500x7fe789c04ae0 
+8 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+End add action! f1-1
+action: f1-1
+thread: 0x7fe789c046e0 0x7fe789c04ae0
+thread add end: 0x7fe789c046e0 0x7fe789c04ae0 2 0
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+reach: 0 5
+Tracked BID: 0 
+loads: 0 1 0 5
+
+set load:  f1-1 0
+
+In add action: f2-0
+update buf1: 0x7fe789c046e0 0x105077148 27
+update buf1 end: End add action! f2-0
+0x7fe789c046e0
+Buffer Clear!
+update buf1: 0x7fe789f00150 0x105077148 27
+BBB: 0x7fe789c030e0 0x7fe789c03270 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789c046e0
+0x7fff76ded000 0x700000104000
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789c044c0 0x7fe789c04ae0
+update buf1 end: 0x7fe789f00150
+update buf1: 0x7fe789c03670 0x105077148 27
+update buf1 end: 0x7fe789c03670
+checker_addUses: 30 1 29
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+
+update load: 30 0
+29 0 
+
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: 0x105077148 42 2!
+In write: 0x700000104000 0x7fe789f00150 0x7fe789c04cb0
+Before add action: 0x7fe789f00150 0x7fe789c04cb0
+before addAction lock: 0x7fe789f00150 0x7fe789c04cb0
+thread: 0x7fe789f00150 0x7fe789c04cb0
+thread add end: 0x7fe789f00150 0x7fe789c04cb0 8 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+End add action! f1-2
+action: f1-2
+reach: 0 10
+Tracked BID: 0 
+loads: 0 2 0 10
+
+set load:  f1-2 0
+
+update buf1: 0x7fe789c046e0 0x105077148 42
+update buf1 end: 0x7fe789c046e0
+Buffer Clear!
+update buf1: 0x7fe789f00150 0x105077148 42
+update buf1 end: 0x7fe789f00150
+update buf1: 0x7fe789c03670 0x105077148 42
+update buf1 end: 0x7fe789c03670
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+In atomic checker_preLoad: 0x105077154 4 30!
+In read action: 0x700000081000
+before addAction lock: 0x7fe789c046e0 0x7fe789c04ed0
+thread: 0x7fe789c046e0 0x7fe789c04ed0
+thread add end: 0x7fe789c046e0 0x7fe789c04ed0 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-1
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+reach: 0 30
+Tracked BID: 0 
+loads: 0 1 0 30
+
+set load:  f2-1 0
+
+
+add load: 30 f2-1 1
+In pre_read action: f2-1
+before addAction lock: context0: 0x7fe789f00150f2*f2|30|1  0x7fe789f00a200x105077154
+
+thread: 0x7fe789f00150 0x7fe789f00a20
+thread add end: 0x7fe789f00150 0x7fe789f00a20 25 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-3
+End add action! f1-3
+checker_addUses: 18 1 17
+
+update load: 18 0
+17 0 
+
+In atomic checker_preStore: 0x105077154 100 5!
+In write: 0x700000104000 0x7fe789f00150 0x7fe789c050e0
+get value: 0x7fe789c04a50 0x105077154 0 main*main|52|1
+current values for: 0x105077154
+0 main*main|52|1 
+
+Read expect value: f2-1 0x105077154 0 main*main|52|1
+End: 0x700000081000 f2-1
+Before add action: 0x7fe789f00150 0x7fe789c050e0
+before addAction lock: 0x7fe789f00150 0x7fe789c050e0
+thread: 0x7fe789f00150 0x7fe789c050e0
+checker_addUses: 32 1 30
+thread add end: 0x7fe789f00150 0x7fe789c050e0 8 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-4
+
+update load: 32 1
+30 0 
+f2-1 
+In atomic checker_preFence: 4!
+End add action! f1-4
+action: before addAction lock: 0x7fe789c046e0f1-4 
+0x7fe789e00ad0reach: 0 18
+Tracked BID: 0 
+loads: 0 4 0 18
+
+set load:  f1-4 0
+
+
+thread: 0x7fe789c046e0 0x7fe789e00ad0
+update buf1: 0x7fe789c046e0 thread add end: 0x105077154 0x7fe789c046e0 100
+0x7fe789e00ad0 25 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+update buf1 end: 0x7fff76ded0000x7fe789c046e0
+
+In add action: f2-2
+Buffer Clear!
+update buf1: 0x7fe789f00150 0x105077154 100
+update buf1 end: 0x7fe789f00150
+update buf1: End add action! f2-2
+0x7fe789c03670 0x105077154 100
+update buf1 end: 0x7fe789c03670
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+checker_addUses: 38 1 37
+
+update load: 38 0
+37 0 
+
+checker_addUses: 23 1 22
+In atomic checker_preLoad: 0x105077148 7 38!
+In read action: 0x700000081000
+before addAction lock: 0x7fe789c046e0 0x7fe789f00be0
+
+update load: 23 0
+22 0 
+
+thread: 0x7fe789c046e0 0x7fe789f00be0
+thread add end: 0x7fe789c046e0 In atomic checker_preStore: 0x7fe789f00be0 0x105077148 7 3100
+ enabled threads: 23!
+
+In write: 0x7000000810000x700000104000
+ 0x7000001040000x7fe789f00150
+ 0x7fe789d00550
+0x7fff76ded000
+In add action: f2-3
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-3
+reach: 0 38
+Tracked BID: 0 
+loads: 0 3 0 38
+
+set load:  f2-3 0
+
+
+add load: 38 f2-3 1
+In pre_read action: f2-3
+context0: f2*f2|38|1 0x105077148
+get value: 0x7fe789c049c0 0x105077148 42 f1*f1|10|1
+current values for: 0x105077148
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 
+
+Read expect value: f2-3 0x105077148 42 f1*f1|10|1
+End: 0x700000081000 f2-3
+checker_addUses: 40 1 38
+Before add action: 0x7fe789f00150 0x7fe789d00550
+before addAction lock: 0x7fe789f00150 0x7fe789d00550
+thread: 0x7fe789f00150 0x7fe789d00550
+thread add end: 0x7fe789f00150 0x7fe789d00550 8 5
+enabled threads: 3
+update load: 40 1
+38 0 
+f2-3 
+
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-5
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe789c046e0 0x7fe789f00e70
+End add action! f1-5
+action: f1-5thread: 
+0x7fe789c046e0 0x7fe789f00e70
+thread add end: 0x7fe789c046e0 0x7fe789f00e70 5 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f2-4
+reach: 0 23
+Tracked BID: 0 
+loads: 0 5 0 23
+
+set load:  f1-5 0
+
+In add action: f2-4
+update buf1: 0x7fe789c046e0 0x105077148 100
+End add action! f2-4
+update buf1 end: 0x7fe789c046e0
+Buffer Clear!
+update buf1: 0x7fe789f00150 0x105077148 100
+update buf1 end: 0x7fe789f00150
+update buf1: 0x7fe789c03670 0x105077148 100
+update buf1 end: 0x7fe789c03670
+checker_addUses: 299 1 277
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+checker_addUses: 301 1 277
+In checker_thread_end
+checker_addUses: 302 1 299
+Thread_end_action: 0x700000104000
+before addAction lock: checker_addUses: 303 1 302
+0x7fe789f00150 0x7fe789c05280
+thread: 0x7fe789f00150 0x7fe789c05280
+thread add end: 0x7fe789f00150 0x7fe789c05280 5 6
+enabled threads: BeginFunc: 2
+0x7fe789c030e00x700000104000
+
+0x7fff76ded000
+erase enabledThreads: f1-6
+In add action: f1-6
+End add action! f1-6
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789c030e0
+checker_addUses: 85 1 43
+
+update load: 85 0
+43 0 
+
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 0, 42
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789c03670 0x7fe789f00f30
+thread: 0x7fe789c03670 0x7fe789f00f30
+thread add end: 0x7fe789c03670 0x7fe789f00f30 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.006695 0.006679 0.006679
+Current Trace: 3
+print trace: 0x7fe789c046e0 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 0 main*main|52|1 30
+f2*f2|38|1 f2-3 r 42 f1*f1|10|1 38
+iiiii: 0x7fe789c046e0 0
+print trace: 0x7fe789f00150 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789f00150 0
+print trace: 0x7fe789c03670 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789c03670 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+Generating: f2-3 f1-1 42 27
+checking: read:val f2-3 27
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+f2 3 27
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789c030e0
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789c030e0
+### Basic Prepare Time: 0.001158 0.001172
+### MO Prepare Time: 0.000526 0.000639
+Adding sc constraints: 3
+### SC Prepare Time: 0.000419 0.000431
+In addLockConstraints: 0
+prefix size: 0
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1)) (or (not (= B_f1-4_main-1 0)) (< M_main-1 M_f1-4))
+### Part1 Time: 0.001174 0.00119
+reads & writes: 1 4
+reads & writes: 1 2
+### Part2 Time: 2.4e-05 2.8e-05
+### Consistent Prepare Time: 0.001387 0.001391
+### Prepare Time: 0.005003 0.005015
+AddRWRelations: 1
+Add RW: f2-3 27
+In addRWRelation: f2-3 27
+
+xxxx read: f2-3 42 27
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: f1-1 27
+current orStr: 
+For write: f1-1
+isEnforceSWRelation: f2-3 f1-1 0
+xxx: f2-3 27 (or  (and  (= RF_f2-3_f1-1 1) (not (= B_f1-1_f2-3 0)) (= false (and (= B_f1-1_f1-2 1) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-1_f1-5 1) (= B_f1-5_f2-3 1))) (= false (and (= B_f1-1_main-2 1) (= B_f2-3_main-2 0)))))
+ttt: (or  (and  (= RF_f2-3_f1-1 1) (not (= B_f1-1_f2-3 0)) (= false (and (= B_f1-1_f1-2 1) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-1_f1-5 1) (= B_f1-5_f2-3 1))) (= false (and (= B_f1-1_main-2 1) (= B_f2-3_main-2 0)))))
+Adding SW Constraints: 1
+End adding SW Constraints!
+### RWConstraint construct Time: 0.001559 0.001566
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.001526 0.001531
+Create a Schedule: 0x7fe789e03750
+Generate new schedule: 0x7fe789e03750
+### P1 time: 6.4e-05 6.8e-05
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: f1-4 f1*f1|18|1
+Write val: 100
+org val: f2-1 100
+RF1: f2 1 100 f1*f1|18|1
+write: f1-1 f1*f1|5|1
+reachbility list2: f1-1 0
+Write val: 27
+RF: f2 3 27 f1*f1|5|1
+write: f1-4 f1*f1|18|1
+Write val: 100
+org val: f2-1 100
+RF1: f2 1 100 f1*f1|18|1
+write: f1-1 f1*f1|5|1
+reachbility list2: f1-1 0
+Write val: 27
+RF: f2 3 27 f1*f1|5|1
+### P2 time: 0.001543 0.001549
+### P3 time: 0.000201 0.000203
+### Generate Solution time: 0.001833 0.001835
+### Check redundancy time: 8e-06 1.1e-05
+### Last Part time: 0.003575 0.003576
+### Generate Schedule Time: 0.010698 0.0107
+Generating: f2-3 f1-5 42 100
+checking: read:val f2-3 100
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+f2 3 100
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile1_0x7fe789c030e0
+### Prepare Time: 0.005617 0.000619
+AddRWRelations: 1
+Add RW: f2-3 100
+In addRWRelation: f2-3 100
+
+xxxx read: f2-3 42 100
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: f1-5 100
+current orStr: 
+For write: f1-5
+isEnforceSWRelation: f2-3 f1-5 0
+xxx: f2-3 100 (or  (and  (= RF_f2-3_f1-5 1) (not (= B_f1-5_f2-3 0)) (= false (and (= B_f1-5_main-2 1) (= B_f2-3_main-2 0)))))
+ttt: (or  (and  (= RF_f2-3_f1-5 1) (not (= B_f1-5_f2-3 0)) (= false (and (= B_f1-5_main-2 1) (= B_f2-3_main-2 0)))))
+Adding SW Constraints: 2
+End adding SW Constraints!
+### RWConstraint construct Time: 0.002346 0.00079
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.003327 0.001807
+Create a Schedule: 0x7fe789e080b0
+Generate new schedule: 0x7fe789e080b0
+### P1 time: 8.3e-05 2.1e-05
+aaa: 1 f1*f1|0|1 f2*f2|38|1
+aaa: 1 f1*f1|0|1 f2*f2|0|3
+aaa: 1 f1*f1|5|1 f2*f2|38|1
+aaa: 1 f1*f1|5|1 f2*f2|0|3
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 1 f1*f1|10|1 f2*f2|38|1
+aaa: 1 f1*f1|10|1 f2*f2|0|3
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 1 f1*f1|0|2 f2*f2|38|1
+aaa: 1 f1*f1|0|2 f2*f2|0|3
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: f1-4 f1*f1|18|1
+Write val: 100
+org val: f2-1 100
+RF1: f2 1 100 f1*f1|18|1
+write: f1-5 f1*f1|23|1
+reachbility list2: f1-5 0
+Write val: 100
+RF: f2 3 100 f1*f1|23|1
+write: f1-4 f1*f1|18|1
+Write val: 100
+org val: f2-1 100
+RF1: f2 1 100 f1*f1|18|1
+write: f1-5 f1*f1|23|1
+reachbility list2: f1-5 0
+Write val: 100
+RF: f2 3 100 f1*f1|23|1
+### P2 time: 0.00348 0.001942
+### P3 time: 0.000481 0.000283
+### Generate Solution time: 0.004091 0.00226
+### Check redundancy time: 1.3e-05 7e-06
+### Last Part time: 0.007754 0.00418
+### Generate Schedule Time: 0.01653 0.005835
+Generating: f2-3 main-2 42 0
+checking: read:val f2-3 0
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+f2 3 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile2_0x7fe789c030e0
+### Prepare Time: 0.006318 0.000705
+AddRWRelations: 1
+Add RW: f2-3 0
+In addRWRelation: f2-3 0
+
+xxxx read: f2-3 42 0
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: main-2 0
+current orStr: 
+For write: main-2
+isEnforceSWRelation: f2-3 main-2 1
+xxx: f2-3 0 (or  (and  (= RF_f2-3_main-2 1) (= B_f2-3_main-2 0) (= false (and (= B_f1-1_main-2 0) (= B_f1-1_f2-3 1))) (= false (and (= B_f1-2_main-2 0) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-5_main-2 0) (= B_f1-5_f2-3 1)))))
+ttt: (or  (and  (= RF_f2-3_main-2 1) (= B_f2-3_main-2 0) (= false (and (= B_f1-1_main-2 0) (= B_f1-1_f2-3 1))) (= false (and (= B_f1-2_main-2 0) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-5_main-2 0) (= B_f1-5_f2-3 1)))))
+Adding SW Constraints: 2
+End adding SW Constraints!
+### RWConstraint construct Time: 0.003308 0.000968
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.004545 0.001224
+Create a Schedule: 0x7fe789c06ae0
+Generate new schedule: 0x7fe789c06ae0
+### P1 time: 0.000103 2.1e-05
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: f1-4 f1*f1|18|1
+Write val: 100
+org val: f2-1 100
+RF1: f2 1 100 f1*f1|18|1
+write: main-2 main*main|59|1
+reachbility list2: main-2 0
+Write val: 0
+RF: f2 3 0 main*main|59|1
+write: f1-4 f1*f1|18|1
+Write val: 100
+org val: f2-1 100
+RF1: f2 1 100 f1*f1|18|1
+write: main-2 main*main|59|1
+reachbility list2: main-2 0
+Write val: 0
+RF: f2 3 0 main*main|59|1
+### P2 time: 0.005094 0.001619
+### P3 time: 0.00071 0.000232
+### Generate Solution time: 0.005978 0.001889
+### Check redundancy time: 2e-05 9e-06
+### Last Part time: 0.010996 0.003244
+### Generate Schedule Time: 0.021754 0.005226
+Generating: f2-1 f1-4 0 100
+checking: read:val f2-1 100
+mhbList: 0
+enforcePairs: 1
+checking fairness: 1
+f2 1 100
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile3_0x7fe789c030e0
+### Prepare Time: 0.006991 0.000678
+AddRWRelations: 1
+Add RW: f2-1 100
+In addRWRelation: f2-1 100
+
+xxxx read: f2-1 0 100
+
+write: f1-4 100
+
+write: main-1 0
+writeset: 2
+
+write: f1-4 100
+current orStr: 
+For write: f1-4
+isEnforceSWRelation: f2-1 f1-4 1
+xxx: f2-1 100 (or  (and  (= RF_f2-1_f1-4 1) (= B_f1-4_f2-1 1) (= false (and (= B_f1-4_main-1 1) (= B_f2-1_main-1 0)))))
+ttt: (or  (and  (= RF_f2-1_f1-4 1) (= B_f1-4_f2-1 1) (= false (and (= B_f1-4_main-1 1) (= B_f2-1_main-1 0)))))
+Adding SW Constraints: 3
+End adding SW Constraints!
+### RWConstraint construct Time: 0.004476 0.001171
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.006128 0.001591
+Create a Schedule: 0x7fe789e027f0
+Generate new schedule: 0x7fe789e027f0
+### P1 time: 0.000129 2.8e-05
+aaa: 1 f1*f1|0|1 f2*f2|0|2
+aaa: 1 f1*f1|0|1 f2*f2|38|1
+aaa: 1 f1*f1|0|1 f2*f2|0|3
+aaa: 1 f1*f1|5|1 f2*f2|0|2
+aaa: 1 f1*f1|5|1 f2*f2|38|1
+aaa: 1 f1*f1|5|1 f2*f2|0|3
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 1 f1*f1|10|1 f2*f2|0|2
+aaa: 1 f1*f1|10|1 f2*f2|38|1
+aaa: 1 f1*f1|10|1 f2*f2|0|3
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 1 f1*f1|0|2 f2*f2|0|2
+aaa: 1 f1*f1|0|2 f2*f2|38|1
+aaa: 1 f1*f1|0|2 f2*f2|0|3
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 1 f1*f1|18|1 f2*f2|30|1
+aaa: 1 f1*f1|18|1 f2*f2|0|2
+aaa: 1 f1*f1|18|1 f2*f2|38|1
+aaa: 1 f1*f1|18|1 f2*f2|0|3
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: f1-4 f1*f1|18|1
+reachbility list2: f1-4 0
+Write val: 100
+RF: f2 1 100 f1*f1|18|1
+write: f1-1 f1*f1|5|1
+Write val: 27
+org val: f2-3 27
+RF1: f2 3 27 f1*f1|5|1
+write: f1-4 f1*f1|18|1
+reachbility list2: f1-4 0
+Write val: 100
+RF: f2 1 100 f1*f1|18|1
+write: f1-1 f1*f1|5|1
+Write val: 27
+org val: f2-3 27
+RF1: f2 3 27 f1*f1|5|1
+### P2 time: 0.008068 0.002982
+### P3 time: 0.001083 0.00038
+### Generate Solution time: 0.009383 0.003408
+### Check redundancy time: 2.6e-05 1e-05
+### Last Part time: 0.01609 0.005097
+### Generate Schedule Time: 0.028963 0.007211
+End solver!
+### Solver Time: 0.029413 0.029473
+buffers: 0x7fe789c046e0 2
+delete Buffer: 0x7fe789c049c0
+suc!
+delete Buffer: 0x7fe789c04a50
+suc!
+buffers: 0x7fe789f00150 2
+delete Buffer: 0x7fe789f00430
+suc!
+delete Buffer: 0x7fe789f00500
+suc!
+buffers: 0x7fe789c03670 2
+delete Buffer: 0x7fe789c039a0
+suc!
+delete Buffer: 0x7fe789d002b0
+suc!
+delete curSch1: 0x7fe789e003f0
+delete curSch2!
+### Total Time: 0.036654
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789f00dd0
+Generate a new Executor: 0x7fe789f06390 0x7fe789f00dd0
+Schedule: 0x7fe789e03750 0 -1 1 15 15
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 3 f2*f2|38|1 27 f1*f1|5|1
+Read Map2: f2 1 f2*f2|30|1 100 f1*f1|18|1
+
+Prefix: f2 3
+Prefix Context: f2*f2|38|1 27
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789f06390 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789f00dd0 0x7fe789f019d0
+thread: 0x7fe789f00dd0 0x7fe789f019d0
+thread add end: 0x7fe789f00dd0 0x7fe789f019d0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789f06390 0x7fe789f06520 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789f00dd0
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789f00dd0 0x7fe789f01bf0
+Before add action: 0x7fe789f00dd0 0x7fe789f01bf0
+before addAction lock: 0x7fe789f00dd0 0x7fe789f01bf0
+thread: 0x7fe789f00dd0 0x7fe789f01bf0
+thread add end: 0x7fe789f00dd0 0x7fe789f01bf0 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 7866221098041155632 52
+Tracked BID: 0 
+loads: 0 1 7866221098041155632 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789f00dd0 0x105077154 0
+update buf1 end: 0x7fe789f00dd0
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789f00dd0 0x7fe789f01e50
+Before add action: 0x7fe789f00dd0 0x7fe789f01e50
+before addAction lock: 0x7fe789f00dd0 0x7fe789f01e50
+thread: 0x7fe789f00dd0 0x7fe789f01e50
+thread add end: 0x7fe789f00dd0 0x7fe789f01e50 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 7866221098041155632 59
+Tracked BID: 0 
+loads: 0 2 7866221098041155632 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789f00dd0 0x105077148 0
+update buf1 end: 0x7fe789f00dd0
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789f06390
+BeginFunc: 0x7fe789f06390
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+checker_addUses: 279 1 278
+
+update load: 201 0
+200 0 
+
+checker_addUses: 280 1 277
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 67 1 44
+checker_addUses: 286 2 283
+
+update load: 67 0
+44 0 
+
+checker_addUses: 289 1 288
+checker_addUses: 71 1 44
+checker_addUses: 291 1 289
+
+update load: 71 0
+44 0 
+
+checker_addUses: 292 1 291
+BeginFunc: 0x7fe789f06390
+
+In checker_thread_begin: 0x700000081000
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+checker_addUses: 279 1 278
+
+update load: 201 0
+200 0 
+
+checker_addUses: 280 1 277
+checker_addUses: 282 1 275
+Waitting for create thread 0x700000081000
+checker_addUses: 283 1 282
+checker_addUses: 74 1 44
+
+update load: 74 0
+44 0 
+
+checker_addUses: 286 2 283
+checker_addUses: 76 1 74
+checker_addUses: 289 1 288
+
+update load: 76 0
+74 0 
+
+checker_addUses: 291 1 289
+checker_addUses: 77 1 76
+checker_addUses: 292 1 291
+
+update load: 77 0
+76 0 
+
+
+In checker_thread_begin: 0x700000104000
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789f00dd0 0x7fe789d006b0
+thread: 0x7fe789f00dd0 0x7fe789d006b0
+thread add end: 0x7fe789f00dd0 0x7fe789d006b0 1 3
+enabled threads: 1
+0x7fff76ded000
+In add action: main-3
+End add action! main-3
+Waitting for create thread 0x700000081000
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+checker_addUses: 82 1 80
+in thread_begin_action: 0x7fe789f06390 0x700000104000 f1 ~1~~
+
+update load: 82 0
+80 0 
+
+checker_addUses: 83 1 82
+update buf2: 0x7fe789e04940 2
+
+update load: 83 0
+82 0 
+
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+before addAction lock: 0x7fe789e04940 0x7fe789e039e0
+thread: 0x7fe789e04940 0x7fe789e039e0
+Waitting for create thread 0x700000081000
+thread add end: 0x7fe789e04940 0x7fe789e039e0 2 0
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789f06390 0x7fe789f06520 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789e04940
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789d006b0 0x7fe789e039e0
+checker_addUses: 5 1 4
+
+update load: 5 0
+4 0 
+
+In atomic checker_preStore: 0x105077148 27 2!
+In write: 0x700000104000 0x7fe789e04940 0x7fe789e00ad0
+Before add action: 0x7fe789e04940 0x7fe789e00ad0
+before addAction lock: 0x7fe789e04940 0x7fe789e00ad0
+thread: 0x7fe789e04940 0x7fe789e00ad0
+thread add end: 0x7fe789e04940 0x7fe789e00ad0 8 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+End add action! f1-1
+action: f1-1
+reach: 1 5
+Tracked BID: 0 
+loads: 0 1 1 5
+
+set load:  f1-1 0
+
+Waitting for create thread 0x700000081000
+Buffer Clear!
+update buf1: 0x7fe789e04940 before addAction lock: 0x105077148 0x7fe789f00dd0 270x7fe789d008f0
+
+thread: 0x7fe789f00dd0 0x7fe789d008f0
+update addr: 0x105077148 from thread add end: 27 0x7fe789f00dd0 27
+0x7fe789d008f0 update buf1 end: 10x7fe789e04940 
+4update buf1: 
+0x7fe789f00dd0enabled threads:  20x105077148
+ 0x70000010400027
+Waitting for create thread 
+0x7fff76ded0000x700000081000update addr: 
+
+0x105077148In add action: main-4
+ from 27 27
+update buf1 end: 0x7fe789f00dd0
+End add action! main-4
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+checker_addUses: 84 1 44
+checker_addUses: 10 1 9
+
+update load: 84 0
+44 0 
+
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: 0x105077148 42 2!
+In write: 0x700000104000 0x7fe789e04940 0x7fe789e00910
+Before add action: 0x7fe789e04940 0x7fe789e00910
+before addAction lock: 0x7fe789e04940 0x7fe789e00910
+thread: 0x7fe789e04940 0x7fe789e00910
+thread add end: 0x7fe789e04940 0x7fe789e00910 8 2
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+End add action! f1-2
+action: f1-2
+reach: 1 10
+Tracked BID: 0 
+loads: 0 2 1 10
+
+set load:  f1-2 0
+
+Buffer Clear!
+update buf1: 0x7fe789e04940 0x105077148 42
+update buf1 end: 0x7fe789e04940
+update buf1: 0x7fe789f00dd0 0x105077148 42
+update buf1 end: 0x7fe789f00dd0
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789e04940 0x7fe789e05e10
+thread: 0x7fe789e04940 0x7fe789e05e10
+thread add end: 0x7fe789e04940 0x7fe789e05e10 25 3
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-3
+End add action! f1-3
+checker_addUses: 18 1 17
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+
+update load: 18 0
+17 0 
+
+In atomic checker_preStore: 0x105077154 in thread_begin_action: 100 0x7fe789f06390 0x7000000810005 !
+f2 ~2~~
+In write: 0x700000104000 0x7fe789e04940 0x7fe789e04fa0
+Before add action: 0x7fe789e04940 0x7fe789e04fa0
+update buf2: before addAction lock: 0x7fe789d009f00x7fe789e04940  20x7fe789e04fa0
+
+thread: 0x7fe789e04940 0x7fe789e04fa0
+thread add end: 0x7fe789e04940 0x7fe789e04fa0 8 4
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+before addAction lock: 0x7fe789d009f0 In add action: f1-4
+0x7fe789d00ed0
+End add action! f1-4
+action: f1-4
+thread: 0x7fe789d009f0 0x7fe789d00ed0
+thread add end: 0x7fe789d009f0 0x7fe789d00ed0 2 reach: 1 18
+Tracked BID: 0 
+loads: 0 4 1 18
+
+set load:  f1-4 0
+
+0
+enabled threads: 2
+update buf1: 0x7fe789d009f0 0x105077154 100
+0x700000104000
+0x7fff76ded000
+update buf1 end: 0x7fe789d009f0
+Buffer Clear!
+update buf1: 0x7fe789e04940 0x105077154 In add action: f2-0
+100
+update buf1 end: 0x7fe789e04940
+update buf1: End add action! f2-0
+0x7fe789f00dd0 0x105077154 100
+update buf1 end: 0x7fe789f00dd0
+BBB: 0x7fe789f06390 0x7fe789f06520 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789d009f0
+0x7fff76ded000 0x700000104000
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789d008f0 0x7fe789d00ed0
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+checker_addUses: 30 1 29
+checker_addUses: 23 1 22
+
+update load: 30 0
+29 0 
+
+In atomic checker_preLoad: 0x105077154 4 30!
+
+update load: 23 0
+22 0 
+
+In atomic checker_preStore: In read action: 0x1050771480x700000081000 
+100before addAction lock:  0x7fe789d009f02 !
+0x7fe789c030e0
+thread: 0x7fe789d009f0 In write: 0x7fe789c030e00x700000104000
+ thread add end: 0x7fe789e049400x7fe789d009f0  0x7fe789c031d00x7fe789c030e0
+ 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-1
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+reach: 1178869739170089 30
+Tracked BID: 0 
+loads: 0 1 1178869739170089 30
+
+set load:  f2-1 0
+
+
+add load: 30 f2-1 1
+In pre_read action: f2-1
+context0: f2*f2|30|1 0x105077154
+get value: 0x7fe789d00e80 0x105077154 100 f1*f1|18|1
+current values for: 0x105077154
+0 main*main|52|1 100 f1*f1|18|1 
+
+Read expect value: f2-1 0x105077154 100 f1*f1|18|1
+End: 0x700000081000 f2-1
+Before add action: 0x7fe789e04940 0x7fe789c031d0
+before addAction lock: 0x7fe789e04940 0x7fe789c031d0
+thread: 0x7fe789e04940 0x7fe789c031d0
+checker_addUses: 32 1 30
+thread add end: 0x7fe789e04940 0x7fe789c031d0 8 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+
+update load: 32 1
+30 0 
+f2-1 
+In add action: f1-5
+In atomic checker_preFence: 4!
+End add action! f1-5
+before addAction lock: action: 0x7fe789d009f0 0x7fe789e05a20
+f1-5thread: 
+0x7fe789d009f0 0x7fe789e05a20
+thread add end: 0x7fe789d009f0 0x7fe789e05a20 25 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+reach: 1 23
+Tracked BID: 0 
+loads: 0 5 1 23
+
+set load:  f1-5 0
+
+In add action: f2-2
+update buf1: 0x7fe789d009f0 0x105077148 100
+End add action! f2-2
+update buf1 end: 0x7fe789d009f0
+Buffer Clear!
+update buf1: 0x7fe789e04940 0x105077148 100
+update buf1 end: 0x7fe789e04940
+update buf1: 0x7fe789f00dd0 0x105077148 100
+update buf1 end: 0x7fe789f00dd0
+checker_addUses: 38 1 37
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+
+update load: 38 0
+37 0 
+
+In atomic checker_preLoad: 0x105077148 7 38!
+In read action: 0x700000081000
+before addAction lock: In checker_thread_end
+0x7fe789d009f0Thread_end_action:  0x7000001040000x7fe789e04c30
+
+before addAction lock: thread: 0x7fe789e049400x7fe789d009f0  0x7fe789c032c00x7fe789e04c30
+
+thread add end: 0x7fe789d009f0 0x7fe789e04c30 7 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-3
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-3
+thread: 0x7fe789e04940 0x7fe789c032c0
+thread add end: 0x7fe789e04940 0x7fe789c032c0 5 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+reach: 1178869739170089 38
+Tracked BID: 0 
+loads: 0 3 1178869739170089 38
+
+set load:  f2-3 0
+
+0x7fff76ded000
+erase enabledThreads: f1-6
+
+add load: 38 f2-3 1
+In add action: f1-6
+In pre_read action: f2-3
+End add action! f1-6
+fetch expect value: f2*f2|38|1 f2-3 0x105077148 27 f1*f1|5|1
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+before fetch: 0x105077148 27 f1*f1|5|1
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 100 f1*f1|23|1 
+after fetch: 0x105077148
+0 main*main|59|1
+27 f1*f1|5|1
+42 f1*f1|10|1
+100 f1*f1|23|1
+
+checker_addUses: 302 1 299
+
+Read expect value: f2-3 0x105077148 27 f1*f1|5|1
+checker_addUses: 303 1 302
+BeginFunc: End: 0x700000081000 f2-3
+0x7fe789f06390
+checker_addUses: 40 1 38
+
+update load: 40 1
+38 0 
+f2-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe789d009f0 0x7fe789c03380
+thread: 0x7fe789d009f0 0x7fe789c03380
+thread add end: 0x7fe789d009f0 0x7fe789c03380 5 4
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+erase enabledThreads: f2-4
+In add action: f2-4
+checker_addUses: 85 1 43
+End add action! f2-4
+
+update load: 85 0
+43 0 
+
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789f06390
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 100, 27
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789f00dd0 0x7fe789c03440
+thread: 0x7fe789f00dd0 0x7fe789c03440
+thread add end: 0x7fe789f00dd0 0x7fe789c03440 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.041616 0.011584 0.004905
+Current Trace: 3
+print trace: 0x7fe789d009f0 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 100 f1*f1|18|1 30
+f2*f2|38|1 f2-3 r 27 f1*f1|5|1 38
+iiiii: 0x7fe789d009f0 0
+print trace: 0x7fe789e04940 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789e04940 0
+print trace: 0x7fe789f00dd0 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789f00dd0 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+Generating: f2-1 main-1 100 0
+checking: read:val f2-1 0
+mhbList: 0
+enforce context: f2*f2|38|1
+enforce4: 0x7fe789e04c30 f2-3 f2*f2|38|1 f1*f1|5|1 27 
+mhbList: 0
+enforcePairs: 2
+checking fairness: 2
+f2 1 0
+f2 3 27
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789f06390
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789f06390
+### Basic Prepare Time: 0.001994 0.000845
+### MO Prepare Time: 0.000821 0.000305
+Adding sc constraints: 3
+### SC Prepare Time: 0.000597 0.000187
+In addLockConstraints: 0
+prefix size: 0
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1)) (or (not (= B_f1-4_main-1 0)) (< M_main-1 M_f1-4))
+### Part1 Time: 0.00223 0.001069
+reads & writes: 1 4
+reads & writes: 1 2
+### Part2 Time: 4.2e-05 2.3e-05
+### Consistent Prepare Time: 0.002494 0.001111
+### Prepare Time: 0.010432 0.003456
+AddRWRelations: 2
+Add RW: f2-1 0
+In addRWRelation: f2-1 0
+
+xxxx read: f2-1 100 0
+
+write: f1-4 100
+
+write: main-1 0
+writeset: 2
+
+write: main-1 0
+current orStr: 
+For write: main-1
+isEnforceSWRelation: f2-1 main-1 1
+xxx: f2-1 0 (or  (and  (= RF_f2-1_main-1 1) (= B_f2-1_main-1 0) (= false (and (= B_f1-4_main-1 0) (= B_f1-4_f2-1 1)))))
+ttt: (or  (and  (= RF_f2-1_main-1 1) (= B_f2-1_main-1 0) (= false (and (= B_f1-4_main-1 0) (= B_f1-4_f2-1 1)))))
+Add RW: f2-3 27
+In addRWRelation: f2-3 27
+
+xxxx read: f2-3 27 27
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: f1-1 27
+current orStr: 
+For write: f1-1
+isEnforceSWRelation: f2-3 f1-1 0
+xxx: f2-3 27 (or  (and  (= RF_f2-3_f1-1 1) (not (= B_f1-1_f2-3 0)) (= false (and (= B_f1-1_f1-2 1) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-1_f1-5 1) (= B_f1-5_f2-3 1))) (= false (and (= B_f1-1_main-2 1) (= B_f2-3_main-2 0)))))
+ttt: (or  (and  (= RF_f2-3_f1-1 1) (not (= B_f1-1_f2-3 0)) (= false (and (= B_f1-1_f1-2 1) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-1_f1-5 1) (= B_f1-5_f2-3 1))) (= false (and (= B_f1-1_main-2 1) (= B_f2-3_main-2 0)))))
+Adding SW Constraints: 3
+End adding SW Constraints!
+### RWConstraint construct Time: 0.006029 0.001566
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.007697 0.001577
+Create a Schedule: 0x7fe789f05970
+Generate new schedule: 0x7fe789f05970
+### P1 time: 0.000169 4.4e-05
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: main-1 main*main|52|1
+reachbility list2: main-1 0
+Write val: 0
+RF: f2 1 0 main*main|52|1
+write: f1-1 f1*f1|5|1
+reachbility list2: f1-1 0
+Write val: 27
+RF: f2 3 27 f1*f1|5|1
+write: main-1 main*main|52|1
+reachbility list2: main-1 0
+Write val: 0
+RF: f2 1 0 main*main|52|1
+write: f1-1 f1*f1|5|1
+reachbility list2: f1-1 0
+Write val: 27
+RF: f2 3 27 f1*f1|5|1
+### P2 time: 0.009679 0.001619
+### P3 time: 0.001312 0.000232
+### Generate Solution time: 0.011293 0.001913
+### Check redundancy time: 3.3e-05 1e-05
+### Last Part time: 0.019742 0.003653
+### Generate Schedule Time: 0.038057 0.009097
+End solver!
+### Solver Time: 0.038624 0.009275
+buffers: 0x7fe789d009f0 2
+delete Buffer: 0x7fe789d00cd0
+suc!
+delete Buffer: 0x7fe789d00e80
+suc!
+buffers: 0x7fe789e04940 2
+delete Buffer: 0x7fe789e036e0
+suc!
+delete Buffer: 0x7fe789e04650
+suc!
+buffers: 0x7fe789f00dd0 2
+delete Buffer: 0x7fe789f01ce0
+suc!
+delete Buffer: 0x7fe789f01130
+suc!
+delete curSch1: 0x7fe789e03750
+delete curSch2!
+### Total Time: 0.051279
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789e04b50
+Generate a new Executor: 0x7fe789e03c90 0x7fe789e04b50
+Schedule: 0x7fe789e080b0 1 -1 1 16 16
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 3 f2*f2|38|1 100 f1*f1|23|1
+Read Map2: f2 1 f2*f2|30|1 100 f1*f1|18|1
+
+Prefix: f2 3
+Prefix Context: f2*f2|38|1 100
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789e03c90 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789e00ad0 0x7fe789e05250
+thread: 0x7fe789e00ad0 0x7fe789e05250
+thread add end: 0x7fe789e00ad0 0x7fe789e05250 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789e03c90 0x7fe789e03e20 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789e00ad0
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789e00ad0 0x7fe789e061d0
+Before add action: 0x7fe789e00ad0 0x7fe789e061d0
+before addAction lock: 0x7fe789e00ad0 0x7fe789e061d0
+thread: 0x7fe789e00ad0 0x7fe789e061d0
+thread add end: 0x7fe789e00ad0 0x7fe789e061d0 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 2814749767106560 52
+Tracked BID: 0 
+loads: 0 1 2814749767106560 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789e00ad0 0x105077154 0
+update buf1 end: 0x7fe789e00ad0
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789e00ad0 0x7fe789e04420
+Before add action: 0x7fe789e00ad0 0x7fe789e04420
+before addAction lock: 0x7fe789e00ad0 0x7fe789e04420
+thread: 0x7fe789e00ad0 0x7fe789e04420
+thread add end: 0x7fe789e00ad0 0x7fe789e04420 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 2814749767106560 59
+Tracked BID: 0 
+loads: 0 2 2814749767106560 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789e00ad0 0x105077148 0
+update buf1 end: 0x7fe789e00ad0
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789e03c90
+BeginFunc: 0x7fe789e03c90
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+checker_addUses: 279 1 278
+
+update load: 201 0
+200 0 
+
+checker_addUses: 280 1 277
+checker_addUses: 282 1 275
+checker_addUses: 67 1 44
+
+update load: 67 0
+44 0 
+
+checker_addUses: 283 1 282
+checker_addUses: 71 1 44
+
+update load: 71 0
+44 0 
+
+checker_addUses: 286 2 283
+BeginFunc: 0x7fe789e03c90
+checker_addUses: 289 1 288
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 291 1 289
+checker_addUses: 168 1 167
+checker_addUses: 292 1 291
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+In checker_thread_begin: 0x700000081000
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+Waitting for create thread 0x700000081000
+checker_addUses: 279 1 278
+
+update load: 200 0
+198 0 
+
+checker_addUses: 280 1 277
+checker_addUses: 201 1 200
+checker_addUses: 282 1 275
+
+update load: 201 0
+200 0 
+
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 289 1 288
+checker_addUses: 74 1 44
+checker_addUses: 291 1 289
+checker_addUses: 292 1 291
+
+update load: 74 0
+44 0 
+
+
+In checker_thread_begin: 0x700000104000
+checker_addUses: 76 1 74
+Waitting for create thread 0x700000081000
+
+update load: 76 0
+74 0 
+
+checker_addUses: 77 1 76
+
+update load: 77 0
+76 0 
+
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789e00ad0 0x7fe789c048c0
+thread: 0x7fe789e00ad0 0x7fe789c048c0
+thread add end: 0x7fe789e00ad0 0x7fe789c048c0 1 3
+enabled threads: 1
+0x7fff76ded000
+In add action: main-3
+End add action! main-3
+checker_addUses: 80 1 43
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+Waitting for create thread 0x700000081000
+
+update load: 80 0
+43 0 
+
+in thread_begin_action: 0x7fe789e03c90 0x700000104000 f1 ~1~~
+checker_addUses: 82 1 80
+update buf2: 0x7fe789e0a410 2
+
+update load: 82 0
+80 0 
+
+before addAction lock: 0x7fe789e0a410 0x7fe789e09b60
+thread: 0x7fe789e0a410 0x7fe789e09b60
+thread add end: 0x7fe789e0a410 0x7fe789e09b60 2 0
+enabled threads: checker_addUses: 83 1 82
+1
+
+update load: 83 0
+82 0 
+
+0x7fff76ded000
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789e03c90 0x7fe789e03e20 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789e0a410
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789c048c0 0x7fe789e09b60
+checker_addUses: 5 1 4
+
+update load: 5 0
+4 0 
+
+In atomic checker_preStore: 0x105077148 27 2!
+In write: 0x700000104000 0x7fe789e0a410 0x7fe789c030e0
+Before add action: 0x7fe789e0a410 0x7fe789c030e0
+before addAction lock: 0x7fe789e0a410 0x7fe789c030e0
+thread: 0x7fe789e0a410 0x7fe789c030e0
+thread add end: Waitting for create thread 0x7fe789e0a4100x700000081000before addAction lock:  
+0x7fe789e00ad00x7fe789c030e0  0x7fe789f015308
+ 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+End add action! f1-1
+action: f1-1
+reach: 2814749767106775 5
+Tracked BID: 0 
+loads: 0 1 2814749767106775 5
+
+set load:  f1-1 0
+
+Buffer Clear!
+update buf1: 0x7fe789e0a410 0x105077148 27
+update buf1 end: 0x7fe789e0a410
+update buf1: 0x7fe789e00ad0 0x105077148 27
+update buf1 end: 0x7fe789e00ad0
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: 0x105077148 42 2!
+In write: 0x700000104000 0x7fe789e0a410 0x7fe789c031d0
+Before add action: 0x7fe789e0a410 0x7fe789c031d0
+before addAction lock: 0x7fe789e0a410 0x7fe789c031d0
+Waitting for create thread 0x700000081000
+thread: 0x7fe789e00ad0 0x7fe789f01530
+thread add end: 0x7fe789e00ad0 0x7fe789f01530 1 4
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: main-4
+End add action! main-4
+thread: 0x7fe789e0a410 0x7fe789c031d0
+thread add end: 0x7fe789e0a410 0x7fe789c031d0 8 2
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+End add action! f1-2
+action: f1-2
+checker_addUses: 84 1 44
+reach: 2814749767106775 10
+Tracked BID: 0 
+loads: 0 2 2814749767106775 10
+
+set load:  f1-2 0
+
+
+update load: 84 0
+44 0 
+
+Buffer Clear!
+update buf1: 0x7fe789e0a410 0x105077148 42
+update buf1 end: 0x7fe789e0a410
+update buf1: 0x7fe789e00ad0 0x105077148 42
+update buf1 end: 0x7fe789e00ad0
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789e0a410 0x7fe789e099c0
+thread: 0x7fe789e0a410 0x7fe789e099c0in thread_begin_action: 
+0x7fe789e03c90thread add end:  0x7fe789e0a4100x700000081000  0x7fe789e099c0f2  ~252~~
+ 3
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-3
+update buf2: 0x7fe789c032c0 2End add action! f1-3
+
+before addAction lock: 0x7fe789c032c0 0x7fe789c03450
+thread: 0x7fe789c032c0 0x7fe789c03450
+thread add end: 0x7fe789c032c0 0x7fe789c03450 2 0
+enabled threads: 2
+checker_addUses: 18 1 17
+0x700000104000
+0x7fff76ded000
+In add action: f2-0
+
+update load: 18 0
+17 0 
+
+In atomic checker_preStore: 0x105077154 100 5!
+End add action! f2-0
+In write: 0x700000104000 0x7fe789e0a410 0x7fe789e0aa00
+Before add action: 0x7fe789e0a410 0x7fe789e0aa00
+before addAction lock: 0x7fe789e0a410 BBB: 0x7fe789e03c90 0x7fe789e03e20 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789c032c0
+0x7fff76ded000 0x700000104000
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789f01530 0x7fe789c03450
+0x7fe789e0aa00
+thread: 0x7fe789e0a410 0x7fe789e0aa00
+thread add end: 0x7fe789e0a410 0x7fe789e0aa00 8 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-4
+checker_addUses: 30 1 29
+End add action! f1-4
+action: f1-4
+
+update load: 30 0
+29 0 
+
+In atomic checker_preLoad: 0x105077154 4 30!
+reach: 2814749767106775 18
+Tracked BID: 0 
+loads: 0 4 2814749767106775 18
+
+set load:  f1-4 0
+
+In read action: 0x700000081000
+update buf1: 0x7fe789c032c0 0x105077154 100
+update buf1 end: 0x7fe789c032c0
+Buffer Clear!
+update buf1: 0x7fe789e0a410 0x105077154 100
+update buf1 end: 0x7fe789e0a410
+update buf1: 0x7fe789e00ad0 0x105077154 100
+update buf1 end: 0x7fe789e00ad0
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+checker_addUses: 23 1 22
+before addAction lock: 0x7fe789c032c0 0x7fe789c03510
+thread: 0x7fe789c032c0 0x7fe789c03510
+
+update load: 23 0
+22 0 
+
+thread add end: 0x7fe789c032c0 0x7fe789c03510 In atomic checker_preStore: 0x105077148 7 100 2!
+1
+enabled threads: 3
+0x700000081000
+0x700000104000
+In write: 0x7fff76ded0000x700000104000
+ 0x7fe789e0a410 0x7fe789e0a0a0
+In add action: f2-1
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+reach: 140632428405648 30
+Tracked BID: 0 
+loads: 0 1 140632428405648 30
+
+set load:  f2-1 0
+
+
+add load: 30 f2-1 1
+In pre_read action: f2-1
+context0: f2*f2|30|1 0x105077154
+get value: 0x7fe789c08c90 0x105077154 100 f1*f1|18|1
+current values for: 0x105077154
+0 main*main|52|1 100 f1*f1|18|1 
+
+Read expect value: f2-1 0x105077154 100 f1*f1|18|1
+End: 0x700000081000 f2-1
+Before add action: 0x7fe789e0a410 0x7fe789e0a0a0
+before addAction lock: checker_addUses: 32 1 30
+0x7fe789e0a410 0x7fe789e0a0a0
+thread: 0x7fe789e0a410 0x7fe789e0a0a0
+thread add end: 0x7fe789e0a410 0x7fe789e0a0a0 8 5
+update load: 32 1
+30 0 
+f2-1 
+
+enabled threads: In atomic checker_preFence: 3
+40x700000081000!
+
+0x700000104000
+0x7fff76ded000
+before addAction lock: 0x7fe789c032c0 0x7fe789e0ad40
+In add action: f1-5
+End add action! f1-5
+action: f1-5
+thread: 0x7fe789c032c0 0x7fe789e0ad40
+thread add end: 0x7fe789c032c0 0x7fe789e0ad40 25 reach: 2814749767106775 23
+Tracked BID: 0 
+loads: 0 5 2814749767106775 23
+
+set load:  f1-5 0
+
+2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000update buf1: 
+0x7fe789c032c0In add action: f2-2
+ 0x105077148 100
+update addr: 0x105077148 from 100 100
+update buf1 end: 0x7fe789c032c0
+End add action! f2-2
+Buffer Clear!
+update buf1: 0x7fe789e0a410 0x105077148 100
+update addr: 0x105077148 from 100 100
+update buf1 end: 0x7fe789e0a410
+update buf1: 0x7fe789e00ad0 0x105077148checker_addUses: 38 1 37
+ 100
+
+update load: 38 0
+37 0 
+
+update addr: 0x105077148 from 100 In atomic checker_preLoad: 1000x105077148
+ update buf1 end: 70x7fe789e00ad0 
+38
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+!
+In read action: 0x700000081000
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe789e0a410 before addAction lock: 0x7fe789c036000x7fe789c032c0
+ thread: 0x7fe789e045f00x7fe789e0a410
+ 0x7fe789c03600
+thread add end: 0x7fe789e0a410 0x7fe789c03600 5 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f1-6
+In add action: f1-6
+End add action! f1-6
+thread: 0x7fe789c032c0 0x7fe789e045f0
+thread add end: 0x7fe789c032c0 0x7fe789e045f0 7 3
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+In add action: f2-3
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff76ded000 
+checker_addUses: 299 1 277
+End add action! f2-3
+checker_addUses: 301 1 277
+reach: 140632428405648 38
+Tracked BID: 0 
+loads: 0 3 140632428405648 38
+
+set load:  f2-3 0
+
+
+add load: 38 f2-3 1
+In pre_read action: checker_addUses: 302 1 299
+f2-3
+checker_addUses: 303 1 302
+fetch expect value: f2*f2|38|1 f2-3 0x105077148 100 f1*f1|23|1
+BeginFunc: 0x7fe789e03c90
+before fetch: 0x105077148 100 f1*f1|23|1
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 100 f1*f1|23|1 
+after fetch: 0x105077148
+0 main*main|59|1
+27 f1*f1|5|1
+42 f1*f1|10|1
+100 f1*f1|23|1
+
+
+Read expect value: f2-3 0x105077148 100 f1*f1|23|1
+End: 0x700000081000 f2-3
+checker_addUses: 40 1 38
+
+update load: 40 1
+38 0 
+f2-3 
+checker_addUses: 85 1 43
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe789c032c0 0x7fe789c036c0
+thread: 0x7fe789c032c0 0x7fe789c036c0
+thread add end: 0x7fe789c032c0 0x7fe789c036c0 5 4
+enabled threads: 
+update load: 85 0
+43 0 
+
+2
+0x700000081000
+0x7fff76ded000
+erase enabledThreads: f2-4
+In add action: f2-4
+End add action! f2-4
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789e03c90
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 100, 100
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789e00ad0 0x7fe789e0a6f0
+thread: 0x7fe789e00ad0 0x7fe789e0a6f0
+thread add end: 0x7fe789e00ad0 0x7fe789e0a6f0 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.0552 0.015449 0.003865
+Current Trace: 3
+print trace: 0x7fe789c032c0 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 100 f1*f1|18|1 30
+f2*f2|38|1 f2-3 r 100 f1*f1|23|1 38
+iiiii: 0x7fe789c032c0 0
+print trace: 0x7fe789e0a410 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789e0a410 0
+print trace: 0x7fe789e00ad0 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789e00ad0 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+Generating: f2-1 main-1 100 0
+checking: read:val f2-1 0
+mhbList: 0
+enforce context: f2*f2|38|1
+enforce4: 0x7fe789e045f0 f2-3 f2*f2|38|1 f1*f1|23|1 100 
+mhbList: 0
+enforcePairs: 2
+checking fairness: 2
+f2 1 0
+f2 3 100
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789e03c90
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789e03c90
+### Basic Prepare Time: 0.002516 0.000528
+### MO Prepare Time: 0.000996 0.000178
+Adding sc constraints: 3
+### SC Prepare Time: 0.000703 0.000108
+In addLockConstraints: 0
+prefix size: 0
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1)) (or (not (= B_f1-4_main-1 0)) (< M_main-1 M_f1-4))
+### Part1 Time: 0.00284 0.000614
+reads & writes: 1 4
+reads & writes: 1 2
+### Part2 Time: 5.1e-05 1.1e-05
+### Consistent Prepare Time: 0.003128 0.000636
+### Prepare Time: 0.012493 0.002068
+AddRWRelations: 2
+Add RW: f2-1 0
+In addRWRelation: f2-1 0
+
+xxxx read: f2-1 100 0
+
+write: f1-4 100
+
+write: main-1 0
+writeset: 2
+
+write: main-1 0
+current orStr: 
+For write: main-1
+isEnforceSWRelation: f2-1 main-1 1
+xxx: f2-1 0 (or  (and  (= RF_f2-1_main-1 1) (= B_f2-1_main-1 0) (= false (and (= B_f1-4_main-1 0) (= B_f1-4_f2-1 1)))))
+ttt: (or  (and  (= RF_f2-1_main-1 1) (= B_f2-1_main-1 0) (= false (and (= B_f1-4_main-1 0) (= B_f1-4_f2-1 1)))))
+Add RW: f2-3 100
+In addRWRelation: f2-3 100
+
+xxxx read: f2-3 100 100
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: f1-5 100
+current orStr: 
+For write: f1-5
+isEnforceSWRelation: f2-3 f1-5 0
+xxx: f2-3 100 (or  (and  (= RF_f2-3_f1-5 1) (not (= B_f1-5_f2-3 0)) (= false (and (= B_f1-5_main-2 1) (= B_f2-3_main-2 0)))))
+ttt: (or  (and  (= RF_f2-3_f1-5 1) (not (= B_f1-5_f2-3 0)) (= false (and (= B_f1-5_main-2 1) (= B_f2-3_main-2 0)))))
+Adding SW Constraints: 4
+End adding SW Constraints!
+### RWConstraint construct Time: 0.007516 0.001501
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.009229 0.001541
+Create a Schedule: 0x7fe789c04a70
+Generate new schedule: 0x7fe789c04a70
+### P1 time: 0.00022 5.4e-05
+aaa: 1 f1*f1|0|1 f2*f2|38|1
+aaa: 1 f1*f1|0|1 f2*f2|0|3
+aaa: 1 f1*f1|5|1 f2*f2|38|1
+aaa: 1 f1*f1|5|1 f2*f2|0|3
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 1 f1*f1|10|1 f2*f2|38|1
+aaa: 1 f1*f1|10|1 f2*f2|0|3
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 1 f1*f1|0|2 f2*f2|38|1
+aaa: 1 f1*f1|0|2 f2*f2|0|3
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: main-1 main*main|52|1
+reachbility list2: main-1 0
+Write val: 0
+RF: f2 1 0 main*main|52|1
+write: f1-5 f1*f1|23|1
+reachbility list2: f1-5 0
+Write val: 100
+RF: f2 3 100 f1*f1|23|1
+write: main-1 main*main|52|1
+reachbility list2: main-1 0
+Write val: 0
+RF: f2 1 0 main*main|52|1
+write: f1-5 f1*f1|23|1
+reachbility list2: f1-5 0
+Write val: 100
+RF: f2 3 100 f1*f1|23|1
+### P2 time: 0.011563 0.00189
+### P3 time: 0.001554 0.000244
+### Generate Solution time: 0.013501 0.00221
+### Check redundancy time: 3.8e-05 8e-06
+### Last Part time: 0.023678 0.003938
+### Generate Schedule Time: 0.045857 0.007801
+End solver!
+### Solver Time: 0.046517 0.007939
+buffers: 0x7fe789c032c0 2
+delete Buffer: 0x7fe789c079a0
+suc!
+delete Buffer: 0x7fe789c08c90
+suc!
+buffers: 0x7fe789e0a410 2
+delete Buffer: 0x7fe789e08340
+suc!
+delete Buffer: 0x7fe789e085f0
+suc!
+buffers: 0x7fe789e00ad0 2
+delete Buffer: 0x7fe789e09610
+suc!
+delete Buffer: 0x7fe789e03640
+suc!
+delete curSch1: 0x7fe789e080b0
+delete curSch2!
+### Total Time: 0.063463
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789f03560
+Generate a new Executor: 0x7fe789f06390 0x7fe789f03560
+Schedule: 0x7fe789c06ae0 2 -1 1 15 15
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 3 f2*f2|38|1 0 main*main|59|1
+Read Map2: f2 1 f2*f2|30|1 100 f1*f1|18|1
+
+Prefix: f2 3
+Prefix Context: f2*f2|38|1 0
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789f06390 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789e040e0 0x7fe789e03440
+thread: 0x7fe789e040e0 0x7fe789e03440
+thread add end: 0x7fe789e040e0 0x7fe789e03440 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789f06390 0x7fe789f06520 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789e040e0
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789e040e0 0x7fe789e00ad0
+Before add action: 0x7fe789e040e0 0x7fe789e00ad0
+before addAction lock: 0x7fe789e040e0 0x7fe789e00ad0
+thread: 0x7fe789e040e0 0x7fe789e00ad0
+thread add end: 0x7fe789e040e0 0x7fe789e00ad0 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 2814749767120429 52
+Tracked BID: 0 
+loads: 0 1 2814749767120429 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789e040e0 0x105077154 0
+update buf1 end: 0x7fe789e040e0
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789e040e0 0x7fe789e061d0
+Before add action: 0x7fe789e040e0 0x7fe789e061d0
+before addAction lock: 0x7fe789e040e0 0x7fe789e061d0
+thread: 0x7fe789e040e0 0x7fe789e061d0
+thread add end: 0x7fe789e040e0 0x7fe789e061d0 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 2814749767120429 59
+Tracked BID: 0 
+loads: 0 2 2814749767120429 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789e040e0 0x105077148 0
+update addr: 0x105077148 from 0 0
+update buf1 end: 0x7fe789e040e0
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789f06390
+BeginFunc: 0x7fe789f06390
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+
+update load: 201 0
+200 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 280 1 277
+checker_addUses: 67 1 44
+checker_addUses: 282 1 275
+
+update load: 67 0
+44 0 
+
+checker_addUses: 283 1 282
+checker_addUses: 71 1 44
+checker_addUses: 286 2 283
+
+update load: 71 0
+44 0 
+
+checker_addUses: 289 1 288
+BeginFunc: 0x7fe789f06390
+checker_addUses: 291 1 289
+checker_addUses: 292 1 291
+checker_addUses: 167 1 166
+
+In checker_thread_begin: 0x700000081000
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 201 1 200
+
+update load: 201 0
+200 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 280 1 277
+checker_addUses: 74 1 44
+checker_addUses: 282 1 275
+
+update load: 74 0
+44 0 
+
+checker_addUses: 283 1 282
+checker_addUses: 76 1 74
+checker_addUses: 286 2 283
+
+update load: 76 0
+74 0 
+
+checker_addUses: 77 1 76
+checker_addUses: 289 1 288
+
+update load: 77 0
+76 0 
+
+checker_addUses: 291 1 289
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+checker_addUses: 292 1 291
+before addAction lock: 0x7fe789e040e0 0x7fe789c091d0
+thread: 0x7fe789e040e0 0x7fe789c091d0
+
+In checker_thread_begin: 0x700000104000
+thread add end: 0x7fe789e040e0 0x7fe789c091d0 1 3
+enabled threads: 1
+0x7fff76ded000
+In add action: main-3
+End add action! main-3
+Waitting for create thread 0x700000081000
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+checker_addUses: 82 1 80
+
+update load: 82 0
+80 0 
+
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+before addAction lock: 0x7fe789e040e0 0x7fe789c09040
+thread: 0x7fe789e040e0 0x7fe789c09040
+thread add end: 0x7fe789e040e0 0x7fe789c09040 1 4
+enabled threads: 1
+0x7fff76ded000
+In add action: main-4
+End add action! main-4
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+checker_addUses: 84 1 44
+
+update load: 84 0
+44 0 
+
+in thread_begin_action: 0x7fe789f06390 0x700000104000 f1 ~1~~
+update buf2: 0x7fe789e04420 2
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+before addAction lock: 0x7fe789e04420 0x7fe789e04640
+thread: 0x7fe789e04420 0x7fe789e04640
+thread add end: 0x7fe789e04420 0x7fe789e04640 2 0
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789f06390 0x7fe789f06520 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789e04420
+0x7fff76ded000 0x700000081000
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789c091d0 0x7fe789e04640
+checker_addUses: 5 1 4
+in thread_begin_action: 0x7fe789f06390 0x700000081000 f2 ~2~~
+
+update load: 5 0
+4 0 
+
+In atomic checker_preStore: 0x105077148 27 2!
+update buf2: 0x7fe789c08de0 2
+In write: 0x700000104000 0x7fe789e04420 0x7fe789e00910
+Before add action: 0x7fe789e04420 0x7fe789e00910
+before addAction lock: 0x7fe789e04420 0x7fe789e00910
+thread: 0x7fe789e04420 0x7fe789e00910
+thread add end: 0x7fe789e04420 0x7fe789e00910 8 before addAction lock: 1
+0x7fe789c08de0enabled threads:  20x7fe789c075f0
+
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+End add action! f1-1
+action: f1-1
+reach: 2942766789178881 5
+Tracked BID: 0 
+loads: 0 1 2942766789178881 5
+
+set load:  f1-1 0
+
+update buf1: 0x7fe789c08de0 0x105077148 27
+thread: update buf1 end: 0x7fe789c08de0
+0x7fe789c08de0 0x7fe789c075f0
+Buffer Clear!
+update buf1: 0x7fe789e04420 0x105077148 27
+thread add end: 0x7fe789c08de0 0x7fe789c075f0 update buf1 end: 20x7fe789e04420 
+0update buf1: 
+0x7fe789e040e0enabled threads:  20x105077148
+ 0x70000010400027
+
+0x7fff76ded000
+update buf1 end: 0x7fe789e040e0
+In add action: f2-0
+End add action! f2-0
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+BBB: 0x7fe789f06390 0x7fe789f06520 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789c08de0
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789c09040 0x7fe789c075f0
+checker_addUses: 10 1 9
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: 0x105077148 42 checker_addUses: 30 1 29
+2!
+
+update load: 30 0
+29 0 
+
+In write: 0x700000104000 In atomic checker_preLoad: 0x7fe789e044200x105077154  0x7fe789e0e7304
+ Before add action: 300x7fe789e04420!
+ In read action: 0x7fe789e0e7300x700000081000
+
+before addAction lock: 0x7fe789e04420 0x7fe789e0e730
+thread: 0x7fe789e04420 0x7fe789e0e730
+thread add end: 0x7fe789e04420 0x7fe789e0e730 8 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+End add action! f1-2
+action: f1-2
+reach: 2942766789178881 10
+Tracked BID: 0 
+loads: 0 2 2942766789178881 10
+
+set load:  f1-2 0
+
+update buf1: 0x7fe789c08de0 0x105077148 42
+update buf1 end: 0x7fe789c08de0
+Buffer Clear!
+update buf1: 0x7fe789e04420 0x105077148 42
+update buf1 end: 0x7fe789e04420
+update buf1: 0x7fe789e040e0 0x105077148 42
+update buf1 end: 0x7fe789e040e0
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789e04420 0x7fe789c08250
+thread: 0x7fe789e04420 0x7fe789c08250
+thread add end: 0x7fe789e04420 0x7fe789c08250 25 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-3
+End add action! f1-3
+before addAction lock: 0x7fe789c08de0 0x7fe789c08540
+thread: 0x7fe789c08de0 0x7fe789c08540
+thread add end: 0x7fe789c08de0 0x7fe789c08540 7 checker_addUses: 18 1 17
+1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+
+update load: 18 0
+17 0 
+
+In add action: f2-1
+In atomic checker_preStore: 0x105077154 100 5!
+In write: 0x700000104000 0x7fe789e04420 0x7fe789c07e60
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+reach: 0 30
+Tracked BID: 0 
+loads: 0 1 0 30
+
+set load:  f2-1 0
+
+
+add load: 30 f2-1 1
+In pre_read action: f2-1
+context0: f2*f2|30|1 0x105077154
+get value: 0x7fe789c079a0 0x105077154 0 main*main|52|1
+current values for: 0x105077154
+0 main*main|52|1 
+
+Read expect value: f2-1 0x105077154 0 main*main|52|1
+Before add action: End: 0x700000081000 f2-1
+0x7fe789e04420 0x7fe789c07e60
+before addAction lock: 0x7fe789e04420 0x7fe789c07e60
+thread: 0x7fe789e04420 0x7fe789c07e60
+thread add end: 0x7fe789e04420 0x7fe789c07e60 8 checker_addUses: 32 1 30
+4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-4
+End add action! f1-4
+action: 
+update load: 32 1
+30 0 
+f2-1 
+f1-4
+In atomic checker_preFence: 4!
+before addAction lock: 0x7fe789c08de0 0x7fe789e05540
+thread: 0x7fe789c08de0 0x7fe789e05540
+thread add end: 0x7fe789c08de0reach: 2942766789178881 18
+Tracked BID: 0 
+loads: 0 4 2942766789178881 18
+
+set load:  f1-4 0
+
+ update buf1: 0x7fe789c08de0 0x7fe789e055400x105077154  25100 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+
+In add action: f2-2
+update buf1 end: 0x7fe789c08de0
+End add action! f2-2
+Buffer Clear!
+update buf1: 0x7fe789e04420 0x105077154 100
+update buf1 end: 0x7fe789e04420
+update buf1: 0x7fe789e040e0 0x105077154 100
+update buf1 end: 0x7fe789e040e0
+checker_addUses: 38 1 37
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+
+update load: 38 0
+37 0 
+
+In atomic checker_preLoad: 0x105077148 7 38!
+In read action: 0x700000081000
+before addAction lock: 0x7fe789c08de0 0x7fe789e07e10
+thread: 0x7fe789c08de0 0x7fe789e07e10
+thread add end: 0x7fe789c08de0 checker_addUses: 23 1 22
+0x7fe789e07e10 7 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-3
+
+update load: 23 0
+22 0 
+
+In atomic checker_preStore: 0x105077148 Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+100 2!
+In write: 0x700000104000 0x7fe789e04420 0x7fe789d021e0
+End add action! f2-3
+reach: 0 38
+Tracked BID: 0 
+loads: 0 3 0 38
+
+set load:  f2-3 0
+
+
+add load: 38 f2-3 1
+In pre_read action: f2-3
+fetch expect value: f2*f2|38|1 f2-3 0x105077148 0 main*main|59|1
+before fetch: 0x105077148 0 main*main|59|1
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 
+after fetch: 0x105077148
+0 main*main|59|1
+27 f1*f1|5|1
+42 f1*f1|10|1
+
+
+Read expect value: f2-3 0x105077148 0 main*main|59|1
+End: 0x700000081000 f2-3
+Before add action: 0x7fe789e04420 0x7fe789d021e0
+before addAction lock: 0x7fe789e04420 0x7fe789d021e0
+thread: 0x7fe789e04420 0x7fe789d021e0
+checker_addUses: 40 1 38
+thread add end: 0x7fe789e04420 0x7fe789d021e0 8 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-5
+
+update load: 40 1
+38 0 
+f2-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+End add action! f1-5
+action: before addAction lock: 0x7fe789c08de0 0x7fe789e04bf0
+thread: 0x7fe789c08de0 0x7fe789e04bf0
+thread add end: 0x7fe789c08de0 0x7fe789e04bf0 5 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f1-5
+f2-4
+In add action: f2-4
+End add action! f2-4
+reach: 2942766789178881 23
+Tracked BID: 0 
+loads: 0 5 2942766789178881 23
+
+set load:  f1-5 0
+
+update buf1: 0x7fe789c08de0 0x105077148 100
+update buf1 end: 0x7fe789c08de0
+Buffer Clear!
+update buf1: 0x7fe789e04420 0x105077148 100
+update buf1 end: 0x7fe789e04420
+checker_addUses: 299 1 277
+update buf1: 0x7fe789e040e0 0x105077148 100
+checker_addUses: 301 1 277
+update buf1 end: 0x7fe789e040e0
+checker_addUses: 302 1 299
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+checker_addUses: 303 1 302
+BeginFunc: In checker_thread_end
+0x7fe789f06390
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe789e04420 0x7fe789c07b50
+thread: 0x7fe789e04420 0x7fe789c07b50
+thread add end: 0x7fe789e04420 0x7fe789c07b50 5 6
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f1-6
+In add action: f1-6
+End add action! f1-6
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789f06390
+checker_addUses: 85 1 43
+
+update load: 85 0
+43 0 
+
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 0, 0
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789e040e0 0x7fe789c08860
+thread: 0x7fe789e040e0 0x7fe789c08860
+thread add end: 0x7fe789e040e0 0x7fe789c08860 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.066781 0.018715 0.003266
+Current Trace: 3
+print trace: 0x7fe789c08de0 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 0 main*main|52|1 30
+f2*f2|38|1 f2-3 r 0 main*main|59|1 38
+iiiii: 0x7fe789c08de0 0
+print trace: 0x7fe789e04420 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789e04420 0
+print trace: 0x7fe789e040e0 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789e040e0 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+Generating: f2-1 f1-4 0 100
+checking: read:val f2-1 100
+mhbList: 0
+enforce context: f2*f2|38|1
+enforce4: 0x7fe789e07e10 f2-3 f2*f2|38|1 main*main|59|1 0 
+mhbList: 0
+enforcePairs: 2
+checking fairness: 2
+f2 1 100
+f2 3 0
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789f06390
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789f06390
+### Basic Prepare Time: 0.003038 0.000526
+### MO Prepare Time: 0.001172 0.000178
+Adding sc constraints: 3
+### SC Prepare Time: 0.000806 0.000105
+In addLockConstraints: 0
+prefix size: 0
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1)) (or (not (= B_f1-4_main-1 0)) (< M_main-1 M_f1-4))
+### Part1 Time: 0.003465 0.000629
+reads & writes: 1 4
+reads & writes: 1 2
+### Part2 Time: 6e-05 1.1e-05
+### Consistent Prepare Time: 0.003774 0.000648
+### Prepare Time: 0.014532 0.002043
+AddRWRelations: 2
+Add RW: f2-1 100
+In addRWRelation: f2-1 100
+
+xxxx read: f2-1 0 100
+
+write: f1-4 100
+
+write: main-1 0
+writeset: 2
+
+write: f1-4 100
+current orStr: 
+For write: f1-4
+isEnforceSWRelation: f2-1 f1-4 1
+xxx: f2-1 100 (or  (and  (= RF_f2-1_f1-4 1) (= B_f1-4_f2-1 1) (= false (and (= B_f1-4_main-1 1) (= B_f2-1_main-1 0)))))
+ttt: (or  (and  (= RF_f2-1_f1-4 1) (= B_f1-4_f2-1 1) (= false (and (= B_f1-4_main-1 1) (= B_f2-1_main-1 0)))))
+Add RW: f2-3 0
+In addRWRelation: f2-3 0
+
+xxxx read: f2-3 0 0
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: main-2 0
+current orStr: 
+For write: main-2
+isEnforceSWRelation: f2-3 main-2 1
+xxx: f2-3 0 (or  (and  (= RF_f2-3_main-2 1) (= B_f2-3_main-2 0) (= false (and (= B_f1-1_main-2 0) (= B_f1-1_f2-3 1))) (= false (and (= B_f1-2_main-2 0) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-5_main-2 0) (= B_f1-5_f2-3 1)))))
+ttt: (or  (and  (= RF_f2-3_main-2 1) (= B_f2-3_main-2 0) (= false (and (= B_f1-1_main-2 0) (= B_f1-1_f2-3 1))) (= false (and (= B_f1-2_main-2 0) (= B_f1-2_f2-3 1))) (= false (and (= B_f1-5_main-2 0) (= B_f1-5_f2-3 1)))))
+Adding SW Constraints: 4
+End adding SW Constraints!
+### RWConstraint construct Time: 0.008972 0.001462
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: unsat
+[Solver] (error "line 215 column 10: model is not available")
+end checksat!
+### Solver Time2: 0.00957 0.000351
+### Generate Solution time: 0.013508 9e-06
+### Last Part time: 0.024145 0.000469
+### Generate Schedule Time: 0.049992 0.004137
+End solver!
+### Solver Time: 0.050744 0.004253
+buffers: 0x7fe789c08de0 2
+delete Buffer: 0x7fe789c080c0
+suc!
+delete Buffer: 0x7fe789c079a0
+suc!
+buffers: 0x7fe789e04420 2
+delete Buffer: 0x7fe789e052a0
+suc!
+delete Buffer: 0x7fe789e045f0
+suc!
+buffers: 0x7fe789e040e0 2
+delete Buffer: 0x7fe789e03640
+suc!
+delete Buffer: 0x7fe789e04360
+suc!
+delete curSch1: 0x7fe789c06ae0
+delete curSch2!
+### Total Time: 0.071301
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789c079d0
+Generate a new Executor: 0x7fe789d01ea0 0x7fe789c079d0
+Schedule: 0x7fe789e027f0 3 -1 1 16 16
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 1 f2*f2|30|1 100 f1*f1|18|1
+Read Map2: f2 3 f2*f2|38|1 27 f1*f1|5|1
+
+Prefix: f2 1
+Prefix Context: f2*f2|30|1 100
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789d01ea0 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789d01620 0x7fe789d02260
+thread: 0x7fe789d01620 0x7fe789d02260
+thread add end: 0x7fe789d01620 0x7fe789d02260 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789d01ea0 0x7fe789d02030 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789d01620
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789d01620 0x7fe789d024d0
+Before add action: 0x7fe789d01620 0x7fe789d024d0
+before addAction lock: 0x7fe789d01620 0x7fe789d024d0
+thread: 0x7fe789d01620 0x7fe789d024d0
+thread add end: 0x7fe789d01620 0x7fe789d024d0 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 7866221098041155632 52
+Tracked BID: 0 
+loads: 0 1 7866221098041155632 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789d01620 0x105077154 0
+update buf1 end: 0x7fe789d01620
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789d01620 0x7fe789d004e0
+Before add action: 0x7fe789d01620 0x7fe789d004e0
+before addAction lock: 0x7fe789d01620 0x7fe789d004e0
+thread: 0x7fe789d01620 0x7fe789d004e0
+thread add end: 0x7fe789d01620 0x7fe789d004e0 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 7866221098041155632 59
+Tracked BID: 0 
+loads: 0 2 7866221098041155632 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789d01620 0x105077148 0
+update buf1 end: 0x7fe789d01620
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789d01ea0
+BeginFunc: 0x7fe789d01ea0
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+checker_addUses: 279 1 278
+
+update load: 201 0
+200 0 
+
+checker_addUses: 280 1 277
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 289 1 288
+checker_addUses: 67 1 44
+checker_addUses: 291 1 289
+
+update load: 67 0
+44 0 
+
+checker_addUses: 292 1 291
+checker_addUses: 71 1 44
+
+In checker_thread_begin: 0x700000081000
+
+update load: 71 0
+44 0 
+
+BeginFunc: 0x7fe789d01ea0
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+
+update load: 201 0
+200 0 
+
+checker_addUses: 74 1 44
+
+update load: 74 0
+44 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 76 1 74
+checker_addUses: 280 1 277
+
+update load: 76 0
+74 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 77 1 76
+checker_addUses: 283 1 282
+
+update load: 77 0
+76 0 
+
+checker_addUses: 286 2 283
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789d01620 0x7fe789d00890
+thread: 0x7fe789d01620 0x7fe789d00890
+checker_addUses: 289 1 288
+thread add end: Waitting for create thread 0x7fe789d01620checker_addUses: 291 1 289
+0x700000081000 
+checker_addUses: 292 1 291
+0x7fe789d00890 1 3
+enabled threads: 1
+0x7fff76ded000
+
+In checker_thread_begin: 0x700000104000
+In add action: main-3
+End add action! main-3
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+checker_addUses: 82 1 80
+
+update load: 82 0
+80 0 
+
+checker_addUses: 83 1 82
+Waitting for create thread 0x700000081000
+
+update load: 83 0
+82 0 
+
+Waitting for create thread 0x700000104000
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+before enter lock: thread create 0x700000104000
+in thread_begin_action: 0x7fe789d01ea0 0x700000104000 f1 ~1~~
+update buf2: 0x7fe789e040e0 2
+before addAction lock: 0x7fe789e040e0 0x7fe789e05250
+thread: 0x7fe789e040e0 0x7fe789e05250
+thread add end: 0x7fe789e040e0 0x7fe789e05250 2 0
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789d01ea0 0x7fe789d02030 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789e040e0
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789d00890 0x7fe789e05250
+checker_addUses: 5 1 4
+before addAction lock: 0x7fe789d01620 0x7fe789d00aa0
+thread: 0x7fe789d01620 0x7fe789d00aa0
+thread add end: 0x7fe789d01620 0x7fe789d00aa0 1 4
+
+update load: 5 0
+4 0 
+
+enabled threads: 2In atomic checker_preStore: 
+0x7000001040000x105077148
+ 0x7fff76ded000Waitting for create thread 27
+0x700000081000 
+In add action: main-4
+2!
+In write: 0x700000104000 0x7fe789e040e0 0x7fe789c080f0
+Before add action: 0x7fe789e040e0 0x7fe789c080f0
+before addAction lock: 0x7fe789e040e0 0x7fe789c080f0
+End add action! main-4
+thread: 0x7fe789e040e0 0x7fe789c080f0
+thread add end: 0x7fe789e040e0 0x7fe789c080f0 8 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+End add action! f1-1
+action: f1-1
+checker_addUses: 84 1 44
+reach: 2814749767106649 5
+Tracked BID: 0 
+loads: 0 1 2814749767106649 5
+
+set load:  f1-1 0
+
+
+update load: 84 0
+44 0 
+
+Buffer Clear!
+update buf1: 0x7fe789e040e0 0x105077148 27
+update buf1 end: 0x7fe789e040e0
+update buf1: 0x7fe789d01620 0x105077148 27
+update buf1 end: 0x7fe789d01620
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+Waitting for create thread 0x700000081000
+checker_addUses: 10 1 9
+before enter lock: thread create 0x700000081000
+
+update load: 10 0
+9 0 
+
+in thread_begin_action: 0x7fe789d01ea0 0x700000081000 f2 ~In atomic checker_preStore: 20x105077148~~
+ update buf2: 0x7fe789c08280 2
+42 2!
+In write: 0x700000104000 before addAction lock: 0x7fe789e040e0 0x7fe789e061d00x7fe789c08280
+ Before add action: 0x7fe789c033600x7fe789e040e0
+ thread: 0x7fe789e061d00x7fe789c08280
+ before addAction lock: 0x7fe789c033600x7fe789e040e0
+ thread add end: 0x7fe789e061d00x7fe789c08280
+ 0x7fe789c03360 2 0
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f2-0
+End add action! f2-0
+BBB: 0x7fe789d01ea0 0x7fe789d02030 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789c08280
+0x7fff76ded000 0x700000104000
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789d00aa0 0x7fe789c03360
+thread: 0x7fe789e040e0 0x7fe789e061d0
+thread add end: 0x7fe789e040e0 0x7fe789e061d0 8 checker_addUses: 30 1 29
+2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+
+update load: 30 0
+29 0 
+
+In atomic checker_preLoad: 0x105077154 4 30!
+In read action: End add action! f1-2
+0x700000081000action: 
+f1-2
+reach: 2814749767106649 10
+Tracked BID: 0 
+loads: 0 2 2814749767106649 10
+
+set load:  f1-2 0
+
+update buf1: 0x7fe789c08280 0x105077148 42
+update buf1 end: 0x7fe789c08280
+Buffer Clear!
+update buf1: 0x7fe789e040e0 0x105077148 42
+update buf1 end: 0x7fe789e040e0
+update buf1: 0x7fe789d01620 0x105077148 42
+update buf1 end: 0x7fe789d01620
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789e040e0 0x7fe789c037b0
+thread: 0x7fe789e040e0 0x7fe789c037b0
+thread add end: 0x7fe789e040e0 0x7fe789c037b0 25 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-3
+before addAction lock: End add action! f1-3
+0x7fe789c08280 0x7fe789c03640
+thread: 0x7fe789c08280 0x7fe789c03640
+thread add end: 0x7fe789c08280 0x7fe789c03640 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-1
+checker_addUses: 18 1 17
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+
+update load: 18 0
+17 0 
+
+In atomic checker_preStore: 0x105077154 100 End add action! f2-1
+5!
+In write: 0x700000104000 0x7fe789e040e0 0x7fe789c03870
+reach: 0 30
+Tracked BID: 0 
+loads: 0 1 0 30
+
+set load:  f2-1 0
+
+
+add load: 30 f2-1 1
+remain: f2-1 f2*f2|30|1 f1*f1|18|1
+Before add action: 0x7fe789e040e0 0x7fe789c03870
+before addAction lock: 0x7fe789e040e0 0x7fe789c03870
+thread: 0x7fe789e040e0 0x7fe789c03870
+thread add end: 0x7fe789e040e0 0x7fe789c03870 8 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-4
+End add action! f1-4
+action: f1-4
+reach: 2814749767106649 18
+Tracked BID: 0 
+loads: 0 4 2814749767106649 18
+
+set load:  f1-4 0
+
+update buf1: 0x7fe789c08280 0x105077154 100
+update addr: 0x105077154 from 100 100
+update buf1 end: 0x7fe789c08280
+Buffer Clear!
+update buf1: 0x7fe789e040e0 0x105077154 100
+update addr: 0x105077154 from 100 100
+update buf1 end: 0x7fe789e040e0
+update buf1: 0x7fe789d01620 0x105077154 100
+update addr: 0x105077154 from 100 100
+update buf1 end: 0x7fe789d01620
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+checker_addUses: 23 1 22
+
+update load: 23 0
+22 0 
+
+In atomic checker_preStore: 0x105077148 100 2!
+In write: 0x700000104000 0x7fe789e040e0 0x7fe789e020d0
+Before add action: 0x7fe789e040e0 0x7fe789e020d0
+before addAction lock: 0x7fe789e040e0 0x7fe789e020d0
+thread: 0x7fe789e040e0 0x7fe789e020d0
+thread add end: 0x7fe789e040e0 0x7fe789e020d0 8 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-5
+End add action! f1-5
+action: f1-5
+reach: 2814749767106649 23
+Tracked BID: 0 
+loads: 0 5 2814749767106649 23
+
+set load:  f1-5 0
+
+update buf1: 0x7fe789c08280 0x105077148 waiting read: 1000x700000081000
+ update buf1 end: 0x7fe789c08280f2-1
+
+Buffer Clear!
+in update priority: update buf1: 0x7000000810000x7fe789e040e0
+ 0x105077148 100
+update buf1 end: 0x7fe789e040e0
+update buf1: 0x7fe789d01620 0x105077148 100
+update buf1 end: 0x7fe789d01620
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe789e040e0 0x7fe789e056f0
+thread: 0x7fe789e040e0 0x7fe789e056f0
+thread add end: 0x7fe789e040e0 0x7fe789e056f0 5 6
+enabled threads: In pre_read action: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f2-1
+f1-6
+In add action: f1-6
+End add action! f1-6
+fetch expect value: f2*f2|30|1 f2-1 0x105077154 100 f1*f1|18|1
+before fetch: 0x105077154 100 f1*f1|18|1
+0 main*main|52|1 100 f1*f1|18|1 
+after fetch: 0x105077154
+0 main*main|52|1
+100 f1*f1|18|1
+
+checker_addUses: 299 1 277
+
+Read expect value: f2-1 0x105077154 100 f1*f1|18|1
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+End: 0x700000081000 f2-1
+checker_addUses: 303 1 302
+checker_addUses: 32 1 30
+BeginFunc: 0x7fe789d01ea0
+
+update load: 32 1
+30 0 
+f2-1 
+In atomic checker_preFence: 4!
+before addAction lock: 0x7fe789c08280 0x7fe789c03990
+thread: 0x7fe789c08280 0x7fe789c03990
+thread add end: 0x7fe789c08280 0x7fe789c03990 25 2
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+In add action: f2-2
+End add action! f2-2
+checker_addUses: 38 1 37
+checker_addUses: 85 1 43
+
+update load: 38 0
+37 0 
+
+In atomic checker_preLoad: 0x105077148 7 38!
+
+update load: 85 0
+43 0 
+
+In read action: 0x700000081000
+before addAction lock: 0x7fe789c08280 0x7fe789c03a50
+thread: 0x7fe789c08280 0x7fe789c03a50
+thread add end: 0x7fe789c08280 0x7fe789c03a50 7 3
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+In add action: f2-3
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff76ded000 
+End add action! f2-3
+reach: 0 38
+Tracked BID: 0 
+loads: 0 3 0 38
+
+set load:  f2-3 0
+
+
+add load: 38 f2-3 1
+In pre_read action: f2-3
+context0: f2*f2|38|1 0x105077148
+get value: 0x7fe789c03200 0x105077148 100 f1*f1|23|1
+current values for: 0x105077148
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 100 f1*f1|23|1 
+
+Read expect value: f2-3 0x105077148 100 f1*f1|23|1
+End: 0x700000081000 f2-3
+checker_addUses: 40 1 38
+
+update load: 40 1
+38 0 
+f2-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe789c08280 0x7fe789c03c00
+thread: 0x7fe789c08280 0x7fe789c03c00
+thread add end: 0x7fe789c08280 0x7fe789c03c00 5 4
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+erase enabledThreads: f2-4
+In add action: f2-4
+End add action! f2-4
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789d01ea0
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 100, 100
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789d01620 0x7fe789c03b40
+thread: 0x7fe789d01620 0x7fe789c03b40
+thread add end: 0x7fe789d01620 0x7fe789c03b40 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.075381 0.022732 0.004017
+Current Trace: 3
+print trace: 0x7fe789c08280 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 100 f1*f1|18|1 30
+f2*f2|38|1 f2-3 r 100 f1*f1|23|1 38
+iiiii: 0x7fe789c08280 0
+print trace: 0x7fe789e040e0 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789e040e0 0
+print trace: 0x7fe789d01620 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789d01620 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+Generating: f2-3 f1-1 100 27
+checking: read:val f2-3 27
+mhbList: 0
+enforce context: f2*f2|30|1
+enforce4: 0x7fe789c03640 f2-1 f2*f2|30|1 f1*f1|18|1 100 
+mhbList: 0
+enforcePairs: 2
+checking fairness: 2
+f2 1 100
+f2 3 27
+SKIP: 0
+### Generate Schedule Time: 0.050054 6.5e-05
+Generating: f2-3 f1-2 100 42
+checking: read:val f2-3 42
+mhbList: 0
+enforce context: f2*f2|30|1
+enforce4: 0x7fe789c03640 f2-1 f2*f2|30|1 f1*f1|18|1 100 
+mhbList: 0
+enforcePairs: 2
+checking fairness: 2
+f2 1 100
+f2 3 42
+SKIP: 1
+Opening z3file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789d01ea0
+Adding Binary HB constraints: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile0_0x7fe789d01ea0
+### Basic Prepare Time: 0.003559 0.000524
+### MO Prepare Time: 0.001349 0.000179
+Adding sc constraints: 3
+### SC Prepare Time: 0.000908 0.000105
+In addLockConstraints: 0
+prefix size: 0
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1))
+cowww: (or (not (= B_f1-1_f1-2 1)) (< M_f1-1 M_f1-2)) (or (not (= B_f1-1_f1-5 1)) (< M_f1-1 M_f1-5)) (or (not (= B_f1-1_main-2 1)) (< M_f1-1 M_main-2)) (or (not (= B_f1-1_f1-2 0)) (< M_f1-2 M_f1-1)) (or (not (= B_f1-2_f1-5 1)) (< M_f1-2 M_f1-5)) (or (not (= B_f1-2_main-2 1)) (< M_f1-2 M_main-2)) (or (not (= B_f1-1_f1-5 0)) (< M_f1-5 M_f1-1)) (or (not (= B_f1-2_f1-5 0)) (< M_f1-5 M_f1-2)) (or (not (= B_f1-5_main-2 1)) (< M_f1-5 M_main-2)) (or (not (= B_f1-1_main-2 0)) (< M_main-2 M_f1-1)) (or (not (= B_f1-2_main-2 0)) (< M_main-2 M_f1-2)) (or (not (= B_f1-5_main-2 0)) (< M_main-2 M_f1-5)) (or (not (= B_f1-4_main-1 1)) (< M_f1-4 M_main-1)) (or (not (= B_f1-4_main-1 0)) (< M_main-1 M_f1-4))
+### Part1 Time: 0.004079 0.000618
+reads & writes: 1 4
+reads & writes: 1 2
+### Part2 Time: 6.9e-05 1e-05
+### Consistent Prepare Time: 0.004409 0.000637
+### Prepare Time: 0.016566 0.002036
+AddRWRelations: 2
+Add RW: f2-1 100
+In addRWRelation: f2-1 100
+
+xxxx read: f2-1 100 100
+
+write: f1-4 100
+
+write: main-1 0
+writeset: 2
+
+write: f1-4 100
+current orStr: 
+For write: f1-4
+isEnforceSWRelation: f2-1 f1-4 1
+xxx: f2-1 100 (or  (and  (= RF_f2-1_f1-4 1) (= B_f1-4_f2-1 1) (= false (and (= B_f1-4_main-1 1) (= B_f2-1_main-1 0)))))
+ttt: (or  (and  (= RF_f2-1_f1-4 1) (= B_f1-4_f2-1 1) (= false (and (= B_f1-4_main-1 1) (= B_f2-1_main-1 0)))))
+Add RW: f2-3 42
+In addRWRelation: f2-3 42
+
+xxxx read: f2-3 100 42
+
+write: f1-1 27
+
+write: f1-2 42
+
+write: f1-5 100
+
+write: main-2 0
+writeset: 4
+
+write: f1-2 42
+current orStr: 
+For write: f1-2
+isEnforceSWRelation: f2-3 f1-2 0
+xxx: f2-3 42 (or  (and  (= RF_f2-3_f1-2 1) (not (= B_f1-2_f2-3 0)) (= false (and (= B_f1-2_f1-5 1) (= B_f1-5_f2-3 1))) (= false (and (= B_f1-2_main-2 1) (= B_f2-3_main-2 0)))))
+ttt: (or  (and  (= RF_f2-3_f1-2 1) (not (= B_f1-2_f2-3 0)) (= false (and (= B_f1-2_f1-5 1) (= B_f1-5_f2-3 1))) (= false (and (= B_f1-2_main-2 1) (= B_f2-3_main-2 0)))))
+Adding SW Constraints: 3
+End adding SW Constraints!
+### RWConstraint construct Time: 0.010235 0.001268
+close z3File!!!!!!!!!!!!!!: 1
+begin checksat!
+[Solver] Model Satisfiability: sat
+[Solver] Solution found in 0s:
+
+end checksat!
+### Solver Time2: 0.010654 0.001087
+Create a Schedule: 0x7fe789e03280
+Generate new schedule: 0x7fe789e03280
+### P1 time: 0.000245 2.8e-05
+aaa: 1 f1*f1|0|1 f2*f2|0|2
+aaa: 1 f1*f1|0|1 f2*f2|38|1
+aaa: 1 f1*f1|0|1 f2*f2|0|3
+aaa: 1 f1*f1|5|1 f2*f2|0|2
+aaa: 1 f1*f1|5|1 f2*f2|38|1
+aaa: 1 f1*f1|5|1 f2*f2|0|3
+aaa: 0 f1*f1|5|1 main*main|0|1
+aaa: 0 f1*f1|5|1 main*main|52|1
+aaa: 0 f1*f1|5|1 main*main|59|1
+aaa: 0 f1*f1|5|1 main*main|0|2
+aaa: 1 f1*f1|10|1 f2*f2|0|2
+aaa: 1 f1*f1|10|1 f2*f2|38|1
+aaa: 1 f1*f1|10|1 f2*f2|0|3
+aaa: 0 f1*f1|10|1 main*main|0|1
+aaa: 0 f1*f1|10|1 main*main|52|1
+aaa: 0 f1*f1|10|1 main*main|59|1
+aaa: 0 f1*f1|10|1 main*main|0|2
+aaa: 1 f1*f1|0|2 f2*f2|0|2
+aaa: 1 f1*f1|0|2 f2*f2|38|1
+aaa: 1 f1*f1|0|2 f2*f2|0|3
+aaa: 0 f1*f1|0|2 main*main|0|1
+aaa: 0 f1*f1|0|2 main*main|52|1
+aaa: 0 f1*f1|0|2 main*main|59|1
+aaa: 0 f1*f1|0|2 main*main|0|2
+aaa: 1 f1*f1|18|1 f2*f2|30|1
+aaa: 1 f1*f1|18|1 f2*f2|0|2
+aaa: 1 f1*f1|18|1 f2*f2|38|1
+aaa: 1 f1*f1|18|1 f2*f2|0|3
+aaa: 0 f1*f1|18|1 main*main|0|1
+aaa: 0 f1*f1|18|1 main*main|52|1
+aaa: 0 f1*f1|18|1 main*main|59|1
+aaa: 0 f1*f1|18|1 main*main|0|2
+aaa: 0 f1*f1|23|1 main*main|0|1
+aaa: 0 f1*f1|23|1 main*main|52|1
+aaa: 0 f1*f1|23|1 main*main|59|1
+aaa: 0 f1*f1|23|1 main*main|0|2
+aaa: 0 f1*f1|0|3 main*main|0|1
+aaa: 0 f1*f1|0|3 main*main|52|1
+aaa: 0 f1*f1|0|3 main*main|59|1
+aaa: 0 f1*f1|0|3 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|1
+aaa: 0 f2*f2|30|1 main*main|52|1
+aaa: 0 f2*f2|30|1 main*main|59|1
+aaa: 0 f2*f2|30|1 main*main|0|2
+aaa: 0 f2*f2|30|1 main*main|0|3
+aaa: 0 f2*f2|0|2 main*main|0|1
+aaa: 0 f2*f2|0|2 main*main|52|1
+aaa: 0 f2*f2|0|2 main*main|59|1
+aaa: 0 f2*f2|0|2 main*main|0|2
+aaa: 0 f2*f2|0|2 main*main|0|3
+aaa: 0 f2*f2|38|1 main*main|0|1
+aaa: 0 f2*f2|38|1 main*main|52|1
+aaa: 0 f2*f2|38|1 main*main|59|1
+aaa: 0 f2*f2|38|1 main*main|0|2
+aaa: 0 f2*f2|38|1 main*main|0|3
+aaa: 0 f2*f2|0|3 main*main|0|1
+aaa: 0 f2*f2|0|3 main*main|52|1
+aaa: 0 f2*f2|0|3 main*main|59|1
+aaa: 0 f2*f2|0|3 main*main|0|2
+aaa: 0 f2*f2|0|3 main*main|0|3
+write: f1-4 f1*f1|18|1
+reachbility list2: f1-4 0
+Write val: 100
+RF: f2 1 100 f1*f1|18|1
+write: f1-2 f1*f1|10|1
+reachbility list2: f1-2 0
+Write val: 42
+RF: f2 3 42 f1*f1|10|1
+write: f1-4 f1*f1|18|1
+reachbility list2: f1-4 0
+Write val: 100
+RF: f2 1 100 f1*f1|18|1
+write: f1-2 f1*f1|10|1
+reachbility list2: f1-2 0
+Write val: 42
+RF: f2 3 42 f1*f1|10|1
+### P2 time: 0.013355 0.001794
+### P3 time: 0.001858 0.000314
+### Generate Solution time: 0.015656 0.002151
+### Check redundancy time: 4.7e-05 1.3e-05
+### Last Part time: 0.027502 0.00336
+### Generate Schedule Time: 0.056937 0.006886
+Generating: f2-3 main-2 100 0
+checking: read:val f2-3 0
+mhbList: 0
+enforce context: f2*f2|30|1
+enforce4: 0x7fe789c03640 f2-1 f2*f2|30|1 f1*f1|18|1 100 
+mhbList: 0
+enforcePairs: 2
+checking fairness: 2
+f2 1 100
+f2 3 0
+SKIP: 0
+### Generate Schedule Time: 0.057027 9.3e-05
+End solver!
+### Solver Time: 0.057904 0.007213
+buffers: 0x7fe789c08280 2
+delete Buffer: 0x7fe789c03200
+suc!
+delete Buffer: 0x7fe789c03310
+suc!
+buffers: 0x7fe789e040e0 2
+delete Buffer: 0x7fe789e03640
+suc!
+delete Buffer: 0x7fe789e064e0
+suc!
+buffers: 0x7fe789d01620 2
+delete Buffer: 0x7fe789d005d0
+suc!
+delete Buffer: 0x7fe789d00300
+suc!
+delete curSch1: 0x7fe789e027f0
+delete curSch2!
+### Total Time: 0.082897
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789f010e0
+Generate a new Executor: 0x7fe789f06210 0x7fe789f010e0
+Schedule: 0x7fe789f05970 4 0 2 15 15
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 1 f2*f2|30|1 0 main*main|52|1
+Read Map: f2 3 f2*f2|38|1 27 f1*f1|5|1
+
+Prefix: f2 3
+Prefix Context: f2*f2|30|1 0
+Prefix Context: f2*f2|38|1 27
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789f06210 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789f010e0 0x7fe789f065f0
+thread: 0x7fe789f010e0 0x7fe789f065f0
+thread add end: 0x7fe789f010e0 0x7fe789f065f0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789f06210 0x7fe789f063a0 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789f010e0
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789f010e0 0x7fe789f067a0
+Before add action: 0x7fe789f010e0 0x7fe789f067a0
+before addAction lock: 0x7fe789f010e0 0x7fe789f067a0
+thread: 0x7fe789f010e0 0x7fe789f067a0
+thread add end: 0x7fe789f010e0 0x7fe789f067a0 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 7866221098041155632 52
+Tracked BID: 0 
+loads: 0 1 7866221098041155632 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789f010e0 0x105077154 0
+update addr: 0x105077154 from 0 0
+update buf1 end: 0x7fe789f010e0
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789f010e0 0x7fe789f06920
+Before add action: 0x7fe789f010e0 0x7fe789f06920
+before addAction lock: 0x7fe789f010e0 0x7fe789f06920
+thread: 0x7fe789f010e0 0x7fe789f06920
+thread add end: 0x7fe789f010e0 0x7fe789f06920 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 7866221098041155632 59
+Tracked BID: 0 
+loads: 0 2 7866221098041155632 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789f010e0 0x105077148 0
+update buf1 end: 0x7fe789f010e0
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789f06210
+BeginFunc: 0x7fe789f06210
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 201 1 200
+checker_addUses: 280 1 277
+
+update load: 201 0
+200 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 67 1 44
+checker_addUses: 289 1 288
+
+update load: 67 0
+44 0 
+
+checker_addUses: 291 1 289
+checker_addUses: 71 1 44
+checker_addUses: 292 1 291
+
+update load: 71 0
+44 0 
+
+
+In checker_thread_begin: 0x700000081000
+BeginFunc: 0x7fe789f06210
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 201 1 200
+checker_addUses: 280 1 277
+
+update load: 201 0
+200 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 74 1 44
+
+update load: 74 0
+44 0 
+
+checker_addUses: 289 1 288
+checker_addUses: 76 1 74
+checker_addUses: 291 1 289
+
+update load: 76 0
+74 0 
+
+checker_addUses: 292 1 291
+checker_addUses: 77 1 76
+
+In checker_thread_begin: 0x700000104000
+
+update load: 77 0
+76 0 
+
+Waitting for create thread 0x700000081000
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789f010e0 0x7fe789f070b0
+thread: 0x7fe789f010e0 0x7fe789f070b0
+thread add end: 0x7fe789f010e0 0x7fe789f070b0 1 3
+enabled threads: 1
+0x7fff76ded000
+In add action: main-3
+End add action! main-3
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+checker_addUses: 82 1 80
+
+update load: 82 0
+80 0 
+
+checker_addUses: 83 1 82
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+
+update load: 83 0
+82 0 
+
+Waitting for create thread 0x700000081000
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+in thread_begin_action: 0x7fe789f06210 0x700000104000 f1 ~1~~
+update buf2: 0x7fe789c088c0 2
+before addAction lock: 0x7fe789c088c0 0x7fe789c07f80
+thread: 0x7fe789c088c0 0x7fe789c07f80
+thread add end: 0x7fe789c088c0 0x7fe789c07f80 2 0
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789f06210 0x7fe789f063a0 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789c088c0
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789f070b0 0x7fe789c07f80
+checker_addUses: 5 1 4
+before addAction lock: 0x7fe789f010e0 0x7fe789f03cf0
+thread: 0x7fe789f010e0 0x7fe789f03cf0
+thread add end: 0x7fe789f010e0 0x7fe789f03cf0 
+update load: 5 0
+4 0 
+
+1 4
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In atomic checker_preStore: 0x105077148 27 2!
+In add action: main-4
+In write: 0x700000104000 0x7fe789c088c0 0x7fe789c081e0
+Before add action: 0x7fe789c088c0 0x7fe789c081e0
+before addAction lock: End add action! main-4
+0x7fe789c088c0 0x7fe789c081e0
+thread: 0x7fe789c088c0 0x7fe789c081e0
+thread add end: 0x7fe789c088c0 0x7fe789c081e0 8 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+End add action! f1-1
+action: f1-1
+reach: 0 5
+Tracked BID: 0 
+loads: 0 1 0 5
+
+set load:  f1-1 0
+
+checker_addUses: 84 1 44
+Buffer Clear!
+update buf1: 0x7fe789c088c0 0x105077148 27
+
+update load: 84 0
+44 0 
+
+update addr: 0x105077148 from 27 27
+update buf1 end: 0x7fe789c088c0
+in thread_begin_action: update buf1: 0x7fe789f010e0 0x1050771480x7fe789f06210  0x700000081000 f2 ~27
+2~~
+update addr: 0x105077148 from 27 27
+update buf1 end: 0x7fe789f010e0
+update buf2: 0x7fe789c082d0 2
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+before addAction lock: 0x7fe789c082d0 0x7fe789f03fd0
+thread: 0x7fe789c082d0 0x7fe789f03fd0
+thread add end: 0x7fe789c082d0 checker_addUses: 10 1 9
+0x7fe789f03fd0 2 0
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: 0x105077148In add action: f2-0
+ 42 2!
+End add action! f2-0
+In write: 0x700000104000 0x7fe789c088c0 0x7fe789c076b0
+Before add action: 0x7fe789c088c0 0x7fe789c076b0
+before addAction lock: 0x7fe789c088c0 0x7fe789c076b0
+BBB: 0x7fe789f06210 0x7fe789f063a0 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789c082d0
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789f03cf0 0x7fe789f03fd0
+thread: 0x7fe789c088c0 0x7fe789c076b0
+thread add end: 0x7fe789c088c0 0x7fe789c076b0 8 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+checker_addUses: 30 1 29
+In add action: f1-2
+End add action! f1-2
+
+update load: 30 0
+29 0 
+
+action: f1-2
+In atomic checker_preLoad: 0x105077154 4 30!
+In read action: 0x700000081000
+reach: 0 10
+Tracked BID: 0 
+loads: 0 2 0 10
+
+set load:  f1-2 0
+
+update buf1: 0x7fe789c082d0 0x105077148 42
+update buf1 end: 0x7fe789c082d0
+Buffer Clear!
+update buf1: 0x7fe789c088c0 0x105077148 42
+update buf1 end: 0x7fe789c088c0
+update buf1: 0x7fe789f010e0 0x105077148 42
+update buf1 end: 0x7fe789f010e0
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789c082d0 0x7fe789c07840
+thread: 0x7fe789c082d0before addAction lock:  0x7fe789c088c00x7fe789c07840 
+0x7fe789f04320thread add end: 
+0x7fe789c082d0 0x7fe789c07840 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-1
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+thread: 0x7fe789c088c0 0x7fe789f04320
+thread add end: 0x7fe789c088c0 0x7fe789f04320 25 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+reach: 140632425247152 30
+Tracked BID: 0 
+loads: 0 1 140632425247152 30
+
+set load:  f2-1 0
+
+In add action: f1-3
+
+add load: 30 f2-1 1
+End add action! f1-3
+In pre_read action: f2-1
+checker_addUses: 18 1 17
+fetch expect value: f2*f2|30|1 f2-1 0x105077154 0 main*main|52|1
+
+update load: 18 0
+17 0 
+
+In atomic checker_preStore: 0x105077154 100 5!
+In write: 0x700000104000 0x7fe789c088c0 before fetch: 0x105077154 0 main*main|52|1
+0 main*main|52|1 
+after fetch: 0x105077154
+0 main*main|52|1
+
+0x7fe789c07970
+
+Read expect value: f2-1 0x105077154 0 main*main|52|1
+End: 0x700000081000 f2-1
+Before add action: 0x7fe789c088c0 0x7fe789c07970
+before addAction lock: 0x7fe789c088c0 0x7fe789c07970
+thread: 0x7fe789c088c0 0x7fe789c07970
+checker_addUses: 32 1 30
+thread add end: 0x7fe789c088c0 0x7fe789c07970 8 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-4
+
+update load: 32 1
+30 0 
+f2-1 
+In atomic checker_preFence: End add action! f1-4
+action: 4!
+f1-4
+before addAction lock: 0x7fe789c082d0 0x7fe789f044b0
+thread: 0x7fe789c082d0 0x7fe789f044b0
+thread add end: 0x7fe789c082d0 0x7fe789f044b0 25 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+reach: 0 18
+Tracked BID: 0 
+loads: 0 4 0 18
+
+set load:  f1-4 0
+
+In add action: f2-2
+update buf1: 0x7fe789c082d0 0x105077154 100
+End add action! f2-2
+update buf1 end: 0x7fe789c082d0
+Buffer Clear!
+update buf1: 0x7fe789c088c0 0x105077154 100
+update buf1 end: 0x7fe789c088c0
+update buf1: 0x7fe789f010e0 0x105077154 100
+checker_addUses: 38 1 37
+update buf1 end: 0x7fe789f010e0
+
+update load: 38 0
+37 0 
+
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+In atomic checker_preLoad: 0x105077148 7 38!
+In read action: 0x700000081000
+before addAction lock: 0x7fe789c082d0 0x7fe789f045b0
+thread: 0x7fe789c082d0 checker_addUses: 23 1 22
+0x7fe789f045b0
+thread add end: 0x7fe789c082d0 0x7fe789f045b0 7 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+
+update load: 23 0
+22 0 
+
+In add action: f2-3
+In atomic checker_preStore: 0x105077148 100 2!
+In write: 0x700000104000Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+ 0x7fe789c088c0 0x7fe789c07bc0
+End add action! f2-3
+reach: 140632425247152 38
+Tracked BID: 0 
+loads: 0 3 140632425247152 38
+
+set load:  f2-3 0
+
+
+add load: 38 f2-3 1
+In pre_read action: f2-3
+fetch expect value: f2*f2|38|1 f2-3 0x105077148 27 f1*f1|5|1
+before fetch: 0x105077148 27 f1*f1|5|1
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 
+after fetch: 0x105077148
+0 main*main|59|1
+27 f1*f1|5|1
+42 f1*f1|10|1
+
+
+Read expect value: f2-3 0x105077148 27 f1*f1|5|1
+End: 0x700000081000 f2-3
+Before add action: 0x7fe789c088c0 0x7fe789c07bc0
+before addAction lock: 0x7fe789c088c0 0x7fe789c07bc0
+thread: 0x7fe789c088c0 0x7fe789c07bc0checker_addUses: 40 1 38
+
+thread add end: 0x7fe789c088c0 0x7fe789c07bc0 8 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-5
+
+update load: 40 1
+38 0 
+f2-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000End add action! f1-5
+
+action: f1-5before addAction lock: 
+0x7fe789c082d0 0x7fe789f047a0
+thread: 0x7fe789c082d0 0x7fe789f047a0
+thread add end: 0x7fe789c082d0 0x7fe789f047a0 5 4
+enabled threads: reach: 0 23
+Tracked BID: 0 
+loads: 0 5 0 23
+
+set load:  f1-5 0
+
+3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f2-4
+update buf1: 0x7fe789c082d0 0x105077148 100
+In add action: f2-4
+update buf1 end: 0x7fe789c082d0
+Buffer Clear!
+update buf1: 0x7fe789c088c0 End add action! f2-4
+0x105077148 100
+update buf1 end: 0x7fe789c088c0
+update buf1: 0x7fe789f010e0 0x105077148 100
+update buf1 end: 0x7fe789f010e0
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+checker_addUses: 299 1 277
+In checker_thread_end
+checker_addUses: 301 1 277
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe789c088c0 0x7fe789f043e0
+thread: 0x7fe789c088c0 0x7fe789f043e0
+thread add end: 0x7fe789c088c0 0x7fe789f043e0 checker_addUses: 302 1 299
+5 6
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f1-6
+checker_addUses: 303 1 302
+In add action: f1-6
+End add action! f1-6
+BeginFunc: 0x7fe789f06210
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789f06210
+checker_addUses: 85 1 43
+
+update load: 85 0
+43 0 
+
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 0, 27
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789f010e0 0x7fe789c080c0
+thread: 0x7fe789f010e0 0x7fe789c080c0
+thread add end: 0x7fe789f010e0 0x7fe789c080c0 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.086746 0.026533 0.003801
+Current Trace: 3
+print trace: 0x7fe789c082d0 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 0 main*main|52|1 30
+f2*f2|38|1 f2-3 r 27 f1*f1|5|1 38
+iiiii: 0x7fe789c082d0 0
+print trace: 0x7fe789c088c0 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789c088c0 0
+print trace: 0x7fe789f010e0 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789f010e0 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+End solver!
+### Solver Time: 0.058023 0.000155
+buffers: 0x7fe789c082d0 2
+delete Buffer: 0x7fe789f03e70
+suc!
+delete Buffer: 0x7fe789f03f80
+suc!
+buffers: 0x7fe789c088c0 2
+delete Buffer: 0x7fe789c07e60
+suc!
+delete Buffer: 0x7fe789c07ef0
+suc!
+buffers: 0x7fe789f010e0 2
+delete Buffer: 0x7fe789f06a10
+suc!
+delete Buffer: 0x7fe789f013e0
+suc!
+delete curSch1: 0x7fe789f05970
+delete curSch2!
+### Total Time: 0.087281
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789c05660
+Generate a new Executor: 0x7fe789c07da0 0x7fe789c05660
+Schedule: 0x7fe789c04a70 5 1 2 16 16
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 1 f2*f2|30|1 0 main*main|52|1
+Read Map: f2 3 f2*f2|38|1 100 f1*f1|23|1
+
+Prefix: f2 3
+Prefix Context: f2*f2|30|1 0
+Prefix Context: f2*f2|38|1 100
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789c07da0 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789c062b0 0x7fe789c04dc0
+thread: 0x7fe789c062b0 0x7fe789c04dc0
+thread add end: 0x7fe789c062b0 0x7fe789c04dc0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789c07da0 0x7fe789c07f30 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789c062b0
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789c062b0 0x7fe789c04f80
+Before add action: 0x7fe789c062b0 0x7fe789c04f80
+before addAction lock: 0x7fe789c062b0 0x7fe789c04f80
+thread: 0x7fe789c062b0 0x7fe789c04f80
+thread add end: 0x7fe789c062b0 0x7fe789c04f80 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 10376293541461622784 52
+Tracked BID: 0 
+loads: 0 1 10376293541461622784 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789c062b0 0x105077154 0
+update addr: 0x105077154 from 0 0
+update buf1 end: 0x7fe789c062b0
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789c062b0 0x7fe789c051f0
+Before add action: 0x7fe789c062b0 0x7fe789c051f0
+before addAction lock: 0x7fe789c062b0 0x7fe789c051f0
+thread: 0x7fe789c062b0 0x7fe789c051f0
+thread add end: 0x7fe789c062b0 0x7fe789c051f0 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 10376293541461622784 59
+Tracked BID: 0 
+loads: 0 2 10376293541461622784 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789c062b0 0x105077148 0
+update buf1 end: 0x7fe789c062b0
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789c07da0
+BeginFunc: 0x7fe789c07da0
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+checker_addUses: 279 1 278
+
+update load: 201 0
+200 0 
+
+checker_addUses: 280 1 277
+checker_addUses: 282 1 275
+checker_addUses: 67 1 44
+checker_addUses: 283 1 282
+
+update load: 67 0
+44 0 
+
+checker_addUses: 286 2 283
+checker_addUses: 71 1 44
+checker_addUses: 289 1 288
+
+update load: 71 0
+44 0 
+
+BeginFunc: 0x7fe789c07da0checker_addUses: 291 1 289
+
+checker_addUses: 292 1 291
+checker_addUses: 167 1 166
+
+In checker_thread_begin: 0x700000081000
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+Waitting for create thread 0x700000081000
+
+update load: 200 0
+198 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 201 1 200
+checker_addUses: 280 1 277
+
+update load: 201 0
+200 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 74 1 44
+checker_addUses: 286 2 283
+
+update load: 74 0
+44 0 
+
+checker_addUses: 289 1 288
+checker_addUses: 76 1 74
+checker_addUses: 291 1 289
+
+update load: 76 0
+74 0 
+
+checker_addUses: 292 1 291
+checker_addUses: 77 1 76
+
+In checker_thread_begin: 0x700000104000
+
+update load: 77 0
+76 0 
+
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789c062b0 0x7fe789d00780
+thread: 0x7fe789c062b0 0x7fe789d00780
+thread add end: 0x7fe789c062b0 0x7fe789d00780 1 3
+enabled threads: 1
+0x7fff76ded000
+In add action: main-3
+Waitting for create thread 0x700000081000
+End add action! main-3
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+checker_addUses: 82 1 80
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+
+update load: 82 0
+80 0 
+
+in thread_begin_action: 0x7fe789c07da0 checker_addUses: 83 1 82
+0x700000104000 f1 ~1~~
+
+update load: 83 0
+82 0 
+
+Waitting for create thread 0x700000081000
+
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+update buf2: 0x7fe789e0c5f0 2
+before addAction lock: 0x7fe789e0c5f0 0x7fe789e0afa0
+thread: 0x7fe789e0c5f0 0x7fe789e0afa0
+thread add end: 0x7fe789e0c5f0 0x7fe789e0afa0 2 0
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789c07da0 0x7fe789c07f30 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789e0c5f0
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789d00780 0x7fe789e0afa0
+checker_addUses: 5 1 4
+before addAction lock: 0x7fe789c062b0 0x7fe789d009c0
+thread: 0x7fe789c062b0 0x7fe789d009c0
+thread add end: 0x7fe789c062b0 0x7fe789d009c0 1 
+update load: 5 0
+4 0 
+
+4
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In atomic checker_preStore: 0x105077148 27 2!
+In add action: main-4
+In write: 0x700000104000 0x7fe789e0c5f0 0x7fe789e06730
+Before add action: 0x7fe789e0c5f0 End add action! main-4
+0x7fe789e06730
+before addAction lock: 0x7fe789e0c5f0 0x7fe789e06730
+thread: 0x7fe789e0c5f0 0x7fe789e06730
+thread add end: 0x7fe789e0c5f0 0x7fe789e06730 8 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+Waitting for create thread 0x700000081000
+End add action! f1-1
+action: before enter lock: thread create 0x700000081000
+f1-1
+reach: 1 5
+Tracked BID: 0 
+loads: 0 1 1 5
+
+set load:  f1-1 0
+
+Buffer Clear!
+update buf1: 0x7fe789e0c5f0 0x105077148 27
+update buf1 end: 0x7fe789e0c5f0checker_addUses: 84 1 44
+
+in thread_begin_action: update buf1: 
+update load: 84 0
+44 0 
+
+0x7fe789c07da00x7fe789c062b0  0x7000000810000x105077148  f227 ~
+2~~
+update buf1 end: 0x7fe789c062b0
+update buf2: 0x7fe789e06aa0 2
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+before addAction lock: 0x7fe789e06aa0 0x7fe789e0c060
+thread: 0x7fe789e06aa0 0x7fe789e0c060
+thread add end: 0x7fe789e06aa0 0x7fe789e0c060 2 0
+enabled threads: 2
+0x700000104000
+0x7fff76ded000checker_addUses: 10 1 9
+
+In add action: f2-0
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: 0x105077148 42 2!
+End add action! f2-0
+In write: 0x700000104000 0x7fe789e0c5f0 0x7fe789d00c80
+Before add action: 0x7fe789e0c5f0 0x7fe789d00c80
+before addAction lock: BBB: 0x7fe789c07da0 0x7fe789c07f30 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789e06aa0
+0x7fff76ded000 0x700000104000
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789d009c0 0x7fe789e0c060
+0x7fe789e0c5f0 0x7fe789d00c80
+thread: 0x7fe789e0c5f0 0x7fe789d00c80
+thread add end: 0x7fe789e0c5f0 0x7fe789d00c80 8 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+End add action! f1-2
+action: f1-2
+checker_addUses: 30 1 29
+
+update load: 30 0
+29 0 
+
+reach: 1 10
+Tracked BID: 0 
+loads: 0 2 1 10
+
+set load:  f1-2 0
+
+In atomic checker_preLoad: 0x105077154 4 30!
+update buf1: 0x7fe789e06aa0 0x105077148 42
+In read action: 0x700000081000
+update buf1 end: 0x7fe789e06aa0
+Buffer Clear!
+update buf1: 0x7fe789e0c5f0 0x105077148 42
+update buf1 end: 0x7fe789e0c5f0
+update buf1: 0x7fe789c062b0 0x105077148 42
+update buf1 end: 0x7fe789c062b0
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789e06aa0 0x7fe789e0b6a0
+thread: 0x7fe789e06aa0before addAction lock:  0x7fe789e0c5f00x7fe789e0b6a0 
+0x7fe789d00ed0thread add end: 
+0x7fe789e06aa0 0x7fe789e0b6a0 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-1
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+thread: 0x7fe789e0c5f0 0x7fe789d00ed0
+thread add end: 0x7fe789e0c5f0 0x7fe789d00ed0 25 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+reach: 10 30
+Tracked BID: 0 
+loads: 0 1 10 30
+
+set load:  f2-1 0
+
+In add action: f1-3
+
+add load: 30 f2-1 1
+In pre_read action: End add action! f1-3
+f2-1
+fetch expect value: f2*f2|30|1 f2-1 0x105077154 0 main*main|52|1
+before fetch: 0x105077154 0 main*main|52|1
+0 main*main|52|1 
+after fetch: 0x105077154
+0 main*main|52|1
+
+
+Read expect value: f2-1 0x105077154 0 main*main|52|1
+checker_addUses: 18 1 17
+End: 0x700000081000 f2-1
+
+update load: 18 0
+17 0 
+
+checker_addUses: 32 1 30
+In atomic checker_preStore: 0x105077154 100 5!
+In write: 0x700000104000 0x7fe789e0c5f0 0x7fe789d01090
+Before add action: 0x7fe789e0c5f0 0x7fe789d01090
+before addAction lock: 0x7fe789e0c5f0 0x7fe789d01090
+thread: 0x7fe789e0c5f0 0x7fe789d01090
+thread add end: 0x7fe789e0c5f0 0x7fe789d01090 8 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+
+update load: 32 1
+30 0 
+f2-1 
+In add action: f1-4
+In atomic checker_preFence: 4!
+End add action! f1-4
+action: f1-4
+before addAction lock: 0x7fe789e06aa0 0x7fe789f012f0
+thread: 0x7fe789e06aa0 0x7fe789f012f0
+thread add end: 0x7fe789e06aa0 reach: 1 18
+Tracked BID: 0 
+loads: 0 4 1 18
+
+set load:  f1-4 0
+
+0x7fe789f012f0 25 2update buf1: 
+enabled threads: 0x7fe789e06aa0 0x1050771543 
+1000x700000081000
+
+0x700000104000
+0x7fff76ded000
+update buf1 end: 0x7fe789e06aa0
+In add action: f2-2
+Buffer Clear!
+update buf1: 0x7fe789e0c5f0 0x105077154 100
+update buf1 end: End add action! f2-2
+0x7fe789e0c5f0
+update buf1: 0x7fe789c062b0 0x105077154 100
+update buf1 end: 0x7fe789c062b0
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+checker_addUses: 38 1 37
+
+update load: 38 0
+37 0 
+
+In atomic checker_preLoad: 0x105077148 7 checker_addUses: 23 1 22
+38!
+In read action: 0x700000081000
+before addAction lock: 0x7fe789e06aa0 0x7fe789e0e6f0
+thread: 0x7fe789e06aa0 0x7fe789e0e6f0
+thread add end: 0x7fe789e06aa0 0x7fe789e0e6f0 7 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-3
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+
+update load: 23 0
+22 0 
+
+End add action! f2-3
+In atomic checker_preStore: 0x105077148 100 2!
+reach: 10 38
+Tracked BID: 0 
+loads: 0 3 10 38
+
+set load:  f2-3 0
+
+In write: 0x700000104000 0x7fe789e0c5f0 0x7fe789f013b0
+
+add load: 38 f2-3 1
+In pre_read action: f2-3
+fetch expect value: f2*f2|38|1 f2-3 0x105077148 100 f1*f1|23|1
+before fetch: 0x105077148 100 f1*f1|23|1
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 
+after fetch: 0x105077148
+0 main*main|59|1
+27 f1*f1|5|1
+42 f1*f1|10|1
+100 f1*f1|23|1
+
+
+Read expect value: f2-3 0x105077148 100 f1*f1|23|1
+End: 0x700000081000 f2-3
+Before add action: 0x7fe789e0c5f0 checker_addUses: 40 1 38
+0x7fe789f013b0
+before addAction lock: 0x7fe789e0c5f0 0x7fe789f013b0
+thread: 0x7fe789e0c5f0 0x7fe789f013b0
+thread add end: 0x7fe789e0c5f0 0x7fe789f013b0 8 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+
+update load: 40 1
+38 0 
+f2-3 
+In add action: f1-5
+End add action! f1-5
+action: f1-5
+reach: 1 23
+Tracked BID: 0 
+loads: 0 5 1 23
+
+set load:  f1-5 0
+
+update buf1: 0x7fe789e06aa0 0x105077148 100
+update addr: 0x105077148 from 100 100
+update buf1 end: 0x7fe789e06aa0
+Buffer Clear!
+update buf1: 0x7fe789e0c5f0 0x105077148 100
+update addr: 0x105077148 from 100 100
+update buf1 end: 0x7fe789e0c5f0
+update buf1: 0x7fe789c062b0 0x105077148 100
+update addr: 0x105077148 from 100 100
+update buf1 end: 0x7fe789c062b0
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 0x7fe789e0c5f0 0x7fe789e0b790
+thread: 0x7fe789e0c5f0 0x7fe789e0b790
+thread add end: 0x7fe789e0c5f0 0x7fe789e0b790 5 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+erase enabledThreads: f1-6
+In add action: f1-6
+End add action! f1-6
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe789e06aa0 0x7fe789c05420
+thread: 0x7fe789e06aa0 0x7fe789c05420
+thread add end: 0x7fe789e06aa0 0x7fe789c05420 5 4
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+erase enabledThreads: f2-4
+In add action: f2-4
+End add action! f2-4
+checker_addUses: 299 1 277
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789c07da0
+BeginFunc: 0x7fe789c07da0
+checker_addUses: 85 1 43
+
+update load: 85 0
+43 0 
+
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 0, 100
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789c062b0 0x7fe789e0c750
+thread: 0x7fe789c062b0 0x7fe789e0c750
+thread add end: 0x7fe789c062b0 0x7fe789e0c750 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.091684 0.030898 0.004365
+Current Trace: 3
+print trace: 0x7fe789e06aa0 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 0 main*main|52|1 30
+f2*f2|38|1 f2-3 r 100 f1*f1|23|1 38
+iiiii: 0x7fe789e06aa0 0
+print trace: 0x7fe789e0c5f0 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789e0c5f0 0
+print trace: 0x7fe789c062b0 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789c062b0 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+End solver!
+### Solver Time: 0.058102 0.000104
+buffers: 0x7fe789e06aa0 2
+delete Buffer: 0x7fe789e0cc40
+suc!
+delete Buffer: 0x7fe789e0c460
+suc!
+buffers: 0x7fe789e0c5f0 2
+delete Buffer: 0x7fe789e08c70
+suc!
+delete Buffer: 0x7fe789e0ce90
+suc!
+buffers: 0x7fe789c062b0 2
+delete Buffer: 0x7fe789c05110
+suc!
+delete Buffer: 0x7fe789c05070
+suc!
+delete curSch1: 0x7fe789c04a70
+delete curSch2!
+### Total Time: 0.092107
+BeginFunc: 0x0
+BeginFunc: 0x0
+Solver path: /Users/yiqiuping/installed/z3/bin/z3
+Formula file: /Users/yiqiuping/Dropbox/papers/C++11/Checker11/examples/mo_relaxed2/formulaFile
+end set parameters!
+command: /Users/yiqiuping/installed/z3/bin/z3 -smt2 -in 
+Create a Schedule: 0x7fe789e068c0
+Generate a new Executor: 0x7fe789e09b80 0x7fe789e068c0
+Schedule: 0x7fe789e03280 6 3 2 16 16
+For: f1 1 f1*f1|5|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 2 f1*f1|10|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 3 f1*f1|0|2
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 5 f1*f1|23|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f1 6 f1*f1|0|3
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+For: f2 1 f2*f2|30|1
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 2 f2*f2|0|2
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 3 f2*f2|38|1
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+For: f2 4 f2*f2|0|3
+    f1 0 f1*f1|0|1
+    f1 1 f1*f1|5|1
+    f1 2 f1*f1|10|1
+    f1 3 f1*f1|0|2
+    f1 4 f1*f1|18|1
+    main 0 main*main|0|1
+    main 1 main*main|52|1
+    main 2 main*main|59|1
+    main 3 main*main|0|2
+    main 4 main*main|0|3
+Read Map: f2 1 f2*f2|30|1 100 f1*f1|18|1
+Read Map: f2 3 f2*f2|38|1 42 f1*f1|10|1
+
+Prefix: f2 3
+Prefix Context: f2*f2|30|1 100
+Prefix Context: f2*f2|38|1 42
+
+In checker_thread_begin: 0x7fff76ded000
+before enter lock: thread create 0x7fff76ded000
+in thread_begin_action: 0x7fe789e09b80 0x7fff76ded000 main ~0~~
+before addAction lock: 0x7fe789e06aa0 0x7fe789e068c0
+thread: 0x7fe789e06aa0 0x7fe789e068c0
+thread add end: 0x7fe789e06aa0 0x7fe789e068c0 2 0
+enabled threads: 0
+In add action: main-0
+End add action! main-0
+BBB: 0x7fe789e09b80 0x7fe789e09d10 0x7fff76ded000
+
+bbbb0: 0x7fff76ded000 0x7fe789e06aa0
+checker_addUses: 52 1 51
+
+update load: 52 0
+51 0 
+
+In atomic checker_preStore: 0x105077154 0 7!
+In write: 0x7fff76ded000 0x7fe789e06aa0 0x7fe789e070f0
+Before add action: 0x7fe789e06aa0 0x7fe789e070f0
+before addAction lock: 0x7fe789e06aa0 0x7fe789e070f0
+thread: 0x7fe789e06aa0 0x7fe789e070f0
+thread add end: 0x7fe789e06aa0 0x7fe789e070f0 8 1
+enabled threads: 1
+0x7fff76ded000
+In add action: main-1
+End add action! main-1
+action: main-1
+reach: 7866221098041155632 52
+Tracked BID: 0 
+loads: 0 1 7866221098041155632 52
+
+set load:  main-1 0
+
+update buf1: 0x7fe789e06aa0 0x105077154 0
+update buf1 end: 0x7fe789e06aa0
+
+Write value1: main-1 main*main|52|1 0x105077154 0!
+checker_addUses: 59 1 58
+
+update load: 59 0
+58 0 
+
+In atomic checker_preStore: 0x105077148 0 7!
+In write: 0x7fff76ded000 0x7fe789e06aa0 0x7fe789e09740
+Before add action: 0x7fe789e06aa0 0x7fe789e09740
+before addAction lock: 0x7fe789e06aa0 0x7fe789e09740
+thread: 0x7fe789e06aa0 0x7fe789e09740
+thread add end: 0x7fe789e06aa0 0x7fe789e09740 8 2
+enabled threads: 1
+0x7fff76ded000
+In add action: main-2
+End add action! main-2
+action: main-2
+reach: 7866221098041155632 59
+Tracked BID: 0 
+loads: 0 2 7866221098041155632 59
+
+set load:  main-2 0
+
+update buf1: 0x7fe789e06aa0 0x105077148 0
+update buf1 end: 0x7fe789e06aa0
+
+Write value1: main-2 main*main|59|1 0x105077148 0!
+checker_addUses: 61 1 43
+
+update load: 61 0
+43 0 
+
+checker_addUses: 66 1 43
+
+update load: 66 0
+43 0 
+
+BeginFunc: 0x7fe789e09b80
+BeginFunc: 0x7fe789e09b80
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 201 1 200
+checker_addUses: 280 1 277
+
+update load: 201 0
+200 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 283 1 282
+checker_addUses: 286 2 283
+checker_addUses: 67 1 44
+
+update load: 67 0
+44 0 
+
+checker_addUses: 289 1 288
+checker_addUses: 71 1 44
+checker_addUses: 291 1 289
+
+update load: 71 0
+44 0 
+
+checker_addUses: 292 1 291
+BeginFunc: 0x7fe789e09b80
+
+In checker_thread_begin: 0x700000081000
+checker_addUses: 167 1 166
+
+update load: 167 0
+166 0 
+
+checker_addUses: 168 1 167
+
+update load: 168 0
+167 0 
+
+checker_addUses: 171 1 166
+
+update load: 171 0
+166 0 
+
+checker_addUses: 186 1 170
+
+update load: 186 0
+170 0 
+
+checker_addUses: 187 2 171
+
+update load: 187 0
+171 186 0 
+
+checker_addUses: 188 1 170
+
+update load: 188 0
+170 0 
+
+checker_addUses: 190 1 188
+
+update load: 190 0
+188 0 
+
+checker_addUses: 191 2 173
+
+update load: 191 0
+173 190 0 
+
+checker_addUses: 198 2 193
+
+update load: 198 0
+193 170 0 
+
+Waitting for create thread 0x700000081000
+checker_addUses: 200 1 198
+
+update load: 200 0
+198 0 
+
+checker_addUses: 201 1 200
+
+update load: 201 0
+200 0 
+
+checker_addUses: 279 1 278
+checker_addUses: 280 1 277
+checker_addUses: 74 1 44
+
+update load: 74 0
+44 0 
+
+checker_addUses: 282 1 275
+checker_addUses: 76 1 74
+checker_addUses: 283 1 282
+
+update load: 76 0
+74 0 
+
+checker_addUses: 286 2 283
+checker_addUses: 77 1 76
+
+update load: 77 0
+76 0 
+
+checker_addUses: 289 1 288
+
+In checker_thread_create: 0x7fff76ded000 0x700000104000
+before addAction lock: 0x7fe789e06aa0checker_addUses: 291 1 289
+ 0x7fe789e08a10
+thread: 0x7fe789e06aa0 0x7fe789e08a10
+thread add end: 0x7fe789e06aa0 0x7fe789e08a10 1 3
+enabled threads: 1checker_addUses: 292 1 291
+
+0x7fff76ded000
+In add action: main-3
+
+In checker_thread_begin: 0x700000104000
+Waitting for create thread 0x700000081000
+End add action! main-3
+checker_addUses: 80 1 43
+
+update load: 80 0
+43 0 
+
+checker_addUses: 82 1 80
+
+update load: 82 0
+80 0 
+
+Waitting for create thread 0x700000081000
+Waitting for create thread 0x700000104000
+before enter lock: thread create 0x700000104000
+checker_addUses: 83 1 82
+
+update load: 83 0
+82 0 
+
+in thread_begin_action: 0x7fe789e09b80 0x700000104000 f1 ~1
+In checker_thread_create: 0x7fff76ded000 0x700000081000
+~~
+update buf2: 0x7fe789f01140 2
+before addAction lock: 0x7fe789f01140 0x7fe789e071e0
+thread: 0x7fe789f01140 0x7fe789e071e0
+thread add end: 0x7fe789f01140 0x7fe789e071e0 2 0
+enabled threads: 1
+0x7fff76ded000
+In add action: f1-0
+End add action! f1-0
+BBB: 0x7fe789e09b80 0x7fe789e09d10 0x700000104000
+
+bbbb0: 0x700000104000 0x7fe789f01140
+0x7fff76ded000 0x700000104000
+bbb: 0x7fe789e08a10 0x7fe789e071e0
+checker_addUses: 5 1 4
+Waitting for create thread 0x700000081000
+before addAction lock: 0x7fe789e06aa0 0x7fe789f01390
+thread: 0x7fe789e06aa0 0x7fe789f01390
+
+update load: 5 0
+4 0 
+
+thread add end: 0x7fe789e06aa0 0x7fe789f01390In atomic checker_preStore:  0x1050771481  274Waitting for create thread  
+0x7000000810002enabled threads: 
+!
+2
+0x700000104000
+0x7fff76ded000
+In write: 0x700000104000 0x7fe789f01140In add action: main-4
+ 0x7fe789d00220
+Before add action: 0x7fe789f01140 0x7fe789d00220
+before addAction lock: 0x7fe789f01140 End add action! main-4
+0x7fe789d00220
+thread: 0x7fe789f01140 0x7fe789d00220
+thread add end: 0x7fe789f01140 0x7fe789d00220 8 1
+enabled threads: 2
+0x700000104000
+0x7fff76ded000
+In add action: f1-1
+End add action! f1-1
+action: f1-1
+reach: 0 5
+Tracked BID: 0 
+loads: 0 1 0 5
+
+set load:  f1-1 0
+
+Buffer Clear!
+update buf1: 0x7fe789f01140 0x105077148 27
+update buf1 end: 0x7fe789f01140
+update buf1: 0x7fe789e06aa0 0x105077148 27
+update buf1 end: 0x7fe789e06aa0
+checker_addUses: 84 1 44
+
+Write value1: f1-1 f1*f1|5|1 0x105077148 27!
+
+update load: 84 0
+44 0 
+
+Waitting for create thread 0x700000081000
+before enter lock: thread create 0x700000081000
+in thread_begin_action: 0x7fe789e09b80 0x700000081000 f2 ~2~~
+update buf2: checker_addUses: 10 1 9
+0x7fe789e09500 2
+
+update load: 10 0
+9 0 
+
+In atomic checker_preStore: before addAction lock: 0x1050771480x7fe789e09500  0x7fe789e08f3042
+ thread: 20x7fe789e09500!
+ 0x7fe789e08f30
+In write: 0x700000104000thread add end:  0x7fe789f011400x7fe789e09500  0x7fe789e045f00x7fe789e08f30
+ Before add action: 20x7fe789f01140  00x7fe789e045f0
+
+enabled threads: before addAction lock: 20x7fe789f01140
+ 0x7000001040000x7fe789e045f0
+
+0x7fff76ded000
+In add action: f2-0
+End add action! f2-0
+thread: 0x7fe789f01140 0x7fe789e045f0
+BBB: 0x7fe789e09b80 0x7fe789e09d10 0x700000081000
+
+bbbb0: 0x700000081000 0x7fe789e09500
+0x7fff76ded000 0x700000104000
+0x7fff76ded000 0x700000081000
+bbb: 0x7fe789f01390 0x7fe789e08f30
+thread add end: 0x7fe789f01140 0x7fe789e045f0 8 2
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-2
+End add action! f1-2
+action: f1-2
+reach: 0 10
+Tracked BID: 0 
+loads: 0 2 0 10
+
+set load:  f1-2 0
+
+checker_addUses: 30 1 29
+update buf1: 0x7fe789e09500 0x105077148 42
+update addr: 0x105077148 from 42
+update load: 30 0
+29 0 
+
+ 42
+update buf1 end: 0x7fe789e09500
+In atomic checker_preLoad: 0x105077154 Buffer Clear!
+4update buf1:  0x7fe789f0114030!
+ 0x105077148 42
+In read action: 0x700000081000
+update addr: 0x105077148 from 42 42
+update buf1 end: 0x7fe789f01140
+update buf1: 0x7fe789e06aa0 0x105077148 42
+update addr: 0x105077148 from 42 42
+update buf1 end: 0x7fe789e06aa0
+
+Write value1: f1-2 f1*f1|10|1 0x105077148 42!
+In atomic checker_preFence: 5!
+before addAction lock: 0x7fe789e09500 0x7fe789e046e0
+thread: before addAction lock: 0x7fe789e095000x7fe789f01140  0x7fe789e046e00x7fe789d00680
+
+thread add end: 0x7fe789e09500 0x7fe789e046e0 7 1
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f2-1
+Tset: 3 3 0x700000081000
+0x700000081000 0x700000104000 0x7fff76ded000 
+End add action! f2-1
+thread: 0x7fe789f01140 0x7fe789d00680
+thread add end: 0x7fe789f01140 0x7fe789d00680 25 3
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+reach: 2927309084426250 30
+Tracked BID: 0 
+loads: 0 1 2927309084426250 30
+
+set load:  f2-1 0
+
+In add action: f1-3
+
+add load: 30 f2-1 1
+End add action! f1-3
+remain: f2-1 f2*f2|30|1 f1*f1|18|1
+checker_addUses: 18 1 17
+
+update load: 18 0
+17 0 
+
+In atomic checker_preStore: 0x105077154 100 5!
+In write: 0x700000104000 0x7fe789f01140 0x7fe789d00800
+Before add action: 0x7fe789f01140 0x7fe789d00800
+before addAction lock: 0x7fe789f01140 0x7fe789d00800
+thread: 0x7fe789f01140 0x7fe789d00800
+thread add end: 0x7fe789f01140 0x7fe789d00800 8 4
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-4
+End add action! f1-4
+action: f1-4
+reach: 0 18
+Tracked BID: 0 
+loads: 0 4 0 18
+
+set load:  f1-4 0
+
+update buf1: 0x7fe789e09500 0x105077154 100
+update addr: 0x105077154 from 100 100
+update buf1 end: 0x7fe789e09500
+Buffer Clear!
+update buf1: 0x7fe789f01140 0x105077154 100
+update addr: 0x105077154 from 100 100
+update buf1 end: 0x7fe789f01140
+update buf1: 0x7fe789e06aa0 0x105077154 100
+update addr: 0x105077154 from 100 100
+update buf1 end: 0x7fe789e06aa0
+
+Write value1: f1-4 f1*f1|18|1 0x105077154 100!
+checker_addUses: 23 1 22
+waiting read: 0x700000081000 f2-1
+in update priority: 0x700000081000
+
+update load: 23 0
+22 0 
+
+In pre_read action: f2-1
+In atomic checker_preStore: 0x105077148 100 2!
+In write: 0x700000104000 0x7fe789f01140 0x7fe789d00a60
+fetch expect value: f2*f2|30|1 f2-1 0x105077154 100 f1*f1|18|1
+before fetch: 0x105077154 100 f1*f1|18|1
+0 main*main|52|1 100 f1*f1|18|1 
+after fetch: 0x105077154
+0 main*main|52|1
+100 f1*f1|18|1
+
+
+Read expect value: f2-1 0x105077154 100 f1*f1|18|1
+End: 0x700000081000 f2-1
+Before add action: 0x7fe789f01140 0x7fe789d00a60
+before addAction lock: 0x7fe789f01140 0x7fe789d00a60
+thread: 0x7fe789f01140 0x7fe789d00a60
+checker_addUses: 32 1 30
+thread add end: 0x7fe789f01140 0x7fe789d00a60 8 5
+enabled threads: 3
+0x700000081000
+0x700000104000
+0x7fff76ded000
+In add action: f1-5
+
+update load: 32 1
+30 0 
+f2-1 
+End add action! f1-5
+In atomic checker_preFence: action: 4!
+f1-5
+before addAction lock: 0x7fe789e09500reach: 0 23
+Tracked BID: 0 
+loads: 0 5 0 23
+
+set load:  f1-5 0
+
+ 0x7fe789e08ff0
+thread: 0x7fe789e09500 0x7fe789e08ff0update buf1: 
+0x7fe789e09500 0x105077148 thread add end: 100
+0x7fe789e09500 update buf1 end: 0x7fe789e08ff00x7fe789e09500 
+25 2
+enabled threads: Buffer Clear!
+update buf1: 3
+0x7000000810000x7fe789f01140
+ 0x7000001040000x105077148
+ 0x7fff76ded000100
+
+In add action: f2-2
+update buf1 end: 0x7fe789f01140
+update buf1: 0x7fe789e06aa0 0x105077148 100
+End add action! f2-2
+update buf1 end: 0x7fe789e06aa0
+
+Write value1: f1-5 f1*f1|23|1 0x105077148 100!
+checker_addUses: 38 1 37
+In checker_thread_end
+Thread_end_action: 0x700000104000
+before addAction lock: 
+update load: 38 0
+37 0 
+
+0x7fe789f01140 0x7fe789d00bb0
+thread: 0x7fe789f01140 0x7fe789d00bb0
+In atomic checker_preLoad: 0x105077148thread add end:  0x7fe789f01140 7 0x7fe789d00bb0 38!
+5 6
+enabled threads: 3
+0x700000081000
+0x700000104000
+In read action: 0x7fff76ded0000x700000081000
+
+erase enabledThreads: before addAction lock: 0x7fe789e09500f1-6 
+0x7fe789e008b0
+In add action: f1-6
+End add action! f1-6
+thread: 0x7fe789e09500 0x7fe789e008b0
+thread add end: 0x7fe789e09500 0x7fe789e008b0 7 3
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+In add action: f2-3
+checker_addUses: 299 1 277
+Tset: 2 2 0x700000081000
+0x700000081000 0x7fff76ded000 
+End add action! f2-3
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+reach: 2927309084426250 38
+Tracked BID: 0 
+loads: 0 3 2927309084426250 38
+
+set load:  f2-3 0
+
+checker_addUses: 303 1 302
+
+add load: 38 f2-3 1
+In pre_read action: f2-3
+BeginFunc: 0x7fe789e09b80
+fetch expect value: f2*f2|38|1 f2-3 0x105077148 42 f1*f1|10|1
+before fetch: 0x105077148 42 f1*f1|10|1
+0 main*main|59|1 27 f1*f1|5|1 42 f1*f1|10|1 100 f1*f1|23|1 
+after fetch: 0x105077148
+0 main*main|59|1
+27 f1*f1|5|1
+42 f1*f1|10|1
+100 f1*f1|23|1
+
+
+Read expect value: f2-3 0x105077148 42 f1*f1|10|1
+End: 0x700000081000 f2-3
+checker_addUses: 40 1 38
+checker_addUses: 85 1 43
+
+update load: 40 1
+38 0 
+f2-3 
+In checker_thread_end
+Thread_end_action: 0x700000081000
+before addAction lock: 0x7fe789e09500 0x7fe789d00c70
+thread: 0x7fe789e09500 0x7fe789d00c70
+
+update load: 85 0
+43 0 
+
+thread add end: 0x7fe789e09500 0x7fe789d00c70 5 4
+enabled threads: 2
+0x700000081000
+0x7fff76ded000
+erase enabledThreads: f2-4
+In add action: f2-4
+End add action! f2-4
+checker_addUses: 299 1 277
+checker_addUses: 301 1 277
+checker_addUses: 302 1 299
+checker_addUses: 303 1 302
+BeginFunc: 0x7fe789e09b80
+checker_addUses: 88 2 86
+
+update load: 88 0
+86 87 0 
+
+xxxx: 100, 42
+In checker_thread_end
+Thread_end_action: 0x7fff76ded000
+before addAction lock: 0x7fe789e06aa0 0x7fe789e083f0
+thread: 0x7fe789e06aa0 0x7fe789e083f0
+thread add end: 0x7fe789e06aa0 0x7fe789e083f0 5 5
+enabled threads: 1
+0x7fff76ded000
+erase enabledThreads: main-5
+In add action: main-5
+End add action! main-5
+### Execute Time: 0.096458 0.035206 0.004308
+Current Trace: 3
+print trace: 0x7fe789e09500 f2 0x700000081000 5
+f2*f2|30|1 f2-1 r 100 f1*f1|18|1 30
+f2*f2|38|1 f2-3 r 42 f1*f1|10|1 38
+iiiii: 0x7fe789e09500 0
+print trace: 0x7fe789f01140 f1 0x700000104000 7
+f1*f1|5|1 f1-1 w 27  5
+f1*f1|10|1 f1-2 w 42  10
+f1*f1|18|1 f1-4 w 100  18
+f1*f1|23|1 f1-5 w 100  23
+iiiii: 0x7fe789f01140 0
+print trace: 0x7fe789e06aa0 main 0x7fff76ded000 6
+main*main|52|1 main-1 w 0  52
+main*main|59|1 main-2 w 0  59
+iiiii: 0x7fe789e06aa0 0
+name: main
+Thread_finish: main-5 0
+name: f1
+Thread_finish: f1-6 0
+name: f2
+Thread_finish: f2-4 0
+End solver!
+### Solver Time: 0.058175 9.4e-05
+buffers: 0x7fe789e09500 2
+delete Buffer: 0x7fe789e01690
+suc!
+delete Buffer: 0x7fe789e095f0
+suc!
+buffers: 0x7fe789f01140 2
+delete Buffer: 0x7fe789e081e0
+suc!
+delete Buffer: 0x7fe789e01190
+suc!
+buffers: 0x7fe789e06aa0 2
+delete Buffer: 0x7fe789e086a0
+suc!
+delete Buffer: 0x7fe789e069c0
+suc!
+delete curSch1: 0x7fe789e03280
+delete curSch2!
+### Total Time: 0.096819
+BeginFunc: 0x0
+BeginFunc: 0x0

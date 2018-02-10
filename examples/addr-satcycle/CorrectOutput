@@ -1,0 +1,5 @@
+
+Checker11:
+1. 0 0 0
+
+CDSChecker: ends with 4 bug-free executions, each of which with output '0 0 0', and five infeasible executions.

@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <vector>
 
 //#include "Executor.h"
 
@@ -154,9 +155,23 @@ namespace checker {
 
 		std::string get_rf_rel_name(Action* action);
 
-		std::string get_binary_rel_name(Action* action);
+		std::string get_binary_rel_name(Action* action, bool &flag);
 
 		std::string get_SC_name();
+
+        void setTimes(int t) { times = t; }
+        int getTimes() { return times; }
+
+		void setClapNum(uint64_t num) { clapNum = num; }
+		uint64_t getClapNum() { return clapNum; }
+
+		void setContext(std::string c) { context = c; }
+		std::string getContext() { return context; }
+        std::string getContextName();
+
+		std::vector<Action*> &getLoopDepActions() { return loopDepActions; }
+        void setLoopDepActions(std::vector<Action*> list) { loopDepActions = list; }
+
 
 	protected:
 
@@ -209,6 +224,11 @@ namespace checker {
          * should represent the action's position in the execution order.
          */
 		int64_t seq_number;
+        int times;
+		uint64_t clapNum;
+		std::string context;
+
+		std::vector<Action*> loopDepActions;
 	};
 
 	class RWAction :  public Action  {
@@ -233,13 +253,18 @@ namespace checker {
 
         bool isSCAction();
 
-		void set_value(uint64_t val) { value = val; }
+		void set_value(uint64_t val, std::string context = "") {
+			value = val;
+			readFromContext = context;
+		}
 
 		std::string get_action_str();
 
 		std::string get_consraint_name();
 
 		std::string get_mo_constraint();
+
+        std::string getReadFromContext() { return readFromContext; }
 
 	protected:
 		/** @brief The value written or read (for write / read / RMW) */
@@ -252,6 +277,9 @@ namespace checker {
 		void *location;
 
 		bool isWrite;
+
+		std::string readFromContext;
+
 	};
 
     class RMWAction : public RWAction {
@@ -261,10 +289,12 @@ namespace checker {
             //order = to_mo(ord);
             //location = loc;
             value = val;
+			//isWrite = true;
         }
 
-		void setReadValue(int64_t val) {
+		void setReadValue(int64_t val, std::string context="") {
             readValue = val;
+			readFromContext = context;
             //std::cout << "Set Read Value: " << val << "\n";
         }
 
@@ -309,11 +339,14 @@ namespace checker {
 		memory_order get_mo_fail() { return failOrder; }
 		int64_t get_expectVal() { return expectVal; }
 		int64_t get_newVal() { return newVal; }
+        void setFlag(bool flag) {changed = flag;}
+        bool getFlag() { return changed; }
 
 	private:
 		int64_t expectVal;
 		int64_t newVal;
-		memory_order succOrder;
+		bool changed;
+        memory_order succOrder;
 		memory_order failOrder;
 	};
 

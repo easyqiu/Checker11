@@ -22,15 +22,10 @@ namespace checker {
 
         void setHBList(set<Action*> list);
 
-        void setHAList(set<Action*> list) {
-            //std::cout << "set halist: " << this << "\n";
-            //haList = list;
-            hbList.clear();
-            hbList.insert(list.begin(), list.end());
-        }
+        void setHAList(set<Action*> list);
 
-        set<Action*> &getHBList() { return hbList; }
-        set<Action*> &getHAList() { return haList; }
+        set<Action*>& getHBList() { /*std::cout << "get hbList: " << this << " " << hbList.size() << "\n";*/ return hbList; }
+        set<Action*>& getHAList() { /*std::cout << "get haList: " << this << " " << haList.size() << "\n";*/ return haList; }
 
         Action* getFromAction() { return fromAction; }
         Action* getToAction() { return toAction; }
@@ -45,7 +40,7 @@ namespace checker {
 
         void setPreCond(std::string cond) { preCond = cond; }
         std::string getPrecond() { return preCond; }
-        set<SWRelation*> getContained() { return contained; }
+        set<SWRelation*>& getContained() { return contained; }
 
     private:
         Action* fromAction;

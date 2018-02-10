@@ -9,6 +9,7 @@ std::atomic<int> a;
 std::atomic<int> b;
 std::atomic<int> c;
 //std::atomic<int> r3;
+int r1, r2, r3, r4;
 using namespace std;
 
 void r()
@@ -16,9 +17,9 @@ void r()
     checker_thread_begin("r");
     //checker_shared((void*)&r3);
 	
-    int r1=atomic_load_explicit(&a, memory_order_relaxed);
-	int r2=atomic_load_explicit(&a, memory_order_relaxed);
-    int r3 = 0;
+    r1=atomic_load_explicit(&a, memory_order_relaxed);
+	r2=atomic_load_explicit(&a, memory_order_relaxed);
+    r3 = 0;
 	//int r3=atomic_load_explicit(&c, memory_order_relaxed);
     //r1++, r2++;
 	if (r1==r2) {
@@ -31,8 +32,8 @@ void r()
             r3 = 5;
         }*/
     }
-	printf("r1=%d\n",r1);
-	printf("r2=%d\n",r2);
+	//printf("r1=%d\n",r1);
+	//printf("r2=%d\n",r2);
 	//printf("r3=%d\n",r3);
     
     checker_thread_end();
@@ -43,10 +44,10 @@ void s()
     checker_thread_begin("s");
     //checker_shared((void*)&r3);
 
-    int r4=atomic_load_explicit(&b, memory_order_relaxed);
+    r4=atomic_load_explicit(&b, memory_order_relaxed);
 	atomic_store_explicit(&a, r4, memory_order_relaxed);
 	//atomic_store_explicit(&c, 1, memory_order_relaxed);
-	printf("r4=%d\n",r4);
+	//printf("r4=%d\n",r4);
     
     //atomic_store_explicit(&a, 1, memory_order_relaxed);
     
@@ -83,6 +84,8 @@ int user_main(int argc, char **argv)
     t1.join();
     t2.join();
 
+    printf("r1, r2, r4: %d, %d, %d\n", r1, r2, r4);
+
 	printf("Main thread is finished\n");
 
     checker_thread_end();
@@ -98,7 +101,8 @@ int main(int argc, char **argv) {
     
     while (modelChecker->getSchList().size()) 
         user_main(argc, argv);
-   
+
+    delete modelChecker;
     return 0;
 }
 

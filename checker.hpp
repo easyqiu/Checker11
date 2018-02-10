@@ -14,7 +14,7 @@ using namespace checker;
 
 //ModelChecker* modelChecker;
 
-# define DEBUG
+#define DEBUG
 
 extern "C" void checker_shared(void*);
 extern "C" void thread_begin();

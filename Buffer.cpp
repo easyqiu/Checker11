@@ -5,17 +5,45 @@
 #include <iostream>
 #include <sstream>
 
+#include "checker.hpp"
 #include "Buffer.h"
 #include "Action.h"
+#include "Executor.h"
+#include "Schedule.h"
+#include "Thread.h"
 
 using namespace checker;
 
-void Buffer::fetchExpectVal(int64_t val) {
-    std::vector<int64_t>::iterator it;
-    std::vector<int64_t> newValues;
+void Buffer::fetchExpectVal(std::pair<int64_t, std::string> item) {
+    std::vector<std::pair<int64_t, std::string> >::iterator it;
+    std::vector<std::pair<int64_t, std::string> > newValues;
+
+    int64_t val = item.first;
+    std::string context = item.second;
+    std::string curThread = thread->getName();
+    std::cout << "TTTT: \n";
+    std::cout << curThread << "\n";
+
+    if (curThread == values.back().second.substr(0, values.back().second.find("*"))
+            && val != values.back().first) {
+        std::cout << "Executing an inconsistent schedule!\n";
+        thread->setInConsistency(true);
+    }
+
+#ifdef DEBUG
+    std::stringstream ss;
+    ss << "before fetch: " << addr << " " << val << " " << context << "\n";
+            //<< context.substr(context.find("*")) <<
+            //" " << values.back().second.substr(values.back().second.find("*")) << "\n";
+    for (it = values.begin(); it != values.end(); ++it) {
+        ss << it->first << " " << it->second << " ";
+    }
+    ss << "\n";
+#endif
+
     bool flag = false;
     for (it = values.begin(); it != values.end(); ++it) {
-        if (val == *it)
+        if (val == it->first && context == it->second)
             flag = true;
 
         if (flag)
@@ -23,10 +51,20 @@ void Buffer::fetchExpectVal(int64_t val) {
     }
 
     if (flag) {
-        values.clear();
-        values.insert(values.begin(), newValues.begin(), newValues.end());
-        std::cout << "hhhhh1\n";
-    } /*else {
+        //values.clear();
+        //values.insert(values.begin(), newValues.begin(), newValues.end());
+    } else
+        values.push_back(std::make_pair(val, context));
+
+#ifdef DEBUG
+    ss << "after fetch: " << addr << "\n";
+    for (it = values.begin(); it != values.end(); ++it) {
+        ss << it->first << " " << it->second << "\n";
+    }
+    std::cout << ss.str() << "\n";
+#endif
+
+    /*else {
         values.push_back(val);
         std::cout << "hhhhh2\n";
     }*/
@@ -44,39 +82,51 @@ void Buffer::fetchExpectVal(int64_t val) {
     }*/
 }
 
-int64_t Buffer::getValue() {
+std::pair<int64_t, std::string> Buffer::getValue() {
     assert(values.size() != 0);
 
+#ifdef DEBUG
     std::stringstream ss;
-    ss << "get value: " << this << " " << addr << " " << values.back() << "\n";
+    ss << "get value: " << this << " " << addr << " " << values.back().first << " " << values.back().second << "\n";
     std::cout << ss.str();
+
+    std::cout << "current values for: " << addr << "\n";
+    for (std::vector<std::pair<int64_t, std::string> >::iterator it = values.begin();
+            it != values.end(); ++it)
+        std::cout << it->first << " " << it->second << " ";
+    std::cout << "\n";
+#endif
+
     return values.back();
 }
 
-void Buffer::updateBuffer(int64_t val, int order) {
+void Buffer::updateBuffer(int64_t val, std::string context, int order) {
     memory_order mo = Action::to_mo(order);
     if (verify) {
         //assert(val == verifyVal);
         verify = false;
     }
 
-    /*if (mo == memory_order_seq_cst)
-        values.clear();
-    else if (mo == memory_order_release) {
+    values.push_back(std::make_pair(val, context));
 
-    } else if (mo == memory_order_acq_rel) {
+    for (std::map <std::pair<std::string, int>, std::pair<std::string, std::pair<int64_t, std::string> > >::iterator
+            it = exe->getCurSch()->getReadValueMap().begin(); it != exe->getCurSch()->getReadValueMap().end(); ++it) {
+        if (it->second.second.second == context) {
+            std::cout << "update addr: " << addr << " from " << it->second.second.first << " " << val << "\n";
+            it->second.second.first = val;
+        }
+    }
 
-    } else if (mo == memory_order_acquire) {
-
-    }*/
-
-    values.push_back(val);
-    std::stringstream ss;
+    /*std::stringstream ss;
     ss << "update buffer: " << this << " " << addr << " " << val << "\n";
-    std::cout << ss.str();
+    std::cout << ss.str();*/
 }
 
-void Buffer::updateBuffer(std::vector<int64_t> vals) {
-    assert(values.size() == 0);
-    values.insert(values.begin(), vals.begin(), vals.end());
+void Buffer::updateBuffer(std::vector<std::pair<int64_t, std::string> > vals) {
+    values.clear();
+    //assert(values.size() == 0);
+    //values.insert(values.begin(), vals.begin(), vals.end());
+    for (std::vector<std::pair<int64_t, std::string> >::iterator it = vals.begin();
+            it != vals.end(); ++it)
+        values.push_back(*it);
 }

@@ -16,28 +16,39 @@ std::atomic<int> x, y;
  
 void f1()
 {
+    std::cout << "In function f1!\n";
     checker_thread_begin("f1");
     checker_shared((void*)&data1);
     checker_shared((void*)&data2);
+    
+    //atomic_thread_fence(std::memory_order_seq_cst);
     data1 = x.load(std::memory_order_relaxed);
+    //if (data1 >= 0)
     y.store(1, std::memory_order_relaxed);
+    //atomic_thread_fence(std::memory_order_seq_cst);
+    
     checker_thread_end();
 }
 
 void f2()
 {
+    std::cout << "In function f2!\n";
     checker_thread_begin("f2");
     checker_shared((void*)&data1);
     checker_shared((void*)&data2);
+
+    //atomic_thread_fence(std::memory_order_seq_cst);
     data2 = y.load(std::memory_order_relaxed);
     x.store(1, std::memory_order_relaxed);
+
     checker_thread_end();
 }
  
  
 int user_main()
 {
-    checker_generateExecutor();
+    std::cout << "In function main!\n";
+    //checker_generateExecutor();
     checker_thread_begin("main");
 
     x = 0, y = 0;
@@ -62,10 +73,15 @@ int user_main()
 
 int main() {
     modelChecker = new ModelChecker();
+    checker_generateExecutor();
     user_main();
     
-    while (modelChecker->getSchList().size()) 
+    while (modelChecker->getSchList().size()) { 
+        checker_generateExecutor();
         user_main();
+    }
+
+    delete modelChecker;
 
     return 0;
 }

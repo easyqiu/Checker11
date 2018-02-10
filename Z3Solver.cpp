@@ -19,6 +19,9 @@
 #include <signal.h>
 #include <map>
 
+
+#define OUTPUTFORMULA false
+#define USEPIPE false
 #define LINEMAX 256
 
 using namespace std;
@@ -34,14 +37,15 @@ Z3Solver::Z3Solver(Executor* exe) {
 
     std::cout << "command: " << command << "\n";
 
-    z3pid = util::popen2(command, &procW, &procR);
+    if (USEPIPE) {
+        z3pid = util::popen2(command, &procW, &procR);
 
-    cout << "[Solver] Init solver...\n";
-    cout << "[Solver] create Z3 pid " << z3pid << endl;
-    if (!z3pid)
-    {
-        perror("Problems with pipe");
-        exit(1);
+        cout << "[Solver] Init solver...\n";
+        cout << "[Solver] create Z3 pid " << z3pid << endl;
+        if (!z3pid) {
+            perror("Problems with pipe");
+            exit(1);
+        }
     }
 }
 
@@ -49,13 +53,14 @@ Z3Solver::Z3Solver(Executor* exe) {
 void Z3Solver::openOutputFile()
 {
     //open file in output mode and deleting previous content
-    z3File.open(exe->get_formulaFile(), ios::trunc);
-    cout << "Opening file: " << exe->get_formulaFile() << endl;
-    if(!z3File.is_open())
-    {
-        cerr << " -> Error opening file "<< exe->get_formulaFile() <<".\n";
-        z3File.close();
-        exit(1);
+    if (OUTPUTFORMULA || !USEPIPE) {
+        z3File.open(exe->get_formulaFile(), ios::trunc);
+        cout << "Opening z3file: " << exe->get_formulaFile() << endl;
+        if (!z3File.is_open()) {
+            cerr << " -> Error opening file " << exe->get_formulaFile() << ".\n";
+            z3File.close();
+            exit(1);
+        }
     }
 
     //set Z3 options
@@ -66,13 +71,14 @@ void Z3Solver::openOutputFile()
 void Z3Solver::openInputFile()
 {
     //open file in input mode and deleting previous content
-    z3File.open(exe->get_formulaFile(), ios::trunc);
-    cout << "Opening file: " << exe->get_formulaFile() << endl;
-    if(!z3File.is_open())
-    {
-        cerr << " -> Error opening file "<< exe->get_formulaFile() <<".\n";
-        z3File.close();
-        exit(1);
+    if (OUTPUTFORMULA || !USEPIPE) {
+        z3File.open(exe->get_formulaFile(), ios::trunc);
+        cout << "Opening file: " << exe->get_formulaFile() << endl;
+        if (!z3File.is_open()) {
+            cerr << " -> Error opening file " << exe->get_formulaFile() << ".\n";
+            z3File.close();
+            exit(1);
+        }
     }
 
     //set Z3 options
@@ -103,12 +109,21 @@ string getOpDefinition(string line)
     return line.substr(posBegin, posEnd-posBegin);
 }
 
+bool Z3Solver::checkSat() {
+    if (USEPIPE)
+        return checkSat1();
+    else {
+        std::string cmd = "nohup z3 -T:60 -smt2 " + exe->get_formulaFile() + " > " + "solution";
+        system(cmd.c_str());
+        return checkSat2();
+    }
+}
 
 /*
  *  Parses the solver output. If the model is satisfiable, return true and write the solution to file.
  *  Otherwise, return false and store the unsat core in a variable.
  */
-bool Z3Solver::checkSat()
+bool Z3Solver::checkSat1()
 {
     //vector<string> globalOrderTmp (numOps+10000); //order of execution of each operation (we add a little extra room to account for errors in the parsing)
     string line;
@@ -121,7 +136,129 @@ bool Z3Solver::checkSat()
 
     while (line.compare("end") != 0 && line.compare("end") != 1)
     {
-        cout << "\n\n"<<line << " " << isOrderOp << endl;
+        //cout << "\n\n"<<line << " " << isOrderOp << endl;
+        if(!line.compare("unsat")) {
+            cout << "[Solver] Model Satisfiability: "<< line << endl;
+        }
+        if(!line.compare("sat")) {
+            cout << "[Solver] Model Satisfiability: "<< line << endl;
+            isSat = true;
+            exe->set_endTime(time(NULL));
+        }
+        else if(line.find("(define-fun") != std::string::npos)  //its an operation definition
+        {
+            //std::cout << line << "\n";
+            opName = getOpDefinition(line);
+            if(opName.front()=='B')
+                isOrderOp = true;
+            else if (opName.front() == 'R' && opName.find("RF") != std::string::npos)
+                isRFOp = true;
+            /*else if((opName.front()=='R' && opName.find("R-") != std::string::npos) || opName.find("InitR-") != std::string::npos){
+                isReadOp = true;
+                line = readLinePipe();
+                int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
+                int posEnd = (int)line.find_last_of(")");        //place posEnd in the last char of the value
+                string value = line.substr(posBegin, posEnd-posBegin);
+                //cout <<"OpName:"<< opName << endl;
+                //cout <<"Value:"<< value << endl;
+                exe->addSolutionValue(std::pair<string,string>(opName,value));
+            }*/
+        }
+        else if(isOrderOp) //its an index for a previous read variable definition
+        {
+            if (line.find("- ") == std::string::npos) { // check whether its a negative
+                int posBegin = (int) line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
+                int posEnd = (int) line.find_last_of(")");        //place posEnd in the last char of the value
+                string index = line.substr(posBegin, posEnd - posBegin);
+                if (index == "0" || index == "1") {
+                    /*std::stringstream s_str(index);
+                    int ind;
+                    s_str >> ind;*/
+                    //globalOrderTmp[ind] = opName;
+                    isOrderOp = false;
+                    exe->addSolutionValue(std::pair<string, string>(opName, index/*util::stringValueOf(ind)*/));
+                }
+            }
+        }
+        else if (isRFOp) {
+            int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
+            int posEnd = (int)line.find_last_of(")");        //place posEnd in the last char of the value
+            string index = line.substr(posBegin, posEnd-posBegin);
+            std::stringstream s_str(index);
+            int ind;
+            s_str >> ind;
+            if (ind == 1)
+                exe->addSolutionValue(std::pair<string, string>(opName, util::stringValueOf(ind)));
+        }
+        else if(isReadOp)
+        {
+            int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
+            int posEnd = (int)line.find_last_of(")");        //place posEnd in the last char of the value
+            string index = line.substr(posBegin, posEnd-posBegin);
+            readValues[opName] = index;//stoi(index);
+            isReadOp = false;
+        }
+        else if(line.find("error")!=std::string::npos) //something wrong happened
+        {
+            cout << "[Solver] " << line << endl;
+        }
+        else if(line.find("PC") !=std::string::npos
+                || line.find("RWC")!=std::string::npos
+                || line.find("Aviso")!=std::string::npos
+                || line.find("solution")!=std::string::npos
+                || line.find("LC")!=std::string::npos) //get unsat core
+        {
+            cout << "[Solver] Unsat Core: " << line << endl;
+
+            //save the unsat core if in bug-fixing mode
+            if(exe->get_bugFixMode())
+            {
+                exe->get_unsat_core().clear();
+                size_t found = line.find("solution");
+                while(found!=std::string::npos)
+                {
+                    size_t end = line.find_first_of(" ",found+1);
+                    string sub = line.substr(found,end-found);
+                    string id = sub.substr(sub.find("n")+1);
+                    exe->add_unsat_core(util::intValueOf(id)); //store the label id of each solution constraint in the unsat core
+                    found = line.find("solution", found+8);
+                }
+                //** insert the second operation of the last constraint as well (it might be needed)
+                int lastConst = exe->get_unsat_core().front();
+                exe->add_unsat_core(lastConst+1);
+            }
+        }
+        line = readLinePipe();
+    }
+    if(isSat)
+    {
+        double solvingTime = difftime(exe->get_endTime(), exe->get_startTime());//(double)(endTime-startTime)/(double) CLOCKS_PER_SEC;
+        cout << "[Solver] Solution found in "<< solvingTime<<"s:\n\n";
+        //checker::loadSchedule(globalOrderTmp); // can be failScheduleOrd or altScheduleOrd depending on the boolean flag bugFixMode
+    }
+
+
+    return isSat;
+}
+
+// check output from file when setting USEPIPE to true
+bool Z3Solver::checkSat2()
+{
+    //vector<string> globalOrderTmp (numOps+10000); //order of execution of each operation (we add a little extra room to account for errors in the parsing)
+    string line;
+    string opName;                   //indicates the name of the operation
+    bool isOrderOp = false;          //indicates that we have parsed an order constraint, thus we need to read its value
+    bool isReadOp = false;           //indicates that we have parsed an read operation, thus we need to read its value
+    bool isRFOp = false;             //indicates the read-from relation
+    map<string, string> readValues;  //map read operation -> read value
+    bool isSat = false;
+
+    char buf[1000000];
+    ifstream fin;
+    fin.open("solution");
+    while (!fin.eof() && line.compare("end") != 0 && line.compare("end") != 1)
+    {
+        //cout << "\n\n"<<line << " " << isOrderOp << endl;
         if(!line.compare("unsat")) {
             cout << "[Solver] Model Satisfiability: "<< line << endl;
         }
@@ -140,7 +277,9 @@ bool Z3Solver::checkSat()
                 isRFOp = true;
             else if((opName.front()=='R' && opName.find("R-") != std::string::npos) || opName.find("InitR-") != std::string::npos){
                 isReadOp = true;
-                line = readLinePipe();
+                fin.getline(buf, 1000000);
+                line = buf;
+                //line = readLinePipe();
                 int posBegin = (int)line.find_last_of(" ") + 1;  //place posBegin in the first char of the value
                 int posEnd = (int)line.find_last_of(")");        //place posEnd in the last char of the value
                 string value = line.substr(posBegin, posEnd-posBegin);
@@ -211,7 +350,9 @@ bool Z3Solver::checkSat()
                 exe->add_unsat_core(lastConst+1);
             }
         }
-        line = readLinePipe();
+        fin.getline(buf, 1000000);
+        line = buf;
+        //line = readLinePipe();
     }
     if(isSat)
     {
@@ -224,15 +365,17 @@ bool Z3Solver::checkSat()
     return isSat;
 }
 
-
-
+double sTime = 0;
 bool Z3Solver::solve(bool flag)
 {
     writeLineZ3("(check-sat)\n");
     writeLineZ3("(get-model)\n");
     writeLineZ3("(get-unsat-core)\n");
     writeLineZ3("(echo \"end\")\n(reset)\n");
-    z3File.close();
+    if (OUTPUTFORMULA || !USEPIPE) {
+        z3File.close();
+        std::cout << "close z3File!!!!!!!!!!!!!!: " << flag << "\n";
+    }
 
     if (!flag)
         return false;
@@ -246,13 +389,17 @@ bool Z3Solver::solve(bool flag)
     }
     infile.close();*/
 
-    write(procW, formulaFile.c_str(), formulaFile.length());
-
     exe->set_startTime(time(NULL));
 
-    std::cout << "begin checksat!\n";
+    if (USEPIPE)
+        write(procW, formulaFile.c_str(), formulaFile.length());
+
+    std::cout << "begin checksat!\n" << formulaFile << "\n";
+    double bTime = clock();
     bool success = checkSat();
     std::cout << "end checksat!\n";
+    sTime += clock() - bTime;
+    std::cout << "### Solver Time2: " << sTime / double(CLOCKS_PER_SEC) << " " << (clock()-bTime) / double(CLOCKS_PER_SEC) << "\n";
 
     return success;
 }
@@ -324,11 +471,16 @@ bool Z3Solver::solveWithSolution(vector<string> solution, bool invertBugCond)
 void Z3Solver::closeZ3()
 {
     writeLineZ3("(exit)");
-    close(procR);
-    close(procW);
-    cerr << ">> Killing Z3 pid "<< z3pid <<" and "<< (z3pid+1) << endl;
-    kill(z3pid,SIGKILL);
-    kill(z3pid+1,SIGKILL);//** Nuno: apparently, the process created has always PID=z3pid+1, so we must increment the pid in order to kill it properly
+
+    if (USEPIPE) {
+        close(procR);
+        close(procW);
+
+        cerr << ">> Killing Z3 pid " << z3pid << " and " << (z3pid + 1) << endl;
+        kill(z3pid, SIGKILL);
+        kill(z3pid + 1,
+             SIGKILL);//** Nuno: apparently, the process created has always PID=z3pid+1, so we must increment the pid in order to kill it properly
+    }
 }
 
 void Z3Solver::reset()
@@ -345,10 +497,16 @@ void Z3Solver::writeLineZ3(string content)
     content = content + "\n";
     //write(procW,content.c_str(),content.length());
 
-    z3File << content;
+    while (content.find("\n\n") != std::string::npos) {
+        int pos = content.find("\n\n");
+        content = content.replace(pos, 2, "\n");
+    }
+
+    if (OUTPUTFORMULA || !USEPIPE)
+        z3File << content;
+
     formulaFile += content;
 }
-
 
 int Z3Solver::getNumOps(){
     return numOps;

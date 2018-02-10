@@ -34,6 +34,8 @@ namespace  checker {
         //constructor
         Z3Solver(Executor* exe);
 
+        ~Z3Solver() {}
+
         //general functions
         bool solve(bool flag);
 
@@ -42,6 +44,8 @@ namespace  checker {
         void closeZ3();
 
         bool checkSat();
+        bool checkSat1();
+        bool checkSat2();
 
         std::string readLinePipe();
 
@@ -133,6 +137,10 @@ namespace  checker {
         std::string cIte(std::string cond, std::string tExpr);
 
         std::string cIte(std::string cond, std::string tExpr, std::string fExpr);
+
+        void setDeclaredVars(std::set<std::string> vars) { declaredVars.insert(vars.begin(), vars.end()); }
+
+        std::set<std::string> getDeclaredVars() { return declaredVars; }
     };
 }
 

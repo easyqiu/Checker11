@@ -1,0 +1,4 @@
+/Users/yiqiuping/installed/symbiotic/llvm-3.9.1/build/bin/clang++ -std=c++11 -I../.. -emit-llvm -c -g -O3 example.cpp -o example.bc
+nohup /Users/yiqiuping/installed/symbiotic/llvm-3.9.1/build/bin/opt -load LLVMMyInstr.dylib -codeInstr example.bc -o x.bc > x
+/Users/yiqiuping/installed/symbiotic/llvm-3.9.1/build/bin/llc -filetype=obj x.bc
+/Users/yiqiuping/installed/symbiotic/llvm-3.9.1/build/bin/clang++ -L$MY_HOME/Dropbox/papers/C++11/Checker11/ -I../.. -lChecker11 -g -O3 -o example x.o

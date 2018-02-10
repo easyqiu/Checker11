@@ -43,14 +43,22 @@ int user_main()
     t.join();
 
 	bool correct=true;
-	if (a!=1 && a!=2 && a!=4 && a!= EMPTY)
+	if (a!=1 && a!=2 && a!=4 && a!= EMPTY) {
 		correct=false;
-	if (b!=1 && b!=2 && b!=4 && b!= EMPTY)
+        printf("false1\n");
+    }
+	if (b!=1 && b!=2 && b!=4 && b!= EMPTY) {
+        printf("false2\n");
 		correct=false;
-	if (c!=1 && c!=2 && c!=4 && a!= EMPTY)
+    }
+	if (c!=1 && c!=2 && c!=4 && a!= EMPTY) {
+        printf("false3\n");
 		correct=false;
-	if (a!=EMPTY && b!=EMPTY && c!=EMPTY && (a+b+c)!=7)
+    }
+	if (a!=EMPTY && b!=EMPTY && c!=EMPTY && (a+b+c)!=7) {
+        printf("false4\n");
 		correct=false;
+    }
 	if (!correct)
 		printf("a=%d b=%d c=%d\n",a,b,c);
 	assert(correct);
@@ -68,5 +76,6 @@ int main() {
     while (modelChecker->getSchList().size()) 
         user_main();
 
+    delete modelChecker;
     return 0;
 }

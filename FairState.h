@@ -8,9 +8,8 @@
 namespace checker {
     class FairState{
     public:
-        FairState() {
-
-        }
+        FairState() {}
+        ~FairState() {}
 
         void addContinueEnabledThreads(std::string tid) {
             continueEnabledThreads.insert(tid);
@@ -24,7 +23,7 @@ namespace checker {
             continueEnabledThreads.clear();
         }
 
-        std::set<std::string> getContinueEnabledThreads() {
+        std::set<std::string>& getContinueEnabledThreads() {
             return continueEnabledThreads;
         }
 
@@ -40,7 +39,7 @@ namespace checker {
             disabledThreads.clear();
         }
 
-        std::set<std::string> getDisabledThreads() {
+        std::set<std::string>& getDisabledThreads() {
             return disabledThreads;
         }
 
@@ -56,7 +55,7 @@ namespace checker {
             scheduledThreads.clear();
         }
 
-        std::set<std::string> getScheduledThreads() {
+        std::set<std::string>& getScheduledThreads() {
             return scheduledThreads;
         }
 

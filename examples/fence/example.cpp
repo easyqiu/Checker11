@@ -21,6 +21,7 @@ void f1()
     
     atomic_thread_fence(std::memory_order_release);
     x.store(100, std::memory_order_release);
+    data1.store(100, std::memory_order_relaxed);
     
     checker_thread_end();
 }
@@ -55,7 +56,7 @@ int user_main()
     checker_thread_create(b.get_id());
 
     a.join(), b.join();
-    std::cout << "xxxx: " << i << " " << data2 << "\n";
+    printf("xxxx: %d, %d\n", i, data2);
     //assert(data2 != 42); // never be violated
     //assert(true);
     checker_thread_end();

@@ -2,9 +2,11 @@
 #include <thread>
 #include <sys/types.h>
 #include <unistd.h>
+#include <vector>
 
 //#include "Executor.h"
 #include "Types.h"
+#include "ModelChecker.h"
 
 using namespace checker;
 
@@ -170,4 +172,7 @@ extern ModelChecker* modelChecker;
     extern "C" void checker_myPrintf_8(int8_t x);
     extern "C" void checker_myPrintf_1(bool x);
     extern "C" void checker_myPrintf_81(int8_1 x);
+
+    extern "C" void checker_loop();
+    extern "C" void checker_loopDep(int bid);
 //}
