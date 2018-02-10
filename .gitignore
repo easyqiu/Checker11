@@ -53,4 +53,9 @@ a.out
 *.cpp1
 *.cpp_1
 Draft
+*.swp
+*.swo
+xx
+*_back
+*.cpp_*
 
